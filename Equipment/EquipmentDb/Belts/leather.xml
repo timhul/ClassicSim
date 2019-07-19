@@ -39,6 +39,18 @@
 		</source>
 	</item>
 
+	<item id="14636" phase="0">
+		<info name="Cadaverous Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="97"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
+
 	<item id="14502" phase="0">
 		<info name="Frostbite Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
 		<stats>
@@ -52,19 +64,7 @@
 		Drops from Ras Frostwhisper in Scholomance.
 		</source>
 	</item>
-
-	<item id="18505" phase="1">
-		<info name="Mugger's Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_02.png"/>
-		<stats>
-			<stat type="ARMOR" value="98"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="DAGGER_SKILL" value="5"/>
-		</stats>
-		<source>
-		Drops from Captain Kromcrush in Dire Maul.
-		</source>
-	</item>
-
+	
 	<item id="16827" phase="0">
 		<info name="Nightslayer Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_23.png"/>
 		<class_restriction class="ROGUE"/>
@@ -78,6 +78,18 @@
 		</stats>
 		<source>
 		Drops from trash mobs in Molten Core.
+		</source>
+	</item>
+
+	<item id="18505" phase="1">
+		<info name="Mugger's Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="98"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="DAGGER_SKILL" value="5"/>
+		</stats>
+		<source>
+		Drops from Captain Kromcrush in Dire Maul.
 		</source>
 	</item>
 
@@ -138,18 +150,6 @@
 		</stats>
 		<source>
 		Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
-
-	<item id="14636" phase="4">
-		<info name="Cadaverous Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_16.png"/>
-		<stats>
-			<stat type="ARMOR" value="97"/>
-			<stat type="STAMINA" value="12"/>
-			<stat type="ATTACK_POWER" value="40"/>
-		</stats>
-		<source>
-		Drops from multiple bosses in Scholomance.
 		</source>
 	</item>
 

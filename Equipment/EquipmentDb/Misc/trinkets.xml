@@ -118,7 +118,7 @@
 		</source>
 	</item>
 
-	<item id="18820" phase="0">
+	<item id="18820" phase="1">
 		<info name="Talisman of Ephemeral Power" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_stonetablet_11.png"/>
 		<stats/>
 		<uses>

@@ -150,19 +150,6 @@
 		</source>
 	</item>
 
-	<item id="22385" phase="2">
-		<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STRENGTH" value="30"/>
-			<stat type="HIT_CHANCE" value="0.02"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
-		</source>
-	</item>
-
 	<item id="22651" phase="3">
 		<info name="Outrider's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_plate_20.png"/>
 		<stats>
@@ -203,6 +190,19 @@
 		</stats>
 		<source>
 		Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Exalted with Silverwing Sentinels.
+		</source>
+	</item>
+
+	<item id="22385" phase="4">
+		<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="598"/>
+			<stat type="STRENGTH" value="30"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
 		</source>
 	</item>
 

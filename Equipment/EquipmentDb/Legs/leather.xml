@@ -27,16 +27,15 @@
 		</source>
 	</item>
 
-	<item id="18736" phase="0">
-		<info name="Plaguehound Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_12.png"/>
+	<item id="14638" phase="0">
+		<info name="Cadaverous Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_07.png"/>
 		<stats>
-			<stat type="ARMOR" value="152"/>
-			<stat type="AGILITY" value="30"/>
-			<stat type="STAMINA" value="6"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="150"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="ATTACK_POWER" value="52"/>
 		</stats>
 		<source>
-			Drops from trash mobs in Stratholme.
+			Drops from multiple bosses in Scholomance.
 		</source>
 	</item>
 
@@ -53,19 +52,6 @@
 		</stats>
 		<source>
 			Drops from Magmadar in Molten Core.
-		</source>
-	</item>
-
-	<item id="20627" phase="3">
-		<info name="Dark Heart Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
-		<stats>
-			<stat type="ARMOR" value="296"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-			<stat type="ATTACK_POWER" value="48"/>
-		</stats>
-		<source>
-			Drops from Lethon (world boss in The Hinterlands).
 		</source>
 	</item>
 
@@ -86,6 +72,32 @@
 		</source>
 	</item>
 
+	<item id="18736" phase="1">
+		<info name="Plaguehound Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_12.png"/>
+		<stats>
+			<stat type="ARMOR" value="152"/>
+			<stat type="AGILITY" value="30"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Stratholme.
+		</source>
+	</item>
+
+	<item id="20627" phase="3">
+		<info name="Dark Heart Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
+		<stats>
+			<stat type="ARMOR" value="296"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="48"/>
+		</stats>
+		<source>
+			Drops from Lethon (world boss in The Hinterlands).
+		</source>
+	</item>
+
 	<item id="21362" phase="4">
 		<info name="Deathdealer's Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_leather_07.png"/>
 		<class_restriction class="ROGUE"/>
@@ -98,18 +110,6 @@
 		</stats>
 		<source>
 			Quest reward. Requires boss drop from Ouro in Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
-
-	<item id="14638" phase="4">
-		<info name="Cadaverous Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_07.png"/>
-		<stats>
-			<stat type="ARMOR" value="150"/>
-			<stat type="STAMINA" value="18"/>
-			<stat type="ATTACK_POWER" value="52"/>
-		</stats>
-		<source>
-			Drops from multiple bosses in Scholomance.
 		</source>
 	</item>
 

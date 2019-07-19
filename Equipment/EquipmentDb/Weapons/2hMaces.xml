@@ -32,7 +32,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18803" phase="0">
+	<melee_weapon id="18803" phase="1">
 		<info name="Finkle's Lava Dredger" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_gizmo_02.png"/>
 		<dmg_range min="155" max="234" speed="2.9"/>
 		<stats>
@@ -49,7 +49,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17193" phase="0">
+	<melee_weapon id="17193" phase="1">
 		<info name="Sulfuron Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="yes" icon="Inv_hammer_unique_sulfuras.png"/>
 		<dmg_range min="176" max="295" speed="3.7"/>
 		<proc>
@@ -63,7 +63,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17182" phase="0">
+	<melee_weapon id="17182" phase="1">
 		<info name="Sulfuras, Hand of Ragnaros" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_hammer_unique_sulfuras.png"/>
 		<dmg_range min="223" max="372" speed="3.7"/>
 		<stats>

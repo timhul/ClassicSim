@@ -92,7 +92,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18282" phase="0">
+	<melee_weapon id="18282" phase="1">
 		<info name="Core Marksman Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_05.png"/>
 		<dmg_range min="64" max="120" speed="2.5"/>
 		<stats>
@@ -104,7 +104,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18738" phase="0">
+	<melee_weapon id="18738" phase="1">
 		<info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="82" max="124" speed="3.3"/>
 		<stats>
@@ -116,7 +116,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18713" phase="0">
+	<melee_weapon id="18713" phase="1">
 		<info name="Rhok'delar, Longbow of the Ancient Keepers" type="BOW" slot="RANGED" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_01.png"/>
 		<class_restriction class="HUNTER"/>
 		<dmg_range min="89" max="166" speed="2.9"/>

@@ -17,20 +17,6 @@
 		</source>
 	</item>
 
-	<item id="19137" phase="0">
-		<info name="Onslaught Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_belt_29.png"/>
-		<stats>
-			<stat type="ARMOR" value="494"/>
-			<stat type="STRENGTH" value="31"/>
-			<stat type="STAMINA" value="11"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-		Drops from Ragnaros in Molten Core.
-		</source>
-	</item>
-
 	<item id="13502" phase="0">
 		<info name="Handcrafted Mastersmith Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
 		<stats>
@@ -41,6 +27,20 @@
 		</stats>
 		<source>
 		Drops from Goraluk Anvilcrack from Lower Blackrock Spire (LBRS).
+		</source>
+	</item>
+	
+	<item id="19137" phase="1">
+		<info name="Onslaught Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_belt_29.png"/>
+		<stats>
+			<stat type="ARMOR" value="494"/>
+			<stat type="STRENGTH" value="31"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Ragnaros in Molten Core.
 		</source>
 	</item>
 

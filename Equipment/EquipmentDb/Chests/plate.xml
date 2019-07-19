@@ -77,21 +77,6 @@
 		</source>
 	</item>
 
-	<item id="21331" phase="4">
-		<info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="985"/>
-			<stat type="AGILITY" value="24"/>
-			<stat type="STRENGTH" value="34"/>
-			<stat type="STAMINA" value="38"/>
-			<stat type="DEFENSE" value="6"/>
-		</stats>
-		<source>
-			Quest reward. Requires drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
-
 	<item id="23300" phase="1">
 		<info name="Knight-Captain's Plate Hauberk" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -133,6 +118,21 @@
 		</stats>
 		<source>
 		Quest reward. Requires boss drops from Zul'Gurub and Revered with Zandalar Tribe.
+		</source>
+	</item>
+
+	<item id="21331" phase="4">
+		<info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="985"/>
+			<stat type="AGILITY" value="24"/>
+			<stat type="STRENGTH" value="34"/>
+			<stat type="STAMINA" value="38"/>
+			<stat type="DEFENSE" value="6"/>
+		</stats>
+		<source>
+			Quest reward. Requires drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</item>
 

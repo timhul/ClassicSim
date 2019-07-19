@@ -26,18 +26,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18725" phase="0">
-		<info name="Peacemaker" type="POLEARM" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_spear_07.png"/>
-		<dmg_range min="137" max="206" speed="3.4"/>
-		<stats>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="ATTACK_POWER" value="54"/>
-		</stats>
-		<source>
-		Drops from Magistrate Barthilas in Stratholme Undead.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="17074" phase="0">
 		<info name="Shadowstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
 		<dmg_range min="147" max="221" speed="3.1"/>
@@ -73,17 +61,15 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19167" phase="0">
-		<info name="Blackfury" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_spear_08.png"/>
-		<dmg_range min="105" max="158" speed="2.1"/>
+	<melee_weapon id="18725" phase="1">
+		<info name="Peacemaker" type="POLEARM" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_spear_07.png"/>
+		<dmg_range min="137" max="206" speed="3.4"/>
 		<stats>
-			<stat type="STRENGTH" value="35"/>
-			<stat type="STAMINA" value="15"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="54"/>
 		</stats>
 		<source>
-		Crafted by Blacksmiths (300 skill). Requires Molten Core materials.
+		Drops from Magistrate Barthilas in Stratholme Undead.
 		</source>
 	</melee_weapon>
 
@@ -113,14 +99,17 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19963" phase="3">
-		<info name="Pitchfork of Madness" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_spear_03.png"/>
-		<dmg_range min="163" max="246" speed="3.5"/>
+	<melee_weapon id="19167" phase="2">
+		<info name="Blackfury" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_spear_08.png"/>
+		<dmg_range min="105" max="158" speed="2.1"/>
 		<stats>
-			<stat type="ATTACK_POWER_DEMON" value="117"/>
+			<stat type="STRENGTH" value="35"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
-		Drops from Renataki (Edge of Madness) in Zul'Gurub.
+		Crafted by Blacksmiths (300 skill). Requires Molten Core materials.
 		</source>
 	</melee_weapon>
 
@@ -137,6 +126,17 @@
 		</stats>
 		<source>
 		Quest reward. Requires winning Alterac Valley.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19963" phase="3">
+		<info name="Pitchfork of Madness" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_spear_03.png"/>
+		<dmg_range min="163" max="246" speed="3.5"/>
+		<stats>
+			<stat type="ATTACK_POWER_DEMON" value="117"/>
+		</stats>
+		<source>
+		Drops from Renataki (Edge of Madness) in Zul'Gurub.
 		</source>
 	</melee_weapon>
 

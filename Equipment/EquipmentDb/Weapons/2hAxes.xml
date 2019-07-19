@@ -25,20 +25,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19169" phase="0">
-		<info name="Nightfall" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_axe_12.png"/>
-		<dmg_range min="187" max="282" speed="3.5"/>
-		<proc>
-			<spell name="NIGHTFALL" min="0" max="0" instant="yes" rate="0.20" internal_cd="0"/>
-		</proc>
-		<special_equip_effect>
-		Chance on hit: Spell damage taken by target increased by 15% for 5 sec.
-		</special_equip_effect>
-		<source>
-		Crafted by Blacksmiths (300 skill). Requires materials from Molten Core.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="17104" phase="0">
 		<info name="Spinal Reaper" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
 		<dmg_range min="203" max="305" speed="3.4"/>
@@ -77,6 +63,20 @@
 		</stats>
 		<source>
 		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19169" phase="2">
+		<info name="Nightfall" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_axe_12.png"/>
+		<dmg_range min="187" max="282" speed="3.5"/>
+		<proc>
+			<spell name="NIGHTFALL" min="0" max="0" instant="yes" rate="0.20" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
+		Chance on hit: Spell damage taken by target increased by 15% for 5 sec.
+		</special_equip_effect>
+		<source>
+		Crafted by Blacksmiths (300 skill). Requires materials from Molten Core.
 		</source>
 	</melee_weapon>
 

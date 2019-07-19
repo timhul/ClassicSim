@@ -40,7 +40,7 @@
 			Drops from Eviscerator in the Arena in Blackrock Depths (BRD).
 		</source>
 	</item>
-	
+
 	<item id="13963" phase="0">
 		<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
 		<mutex item_id="13959"/>
@@ -57,6 +57,20 @@
 			Quest reward. Part of Onyxia quest chain. Requires LBRS.
 		</source>
 	</item>
+	
+	<item id="14615" phase="0">
+		<info name="Bloodmail Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
+		<stats>
+			<stat type="ARMOR" value="225"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
 
 	<item id="16852" phase="0">
 		<info name="Giantstalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
@@ -70,23 +84,6 @@
 		</stats>
 		<source>
 			Drops from Shazzrah in Molten Core.
-		</source>
-	</item>
-
-	<item id="19157" phase="0">
-		<info name="Chromatic Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_22.png"/>
-		<stats>
-			<stat type="ARMOR" value="279"/>
-			<stat type="FIRE_RESISTANCE" value="5"/>
-			<stat type="NATURE_RESISTANCE" value="5"/>
-			<stat type="FROST_RESISTANCE" value="5"/>
-			<stat type="SHADOW_RESISTANCE" value="5"/>
-			<stat type="ATTACK_POWER" value="44"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Crafted by Leatherworking (300 Dragonscale skill). Pattern requires Revered with Thorium Brotherhood.
 		</source>
 	</item>
 
@@ -162,6 +159,23 @@
 		</source>
 	</item>
 
+	<item id="19157" phase="2">
+		<info name="Chromatic Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_22.png"/>
+		<stats>
+			<stat type="ARMOR" value="279"/>
+			<stat type="FIRE_RESISTANCE" value="5"/>
+			<stat type="NATURE_RESISTANCE" value="5"/>
+			<stat type="FROST_RESISTANCE" value="5"/>
+			<stat type="SHADOW_RESISTANCE" value="5"/>
+			<stat type="ATTACK_POWER" value="44"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Crafted by Leatherworking (300 Dragonscale skill). Pattern requires Revered with Thorium Brotherhood.
+		</source>
+	</item>
+
 	<item id="16940" phase="2">
 		<info name="Dragonstalker's Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
 		<class_restriction class="HUNTER"/>
@@ -230,20 +244,6 @@
 		</stats>
 		<source>
 			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
-
-	<item id="14615" phase="4">
-		<info name="Bloodmail Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
-		<stats>
-			<stat type="ARMOR" value="225"/>
-			<stat type="STAMINA" value="10"/>
-			<stat type="INTELLECT" value="10"/>
-			<stat type="STRENGTH" value="9"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from multiple bosses in Scholomance.
 		</source>
 	</item>
 

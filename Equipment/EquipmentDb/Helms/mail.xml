@@ -56,6 +56,40 @@
 		</source>
 	</item>
 
+	<item id="16939" phase="0">
+		<info name="Dragonstalker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="392"/>
+			<stat type="AGILITY" value="27"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Onyxia.
+		</source>
+	</item>
+
+	<item id="18817" phase="1">
+		<info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="392"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="44"/>
+		</stats>
+		<source>
+			Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
 	<item id="18421" phase="1">
 		<info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
 		<mutex item_id="18420"/>
@@ -133,24 +167,6 @@
 		</source>
 	</item>
 
-	<item id="16939" phase="0">
-		<info name="Dragonstalker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
-		<class_restriction class="HUNTER"/>
-		<stats>
-			<stat type="ARMOR" value="392"/>
-			<stat type="AGILITY" value="27"/>
-			<stat type="INTELLECT" value="16"/>
-			<stat type="SPIRIT" value="8"/>
-			<stat type="STAMINA" value="26"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="FROST_RESISTANCE" value="10"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Onyxia.
-		</source>
-	</item>
-
 	<item id="19875" phase="3">
 		<info name="Bloodstained Coif" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_39.png"/>
 		<stats>
@@ -162,22 +178,6 @@
 		</stats>
 		<source>
 			Drops from Jin'do the Hexxer in Zul'Gurub.
-		</source>
-	</item>
-
-	<item id="18817" phase="0">
-		<info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
-		<stats>
-			<stat type="ARMOR" value="392"/>
-			<stat type="STAMINA" value="23"/>
-			<stat type="INTELLECT" value="9"/>
-			<stat type="SPIRIT" value="9"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-			<stat type="ATTACK_POWER" value="44"/>
-		</stats>
-		<source>
-			Drops from Ragnaros in Molten Core.
 		</source>
 	</item>
 

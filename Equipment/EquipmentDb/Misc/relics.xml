@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="22401" phase="1">
+	<item id="22401" phase="4">
 		<info name="Libram of Hope" type="RANGED" slot="RELIC" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_relics_libramofhope.png"/>
 		<stats/>
 		<source>

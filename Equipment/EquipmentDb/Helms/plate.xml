@@ -1,5 +1,177 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="14866" phase="0">
+		<info name="Warleader's Crown" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="UNCOMMON" boe="yes" icon="Inv_helmet_19.png"/>
+		<stats>
+			<stat type="ARMOR" value="478"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPIRIT" value="5"/>
+		</stats>
+		<source>
+			World drop.
+		</source>
+	</item>
+
+	<item id="16727" phase="0">
+		<info name="Lightforge Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="478"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="AGILITY" value="6"/>
+			<stat type="SPIRIT" value="10"/>
+		</stats>
+		<source>
+			Drops from Darkmaster Gandling in Scholomance.
+		</source>
+	</item>
+
+	<item id="16731" phase="0">
+		<info name="Helm of Valor" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="478"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="SPIRIT" value="8"/>
+		</stats>
+		<source>
+			Drops from Darkmaster Gandling in Scholomance.
+		</source>
+	</item>
+
+	<item id="16866" phase="0">
+		<info name="Helm of Might" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_helmet_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="608"/>
+			<stat type="STAMINA" value="35"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="DEFENSE" value="7"/>
+		</stats>
+		<source>
+			Drops from Garr in Molten Core.
+		</source>
+	</item>
+
+	<item id="16963" phase="0">
+		<info name="Helm of Wrath" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_71.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="696"/>
+			<stat type="STAMINA" value="40"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="DEFENSE" value="11"/>
+		</stats>
+		<source>
+			Drops from Onyxia in Onyxia's Lair.
+		</source>
+	</item>
+
+	<item id="12640" phase="0">
+		<info name="Lionheart Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="yes" icon="Inv_helmet_36.png"/>
+		<stats>
+			<stat type="ARMOR" value="565"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+			Crafted by blacksmiths. Plans drop from world bosses and Ragnaros, Nefarian, Onyxia.
+		</source>
+	</item>
+
+	<item id="18718" phase="1">
+		<info name="Grand Crusader's Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
+		<stats>
+			<stat type="ARMOR" value="584"/>
+			<stat type="STRENGTH" value="16"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="SHADOW_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+			Drops from Balnazzar in Stratholme Living.
+		</source>
+	</item>
+
+	<item id="19148" phase="1">
+		<info name="Dark Iron Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_22.png"/>
+		<stats>
+			<stat type="ARMOR" value="758"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="FIRE_RESISTANCE" value="35"/>
+		</stats>
+		<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+		</source>
+	</item>
+
+	<item id="23244" phase="1">
+		<info name="Lieutenant Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="598"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Purchased with Honor Points and marks of honor. Requires Lieutenant Commander (rank 10).
+		</source>
+	</item>
+
+	<item id="23244" phase="1">
+		<info name="Champion's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="598"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Purchased with Honor Points and marks of honor. Requires Champion (rank 10).
+		</source>
+	</item>
+
+	<item id="16542" phase="1">
+		<info name="Warlord's Plate Headpiece" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="719"/>
+			<stat type="STAMINA" value="34"/>
+			<stat type="STRENGTH" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			May be purchased upon reaching Warlord (rank 13). Horde only.
+		</source>
+	</item>
+
+	<item id="16478" phase="1">
+		<info name="Field Marshal's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="598"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			May be purchased upon reaching Field Marshal (rank 13). Alliance only.
+		</source>
+	</item>
+
 	<item id="23276" phase="1">
 		<info name="Lieutenant Commander's Lamellar Headguard" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_05.png"/>
 		<class_restriction class="PALADIN"/>
@@ -60,61 +232,6 @@
 		</source>
 	</item>
 
-	<item id="12640" phase="2">
-		<info name="Lionheart Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="yes" icon="Inv_helmet_36.png"/>
-		<stats>
-			<stat type="ARMOR" value="565"/>
-			<stat type="STRENGTH" value="18"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-			<stat type="HIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
-			Crafted by blacksmiths. Plans drop from world bosses and Ragnaros, Nefarian, Onyxia.
-		</source>
-	</item>
-
-	<item id="14866" phase="0">
-		<info name="Warleader's Crown" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="UNCOMMON" boe="yes" icon="Inv_helmet_19.png"/>
-		<stats>
-			<stat type="ARMOR" value="478"/>
-			<stat type="STRENGTH" value="18"/>
-			<stat type="STAMINA" value="16"/>
-			<stat type="SPIRIT" value="5"/>
-		</stats>
-		<source>
-			World drop.
-		</source>
-	</item>
-
-	<item id="16727" phase="0">
-		<info name="Lightforge Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_08.png"/>
-		<stats>
-			<stat type="ARMOR" value="478"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="STRENGTH" value="13"/>
-			<stat type="INTELLECT" value="14"/>
-			<stat type="AGILITY" value="6"/>
-			<stat type="SPIRIT" value="10"/>
-		</stats>
-		<source>
-			Drops from Darkmaster Gandling in Scholomance.
-		</source>
-	</item>
-
-	<item id="16731" phase="0">
-		<info name="Helm of Valor" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_02.png"/>
-		<stats>
-			<stat type="ARMOR" value="478"/>
-			<stat type="STAMINA" value="23"/>
-			<stat type="STRENGTH" value="15"/>
-			<stat type="AGILITY" value="9"/>
-			<stat type="SPIRIT" value="8"/>
-		</stats>
-		<source>
-			Drops from Darkmaster Gandling in Scholomance.
-		</source>
-	</item>
-
 	<item id="23314" phase="1">
 		<info name="Lieutenant's Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -127,46 +244,6 @@
 		</stats>
 		<source>
 			May be purchased upon reaching Lieutenant Commander (rank 10). Alliance only.
-		</source>
-	</item>
-
-	<item id="22411" phase="0">
-		<info name="Helm of the Executioner" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
-		<stats>
-			<stat type="ARMOR" value="534"/>
-			<stat type="STRENGTH" value="14"/>
-			<stat type="STAMINA" value="31"/>
-			<stat type="HIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
-			Drops from Baron Rivendare in Stratholme Undead.
-		</source>
-	</item>
-
-	<item id="18718" phase="0">
-		<info name="Grand Crusader's Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
-		<stats>
-			<stat type="ARMOR" value="584"/>
-			<stat type="STRENGTH" value="16"/>
-			<stat type="STAMINA" value="16"/>
-			<stat type="SPIRIT" value="12"/>
-			<stat type="SHADOW_RESISTANCE" value="15"/>
-		</stats>
-		<source>
-			Drops from Balnazzar in Stratholme Living.
-		</source>
-	</item>
-
-	<item id="20551" phase="4">
-		<info name="Darkrune Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
-		<stats>
-			<stat type="ARMOR" value="584"/>
-			<stat type="STAMINA" value="13"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="SHADOW_RESISTANCE" value="25"/>
-		</stats>
-		<source>
-			Crafted by blacksmiths. Drops from bag awarded via repeatable quest in Silithus.
 		</source>
 	</item>
 
@@ -185,6 +262,20 @@
 		</source>
 	</item>
 
+	<item id="19372" phase="2">
+		<info name="Helm of Endless Rage" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_helmet_10.png"/>
+		<stats>
+			<stat type="ARMOR" value="679"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="STAMINA" value="29"/>
+		</stats>
+		<source>
+			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+		</source>
+	</item>
+
+
 	<item id="20263" phase="3">
 		<info name="Gurubashi Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_helmet_25.png"/>
 		<stats>
@@ -198,31 +289,16 @@
 		</source>
 	</item>
 
-	<item id="16866" phase="0">
-		<info name="Helm of Might" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
+	<item id="20551" phase="4">
+		<info name="Darkrune Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
 		<stats>
-			<stat type="ARMOR" value="608"/>
-			<stat type="STAMINA" value="35"/>
-			<stat type="STRENGTH" value="15"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="DODGE_CHANCE" value="0.01"/>
-			<stat type="DEFENSE" value="7"/>
+			<stat type="ARMOR" value="584"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="SHADOW_RESISTANCE" value="25"/>
 		</stats>
 		<source>
-			Drops from Garr in Molten Core.
-		</source>
-	</item>
-
-	<item id="19148" phase="0">
-		<info name="Dark Iron Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_22.png"/>
-		<stats>
-			<stat type="ARMOR" value="758"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="FIRE_RESISTANCE" value="35"/>
-		</stats>
-		<source>
-			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+			Crafted by blacksmiths. Drops from bag awarded via repeatable quest in Silithus.
 		</source>
 	</item>
 
@@ -241,64 +317,6 @@
 		</source>
 	</item>
 
-	<item id="16542" phase="1">
-		<info name="Warlord's Plate Headpiece" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="719"/>
-			<stat type="STAMINA" value="34"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			May be purchased upon reaching Warlord (rank 13). Horde only.
-		</source>
-	</item>
-
-	<item id="19372" phase="2">
-		<info name="Helm of Endless Rage" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_helmet_10.png"/>
-		<stats>
-			<stat type="ARMOR" value="679"/>
-			<stat type="STRENGTH" value="26"/>
-			<stat type="AGILITY" value="26"/>
-			<stat type="STAMINA" value="29"/>
-		</stats>
-		<source>
-			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
-		</source>
-	</item>
-
-	<item id="16478" phase="1">
-		<info name="Field Marshal's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			May be purchased upon reaching Field Marshal (rank 13). Alliance only.
-		</source>
-	</item>
-
-	<item id="16963" phase="0">
-		<info name="Helm of Wrath" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_71.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="696"/>
-			<stat type="STAMINA" value="40"/>
-			<stat type="STRENGTH" value="17"/>
-			<stat type="FROST_RESISTANCE" value="10"/>
-			<stat type="SHADOW_RESISTANCE" value="10"/>
-			<stat type="DEFENSE" value="11"/>
-		</stats>
-		<source>
-			Drops from Onyxia in Onyxia's Lair.
-		</source>
-	</item>
-
 	<item id="21329" phase="4">
 		<info name="Conqueror's Crown" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_72.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -314,33 +332,16 @@
 		</source>
 	</item>
 
-	<item id="23244" phase="1">
-		<info name="Lieutenant Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
+	<item id="22411" phase="4">
+		<info name="Helm of the Executioner" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
 		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="534"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="31"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
 		</stats>
 		<source>
-			Purchased with Honor Points and marks of honor. Requires Lieutenant Commander (rank 10).
-		</source>
-	</item>
-
-	<item id="23244" phase="1">
-		<info name="Champion's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and marks of honor. Requires Champion (rank 10).
+			Drops from Baron Rivendare in Stratholme Undead.
 		</source>
 	</item>
 

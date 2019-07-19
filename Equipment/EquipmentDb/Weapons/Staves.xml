@@ -26,19 +26,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18082" phase="0">
-		<info name="Zum'rah's Vexing Cane" type="STAFF" slot="2H" unique="no" req_lvl="42" item_lvl="47" quality="RARE" boe="no" icon="Inv_staff_10.png"/>
-		<dmg_range min="88" max="133" speed="2.7"/>
-		<stats>
-			<stat type="INTELLECT" value="10"/>
-			<stat type="STAMINA" value="10"/>
-			<stat type="SPELL_DAMAGE" value="21"/>
-		</stats>
-		<source>
-		Drops from Witch Doctor Zum'rah in Zul'Farrak.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="17743" phase="0">
 		<info name="Resurgence Rod" type="STAFF" slot="2H" unique="no" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_goldfeathered_01.png"/>
 		<dmg_range min="139" max="209" speed="3.8"/>
@@ -191,6 +178,19 @@
 		</stats>
 		<source>
 		Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18082" phase="1">
+		<info name="Zum'rah's Vexing Cane" type="STAFF" slot="2H" unique="no" req_lvl="42" item_lvl="47" quality="RARE" boe="no" icon="Inv_staff_10.png"/>
+		<dmg_range min="88" max="133" speed="2.7"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		Drops from Witch Doctor Zum'rah in Zul'Farrak.
 		</source>
 	</melee_weapon>
 

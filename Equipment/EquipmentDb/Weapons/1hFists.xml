@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="19910" phase="3">
-		<info name="Arlokk's Grasp" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
-		<dmg_range min="41" max="85" speed="1.5"/>
-		<proc>
-			<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.025" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Sends a shadowy bolt at the enemy causing 55 to 86 Shadow damage.
-		</special_equip_effect>
-		<source>
-			Drops from High Priestess Arlokk in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19896" phase="3">
-		<info name="Thekal's Grasp" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
-		<dmg_range min="72" max="135" speed="2.2"/>
-		<stats>
-			<stat type="STAMINA" value="13"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from High Priest Thekal in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18203" phase="0">
+	<melee_weapon id="18203" phase="1">
 		<info name="Eskhandar's Right Claw" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
 		<dmg_range min="50" max="94" speed="1.5"/>
 		<stats>
@@ -52,31 +26,6 @@
 		</proc>
 		<source>
 			Drops from Azuregos (world boss).
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19365" phase="2">
-		<info name="Claw of the Black Drake" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
-		<dmg_range min="102" max="191" speed="2.6"/>
-		<stats>
-			<stat type="STRENGTH" value="13"/>
-			<stat type="STAMINA" value="7"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Firemaw in Blackwing Lair.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="21673" phase="4">
-		<info name="Silithid Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
-		<dmg_range min="64" max="120" speed="1.6"/>
-		<stats>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="ATTACK_POWER" value="30"/>
-		</stats>
-		<source>
-			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</melee_weapon>
 
@@ -129,6 +78,57 @@
 		</stats>
 		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19365" phase="2">
+		<info name="Claw of the Black Drake" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
+		<dmg_range min="102" max="191" speed="2.6"/>
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Firemaw in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19910" phase="3">
+		<info name="Arlokk's Grasp" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
+		<dmg_range min="41" max="85" speed="1.5"/>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.025" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Sends a shadowy bolt at the enemy causing 55 to 86 Shadow damage.
+		</special_equip_effect>
+		<source>
+			Drops from High Priestess Arlokk in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19896" phase="3">
+		<info name="Thekal's Grasp" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
+		<dmg_range min="72" max="135" speed="2.2"/>
+		<stats>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from High Priest Thekal in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21673" phase="4">
+		<info name="Silithid Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
+		<dmg_range min="64" max="120" speed="1.6"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
+			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</melee_weapon>
 

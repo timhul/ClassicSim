@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="19104" phase="2">
-		<info name="Stormstrike Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_hammer_21.png"/>
-		<dmg_range min="80" max="150" speed="2.7"/>
-		<stats>
-			<stat type="STRENGTH" value="15"/>
-		</stats>
-		<source>
-			Purchased for 2400 honor points. Alliance only.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19908" phase="3">
-		<info name="Sceptre of Smiting" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_mace_08.png"/>
-		<dmg_range min="77" max="145" speed="2.6"/>
-		<stats>
-			<stat type="MACE_SKILL" value="2"/>
-		</stats>
-		<proc>
-			<spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.043333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Blasts the enemy with poison for 63 to 94 Nature damage.
-		</special_equip_effect>
-		<source>
-			Random drop from trash in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="11684" phase="0">
 		<info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
 		<dmg_range min="73" max="136" speed="2.4"/>
@@ -42,26 +14,14 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19961" phase="3">
-		<info name="Gri'lek's Grinder" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_mace_04.png"/>
-		<dmg_range min="75" max="140" speed="2.4"/>
+	<melee_weapon id="19104" phase="2">
+		<info name="Stormstrike Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_hammer_21.png"/>
+		<dmg_range min="80" max="150" speed="2.7"/>
 		<stats>
-			<stat type="ATTACK_POWER_DRAGONKIN" value="48"/>
+			<stat type="STRENGTH" value="15"/>
 		</stats>
 		<source>
-			Drops from Gri'lek (Edge of Madness) in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="22384" phase="3">
-		<info name="Persuader" type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
-		<dmg_range min="86" max="161" speed="2.7"/>
-		<stats>
-			<stat type="HIT_CHANCE" value="0.01"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Created by Blacksmiths (plans are world drop/raid bosses).
+			Purchased for 2400 honor points. Alliance only.
 		</source>
 	</melee_weapon>
 
@@ -73,63 +33,6 @@
 		</proc>
 		<source>
 			Drops from Lord Kazzak (world boss).
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19170" phase="3">
-		<info name="Ebon Hand" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
-		<dmg_range min="83" max="153" speed="2.3"/>
-		<stats>
-			<stat type="STAMINA" value="9"/>
-			<stat type="FIRE_RESISTANCE" value="7"/>
-		</stats>
-		<proc>
-			<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.038333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage.
-		</special_equip_effect>
-		<source>
-			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="21837" phase="4">
-		<info name="Anubisath Warhammer" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_hammer_11.png"/>
-		<dmg_range min="66" max="123" speed="1.8"/>
-		<stats>
-			<stat type="STAMINA" value="7"/>
-			<stat type="MACE_SKILL" value="4"/>
-			<stat type="ATTACK_POWER" value="32"/>
-		</stats>
-		<source>
-			Random drop from trash in Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="21715" phase="4">
-		<info name="Sand Polished Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
-		<dmg_range min="97" max="181" speed="2.6"/>
-		<stats>
-			<stat type="STAMINA" value="9"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="ATTACK_POWER" value="20"/>
-		</stats>
-		<source>
-			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19335" phase="2">
-		<info name="Spineshatter" type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
-		<dmg_range min="99" max="184" speed="2.6"/>
-		<stats>
-			<stat type="STAMINA" value="16"/>
-			<stat type="STRENGTH" value="9"/>
-			<stat type="DEFENSE" value="5"/>
-		</stats>
-		<source>
-			Drops from Razorgore the Untamed in Blackwing Lair.
 		</source>
 	</melee_weapon>
 
@@ -156,6 +59,103 @@
 		</stats>
 		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19335" phase="2">
+		<info name="Spineshatter" type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
+		<dmg_range min="99" max="184" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="16"/>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="DEFENSE" value="5"/>
+		</stats>
+		<source>
+			Drops from Razorgore the Untamed in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19170" phase="2">
+		<info name="Ebon Hand" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
+		<dmg_range min="83" max="153" speed="2.3"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="7"/>
+		</stats>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.038333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage.
+		</special_equip_effect>
+		<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19908" phase="3">
+		<info name="Sceptre of Smiting" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_mace_08.png"/>
+		<dmg_range min="77" max="145" speed="2.6"/>
+		<stats>
+			<stat type="MACE_SKILL" value="2"/>
+		</stats>
+		<proc>
+			<spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.043333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Blasts the enemy with poison for 63 to 94 Nature damage.
+		</special_equip_effect>
+		<source>
+			Random drop from trash in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19961" phase="3">
+		<info name="Gri'lek's Grinder" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_mace_04.png"/>
+		<dmg_range min="75" max="140" speed="2.4"/>
+		<stats>
+			<stat type="ATTACK_POWER_DRAGONKIN" value="48"/>
+		</stats>
+		<source>
+			Drops from Gri'lek (Edge of Madness) in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22384" phase="4">
+		<info name="Persuader" type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
+		<dmg_range min="86" max="161" speed="2.7"/>
+		<stats>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Created by Blacksmiths (plans are world drop/raid bosses).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21837" phase="4">
+		<info name="Anubisath Warhammer" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_hammer_11.png"/>
+		<dmg_range min="66" max="123" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="MACE_SKILL" value="4"/>
+			<stat type="ATTACK_POWER" value="32"/>
+		</stats>
+		<source>
+			Random drop from trash in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21715" phase="4">
+		<info name="Sand Polished Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
+		<dmg_range min="97" max="181" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
+			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
 		</source>
 	</melee_weapon>
 

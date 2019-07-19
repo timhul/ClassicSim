@@ -54,18 +54,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19110" phase="2">
-		<info name="Cold Forged Blade" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"  icon="Inv_sword_47.png"/>
-		<dmg_range min="75" max="140" speed="2.6"/>
-		<stats>
-			<stat type="STAMINA" value="13"/>
-			<stat type="AGILITY" value="5"/>
-		</stats>
-		<source>
-			Drops from Lokholar the Ice Lord in Alterac Valley. Alliance only.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="6622" phase="0">
 		<info name="Sword of Zeal" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_39.png"/>
 		<dmg_range min="81" max="151" speed="2.8"/>
@@ -91,6 +79,18 @@
 		</special_equip_effect>
 		<source>
 			Drops from Baron Rivendare in Stratholme Undead.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17015" phase="4">
+		<info name="Dark Iron Reaver" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_sword_48.png"/>
+		<dmg_range min="71" max="134" speed="2.4"/>
+		<stats>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="6"/>
+		</stats>
+		<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
 		</source>
 	</melee_weapon>
 
@@ -129,222 +129,6 @@
 		</special_equip_effect>
 		<source>
 			Drops from Shade of Eranikus in Sunken Temple.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19554" phase="2">
-		<info name="Protector's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_sword_27.png"/>
-		<dmg_range min="78" max="146" speed="2.7"/>
-		<stats>
-			<stat type="STRENGTH" value="13"/>
-			<stat type="STAMINA" value="5"/>
-		</stats>
-		<source>
-			Sold by Warsong Gulch vendor Illiyana Moonblaze. Alliance only.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19550" phase="2">
-		<info name="Legionnaire's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_sword_31.png"/>
-		<dmg_range min="78" max="146" speed="2.7"/>
-		<stats>
-			<stat type="STRENGTH" value="13"/>
-			<stat type="STAMINA" value="5"/>
-		</stats>
-		<source>
-			Sold by Warsong Gulch vendor Kelm Hargunth. Horde only.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="22378" phase="4">
-		<info name="Ravenholdt Slicer" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
-		<dmg_range min="83" max="156" speed="2.8"/>
-		<mutex item_id="22379"/>
-		<mutex item_id="22377"/>
-		<mutex item_id="22348"/>
-		<mutex item_id="22347"/>
-		<mutex item_id="22380"/>
-		<stats>
-			<stat type="STAMINA" value="6"/>
-			<stat type="ATTACK_POWER" value="26"/>
-		</stats>
-		<source>
-			Quest reward. Requires killing entry bosses in both AQ20 and ZG.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="17015" phase="4">
-		<info name="Dark Iron Reaver" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_sword_48.png"/>
-		<dmg_range min="71" max="134" speed="2.4"/>
-		<stats>
-			<stat type="STRENGTH" value="10"/>
-			<stat type="FIRE_RESISTANCE" value="6"/>
-		</stats>
-		<source>
-			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19968" phase="4">
-		<info name="Fiery Retributer" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_01.png"/>
-		<dmg_range min="56" max="105" speed="1.8"/>
-		<stats>
-			<stat type="STRENGTH" value="7"/>
-			<stat type="DEFENSE" value="5"/>
-		</stats>
-		<proc>
-			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Equip: Adds 2 fire damage to your melee attacks.
-		</special_equip_effect>
-		<source>
-			Drops from Hazza'rah (Edge of Madness) in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19901" phase="3">
-		<info name="Zulian Slicer" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
-		<dmg_range min="78" max="146" speed="2.5"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="12"/>
-		</stats>
-		<proc>
-			<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.041666677" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Slices the enemy for 72 to 97 Nature damage.
-		</special_equip_effect>
-		<source>
-			Drops from High Priest Thekal in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="1728" phase="4">
-		<info name="Teebu's Blazing Longsword" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
-		<dmg_range min="96" max="178" speed="2.9"/>
-		<proc>
-			<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.04833333" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Blasts a target for 150 Fire damage.
-		</special_equip_effect>
-		<source>
-			Drops randomly in selected dungeons and raids.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19866" phase="3">
-		<info name="Warblade of the Hakkari" type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
-		<dmg_range min="57" max="106" speed="1.7"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="40"/>
-		</stats>
-		<source>
-			Drops from Bloodlord Mandokir in Zul'Gurub.
-		</source>
-		<flavour_text>
-			"The seething flames of hatred."
-		</flavour_text>
-	</melee_weapon>
-
-	<melee_weapon id="19867" phase="3">
-		<info name="Bloodlord's Defender" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_54.png"/>
-		<dmg_range min="64" max="119" speed="1.9"/>
-		<stats>
-			<stat type="ARMOR" value="80"/>
-			<stat type="STAMINA" value="15"/>
-			<stat type="DEFENSE" value="4"/>
-		</stats>
-		<source>
-			Drops from Bloodlord Mandokir in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19865" phase="3">
-		<info name="Warblade of the Hakkari" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
-		<dmg_range min="59" max="110" speed="1.7"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Hakkar in Zul'Gurub.
-		</source>
-		<flavour_text>
-			"Forged in..."
-		</flavour_text>
-	</melee_weapon>
-
-	<melee_weapon id="18832" phase="0">
-		<info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
-		<dmg_range min="90" max="168" speed="2.5"/>
-		<stats>
-			<stat type="STRENGTH" value="9"/>
-			<stat type="AGILITY" value="9"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Garr in Molten Core.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="17103" phase="0">
-		<info name="Azuresong Mageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_39.png"/>
-		<dmg_range min="64" max="140" speed="2.4"/>
-		<stats>
-			<stat type="INTELLECT" value="12"/>
-			<stat type="STAMINA" value="7"/>
-			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
-			<stat type="SPELL_DAMAGE" value="40"/>
-		</stats>
-		<source>
-			Drops from Golemagg the Incinerator in Molten Core.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19168" phase="3">
-		<info name="Blackguard" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
-		<dmg_range min="65" max="121" speed="1.8"/>
-		<stats>
-			<stat type="STAMINA" value="9"/>
-			<stat type="PARRY_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18348" phase="1">
-		<info name="Quel'Serrar" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
-		<class_restriction class="WARRIOR"/>
-		<class_restriction class="PALADIN"/>
-		<dmg_range min="84" max="126" speed="2.0"/>
-		<stats>
-			<stat type="STAMINA" value="12"/>
-		</stats>
-		<!-- TODO: Add proc (only defensive value) -->
-		<source>
-			Quest reward. Requires rare quest item Foror's Compendium of Dragonslaying from Dire Maul and an Onyxia kill.
-		</source>
-		<special_equip_effect>
-			Chance on hit: When active, grants the wielder 13 defense and 300 armor for 10 sec.
-		</special_equip_effect>
-		<flavour_text>
-			"The High Blade"
-		</flavour_text>
-	</melee_weapon>
-
-	<melee_weapon id="20577" phase="3">
-		<info name="Nightmare Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_44.png"/>
-		<dmg_range min="99" max="185" speed="2.7"/>
-		<stats>
-			<stat type="ARMOR" value="70"/>
-			<stat type="STAMINA" value="9"/>
-			<stat type="ATTACK_POWER" value="32"/>
-		</stats>
-		<source>
-			Drops from Taerar (dragon world boss in Duskwood).
 		</source>
 	</melee_weapon>
 
@@ -389,6 +173,53 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18348" phase="1">
+		<info name="Quel'Serrar" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
+		<class_restriction class="WARRIOR"/>
+		<class_restriction class="PALADIN"/>
+		<dmg_range min="84" max="126" speed="2.0"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<!-- TODO: Add proc (only defensive value) -->
+		<source>
+			Quest reward. Requires rare quest item Foror's Compendium of Dragonslaying from Dire Maul and an Onyxia kill.
+		</source>
+		<special_equip_effect>
+			Chance on hit: When active, grants the wielder 13 defense and 300 armor for 10 sec.
+		</special_equip_effect>
+		<flavour_text>
+			"The High Blade"
+		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="18832" phase="1">
+		<info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
+		<dmg_range min="90" max="168" speed="2.5"/>
+		<stats>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Garr in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17103" phase="1">
+		<info name="Azuresong Mageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_39.png"/>
+		<dmg_range min="64" max="140" speed="2.4"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+		</stats>
+		<source>
+			Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18396" phase="1">
 		<info name="Mind Carver" type="SWORD" slot="MH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_22.png"/>
 		<dmg_range min="57" max="106" speed="2.0"/>
@@ -401,30 +232,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19351" phase="2">
-		<info name="Maladath, Runed Blade of the Black Flight" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
-		<dmg_range min="86" max="162" speed="2.2"/>
-		<stats>
-			<stat type="PARRY_CHANCE" value="0.01"/>
-			<stat type="SWORD_SKILL" value="4"/>
-		</stats>
-		<source>
-			Drops from Broodlord Lashlayer in Blackwing Lair.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="19352" phase="2">
-		<info name="Chromatically Tempered Sword" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
-		<dmg_range min="106" max="198" speed="2.6"/>
-		<stats>
-			<stat type="AGILITY" value="14"/>
-			<stat type="STRENGTH" value="14"/>
-			<stat type="STAMINA" value="7"/>
-		</stats>
-		<source>
-			Drops from Chromaggus in Blackwing Lair.
-		</source>
-	</melee_weapon>
 
 	<melee_weapon id="16345" phase="1">
 		<info name="High Warlord's Blade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_11.png"/>
@@ -478,6 +285,92 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="19351" phase="2">
+		<info name="Maladath, Runed Blade of the Black Flight" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
+		<dmg_range min="86" max="162" speed="2.2"/>
+		<stats>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+			<stat type="SWORD_SKILL" value="4"/>
+		</stats>
+		<source>
+			Drops from Broodlord Lashlayer in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19110" phase="2">
+		<info name="Cold Forged Blade" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"  icon="Inv_sword_47.png"/>
+		<dmg_range min="75" max="140" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="13"/>
+			<stat type="AGILITY" value="5"/>
+		</stats>
+		<source>
+			Drops from Lokholar the Ice Lord in Alterac Valley. Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19554" phase="2">
+		<info name="Protector's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_sword_27.png"/>
+		<dmg_range min="78" max="146" speed="2.7"/>
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="5"/>
+		</stats>
+		<source>
+			Sold by Warsong Gulch vendor Illiyana Moonblaze. Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19550" phase="2">
+		<info name="Legionnaire's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_sword_31.png"/>
+		<dmg_range min="78" max="146" speed="2.7"/>
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="5"/>
+		</stats>
+		<source>
+			Sold by Warsong Gulch vendor Kelm Hargunth. Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19168" phase="2">
+		<info name="Blackguard" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
+		<dmg_range min="65" max="121" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19352" phase="2">
+		<info name="Chromatically Tempered Sword" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
+		<dmg_range min="106" max="198" speed="2.6"/>
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20577" phase="3">
+		<info name="Nightmare Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_44.png"/>
+		<dmg_range min="99" max="185" speed="2.7"/>
+		<stats>
+			<stat type="ARMOR" value="70"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="ATTACK_POWER" value="32"/>
+		</stats>
+		<source>
+			Drops from Taerar (dragon world boss in Duskwood).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="19964" phase="3">
 		<info name="Renataki's Soul Conduit" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_37.png"/>
 		<dmg_range min="58" max="115" speed="2.1"/>
@@ -500,6 +393,114 @@
 		</stats>
 		<source>
 			Drops from Hakkar in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19968" phase="3">
+		<info name="Fiery Retributer" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_01.png"/>
+		<dmg_range min="56" max="105" speed="1.8"/>
+		<stats>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="DEFENSE" value="5"/>
+		</stats>
+		<proc>
+			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Equip: Adds 2 fire damage to your melee attacks.
+		</special_equip_effect>
+		<source>
+			Drops from Hazza'rah (Edge of Madness) in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19901" phase="3">
+		<info name="Zulian Slicer" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
+		<dmg_range min="78" max="146" speed="2.5"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="12"/>
+		</stats>
+		<proc>
+			<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.041666677" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Slices the enemy for 72 to 97 Nature damage.
+		</special_equip_effect>
+		<source>
+			Drops from High Priest Thekal in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19866" phase="3">
+		<info name="Warblade of the Hakkari" type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
+		<dmg_range min="57" max="106" speed="1.7"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
+			Drops from Bloodlord Mandokir in Zul'Gurub.
+		</source>
+		<flavour_text>
+			"The seething flames of hatred."
+		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="19867" phase="3">
+		<info name="Bloodlord's Defender" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_54.png"/>
+		<dmg_range min="64" max="119" speed="1.9"/>
+		<stats>
+			<stat type="ARMOR" value="80"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="DEFENSE" value="4"/>
+		</stats>
+		<source>
+			Drops from Bloodlord Mandokir in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19865" phase="3">
+		<info name="Warblade of the Hakkari" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
+		<dmg_range min="59" max="110" speed="1.7"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Hakkar in Zul'Gurub.
+		</source>
+		<flavour_text>
+			"Forged in..."
+		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="22378" phase="4">
+		<info name="Ravenholdt Slicer" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
+		<dmg_range min="83" max="156" speed="2.8"/>
+		<mutex item_id="22379"/>
+		<mutex item_id="22377"/>
+		<mutex item_id="22348"/>
+		<mutex item_id="22347"/>
+		<mutex item_id="22380"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="ATTACK_POWER" value="26"/>
+		</stats>
+		<source>
+			Quest reward. Requires killing entry bosses in both AQ20 and ZG.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="1728" phase="4">
+		<info name="Teebu's Blazing Longsword" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
+		<dmg_range min="96" max="178" speed="2.9"/>
+		<proc>
+			<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.04833333" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Blasts a target for 150 Fire damage.
+		</special_equip_effect>
+		<source>
+			Drops randomly in selected dungeons and raids.
 		</source>
 	</melee_weapon>
 

@@ -27,6 +27,20 @@
 		</source>
 	</item>
 
+	<item id="14612" phase="0">
+		<info name="Bloodmail Leguards" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="315"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="AGILITY" value="12"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
+
 	<item id="15052" phase="0">
 		<info name="Black Dragonscale Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_03.png"/>
 		<stats>
@@ -57,80 +71,6 @@
 		</source>
 	</item>
 
-	<item id="18524" phase="1">
-		<info name="Leggings of Destruction" type="MAIL" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
-		<stats>
-			<stat type="ARMOR" value="324"/>
-			<stat type="AGILITY" value="14"/>
-			<stat type="INTELLECT" value="13"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from King Gordok in Dire Maul.
-		</source>
-	</item>
-
-	<item id="23293" phase="2">
-		<info name="Knight-Captain's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_03.png"/>
-		<class_restriction class="HUNTER"/>
-		<stats>
-			<stat type="ARMOR" value="348"/>
-			<stat type="AGILITY" value="16"/>
-			<stat type="STAMINA" value="13"/>
-			<stat type="INTELLECT" value="6"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
-		</source>
-	</item>
-
-	<item id="22875" phase="2">
-		<info name="Legionnaire's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_03.png"/>
-		<class_restriction class="HUNTER"/>
-		<stats>
-			<stat type="ARMOR" value="348"/>
-			<stat type="AGILITY" value="16"/>
-			<stat type="STAMINA" value="13"/>
-			<stat type="INTELLECT" value="6"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
-		</source>
-	</item>
-
-	<item id="16467" phase="2">
-		<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
-		<class_restriction class="HUNTER"/>
-		<stats>
-			<stat type="ARMOR" value="446"/>
-			<stat type="AGILITY" value="34"/>
-			<stat type="STAMINA" value="27"/>
-			<stat type="INTELLECT" value="12"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-		</source>
-	</item>
-
-	<item id="16567" phase="2">
-		<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
-		<class_restriction class="HUNTER"/>
-		<stats>
-			<stat type="ARMOR" value="446"/>
-			<stat type="AGILITY" value="34"/>
-			<stat type="STAMINA" value="27"/>
-			<stat type="INTELLECT" value="12"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires General (rank 12).
-		</source>
-	</item>
-
 	<item id="16938" phase="0">
 		<info name="Dragonstalker's Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>
 		<class_restriction class="HUNTER"/>
@@ -147,6 +87,80 @@
 		</stats>
 		<source>
 			Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
+	<item id="18524" phase="1">
+		<info name="Leggings of Destruction" type="MAIL" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="324"/>
+			<stat type="AGILITY" value="14"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from King Gordok in Dire Maul.
+		</source>
+	</item>
+
+	<item id="23293" phase="1">
+		<info name="Knight-Captain's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="348"/>
+			<stat type="AGILITY" value="16"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
+		</source>
+	</item>
+
+	<item id="22875" phase="1">
+		<info name="Legionnaire's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="348"/>
+			<stat type="AGILITY" value="16"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
+		</source>
+	</item>
+
+	<item id="16467" phase="1">
+		<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="446"/>
+			<stat type="AGILITY" value="34"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
+		</source>
+	</item>
+
+	<item id="16567" phase="1">
+		<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="446"/>
+			<stat type="AGILITY" value="34"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires General (rank 12).
 		</source>
 	</item>
 
@@ -192,20 +206,6 @@
 		</stats>
 		<source>
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
-
-	<item id="14612" phase="4">
-		<info name="Bloodmail Leguards" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
-		<stats>
-			<stat type="ARMOR" value="315"/>
-			<stat type="INTELLECT" value="15"/>
-			<stat type="STAMINA" value="16"/>
-			<stat type="STRENGTH" value="15"/>
-			<stat type="AGILITY" value="12"/>
-		</stats>
-		<source>
-			Drops from multiple bosses in Scholomance.
 		</source>
 	</item>
 

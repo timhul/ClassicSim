@@ -85,52 +85,6 @@
 		</source>
 	</item>
 
-	<item id="17111" phase="1">
-		<info name="Blazefury Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_talisman_01.png"/>
-		<stats>
-			<stat type="AGILITY" value="13"/>
-			<stat type="STAMINA" value="14"/>
-			<stat type="FIRE_RESISTANCE" value="12"/>
-		</stats>
-		<proc>
-			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<source>
-			Drops from Lord Kazzak (world boss in Blasted Lands).
-		</source>
-		<special_equip_effect>
-			Equip: Adds 2 fire damage to your melee attacks.
-		</special_equip_effect>
-	</item>
-
-	<item id="18205" phase="0">
-		<info name="Eskhandar's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
-		<stats>
-			<stat type="STAMINA" value="17"/>
-			<stat type="DODGE_CHANCE" value="0.01"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Onyxia.
-		</source>
-	</item>
-
-	<item id="18404" phase="0">
-		<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
-		<mutex item_id="18403"/>
-		<mutex item_id="18406"/>
-		<stats>
-			<stat type="AGILITY" value="12"/>
-			<stat type="STAMINA" value="9"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Quest reward from turning in Head of Onyxia.
-		</source>
-	</item>
-
 	<item id="18814" phase="0">
 		<info name="Choker of the Fire Lord" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_05.png"/>
 		<stats>
@@ -166,6 +120,52 @@
 		</stats>
 		<source>
 			Quest reward. Requires Dire Maul.
+		</source>
+	</item>
+
+	<item id="17111" phase="1">
+		<info name="Blazefury Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_talisman_01.png"/>
+		<stats>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="FIRE_RESISTANCE" value="12"/>
+		</stats>
+		<proc>
+			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<source>
+			Drops from Lord Kazzak (world boss in Blasted Lands).
+		</source>
+		<special_equip_effect>
+			Equip: Adds 2 fire damage to your melee attacks.
+		</special_equip_effect>
+	</item>
+
+	<item id="18205" phase="1">
+		<info name="Eskhandar's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Onyxia.
+		</source>
+	</item>
+
+	<item id="18404" phase="1">
+		<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+		<mutex item_id="18403"/>
+		<mutex item_id="18406"/>
+		<stats>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward from turning in Head of Onyxia.
 		</source>
 	</item>
 

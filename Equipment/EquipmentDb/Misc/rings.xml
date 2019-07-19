@@ -71,17 +71,6 @@
 		</source>
 	</item>
 
-	<item id="18464" phase="1">
-		<info name="Gordok Nose Ring" type="RING" slot="RING" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_06.png"/>
-		<stats>
-			<stat type="STAMINA" value="9"/>
-			<stat type="STRENGTH" value="5"/>
-		</stats>
-		<source>
-			Drops from Guard bosses in Dire Maul.
-		</source>
-	</item>
-
 	<item id="18302" phase="1">
 		<info name="Band of Vigor" type="RING" slot="RING" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_20.png"/>
 		<stats>
@@ -143,17 +132,6 @@
 		</source>
 	</item>
 
-	<item id="18701" phase="0">
-		<info name="Innervating Band" type="RING" slot="RING" unique="yes" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_jewelry_ring_24.png"/>
-		<stats>
-			<stat type="AGILITY" value="15"/>
-			<stat type="STAMINA" value="9"/>
-		</stats>
-		<source>
-			Random drop from trash mobs in Scholomance.
-		</source>
-	</item>
-
 	<item id="13373" phase="0">
 		<info name="Band of Flesh" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_bone_04.png"/>
 		<stats>
@@ -166,7 +144,29 @@
 		</source>
 	</item>
 
-	<item id="18399" phase="0">
+	<item id="19147" phase="0">
+		<info name="Ring of Spell Power" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Molten Core.
+		</source>
+	</item>
+
+	<item id="17063" phase="0">
+		<info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="AGILITY" value="16"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+			Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
+	<item id="18399" phase="1">
 		<info name="Ocean's Breeze" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_28.png"/>
 		<mutex item_id="18398"/>
 		<stats>
@@ -180,13 +180,25 @@
 		</source>
 	</item>
 
-	<item id="19147" phase="0">
-		<info name="Ring of Spell Power" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
+	<item id="18701" phase="1">
+		<info name="Innervating Band" type="RING" slot="RING" unique="yes" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_jewelry_ring_24.png"/>
 		<stats>
-			<stat type="SPELL_DAMAGE" value="33"/>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STAMINA" value="9"/>
 		</stats>
 		<source>
-			Drops from multiple bosses in Molten Core.
+			Random drop from trash mobs in Scholomance.
+		</source>
+	</item>
+
+	<item id="18464" phase="1">
+		<info name="Gordok Nose Ring" type="RING" slot="RING" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_06.png"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="STRENGTH" value="5"/>
+		</stats>
+		<source>
+			Drops from Guard bosses in Dire Maul.
 		</source>
 	</item>
 
@@ -212,7 +224,7 @@
 		</source>
 	</item>
 
-	<item id="18403" phase="0">
+	<item id="18403" phase="1">
 		<info name="Dragonslayer's Signet" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_ring_27.png"/>
 		<mutex item_id="18404"/>
 		<mutex item_id="18406"/>
@@ -228,7 +240,7 @@
 		</source>
 	</item>
 
-	<item id="18821" phase="0">
+	<item id="18821" phase="1">
 		<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
 		<stats>
 			<stat type="STAMINA" value="8"/>
@@ -238,18 +250,6 @@
 		</stats>
 		<source>
 			Drops from multiple bosses in Molten Core.
-		</source>
-	</item>
-
-	<item id="17063" phase="0">
-		<info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
-		<stats>
-			<stat type="STAMINA" value="10"/>
-			<stat type="AGILITY" value="16"/>
-			<stat type="HIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
-			Drops from Ragnaros in Molten Core.
 		</source>
 	</item>
 

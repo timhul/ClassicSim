@@ -40,6 +40,58 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="17016" phase="0">
+		<info name="Dark Iron Destroyer" type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_12.png"/>
+		<dmg_range min="71" max="134" speed="2.4"/>
+		<stats>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="6"/>
+		</stats>
+		<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17068" phase="0">
+		<info name="Deathbringer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
+		<dmg_range min="114" max="213" speed="2.9"/>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.048333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Sends a shadowy bolt at the enemy causing 110 to 141 Shadow damage.
+		</special_equip_effect>
+		<source>
+			Drops from Onyxia in Onyxia's Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18828" phase="1">
+		<info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18827" phase="1">
+		<info name="Grand Marshal's Handaxe" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_24.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="19103" phase="2">
 		<info name="Frostbite" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no" icon="Inv_axe_22.png"/>
 		<dmg_range min="80" max="150" speed="2.7"/>
@@ -51,7 +103,32 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19921" phase="3">
+	<melee_weapon id="19362" phase="2">
+		<info name="Doom's Edge" type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
+		<dmg_range min="83" max="154" speed="2.3"/>
+		<stats>
+			<stat type="AGILITY" value="16"/>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			Drops from trash in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19363" phase="2">
+		<info name="Crul'shorukh, Edge of Chaos" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_12.png"/>
+		<dmg_range min="101" max="188" speed="2.3"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="36"/>
+			<stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+			Drops from Nefarian in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+		<melee_weapon id="19921" phase="3">
 		<info name="Zulian Hacker" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
 		<dmg_range min="71" max="134" speed="2.4"/>
 		<stats>
@@ -60,18 +137,6 @@
 		</stats>
 		<source>
 			Random drop from trash in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="17016" phase="0">
-		<info name="Dark Iron Destroyer" type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_12.png"/>
-		<dmg_range min="71" max="134" speed="2.4"/>
-		<stats>
-			<stat type="STRENGTH" value="10"/>
-			<stat type="FIRE_RESISTANCE" value="6"/>
-		</stats>
-		<source>
-			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
 		</source>
 	</melee_weapon>
 
@@ -118,59 +183,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19362" phase="2">
-		<info name="Doom's Edge" type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
-		<dmg_range min="83" max="154" speed="2.3"/>
-		<stats>
-			<stat type="AGILITY" value="16"/>
-			<stat type="STRENGTH" value="9"/>
-			<stat type="STAMINA" value="7"/>
-		</stats>
-		<source>
-			Drops from trash in Blackwing Lair.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="17068" phase="0">
-		<info name="Deathbringer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
-		<dmg_range min="114" max="213" speed="2.9"/>
-		<proc>
-			<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.048333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Sends a shadowy bolt at the enemy causing 110 to 141 Shadow damage.
-		</special_equip_effect>
-		<source>
-			Drops from Onyxia in Onyxia's Lair.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18828" phase="1">
-		<info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
-		<dmg_range min="138" max="207" speed="2.9"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="STAMINA" value="7"/>
-		</stats>
-		<source>
-			May be purchased upon reaching High Warlord (rank 14). Horde only.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18827" phase="1">
-		<info name="Grand Marshal's Handaxe" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_24.png"/>
-		<dmg_range min="138" max="207" speed="2.9"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="STAMINA" value="7"/>
-		</stats>
-		<source>
-			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="21242" phase="4">
 		<info name="Blessed Qiraji War Axe" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_axe_26.png"/>
 		<dmg_range min="110" max="205" speed="2.6"/>
@@ -186,18 +198,6 @@
 		<flavour_text>
 			The weapon is infused and reinforced with Elementium.
 		</flavour_text>
-	</melee_weapon>
-
-	<melee_weapon id="19363" phase="2">
-		<info name="Crul'shorukh, Edge of Chaos" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_12.png"/>
-		<dmg_range min="101" max="188" speed="2.3"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="36"/>
-			<stat type="STAMINA" value="13"/>
-		</stats>
-		<source>
-			Drops from Nefarian in Blackwing Lair.
-		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22816" phase="5">

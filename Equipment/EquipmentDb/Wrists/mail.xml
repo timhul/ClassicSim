@@ -12,19 +12,6 @@
 		</source>
 	</wrist>
 
-	<wrist id="22011" phase="4">
-		<info name="Beastmaster's Bindings" type="MAIL" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
-		<stats>
-			<stat type="ARMOR" value="167"/>
-			<stat type="AGILITY" value="16"/>
-			<stat type="STAMINA" value="7"/>
-			<stat type="INTELLECT" value="5"/>
-		</stats>
-		<source>
-			Quest reward. Requires Beaststalker's Bindings, gold, drops from Winterspring beasts.
-		</source>
-	</wrist>
-
 	<wrist id="17714" phase="0">
 		<info name="Bracers of the Stone Princess" type="MAIL" slot="WRIST" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
 		<stats>
@@ -82,6 +69,20 @@
 		</source>
 	</wrist>
 
+	<wrist id="18812" phase="1">
+		<info name="Wristguards of True Flight" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="198"/>
+			<stat type="AGILITY" value="19"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Majordomo Executus in Molten Core.
+		</source>
+	</wrist>
+
 	<item id="16935" phase="2">
 		<info name="Dragonstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
 		<class_restriction class="HUNTER"/>
@@ -96,20 +97,6 @@
 			Drops from Razorgore the Untamed.
 		</source>
 	</item>
-
-	<wrist id="18812" phase="0">
-		<info name="Wristguards of True Flight" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
-		<stats>
-			<stat type="ARMOR" value="198"/>
-			<stat type="AGILITY" value="19"/>
-			<stat type="STAMINA" value="11"/>
-			<stat type="INTELLECT" value="6"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Majordomo Executus in Molten Core.
-		</source>
-	</wrist>
 
 	<wrist id="19582" phase="2">
 		<info name="Windtalker's Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_03.png"/>
@@ -139,6 +126,19 @@
 			Quest reward. Requires boss drop from Zul'Gurub and Friendly with Zandalar Tribe.
 		</source>
 	</item>
+
+	<wrist id="22011" phase="4">
+		<info name="Beastmaster's Bindings" type="MAIL" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
+		<stats>
+			<stat type="ARMOR" value="167"/>
+			<stat type="AGILITY" value="16"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="INTELLECT" value="5"/>
+		</stats>
+		<source>
+			Quest reward. Requires Beaststalker's Bindings, gold, drops from Winterspring beasts.
+		</source>
+	</wrist>
 
 	<wrist id="21502" phase="4">
 		<info name="Sand Reaver Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_bracer_19.png"/>
