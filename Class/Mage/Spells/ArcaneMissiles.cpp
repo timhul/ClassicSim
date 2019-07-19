@@ -154,4 +154,5 @@ void ArcaneMissiles::tick_effect() {
     }
 
     mage_spells->roll_clearcasting();
+    mage_spells->roll_netherwind_focus();
 }

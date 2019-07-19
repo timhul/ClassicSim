@@ -18,6 +18,7 @@
 #include "RaidControl.h"
 #include "RobeOfTheArchmage.h"
 #include "Scorch.h"
+#include "SuppressCastBuff.h"
 
 MageSpells::MageSpells(Mage* mage) :
     CharacterSpells(mage),
@@ -103,6 +104,12 @@ MageSpells::MageSpells(Mage* mage) :
                                                0.2, EnabledAtStart::No, MaintainBuffEnabled::No, elemental_vulnerability);
 
     add_spell_group({new RobeOfTheArchmage(mage)});
+
+    this->t2_8piece_buff = new SuppressCastBuff(mage, "Netherwind Focus","Assets/spell/Spell_shadow_teleport.png", BuffDuration::PERMANENT, 1);
+    this->t2_8piece_proc = new GenericBuffProc(mage, "Netherwind Focus", "Assets/spell/Spell_shadow_teleport.png",
+                                               {ProcInfo::Source::Manual}, 0.1,
+                                               EnabledAtStart::No, MaintainBuffEnabled::Yes,
+                                               t2_8piece_buff);
 }
 
 MageSpells::~MageSpells() {
@@ -110,6 +117,7 @@ MageSpells::~MageSpells() {
     delete imp_scorch;
     delete t3_6piece_proc;
     delete elemental_vulnerability;
+    delete t2_8piece_proc;
 }
 
 Combustion* MageSpells::get_combustion() const {
@@ -132,6 +140,14 @@ Buff* MageSpells::get_t3_6piece_buff() const {
     return this->elemental_vulnerability;
 }
 
+Proc* MageSpells::get_t2_8piece_proc() const {
+    return this->t2_8piece_proc;
+}
+
+Buff* MageSpells::get_t2_8piece_buff() const {
+    return this->t2_8piece_buff;
+}
+
 void MageSpells::inflict_ignite(const double damage) {
     ignite->inflict_ignite(damage);
 }
@@ -147,4 +163,12 @@ void MageSpells::roll_clearcasting() {
     clearcasting->buff->use_charge();
     if (clearcasting->check_proc_success())
         clearcasting->perform();
+}
+
+void MageSpells::roll_netherwind_focus() {
+    if (!t2_8piece_proc->is_enabled())
+        return;
+
+    if (t2_8piece_proc->check_proc_success())
+        t2_8piece_proc->perform();
 }

@@ -1,5 +1,6 @@
 #include "Fireball.h"
 
+#include "Buff.h"
 #include "CharacterSpells.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -182,6 +183,7 @@ void Fireball::complete_cast_effect() {
         return;
 
     mage_spells->roll_clearcasting();
+    mage_spells->roll_netherwind_focus();
 
     if (damage_spell->magic_attack_result == MagicAttackResult::CRITICAL) {
         mage_spells->inflict_ignite(damage_spell->last_damage_dealt);

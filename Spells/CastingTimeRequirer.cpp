@@ -16,7 +16,11 @@ CastingTimeRequirer::CastingTimeRequirer(Character* caster, const unsigned casti
 
 void CastingTimeRequirer::start_cast() {
     cast_id = caster->get_spells()->start_cast();
-    auto* new_event = new CastComplete(this, engine->get_current_priority() + get_cast_time());
+
+    if (caster->get_stats()->casting_time_suppressed())
+        return complete_cast();
+
+    auto new_event = new CastComplete(this, engine->get_current_priority() + get_cast_time());
     this->engine->add_event(new_event);
 }
 

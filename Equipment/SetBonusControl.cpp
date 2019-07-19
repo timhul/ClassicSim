@@ -227,6 +227,16 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "Netherwind Regalia") {
+        switch (num_pieces) {
+        case 8: {
+            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
+            proc->enable();
+            proc->enable_proc();
+            break;
+        }
+        }
+    }
     else if (set_name == "Frostfire Regalia") {
         switch (num_pieces) {
         case 2:
@@ -525,6 +535,16 @@ void SetBonusControl::unequip_item(const int item_id) {
             auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
             spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Netherwind Regalia") {
+        switch (num_pieces) {
+        case 8: {
+            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
+            proc->disable_proc();
+            proc->disable();
             break;
         }
         }

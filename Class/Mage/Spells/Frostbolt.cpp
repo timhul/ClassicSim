@@ -162,6 +162,7 @@ void Frostbolt::complete_cast_effect() {
     }
 
     mage_spells->roll_clearcasting();
+    mage_spells->roll_netherwind_focus();
 }
 
 void Frostbolt::gain_mana(const double mana_gain) {

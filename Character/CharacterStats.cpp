@@ -521,6 +521,31 @@ void CharacterStats::decrease_casting_speed(const unsigned value) {
     remove_multiplicative_effect(casting_speed_buffs, static_cast<int>(value), casting_speed_mod);
 }
 
+bool CharacterStats::casting_time_suppressed() const {
+    if (casting_time_suppression_buffs.empty())
+        return false;
+
+    casting_time_suppression_buffs.last()->use_charge();
+
+    return true;
+}
+
+void CharacterStats::suppress_casting_time(Buff* buff) {
+    for (const auto & stored_buff : casting_time_suppression_buffs)
+        check((buff->get_instance_id() != stored_buff->get_instance_id()), "Tried to add the same cast time suppression buff multiple times");
+
+    casting_time_suppression_buffs.append(buff);
+}
+
+void CharacterStats::return_casting_time(Buff* buff) {
+    for (int i = 0; i < casting_time_suppression_buffs.size(); ++i) {
+        if (buff->get_instance_id() == casting_time_suppression_buffs[i]->get_instance_id())
+            return casting_time_suppression_buffs.removeAt(i);
+    }
+
+    check(false, QString("Failed to remove %1").arg(buff->get_name()).toStdString());
+}
+
 void CharacterStats::increase_strength(const unsigned value) {
     base_stats->increase_strength(value);
 }

@@ -48,6 +48,10 @@ public:
     void increase_casting_speed(const unsigned value);
     void decrease_casting_speed(const unsigned value);
 
+    bool casting_time_suppressed() const;
+    void suppress_casting_time(Buff* buff);
+    void return_casting_time(Buff* buff);
+
     unsigned get_strength() const;
     void increase_strength(const unsigned value);
     void decrease_strength(const unsigned value);
@@ -235,6 +239,7 @@ private:
     QVector<int> spirit_mod_changes;
     QVector<int> stamina_mod_changes;
     QVector<int> strength_mod_changes;
+    QVector<Buff*> casting_time_suppression_buffs;
     QHash<int, unsigned> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
     QHash<Target::CreatureType, double> damage_bonuses_per_monster_type;
