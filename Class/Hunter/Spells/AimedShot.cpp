@@ -18,7 +18,7 @@ AimedShot::AimedShot(Hunter* pchar, CooldownControl* cooldown_control) :
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           310),
-    CastingTimeRequirer(pchar, 3000),
+    CastingTimeRequirer(pchar, SuppressibleCast::No, 3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),

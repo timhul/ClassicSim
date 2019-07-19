@@ -13,7 +13,7 @@
 
 Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank) :
     Spell("Scorch", "Assets/spell/Spell_fire_soulburn.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    CastingTimeRequirer(pchar, 1500),
+    CastingTimeRequirer(pchar, SuppressibleCast::Yes, 1500),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Scorch", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Incinerate", 2, DisabledAtZero::No),

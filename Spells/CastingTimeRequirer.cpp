@@ -7,9 +7,10 @@
 #include "Engine.h"
 #include "Utils/CompareDouble.h"
 
-CastingTimeRequirer::CastingTimeRequirer(Character* caster, const unsigned casting_time_ms) :
+CastingTimeRequirer::CastingTimeRequirer(Character* caster, const SuppressibleCast suppressible_cast, const unsigned casting_time_ms) :
     caster(caster),
     engine(caster->get_engine()),
+    suppressible_cast(suppressible_cast),
     casting_time_ms(casting_time_ms),
     cast_id(std::numeric_limits<unsigned>::max())
 {}
@@ -17,7 +18,7 @@ CastingTimeRequirer::CastingTimeRequirer(Character* caster, const unsigned casti
 void CastingTimeRequirer::start_cast() {
     cast_id = caster->get_spells()->start_cast();
 
-    if (caster->get_stats()->casting_time_suppressed())
+    if (suppressible_cast == SuppressibleCast::Yes && caster->get_stats()->casting_time_suppressed())
         return complete_cast();
 
     auto new_event = new CastComplete(this, engine->get_current_priority() + get_cast_time());

@@ -13,7 +13,7 @@
 
 LightningBolt::LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spell_rank) :
     Spell("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    CastingTimeRequirer(pchar, 2500),
+    CastingTimeRequirer(pchar, SuppressibleCast::Yes,  2500),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Tidal Mastery", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Call of Thunder", 5, DisabledAtZero::No),

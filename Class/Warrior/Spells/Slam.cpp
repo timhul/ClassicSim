@@ -16,7 +16,7 @@ Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
           pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes,
           ResourceType::Rage,
           15),
-    CastingTimeRequirer(pchar, 1500),
+    CastingTimeRequirer(pchar, SuppressibleCast::No, 1500),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),

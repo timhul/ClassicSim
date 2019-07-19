@@ -14,7 +14,7 @@
 
 Frostbolt::Frostbolt(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     Spell("Frostbolt", "Assets/spell/Spell_frost_frostbolt02.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    CastingTimeRequirer(pchar, 3000),
+    CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Frostbolt", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Ice Shards", 5, DisabledAtZero::No),

@@ -7,7 +7,7 @@
 
 Evocation::Evocation(Character* pchar) :
     SpellPeriodic("Evocation", "Assets/spell/Spell_nature_purge.png", pchar, new EvocationBuff(pchar), RestrictedByGcd::Yes, ResourceType::Mana, 2.0, 0,  1),
-    CastingTimeRequirer(pchar, 8000),
+    CastingTimeRequirer(pchar, SuppressibleCast::No, 8000),
     SetBonusRequirer({"Frostfire Regalia"})
 {
     delete cooldown;

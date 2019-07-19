@@ -15,7 +15,7 @@ ArcaneMissiles::ArcaneMissiles(Character* pchar, MageSpells* spells, const int s
                   new NoEffectUniqueDebuff(pchar, Priority::Low, 5),
                   RestrictedByGcd::Yes, ResourceType::Mana,
                   1.0, 0, spell_rank),
-    CastingTimeRequirer(pchar, 5000),
+    CastingTimeRequirer(pchar, SuppressibleCast::No, 5000),
     mage_spells(spells)
 {
     switch (spell_rank) {

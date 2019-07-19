@@ -5,9 +5,14 @@
 class Character;
 class Engine;
 
+enum class SuppressibleCast: bool {
+    Yes,
+    No,
+};
+
 class CastingTimeRequirer {
 public:
-    CastingTimeRequirer(Character* caster, const unsigned casting_time_ms);
+    CastingTimeRequirer(Character* caster, const SuppressibleCast suppressible_cast, const unsigned casting_time_ms);
     virtual ~CastingTimeRequirer() = default;
 
     double get_cast_time() const;
@@ -18,6 +23,7 @@ public:
 protected:
     Character* caster;
     Engine* engine;
+    const SuppressibleCast suppressible_cast;
     unsigned casting_time_ms {std::numeric_limits<unsigned>::max()};
     unsigned cast_id {std::numeric_limits<unsigned>::max()};
 

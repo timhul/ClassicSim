@@ -15,7 +15,7 @@
 
 Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     Spell("Fireball", "Assets/spell/Spell_fire_flamebolt.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    CastingTimeRequirer(pchar, 3500),
+    CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3500),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Fireball", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
