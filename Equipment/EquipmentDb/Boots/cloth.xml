@@ -1,5 +1,413 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="13101" phase="0">
+		<info name="Wolfrunner Shoes" type="CLOTH" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPELL_DAMAGE" value="13"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="11822" phase="0">
+		<info name="Omnicast Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+		Drops from Golem Lord Argelmach in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="13391" phase="0">
+		<info name="The Postmaster's Treads" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="60"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPELL_DAMAGE" value="7"/>
+		</stats>
+		<source>
+		Drops from Postmaster Malown in Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="14631" phase="0">
+		<info name="Necropile Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="60"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="SPELL_DAMAGE" value="11"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
+
+	<item id="13369" phase="0">
+		<info name="Fire Striders" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="29"/>
+		</stats>
+		<source>
+		Drops from Balnazzar in Stratholme Living.
+		</source>
+	</item>
+
+	<item id="16800" phase="0">
+		<info name="Arcanist Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_07.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="70"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="11"/>
+		</stats>
+		<source>
+		Drops from Lucifron in Molten Core.
+		</source>
+	</item>
+
+	<item id="18735" phase="1">
+		<info name="Maleki's Footwraps" type="CLOTH" slot="BOOTS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_boots_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="60"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="27"/>
+		</stats>
+		<source>
+		Drops from Maleki the Pallid in Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="18102" phase="1">
+		<info name="Dragonrider Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="5"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Drops from Rend Blackhand in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="22860" phase="1">
+		<info name="Blood Guard's Silk Walkers" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_05.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="104"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Blood Guard (rank 7). Horde only.
+		</source>
+	</item>
+
+	<item id="23291" phase="1">
+		<info name="Knight-Lieutenant's Silk Walkers" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_05.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="104"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Knight-Lieutenant (rank 7). Alliance only.
+		</source>
+	</item>
+
+	<item id="19131" phase="1">
+		<info name="Snowblind Shoes" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_boots_cloth_14.png"/>
+		<stats>
+			<stat type="ARMOR" value="63"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+			<stat type="MANA_PER_5" value="5"/>
+		</stats>
+		<source>
+		Drops from Azuregos (world boss).
+		</source>
+	</item>
+
+	<item id="16437" phase="1">
+		<info name="Marshal's Silk Footwraps" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_03.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="115"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Marshal (rank 12). Alliance only.
+		</source>
+	</item>
+
+	<item id="16539" phase="1">
+		<info name="General's Silk Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_05.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="115"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching General (rank 12). Horde only.
+		</source>
+	</item>
+
+	<item id="19438" phase="2">
+		<info name="Ringo's Blizzard Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_cloth_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPELL_DAMAGE_FROST" value="40"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="16912" phase="2">
+		<info name="Netherwind Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_07.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="80"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Drops from Broodlord Lashlayer in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="19391" phase="2">
+		<info name="Shimmering Geta" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_cloth_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="81"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="MANA_PER_5" value="12"/>
+		</stats>
+		<source>
+		Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="20537" phase="3">
+		<info name="Runed Stygian Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SHADOW_RESISTANCE" value="20"/>
+			<stat type="MANA_PER_5" value="5"/>
+		</stats>
+		<source>
+		Drops from Balnazzar in Stratholme Living.
+		</source>
+	</item>
+
+	<item id="20054" phase="3">
+		<info name="Highlander's Cloth Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_07.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="161"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
+		<source>
+		Sold by Arathi Basin faction. Requires Revered with The League of Arathor.
+		</source>
+	</item>
+
+	<item id="20159" phase="3">
+		<info name="Defiler's Cloth Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_cloth_07.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="161"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
+		<source>
+		Sold by Arathi Basin faction. Requires Revered with The Defilers.
+		</source>
+	</item>
+
+	<item id="19684" phase="3">
+		<info name="Bloodvine Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_boots_cloth_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="63"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="19"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires drops from Zul'Gurub trash.
+		</source>
+	</item>
+
+	<item id="19897" phase="3">
+		<info name="Betrayer's Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_boots_cloth_09.png"/>
+		<stats>
+			<stat type="ARMOR" value="69"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+		</stats>
+		<source>
+		Drops from High Priest Thekal in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="20631" phase="3">
+		<info name="Mendicant's Slippers" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="MANA_PER_5" value="10"/>
+		</stats>
+		<source>
+		Drops from Taerar (dragon world boss in Duskwood).
+		</source>
+	</item>
+
+	<item id="22231" phase="4">
+		<info name="Kayser's Boots of Precision" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_cloth_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="60"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from War Master Voone in Lower Blackrock Spire (LBRS).
+		</source>
+	</item>
+
+	<item id="22311" phase="4">
+		<info name="Ironweave Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="150"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="INTELLECT" value="11"/>
+		</stats>
+		<source>
+		Drops from The Beast in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="21344" phase="4">
+		<info name="Enigma Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_cloth_03.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="82"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21489" phase="4">
+		<info name="Quicksand Waders" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="70"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+		</stats>
+		<source>
+		Drops from Buru the Gorger in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
+	<item id="21648" phase="4">
+		<info name="Recomposed Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_cloth_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="80"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="NATURE_RESISTANCE" value="20"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21600" phase="4">
+		<info name="Boots of Epiphany" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="84"/>
+			<stat type="INTELLECT" value="19"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="SPELL_DAMAGE" value="34"/>
+		</stats>
+		<source>
+		Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="22500" phase="5">
 		<info name="Frostfire Sandals" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_fabric_01.png"/>
 		<class_restriction class="MAGE"/>
