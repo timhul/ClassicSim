@@ -453,6 +453,7 @@
 
 	<item id="22069" phase="4">
 		<info name="Sorcerer's Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_cloth_25.png"/>
+		<class_restriction class="MAGE"/>
 		<stats>
 			<stat type="ARMOR" value="93"/>
 			<stat type="INTELLECT" value="25"/>

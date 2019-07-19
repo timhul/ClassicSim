@@ -218,6 +218,7 @@
 
 	<item id="22071" phase="4">
 		<info name="Deathmist Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_13.png"/>
+		<class_restriction class="WARLOCK"/>
 		<stats>
 			<stat type="ARMOR" value="40"/>
 			<stat type="INTELLECT" value="12"/>
@@ -231,6 +232,7 @@
 
 	<item id="22063" phase="4">
 		<info name="Sorcerer's Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_jewelry_ring_23.png"/>
+		<class_restriction class="MAGE"/>
 		<stats>
 			<stat type="ARMOR" value="40"/>
 			<stat type="INTELLECT" value="12"/>
@@ -245,6 +247,7 @@
 
 	<item id="22079" phase="4">
 		<info name="Virtuous Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_31.png"/>
+		<class_restriction class="PRIEST"/>
 		<stats>
 			<stat type="ARMOR" value="40"/>
 			<stat type="INTELLECT" value="8"/>

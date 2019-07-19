@@ -610,6 +610,7 @@
 
 	<item id="22065" phase="4">
 		<info name="Sorcerer's Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
+		<class_restriction class="MAGE"/>
 		<stats>
 			<stat type="ARMOR" value="75"/>
 			<stat type="INTELLECT" value="25"/>

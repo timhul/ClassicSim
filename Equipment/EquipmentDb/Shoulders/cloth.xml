@@ -608,6 +608,7 @@
 
 	<item id="22068" phase="4">
 		<info name="Sorcerer's Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_shoulder_23.png"/>
+		<class_restriction class="MAGE"/>
 		<stats>
 			<stat type="ARMOR" value="69"/>
 			<stat type="INTELLECT" value="17"/>
