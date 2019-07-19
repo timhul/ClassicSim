@@ -38,4 +38,5 @@ private:
     void test_spell_school_damage_mods();
     void test_no_negative_target_resistances_with_spell_pen_bonuses();
     void test_spell_damage_includes_relevant_sources();
+    void test_magic_damage_includes_target_mods();
 };

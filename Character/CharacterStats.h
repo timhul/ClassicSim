@@ -88,6 +88,9 @@ public:
     void increase_spell_damage_vs_type(const Target::CreatureType target_type, const unsigned value);
     void decrease_spell_damage_vs_type(const Target::CreatureType target_type, const unsigned value);
 
+    void increase_magic_damage_mod_vs_type(const Target::CreatureType target_type, const int value);
+    void decrease_magic_damage_mod_vs_type(const Target::CreatureType target_type, const int value);
+
     unsigned get_melee_hit_chance() const;
     void increase_melee_hit(const unsigned value);
     void decrease_melee_hit(const unsigned value);
@@ -236,6 +239,8 @@ private:
     QHash<int, int> damage_bonuses_per_weapon_type;
     QHash<Target::CreatureType, double> damage_bonuses_per_monster_type;
     QHash<Target::CreatureType, double> crit_dmg_bonuses_per_monster_type;
+    QMap<Target::CreatureType, double> magic_damage_mods_per_monster_type;
+    QMap<Target::CreatureType, QVector<int>> magic_damage_bonuses_per_monster_type;
     QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
     QMap<MagicSchool, double> magic_school_damage_modifiers;
 

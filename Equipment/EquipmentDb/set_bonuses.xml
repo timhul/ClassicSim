@@ -179,6 +179,16 @@
 		</bonus>
 	</set>
 
+	<set name="Regalia of Undead Cleansing">
+		<item_id value="23091"/>
+		<item_id value="23084"/>
+		<item_id value="23085"/>
+
+		<bonus value="3">
+		(3) Set: Increases your damage against undead by 2%.
+		</bonus>
+	</set>
+
 	<set name="The Highlander's Resolution">
 		<item_id value="20041"/>
 		<item_id value="20048"/>

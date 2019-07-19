@@ -85,6 +85,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_spell_damage_includes_relevant_sources();
     tear_down();
+
+    set_up();
+    test_magic_damage_includes_target_mods();
+    tear_down();
 }
 
 void TestCharacterStats::test_values_after_initialization() {
@@ -392,4 +396,22 @@ void TestCharacterStats::test_spell_damage_includes_relevant_sources() {
     assert(initial_spell_damage + 100 == cstats->get_spell_damage(MagicSchool::Fire));
     cstats->decrease_spell_damage_vs_type(target_type, 100);
     assert(initial_spell_damage == cstats->get_spell_damage(MagicSchool::Fire));
+}
+
+void TestCharacterStats::test_magic_damage_includes_target_mods() {
+    pchar->get_target()->set_creature_type("Undead");
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Undead);
+    assert(almost_equal(cstats->get_magic_school_damage_mod(MagicSchool::Holy), 1.0));
+
+    cstats->increase_magic_damage_mod_vs_type(Target::CreatureType::Undead, 10);
+    assert(almost_equal(cstats->get_magic_school_damage_mod(MagicSchool::Holy), 1.1));
+
+    cstats->increase_magic_damage_mod_vs_type(Target::CreatureType::Undead, 20);
+    assert(almost_equal(cstats->get_magic_school_damage_mod(MagicSchool::Holy), 1.32));
+
+    cstats->decrease_magic_damage_mod_vs_type(Target::CreatureType::Undead, 10);
+    assert(almost_equal(cstats->get_magic_school_damage_mod(MagicSchool::Holy), 1.2));
+
+    cstats->decrease_magic_damage_mod_vs_type(Target::CreatureType::Undead, 20);
+    assert(almost_equal(cstats->get_magic_school_damage_mod(MagicSchool::Holy), 1.0));
 }

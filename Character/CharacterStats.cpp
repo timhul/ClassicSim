@@ -74,6 +74,24 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) :
     this->magic_school_damage_modifiers.insert(MagicSchool::Nature, 1.0);
     this->magic_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
     this->magic_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
+
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Beast, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Demon, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Dragonkin, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Elemental, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Giant, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Humanoid, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Mechanical, {});
+    this->magic_damage_bonuses_per_monster_type.insert(Target::CreatureType::Undead, {});
+
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Beast, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Demon, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Dragonkin, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Elemental, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Giant, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Humanoid, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Mechanical, 1.0);
+    this->magic_damage_mods_per_monster_type.insert(Target::CreatureType::Undead, 1.0);
 }
 
 CharacterStats::~CharacterStats() {
@@ -610,6 +628,14 @@ void CharacterStats::decrease_spell_damage_vs_type(const Target::CreatureType ta
     base_stats->decrease_spell_damage_against_type(target_type, value);
 }
 
+void CharacterStats::increase_magic_damage_mod_vs_type(const Target::CreatureType target_type, const int value) {
+    add_multiplicative_effect(magic_damage_bonuses_per_monster_type[target_type], value, magic_damage_mods_per_monster_type[target_type]);
+}
+
+void CharacterStats::decrease_magic_damage_mod_vs_type(const Target::CreatureType target_type, const int value) {
+    remove_multiplicative_effect(magic_damage_bonuses_per_monster_type[target_type], value, magic_damage_mods_per_monster_type[target_type]);
+}
+
 double CharacterStats::get_total_physical_damage_mod() const {
     double dmg_bonus_from_wpn_type = 1.0;
 
@@ -970,7 +996,9 @@ void CharacterStats::decrease_spell_penetration(const MagicSchool school, const 
 }
 
 double CharacterStats::get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge) const {
-    return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school, consume_charge);
+    return magic_school_damage_modifiers[school]
+            * pchar->get_target()->get_magic_school_damage_mod(school, consume_charge)
+            * magic_damage_mods_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
 void CharacterStats::increase_magic_school_damage_mod(const unsigned increase) {

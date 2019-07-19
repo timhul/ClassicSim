@@ -326,6 +326,13 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Regalia of Undead Cleansing") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->increase_magic_damage_mod_vs_type(Target::CreatureType::Undead, 2);
+            break;
+        }
+    }
     else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
@@ -617,6 +624,13 @@ void SetBonusControl::unequip_item(const int item_id) {
         switch (num_pieces) {
         case 2:
             pchar->get_stats()->decrease_wpn_skill(WeaponTypes::SWORD, 6);
+            break;
+        }
+    }
+    else if (set_name == "Regalia of Undead Cleansing") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->decrease_magic_damage_mod_vs_type(Target::CreatureType::Undead, 2);
             break;
         }
     }
