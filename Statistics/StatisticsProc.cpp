@@ -56,7 +56,7 @@ int StatisticsProc::get_attempts() const {
 }
 
 double StatisticsProc::get_avg_proc_rate() const {
-    return static_cast<double>(proc_counter) / static_cast<double>(attempts);
+    return attempts > 0 ? static_cast<double>(proc_counter) / static_cast<double>(attempts) : 0.0;
 }
 
 double StatisticsProc::get_effective_ppm() const {
