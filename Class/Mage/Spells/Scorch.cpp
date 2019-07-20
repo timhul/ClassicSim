@@ -1,5 +1,6 @@
 #include "Scorch.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -102,10 +103,14 @@ void Scorch::complete_cast_effect() {
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Fire, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Fire) + incinerate + imp_critical_mass);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Fire);
 
-    if (hit_roll == MagicAttackResult::MISS)
+    if (hit_roll == MagicAttackResult::MISS) {
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return increment_miss();
-    if (resist_roll == MagicResistResult::FULL_RESIST)
+    }
+    if (resist_roll == MagicResistResult::FULL_RESIST) {
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return increment_full_resist();
+    }
 
     if (imp_scorch->is_enabled() && imp_scorch->check_proc_success())
         imp_scorch->perform();

@@ -10,9 +10,11 @@
 #include "Fireball.h"
 #include "Frostbolt.h"
 #include "GenericBuffProc.h"
+#include "GenericStatBuff.h"
 #include "Ignite.h"
 #include "IgniteBuff.h"
 #include "ImprovedScorch.h"
+#include "ItemStatsEnum.h"
 #include "Mage.h"
 #include "MainhandAttack.h"
 #include "RaidControl.h"
@@ -119,6 +121,7 @@ MageSpells::MageSpells(Mage* mage) :
                                                {ProcInfo::Source::Manual}, 0.1,
                                                EnabledAtStart::No, MaintainBuffEnabled::Yes,
                                                t2_8piece_buff);
+    this->enigma_5p_buff = new GenericStatBuff(mage, "Enigma's Answer", "Assets/spell/Spell_nature_astralrecalgroup.png", 20, {{ItemStats::SpellHit, 500}});
 }
 
 MageSpells::~MageSpells() {
@@ -160,6 +163,10 @@ Proc* MageSpells::get_t2_8piece_proc() const {
 
 Buff* MageSpells::get_t2_8piece_buff() const {
     return this->t2_8piece_buff;
+}
+
+Buff* MageSpells::get_enigma_5p_buff() const {
+    return this->enigma_5p_buff;
 }
 
 void MageSpells::inflict_ignite(const double damage) {

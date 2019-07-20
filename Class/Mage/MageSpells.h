@@ -24,6 +24,7 @@ public:
     Buff* get_t3_6piece_buff() const;
     Proc* get_t2_8piece_proc() const;
     Buff* get_t2_8piece_buff() const;
+    Buff* get_enigma_5p_buff() const;
 
     void inflict_ignite(const double damage);
     bool clearcasting_active() const;
@@ -43,4 +44,5 @@ private:
     Proc* t3_6piece_proc;
     Proc* t2_8piece_proc;
     Buff* t2_8piece_buff;
+    Buff* enigma_5p_buff;
 };

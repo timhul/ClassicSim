@@ -758,6 +758,21 @@
 		</bonus>
 	</set>
 
+	<set name="Enigma Vestments">
+		<item_id value="21344"/>
+		<item_id value="21347"/>
+		<item_id value="21346"/>
+		<item_id value="21343"/>
+		<item_id value="21345"/>
+
+		<bonus value="3">
+		(3) Set: Your Blizzard spell has a 30% chance to be uninterruptible.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Grants +5% increased spell hit chance for 20 sec when one of your spells is resisted.
+		</bonus>
+	</set>
+
 	<set name="Frostfire Regalia">
 		<item_id value="22502"/>
 		<item_id value="22503"/>

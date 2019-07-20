@@ -1,5 +1,6 @@
 #include "Frostbolt.h"
 
+#include "Buff.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
@@ -142,10 +143,14 @@ void Frostbolt::complete_cast_effect() {
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Frost, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Frost));
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Frost);
 
-    if (hit_roll == MagicAttackResult::MISS)
+    if (hit_roll == MagicAttackResult::MISS) {
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return increment_miss();
-    if (resist_roll == MagicResistResult::FULL_RESIST)
+    }
+    if (resist_roll == MagicResistResult::FULL_RESIST) {
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return increment_full_resist();
+    }
 
     if (winters_chill->is_enabled() && winters_chill->check_proc_success())
         winters_chill->perform();

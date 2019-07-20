@@ -105,10 +105,12 @@ bool ArcaneMissiles::check_application_success() {
 
     if (hit_roll == MagicAttackResult::MISS) {
         increment_miss();
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return false;
     }
     if (resist_roll == MagicResistResult::FULL_RESIST) {
         increment_full_resist();
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return false;
     }
 

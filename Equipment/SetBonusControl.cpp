@@ -237,6 +237,15 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "Enigma Vestments") {
+        switch (num_pieces) {
+        case 5: {
+            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_enigma_5p_buff();
+            buff->enable_buff();
+            break;
+        }
+        }
+    }
     else if (set_name == "Frostfire Regalia") {
         switch (num_pieces) {
         case 2:
@@ -545,6 +554,15 @@ void SetBonusControl::unequip_item(const int item_id) {
             Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
             proc->disable_proc();
             proc->disable();
+            break;
+        }
+        }
+    }
+    else if (set_name == "Enigma Vestments") {
+        switch (num_pieces) {
+        case 5: {
+            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_enigma_5p_buff();
+            buff->disable_buff();
             break;
         }
         }

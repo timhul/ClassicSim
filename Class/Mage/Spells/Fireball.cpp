@@ -179,8 +179,10 @@ void Fireball::complete_cast_effect() {
 
     damage_spell->perform();
 
-    if (damage_spell->magic_attack_result == MagicAttackResult::MISS)
+    if (damage_spell->magic_attack_result == MagicAttackResult::MISS) {
+        mage_spells->get_enigma_5p_buff()->apply_buff();
         return;
+    }
 
     mage_spells->roll_clearcasting();
     mage_spells->roll_netherwind_focus();
