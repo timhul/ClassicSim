@@ -26,9 +26,11 @@ SOURCES += main.cpp \
     Class/Mage/Buffs/EvocationBuff.cpp \
     Class/Mage/Buffs/FireVulnerability.cpp \
     Class/Mage/Buffs/IgniteBuff.cpp \
+    Class/Mage/Buffs/WintersChill.cpp \
     Class/Mage/MageEnchants.cpp \
     Class/Mage/Procs/ClearcastingMage.cpp \
     Class/Mage/Procs/ImprovedScorch.cpp \
+    Class/Mage/Procs/WintersChillProc.cpp \
     Class/Mage/Spells/ArcaneMissiles.cpp \
     Class/Mage/Spells/ArcanePower.cpp \
     Class/Mage/Spells/Combustion.cpp \
@@ -465,9 +467,11 @@ HEADERS += \
     Class/Mage/Buffs/EvocationBuff.h \
     Class/Mage/Buffs/FireVulnerability.h \
     Class/Mage/Buffs/IgniteBuff.h \
+    Class/Mage/Buffs/WintersChill.h \
     Class/Mage/MageEnchants.h \
     Class/Mage/Procs/ClearcastingMage.h \
     Class/Mage/Procs/ImprovedScorch.h \
+    Class/Mage/Procs/WintersChillProc.h \
     Class/Mage/Spells/ArcaneMissiles.h \
     Class/Mage/Spells/ArcanePower.h \
     Class/Mage/Spells/Combustion.h \

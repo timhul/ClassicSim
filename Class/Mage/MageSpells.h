@@ -18,6 +18,8 @@ public:
     Combustion* get_combustion() const;
     Proc* get_clearcasting() const;
     Proc* get_improved_scorch() const;
+    Proc* get_winters_chill_proc() const;
+
     Proc* get_t3_6piece_proc() const;
     Buff* get_t3_6piece_buff() const;
     Proc* get_t2_8piece_proc() const;
@@ -36,6 +38,8 @@ private:
     ElementalVulnerability* elemental_vulnerability;
     Ignite* ignite;
     ImprovedScorch* imp_scorch;
+    Proc* winters_chill_proc;
+
     Proc* t3_6piece_proc;
     Proc* t2_8piece_proc;
     Buff* t2_8piece_buff;

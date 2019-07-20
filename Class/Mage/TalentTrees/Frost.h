@@ -20,4 +20,5 @@ private:
     void add_piercing_ice(QMap<QString, Talent*>& talent_tier);
     void add_improved_blizzard(QMap<QString, Talent*>& talent_tier);
     void add_frost_channeling(QMap<QString, Talent*>& talent_tier);
+    void add_winters_chill(QMap<QString, Talent*>& talent_tier);
 };

@@ -55,7 +55,8 @@ Frost::Frost(Mage* mage) :
                                   {"5MR", new Talent(mage, this, "Improved Cone of Cold", "5MR", "Assets/spell/Spell_frost_glacier.png", 3, "Increases the damage dealt by your Cone of Cold spell by %1%.", QVector<QPair<unsigned, unsigned>>{{15, 10}})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(mage, this, "Winter's Chill", "6MR", "Assets/spell/Spell_frost_chillingblast.png", 5, "Gives your Frost damage spells a %1% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec. Stacks up to 5 times.", QVector<QPair<unsigned, unsigned>>{{20, 20}})}};
+    QMap<QString, Talent*> tier6 {};
+    add_winters_chill(tier6);
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(mage, this, "Ice Barrier", "7ML", "Assets/spell/Spell_ice_lament.png", 1, "Instantly shields you, absorbing 438 damage. Lasts 1 min. While the shield holds, spells will not be interrupted.", QVector<QPair<unsigned, unsigned>>())}};
@@ -123,6 +124,15 @@ void Frost::add_frost_channeling(QMap<QString, Talent*>& talent_tier) {
                                     "Reduces the mana cost of your Frost spells by %1% and reduces the threat caused by your Frost spells by %2%.",
                                     QVector<QPair<unsigned, unsigned>>{{5, 5}, {10, 10}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Frostbolt")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Frost::add_winters_chill(QMap<QString, Talent *> &talent_tier) {
+    Talent* talent = get_new_talent(mage, "Winter's Chill", "6MR", "Assets/spell/Spell_frost_chillingblast.png", 5,
+                                    "Gives your Frost damage spells a %1% chance to apply the Winter's Chill effect, which increases the chance a Frost spell will critically hit the target by 2% for 15 sec. Stacks up to 5 times.",
+                                    QVector<QPair<unsigned, unsigned>>{{20, 20}},
+                                    {}, {}, {spells->get_winters_chill_proc()});
 
     add_talent_to_tier(talent_tier, talent);
 }

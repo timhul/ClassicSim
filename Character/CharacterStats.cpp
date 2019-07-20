@@ -788,9 +788,10 @@ void CharacterStats::decrease_spell_hit(const MagicSchool school, const unsigned
 
 unsigned CharacterStats::get_spell_crit_chance(MagicSchool school) const {
     const unsigned equip_effect = base_stats->get_spell_crit_chance(school)  + equipment->get_stats()->get_spell_crit_chance(school);
+    const unsigned crit_from_target = pchar->get_target()->get_stats()->get_spell_crit_chance(school);
     const auto crit_from_int = static_cast<unsigned>(round(static_cast<double>(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit() * 100));
 
-    const unsigned crit_chance = crit_from_int + equip_effect;
+    const unsigned crit_chance = crit_from_int + equip_effect + crit_from_target;
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }

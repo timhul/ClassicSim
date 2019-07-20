@@ -14,7 +14,7 @@ class StatisticsResource;
 
 class Frostbolt: public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
-    Frostbolt(Mage* pchar, MageSpells* mage_spells, const int spell_rank);
+    Frostbolt(Mage* pchar, MageSpells* mage_spells, Proc* winters_chill, const int spell_rank);
     ~Frostbolt() override;
 
     bool is_rank_learned() const override;
@@ -22,6 +22,7 @@ public:
 private:
     MageSpells* mage_spells;
     Random* instant_dmg;
+    Proc* winters_chill;
     StatisticsResource* statistics_resource {nullptr};
 
     double spell_dmg_coefficient;

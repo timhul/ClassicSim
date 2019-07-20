@@ -19,6 +19,8 @@
 #include "RobeOfTheArchmage.h"
 #include "Scorch.h"
 #include "SuppressCastBuff.h"
+#include "WintersChill.h"
+#include "WintersChillProc.h"
 
 MageSpells::MageSpells(Mage* mage) :
     CharacterSpells(mage),
@@ -28,18 +30,25 @@ MageSpells::MageSpells(Mage* mage) :
 
     add_spell_group({mh_attack});
 
+    auto winters_chill_buff = dynamic_cast<WintersChill*>(mage->get_raid_control()->get_shared_raid_buff("Winter's Chill"));
+    if (winters_chill_buff == nullptr) {
+        winters_chill_buff = new WintersChill(mage);
+        winters_chill_buff->enable_buff();
+    }
+    winters_chill_proc = new WintersChillProc(mage, winters_chill_buff);
+
     add_spell_group({
-                        new Frostbolt(mage, this, 1),
-                        new Frostbolt(mage, this, 2),
-                        new Frostbolt(mage, this, 3),
-                        new Frostbolt(mage, this, 4),
-                        new Frostbolt(mage, this, 5),
-                        new Frostbolt(mage, this, 6),
-                        new Frostbolt(mage, this, 7),
-                        new Frostbolt(mage, this, 8),
-                        new Frostbolt(mage, this, 9),
-                        new Frostbolt(mage, this, 10),
-                        new Frostbolt(mage, this, 11),
+                        new Frostbolt(mage, this, winters_chill_proc, 1),
+                        new Frostbolt(mage, this, winters_chill_proc, 2),
+                        new Frostbolt(mage, this, winters_chill_proc, 3),
+                        new Frostbolt(mage, this, winters_chill_proc, 4),
+                        new Frostbolt(mage, this, winters_chill_proc, 5),
+                        new Frostbolt(mage, this, winters_chill_proc, 6),
+                        new Frostbolt(mage, this, winters_chill_proc, 7),
+                        new Frostbolt(mage, this, winters_chill_proc, 8),
+                        new Frostbolt(mage, this, winters_chill_proc, 9),
+                        new Frostbolt(mage, this, winters_chill_proc, 10),
+                        new Frostbolt(mage, this, winters_chill_proc, 11),
                     });
 
     add_spell_group({
@@ -115,6 +124,7 @@ MageSpells::MageSpells(Mage* mage) :
 MageSpells::~MageSpells() {
     delete clearcasting;
     delete imp_scorch;
+    delete winters_chill_proc;
     delete t3_6piece_proc;
     delete elemental_vulnerability;
     delete t2_8piece_proc;
@@ -130,6 +140,10 @@ Proc* MageSpells::get_clearcasting() const {
 
 Proc* MageSpells::get_improved_scorch() const {
     return this->imp_scorch;
+}
+
+Proc* MageSpells::get_winters_chill_proc() const {
+    return this->winters_chill_proc;
 }
 
 Proc* MageSpells::get_t3_6piece_proc() const {

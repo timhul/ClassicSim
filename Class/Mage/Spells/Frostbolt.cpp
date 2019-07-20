@@ -7,12 +7,13 @@
 #include "CooldownControl.h"
 #include "Mage.h"
 #include "MageSpells.h"
+#include "Proc.h"
 #include "Random.h"
 #include "SimSettings.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-Frostbolt::Frostbolt(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
+Frostbolt::Frostbolt(Mage* pchar, MageSpells* mage_spells, Proc* winters_chill, const int spell_rank) :
     Spell("Frostbolt", "Assets/spell/Spell_frost_frostbolt02.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{
@@ -21,7 +22,8 @@ Frostbolt::Frostbolt(Mage* pchar, MageSpells* mage_spells, const int spell_rank)
                    new TalentRequirerInfo("Frost Channeling", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
                    }),
-    mage_spells(mage_spells)
+    mage_spells(mage_spells),
+    winters_chill(winters_chill)
 {
     switch (spell_rank) {
     case 1:
@@ -144,6 +146,9 @@ void Frostbolt::complete_cast_effect() {
         return increment_miss();
     if (resist_roll == MagicResistResult::FULL_RESIST)
         return increment_full_resist();
+
+    if (winters_chill->is_enabled() && winters_chill->check_proc_success())
+        winters_chill->perform();
 
     double damage_dealt = instant_dmg->get_roll() + pchar->get_stats()->get_spell_damage(MagicSchool::Frost) * spell_dmg_coefficient;
     damage_dealt *= get_partial_resist_dmg_modifier(resist_roll);
