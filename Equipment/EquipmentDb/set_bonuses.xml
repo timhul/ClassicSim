@@ -737,6 +737,82 @@
 		</bonus>
 	</set>
 
+	<set name="Champion's Arcanum">
+		<item_id value="22870"/>
+		<item_id value="22860"/>
+		<item_id value="23263"/>
+		<item_id value="23264"/>
+		<item_id value="22883"/>
+		<item_id value="22886"/>
+
+		<bonus value="2" item_stat="SPELL_DAMAGE" stat_value="23">
+		(2) Set: Increases damage and healing done by magical spells and effects by up to 23.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Blink spell by 1.5 sec.
+		</bonus>
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
+		(6) Set: +20 Stamina.
+		</bonus>
+	</set>
+
+	<set name="Lieutenant Commander's Arcanum">
+		<item_id value="23304"/>
+		<item_id value="23305"/>
+		<item_id value="23290"/>
+		<item_id value="23291"/>
+		<item_id value="23318"/>
+		<item_id value="23319"/>
+
+		<bonus value="2" item_stat="SPELL_DAMAGE" stat_value="23">
+		(2) Set: Increases damage and healing done by magical spells and effects by up to 23.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Blink spell by 1.5 sec.
+		</bonus>
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
+		(6) Set: +20 Stamina.
+		</bonus>
+	</set>
+
+	<set name="Warlord's Regalia">
+		<item_id value="16536"/>
+		<item_id value="16533"/>
+		<item_id value="16535"/>
+		<item_id value="16539"/>
+		<item_id value="16540"/>
+		<item_id value="16534"/>
+
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Blink spell by 1.5 sec.
+		</bonus>
+		<bonus value="6" item_stat="SPELL_DAMAGE" stat_value="23">
+		(6) Set: Increases damage and healing done by magical spells and effects by up to 23.
+		</bonus>
+	</set>
+
+	<set name="Field Marshal's Regalia">
+		<item_id value="16441"/>
+		<item_id value="16444"/>
+		<item_id value="16443"/>
+		<item_id value="16437"/>
+		<item_id value="16440"/>
+		<item_id value="16442"/>
+
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Blink spell by 1.5 sec.
+		</bonus>
+		<bonus value="6" item_stat="SPELL_DAMAGE" stat_value="23">
+		(6) Set: Increases damage and healing done by magical spells and effects by up to 23.
+		</bonus>
+	</set>
+
 	<set name="Arcanist Regalia">
 		<item_id value="16802"/>
 		<item_id value="16799"/>
