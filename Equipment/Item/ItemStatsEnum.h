@@ -1,5 +1,9 @@
 #pragma once
 
+#include <QString>
+
+#include "Utils/Check.h"
+
 enum class ItemStats: int {
     Agility = 0,
     Intellect,
@@ -64,3 +68,5 @@ enum class ItemStats: int {
     SpellHit,
     SpellPenetration,
 };
+
+ItemStats get_item_stats_from_string(const QString& item_stat);
