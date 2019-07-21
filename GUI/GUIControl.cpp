@@ -551,7 +551,7 @@ QString GUIControl::get_attack_mode_as_string() const {
     return "<unknown";
 }
 
-void GUIControl::selectDisplayStat(const QString &attack_mode) {
+void GUIControl::selectDisplayStat(const QString& attack_mode) {
     stats_type_to_display = attack_mode;
 
     Q_EMIT displayStatsTypeChanged();
@@ -1576,7 +1576,7 @@ QString GUIControl::getDescriptionForPhase(const int phase) {
     return Content::get_description_for_phase(static_cast<Content::Phase>(phase));
 }
 
-QVariantList GUIControl::getTooltip(const QString &slot_string) {
+QVariantList GUIControl::getTooltip(const QString& slot_string) {
     Item* item = nullptr;
 
     if (slot_string == "MAINHAND")

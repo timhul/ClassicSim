@@ -6,7 +6,7 @@ class Pet;
 
 class PetAutoAttack: public Spell {
 public:
-    PetAutoAttack(Character* pchar, Pet *pet, const QString &icon);
+    PetAutoAttack(Character* pchar, Pet *pet, const QString& icon);
     ~PetAutoAttack() override;
 
     double get_next_expected_use() const;

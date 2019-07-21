@@ -85,7 +85,7 @@ void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString
         item_map.remove(handled_key);
 }
 
-int ProjectileFileReader::get_projectile_type(const QString &type) {
+int ProjectileFileReader::get_projectile_type(const QString& type) {
     if (type == "ARROW")
         return ProjectileTypes::ARROW;
     if (type == "BULLET")

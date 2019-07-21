@@ -684,7 +684,7 @@ void SetBonusControl::deactivate_arathi_basin_physical_set_bonuses(const int num
     }
 }
 
-void SetBonusControl::activate_spell_rank_group(const QString& spell_name, const QString &set_name, const int num_pieces) {
+void SetBonusControl::activate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces) {
     const auto spells = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
     check((spells != nullptr), QString("Failed to find SpellRankGroup for %1 when activating set bonus").arg(spell_name).toStdString());
 
@@ -692,7 +692,7 @@ void SetBonusControl::activate_spell_rank_group(const QString& spell_name, const
         dynamic_cast<SetBonusRequirer*>(spell)->activate_set_bonus(set_name, num_pieces);
 }
 
-void SetBonusControl::deactivate_spell_rank_group(const QString& spell_name, const QString &set_name, const int num_pieces) {
+void SetBonusControl::deactivate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces) {
     const auto spells = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
     check((spells != nullptr), QString("Failed to find SpellRankGroup for %1 when deactivating set bonus").arg(spell_name).toStdString());
 

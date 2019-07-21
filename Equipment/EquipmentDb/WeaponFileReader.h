@@ -15,5 +15,5 @@ private:
                        QVector<QMap<QString, QString>>& uses,
                        QVector<QString>& special_equip_effects,
                        QSet<int>& mutex_item_ids);
-    int get_weapon_type(const QString &type);
+    int get_weapon_type(const QString& type);
 };

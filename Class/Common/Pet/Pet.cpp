@@ -13,7 +13,7 @@
 #include "Spell.h"
 #include "Utils/CompareDouble.h"
 
-Pet::Pet(Character* pchar, const QString &name, double attack_speed, double base_dps) :
+Pet::Pet(Character* pchar, const QString& name, double attack_speed, double base_dps) :
     pchar(pchar),
     resource(nullptr),
     name(name),

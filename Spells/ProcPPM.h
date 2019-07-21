@@ -5,8 +5,8 @@
 
 class ProcPPM: public Proc {
 public:
-    ProcPPM(const QString &name,
-            const QString &icon,
+    ProcPPM(const QString& name,
+            const QString& icon,
             const int weapon,
             const double ppm,
             const double inner_cooldown,

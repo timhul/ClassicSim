@@ -10,8 +10,8 @@ class StatisticsBuff;
 
 class Proc: public Spell {
 public:
-    Proc(const QString &name,
-         const QString &icon,
+    Proc(const QString& name,
+         const QString& icon,
          const double proc_rate,
          const double inner_cooldown,
          const QVector<Proc *>& linked_procs,
@@ -36,7 +36,7 @@ protected:
     Random* random;
     QVector<Proc*> linked_procs;
     QVector<ProcInfo::Source> proc_sources;
-    ProcInfo::Source curr_proc_source{};
+    ProcInfo::Source curr_proc_source {};
     StatisticsProc* statistics_proc;
 
     unsigned proc_range;

@@ -6,7 +6,7 @@
 #include "Utils/Check.h"
 
 HunterPet::HunterPet(Hunter* pchar,
-                     const QString &name,
+                     const QString& name,
                      double base_attack_speed,
                      double base_dps):
     Pet(pchar, name, base_attack_speed, base_dps),

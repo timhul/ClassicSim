@@ -59,11 +59,11 @@ Talent::Talent(Character* pchar,
 
 Talent::Talent(Character *pchar,
                TalentTree* tree,
-               const QString &name,
-               const QString &position,
-               const QString &icon,
+               const QString& name,
+               const QString& position,
+               const QString& icon,
                const unsigned max_points,
-               const QString &rank_description,
+               const QString& rank_description,
                const QVector<QPair<double, double>>& format_values) :
     Talent(pchar, tree, name, position, icon, max_points)
 {

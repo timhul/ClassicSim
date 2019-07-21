@@ -126,7 +126,7 @@ public:
     void then_damage_dealt_is(const int damage);
     void then_damage_dealt_is_in_range(const int min, const int max);
     void then_next_event_is(const EventType event_type);
-    void then_next_event_is(const EventType event_type, const QString &priority, bool act_event = false);
+    void then_next_event_is(const EventType event_type, const QString& priority, bool act_event = false);
 
     void dump_queued_events();
 
@@ -139,7 +139,7 @@ protected:
     QString spell_under_test;
     QSet<QString> ignored_events;
 
-    Spell* get_max_rank_spell_by_name(const QString &name) const;
+    Spell* get_max_rank_spell_by_name(const QString& name) const;
 
     void set_melee_special_table_for_hit(const unsigned wpn_skill);
     void set_melee_special_table_for_crit(const unsigned wpn_skill);

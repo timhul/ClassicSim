@@ -38,14 +38,14 @@ protected:
     friend class Talent;
     QMap<QString, TalentRequirerInfo*> talent_info;
 
-    void increase_talent_rank(Buff* buff, const QString &talent);
-    void decrease_talent_rank(Buff* buff, const QString &talent);
+    void increase_talent_rank(Buff* buff, const QString& talent);
+    void decrease_talent_rank(Buff* buff, const QString& talent);
 
-    void increase_talent_rank(Spell* spell, const QString &talent);
-    void decrease_talent_rank(Spell* spell, const QString &talent);
+    void increase_talent_rank(Spell* spell, const QString& talent);
+    void decrease_talent_rank(Spell* spell, const QString& talent);
 
-    void increase_talent_rank(Proc* proc, const QString &talent);
-    void decrease_talent_rank(Proc* proc, const QString &talent);
+    void increase_talent_rank(Proc* proc, const QString& talent);
+    void decrease_talent_rank(Proc* proc, const QString& talent);
 
     virtual void increase_talent_rank_effect(const QString& talent_name, const int curr) = 0;
     virtual void decrease_talent_rank_effect(const QString& talent_name, const int curr) = 0;

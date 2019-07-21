@@ -213,11 +213,11 @@ bool Rotation::try_set_attack_mode(const QString& value) {
     return true;
 }
 
-void Rotation::add_precombat_spell(const QString &spell_name) {
+void Rotation::add_precombat_spell(const QString& spell_name) {
     this->precombat_spell_names.append(spell_name);
 }
 
-void Rotation::add_precast_spell(const QString &spell_name) {
+void Rotation::add_precast_spell(const QString& spell_name) {
     this->precast_spell_name = spell_name;
 }
 

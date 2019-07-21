@@ -11,7 +11,7 @@ bool value(ExecutorOutcome* lhs, ExecutorOutcome* rhs) {
     return lhs->value > rhs->value;
 }
 
-ExecutorOutcome::ExecutorOutcome(const QString &name,
+ExecutorOutcome::ExecutorOutcome(const QString& name,
                                  ExecutorResult result,
                                  unsigned value,
                                  SpellStatus spell_status) :

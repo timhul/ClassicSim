@@ -166,7 +166,7 @@ public:
     Q_PROPERTY(QString projectileIcon READ get_projectile_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString relicIcon READ get_relic_icon NOTIFY equipmentChanged)
 
-    Q_INVOKABLE QVariantList getTooltip(const QString &slot_string);
+    Q_INVOKABLE QVariantList getTooltip(const QString& slot_string);
 
     Q_INVOKABLE void selectSlot(const QString& slot_string);
     Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id);

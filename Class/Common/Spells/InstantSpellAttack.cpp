@@ -7,8 +7,8 @@
 #include "Random.h"
 
 InstantSpellAttack::InstantSpellAttack(Character* pchar,
-                                       const QString &name,
-                                       const QString &icon,
+                                       const QString& name,
+                                       const QString& icon,
                                        const MagicSchool school,
                                        const unsigned min,
                                        const unsigned max,

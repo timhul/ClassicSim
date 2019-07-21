@@ -9,7 +9,7 @@ class ManaDrainProc: public Proc {
 public:
     ManaDrainProc(Character* pchar,
                   const QString& proc_name,
-                  const QString &icon,
+                  const QString& icon,
                   const QVector<ProcInfo::Source>& proc_sources,
                   const double proc_rate,
                   const unsigned min_drain,

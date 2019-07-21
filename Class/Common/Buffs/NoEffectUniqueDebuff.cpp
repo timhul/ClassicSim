@@ -2,7 +2,7 @@
 
 #include "Proc.h"
 
-NoEffectUniqueDebuff::NoEffectUniqueDebuff(Character* pchar, const Priority priority, const int duration, const QString &name, const QString &icon, const bool hidden, const int charges):
+NoEffectUniqueDebuff::NoEffectUniqueDebuff(Character* pchar, const Priority priority, const int duration, const QString& name, const QString& icon, const bool hidden, const int charges):
     UniqueDebuff(pchar, name, icon, priority, duration, charges)
 {
     this->hidden = hidden;

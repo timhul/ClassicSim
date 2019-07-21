@@ -5,8 +5,8 @@
 #include "Utils/Check.h"
 
 FlatWeaponDamageBuff::FlatWeaponDamageBuff(Character* pchar,
-                                           const QString &name,
-                                           const QString &icon,
+                                           const QString& name,
+                                           const QString& icon,
                                            const int duration,
                                            const int base_charges,
                                            const AffectedWeaponSide wpn_side,

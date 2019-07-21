@@ -86,7 +86,7 @@ void Character::set_race(Race* race) {
     spells->activate_racials();
 }
 
-void Character::change_target_creature_type(const QString &creature_type) {
+void Character::change_target_creature_type(const QString& creature_type) {
     spells->deactivate_racials();
     target->set_creature_type(creature_type);
     spells->activate_racials();

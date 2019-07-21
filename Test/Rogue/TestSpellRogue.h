@@ -6,7 +6,7 @@
 
 class TestSpellRogue: public TestSpellDamage {
 public:
-    TestSpellRogue(EquipmentDb* equipment_db, const QString &spell_under_test);
+    TestSpellRogue(EquipmentDb* equipment_db, const QString& spell_under_test);
 
     void set_up(const bool prepare_combat_iterations = true) override;
     void tear_down() override;

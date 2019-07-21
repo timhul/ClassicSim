@@ -10,7 +10,7 @@ class ItemFileReader: public QObject {
 public:
     ItemFileReader(QObject* parent = nullptr);
 
-    void read_items(QVector<Item *>& items, const QString &path);
+    void read_items(QVector<Item *>& items, const QString& path);
 
 protected:
     void item_file_handler(QXmlStreamReader &reader, QVector<Item*>& items);

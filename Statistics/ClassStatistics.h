@@ -21,10 +21,10 @@ public:
     ClassStatistics(SimSettings* settings, const QString& player_name, const QString& class_color, const bool ignore_non_buff_statistics = false);
     ~ClassStatistics();
 
-    StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon, const int spell_rank);
-    StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon, const bool debuff);
+    StatisticsSpell* get_spell_statistics(const QString& name, const QString& icon, const int spell_rank);
+    StatisticsBuff* get_buff_statistics(const QString& name, const QString& icon, const bool debuff);
     StatisticsResource* get_resource_statistics(const QString& name, const QString& icon);
-    StatisticsProc* get_proc_statistics(const QString& name, const QString &icon);
+    StatisticsProc* get_proc_statistics(const QString& name, const QString& icon);
     StatisticsRotationExecutor* get_executor_statistics(const QString& name);
     StatisticsEngine* get_engine_statistics();
     int get_total_personal_damage_dealt() const;

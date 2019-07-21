@@ -2,7 +2,7 @@
 
 SharedBuff::SharedBuff(Character* pchar,
                        const QString& name,
-                       const QString &icon,
+                       const QString& icon,
                        const int duration,
                        const int base_charges) :
     SelfBuff(pchar, name, icon, duration, base_charges),

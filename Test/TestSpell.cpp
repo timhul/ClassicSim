@@ -1096,7 +1096,7 @@ void TestSpell::then_next_event_is(const EventType event_type) {
     delete event;
 }
 
-void TestSpell::then_next_event_is(const EventType event_type, const QString &priority, bool act_event) {
+void TestSpell::then_next_event_is(const EventType event_type, const QString& priority, bool act_event) {
     if (pchar->get_engine()->get_queue()->empty()) {
         qDebug() << spell_under_test << "Queue empty! Expected to find" << Event::get_name_for_event_type(event_type) << priority;
         assert(false);
@@ -1142,6 +1142,6 @@ void TestSpell::dump_queued_events() {
     }
 }
 
-Spell* TestSpell::get_max_rank_spell_by_name(const QString &name) const {
+Spell* TestSpell::get_max_rank_spell_by_name(const QString& name) const {
     return pchar->get_spells()->get_spell_rank_group_by_name(name)->get_max_available_spell_rank();
 }

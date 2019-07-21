@@ -586,7 +586,7 @@ const Stats* Item::get_stats() const {
     return this->stats;
 }
 
-void Item::set_stat(const QString& key, const QString &value) {
+void Item::set_stat(const QString& key, const QString& value) {
     if (key == "STRENGTH") {
         this->stats->increase_strength(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Strength").arg(value));

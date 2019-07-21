@@ -8,11 +8,9 @@
 #include "EnabledProcs.h"
 #include "Random.h"
 #include "StatisticsProc.h"
-#include "StatisticsResource.h"
-#include "StatisticsSpell.h"
 
 Proc::Proc(const QString& name,
-           const QString &icon,
+           const QString& icon,
            const double proc_rate,
            const double inner_cooldown,
            const QVector<Proc *>& linked_procs,

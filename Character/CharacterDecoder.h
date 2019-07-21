@@ -9,7 +9,7 @@ class Rotation;
 
 class CharacterDecoder {
 public:
-    void initialize(const QString &setup_string);
+    void initialize(const QString& setup_string);
 
     QString get_class();
     QString get_race();

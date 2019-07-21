@@ -141,7 +141,7 @@ void WeaponFileReader::create_weapon(QVector<Item*>& items,
     }
 }
 
-int WeaponFileReader::get_weapon_type(const QString &type) {
+int WeaponFileReader::get_weapon_type(const QString& type) {
     if (type == "AXE")
         return WeaponTypes::AXE;
     if (type == "DAGGER")

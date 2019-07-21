@@ -66,16 +66,16 @@ private:
     void calculate_stat_weights(QList<ScaleResult*>& list);
 
     void merge_spell_stats(QList<StatisticsSpell*>& vec);
-    void merge_spell_entry(const QString& name, const QString &icon, long long int total_damage_dealt, QList<StatisticsSpell*>& vec);
+    void merge_spell_entry(const QString& name, const QString& icon, long long int total_damage_dealt, QList<StatisticsSpell*>& vec);
 
     void merge_buff_stats(QList<StatisticsBuff*>& vec, const bool include_debuffs);
-    void merge_buff_entry(const QString& name, const QString &icon, QList<StatisticsBuff*>& vec);
+    void merge_buff_entry(const QString& name, const QString& icon, QList<StatisticsBuff*>& vec);
 
     void merge_proc_stats(QList<StatisticsProc*>& vec);
-    void merge_proc_entry(const QString& name, const QString &icon, QList<StatisticsProc*>& vec);
+    void merge_proc_entry(const QString& name, const QString& icon, QList<StatisticsProc*>& vec);
 
     void merge_resource_stats(QList<StatisticsResource*>& vec);
-    void merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec);
+    void merge_resource_entry(const QString& name, const QString& icon, QList<StatisticsResource*>& vec);
 
     void merge_engine_stats(StatisticsEngine* statistics_engine);
     void merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>> &list);

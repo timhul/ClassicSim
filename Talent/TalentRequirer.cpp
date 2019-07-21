@@ -20,7 +20,7 @@ TalentRequirer::~TalentRequirer() {
         delete info;
 }
 
-void TalentRequirer::increase_talent_rank(Buff* buff, const QString &talent) {
+void TalentRequirer::increase_talent_rank(Buff* buff, const QString& talent) {
     check(talent_info.contains(talent), "talent_info does not contain talent");
 
     ++talent_info[talent]->curr;
@@ -32,7 +32,7 @@ void TalentRequirer::increase_talent_rank(Buff* buff, const QString &talent) {
         buff->enable_buff();
 }
 
-void TalentRequirer::decrease_talent_rank(Buff* buff, const QString &talent) {
+void TalentRequirer::decrease_talent_rank(Buff* buff, const QString& talent) {
     check(talent_info.contains(talent), "talent_info does not contain talent");
 
     --talent_info[talent]->curr;
@@ -56,7 +56,7 @@ void TalentRequirer::increase_talent_rank(Spell* spell, const QString& talent) {
         spell->enable();
 }
 
-void TalentRequirer::decrease_talent_rank(Spell* spell, const QString &talent) {
+void TalentRequirer::decrease_talent_rank(Spell* spell, const QString& talent) {
     check(talent_info.contains(talent), "talent_info does not contain talent");
 
     --talent_info[talent]->curr;
@@ -82,7 +82,7 @@ void TalentRequirer::increase_talent_rank(Proc* proc, const QString& talent) {
     }
 }
 
-void TalentRequirer::decrease_talent_rank(Proc* proc, const QString &talent) {
+void TalentRequirer::decrease_talent_rank(Proc* proc, const QString& talent) {
     check(talent_info.contains(talent), "talent_info does not contain talent");
 
     --talent_info[talent]->curr;

@@ -7,8 +7,8 @@
 #include "Proc.h"
 
 UseTrinket::UseTrinket(Character* pchar,
-                       const QString &name,
-                       const QString &icon,
+                       const QString& name,
+                       const QString& icon,
                        const int cooldown,
                        Buff* buff,
                        Proc *proc) :
