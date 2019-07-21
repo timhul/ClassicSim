@@ -172,6 +172,10 @@ int WeaponFileReader::get_weapon_type(const QString &type) {
         return WeaponTypes::TWOHAND_MACE;
     if (type == "TWOHAND_SWORD")
         return WeaponTypes::TWOHAND_SWORD;
+    if (type == "CASTER_OFFHAND")
+        return WeaponTypes::CASTER_OFFHAND;
+    if (type == "SHIELD")
+        return WeaponTypes::SHIELD;
 
     return -1;
 }

@@ -24,6 +24,11 @@
 		and resource "Mana" greater 400
 	</cast_if>
 
+	<cast_if name="Berserking">
+		buff_stacks "Fire Vulnerability" eq 5
+		and resource "Mana" greater 400
+	</cast_if>
+
 	<cast_if name="Combustion">
 		buff_stacks "Fire Vulnerability" eq 5
 		and resource "Mana" greater 400

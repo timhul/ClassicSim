@@ -15,6 +15,11 @@
 	<cast_if name="Robe of the Archmage"/>
 
 	<cast_if name="Arcane Power"/>
+
+	<cast_if name="Berserking">
+		resource "Mana" greater 400
+	</cast_if>
+
 	<cast_if name="Frostbolt"/>
 
 	<cast_if name="Evocation">

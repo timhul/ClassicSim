@@ -7,6 +7,9 @@
 	<precombat_actions>
 		<spell name="Windfury Weapon"/>
 	</precombat_actions>
+	
+	<cast_if name="Berserking"/>
+	<cast_if name="Blood Fury"/>
 
 	<cast_if name="Stormstrike"/>
 

@@ -217,7 +217,16 @@ EnchantName::Name Equipment::get_current_temp_enchant_enum_value(Weapon* weapon)
 }
 
 bool Equipment::is_dual_wielding() {
-    return offhand != nullptr;
+    if (offhand == nullptr)
+        return false;
+
+    switch (offhand->get_weapon_type()) {
+    case WeaponTypes::CASTER_OFFHAND:
+    case WeaponTypes::SHIELD:
+        return false;
+    default:
+        return true;
+    }
 }
 
 const Stats* Equipment::get_stats() const {
