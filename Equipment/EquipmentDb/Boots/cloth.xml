@@ -27,6 +27,19 @@
 		</source>
 	</item>
 
+	<item id="16682" phase="0">
+		<info name="Magister's Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+		Drops from Hearthsinger Forresten in Stratholme Undead.
+		</source>
+	</item>
+
 	<item id="13391" phase="0">
 		<info name="The Postmaster's Treads" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
 		<stats>

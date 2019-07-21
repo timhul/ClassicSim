@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16684" phase="0">
+		<info name="Magister's Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_17.png"/>
+		<stats>
+			<stat type="ARMOR" value="52"/>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+		Drops from Doctor Theolen Krastinov in Scholomance.
+		</source>
+	</item>
+
 	<item id="13253" phase="0">
 		<info name="Hands of Power" type="CLOTH" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_gauntlets_14.png"/>
 		<stats>

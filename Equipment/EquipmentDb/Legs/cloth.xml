@@ -13,6 +13,19 @@
 		</source>
 	</item>
 
+	<item id="16687" phase="0">
+		<info name="Magister's Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="76"/>
+			<stat type="SPIRIT" value="21"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+		Drops from Baron Rivendare in Stratholme Undead.
+		</source>
+	</item>
+
 	<item id="13389" phase="0">
 		<info name="The Postmaster's Trousers" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16683" phase="0">
+		<info name="Magister's Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_jewelry_ring_23.png"/>
+		<stats>
+			<stat type="ARMOR" value="35"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="STAMINA" value="4"/>
+		</stats>
+		<source>
+		Drops from caster trash mobs in Blackrock Spire.
+		</source>
+	</item>
+
 	<item id="14629" phase="0">
 		<info name="Necropile Cuffs" type="CLOTH" slot="WRIST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>

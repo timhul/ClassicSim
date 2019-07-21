@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16685" phase="0">
+		<info name="Magister's Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="46"/>
+			<stat type="INTELLECT" value="21"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="6"/>
+		</stats>
+		<source>
+		Drops from caster trash mobs in Stratholme and Scholomance.
+		</source>
+	</item>
+
 	<item id="12589" phase="0">
 		<info name="Dustfeather Sash" type="CLOTH" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_11.png"/>
 		<stats>
