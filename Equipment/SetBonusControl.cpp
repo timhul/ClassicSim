@@ -34,7 +34,7 @@ SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
     equipment_db(equipment_db),
     pchar(pchar)
 {
-    SetBonusFileReader().read_set_bonuses("set_bonuses.xml", possible_set_items, set_bonus_tooltips);
+    SetBonusFileReader().read_set_bonuses("set_bonuses.xml", possible_set_items, set_bonus_tooltips, set_bonus_effects);
 }
 
 SetBonusControl::~SetBonusControl() {
@@ -49,9 +49,12 @@ void SetBonusControl::equip_item(const int item_id) {
     if (!possible_set_items.contains(item_id))
         return;
 
-    QString set_name = possible_set_items[item_id];
+    const QString set_name = possible_set_items[item_id];
     current_set_items[item_id] = set_name;
-    int num_pieces = get_num_equipped_pieces_for_set(set_name);
+    const int num_pieces = get_num_equipped_pieces_for_set(set_name);
+
+    if (set_bonus_effects.contains(set_name) && set_bonus_effects[set_name].contains(num_pieces))
+        pchar->get_stats()->increase_stat(set_bonus_effects[set_name][num_pieces].first, set_bonus_effects[set_name][num_pieces].second);
 
     if (set_name == "Nightslayer Armor") {
         switch (num_pieces) {
@@ -382,9 +385,12 @@ void SetBonusControl::unequip_item(const int item_id) {
     if (!current_set_items.contains(item_id))
         return;
 
-    QString set_name = current_set_items[item_id];
-    int num_pieces = get_num_equipped_pieces_for_set(set_name);
+    const QString set_name = current_set_items[item_id];
+    const int num_pieces = get_num_equipped_pieces_for_set(set_name);
     current_set_items.take(item_id);
+
+    if (set_bonus_effects.contains(set_name) && set_bonus_effects[set_name].contains(num_pieces))
+        pchar->get_stats()->decrease_stat(set_bonus_effects[set_name][num_pieces].first, set_bonus_effects[set_name][num_pieces].second);
 
     if (set_name == "Nightslayer Armor") {
         switch (num_pieces) {

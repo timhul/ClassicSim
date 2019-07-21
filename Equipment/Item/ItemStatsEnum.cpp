@@ -27,6 +27,8 @@ ItemStats get_item_stats_from_string(const QString& item_stat)  {
         return ItemStats::ManaPer5;
     else if (item_stat == "MANA_SKILL_REDUCTION")
         return ItemStats::ManaSkillReduction;
+    else if (item_stat == "SPELL_PENETRATION")
+        return ItemStats::SpellPenetration;
     else {
         return ItemStats::Armor;
         check(false, QString("Unsupported stat use type '%1'").arg(item_stat).toStdString());

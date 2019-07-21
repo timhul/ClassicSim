@@ -3,9 +3,12 @@
 #include <QDebug>
 #include <QDir>
 
+#include "ItemStatsEnum.h"
+
 void SetBonusFileReader::read_set_bonuses(const QString &path,
                                           QMap<int, QString>& possible_set_items,
-                                          QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips) {
+                                          QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips,
+                                          QMap<QString, QMap<int, QPair<ItemStats, unsigned>>>& set_bonus_effects) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file" << path << ":" << file.errorString();
@@ -16,7 +19,7 @@ void SetBonusFileReader::read_set_bonuses(const QString &path,
 
     if (reader.readNextStartElement()) {
         if (reader.name() == "sets")
-            set_bonus_file_handler(reader, possible_set_items, set_bonus_tooltips);
+            set_bonus_file_handler(reader, possible_set_items, set_bonus_tooltips, set_bonus_effects);
         else
             qDebug() << "Did not find initial <sets> element in" << path;
     }
@@ -26,7 +29,8 @@ void SetBonusFileReader::read_set_bonuses(const QString &path,
 
 void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
                                                 QMap<int, QString>& possible_set_items,
-                                                QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips) {
+                                                QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips,
+                                                QMap<QString, QMap<int, QPair<ItemStats, unsigned>>>& set_bonus_effects) {
     while (reader.readNextStartElement()) {
         if (!reader.attributes().hasAttribute("name")) {
             qDebug() << "Missing name attribute for <set> element";
@@ -63,7 +67,13 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
                     continue;
                 }
 
-                int num_items = reader.attributes().value("value").toInt();
+                const int num_items = reader.attributes().value("value").toInt();
+
+                if (reader.attributes().hasAttribute("item_stat") && reader.attributes().hasAttribute("stat_value")) {
+                    const ItemStats item_stats = get_item_stats_from_string(reader.attributes().value("item_stat").toString());
+                    const unsigned stat_value = reader.attributes().value("stat_value").toUInt();
+                    set_bonus_effects[set_name][num_items] = {item_stats, stat_value};
+                }
 
                 if (!set_bonus_tooltips.contains(set_name))
                     set_bonus_tooltips[set_name] = {};

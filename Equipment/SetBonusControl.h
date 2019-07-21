@@ -6,6 +6,8 @@ class Character;
 class EquipmentDb;
 class Proc;
 
+enum class ItemStats: int;
+
 class SetBonusControl {
 public:
     SetBonusControl(EquipmentDb* equipment_db, Character* pchar);
@@ -28,6 +30,7 @@ private:
     QMap<int, QString> current_set_items;
     QMap<int, QString> possible_set_items;
     QMap<QString, QVector<QPair<int, QString>>> set_bonus_tooltips;
+    QMap<QString, QMap<int, QPair<ItemStats, unsigned>>> set_bonus_effects;
 
     void activate_warrior_r10_pvp_set_bonuses(const int num_pieces);
     void deactivate_warrior_r10_pvp_set_bonuses(const int num_pieces);
