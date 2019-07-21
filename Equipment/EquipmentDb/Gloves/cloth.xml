@@ -258,6 +258,22 @@
 		</source>
 	</item>
 
+	<item id="22066" phase="4">
+		<info name="Sorcerer's Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="58" item_lvl="55" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="54"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires Magister's Gloves.
+		</source>
+	</item>
+
 	<item id="20716" phase="4">
 		<info name="Sandworm Skin Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_gauntlets_17.png"/>
 		<mutex item_id="20705"/>
@@ -299,7 +315,7 @@
 		Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</item>
-	
+
 	<item id="23084" phase="5">
 		<info name="Gloves of Undead Cleansing" type="CLOTH" slot="GLOVES" unique="no" req_lvl="50" item_lvl="63" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>

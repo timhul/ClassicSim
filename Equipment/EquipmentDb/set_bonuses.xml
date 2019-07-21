@@ -737,6 +737,30 @@
 		</bonus>
 	</set>
 
+	<set name="Sorcerer's Regalia">
+		<item_id value="22062"/>
+		<item_id value="22063"/>
+		<item_id value="22064"/>
+		<item_id value="22065"/>
+		<item_id value="22066"/>
+		<item_id value="22067"/>
+		<item_id value="22068"/>
+		<item_id value="22069"/>
+
+		<bonus value="2">
+		(2) Set: +8 All Resistances.
+		</bonus>
+		<bonus value="4">
+		(4) Set: When struck in combat has a chance of freezing the attacker in place for 3 sec.
+		</bonus>
+		<bonus value="6" item_stat="SPELL_DAMAGE" stat_value="23">
+		(6) Set: Increases damage and healing done by magical spells and effects by up to 23.
+		</bonus>
+		<bonus value="8">
+		(8) Set: +200 Armor.
+		</bonus>
+	</set>
+
 	<set name="Champion's Arcanum">
 		<item_id value="22870"/>
 		<item_id value="22860"/>

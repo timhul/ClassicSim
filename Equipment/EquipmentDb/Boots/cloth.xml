@@ -322,6 +322,21 @@
 		</source>
 	</item>
 
+	<item id="22064" phase="4">
+		<info name="Sorcerer's Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_boots_02.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="64"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		Quest reward. Requires Magister's Boots.
+		</source>
+	</item>
+
 	<item id="22231" phase="4">
 		<info name="Kayser's Boots of Precision" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_cloth_02.png"/>
 		<stats>
