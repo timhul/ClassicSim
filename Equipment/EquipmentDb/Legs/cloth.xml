@@ -13,6 +13,19 @@
 		</source>
 	</item>
 
+	<item id="13389" phase="0">
+		<info name="The Postmaster's Trousers" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="76"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPIRIT" value="20"/>
+			<stat type="INTELLECT" value="20"/>
+		</stats>
+		<source>
+		Drops from Postmaster Malown in Stratholme Undead.
+		</source>
+	</item>
+
 	<item id="12965" phase="0">
 		<info name="Spiritshroud Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>

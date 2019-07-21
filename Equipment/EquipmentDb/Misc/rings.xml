@@ -71,6 +71,18 @@
 		</source>
 	</item>
 
+	<item id="13392" phase="0">
+		<info name="The Postmaster's Seal" type="RING" slot="RING" unique="yes" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_23.png"/>
+		<stats>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="INTELLECT" value="3"/>
+		</stats>
+		<source>
+			Drops from Postmaster Malown in Stratholme Undead.
+		</source>
+	</item>
+
 	<item id="18302" phase="1">
 		<info name="Band of Vigor" type="RING" slot="RING" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_20.png"/>
 		<stats>
