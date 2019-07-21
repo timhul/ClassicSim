@@ -41,9 +41,12 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Mage Frost/Arcane abilities, rotations, and talents.
+* Updated probable phase unlocks for several items.
 * Wands now available for relevant classes.
+* Many cloth items now available to equip.
 * Stat weight calculations for magic stats now available.
 * Item stat filters for magic stats now available.
+* Poisons no longer scale with nature damage modifiers.
 * Update rage cost refund for Execute and Whirlwind after beta tests (thanks to Vilnius at Fight Club discord).
 
 # Q&A
