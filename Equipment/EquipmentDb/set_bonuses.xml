@@ -13,10 +13,10 @@
 		<bonus value="3">
 		(3) Set: Increased Defense +2.
 		</bonus>
-		<bonus value="4">
+		<bonus value="4" item_stat="ATTACK_POWER" stat_value="10">
 		(4) Set: +10 Attack Power.
 		</bonus>
-		<bonus value="5">
+		<bonus value="5" item_stat="CRIT_CHANCE" stat_value="100">
 		(5) Set: Increases your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
@@ -31,13 +31,13 @@
 		<bonus value="2">
 		(2) Set: Increased Defense +3.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="ATTACK_POWER" stat_value="10">
 		(3) Set: +10 Attack Power.
 		</bonus>
 		<bonus value="4">
 		(4) Set: +15 All Resistances.
 		</bonus>
-		<bonus value="5">
+		<bonus value="5"  item_stat="HIT_CHANCE" stat_value="200">
 		(5) Set: Improves your chance to hit by 2%.
 		</bonus>
 	</set>
@@ -52,13 +52,13 @@
 		<bonus value="2">
 		(2) Set: Increased Defense +3.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="INTELLECT" stat_value="5">
 		(3) Set: +5 Intellect.
 		</bonus>
 		<bonus value="4">
 		(4) Set: +15 All Resistances.
 		</bonus>
-		<bonus value="5">
+		<bonus value="5" item_stat="SPELL_DAMAGE" stat_value="23">
 		(5) Set: Increases damage and healing done by magical spells and effects by up to 23.
 		</bonus>
 	</set>
@@ -67,7 +67,7 @@
 		<item_id value="15063"/>
 		<item_id value="15062"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="HIT_CHANCE" stat_value="200">
 		(2) Set: Improves your chance to hit by 2%.
 		</bonus>
 	</set>
@@ -76,7 +76,7 @@
 		<item_id value="12940"/>
 		<item_id value="12939"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="ATTACK_POWER" stat_value="50">
 		(2) Set: +50 Attack Power.
 		</bonus>
 	</set>
@@ -91,7 +91,7 @@
 		<bonus value="2">
 		(2) Set: Increased Defense +3.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="ATTACK_POWER" stat_value="10">
 		(3) Set: +10 Attack Power.
 		</bonus>
 		<bonus value="4">
@@ -108,10 +108,10 @@
 		<item_id value="15052"/>
 		<item_id value="15051"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="HIT_CHANCE" stat_value="100">
 		(2) Set: Improves your chance to hit by 1%.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="200">
 		(3) Set: Improves your chance to get a critical strike by 2%.
 		</bonus>
 		<bonus value="4">
@@ -124,7 +124,7 @@
 		<item_id value="19691"/>
 		<item_id value="19692"/>
 
-		<bonus value="3">
+		<bonus value="3" item_stat="MANA_PER_5" stat_value="12">
 		(3) Set: Restores 12 mana per 5 sec.
 		</bonus>
 	</set>
@@ -152,7 +152,7 @@
 		<item_id value="19898"/>
 		<item_id value="19925"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="ATTACK_POWER" stat_value="30">
 		(2) Set: +30 Attack Power.
 		</bonus>
 	</set>
@@ -174,7 +174,7 @@
 		<item_id value="19683"/>
 		<item_id value="19684"/>
 
-		<bonus value="3">
+		<bonus value="3" item_stat="SPELL_CRIT_CHANCE" stat_value="200">
 		(3) Set: Improves your chance to get a critical strike with spells by 2%.
 		</bonus>
 	</set>
@@ -403,7 +403,7 @@
 		<bonus value="3">
 		(3) Set: Increases the duration of your Judgements by 20%.
 		</bonus>
-		<bonus value="5">
+		<bonus value="5" item_stat="SPELL_DAMAGE" stat_value="71">
 		(5) Set: Increases damage and healing done by magical spells and effects by up to 71.
 		</bonus>
 	</set>
@@ -515,7 +515,7 @@
 		<bonus value="2">
 		(2) Set: +200 Armor.
 		</bonus>
-		<bonus value="4">
+		<bonus value="4" item_stat="ATTACK_POWER" stat_value="40">
 		(4) Set: +40 Attack Power.
 		</bonus>
 		<bonus value="6">
@@ -542,7 +542,7 @@
 		<bonus value="4">
 		(4) Set: Your normal ranged attacks have a 4% chance of restoring 200 mana.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="ATTACK_POWER" stat_value="40">
 		(6) Set: +40 Attack Power.
 		</bonus>
 		<bonus value="8">
@@ -557,7 +557,7 @@
 		<item_id value="19832"/>
 		<item_id value="19831"/>
 
-		<bonus value="2">
+		<bonus value="2"  item_stat="ATTACK_POWER" stat_value="20">
 		(2) Set: +20 Attack Power.
 		</bonus>
 		<bonus value="3">

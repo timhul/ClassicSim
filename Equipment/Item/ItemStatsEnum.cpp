@@ -9,6 +9,10 @@ ItemStats get_item_stats_from_string(const QString& item_stat)  {
         return ItemStats::RangedAttackSpeedPercent;
     else if (item_stat == "CASTING_SPEED")
         return ItemStats::CastingSpeedPercent;
+    else if (item_stat == "CRIT_CHANCE")
+        return ItemStats::CritChance;
+    else if (item_stat == "HIT_CHANCE")
+        return ItemStats::HitChance;
     else if (item_stat == "ATTACK_POWER")
         return ItemStats::AttackPower;
     else if (item_stat == "STRENGTH")
@@ -23,6 +27,8 @@ ItemStats get_item_stats_from_string(const QString& item_stat)  {
         return ItemStats::Spirit;
     else if (item_stat == "SPELL_DAMAGE")
         return ItemStats::SpellDamage;
+    else if (item_stat == "SPELL_CRIT_CHANCE")
+        return ItemStats::SpellCrit;
     else if (item_stat == "MANA_PER_5")
         return ItemStats::ManaPer5;
     else if (item_stat == "MANA_SKILL_REDUCTION")

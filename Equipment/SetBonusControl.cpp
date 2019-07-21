@@ -92,41 +92,11 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
-    else if (set_name == "Avenger's Battlegear") {
-        switch (num_pieces) {
-        case 5:
-            pchar->get_stats()->increase_base_spell_damage(71);
-            break;
-        }
-    }
-    else if (set_name == "Major Mojo Infusion") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_melee_ap(30);
-            pchar->get_stats()->increase_ranged_ap(30);
-            break;
-        }
-    }
     else if (set_name == "Zanzil's Concentration") {
         switch (num_pieces) {
         case 2:
             pchar->get_stats()->increase_spell_hit(100);
             pchar->get_stats()->increase_base_spell_damage(6);
-            break;
-        }
-    }
-    else if (set_name == "Bloodvine Garb") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->increase_spell_crit(200);
-            break;
-        }
-    }
-    else if (set_name == "Predator's Armor") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_melee_ap(20);
-            pchar->get_stats()->increase_ranged_ap(20);
             break;
         }
     }
@@ -139,10 +109,6 @@ void SetBonusControl::equip_item(const int item_id) {
     }
     else if (set_name == "Beaststalker Armor") {
         switch (num_pieces) {
-        case 4:
-            pchar->get_stats()->increase_melee_ap(40);
-            pchar->get_stats()->increase_ranged_ap(40);
-            break;
         case 6:
             if (!active_procs.contains("BEASTSTALKER_DRAIN"))
                 active_procs["BEASTSTALKER_DRAIN"] = new ManaDrainProc(pchar,
@@ -164,10 +130,6 @@ void SetBonusControl::equip_item(const int item_id) {
                                                                       {ProcInfo::RangedAutoShot},
                                                                       0.04, 200, 200);
             active_procs["BEASTMASTER_DRAIN"]->enable_proc();
-            break;
-        case 6:
-            pchar->get_stats()->increase_melee_ap(40);
-            pchar->get_stats()->increase_ranged_ap(40);
             break;
         }
     }
@@ -264,83 +226,6 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
-    else if (set_name == "The Gladiator") {
-        switch (num_pieces) {
-        case 4:
-            pchar->get_stats()->increase_melee_ap(10);
-            pchar->get_stats()->increase_ranged_ap(10);
-            break;
-        case 5:
-            pchar->get_stats()->increase_melee_crit(100);
-            pchar->get_stats()->increase_ranged_crit(100);
-            break;
-        }
-    }
-    else if (set_name == "Devilsaur Armor") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_melee_hit(200);
-            pchar->get_stats()->increase_ranged_hit(200);
-            break;
-        }
-    }
-    else if (set_name == "Cadaverous Garb") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->increase_melee_ap(10);
-            pchar->get_stats()->increase_ranged_ap(10);
-            break;
-        case 5:
-            pchar->get_stats()->increase_melee_hit(200);
-            pchar->get_stats()->increase_ranged_hit(200);
-            break;
-        }
-    }
-    else if (set_name == "Necropile Raiment") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->increase_intellect(5);
-            break;
-        case 5:
-            pchar->get_stats()->increase_base_spell_damage(23);
-            break;
-        }
-    }
-    else if (set_name == "Dal'Rend's Arms") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_melee_ap(50);
-            pchar->get_stats()->increase_ranged_ap(50);
-            break;
-        }
-    }
-    else if (set_name == "Black Dragon Mail") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_melee_hit(100);
-            pchar->get_stats()->increase_ranged_hit(100);
-            break;
-        case 3:
-            pchar->get_stats()->increase_melee_crit(200);
-            pchar->get_stats()->increase_ranged_crit(200);
-            break;
-        }
-    }
-    else if (set_name == "Bloodsoul Embrace") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->increase_mp5(12);
-            break;
-        }
-    }
-    else if (set_name == "Bloodmail Regalia") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->increase_melee_ap(10);
-            pchar->get_stats()->increase_ranged_ap(10);
-            break;
-        }
-    }
     else if (set_name == "The Twin Blades of Hakkari") {
         switch (num_pieces) {
         case 2:
@@ -428,41 +313,11 @@ void SetBonusControl::unequip_item(const int item_id) {
         }
         }
     }
-    else if (set_name == "Avenger's Battlegear") {
-        switch (num_pieces) {
-        case 5:
-            pchar->get_stats()->decrease_base_spell_damage(71);
-            break;
-        }
-    }
-    else if (set_name == "Major Mojo Infusion") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->decrease_melee_ap(30);
-            pchar->get_stats()->decrease_ranged_ap(30);
-            break;
-        }
-    }
     else if (set_name == "Zanzil's Concentration") {
         switch (num_pieces) {
         case 2:
             pchar->get_stats()->decrease_spell_hit(100);
             pchar->get_stats()->decrease_base_spell_damage(6);
-            break;
-        }
-    }
-    else if (set_name == "Bloodvine Garb") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->decrease_spell_crit(200);
-            break;
-        }
-    }
-    else if (set_name == "Predator's Armor") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->decrease_melee_ap(20);
-            pchar->get_stats()->decrease_ranged_ap(20);
             break;
         }
     }
@@ -475,10 +330,6 @@ void SetBonusControl::unequip_item(const int item_id) {
     }
     else if (set_name == "Beaststalker Armor") {
         switch (num_pieces) {
-        case 4:
-            pchar->get_stats()->decrease_melee_ap(40);
-            pchar->get_stats()->decrease_ranged_ap(40);
-            break;
         case 6:
             active_procs["BEASTSTALKER_DRAIN"]->disable_proc();
             break;
@@ -488,10 +339,6 @@ void SetBonusControl::unequip_item(const int item_id) {
         switch (num_pieces) {
         case 4:
             active_procs["BEASTMASTER_DRAIN"]->disable_proc();
-            break;
-        case 6:
-            pchar->get_stats()->decrease_melee_ap(40);
-            pchar->get_stats()->decrease_ranged_ap(40);
             break;
         }
     }
@@ -585,83 +432,6 @@ void SetBonusControl::unequip_item(const int item_id) {
             proc->disable_proc();
             proc->disable();
         }
-        }
-    }
-    else if (set_name == "The Gladiator") {
-        switch (num_pieces) {
-        case 4:
-            pchar->get_stats()->decrease_melee_ap(10);
-            pchar->get_stats()->decrease_ranged_ap(10);
-            break;
-        case 5:
-            pchar->get_stats()->decrease_melee_crit(100);
-            pchar->get_stats()->decrease_ranged_crit(100);
-            break;
-        }
-    }
-    else if (set_name == "Devilsaur Armor") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->decrease_melee_hit(200);
-            pchar->get_stats()->decrease_ranged_hit(200);
-            break;
-        }
-    }
-    else if (set_name == "Cadaverous Garb") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->decrease_melee_ap(10);
-            pchar->get_stats()->decrease_ranged_ap(10);
-            break;
-        case 5:
-            pchar->get_stats()->decrease_melee_hit(200);
-            pchar->get_stats()->decrease_ranged_hit(200);
-            break;
-        }
-    }
-    else if (set_name == "Necropile Raiment") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->decrease_intellect(5);
-            break;
-        case 5:
-            pchar->get_stats()->decrease_base_spell_damage(23);
-            break;
-        }
-    }
-    else if (set_name == "Dal'Rend's Arms") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->decrease_melee_ap(50);
-            pchar->get_stats()->decrease_ranged_ap(50);
-            break;
-        }
-    }
-    else if (set_name == "Black Dragon Mail") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->decrease_melee_hit(100);
-            pchar->get_stats()->decrease_ranged_hit(100);
-            break;
-        case 3:
-            pchar->get_stats()->decrease_melee_crit(200);
-            pchar->get_stats()->decrease_ranged_crit(200);
-            break;
-        }
-    }
-    else if (set_name == "Bloodsoul Embrace") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->decrease_mp5(12);
-            break;
-        }
-    }
-    else if (set_name == "Bloodmail Regalia") {
-        switch (num_pieces) {
-        case 3:
-            pchar->get_stats()->decrease_melee_ap(10);
-            pchar->get_stats()->decrease_ranged_ap(10);
-            break;
         }
     }
     else if (set_name == "The Twin Blades of Hakkari") {
