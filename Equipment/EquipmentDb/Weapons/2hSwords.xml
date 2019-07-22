@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="13052" phase="0">
+	<melee_weapon id="13052" phase="1">
 		<info name="Warmonger" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="yes" icon="Inv_sword_46.png"/>
 		<dmg_range min="108" max="162" speed="3.0"/>
 		<stats>
@@ -12,7 +12,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="2801" phase="0">
+	<melee_weapon id="2801" phase="1">
 		<info name="Blade of Hanna" type="TWOHAND_SWORD" slot="2H" unique="yes" req_lvl="59" item_lvl="64" quality="EPIC" boe="yes" icon="Inv_sword_10.png"/>
 		<dmg_range min="101" max="152" speed="2.1"/>
 		<stats>
@@ -27,7 +27,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17076" phase="0">
+	<melee_weapon id="17076" phase="1">
 		<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
 		<dmg_range min="206" max="310" speed="3.4"/>
 		<stats>
@@ -45,7 +45,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18520" phase="1">
+	<melee_weapon id="18520" phase="2">
 		<info name="Barbarous Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_11.png"/>
 		<dmg_range min="138" max="207" speed="3.2"/>
 		<stats>
@@ -57,7 +57,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18822" phase="1">
+	<melee_weapon id="18822" phase="2">
 		<info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
 		<dmg_range min="176" max="264" speed="3.4"/>
 		<stats>
@@ -69,7 +69,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18542" phase="1">
+	<melee_weapon id="18542" phase="2">
 		<info name="Typhoon" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_41.png"/>
 		<dmg_range min="150" max="225" speed="2.9"/>
 		<stats>
@@ -83,7 +83,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18876" phase="1">
+	<melee_weapon id="18876" phase="2">
 		<info name="Grand Marshal's Claymore" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_39.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -96,7 +96,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18877" phase="1">
+	<melee_weapon id="18877" phase="2">
 		<info name="High Warlord's Greatsword" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_48.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -109,7 +109,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19334" phase="2">
+	<melee_weapon id="19334" phase="3">
 		<info name="The Untamed Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
 		<dmg_range min="192" max="289" speed="3.4"/>
 		<stats>
@@ -128,7 +128,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19364" phase="2">
+	<melee_weapon id="19364" phase="3">
 		<info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
 		<dmg_range min="229" max="344" speed="3.5"/>
 		<stats>
@@ -143,7 +143,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="19854" phase="3">
+	<melee_weapon id="19854" phase="4">
 		<info name="Zin'rokh, Destroyer of Worlds" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
 		<dmg_range min="196" max="295" speed="3.8"/>
 		<stats>
@@ -155,7 +155,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21492" phase="4">
+	<melee_weapon id="21492" phase="5">
 		<info name="Manslayer of the Qiraji" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_56.png"/>
 		<dmg_range min="180" max="270" speed="3.6"/>
 		<stats>
@@ -168,7 +168,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21679" phase="4">
+	<melee_weapon id="21679" phase="5">
 		<info name="Kalimdor's Revenge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_56.png"/>
 		<dmg_range min="209" max="315" speed="3.2"/>
 		<stats>
@@ -186,7 +186,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22813" phase="5">
+	<melee_weapon id="22813" phase="6">
 		<info name="Claymore of Unholy Might" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_46.png"/>
 		<dmg_range min="235" max="354" speed="3.6"/>
 		<stats>
@@ -198,7 +198,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22691" phase="5">
+	<melee_weapon id="22691" phase="6">
 		<info name="Corrupted Ashbringer" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_sword_2h_ashbringercorrupt.png"/>
 		<dmg_range min="259" max="389" speed="3.6"/>
 		<stats>

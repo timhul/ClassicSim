@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="23315" phase="1">
+	<item id="23315" phase="2">
 		<info name="Lieutenant Commander's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_shoulder_11.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -14,7 +14,7 @@
 		</source>
 	</item>
 
-	<item id="23243" phase="1">
+	<item id="23243" phase="2">
 		<info name="Champion's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_shoulder_11.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -28,7 +28,7 @@
 		</source>
 	</item>
 
-	<item id="16480" phase="1">
+	<item id="16480" phase="2">
 		<info name="Field Marshal's Plate Shoulderguards" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_20.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -43,7 +43,7 @@
 		</source>
 	</item>
 
-	<item id="16544" phase="1">
+	<item id="16544" phase="2">
 		<info name="Warlord's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_11.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -58,7 +58,7 @@
 		</source>
 	</item>
 
-	<item id="23277" phase="1">
+	<item id="23277" phase="2">
 		<info name="Lieutenant Commander's Lamellar Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_shoulder_28.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -73,7 +73,7 @@
 		</source>
 	</item>
 
-	<item id="16476" phase="1">
+	<item id="16476" phase="2">
 		<info name="Field Marshal's Lamellar Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_shoulder_20.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -89,7 +89,7 @@
 		</source>
 	</item>
 
-	<item id="19394" phase="2">
+	<item id="19394" phase="3">
 		<info name="Drake Talon Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="634"/>
@@ -103,7 +103,7 @@
 		</source>
 	</item>
 
-	<item id="20058" phase="3">
+	<item id="20058" phase="4">
 		<info name="Highlander's Lamellar Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -118,7 +118,7 @@
 		</source>
 	</item>
 
-	<item id="20057" phase="3">
+	<item id="20057" phase="4">
 		<info name="Highlander's Plate Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
@@ -133,7 +133,7 @@
 		</source>
 	</item>
 
-	<item id="20212" phase="3">
+	<item id="20212" phase="4">
 		<info name="Defiler's Plate Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -147,7 +147,7 @@
 		</source>
 	</item>
 
-	<item id="20517" phase="3">
+	<item id="20517" phase="4">
 		<info name="Razorsteel Shoulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_shoulder_16.png"/>
 		<mutex item_id="20130"/>
 		<mutex item_id="20251"/>
@@ -163,7 +163,7 @@
 		</source>
 	</item>
 
-	<item id="21330" phase="4">
+	<item id="21330" phase="5">
 		<info name="Conqueror's Spaulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -179,7 +179,7 @@
 		</source>
 	</item>
 
-	<item id="21391" phase="4">
+	<item id="21391" phase="5">
 		<info name="Avenger's Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>

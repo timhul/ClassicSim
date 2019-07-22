@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="7060" phase="0">
+	<item id="7060" phase="1">
 		<info name="Azure Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="33" item_lvl="38" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_27.png"/>
 		<stats>
 			<stat type="ARMOR" value="38"/>
@@ -12,7 +12,7 @@
 		</source>
 	</item>
 
-	<item id="4734" phase="0">
+	<item id="4734" phase="1">
 		<info name="Mistscape Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="38" item_lvl="43" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="42"/>
@@ -24,7 +24,7 @@
 		</source>
 	</item>
 
-	<item id="10027" phase="0">
+	<item id="10027" phase="1">
 		<info name="Black Mageweave Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="41" item_lvl="46" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="45"/>
@@ -36,7 +36,7 @@
 		</source>
 	</item>
 
-	<item id="10028" phase="0">
+	<item id="10028" phase="1">
 		<info name="Shadoweave Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="42" item_lvl="47" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="46"/>
@@ -48,7 +48,7 @@
 		</source>
 	</item>
 
-	<item id="10029" phase="0">
+	<item id="10029" phase="1">
 		<info name="Red Mageweave Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="42" item_lvl="47" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="46"/>
@@ -59,7 +59,7 @@
 		</source>
 	</item>
 
-	<item id="8111" phase="0">
+	<item id="8111" phase="1">
 		<info name="Hibernal Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="43" item_lvl="48" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="47"/>
@@ -71,7 +71,7 @@
 		</source>
 	</item>
 
-	<item id="14443" phase="0">
+	<item id="14443" phase="1">
 		<info name="Venomshroud Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="44" item_lvl="49" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -84,7 +84,7 @@
 		</source>
 	</item>
 
-	<item id="11310" phase="0">
+	<item id="11310" phase="1">
 		<info name="Flameseer Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="42" item_lvl="47" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="51"/>
@@ -96,7 +96,7 @@
 		</source>
 	</item>
 
-	<item id="14452" phase="0">
+	<item id="14452" phase="1">
 		<info name="Highborne Pauldrons" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="49" item_lvl="54" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_24.png"/>
 		<stats>
 			<stat type="ARMOR" value="53"/>
@@ -108,7 +108,7 @@
 		</source>
 	</item>
 
-	<item id="11624" phase="0">
+	<item id="11624" phase="1">
 		<info name="Kentic Amice" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="56"/>
@@ -122,7 +122,7 @@
 		</source>
 	</item>
 
-	<item id="15812" phase="0">
+	<item id="15812" phase="1">
 		<info name="Orchid Amice" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="53" item_lvl="56" quality="UNCOMMON" boe="no" icon="Inv_shoulder_02.png"/>
 		<mutex item_id="15813"/>
 		<stats>
@@ -137,7 +137,7 @@
 		</source>
 	</item>
 
-	<item id="13013" phase="0">
+	<item id="13013" phase="1">
 		<info name="Elder Wizard's Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_shoulder_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -149,7 +149,7 @@
 		</source>
 	</item>
 
-	<item id="11782" phase="0">
+	<item id="11782" phase="1">
 		<info name="Boreal Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -162,7 +162,7 @@
 		</source>
 	</item>
 
-	<item id="12109" phase="0">
+	<item id="12109" phase="1">
 		<info name="Azure Moon Amice" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="52" item_lvl="58" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_shoulder_02.png"/>
 		<mutex item_id="12110"/>
 		<mutex item_id="12108"/>
@@ -177,7 +177,7 @@
 		</source>
 	</item>
 
-	<item id="15784" phase="0">
+	<item id="15784" phase="1">
 		<info name="Crystal Breeze Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="52" item_lvl="59" quality="UNCOMMON" boe="no" icon="Inv_shoulder_02.png"/>
 		<mutex item_id="15786"/>
 		<mutex item_id="15787"/>
@@ -191,7 +191,7 @@
 		</source>
 	</item>
 
-	<item id="8288" phase="0">
+	<item id="8288" phase="1">
 		<info name="Arcane Pads" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -203,7 +203,7 @@
 		</source>
 	</item>
 
-	<item id="13867" phase="0">
+	<item id="13867" phase="1">
 		<info name="Runecloth Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_21.png"/>
 		<stats>
 			<stat type="ARMOR" value="59"/>
@@ -215,7 +215,7 @@
 		</source>
 	</item>
 
-	<item id="13374" phase="0">
+	<item id="13374" phase="1">
 		<info name="Soulstealer Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="64"/>
@@ -227,7 +227,7 @@
 		</source>
 	</item>
 
-	<item id="16689" phase="0">
+	<item id="16689" phase="1">
 		<info name="Magister's Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="64"/>
@@ -240,7 +240,7 @@
 		</source>
 	</item>
 
-	<item id="16701" phase="0">
+	<item id="16701" phase="1">
 		<info name="Dreadmist Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_bone_taurenskull_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="64"/>
@@ -253,7 +253,7 @@
 		</source>
 	</item>
 
-	<item id="16695" phase="0">
+	<item id="16695" phase="1">
 		<info name="Devout Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="64"/>
@@ -266,7 +266,7 @@
 		</source>
 	</item>
 
-	<item id="13185" phase="0">
+	<item id="13185" phase="1">
 		<info name="Sunderseer Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="65"/>
@@ -280,7 +280,7 @@
 		</source>
 	</item>
 
-	<item id="14633" phase="0">
+	<item id="14633" phase="1">
 		<info name="Necropile Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="65"/>
@@ -293,7 +293,7 @@
 		</source>
 	</item>
 
-	<item id="14139" phase="0">
+	<item id="14139" phase="1">
 		<info name="Mooncloth Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="65"/>
@@ -306,7 +306,7 @@
 		</source>
 	</item>
 
-	<item id="14112" phase="0">
+	<item id="14112" phase="1">
 		<info name="Felcloth Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="57" item_lvl="62" quality="UNCOMMON" boe="yes" icon="Inv_shoulder_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -318,7 +318,7 @@
 		</source>
 	</item>
 
-	<item id="14538" phase="0">
+	<item id="14538" phase="1">
 		<info name="Deadwalker Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="66"/>
@@ -331,7 +331,7 @@
 		</source>
 	</item>
 
-	<item id="16797" phase="0">
+	<item id="16797" phase="1">
 		<info name="Arcanist Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_02.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -348,7 +348,7 @@
 		</source>
 	</item>
 
-	<item id="18681" phase="1">
+	<item id="18681" phase="2">
 		<info name="Burial Shawl" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="65"/>
@@ -360,7 +360,7 @@
 		</source>
 	</item>
 
-	<item id="18757" phase="1">
+	<item id="18757" phase="2">
 		<info name="Diabolic Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="66"/>
@@ -372,7 +372,7 @@
 		</source>
 	</item>
 
-	<item id="18720" phase="1">
+	<item id="18720" phase="2">
 		<info name="Shroud of the Nathrezim" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_shoulder_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="67"/>
@@ -385,7 +385,7 @@
 		</source>
 	</item>
 
-	<item id="23319" phase="1">
+	<item id="23319" phase="2">
 		<info name="Lieutenant Commander's Silk Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_shoulder_02.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -401,7 +401,7 @@
 		</source>
 	</item>
 
-	<item id="23264" phase="1">
+	<item id="23264" phase="2">
 		<info name="Champion's Silk Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_shoulder_02.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -417,7 +417,7 @@
 		</source>
 	</item>
 
-	<item id="16444" phase="1">
+	<item id="16444" phase="2">
 		<info name="Field Marshal's Silk Spaulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_23.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -433,7 +433,7 @@
 		</source>
 	</item>
 
-	<item id="16536" phase="1">
+	<item id="16536" phase="2">
 		<info name="Warlord's Silk Amice" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_19.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -449,7 +449,7 @@
 		</source>
 	</item>
 
-	<item id="19507" phase="2">
+	<item id="19507" phase="3">
 		<info name="Inquisitor's Shawl" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="36" item_lvl="41" quality="UNCOMMON" boe="no" icon="Inv_shoulder_27.png"/>
 		<stats>
 			<stat type="ARMOR" value="40"/>
@@ -461,7 +461,7 @@
 		</source>
 	</item>
 
-	<item id="19050" phase="2">
+	<item id="19050" phase="3">
 		<info name="Mantle of the Timbermaw" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="59" item_lvl="64" quality="RARE" boe="yes" icon="Inv_shoulder_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>
@@ -473,7 +473,7 @@
 		</source>
 	</item>
 
-	<item id="19059" phase="2">
+	<item id="19059" phase="3">
 		<info name="Argent Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="59" item_lvl="64" quality="RARE" boe="yes" icon="Inv_shoulder_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>
@@ -486,7 +486,7 @@
 		</source>
 	</item>
 
-	<item id="19370" phase="2">
+	<item id="19370" phase="3">
 		<info name="Mantle of the Blackwing Cabal" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="84"/>
@@ -499,7 +499,7 @@
 		</source>
 	</item>
 
-	<item id="19370" phase="2">
+	<item id="19370" phase="3">
 		<info name="Mantle of the Blackwing Cabal" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="84"/>
@@ -512,7 +512,7 @@
 		</source>
 	</item>
 
-	<item id="16917" phase="2">
+	<item id="16917" phase="3">
 		<info name="Netherwind Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_32.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -529,7 +529,7 @@
 		</source>
 	</item>
 
-	<item id="19845" phase="3">
+	<item id="19845" phase="4">
 		<info name="Zandalar Illusionist's Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_shoulder_17.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -544,7 +544,7 @@
 		</source>
 	</item>
 
-	<item id="20061" phase="3">
+	<item id="20061" phase="4">
 		<info name="Highlander's Epaulets" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_24.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -561,7 +561,7 @@
 		</source>
 	</item>
 
-	<item id="20176" phase="3">
+	<item id="20176" phase="4">
 		<info name="Defiler's Epaulets" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_24.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -578,7 +578,7 @@
 		</source>
 	</item>
 
-	<item id="22305" phase="4">
+	<item id="22305" phase="5">
 		<info name="Ironweave Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_05.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -593,7 +593,7 @@
 		</source>
 	</item>
 
-	<item id="22412" phase="4">
+	<item id="22412" phase="5">
 		<info name="Thuzadin Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="67"/>
@@ -606,7 +606,7 @@
 		</source>
 	</item>
 
-	<item id="22068" phase="4">
+	<item id="22068" phase="5">
 		<info name="Sorcerer's Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_shoulder_23.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -621,7 +621,7 @@
 		</source>
 	</item>
 
-	<item id="20686" phase="4">
+	<item id="20686" phase="5">
 		<info name="Abyssal Cloth Amice of Sorcery" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="72"/>
@@ -635,7 +635,7 @@
 		</source>
 	</item>
 
-	<item id="21468" phase="4">
+	<item id="21468" phase="5">
 		<info name="Mantle of Maz'Nadir" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="78"/>
@@ -649,7 +649,7 @@
 		</source>
 	</item>
 
-	<item id="21686" phase="4">
+	<item id="21686" phase="5">
 		<info name="Mantle of Phrenic Power" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="87"/>
@@ -662,7 +662,7 @@
 		</source>
 	</item>
 
-	<item id="21345" phase="4">
+	<item id="21345" phase="5">
 		<info name="Enigma Shoulderpads" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_03.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -679,7 +679,7 @@
 		</source>
 	</item>
 
-	<item id="22758" phase="5">
+	<item id="22758" phase="6">
 		<info name="Sylvan Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="yes" icon="Inv_shoulder_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="74"/>
@@ -692,7 +692,7 @@
 		</source>
 	</item>
 
-	<item id="22983" phase="5">
+	<item id="22983" phase="6">
 		<info name="Rime Covered Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_shoulder_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="94"/>
@@ -706,7 +706,7 @@
 		</source>
 	</item>
 
-	<item id="22968" phase="5">
+	<item id="22968" phase="6">
 		<info name="Glacial Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="94"/>
@@ -719,7 +719,7 @@
 		</source>
 	</item>
 
-	<item id="22499" phase="5">
+	<item id="22499" phase="6">
 		<info name="Frostfire Shoulderpads" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

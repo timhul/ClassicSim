@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13101" phase="0">
+	<item id="13101" phase="1">
 		<info name="Wolfrunner Shoes" type="CLOTH" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="58"/>
@@ -14,7 +14,7 @@
 		</source>
 	</item>
 
-	<item id="11822" phase="0">
+	<item id="11822" phase="1">
 		<info name="Omnicast Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="58"/>
@@ -27,7 +27,7 @@
 		</source>
 	</item>
 
-	<item id="16682" phase="0">
+	<item id="16682" phase="1">
 		<info name="Magister's Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="58"/>
@@ -40,7 +40,7 @@
 		</source>
 	</item>
 
-	<item id="13391" phase="0">
+	<item id="13391" phase="1">
 		<info name="The Postmaster's Treads" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -54,7 +54,7 @@
 		</source>
 	</item>
 
-	<item id="14631" phase="0">
+	<item id="14631" phase="1">
 		<info name="Necropile Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -68,7 +68,7 @@
 		</source>
 	</item>
 
-	<item id="13369" phase="0">
+	<item id="13369" phase="1">
 		<info name="Fire Striders" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -81,7 +81,7 @@
 		</source>
 	</item>
 
-	<item id="16800" phase="0">
+	<item id="16800" phase="1">
 		<info name="Arcanist Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_07.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -98,7 +98,7 @@
 		</source>
 	</item>
 
-	<item id="18735" phase="1">
+	<item id="18735" phase="2">
 		<info name="Maleki's Footwraps" type="CLOTH" slot="BOOTS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_boots_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -111,7 +111,7 @@
 		</source>
 	</item>
 
-	<item id="18102" phase="1">
+	<item id="18102" phase="2">
 		<info name="Dragonrider Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -125,7 +125,7 @@
 		</source>
 	</item>
 
-	<item id="22860" phase="1">
+	<item id="22860" phase="2">
 		<info name="Blood Guard's Silk Walkers" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_05.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -140,7 +140,7 @@
 		</source>
 	</item>
 
-	<item id="23291" phase="1">
+	<item id="23291" phase="2">
 		<info name="Knight-Lieutenant's Silk Walkers" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_05.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -155,7 +155,7 @@
 		</source>
 	</item>
 
-	<item id="19131" phase="1">
+	<item id="19131" phase="2">
 		<info name="Snowblind Shoes" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_boots_cloth_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="63"/>
@@ -169,7 +169,7 @@
 		</source>
 	</item>
 
-	<item id="16437" phase="1">
+	<item id="16437" phase="2">
 		<info name="Marshal's Silk Footwraps" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_03.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -185,7 +185,7 @@
 		</source>
 	</item>
 
-	<item id="16539" phase="1">
+	<item id="16539" phase="2">
 		<info name="General's Silk Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_05.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -201,7 +201,7 @@
 		</source>
 	</item>
 
-	<item id="19438" phase="2">
+	<item id="19438" phase="3">
 		<info name="Ringo's Blizzard Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_cloth_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="75"/>
@@ -215,7 +215,7 @@
 		</source>
 	</item>
 
-	<item id="16912" phase="2">
+	<item id="16912" phase="3">
 		<info name="Netherwind Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_07.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -231,7 +231,7 @@
 		</source>
 	</item>
 
-	<item id="19391" phase="2">
+	<item id="19391" phase="3">
 		<info name="Shimmering Geta" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_cloth_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="81"/>
@@ -244,7 +244,7 @@
 		</source>
 	</item>
 
-	<item id="20537" phase="3">
+	<item id="20537" phase="4">
 		<info name="Runed Stygian Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -257,7 +257,7 @@
 		</source>
 	</item>
 
-	<item id="20054" phase="3">
+	<item id="20054" phase="4">
 		<info name="Highlander's Cloth Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_07.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -276,7 +276,7 @@
 		</source>
 	</item>
 
-	<item id="20159" phase="3">
+	<item id="20159" phase="4">
 		<info name="Defiler's Cloth Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_cloth_07.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -295,7 +295,7 @@
 		</source>
 	</item>
 
-	<item id="19684" phase="3">
+	<item id="19684" phase="4">
 		<info name="Bloodvine Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_boots_cloth_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="63"/>
@@ -308,7 +308,7 @@
 		</source>
 	</item>
 
-	<item id="19897" phase="3">
+	<item id="19897" phase="4">
 		<info name="Betrayer's Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_boots_cloth_09.png"/>
 		<stats>
 			<stat type="ARMOR" value="69"/>
@@ -322,7 +322,7 @@
 		</source>
 	</item>
 
-	<item id="20631" phase="3">
+	<item id="20631" phase="4">
 		<info name="Mendicant's Slippers" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="75"/>
@@ -335,7 +335,7 @@
 		</source>
 	</item>
 
-	<item id="22064" phase="4">
+	<item id="22064" phase="5">
 		<info name="Sorcerer's Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_boots_02.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -350,7 +350,7 @@
 		</source>
 	</item>
 
-	<item id="22231" phase="4">
+	<item id="22231" phase="5">
 		<info name="Kayser's Boots of Precision" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_cloth_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -363,7 +363,7 @@
 		</source>
 	</item>
 
-	<item id="22311" phase="4">
+	<item id="22311" phase="5">
 		<info name="Ironweave Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -378,7 +378,7 @@
 		</source>
 	</item>
 
-	<item id="21344" phase="4">
+	<item id="21344" phase="5">
 		<info name="Enigma Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_cloth_03.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -395,7 +395,7 @@
 		</source>
 	</item>
 
-	<item id="21489" phase="4">
+	<item id="21489" phase="5">
 		<info name="Quicksand Waders" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="70"/>
@@ -409,7 +409,7 @@
 		</source>
 	</item>
 
-	<item id="21648" phase="4">
+	<item id="21648" phase="5">
 		<info name="Recomposed Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_cloth_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="80"/>
@@ -423,7 +423,7 @@
 		</source>
 	</item>
 
-	<item id="21600" phase="4">
+	<item id="21600" phase="5">
 		<info name="Boots of Epiphany" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="84"/>
@@ -436,7 +436,7 @@
 		</source>
 	</item>
 
-	<item id="22500" phase="5">
+	<item id="22500" phase="6">
 		<info name="Frostfire Sandals" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_fabric_01.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="12783" phase="0">
+	<melee_weapon id="12783" phase="1">
 		<info name="Heartseeker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_17.png"/>
 		<dmg_range min="49" max="92" speed="1.7"/>
 		<stats>
@@ -12,7 +12,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="5267" phase="0">
+	<melee_weapon id="5267" phase="1">
 		<info name="Scarlet Kris" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_03.png"/>
 		<dmg_range min="43" max="81" speed="1.5"/>
 		<stats>
@@ -24,7 +24,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="13964" phase="0">
+	<melee_weapon id="13964" phase="1">
 		<info name="Witchblade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_25.png"/>
 		<dmg_range min="45" max="85" speed="1.6"/>
 		<stats>
@@ -36,7 +36,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="14555" phase="0">
+	<melee_weapon id="14555" phase="1">
 		<info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_34.png"/>
 		<dmg_range min="41" max="77" speed="1.3"/>
 		<proc>
@@ -50,7 +50,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="12590" phase="0">
+	<melee_weapon id="12590" phase="1">
 		<info name="Felstriker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
 		<dmg_range min="54" max="101" speed="1.7"/>
 		<proc>
@@ -64,7 +64,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18878" phase="1">
+	<melee_weapon id="18878" phase="2">
 		<info name="Sorcerous Dagger" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_07.png"/>
 		<dmg_range min="39" max="79" speed="1.4"/>
 		<stats>
@@ -77,7 +77,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18816" phase="1">
+	<melee_weapon id="18816" phase="2">
 		<info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
 		<dmg_range min="73" max="137" speed="1.8"/>
 		<proc>
@@ -91,7 +91,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19347" phase="2">
+	<melee_weapon id="19347" phase="3">
 		<info name="Claw of Chromaggus" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_28.png"/>
 		<dmg_range min="37" max="90" speed="1.5"/>
 		<stats>
@@ -105,7 +105,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17070" phase="3">
+	<melee_weapon id="17070" phase="4">
 		<info name="Fang of the Mystics" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_06.png"/>
 		<dmg_range min="39" max="86" speed="1.5"/>
 		<stats>
@@ -119,7 +119,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19903" phase="3">
+	<melee_weapon id="19903" phase="4">
 		<info name="Fang of Venoxis" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_31.png"/>
 		<dmg_range min="35" max="72" speed="1.3"/>
 		<stats>
@@ -133,7 +133,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20720" phase="4">
+	<melee_weapon id="20720" phase="5">
 		<info name="Dark Whisper Blade" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_16.png"/>
 		<dmg_range min="40" max="77" speed="1.4"/>
 		<stats>
@@ -145,7 +145,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22379" phase="4">
+	<melee_weapon id="22379" phase="5">
 		<info name="Shivsprocket's Shiv" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_21.png"/>
 		<mutex item_id="22378"/>
 		<mutex item_id="22377"/>
@@ -162,7 +162,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21404" phase="4">
+	<melee_weapon id="21404" phase="5">
 		<info name="Dagger of Veiled Shadows" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
 		<class_restriction class="ROGUE"/>
 		<dmg_range min="65" max="121" speed="1.8"/>
@@ -176,7 +176,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21802" phase="4">
+	<melee_weapon id="21802" phase="5">
 		<info name="The Lost Kris of Zedd" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_sword_32.png"/>
 		<dmg_range min="42" max="83" speed="1.5"/>
 		<stats>
@@ -189,7 +189,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21244" phase="4">
+	<melee_weapon id="21244" phase="5">
 		<info name="Blessed Qiraji Pugio" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>
 		<dmg_range min="72" max="134" speed="1.7"/>
 		<stats>
@@ -206,7 +206,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="22688" phase="5">
+	<melee_weapon id="22688" phase="6">
 		<info name="Verimonde's Last Resort" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_weapon_shortblade_03.png"/>
 		<dmg_range min="39" max="76" speed="1.4"/>
 		<stats>
@@ -219,7 +219,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22803" phase="5">
+	<melee_weapon id="22803" phase="6">
 		<info name="Midnight Haze" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_02.png"/>
 		<dmg_range min="51" max="97" speed="1.8"/>
 		<stats>
@@ -232,7 +232,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22804" phase="5">
+	<melee_weapon id="22804" phase="6">
 		<info name="Maexxna's Fang" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_01.png"/>
 		<dmg_range min="94" max="141" speed="1.8"/>
 		<stats>
@@ -245,7 +245,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23044" phase="5">
+	<melee_weapon id="23044" phase="6">
 		<info name="Harbinger of Doom" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_03.png"/>
 		<dmg_range min="83" max="126" speed="1.6"/>
 		<stats>
@@ -259,7 +259,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21126" phase="4">
+	<melee_weapon id="21126" phase="5">
 		<info name="Death's Sting" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_33.png"/>
 		<dmg_range min="95" max="144" speed="1.8"/>
 		<stats>
@@ -272,7 +272,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22802" phase="5">
+	<melee_weapon id="22802" phase="6">
 		<info name="Kingsfall" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_37.png"/>
 		<dmg_range min="105" max="158" speed="1.8"/>
 		<stats>

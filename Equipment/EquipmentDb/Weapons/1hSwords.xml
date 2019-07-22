@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="17705" phase="0">
+	<melee_weapon id="17705" phase="1">
 		<info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
 		<dmg_range min="66" max="124" speed="2.7"/>
 		<mutex item_id="17743"/>
@@ -16,7 +16,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="2244" phase="0">
+	<melee_weapon id="2244" phase="1">
 		<info name="Krol Blade" type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes" icon="Inv_sword_18.png"/>
 		<dmg_range min="80" max="149" speed="2.8"/>
 		<stats>
@@ -29,7 +29,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="13036" phase="0">
+	<melee_weapon id="13036" phase="1">
 		<info name="Assassination Blade" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_sword_42.png"/>
 		<dmg_range min="71" max="132" speed="2.7"/>
 		<stats>
@@ -41,7 +41,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15806" phase="0">
+	<melee_weapon id="15806" phase="1">
 		<info name="Mirah's Song" type="SWORD" slot="1H" unique="yes" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_sword_34.png"/>
 		<dmg_range min="57" max="87" speed="1.8"/>
 		<mutex item_id="15805"/>
@@ -54,7 +54,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="6622" phase="0">
+	<melee_weapon id="6622" phase="1">
 		<info name="Sword of Zeal" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_39.png"/>
 		<dmg_range min="81" max="151" speed="2.8"/>
 		<proc>
@@ -68,7 +68,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="13361" phase="0">
+	<melee_weapon id="13361" phase="1">
 		<info name="Skullforge Reaver" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_12.png"/>
 		<dmg_range min="72" max="135" speed="2.5"/>
 		<proc>
@@ -82,7 +82,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17015" phase="4">
+	<melee_weapon id="17015" phase="5">
 		<info name="Dark Iron Reaver" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_sword_48.png"/>
 		<dmg_range min="71" max="134" speed="2.4"/>
 		<stats>
@@ -94,7 +94,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="12939" phase="0">
+	<melee_weapon id="12939" phase="1">
 		<info name="Dal'Rend's Tribal Guardian" type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_40.png"/>
 		<dmg_range min="52" max="97" speed="1.8"/>
 		<stats>
@@ -106,7 +106,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="12940" phase="0">
+	<melee_weapon id="12940" phase="1">
 		<info name="Dal'Rend's Sacred Charge" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_43.png"/>
 		<dmg_range min="81" max="151" speed="2.8"/>
 		<stats>
@@ -118,7 +118,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="10847" phase="0">
+	<melee_weapon id="10847" phase="1">
 		<info name="Dragon's Call" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_sword_38.png"/>
 		<dmg_range min="72" max="135" speed="2.5"/>
 		<proc>
@@ -132,7 +132,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19019" phase="0">
+	<melee_weapon id="19019" phase="1">
 		<info name="Thunderfury, Blessed Blade of the Windseeker" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_sword_39.png"/>
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
@@ -159,7 +159,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17075" phase="0">
+	<melee_weapon id="17075" phase="1">
 		<info name="Vis'kag the Bloodletter" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
 		<dmg_range min="100" max="187" speed="2.6"/>
 		<proc>
@@ -173,7 +173,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18348" phase="1">
+	<melee_weapon id="18348" phase="2">
 		<info name="Quel'Serrar" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
@@ -193,7 +193,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="18832" phase="1">
+	<melee_weapon id="18832" phase="2">
 		<info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
 		<dmg_range min="90" max="168" speed="2.5"/>
 		<stats>
@@ -206,7 +206,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17103" phase="1">
+	<melee_weapon id="17103" phase="2">
 		<info name="Azuresong Mageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_39.png"/>
 		<dmg_range min="64" max="140" speed="2.4"/>
 		<stats>
@@ -220,7 +220,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18396" phase="1">
+	<melee_weapon id="18396" phase="2">
 		<info name="Mind Carver" type="SWORD" slot="MH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_22.png"/>
 		<dmg_range min="57" max="106" speed="2.0"/>
 		<stats>
@@ -233,7 +233,7 @@
 	</melee_weapon>
 
 
-	<melee_weapon id="16345" phase="1">
+	<melee_weapon id="16345" phase="2">
 		<info name="High Warlord's Blade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_11.png"/>
 		<dmg_range min="138" max="207" speed="2.9"/>
 		<stats>
@@ -246,7 +246,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="12854" phase="1">
+	<melee_weapon id="12854" phase="2">
 		<info name="Grand Marshal's Longsword" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_11.png"/>
 		<dmg_range min="138" max="207" speed="2.9"/>
 		<stats>
@@ -259,7 +259,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23467" phase="1">
+	<melee_weapon id="23467" phase="2">
 		<info name="High Warlord's Quickblade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_05.png"/>
 		<dmg_range min="85" max="129" speed="1.8"/>
 		<stats>
@@ -272,7 +272,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23456" phase="1">
+	<melee_weapon id="23456" phase="2">
 		<info name="Grand Marshal's Swiftblade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_05.png"/>
 		<dmg_range min="85" max="129" speed="1.8"/>
 		<stats>
@@ -285,7 +285,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19351" phase="2">
+	<melee_weapon id="19351" phase="3">
 		<info name="Maladath, Runed Blade of the Black Flight" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
 		<dmg_range min="86" max="162" speed="2.2"/>
 		<stats>
@@ -297,7 +297,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19110" phase="2">
+	<melee_weapon id="19110" phase="3">
 		<info name="Cold Forged Blade" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"  icon="Inv_sword_47.png"/>
 		<dmg_range min="75" max="140" speed="2.6"/>
 		<stats>
@@ -309,7 +309,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19554" phase="2">
+	<melee_weapon id="19554" phase="3">
 		<info name="Protector's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_sword_27.png"/>
 		<dmg_range min="78" max="146" speed="2.7"/>
 		<stats>
@@ -321,7 +321,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19550" phase="2">
+	<melee_weapon id="19550" phase="3">
 		<info name="Legionnaire's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_sword_31.png"/>
 		<dmg_range min="78" max="146" speed="2.7"/>
 		<stats>
@@ -333,7 +333,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19168" phase="2">
+	<melee_weapon id="19168" phase="3">
 		<info name="Blackguard" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
 		<dmg_range min="65" max="121" speed="1.8"/>
 		<stats>
@@ -345,7 +345,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19352" phase="2">
+	<melee_weapon id="19352" phase="3">
 		<info name="Chromatically Tempered Sword" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
 		<dmg_range min="106" max="198" speed="2.6"/>
 		<stats>
@@ -358,7 +358,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20577" phase="3">
+	<melee_weapon id="20577" phase="4">
 		<info name="Nightmare Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_44.png"/>
 		<dmg_range min="99" max="185" speed="2.7"/>
 		<stats>
@@ -371,7 +371,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19964" phase="3">
+	<melee_weapon id="19964" phase="4">
 		<info name="Renataki's Soul Conduit" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_37.png"/>
 		<dmg_range min="58" max="115" speed="2.1"/>
 		<stats>
@@ -383,7 +383,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19864" phase="3">
+	<melee_weapon id="19864" phase="4">
 		<info name="Bloodcaller" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
 		<dmg_range min="53" max="114" speed="2.0"/>
 		<stats>
@@ -396,7 +396,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19968" phase="3">
+	<melee_weapon id="19968" phase="4">
 		<info name="Fiery Retributer" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_01.png"/>
 		<dmg_range min="56" max="105" speed="1.8"/>
 		<stats>
@@ -414,7 +414,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19901" phase="3">
+	<melee_weapon id="19901" phase="4">
 		<info name="Zulian Slicer" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
 		<dmg_range min="78" max="146" speed="2.5"/>
 		<stats>
@@ -431,7 +431,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19866" phase="3">
+	<melee_weapon id="19866" phase="4">
 		<info name="Warblade of the Hakkari" type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
 		<dmg_range min="57" max="106" speed="1.7"/>
 		<stats>
@@ -445,7 +445,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="19867" phase="3">
+	<melee_weapon id="19867" phase="4">
 		<info name="Bloodlord's Defender" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_54.png"/>
 		<dmg_range min="64" max="119" speed="1.9"/>
 		<stats>
@@ -458,7 +458,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19865" phase="3">
+	<melee_weapon id="19865" phase="4">
 		<info name="Warblade of the Hakkari" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
 		<dmg_range min="59" max="110" speed="1.7"/>
 		<stats>
@@ -473,7 +473,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="22378" phase="4">
+	<melee_weapon id="22378" phase="5">
 		<info name="Ravenholdt Slicer" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
 		<dmg_range min="83" max="156" speed="2.8"/>
 		<mutex item_id="22379"/>
@@ -490,7 +490,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="1728" phase="4">
+	<melee_weapon id="1728" phase="5">
 		<info name="Teebu's Blazing Longsword" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
 		<dmg_range min="96" max="178" speed="2.9"/>
 		<proc>
@@ -504,7 +504,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20698" phase="4">
+	<melee_weapon id="20698" phase="5">
 		<info name="Elemental Attuned Blade" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
 		<dmg_range min="59" max="117" speed="2.1"/>
 		<stats>
@@ -517,7 +517,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22383" phase="4">
+	<melee_weapon id="22383" phase="5">
 		<info name="Sageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="64" quality="EPIC" boe="yes" icon="Inv_sword_51.png"/>
 		<dmg_range min="49" max="100" speed="1.8"/>
 		<stats>
@@ -531,7 +531,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21413" phase="4">
+	<melee_weapon id="21413" phase="5">
 		<info name="Blade of Vaulted Secrets" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_57.png"/>
 		<class_restriction class="MAGE"/>
 		<dmg_range min="60" max="131" speed="2.3"/>
@@ -546,7 +546,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21520" phase="4">
+	<melee_weapon id="21520" phase="5">
 		<info name="Ravencrest's Legacy" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
 		<mutex item_id="21251"/>
 		<mutex item_id="21252"/>
@@ -562,7 +562,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21521" phase="4">
+	<melee_weapon id="21521" phase="5">
 		<info name="Runesword of the Red" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
 		<dmg_range min="53" max="129" speed="2.2"/>
 		<mutex item_id="21250"/>
@@ -579,7 +579,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21650" phase="4">
+	<melee_weapon id="21650" phase="5">
 		<info name="Ancient Qiraji Ripper" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_84.png"/>
 		<dmg_range min="114" max="213" speed="2.8"/>
 		<stats>
@@ -592,7 +592,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21622" phase="4">
+	<melee_weapon id="21622" phase="5">
 		<info name="Sharpened Silithid Femur" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_sword_58.png"/>
 		<dmg_range min="54" max="137" speed="2.3"/>
 		<stats>
@@ -609,7 +609,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="22807" phase="5">
+	<melee_weapon id="22807" phase="6">
 		<info name="Wraith Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_sword_11.png"/>
 		<dmg_range min="38" max="109" speed="1.8"/>
 		<stats>
@@ -624,7 +624,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22806" phase="5">
+	<melee_weapon id="22806" phase="6">
 		<info name="Widow's Remorse" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_60.png"/>
 		<dmg_range min="70" max="131" speed="1.6"/>
 		<stats>
@@ -637,7 +637,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23014" phase="5">
+	<melee_weapon id="23014" phase="6">
 		<info name="Iblis, Blade of the Fallen Seraph" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_07.png"/>
 		<dmg_range min="70" max="131" speed="1.6"/>
 		<stats>
@@ -650,7 +650,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23577" phase="5">
+	<melee_weapon id="23577" phase="6">
 		<info name="The Hungering Cold" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_62.png"/>
 		<dmg_range min="76" max="143" speed="1.5"/>
 		<stats>
@@ -663,7 +663,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23054" phase="5">
+	<melee_weapon id="23054" phase="6">
 		<info name="Gressil, Dawn of Ruin" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_61.png"/>
 		<dmg_range min="138" max="257" speed="2.7"/>
 		<stats>

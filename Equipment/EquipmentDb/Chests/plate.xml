@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="11195" phase="0">
+	<item id="11195" phase="1">
 		<info name="Warforged Chestplate" type="PLATE" slot="CHEST" unique="no" req_lvl="40" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
 		<mutex item_id="11193"/>
 		<mutex item_id="11194"/>
@@ -15,7 +15,7 @@
 		</source>
 	</item>
 
-	<item id="16477" phase="1">
+	<item id="16477" phase="2">
 		<info name="Field Marshal's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_plate03.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -30,7 +30,7 @@
 		</source>
 	</item>
 
-	<item id="16541" phase="1">
+	<item id="16541" phase="2">
 		<info name="Warlord's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -45,7 +45,7 @@
 		</source>
 	</item>
 
-	<item id="23272" phase="1">
+	<item id="23272" phase="2">
 		<info name="Knight-Captain's Lamellar Breastplate" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_chest_plate03.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -60,7 +60,7 @@
 		</source>
 	</item>
 
-	<item id="16473" phase="1">
+	<item id="16473" phase="2">
 		<info name="Field Marshal's Lamellar Breastplate" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_chest_plate03.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -77,7 +77,7 @@
 		</source>
 	</item>
 
-	<item id="23300" phase="1">
+	<item id="23300" phase="2">
 		<info name="Knight-Captain's Plate Hauberk" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -91,7 +91,7 @@
 		</source>
 	</item>
 
-	<item id="22872" phase="1">
+	<item id="22872" phase="2">
 		<info name="Legionnaire's Plate Hauberk" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -105,7 +105,7 @@
 		</source>
 	</item>
 
-	<item id="19825" phase="3">
+	<item id="19825" phase="4">
 		<info name="Zandalar Freethinker's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate07.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -121,7 +121,7 @@
 		</source>
 	</item>
 
-	<item id="21331" phase="4">
+	<item id="21331" phase="5">
 		<info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -136,7 +136,7 @@
 		</source>
 	</item>
 
-	<item id="21389" phase="4">
+	<item id="21389" phase="5">
 		<info name="Avenger's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate03.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -155,7 +155,7 @@
 		</source>
 	</item>
 
-	<item id="23000" phase="5">
+	<item id="23000" phase="6">
 		<info name="Plated Abomination Ribcage" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="953"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16685" phase="0">
+	<item id="16685" phase="1">
 		<info name="Magister's Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="46"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="12589" phase="0">
+	<item id="12589" phase="1">
 		<info name="Dustfeather Sash" type="CLOTH" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="49"/>
@@ -26,7 +26,7 @@
 		</source>
 	</item>
 
-	<item id="13956" phase="0">
+	<item id="13956" phase="1">
 		<info name="Clutch of Andros" type="CLOTH" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="49"/>
@@ -39,7 +39,7 @@
 		</source>
 	</item>
 
-	<item id="16802" phase="0">
+	<item id="16802" phase="1">
 		<info name="Arcanist Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_30.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -55,7 +55,7 @@
 		</source>
 	</item>
 
-	<item id="18740" phase="1">
+	<item id="18740" phase="2">
 		<info name="Thuzadin Sash" type="CLOTH" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="49"/>
@@ -69,7 +69,7 @@
 		</source>
 	</item>
 
-	<item id="18405" phase="1">
+	<item id="18405" phase="2">
 		<info name="Belt of the Archmage" type="CLOTH" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_belt_31.png"/>
 		<stats>
 			<stat type="ARMOR" value="54"/>
@@ -82,7 +82,7 @@
 		</source>
 	</item>
 
-	<item id="18809" phase="1">
+	<item id="18809" phase="2">
 		<info name="Sash of Whispered Secrets" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -95,7 +95,7 @@
 		</source>
 	</item>
 
-	<item id="19136" phase="1">
+	<item id="19136" phase="2">
 		<info name="Mana Igniting Cord" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -109,7 +109,7 @@
 		</source>
 	</item>
 
-	<item id="19090" phase="2">
+	<item id="19090" phase="3">
 		<info name="Frostwolf Cloth Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -123,7 +123,7 @@
 		</source>
 	</item>
 
-	<item id="19094" phase="2">
+	<item id="19094" phase="3">
 		<info name="Stormpike Cloth Girdle" type="CLOTH" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -137,7 +137,7 @@
 		</source>
 	</item>
 
-	<item id="19400" phase="2">
+	<item id="19400" phase="3">
 		<info name="Firemaw's Clutch" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="64"/>
@@ -151,7 +151,7 @@
 		</source>
 	</item>
 
-	<item id="16818" phase="2">
+	<item id="16818" phase="3">
 		<info name="Netherwind Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_22.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -167,7 +167,7 @@
 		</source>
 	</item>
 
-	<item id="19388" phase="2">
+	<item id="19388" phase="3">
 		<info name="Angelista's Grasp" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="66"/>
@@ -181,7 +181,7 @@
 		</source>
 	</item>
 
-	<item id="20539" phase="3">
+	<item id="20539" phase="4">
 		<info name="Runed Stygian Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_belt_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="50"/>
@@ -194,7 +194,7 @@
 		</source>
 	</item>
 
-	<item id="20163" phase="3">
+	<item id="20163" phase="4">
 		<info name="Defiler's Cloth Girdle" type="CLOTH" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_17.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -211,7 +211,7 @@
 		</source>
 	</item>
 
-	<item id="20047" phase="3">
+	<item id="20047" phase="4">
 		<info name="Highlander's Cloth Girdle" type="CLOTH" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_17.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -228,7 +228,7 @@
 		</source>
 	</item>
 
-	<item id="22716" phase="3">
+	<item id="22716" phase="4">
 		<info name="Belt of Untapped Power" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_belt_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="54"/>
@@ -241,7 +241,7 @@
 		</source>
 	</item>
 
-	<item id="20217" phase="3">
+	<item id="20217" phase="4">
 		<info name="Belt of Tiny Heads" type="CLOTH" slot="BELT" unique="no" req_lvl="58" item_lvl="70" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -254,7 +254,7 @@
 		</source>
 	</item>
 
-	<item id="20625" phase="3">
+	<item id="20625" phase="4">
 		<info name="Belt of the Dark Bog" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -268,7 +268,7 @@
 		</source>
 	</item>
 
-	<item id="22306" phase="4">
+	<item id="22306" phase="5">
 		<info name="Ironweave Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_03.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -283,7 +283,7 @@
 		</source>
 	</item>
 
-	<item id="20664" phase="4">
+	<item id="20664" phase="5">
 		<info name="Abyssal Cloth Sash of Sorcery" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="UNCOMMON" boe="yes" icon="Inv_belt_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="47"/>
@@ -296,7 +296,7 @@
 		</source>
 	</item>
 
-	<item id="22062" phase="4">
+	<item id="22062" phase="5">
 		<info name="Sorcerer's Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_08.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -311,7 +311,7 @@
 		</source>
 	</item>
 
-	<item id="22070" phase="4">
+	<item id="22070" phase="5">
 		<info name="Deathmist Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
 		<class_restriction class="WARLOCK"/>
 		<stats>
@@ -325,7 +325,7 @@
 		</source>
 	</item>
 
-	<item id="22730" phase="4">
+	<item id="22730" phase="5">
 		<info name="Eyestalk Waist Cord" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="75"/>
@@ -339,7 +339,7 @@
 		</source>
 	</item>
 
-	<item id="23126" phase="5">
+	<item id="23126" phase="6">
 		<info name="Waistband of Balzaphon" type="CLOTH" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -352,7 +352,7 @@
 		</source>
 	</item>
 
-	<item id="22502" phase="5">
+	<item id="22502" phase="6">
 		<info name="Frostfire Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_03.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

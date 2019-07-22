@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="9449" phase="0">
+	<melee_weapon id="9449" phase="1">
 		<info name="Manual Crowd Pummeler" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="29" item_lvl="34" quality="RARE" boe="no" icon="Inv_mace_14.png"/>
 		<dmg_range min="46" max="70" speed="2.0"/>
 		<stats>
@@ -18,7 +18,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17073" phase="0">
+	<melee_weapon id="17073" phase="1">
 		<info name="Earthshaker" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_04.png"/>
 		<dmg_range min="175" max="263" speed="3.5"/>
 		<stats>
@@ -32,7 +32,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18803" phase="1">
+	<melee_weapon id="18803" phase="2">
 		<info name="Finkle's Lava Dredger" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_gizmo_02.png"/>
 		<dmg_range min="155" max="234" speed="2.9"/>
 		<stats>
@@ -49,7 +49,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17193" phase="1">
+	<melee_weapon id="17193" phase="2">
 		<info name="Sulfuron Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="yes" icon="Inv_hammer_unique_sulfuras.png"/>
 		<dmg_range min="176" max="295" speed="3.7"/>
 		<proc>
@@ -63,7 +63,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17182" phase="1">
+	<melee_weapon id="17182" phase="2">
 		<info name="Sulfuras, Hand of Ragnaros" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_hammer_unique_sulfuras.png"/>
 		<dmg_range min="223" max="372" speed="3.7"/>
 		<stats>
@@ -85,7 +85,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18867" phase="1">
+	<melee_weapon id="18867" phase="2">
 		<info name="Grand Marshal's Battle Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_hammer_03.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -98,7 +98,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18868" phase="1">
+	<melee_weapon id="18868" phase="2">
 		<info name="High Warlord's Pulverizer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_hammer_10.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -111,7 +111,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23455" phase="1">
+	<melee_weapon id="23455" phase="2">
 		<info name="Grand Marshal's Demolisher" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_hammer_23.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -125,7 +125,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23465" phase="1">
+	<melee_weapon id="23465" phase="2">
 		<info name="High Warlord's Destroyer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_mace_09.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -139,7 +139,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19323" phase="2">
+	<melee_weapon id="19323" phase="3">
 		<info name="The Unstoppable Force" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_hammer_13.png"/>
 		<dmg_range min="175" max="292" speed="3.8"/>
 		<stats>
@@ -155,7 +155,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19358" phase="2">
+	<melee_weapon id="19358" phase="3">
 		<info name="Draconic Maul" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_mace_05.png"/>
 		<dmg_range min="187" max="282" speed="3.5"/>
 		<stats>
@@ -168,7 +168,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19357" phase="2">
+	<melee_weapon id="19357" phase="3">
 		<info name="Herald of Woe" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_mace_05.png"/>
 		<dmg_range min="199" max="300" speed="3.4"/>
 		<stats>
@@ -182,7 +182,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19918" phase="3">
+	<melee_weapon id="19918" phase="4">
 		<info name="Jeklik's Crusher" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_mace_19.png"/>
 		<dmg_range min="159" max="248" speed="3.6"/>
 		<proc>
@@ -196,7 +196,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21806" phase="4">
+	<melee_weapon id="21806" phase="5">
 		<info name="Gavel of Qiraji Authority" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_hammer_04.png"/>
 		<dmg_range min="108" max="162" speed="2.2"/>
 		<stats>
@@ -211,7 +211,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21188" phase="4">
+	<melee_weapon id="21188" phase="5">
 		<info name="Fist of Cenarius" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_23.png"/>
 		<mutex item_id="21190"/>
 		<mutex item_id="21180"/>
@@ -225,7 +225,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21703" phase="4">
+	<melee_weapon id="21703" phase="5">
 		<info name="Hammer of Ji'zhi" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_21.png"/>
 		<dmg_range min="198" max="297" speed="3.5"/>
 		<stats>
@@ -239,7 +239,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22809" phase="5">
+	<melee_weapon id="22809" phase="6">
 		<info name="Maul of the Redeemed Crusader" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_26.png"/>
 		<dmg_range min="244" max="367" speed="3.6"/>
 		<stats>
@@ -253,7 +253,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22798" phase="5">
+	<melee_weapon id="22798" phase="6">
 		<info name="Might of Menethil" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_mace_25.png"/>
 		<dmg_range min="289" max="435" speed="3.8"/>
 		<stats>

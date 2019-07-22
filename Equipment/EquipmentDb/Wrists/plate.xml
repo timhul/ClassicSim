@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<wrist id="12936" phase="0">
+	<wrist id="12936" phase="1">
 		<info name="Battleborn Armbraces" type="PLATE" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="287"/>
@@ -12,7 +12,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="18533" phase="1">
+	<wrist id="18533" phase="2">
 		<info name="Gordok Bracers of Power" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="287"/>
@@ -24,7 +24,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="19578" phase="3">
+	<wrist id="19578" phase="4">
 		<info name="Berserker Bracers" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="323"/>
@@ -37,7 +37,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="21184" phase="4">
+	<wrist id="21184" phase="5">
 		<info name="Deeprock Bracers" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<mutex item_id="21185"/>
 		<mutex item_id="21186"/>
@@ -53,7 +53,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="21457" phase="4">
+	<wrist id="21457" phase="5">
 		<info name="Bracers of Brutality" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_bracer_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="356"/>
@@ -66,7 +66,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="21618" phase="4">
+	<wrist id="21618" phase="5">
 		<info name="Hive Defiler's Wristguards" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="384"/>
@@ -78,7 +78,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="22936" phase="5">
+	<wrist id="22936" phase="6">
 		<info name="Wristguards of Vengeance" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="407"/>

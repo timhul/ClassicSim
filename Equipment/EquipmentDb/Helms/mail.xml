@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13359" phase="0">
+	<item id="13359" phase="1">
 		<info name="Crown of Tyranny" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="301"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="11729" phase="0">
+	<item id="11729" phase="1">
 		<info name="Savage Gladiator Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="275"/>
@@ -25,7 +25,7 @@
 		</source>
 	</item>
 
-	<item id="16677" phase="0">
+	<item id="16677" phase="1">
 		<info name="Beaststalker's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_24.png"/>
 		<stats>
 			<stat type="ARMOR" value="297"/>
@@ -39,7 +39,7 @@
 		</source>
 	</item>
 
-	<item id="16846" phase="0">
+	<item id="16846" phase="1">
 		<info name="Giantstalker's Helmet" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -56,7 +56,7 @@
 		</source>
 	</item>
 
-	<item id="16939" phase="0">
+	<item id="16939" phase="1">
 		<info name="Dragonstalker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -74,7 +74,7 @@
 		</source>
 	</item>
 
-	<item id="18817" phase="1">
+	<item id="18817" phase="2">
 		<info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="392"/>
@@ -90,7 +90,7 @@
 		</source>
 	</item>
 
-	<item id="18421" phase="1">
+	<item id="18421" phase="2">
 		<info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
 		<mutex item_id="18420"/>
 		<mutex item_id="18424"/>
@@ -107,7 +107,7 @@
 		</source>
 	</item>
 
-	<item id="23306" phase="1">
+	<item id="23306" phase="2">
 		<info name="Lieutenant Commander's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_21.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -122,7 +122,7 @@
 		</source>
 	</item>
 
-	<item id="23251" phase="1">
+	<item id="23251" phase="2">
 		<info name="Champion's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -137,7 +137,7 @@
 		</source>
 	</item>
 
-	<item id="16465" phase="1">
+	<item id="16465" phase="2">
 		<info name="Field Marshal's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -152,7 +152,7 @@
 		</source>
 	</item>
 
-	<item id="16566" phase="1">
+	<item id="16566" phase="2">
 		<info name="Warlord's Chain Helmet" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -167,7 +167,7 @@
 		</source>
 	</item>
 
-	<item id="19875" phase="3">
+	<item id="19875" phase="4">
 		<info name="Bloodstained Coif" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_39.png"/>
 		<stats>
 			<stat type="ARMOR" value="337"/>
@@ -181,7 +181,7 @@
 		</source>
 	</item>
 
-	<item id="21366" phase="4">
+	<item id="21366" phase="5">
 		<info name="Striker's Diadem" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_73.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -198,7 +198,7 @@
 		</source>
 	</item>
 
-	<item id="22013" phase="4">
+	<item id="22013" phase="5">
 		<info name="Beastmaster's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_helmet_24.png"/>
 		<stats>
 			<stat type="ARMOR" value="314"/>
@@ -215,7 +215,7 @@
 		</source>
 	</item>
 
-	<item id="22438" phase="5">
+	<item id="22438" phase="6">
 		<info name="Crypstalker Headpiece" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_15.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>

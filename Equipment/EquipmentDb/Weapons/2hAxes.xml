@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="12784" phase="0">
+	<melee_weapon id="12784" phase="1">
 		<info name="Arcanite Reaper" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_axe_09.png"/>
 		<dmg_range min="153" max="256" speed="3.8"/>
 		<stats>
@@ -12,7 +12,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="11931" phase="0">
+	<melee_weapon id="11931" phase="1">
 		<info name="Dreadforge Retaliator" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_axe_22.png"/>
 		<dmg_range min="149" max="225" speed="3.7"/>
 		<stats>
@@ -25,7 +25,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17104" phase="0">
+	<melee_weapon id="17104" phase="1">
 		<info name="Spinal Reaper" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
 		<dmg_range min="203" max="305" speed="3.4"/>
 		<stats>
@@ -40,7 +40,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18830" phase="1">
+	<melee_weapon id="18830" phase="2">
 		<info name="Grand Marshal's Sunderer" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_10.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -53,7 +53,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18831" phase="1">
+	<melee_weapon id="18831" phase="2">
 		<info name="High Warlord's Battle Axe" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_21.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -66,7 +66,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19169" phase="2">
+	<melee_weapon id="19169" phase="3">
 		<info name="Nightfall" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_axe_12.png"/>
 		<dmg_range min="187" max="282" speed="3.5"/>
 		<proc>
@@ -80,7 +80,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19353" phase="2">
+	<melee_weapon id="19353" phase="3">
 		<info name="Drake Talon Cleaver" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_10.png"/>
 		<dmg_range min="199" max="300" speed="3.4"/>
 		<stats>
@@ -98,7 +98,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19354" phase="2">
+	<melee_weapon id="19354" phase="3">
 		<info name="Draconic Avenger" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_axe_21.png"/>
 		<dmg_range min="174" max="262" speed="3.2"/>
 		<stats>
@@ -111,7 +111,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21856" phase="4">
+	<melee_weapon id="21856" phase="5">
 		<info name="Neretzek, The Blood Drinker" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
 		<dmg_range min="202" max="303" speed="3.7"/>
 		<stats>
@@ -129,7 +129,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21134" phase="4">
+	<melee_weapon id="21134" phase="5">
 		<info name="Dark Edge of Insanity" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_axe_24.png"/>
 		<dmg_range min="242" max="364" speed="3.5"/>
 		<stats>
@@ -145,7 +145,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22815" phase="5">
+	<melee_weapon id="22815" phase="6">
 		<info name="Severance" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_22.png"/>
 		<dmg_range min="235" max="354" speed="3.6"/>
 		<stats>

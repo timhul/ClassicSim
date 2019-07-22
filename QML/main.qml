@@ -143,8 +143,8 @@ Window {
             settings.getDescriptionForPhase(ContentPhase.Naxxramas),
         ]
 
-        currentIndex: settings.getContentPhase()
-        onActivated: settings.setPhase(currentIndex)
+        currentIndex: settings.getContentPhase() - 1
+        onActivated: settings.setPhase(currentIndex + 1)
     }
 
     ComboBox {

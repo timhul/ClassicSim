@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="12651" phase="0">
+	<melee_weapon id="12651" phase="1">
 		<info name="Blackcrow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="77" max="117" speed="3.2"/>
 		<!-- TODO: Should have a shadow damage proc like Thunderfury has nature -->
@@ -13,7 +13,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="13040" phase="0">
+	<melee_weapon id="13040" phase="1">
 		<info name="Heartseeking Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="71" max="108" speed="3.1"/>
 		<stats>
@@ -31,7 +31,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="2099" phase="0">
+	<melee_weapon id="2099" phase="1">
 		<info name="Dwarven Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="53" item_lvl="58" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
 		<dmg_range min="66" max="124" speed="2.9"/>
 		<proc>
@@ -45,7 +45,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17072" phase="0">
+	<melee_weapon id="17072" phase="1">
 		<info name="Blastershot Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
 		<dmg_range min="73" max="136" speed="2.6"/>
 		<stats>
@@ -57,7 +57,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="16007" phase="0">
+	<melee_weapon id="16007" phase="1">
 		<info name="Flawless Arcanite Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_weapon_rifle_03.png"/>
 		<dmg_range min="65" max="122" speed="3.0"/>
 		<stats>
@@ -69,7 +69,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17069" phase="0">
+	<melee_weapon id="17069" phase="1">
 		<info name="Striker's Mark" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_weapon_bow_08.png"/>
 		<dmg_range min="69" max="129" speed="2.5"/>
 		<stats>
@@ -81,7 +81,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18388" phase="1">
+	<melee_weapon id="18388" phase="2">
 		<info name="Stoneshatter" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_crossbow_08.png"/>
 		<dmg_range min="73" max="111" speed="2.9"/>
 		<stats>
@@ -92,7 +92,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18282" phase="1">
+	<melee_weapon id="18282" phase="2">
 		<info name="Core Marksman Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_05.png"/>
 		<dmg_range min="64" max="120" speed="2.5"/>
 		<stats>
@@ -104,7 +104,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18738" phase="1">
+	<melee_weapon id="18738" phase="2">
 		<info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="82" max="124" speed="3.3"/>
 		<stats>
@@ -116,7 +116,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18713" phase="1">
+	<melee_weapon id="18713" phase="2">
 		<info name="Rhok'delar, Longbow of the Ancient Keepers" type="BOW" slot="RANGED" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_01.png"/>
 		<class_restriction class="HUNTER"/>
 		<dmg_range min="89" max="166" speed="2.9"/>
@@ -129,7 +129,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19107" phase="2">
+	<melee_weapon id="19107" phase="3">
 		<info name="Bloodseeker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_crossbow_07.png"/>
 		<dmg_range min="85" max="128" speed="3.3"/>
 		<mutex item_id="19106"/>
@@ -144,7 +144,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18836" phase="1">
+	<melee_weapon id="18836" phase="2">
 		<info name="Grand Marshal's Repeater" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="107" max="162" speed="2.9"/>
 		<stats>
@@ -156,7 +156,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18833" phase="1">
+	<melee_weapon id="18833" phase="2">
 		<info name="Grand Marshal's Bullseye" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_bow_12.png"/>
 		<dmg_range min="66" max="100" speed="1.8"/>
 		<stats>
@@ -168,7 +168,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18855" phase="1">
+	<melee_weapon id="18855" phase="2">
 		<info name="Grand Marshal's Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_rifle_08.png"/>
 		<dmg_range min="107" max="162" speed="2.9"/>
 		<stats>
@@ -180,7 +180,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18837" phase="1">
+	<melee_weapon id="18837" phase="2">
 		<info name="High Warlord's Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_crossbow_10.png"/>
 		<dmg_range min="107" max="162" speed="2.9"/>
 		<stats>
@@ -192,7 +192,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18835" phase="1">
+	<melee_weapon id="18835" phase="2">
 		<info name="High Warlord's Recurve" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_bow_08.png"/>
 		<dmg_range min="66" max="100" speed="1.8"/>
 		<stats>
@@ -204,7 +204,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18860" phase="1">
+	<melee_weapon id="18860" phase="2">
 		<info name="High Warlord's Street Sweeper" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_rifle_06.png"/>
 		<dmg_range min="107" max="162" speed="2.9"/>
 		<stats>
@@ -216,7 +216,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19361" phase="2">
+	<melee_weapon id="19361" phase="3">
 		<info name="Ashjre'thul, Crossbow of Smiting" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_09.png"/>
 		<dmg_range min="124" max="186" speed="3.4"/>
 		<stats>
@@ -228,7 +228,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19350" phase="2">
+	<melee_weapon id="19350" phase="3">
 		<info name="Heartstriker" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_09.png"/>
 		<dmg_range min="80" max="149" speed="2.6"/>
 		<stats>
@@ -240,7 +240,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19368" phase="2">
+	<melee_weapon id="19368" phase="3">
 		<info name="Dragonbreath Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_rifle_02.png"/>
 		<dmg_range min="86" max="160" speed="2.8"/>
 		<stats>
@@ -252,7 +252,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19853" phase="3">
+	<melee_weapon id="19853" phase="4">
 		<info name="Gurubashi Dwarf Destroyer" type="GUN" slot="RANGED" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_rifle_10.png"/>
 		<dmg_range min="76" max="142" speed="2.8"/>
 		<stats>
@@ -263,7 +263,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20038" phase="3">
+	<melee_weapon id="20038" phase="4">
 		<info name="Mandokir's Sting" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_waepon_bow_zulgrub_d_01.png"/>
 		<dmg_range min="68" max="127" speed="2.6"/>
 		<stats>
@@ -275,7 +275,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19993" phase="3">
+	<melee_weapon id="19993" phase="4">
 		<info name="Hoodoo Hunting Bow" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_waepon_bow_zulgrub_d_02.png"/>
 		<dmg_range min="68" max="128" speed="2.8"/>
 		<stats>
@@ -287,7 +287,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20722" phase="4">
+	<melee_weapon id="20722" phase="5">
 		<info name="Crystal Slugthrower" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_weapon_rifle_03.png"/>
 		<dmg_range min="65" max="122" speed="2.8"/>
 		<stats>
@@ -299,7 +299,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20599" phase="4">
+	<melee_weapon id="20599" phase="5">
 		<info name="Polished Ironwood Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_11.png"/>
 		<dmg_range min="101" max="153" speed="3.1"/>
 		<stats>
@@ -312,7 +312,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21800" phase="4">
+	<melee_weapon id="21800" phase="5">
 		<info name="Silithid Husked Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_weapon_rifle_10.png"/>
 		<dmg_range min="68" max="128" speed="2.8"/>
 		<stats>
@@ -324,7 +324,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21478" phase="4">
+	<melee_weapon id="21478" phase="5">
 		<info name="Bow of Taut Sinew" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
 		<dmg_range min="59" max="111" speed="2.2"/>
 		<stats>
@@ -336,7 +336,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21459" phase="4">
+	<melee_weapon id="21459" phase="5">
 		<info name="Crossbow of Imminent Doom" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_06.png"/>
 		<dmg_range min="103" max="155" speed="3.1"/>
 		<stats>
@@ -350,7 +350,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21616" phase="4">
+	<melee_weapon id="21616" phase="5">
 		<info name="Huhuran's Stinger" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_weapon_bow_14.png"/>
 		<dmg_range min="87" max="163" speed="2.7"/>
 		<stats>
@@ -361,7 +361,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23557" phase="4">
+	<melee_weapon id="23557" phase="5">
 		<info name="Larvae of the Great Worm" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_weapon_rifle_10.png"/>
 		<dmg_range min="103" max="192" speed="3.0"/>
 		<stats>
@@ -373,7 +373,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21272" phase="4">
+	<melee_weapon id="21272" phase="5">
 		<info name="Blessed Qiraji Musket" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_rifle_11.png"/>
 		<dmg_range min="86" max="160" speed="2.6"/>
 		<stats>
@@ -388,7 +388,7 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="22810" phase="5">
+	<melee_weapon id="22810" phase="6">
 		<info name="Toxin Injector" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_weapon_rifle_11.png"/>
 		<dmg_range min="68" max="128" speed="2.0"/>
 		<stats>
@@ -400,7 +400,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22811" phase="5">
+	<melee_weapon id="22811" phase="6">
 		<info name="Soulstring" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
 		<dmg_range min="123" max="229" speed="2.9"/>
 		<stats>
@@ -413,7 +413,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22812" phase="5">
+	<melee_weapon id="22812" phase="6">
 		<info name="Nerubian Slavemaker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_12.png"/>
 		<dmg_range min="128" max="238" speed="3.2"/>
 		<stats>

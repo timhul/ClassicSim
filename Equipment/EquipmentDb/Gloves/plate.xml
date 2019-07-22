@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16863" phase="0">
+	<item id="16863" phase="1">
 		<info name="Gauntlets of Might" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -16,7 +16,7 @@
 		</source>
 	</item>
 
-	<item id="19143" phase="1">
+	<item id="19143" phase="2">
 		<info name="Flameguard Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="488"/>
@@ -29,7 +29,7 @@
 		</source>
 	</item>
 
-	<item id="23286" phase="1">
+	<item id="23286" phase="2">
 		<info name="Knight-Lieutenant's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_26.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -46,7 +46,7 @@
 		</source>
 	</item>
 
-	<item id="22868" phase="1">
+	<item id="22868" phase="2">
 		<info name="Blood Guard's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_26.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -63,7 +63,7 @@
 		</source>
 	</item>
 
-	<item id="23274" phase="1">
+	<item id="23274" phase="2">
 		<info name="Knight-Lieutenant's Lamellar Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -81,7 +81,7 @@
 		</source>
 	</item>
 
-	<item id="16471" phase="1">
+	<item id="16471" phase="2">
 		<info name="Marshal's Lamellar Gloves" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_29.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -100,7 +100,7 @@
 		</source>
 	</item>
 
-	<item id="16484" phase="1">
+	<item id="16484" phase="2">
 		<info name="Marshal's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -118,7 +118,7 @@
 		</source>
 	</item>
 
-	<item id="16548" phase="1">
+	<item id="16548" phase="2">
 		<info name="General's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_10.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -136,7 +136,7 @@
 		</source>
 	</item>
 
-	<item id="21623" phase="4">
+	<item id="21623" phase="5">
 		<info name="Gauntlets of the Righteous Champion" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="549"/>
@@ -151,7 +151,7 @@
 		</source>
 	</item>
 
-	<item id="21581" phase="4">
+	<item id="21581" phase="5">
 		<info name="Gauntlets of Annihilation" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
 		<stats>
 			<stat type="ARMOR" value="615"/>

@@ -8,7 +8,7 @@ class Content : public QObject {
 
 public:
     enum class Phase: int {
-        MoltenCore = 0,
+        MoltenCore = 1,
         DireMaul,
         BlackwingLair,
         ZulGurub,

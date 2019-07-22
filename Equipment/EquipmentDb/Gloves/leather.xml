@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="15063" phase="0">
+	<item id="15063" phase="1">
 		<info name="Devilsaur Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_gauntlets_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="103"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="13395" phase="0">
+	<item id="13395" phase="1">
 		<info name="Skul's Fingerbone Claws" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_gauntlets_27.png"/>
 		<stats>
 			<stat type="ARMOR" value="105"/>
@@ -25,7 +25,7 @@
 		</source>
 	</item>
 	
-	<item id="14640" phase="0">
+	<item id="14640" phase="1">
 		<info name="Cadaverous Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="107"/>
@@ -37,7 +37,7 @@
 		</source>
 	</item>
 
-	<item id="16826" phase="0">
+	<item id="16826" phase="1">
 		<info name="Nightslayer Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -53,7 +53,7 @@
 		</source>
 	</item>
 
-	<item id="18823" phase="1">
+	<item id="18823" phase="2">
 		<info name="Aged Core Leather Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="130"/>
@@ -69,7 +69,7 @@
 		</source>
 	</item>
 
-	<item id="18544" phase="1">
+	<item id="18544" phase="2">
 		<info name="Doomhide Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_22.png"/>
 		<stats>
 			<stat type="ARMOR" value="133"/>
@@ -84,7 +84,7 @@
 		</source>
 	</item>
 
-	<item id="16907" phase="2">
+	<item id="16907" phase="3">
 		<info name="Bloodfang Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -102,7 +102,7 @@
 		</source>
 	</item>
 
-	<item id="19686" phase="3">
+	<item id="19686" phase="4">
 		<info name="Primal Batskin Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
 		<stats>
 			<stat type="ARMOR" value="113"/>
@@ -115,7 +115,7 @@
 		</source>
 	</item>
 
-	<item id="19869" phase="3">
+	<item id="19869" phase="4">
 		<info name="Blooddrenched Grips" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="122"/>
@@ -128,7 +128,7 @@
 		</source>
 	</item>
 
-	<item id="21672" phase="4">
+	<item id="21672" phase="5">
 		<info name="Gloves of Enforcement" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="140"/>
@@ -142,7 +142,7 @@
 		</source>
 	</item>
 
-	<item id="21682" phase="4">
+	<item id="21682" phase="5">
 		<info name="Bile-Covered Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
 		<stats>
 			<stat type="ARMOR" value="203"/>
@@ -156,7 +156,7 @@
 		</source>
 	</item>
 
-	<item id="21605" phase="4">
+	<item id="21605" phase="5">
 		<info name="Gloves of the Hidden Temple" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_gauntlets_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="248"/>
@@ -170,7 +170,7 @@
 		</source>
 	</item>
 
-	<item id="22481" phase="5">
+	<item id="22481" phase="6">
 		<info name="Bonescythe Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13404" phase="0">
+	<item id="13404" phase="1">
 		<info name="Mask of the Unforgiven" type="LEATHER" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_misc_bandana_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="132"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="16707" phase="0">
+	<item id="16707" phase="1">
 		<info name="Shadowcraft Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
 		<stats>
 			<stat type="ARMOR" value="141"/>
@@ -27,7 +27,7 @@
 		</source>
 	</item>
 
-	<item id="12587" phase="0">
+	<item id="12587" phase="1">
 		<info name="Eye of Rend" type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
 		<stats>
 			<stat type="ARMOR" value="143"/>
@@ -40,7 +40,7 @@
 		</source>
 	</item>
 
-	<item id="16821" phase="0">
+	<item id="16821" phase="1">
 		<info name="Nightslayer Cover" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -56,7 +56,7 @@
 		</source>
 	</item>
 
-	<item id="16908" phase="0">
+	<item id="16908" phase="1">
 		<info name="Bloodfang Hood" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -73,7 +73,7 @@
 		</source>
 	</item>
 
-	<item id="19945" phase="3">
+	<item id="19945" phase="4">
 		<info name="Foror's Eyepatch" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
 		<stats>
 			<stat type="ARMOR" value="160"/>
@@ -86,7 +86,7 @@
 		</source>
 	</item>
 
-	<item id="22718" phase="3">
+	<item id="22718" phase="4">
 		<info name="Blooddrenched Mask" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
 		<stats>
 			<stat type="ARMOR" value="153"/>
@@ -99,7 +99,7 @@
 		</source>
 	</item>
 
-	<item id="20623" phase="3">
+	<item id="20623" phase="4">
 		<info name="Circlet of Restless Dreams" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="175"/>
@@ -112,7 +112,7 @@
 		</source>
 	</item>
 
-	<item id="21455" phase="4">
+	<item id="21455" phase="5">
 		<info name="Southwind Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="164"/>
@@ -126,7 +126,7 @@
 		</source>
 	</item>
 
-	<item id="21693" phase="4">
+	<item id="21693" phase="5">
 		<info name="Guise of the Devourer" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="250"/>
@@ -140,7 +140,7 @@
 		</source>
 	</item>
 
-	<item id="21360" phase="4">
+	<item id="21360" phase="5">
 		<info name="Deathdealer's Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -156,7 +156,7 @@
 		</source>
 	</item>
 
-	<item id="23020" phase="5">
+	<item id="23020" phase="6">
 		<info name="Polar Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="196"/>
@@ -169,7 +169,7 @@
 		</source>
 	</item>
 
-	<item id="22478" phase="5">
+	<item id="22478" phase="6">
 		<info name="Bonescythe Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>

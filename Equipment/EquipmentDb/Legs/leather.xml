@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="15062" phase="0">
+	<item id="15062" phase="1">
 		<info name="Devilsaur Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_pants_wolf.png"/>
 		<stats>
 			<stat type="ARMOR" value="148"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="12963" phase="0">
+	<item id="12963" phase="1">
 		<info name="Blademaster Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="154"/>
@@ -27,7 +27,7 @@
 		</source>
 	</item>
 
-	<item id="14638" phase="0">
+	<item id="14638" phase="1">
 		<info name="Cadaverous Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="150"/>
@@ -39,7 +39,7 @@
 		</source>
 	</item>
 
-	<item id="16822" phase="0">
+	<item id="16822" phase="1">
 		<info name="Nightslayer Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -55,7 +55,7 @@
 		</source>
 	</item>
 
-	<item id="16909" phase="0">
+	<item id="16909" phase="1">
 		<info name="Bloodfang Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -72,7 +72,7 @@
 		</source>
 	</item>
 
-	<item id="18736" phase="1">
+	<item id="18736" phase="2">
 		<info name="Plaguehound Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="152"/>
@@ -85,7 +85,7 @@
 		</source>
 	</item>
 
-	<item id="20627" phase="3">
+	<item id="20627" phase="4">
 		<info name="Dark Heart Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="296"/>
@@ -98,7 +98,7 @@
 		</source>
 	</item>
 
-	<item id="21362" phase="4">
+	<item id="21362" phase="5">
 		<info name="Deathdealer's Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_leather_07.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -113,7 +113,7 @@
 		</source>
 	</item>
 
-	<item id="23071" phase="5">
+	<item id="23071" phase="6">
 		<info name="Leggings of Apocalypse" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_leather_09.png"/>
 		<stats>
 			<stat type="ARMOR" value="211"/>
@@ -127,7 +127,7 @@
 		</source>
 	</item>
 
-	<item id="22477" phase="5">
+	<item id="22477" phase="6">
 		<info name="Bonescythe Legplates" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_plate_05.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>

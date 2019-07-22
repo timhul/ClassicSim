@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="11686" phase="0">
+	<item id="11686" phase="1">
 		<info name="Girdle of Beastial Fury" type="LEATHER" slot="BELT" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="89"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="16713" phase="0">
+	<item id="16713" phase="1">
 		<info name="Shadowcraft Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="93"/>
@@ -27,7 +27,7 @@
 		</source>
 	</item>
 
-	<item id="13252" phase="0">
+	<item id="13252" phase="1">
 		<info name="Cloudrunner Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="185"/>
@@ -39,7 +39,7 @@
 		</source>
 	</item>
 
-	<item id="14636" phase="0">
+	<item id="14636" phase="1">
 		<info name="Cadaverous Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="97"/>
@@ -51,7 +51,7 @@
 		</source>
 	</item>
 
-	<item id="14502" phase="0">
+	<item id="14502" phase="1">
 		<info name="Frostbite Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="98"/>
@@ -65,7 +65,7 @@
 		</source>
 	</item>
 	
-	<item id="16827" phase="0">
+	<item id="16827" phase="1">
 		<info name="Nightslayer Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_23.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -81,7 +81,7 @@
 		</source>
 	</item>
 
-	<item id="18505" phase="1">
+	<item id="18505" phase="2">
 		<info name="Mugger's Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="98"/>
@@ -93,7 +93,7 @@
 		</source>
 	</item>
 
-	<item id="19396" phase="2">
+	<item id="19396" phase="3">
 		<info name="Taut Dragonhide Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="125"/>
@@ -109,7 +109,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="16910" phase="2">
+	<item id="16910" phase="3">
 		<info name="Bloodfang Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_23.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -125,7 +125,7 @@
 		</source>
 	</item>
 
-	<item id="20216" phase="3">
+	<item id="20216" phase="4">
 		<info name="Belt of Preserved Heads" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="no" icon="Inv_belt_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="108"/>
@@ -139,7 +139,7 @@
 		</source>
 	</item>
 
-	<item id="21586" phase="4">
+	<item id="21586" phase="5">
 		<info name="Belt of Never-ending Agony" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="142"/>
@@ -153,7 +153,7 @@
 		</source>
 	</item>
 
-	<item id="22482" phase="5">
+	<item id="22482" phase="6">
 		<info name="Bonescythe Waistguard" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_27.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>

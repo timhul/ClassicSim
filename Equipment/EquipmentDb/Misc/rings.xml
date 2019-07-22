@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="9533" phase="0">
+	<item id="9533" phase="1">
 		<info name="Masons Fraternity Ring" type="RING" slot="RING" unique="yes" req_lvl="40" item_lvl="47" quality="RARE" boe="no" icon="Inv_jewelry_ring_03.png"/>
 		<mutex item_id="9534"/>
 		<stats>
@@ -12,7 +12,7 @@
 		</source>
 	</item>
 
-	<item id="17713" phase="0">
+	<item id="17713" phase="1">
 		<info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
 		<stats>
 			<stat type="STAMINA" value="6"/>
@@ -24,7 +24,7 @@
 		</source>
 	</item>
 
-	<item id="11862" phase="0">
+	<item id="11862" phase="1">
 		<info name="White Bone Band" type="RING" slot="RING" unique="yes" req_lvl="48" item_lvl="52" quality="UNCOMMON" boe="no" faction="HORDE" icon="Inv_misc_bone_05.png"/>
 		<mutex item_id="11863"/>
 		<mutex item_id="11864"/>
@@ -36,7 +36,7 @@
 		</source>
 	</item>
 
-	<item id="10780" phase="0">
+	<item id="10780" phase="1">
 		<info name="Mark of Hakkar" type="RING" slot="RING" unique="yes" req_lvl="46" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_05.png"/>
 		<stats>
 			<stat type="STRENGTH" value="7"/>
@@ -47,7 +47,7 @@
 		</source>
 	</item>
 
-	<item id="18400" phase="0">
+	<item id="18400" phase="1">
 		<info name="Ring of Living Stone" type="RING" slot="RING" unique="yes" req_lvl="55" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_19.png"/>
 		<mutex item_id="18402"/>
 		<stats>
@@ -59,7 +59,7 @@
 		</source>
 	</item>
 
-	<item id="2246" phase="0">
+	<item id="2246" phase="1">
 		<info name="Myrmidon's Signet" type="RING" slot="RING" unique="yes" req_lvl="53" item_lvl="58" quality="EPIC" boe="yes" icon="Inv_jewelry_ring_05.png"/>
 		<stats>
 			<stat type="STAMINA" value="17"/>
@@ -71,7 +71,7 @@
 		</source>
 	</item>
 
-	<item id="13392" phase="0">
+	<item id="13392" phase="1">
 		<info name="The Postmaster's Seal" type="RING" slot="RING" unique="yes" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_23.png"/>
 		<stats>
 			<stat type="SPIRIT" value="17"/>
@@ -83,7 +83,7 @@
 		</source>
 	</item>
 
-	<item id="18302" phase="1">
+	<item id="18302" phase="2">
 		<info name="Band of Vigor" type="RING" slot="RING" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_20.png"/>
 		<stats>
 			<stat type="STRENGTH" value="8"/>
@@ -95,7 +95,7 @@
 		</source>
 	</item>
 
-	<item id="12548" phase="0">
+	<item id="12548" phase="1">
 		<info name="Magni's Will" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="ALLIANCE" icon="Inv_jewelry_ring_05.png"/>
 		<mutex item_id="12543"/>
 		<stats>
@@ -108,7 +108,7 @@
 		</source>
 	</item>
 
-	<item id="12544" phase="0">
+	<item id="12544" phase="1">
 		<info name="Thrall's Resolve" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="HORDE" icon="Inv_jewelry_ring_05.png"/>
 		<mutex item_id="12545"/>
 		<stats>
@@ -121,7 +121,7 @@
 		</source>
 	</item>
 
-	<item id="13098" phase="0">
+	<item id="13098" phase="1">
 		<info name="Painweaver Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_18.png"/>
 		<stats>
 			<stat type="STAMINA" value="7"/>
@@ -133,7 +133,7 @@
 		</source>
 	</item>
 
-	<item id="13217" phase="0">
+	<item id="13217" phase="1">
 		<info name="Band of the Penitent" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="61" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_30.png"/>
 		<mutex item_id="13216"/>
 		<stats>
@@ -144,7 +144,7 @@
 		</source>
 	</item>
 
-	<item id="13373" phase="0">
+	<item id="13373" phase="1">
 		<info name="Band of Flesh" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_bone_04.png"/>
 		<stats>
 			<stat type="STAMINA" value="16"/>
@@ -156,7 +156,7 @@
 		</source>
 	</item>
 
-	<item id="19147" phase="0">
+	<item id="19147" phase="1">
 		<info name="Ring of Spell Power" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="33"/>
@@ -166,7 +166,7 @@
 		</source>
 	</item>
 
-	<item id="17063" phase="0">
+	<item id="17063" phase="1">
 		<info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
 		<stats>
 			<stat type="STAMINA" value="10"/>
@@ -178,7 +178,7 @@
 		</source>
 	</item>
 
-	<item id="18399" phase="1">
+	<item id="18399" phase="2">
 		<info name="Ocean's Breeze" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_28.png"/>
 		<mutex item_id="18398"/>
 		<stats>
@@ -192,7 +192,7 @@
 		</source>
 	</item>
 
-	<item id="18701" phase="1">
+	<item id="18701" phase="2">
 		<info name="Innervating Band" type="RING" slot="RING" unique="yes" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_jewelry_ring_24.png"/>
 		<stats>
 			<stat type="AGILITY" value="15"/>
@@ -203,7 +203,7 @@
 		</source>
 	</item>
 
-	<item id="18464" phase="1">
+	<item id="18464" phase="2">
 		<info name="Gordok Nose Ring" type="RING" slot="RING" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_06.png"/>
 		<stats>
 			<stat type="STAMINA" value="9"/>
@@ -214,7 +214,7 @@
 		</source>
 	</item>
 
-	<item id="18500" phase="1">
+	<item id="18500" phase="2">
 		<info name="Tarnished Elven Ring" type="RING" slot="RING" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_13.png"/>
 		<stats>
 			<stat type="AGILITY" value="15"/>
@@ -225,7 +225,7 @@
 		</source>
 	</item>
 
-	<item id="18522" phase="1">
+	<item id="18522" phase="2">
 		<info name="Band of the Ogre King" type="RING" slot="RING" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_32.png"/>
 		<stats>
 			<stat type="STRENGTH" value="14"/>
@@ -236,7 +236,7 @@
 		</source>
 	</item>
 
-	<item id="18403" phase="1">
+	<item id="18403" phase="2">
 		<info name="Dragonslayer's Signet" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_ring_27.png"/>
 		<mutex item_id="18404"/>
 		<mutex item_id="18406"/>
@@ -252,7 +252,7 @@
 		</source>
 	</item>
 
-	<item id="18821" phase="1">
+	<item id="18821" phase="2">
 		<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
 		<stats>
 			<stat type="STAMINA" value="8"/>
@@ -265,7 +265,7 @@
 		</source>
 	</item>
 
-	<item id="18543" phase="1">
+	<item id="18543" phase="2">
 		<info name="Ring of Entropy" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_20.png"/>
 		<stats>
 			<stat type="INTELLECT" value="13"/>
@@ -278,7 +278,7 @@
 		</source>
 	</item>
 
-	<item id="19384" phase="2">
+	<item id="19384" phase="3">
 		<info name="Master Dragonslayer's Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
 		<mutex item_id="19366"/>
 		<mutex item_id="19383"/>
@@ -292,7 +292,7 @@
 		</source>
 	</item>
 
-	<item id="19514" phase="2">
+	<item id="19514" phase="3">
 		<info name="Protector's Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" faction="ALLIANCE" icon="Inv_jewelry_ring_10.png"/>
 		<stats>
 			<stat type="STRENGTH" value="12"/>
@@ -304,7 +304,7 @@
 		</source>
 	</item>
 
-	<item id="19510" phase="2">
+	<item id="19510" phase="3">
 		<info name="Legionnaire's Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" faction="HORDE" icon="Inv_jewelry_ring_21.png"/>
 		<stats>
 			<stat type="STRENGTH" value="12"/>
@@ -316,7 +316,7 @@
 		</source>
 	</item>
 
-	<item id="19325" phase="2">
+	<item id="19325" phase="3">
 		<info name="Don Julio's Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_35.png"/>
 		<stats>
 			<stat type="STAMINA" value="11"/>
@@ -329,7 +329,7 @@
 		</source>
 	</item>
 
-	<item id="19397" phase="2">
+	<item id="19397" phase="3">
 		<info name="Ring of Blackrock" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_43.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="19"/>
@@ -340,7 +340,7 @@
 		</source>
 	</item>
 
-	<item id="19403" phase="2">
+	<item id="19403" phase="3">
 		<info name="Band of Forced Concentration" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_34.png"/>
 		<stats>
 			<stat type="INTELLECT" value="12"/>
@@ -353,7 +353,7 @@
 		</source>
 	</item>
 
-	<item id="19432" phase="2">
+	<item id="19432" phase="3">
 		<info name="Circle of Applied Force" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_37.png"/>
 		<stats>
 			<stat type="STRENGTH" value="12"/>
@@ -365,7 +365,7 @@
 		</source>
 	</item>
 
-	<item id="19376" phase="2">
+	<item id="19376" phase="3">
 		<info name="Archimtiros' Ring of Reckoning" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
 		<stats>
 			<stat type="AGILITY" value="14"/>
@@ -376,7 +376,7 @@
 		</source>
 	</item>
 
-	<item id="20632" phase="3">
+	<item id="20632" phase="4">
 		<info name="Mindtear Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_jewelry_ring_04.png"/>
 		<stats>
 			<stat type="INTELLECT" value="6"/>
@@ -389,7 +389,7 @@
 		</source>
 	</item>
 
-	<item id="19898" phase="3">
+	<item id="19898" phase="4">
 		<info name="Seal of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
 		<stats>
 			<stat type="STAMINA" value="8"/>
@@ -401,7 +401,7 @@
 		</source>
 	</item>
 
-	<item id="19925" phase="3">
+	<item id="19925" phase="4">
 		<info name="Band of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
 		<stats>
 			<stat type="AGILITY" value="14"/>
@@ -413,7 +413,7 @@
 		</source>
 	</item>
 
-	<item id="19893" phase="3">
+	<item id="19893" phase="4">
 		<info name="Zanzil's Seal" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_jewelry_ring_46.png"/>
 		<stats>
 			<stat type="INTELLECT" value="10"/>
@@ -426,7 +426,7 @@
 		</source>
 	</item>
 
-	<item id="19905" phase="3">
+	<item id="19905" phase="4">
 		<info name="Zanzil's Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_46.png"/>
 		<stats>
 			<stat type="INTELLECT" value="13"/>
@@ -438,7 +438,7 @@
 		</source>
 	</item>
 
-	<item id="22722" phase="3">
+	<item id="22722" phase="4">
 		<info name="Seal of the Gurubashi Berserker" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_20.png"/>
 		<stats>
 			<stat type="STAMINA" value="13"/>
@@ -449,7 +449,7 @@
 		</source>
 	</item>
 
-	<item id="20624" phase="3">
+	<item id="20624" phase="4">
 		<info name="Ring of the Unliving" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
 		<stats>
 			<stat type="AGILITY" value="21"/>
@@ -460,7 +460,7 @@
 		</source>
 	</item>
 
-	<item id="22255" phase="4">
+	<item id="22255" phase="5">
 		<info name="Magma Forged Band" type="RING" slot="RING" unique="yes" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_jewelry_ring_04.png"/>
 		<stats>
 			<stat type="AGILITY" value="12"/>
@@ -472,7 +472,7 @@
 		</source>
 	</item>
 
-	<item id="21182" phase="4">
+	<item id="21182" phase="5">
 		<info name="Band of Earthen Might" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_jewelry_ring_19.png"/>
 		<mutex item_id="21181"/>
 		<mutex item_id="21183"/>
@@ -486,7 +486,7 @@
 		</source>
 	</item>
 
-	<item id="21189" phase="4">
+	<item id="21189" phase="5">
 		<info name="Might of Cenarius" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
 		<mutex item_id="21184"/>
 		<mutex item_id="21185"/>
@@ -501,7 +501,7 @@
 		</source>
 	</item>
 
-	<item id="20721" phase="4">
+	<item id="20721" phase="5">
 		<info name="Band of the Cultist" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_jewelry_ring_27.png"/>
 		<stats>
 			<stat type="STAMINA" value="12"/>
@@ -513,7 +513,7 @@
 		</source>
 	</item>
 
-	<item id="21393" phase="4">
+	<item id="21393" phase="5">
 		<info name="Signet of Unyielding Strength" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -526,7 +526,7 @@
 		</source>
 	</item>
 
-	<item id="21402" phase="4">
+	<item id="21402" phase="5">
 		<info name="Signet of the Unseen Path" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -539,7 +539,7 @@
 		</source>
 	</item>
 
-	<item id="21405" phase="4">
+	<item id="21405" phase="5">
 		<info name="Band of Veiled Shadows" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -552,7 +552,7 @@
 		</source>
 	</item>
 
-	<item id="21483" phase="4">
+	<item id="21483" phase="5">
 		<info name="Ring of the Desert Winds" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_jewelry_ring_ahnqiraj_05.png"/>
 		<stats>
 			<stat type="INTELLECT" value="9"/>
@@ -565,7 +565,7 @@
 		</source>
 	</item>
 
-	<item id="21477" phase="4">
+	<item id="21477" phase="5">
 		<info name="Ring of Fury" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_jewelry_ring_ahnqiraj_04.png"/>
 		<stats>
 			<stat type="STAMINA" value="9"/>
@@ -577,7 +577,7 @@
 		</source>
 	</item>
 
-	<item id="21210" phase="4">
+	<item id="21210" phase="5">
 		<info name="Signet Ring of the Bronze Dragonflight" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
 		<mutex item_id="21196"/>
 		<mutex item_id="21201"/>
@@ -607,7 +607,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="21205" phase="4">
+	<item id="21205" phase="5">
 		<info name="Signet Ring of the Bronze Dragonflight" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
 		<mutex item_id="21196"/>
 		<mutex item_id="21201"/>
@@ -636,7 +636,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="21836" phase="4">
+	<item id="21836" phase="5">
 		<info name="Ritssyn's Ring of Chaos" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_jewelry_ring_34.png"/>
 		<stats>
 			<stat type="STAMINA" value="6"/>
@@ -648,7 +648,7 @@
 		</source>
 	</item>
 
-	<item id="21709" phase="4">
+	<item id="21709" phase="5">
 		<info name="Ring of the Fallen God" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_02.png"/>
 		<mutex item_id="21712"/>
 		<mutex item_id="21710"/>
@@ -663,7 +663,7 @@
 		</source>
 	</item>
 
-	<item id="21707" phase="4">
+	<item id="21707" phase="5">
 		<info name="Ring of Swarming Thought" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_04.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="26"/>
@@ -674,7 +674,7 @@
 		</source>
 	</item>
 
-	<item id="21677" phase="4">
+	<item id="21677" phase="5">
 		<info name="Ring of the Qiraji Fury" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_01.png"/>
 		<stats>
 			<stat type="STAMINA" value="12"/>
@@ -686,7 +686,7 @@
 		</source>
 	</item>
 
-	<item id="21596" phase="4">
+	<item id="21596" phase="5">
 		<info name="Ring of the Godslayer" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_06.png"/>
 		<stats>
 			<stat type="AGILITY" value="27"/>
@@ -697,7 +697,7 @@
 		</source>
 	</item>
 
-	<item id="23237" phase="5">
+	<item id="23237" phase="6">
 		<info name="Ring of the Eternal Flame" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
 			<stat type="INTELLECT" value="10"/>
@@ -709,7 +709,7 @@
 		</source>
 	</item>
 
-	<item id="23038" phase="5">
+	<item id="23038" phase="6">
 		<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
 			<stat type="CRIT_CHANCE" value="0.01"/>
@@ -721,7 +721,7 @@
 		</source>
 	</item>
 
-	<item id="23037" phase="5">
+	<item id="23037" phase="6">
 		<info name="Ring of Spiritual Fervor" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_52naxxramas.png"/>
 		<stats>
 			<stat type="INTELLECT" value="14"/>
@@ -733,7 +733,7 @@
 		</source>
 	</item>
 
-	<item id="22961" phase="5">
+	<item id="22961" phase="6">
 		<info name="Band of Reanimation" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_49naxxramas.png"/>
 		<stats>
 			<stat type="AGILITY" value="34"/>
@@ -743,7 +743,7 @@
 		</source>
 	</item>
 
-	<item id="23025" phase="5">
+	<item id="23025" phase="6">
 		<info name="Seal of the Damned" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
 			<stat type="STAMINA" value="17"/>
@@ -756,7 +756,7 @@
 		</source>
 	</item>
 
-	<item id="23060" phase="5">
+	<item id="23060" phase="6">
 		<info name="Bonescythe Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -770,7 +770,7 @@
 		</source>
 	</item>
 
-	<item id="23067" phase="5">
+	<item id="23067" phase="6">
 		<info name="Ring of the Crypstalker" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -782,7 +782,7 @@
 		</source>
 	</item>
 
-	<item id="23062" phase="5">
+	<item id="23062" phase="6">
 		<info name="Frostfire Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

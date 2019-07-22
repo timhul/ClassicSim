@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="20130" phase="0">
+	<item id="20130" phase="1">
 		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
 		<mutex item_id="20251"/>
 		<mutex item_id="20517"/>
@@ -19,7 +19,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="11832" phase="0">
+	<item id="11832" phase="1">
 		<info name="Burst of Knowledge" type="TRINKET" slot="TRINKET" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_amulet_07.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="12"/>
@@ -35,7 +35,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="19812" phase="0">
+	<item id="19812" phase="1">
 		<info name="Rune of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_rune_06.png"/>
 		<mutex item_id="13209"/>
 		<stats>
@@ -49,7 +49,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="13209" phase="0">
+	<item id="13209" phase="1">
 		<info name="Seal of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_armorkit_18.png"/>
 		<mutex item_id="19812"/>
 		<stats>
@@ -63,7 +63,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="11815" phase="0">
+	<item id="11815" phase="1">
 		<info name="Hand of Justice" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_talisman_01.png"/>
 		<stats>
 			<stat type="ATTACK_POWER" value="20"/>
@@ -79,7 +79,7 @@
 		</source>
 	</item>
 
-	<item id="13965" phase="0">
+	<item id="13965" phase="1">
 		<info name="Blackhand's Breadth" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_armorkit_09.png"/>
 		<mutex item_id="13968"/>
 		<mutex item_id="13966"/>
@@ -91,7 +91,7 @@
 		</source>
 	</item>
 
-	<item id="13968" phase="0">
+	<item id="13968" phase="1">
 		<info name="Eye of the Beast" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_08.png"/>
 		<mutex item_id="13965"/>
 		<mutex item_id="13966"/>
@@ -108,7 +108,7 @@
 		</source>
 	</item>
 
-	<item id="17064" phase="0">
+	<item id="17064" phase="1">
 		<info name="Shard of the Scale" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_misc_monsterscales_15.png"/>
 		<stats>
 			<stat type="MANA_PER_5" value="16"/>
@@ -118,7 +118,7 @@
 		</source>
 	</item>
 
-	<item id="18820" phase="1">
+	<item id="18820" phase="2">
 		<info name="Talisman of Ephemeral Power" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_stonetablet_11.png"/>
 		<stats/>
 		<uses>
@@ -132,7 +132,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="18537" phase="1">
+	<item id="18537" phase="2">
 		<info name="Counterattack Lodestone" type="TRINKET" slot="TRINKET" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_stone_02.png"/>
 		<stats>
 			<stat type="PARRY_CHANCE" value="0.01"/>
@@ -143,7 +143,7 @@
 		</source>
 	</item>
 
-	<item id="18473" phase="1">
+	<item id="18473" phase="2">
 		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -158,7 +158,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="18468" phase="1">
+	<item id="18468" phase="2">
 		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="54" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -173,7 +173,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="18371" phase="1">
+	<item id="18371" phase="2">
 		<info name="Mindtap Talisman" type="TRINKET" slot="TRINKET" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_battery_02.png"/>
 		<stats>
 			<stat type="MANA_PER_5" value="11"/>
@@ -183,7 +183,7 @@
 		</source>
 	</item>
 
-	<item id="12930" phase="1">
+	<item id="12930" phase="2">
 		<info name="Briarwood Reed" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_root_02.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="29"/>
@@ -193,7 +193,7 @@
 		</source>
 	</item>
 
-	<item id="12930" phase="2">
+	<item id="12930" phase="3">
 		<info name="Rune of Perfection" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="40" item_lvl="45" quality="RARE" boe="no" icon="Inv_misc_rune_05.png"/>
 		<class_restriction class="PRIEST"/>
 		<class_restriction class="SHAMAN"/>
@@ -209,7 +209,7 @@
 		</source>
 	</item>
 
-	<item id="19120" phase="0">
+	<item id="19120" phase="1">
 		<info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
 		<stats>
 			<stat type="ATTACK_POWER" value="20"/>
@@ -220,7 +220,7 @@
 		</source>
 	</item>
 
-	<item id="19343" phase="2">
+	<item id="19343" phase="3">
 		<info name="Scrolls of Blinding Light" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_scroll_08.png"/>
 		<class_restriction class="PALADIN"/>
 		<uses>
@@ -234,7 +234,7 @@
 		</source>
 	</item>
 
-	<item id="19339" phase="2">
+	<item id="19339" phase="3">
 		<info name="Mind Quickening Gem" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Spell_nature_wispheal.png"/>
 		<class_restriction class="MAGE"/>
 		<uses>
@@ -248,7 +248,7 @@
 		</source>
 	</item>
 
-	<item id="19406" phase="2">
+	<item id="19406" phase="3">
 		<info name="Drake Fang Talisman" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_bone_06.png"/>
 		<stats>
 			<stat type="ATTACK_POWER" value="56"/>
@@ -260,7 +260,7 @@
 		</source>
 	</item>
 
-	<item id="19379" phase="2">
+	<item id="19379" phase="3">
 		<info name="Neltharion's Tear" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_stone_15.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="44"/>
@@ -274,7 +274,7 @@
 		</source>
 	</item>
 
-	<item id="19991" phase="0">
+	<item id="19991" phase="1">
 		<info name="Devilsaur Eye" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
 		<mutex item_id="19992"/>
 		<mutex item_id="20083"/>
@@ -292,7 +292,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="19930" phase="3">
+	<item id="19930" phase="4">
 		<info name="Mar'li's Eye" type="TRINKET" slot="TRINKET" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_zulgurubtrinket.png"/>
 		<stats/>
 		<uses>
@@ -306,7 +306,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="19949" phase="3">
+	<item id="19949" phase="4">
 		<info name="Zandalarian Hero Medallion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
 		<mutex item_id="19948"/>
 		<mutex item_id="19950"/>
@@ -322,7 +322,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="19950" phase="3">
+	<item id="19950" phase="4">
 		<info name="Zandalarian Hero Charm" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
 		<mutex item_id="19948"/>
 		<mutex item_id="19949"/>
@@ -338,7 +338,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="19953" phase="3">
+	<item id="19953" phase="4">
 		<info name="Renataki's Charm of Beasts" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats/>
@@ -350,7 +350,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="22268" phase="4">
+	<item id="22268" phase="5">
 		<info name="Draconic Infused Emblem" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_09.png"/>
 		<stats/>
 		<uses>
@@ -364,7 +364,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="21180" phase="4">
+	<item id="21180" phase="5">
 		<info name="Earthstrike" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Spell_nature_abolishmagic.png"/>
 		<mutex item_id="21188"/>
 		<mutex item_id="21190"/>
@@ -380,7 +380,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="21473" phase="4">
+	<item id="21473" phase="5">
 		<info name="Eye of Moam" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
 		<stats>
 		</stats>
@@ -395,7 +395,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="21670" phase="4">
+	<item id="21670" phase="5">
 		<info name="Badge of the Swarmguard" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_ahnqirajtrinket_04.png"/>
 		<stats/>
 		<uses>
@@ -409,7 +409,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="23570" phase="4">
+	<item id="23570" phase="5">
 		<info name="Jom Gabbar" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_misc_enggizmos_19.png"/>
 		<stats/>
 		<uses>
@@ -423,7 +423,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="23001" phase="5">
+	<item id="23001" phase="6">
 		<info name="Eye of Dimunition" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas02.png"/>
 		<stats>
 			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
@@ -436,7 +436,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="23041" phase="5">
+	<item id="23041" phase="6">
 		<info name="Slayer's Crest" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas03.png"/>
 		<stats>
 			<stat type="ATTACK_POWER" value="64"/>
@@ -452,7 +452,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="23046" phase="5">
+	<item id="23046" phase="6">
 		<info name="The Restrained Essence of Sapphiron" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas06.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="40"/>
@@ -468,7 +468,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="22954" phase="5">
+	<item id="22954" phase="6">
 		<info name="Kiss of the Spider" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas04.png"/>
 		<stats>
 			<stat type="CRIT_CHANCE" value="0.01"/>
@@ -485,7 +485,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="23207" phase="5">
+	<item id="23207" phase="6">
 		<info name="Mark of the Champion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn3.png"/>
 		<mutex item_id="23206"/>
 		<stats>
@@ -497,7 +497,7 @@
 		</source>
 	</item>
 
-	<item id="23206" phase="5">
+	<item id="23206" phase="6">
 		<info name="Mark of the Champion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn2.png"/>
 		<mutex item_id="23207"/>
 		<stats>

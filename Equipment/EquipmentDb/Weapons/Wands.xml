@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="11748" phase="0">
+	<melee_weapon id="11748" phase="1">
 		<info name="Pyric Caduceus" type="WAND" slot="RANGED" unique="no" req_lvl="48" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_13.png"/>
 		<dmg_range min="66" max="123" speed="1.8"/>
 		<stats>
@@ -11,7 +11,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="13396" phase="0">
+	<melee_weapon id="13396" phase="1">
 		<info name="Skul's Ghastly Touch" type="WAND" slot="RANGED" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_misc_bone_elfskull_01.png"/>
 		<dmg_range min="70" max="131" speed="1.8"/>
 		<stats>
@@ -22,7 +22,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15282001" phase="0">
+	<melee_weapon id="15282001" phase="1">
 		<info name="Dragon Finger of Frozen Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="yes" icon="Inv_wand_06.png"/>
 		<dmg_range min="52" max="97" speed="1.4"/>
 		<stats>
@@ -33,7 +33,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15282002" phase="0">
+	<melee_weapon id="15282002" phase="1">
 		<info name="Dragon Finger of Shadow Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="yes" icon="Inv_wand_06.png"/>
 		<dmg_range min="52" max="97" speed="1.4"/>
 		<stats>
@@ -44,7 +44,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15282003" phase="0">
+	<melee_weapon id="15282003" phase="1">
 		<info name="Dragon Finger of Fiery Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="yes" icon="Inv_wand_06.png"/>
 		<dmg_range min="52" max="97" speed="1.4"/>
 		<stats>
@@ -55,7 +55,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15282004" phase="0">
+	<melee_weapon id="15282004" phase="1">
 		<info name="Dragon Finger of Holy Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="yes" icon="Inv_wand_06.png"/>
 		<dmg_range min="52" max="97" speed="1.4"/>
 		<stats>
@@ -66,7 +66,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15282005" phase="0">
+	<melee_weapon id="15282005" phase="1">
 		<info name="Dragon Finger of Arcane Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="yes" icon="Inv_wand_06.png"/>
 		<dmg_range min="52" max="97" speed="1.4"/>
 		<stats>
@@ -77,7 +77,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15283001" phase="0">
+	<melee_weapon id="15283001" phase="1">
 		<info name="Lunar Wand of Frozen Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_staff_06.png"/>
 		<dmg_range min="67" max="126" speed="1.7"/>
 		<stats>
@@ -88,7 +88,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15283002" phase="0">
+	<melee_weapon id="15283002" phase="1">
 		<info name="Lunar Wand of Shadow Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_staff_06.png"/>
 		<dmg_range min="67" max="126" speed="1.7"/>
 		<stats>
@@ -99,7 +99,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15283003" phase="0">
+	<melee_weapon id="15283003" phase="1">
 		<info name="Lunar Wand of Fiery Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_staff_06.png"/>
 		<dmg_range min="67" max="126" speed="1.7"/>
 		<stats>
@@ -110,7 +110,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15283004" phase="0">
+	<melee_weapon id="15283004" phase="1">
 		<info name="Lunar Wand of Holy Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_staff_06.png"/>
 		<dmg_range min="67" max="126" speed="1.7"/>
 		<stats>
@@ -121,7 +121,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="15283005" phase="0">
+	<melee_weapon id="15283005" phase="1">
 		<info name="Lunar Wand of Arcane Wrath" type="WAND" slot="RANGED" unique="no" req_lvl="54" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_staff_06.png"/>
 		<dmg_range min="67" max="126" speed="1.7"/>
 		<stats>
@@ -132,7 +132,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="16997" phase="0">
+	<melee_weapon id="16997" phase="1">
 		<info name="Stormrager" type="WAND" slot="RANGED" unique="no" req_lvl="56" item_lvl="62" quality="RARE" boe="no" icon="Inv_wand_05.png"/>
 		<dmg_range min="57" max="106" speed="1.3"/>
 		<stats>
@@ -144,7 +144,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="13938" phase="0">
+	<melee_weapon id="13938" phase="1">
 		<info name="Bonecreeper Stylus" type="WAND" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_misc_bone_taurenskull_01.png"/>
 		<dmg_range min="83" max="155" speed="1.9"/>
 		<stats>
@@ -156,7 +156,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17077" phase="0">
+	<melee_weapon id="17077" phase="1">
 		<info name="Crimson Shocker" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_staff_13.png"/>
 		<dmg_range min="102" max="191" speed="2.0"/>
 		<stats>
@@ -168,7 +168,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18301" phase="1">
+	<melee_weapon id="18301" phase="2">
 		<info name="Lethtendris's Wand" type="WAND" slot="RANGED" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_wand_06.png"/>
 		<dmg_range min="60" max="113" speed="1.7"/>
 		<stats>
@@ -179,7 +179,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18338" phase="1">
+	<melee_weapon id="18338" phase="2">
 		<info name="Wand of Arcane Potency" type="WAND" slot="RANGED" unique="no" req_lvl="59" item_lvl="59" quality="RARE" boe="yes" icon="Inv_wand_02.png"/>
 		<dmg_range min="65" max="122" speed="1.6"/>
 		<stats>
@@ -190,7 +190,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18483" phase="1">
+	<melee_weapon id="18483" phase="2">
 		<info name="Mana Channeling Wand" type="WAND" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_wand_05.png"/>
 		<dmg_range min="68" max="127" speed="1.6"/>
 		<stats>
@@ -201,7 +201,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18761" phase="1">
+	<melee_weapon id="18761" phase="2">
 		<info name="Oblivion's Touch" type="WAND" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_wand_12.png"/>
 		<dmg_range min="78" max="147" speed="1.8"/>
 		<stats>
@@ -212,7 +212,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19130" phase="1">
+	<melee_weapon id="19130" phase="2">
 		<info name="Cold Snap" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_wand_01.png"/>
 		<dmg_range min="101" max="189" speed="1.7"/>
 		<stats>
@@ -224,7 +224,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19108" phase="2">
+	<melee_weapon id="19108" phase="3">
 		<info name="Wand of Biting Cold" type="WAND" slot="RANGED" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_wand_01.png"/>
 		<dmg_range min="67" max="125" speed="1.5"/>
 		<mutex item_id="19106"/>
@@ -238,7 +238,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19435" phase="2">
+	<melee_weapon id="19435" phase="3">
 		<info name="Essence Gatherer" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_wand_06.png"/>
 		<dmg_range min="83" max="156" speed="1.4"/>
 		<stats>
@@ -251,7 +251,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19367" phase="2">
+	<melee_weapon id="19367" phase="3">
 		<info name="Dragon's Touch" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_wand_11.png"/>
 		<dmg_range min="107" max="199" speed="1.6"/>
 		<stats>
@@ -264,7 +264,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20082" phase="3">
+	<melee_weapon id="20082" phase="4">
 		<info name="Woestave" type="WAND" slot="RANGED" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_wand_09.png"/>
 		<dmg_range min="68" max="127" speed="1.9"/>
 		<stats>
@@ -279,7 +279,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19927" phase="3">
+	<melee_weapon id="19927" phase="4">
 		<info name="Mar'li's Touch" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_wand_06.png"/>
 		<dmg_range min="91" max="170" speed="1.7"/>
 		<stats>
@@ -292,7 +292,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19967" phase="3">
+	<melee_weapon id="19967" phase="4">
 		<info name="Thoughtblighter" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_wand_05.png"/>
 		<dmg_range min="90" max="168" speed="1.8"/>
 		<stats>
@@ -303,7 +303,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19861" phase="3">
+	<melee_weapon id="19861" phase="4">
 		<info name="Touch of Chaos" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_wand_09.png"/>
 		<dmg_range min="86" max="160" speed="1.5"/>
 		<stats>
@@ -314,7 +314,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20672" phase="4">
+	<melee_weapon id="20672" phase="5">
 		<info name="Sparkling Crystal Wand" type="WAND" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_wand_12.png"/>
 		<dmg_range min="65" max="122" speed="1.5"/>
 		<stats>
@@ -326,7 +326,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22408" phase="4">
+	<melee_weapon id="22408" phase="5">
 		<info name="Ritssyn's Wand of Bad Mojo" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_wand_07.png"/>
 		<dmg_range min="58" max="108" speed="1.3"/>
 		<stats>
@@ -338,7 +338,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21603" phase="4">
+	<melee_weapon id="21603" phase="5">
 		<info name="Wand of Qiraji Nobility" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_wand_06.png"/>
 		<dmg_range min="114" max="213" speed="1.6"/>
 		<stats>
@@ -350,7 +350,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22820" phase="5">
+	<melee_weapon id="22820" phase="6">
 		<info name="Wand of Fates" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_wand_1h_stratholme_d_01.png"/>
 		<dmg_range min="119" max="222" speed="1.5"/>
 		<stats>
@@ -364,7 +364,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22821" phase="5">
+	<melee_weapon id="22821" phase="6">
 		<info name="Doomfinger" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_wand_1h_stratholme_d_02.png"/>
 		<dmg_range min="146" max="271" speed="1.5"/>
 		<stats>

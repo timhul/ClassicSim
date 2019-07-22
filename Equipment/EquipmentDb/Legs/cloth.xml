@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="14632" phase="0">
+	<item id="14632" phase="1">
 		<info name="Necropile Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="76"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="16687" phase="0">
+	<item id="16687" phase="1">
 		<info name="Magister's Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="76"/>
@@ -26,7 +26,7 @@
 		</source>
 	</item>
 
-	<item id="13389" phase="0">
+	<item id="13389" phase="1">
 		<info name="The Postmaster's Trousers" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="76"/>
@@ -39,7 +39,7 @@
 		</source>
 	</item>
 
-	<item id="12965" phase="0">
+	<item id="12965" phase="1">
 		<info name="Spiritshroud Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="78"/>
@@ -53,7 +53,7 @@
 		</source>
 	</item>
 
-	<item id="16796" phase="0">
+	<item id="16796" phase="1">
 		<info name="Arcanist Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -70,7 +70,7 @@
 		</source>
 	</item>
 
-	<item id="16915" phase="0">
+	<item id="16915" phase="1">
 		<info name="Netherwind Pants" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -88,7 +88,7 @@
 		</source>
 	</item>
 
-	<item id="18872" phase="1">
+	<item id="18872" phase="2">
 		<info name="Manastorm Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="85"/>
@@ -101,7 +101,7 @@
 		</source>
 	</item>
 
-	<item id="23304" phase="1">
+	<item id="23304" phase="2">
 		<info name="Knight-Captain's Silk Legguards" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_11.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -117,7 +117,7 @@
 		</source>
 	</item>
 
-	<item id="22883" phase="1">
+	<item id="22883" phase="2">
 		<info name="Legionnaire's Silk Legguards" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_11.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -133,7 +133,7 @@
 		</source>
 	</item>
 
-	<item id="18545" phase="1">
+	<item id="18545" phase="2">
 		<info name="Leggings of Arcane Supremacy" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="93"/>
@@ -148,7 +148,7 @@
 		</source>
 	</item>
 
-	<item id="19165" phase="1">
+	<item id="19165" phase="2">
 		<info name="Flarecore Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="94"/>
@@ -161,7 +161,7 @@
 		</source>
 	</item>
 
-	<item id="16534" phase="1">
+	<item id="16534" phase="2">
 		<info name="General's Silk Trousers" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_07.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -177,7 +177,7 @@
 		</source>
 	</item>
 
-	<item id="16442" phase="1">
+	<item id="16442" phase="2">
 		<info name="Marshal's Silk Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_08.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -193,7 +193,7 @@
 		</source>
 	</item>
 
-	<item id="19133" phase="1">
+	<item id="19133" phase="2">
 		<info name="Fel Infused Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="95"/>
@@ -205,7 +205,7 @@
 		</source>
 	</item>
 
-	<item id="20538" phase="3">
+	<item id="20538" phase="4">
 		<info name="Runed Stygian Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_cloth_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="78"/>
@@ -218,7 +218,7 @@
 		</source>
 	</item>
 
-	<item id="19895" phase="3">
+	<item id="19895" phase="4">
 		<info name="Bloodtinged Kilt" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_cloth_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="87"/>
@@ -231,7 +231,7 @@
 		</source>
 	</item>
 
-	<item id="19683" phase="3">
+	<item id="19683" phase="4">
 		<info name="Bloodvine Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_pants_cloth_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="80"/>
@@ -244,7 +244,7 @@
 		</source>
 	</item>
 
-	<item id="22747" phase="3">
+	<item id="22747" phase="4">
 		<info name="Outrider's Silk Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_cloth_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="188"/>
@@ -258,7 +258,7 @@
 		</source>
 	</item>
 
-	<item id="22752" phase="3">
+	<item id="22752" phase="4">
 		<info name="Sentinel's Silk Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_cloth_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="188"/>
@@ -272,7 +272,7 @@
 		</source>
 	</item>
 
-	<item id="22342" phase="4">
+	<item id="22342" phase="5">
 		<info name="Leggings of Torment" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_09.png"/>
 		<stats>
 			<stat type="ARMOR" value="78"/>
@@ -285,7 +285,7 @@
 		</source>
 	</item>
 
-	<item id="20705" phase="4">
+	<item id="20705" phase="5">
 		<info name="Cenarion Reservist's Pants" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_cloth_06.png"/>
 		<mutex item_id="20716"/>
 		<class_restriction class="MAGE"/>
@@ -301,7 +301,7 @@
 		</source>
 	</item>
 
-	<item id="22067" phase="4">
+	<item id="22067" phase="5">
 		<info name="Sorcerer's Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -316,7 +316,7 @@
 		</source>
 	</item>
 
-	<item id="21676" phase="4">
+	<item id="21676" phase="5">
 		<info name="Leggings of the Festering Swarm" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_cloth_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="101"/>
@@ -329,7 +329,7 @@
 		</source>
 	</item>
 
-	<item id="21461" phase="4">
+	<item id="21461" phase="5">
 		<info name="Leggings of the Black Blizzard" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_pants_cloth_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="97"/>
@@ -344,7 +344,7 @@
 		</source>
 	</item>
 
-	<item id="21346" phase="4">
+	<item id="21346" phase="5">
 		<info name="Enigma Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_cloth_08.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -361,7 +361,7 @@
 		</source>
 	</item>
 
-	<item id="22700" phase="5">
+	<item id="22700" phase="6">
 		<info name="Glacial Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="106"/>
@@ -374,7 +374,7 @@
 		</source>
 	</item>
 
-	<item id="23070" phase="5">
+	<item id="23070" phase="6">
 		<info name="Leggings of Polarity" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="112"/>
@@ -388,7 +388,7 @@
 		</source>
 	</item>
 
-	<item id="22497" phase="5">
+	<item id="22497" phase="6">
 		<info name="Frostfire Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_cloth_05.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

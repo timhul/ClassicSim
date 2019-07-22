@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="12927" phase="0">
+	<item id="12927" phase="1">
 		<info name="Truestrike Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="129"/>
@@ -12,7 +12,7 @@
 		</source>
 	</item>
 
-	<item id="16708" phase="0">
+	<item id="16708" phase="1">
 		<info name="Shadowcraft Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="127"/>
@@ -24,7 +24,7 @@
 		</source>
 	</item>
 
-	<item id="16823" phase="0">
+	<item id="16823" phase="1">
 		<info name="Nightslayer Shoulder Pads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -40,7 +40,7 @@
 		</source>
 	</item>
 
-	<item id="16832" phase="2">
+	<item id="16832" phase="3">
 		<info name="Bloodfang Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -56,7 +56,7 @@
 		</source>
 	</item>
 
-	<item id="19389" phase="2">
+	<item id="19389" phase="3">
 		<info name="Taut Dragonhide Shoulderpads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="170"/>
@@ -71,7 +71,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="19835" phase="3">
+	<item id="19835" phase="4">
 		<info name="Zandalar Madcap's Mantle" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -86,7 +86,7 @@
 		</source>
 	</item>
 
-	<item id="20633" phase="3">
+	<item id="20633" phase="4">
 		<info name="Unnatural Leather Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
 		<stats>
 			<stat type="ARMOR" value="161"/>
@@ -100,7 +100,7 @@
 		</source>
 	</item>
 
-	<item id="21474" phase="4">
+	<item id="21474" phase="5">
 		<info name="Chitinous Shoulderguards" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_shoulder_29.png"/>
 		<stats>
 			<stat type="ARMOR" value="151"/>
@@ -113,7 +113,7 @@
 		</source>
 	</item>
 
-	<item id="21665" phase="4">
+	<item id="21665" phase="5">
 		<info name="Mantle of Wicked Revenge" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_30.png"/>
 		<stats>
 			<stat type="ARMOR" value="170"/>
@@ -126,7 +126,7 @@
 		</source>
 	</item>
 
-	<item id="21361" phase="4">
+	<item id="21361" phase="5">
 		<info name="Deathdealer's Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_03.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -141,7 +141,7 @@
 		</source>
 	</item>
 
-	<item id="22479" phase="5">
+	<item id="22479" phase="6">
 		<info name="Bonescythe Pauldrons" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>

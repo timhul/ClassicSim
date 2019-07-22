@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16678" phase="0">
+	<item id="16678" phase="1">
 		<info name="Beaststalker's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="315"/>
@@ -14,7 +14,7 @@
 		</source>
 	</item>
 
-	<item id="11728" phase="0">
+	<item id="11728" phase="1">
 		<info name="Savage Gladiator Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="296"/>
@@ -27,7 +27,7 @@
 		</source>
 	</item>
 
-	<item id="14612" phase="0">
+	<item id="14612" phase="1">
 		<info name="Bloodmail Leguards" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="315"/>
@@ -41,7 +41,7 @@
 		</source>
 	</item>
 
-	<item id="15052" phase="0">
+	<item id="15052" phase="1">
 		<info name="Black Dragonscale Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="320"/>
@@ -54,7 +54,7 @@
 		</source>
 	</item>
 
-	<item id="16847" phase="0">
+	<item id="16847" phase="1">
 		<info name="Giantstalker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_mail_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -71,7 +71,7 @@
 		</source>
 	</item>
 
-	<item id="16938" phase="0">
+	<item id="16938" phase="1">
 		<info name="Dragonstalker's Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -90,7 +90,7 @@
 		</source>
 	</item>
 
-	<item id="18524" phase="1">
+	<item id="18524" phase="2">
 		<info name="Leggings of Destruction" type="MAIL" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="324"/>
@@ -104,7 +104,7 @@
 		</source>
 	</item>
 
-	<item id="23293" phase="1">
+	<item id="23293" phase="2">
 		<info name="Knight-Captain's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -119,7 +119,7 @@
 		</source>
 	</item>
 
-	<item id="22875" phase="1">
+	<item id="22875" phase="2">
 		<info name="Legionnaire's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -134,7 +134,7 @@
 		</source>
 	</item>
 
-	<item id="16467" phase="1">
+	<item id="16467" phase="2">
 		<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -149,7 +149,7 @@
 		</source>
 	</item>
 
-	<item id="16567" phase="1">
+	<item id="16567" phase="2">
 		<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -164,7 +164,7 @@
 		</source>
 	</item>
 
-	<item id="19887" phase="3">
+	<item id="19887" phase="4">
 		<info name="Bloodstained Legplates" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_mail_09.png"/>
 		<stats>
 			<stat type="ARMOR" value="363"/>
@@ -178,7 +178,7 @@
 		</source>
 	</item>
 
-	<item id="21651" phase="4">
+	<item id="21651" phase="5">
 		<info name="Scaled Sand Reaver Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="427"/>
@@ -192,7 +192,7 @@
 		</source>
 	</item>
 
-	<item id="21368" phase="4">
+	<item id="21368" phase="5">
 		<info name="Striker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_mail_11.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -209,7 +209,7 @@
 		</source>
 	</item>
 
-	<item id="22017" phase="4">
+	<item id="22017" phase="5">
 		<info name="Beastmaster's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="339"/>
@@ -222,7 +222,7 @@
 		</source>
 	</item>
 
-	<item id="22437" phase="5">
+	<item id="22437" phase="6">
 		<info name="Crypstalker Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_mail_15.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>

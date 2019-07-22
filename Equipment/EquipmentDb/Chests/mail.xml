@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="21320" phase="0">
+	<item id="21320" phase="1">
 		<info name="Vest of the Den Watcher" type="MAIL" slot="CHEST" unique="no" req_lvl="51" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
 		<mutex item_id="21318"/>
 		<mutex item_id="21319"/>
@@ -15,7 +15,7 @@
 		</source>
 	</item>
 
-	<item id="15787" phase="0">
+	<item id="15787" phase="1">
 		<info name="Willow Band Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="59" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
 		<mutex item_id="15784"/>
 		<mutex item_id="15786"/>
@@ -30,7 +30,7 @@
 		</source>
 	</item>
 
-	<item id="11926" phase="0">
+	<item id="11926" phase="1">
 		<info name="Deathdealer Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_chest_chain_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="338"/>
@@ -43,7 +43,7 @@
 		</source>
 	</item>
 
-	<item id="14536" phase="0">
+	<item id="14536" phase="1">
 		<info name="Bonebrace Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_chest_chain_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="360"/>
@@ -56,7 +56,7 @@
 		</source>
 	</item>
 
-	<item id="16674" phase="0">
+	<item id="16674" phase="1">
 		<info name="Beaststalker's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_chain_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="370"/>
@@ -71,7 +71,7 @@
 		</source>
 	</item>
 
-	<item id="15050" phase="0">
+	<item id="15050" phase="1">
 		<info name="Black Dragonscale Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_chest_plate06.png"/>
 		<stats>
 			<stat type="ARMOR" value="344"/>
@@ -84,7 +84,7 @@
 		</source>
 	</item>
 
-	<item id="11726" phase="0">
+	<item id="11726" phase="1">
 		<info name="Savage Gladiator Chain" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="369"/>
@@ -98,7 +98,7 @@
 		</source>
 	</item>
 
-	<item id="16845" phase="0">
+	<item id="16845" phase="1">
 		<info name="Giantstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -114,7 +114,7 @@
 		</source>
 	</item>
 
-	<item id="18530" phase="1">
+	<item id="18530" phase="2">
 		<info name="Ogre Forged Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="365"/>
@@ -129,7 +129,7 @@
 		</source>
 	</item>
 
-	<item id="23292" phase="1">
+	<item id="23292" phase="2">
 		<info name="Knight-Captain's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_04.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -144,7 +144,7 @@
 		</source>
 	</item>
 
-	<item id="22874" phase="1">
+	<item id="22874" phase="2">
 		<info name="Legionnaire's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_chain_04.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -159,7 +159,7 @@
 		</source>
 	</item>
 
-	<item id="16466" phase="1">
+	<item id="16466" phase="2">
 		<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -174,7 +174,7 @@
 		</source>
 	</item>
 
-	<item id="16565" phase="1">
+	<item id="16565" phase="2">
 		<info name="Warlord's Chain Chestpiece" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_11.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -189,7 +189,7 @@
 		</source>
 	</item>
 
-	<item id="16942" phase="2">
+	<item id="16942" phase="3">
 		<info name="Dragonstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -207,7 +207,7 @@
 		</source>
 	</item>
 
-	<item id="19690" phase="3">
+	<item id="19690" phase="4">
 		<info name="Bloodsoul Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_chest_chain_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="381"/>
@@ -220,7 +220,7 @@
 		</source>
 	</item>
 
-	<item id="19904" phase="3">
+	<item id="19904" phase="4">
 		<info name="Runed Bloodstained Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate08.png"/>
 		<stats>
 			<stat type="ARMOR" value="416"/>
@@ -234,7 +234,7 @@
 		</source>
 	</item>
 
-	<item id="22191" phase="4">
+	<item id="22191" phase="5">
 		<info name="Obsidian Mail Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="yes" icon="Inv_chest_chain_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="458"/>
@@ -249,7 +249,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="21370" phase="4">
+	<item id="21370" phase="5">
 		<info name="Striker's Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_chain_04.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -266,7 +266,7 @@
 		</source>
 	</item>
 
-	<item id="11820" phase="4">
+	<item id="11820" phase="5">
 		<info name="Royal Decorated Armor" type="MAIL" slot="CHEST" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_chest_plate04.png"/>
 		<stats>
 			<stat type="ARMOR" value="344"/>
@@ -279,7 +279,7 @@
 		</source>
 	</item>
 
-	<item id="14611" phase="4">
+	<item id="14611" phase="5">
 		<info name="Bloodmail Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="360"/>
@@ -294,7 +294,7 @@
 		</source>
 	</item>
 
-	<item id="22060" phase="4">
+	<item id="22060" phase="5">
 		<info name="Beastmaster's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="387"/>
@@ -311,7 +311,7 @@
 		</source>
 	</item>
 
-	<item id="22436" phase="5">
+	<item id="22436" phase="6">
 		<info name="Crypstalker Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>

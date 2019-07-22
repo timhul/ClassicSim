@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16683" phase="0">
+	<item id="16683" phase="1">
 		<info name="Magister's Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_jewelry_ring_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="35"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="14629" phase="0">
+	<item id="14629" phase="1">
 		<info name="Necropile Cuffs" type="CLOTH" slot="WRIST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="38"/>
@@ -26,7 +26,7 @@
 		</source>
 	</item>
 
-	<item id="13107" phase="0">
+	<item id="13107" phase="1">
 		<info name="Magiskull Cuffs" type="CLOTH" slot="WRIST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_bracer_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="38"/>
@@ -38,7 +38,7 @@
 		</source>
 	</item>
 
-	<item id="18263" phase="0">
+	<item id="18263" phase="1">
 		<info name="Flarecore Wraps" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="64" quality="EPIC" boe="yes" icon="Inv_bracer_09.png"/>
 		<stats>
 			<stat type="ARMOR" value="43"/>
@@ -51,7 +51,7 @@
 		</source>
 	</item>
 
-	<item id="16799" phase="0">
+	<item id="16799" phase="1">
 		<info name="Arcanist Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_29.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -67,7 +67,7 @@
 		</source>
 	</item>
 
-	<item id="18497" phase="1">
+	<item id="18497" phase="2">
 		<info name="Sublime Wristguards" type="CLOTH" slot="WRIST" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_bracer_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="37"/>
@@ -81,7 +81,7 @@
 		</source>
 	</item>
 
-	<item id="18456" phase="1">
+	<item id="18456" phase="2">
 		<info name="Sergeant Major's Silk Cuffs" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_bracer_07.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -96,7 +96,7 @@
 		</source>
 	</item>
 
-	<item id="16486" phase="1">
+	<item id="16486" phase="2">
 		<info name="First Sergeant's Silk Cuffs" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_bracer_07.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -111,7 +111,7 @@
 		</source>
 	</item>
 
-	<item id="19135" phase="1">
+	<item id="19135" phase="2">
 		<info name="Blacklight Bracer" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="44"/>
@@ -125,7 +125,7 @@
 		</source>
 	</item>
 
-	<item id="19595" phase="2">
+	<item id="19595" phase="3">
 		<info name="Dryad's Wrist Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="44"/>
@@ -139,7 +139,7 @@
 		</source>
 	</item>
 
-	<item id="19374" phase="2">
+	<item id="19374" phase="3">
 		<info name="Bracers of Arcane Accurary" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="50"/>
@@ -153,7 +153,7 @@
 		</source>
 	</item>
 
-	<item id="16918" phase="2">
+	<item id="16918" phase="3">
 		<info name="Netherwind Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_09.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -169,7 +169,7 @@
 		</source>
 	</item>
 
-	<item id="20626" phase="3">
+	<item id="20626" phase="4">
 		<info name="Black Bark Wristbands" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -183,7 +183,7 @@
 		</source>
 	</item>
 
-	<item id="22313" phase="4">
+	<item id="22313" phase="5">
 		<info name="Ironweave Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_bracer_13.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -198,7 +198,7 @@
 		</source>
 	</item>
 
-	<item id="19846" phase="4">
+	<item id="19846" phase="5">
 		<info name="Zandalar Illusionist's Wraps" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -213,7 +213,7 @@
 		</source>
 	</item>
 
-	<item id="21186" phase="4">
+	<item id="21186" phase="5">
 		<info name="Rockfury Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_bracer_12.png"/>
 		<mutex item_id="21184"/>
 		<mutex item_id="21185"/>
@@ -229,7 +229,7 @@
 		</source>
 	</item>
 
-	<item id="22071" phase="4">
+	<item id="22071" phase="5">
 		<info name="Deathmist Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_13.png"/>
 		<class_restriction class="WARLOCK"/>
 		<stats>
@@ -243,7 +243,7 @@
 		</source>
 	</item>
 
-	<item id="22063" phase="4">
+	<item id="22063" phase="5">
 		<info name="Sorcerer's Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_jewelry_ring_23.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -258,7 +258,7 @@
 		</source>
 	</item>
 
-	<item id="22079" phase="4">
+	<item id="22079" phase="5">
 		<info name="Virtuous Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_31.png"/>
 		<class_restriction class="PRIEST"/>
 		<stats>
@@ -274,7 +274,7 @@
 		</source>
 	</item>
 
-	<item id="20690" phase="4">
+	<item id="20690" phase="5">
 		<info name="Abyssal Cloth Wristbands of Sorcery" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_bracer_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="42"/>
@@ -287,7 +287,7 @@
 		</source>
 	</item>
 
-	<item id="21496" phase="4">
+	<item id="21496" phase="5">
 		<info name="Bracers of Qiraji Command" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_bracer_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="44"/>
@@ -300,7 +300,7 @@
 		</source>
 	</item>
 
-	<item id="21464" phase="4">
+	<item id="21464" phase="5">
 		<info name="Shackles of the Unscarred" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -314,7 +314,7 @@
 		</source>
 	</item>
 
-	<item id="21611" phase="4">
+	<item id="21611" phase="5">
 		<info name="Burrower Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="54"/>
@@ -327,7 +327,7 @@
 		</source>
 	</item>
 
-	<item id="23091" phase="5">
+	<item id="23091" phase="6">
 		<info name="Bracers of Undead Cleansing" type="CLOTH" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="39"/>
@@ -340,7 +340,7 @@
 		</source>
 	</item>
 
-	<item id="22655" phase="5">
+	<item id="22655" phase="6">
 		<info name="Glacial Wrists" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="80" quality="EPIC" boe="yes" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="53"/>
@@ -353,7 +353,7 @@
 		</source>
 	</item>
 
-	<item id="23021" phase="5">
+	<item id="23021" phase="6">
 		<info name="The Soul Harvester's Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -367,7 +367,7 @@
 		</source>
 	</item>
 
-	<item id="22503" phase="5">
+	<item id="22503" phase="6">
 		<info name="Frostfire Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

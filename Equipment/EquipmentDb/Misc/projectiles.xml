@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <projectiles>
-	<projectile id="11284" phase="0">
+	<projectile id="11284" phase="1">
 		<info name="Accurate Slugs" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="40" item_lvl="45" quality="COMMON" boe="yes" icon="Inv_ammo_bullet_01.png"/>
 		<dps value="13.0"/>
 		<source>
@@ -8,7 +8,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="11285" phase="0">
+	<projectile id="11285" phase="1">
 		<info name="Jagged Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="40" item_lvl="45" quality="COMMON" boe="yes" icon="Inv_weapon_shortblade_25.png"/>
 		<dps value="13.0"/>
 		<source>
@@ -16,7 +16,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="10513" phase="0">
+	<projectile id="10513" phase="1">
 		<info name="Mithril Gyro-Shot" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="44" item_lvl="49" quality="UNCOMMON" boe="yes" icon="Inv_ammo_bullet_01.png"/>
 		<dps value="15.0"/>
 		<source>
@@ -24,7 +24,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="11630" phase="0">
+	<projectile id="11630" phase="1">
 		<info name="Rockshard Pellets" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="no" icon="Inv_ammo_bullet_02.png"/>
 		<dps value="18.0"/>
 		<source>
@@ -32,7 +32,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="19316" phase="2">
+	<projectile id="19316" phase="3">
 		<info name="Ice Threaded Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="51" item_lvl="54" quality="UNCOMMON" boe="no" icon="Spell_frost_iceshard.png"/>
 		<dps value="16.5"/>
 		<source>
@@ -40,7 +40,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="19317" phase="2">
+	<projectile id="19317" phase="3">
 		<info name="Ice Threaded Bullet" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="51" item_lvl="54" quality="UNCOMMON" boe="no" icon="Spell_frost_frostblast.png"/>
 		<dps value="16.5"/>
 		<source>
@@ -48,7 +48,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="18042" phase="0">
+	<projectile id="18042" phase="1">
 		<info name="Thorium Headed Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_ammo_arrow_02.png"/>
 		<dps value="17.5"/>
 		<source>
@@ -56,7 +56,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="15997" phase="0">
+	<projectile id="15997" phase="1">
 		<info name="Thorium Shells" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_ammo_bullet_03.png"/>
 		<dps value="17.5"/>
 		<source>
@@ -64,7 +64,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="12654" phase="0">
+	<projectile id="12654" phase="1">
 		<info name="Doomshot" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Ability_hunter_criticalshot.png"/>
 		<dps value="20.0"/>
 		<source>
@@ -72,7 +72,7 @@
 		</source>
 	</projectile>
 
-	<projectile id="13377" phase="0">
+	<projectile id="13377" phase="1">
 		<info name="Miniature Cannon Balls" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_ammo_bullet_02.png"/>
 		<dps value="20.5"/>
 		<source>

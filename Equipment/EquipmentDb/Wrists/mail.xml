@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<wrist id="16681" phase="0">
+	<wrist id="16681" phase="1">
 		<info name="Beaststalker's Bindings" type="MAIL" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_bracer_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="148"/>
@@ -12,7 +12,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="17714" phase="0">
+	<wrist id="17714" phase="1">
 		<info name="Bracers of the Stone Princess" type="MAIL" slot="WRIST" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="141"/>
@@ -25,7 +25,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="13211" phase="0">
+	<wrist id="13211" phase="1">
 		<info name="Slashclaw Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="155"/>
@@ -39,7 +39,7 @@
 		</source>
 	</wrist>
 
-	<item id="16850" phase="0">
+	<item id="16850" phase="1">
 		<info name="Giantstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_bracer_17.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -54,7 +54,7 @@
 		</source>
 	</item>
 
-	<wrist id="18296" phase="1">
+	<wrist id="18296" phase="2">
 		<info name="Marksman Bands" type="MAIL" slot="WRIST" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_bracer_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="146"/>
@@ -69,7 +69,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="18812" phase="1">
+	<wrist id="18812" phase="2">
 		<info name="Wristguards of True Flight" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="198"/>
@@ -83,7 +83,7 @@
 		</source>
 	</wrist>
 
-	<item id="16935" phase="2">
+	<item id="16935" phase="3">
 		<info name="Dragonstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -98,7 +98,7 @@
 		</source>
 	</item>
 
-	<wrist id="19582" phase="2">
+	<wrist id="19582" phase="3">
 		<info name="Windtalker's Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="182"/>
@@ -112,7 +112,7 @@
 		</source>
 	</wrist>
 
-	<item id="19833" phase="3">
+	<item id="19833" phase="4">
 		<info name="Zandalar Predator's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_bracer_18.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -127,7 +127,7 @@
 		</source>
 	</item>
 
-	<wrist id="22011" phase="4">
+	<wrist id="22011" phase="5">
 		<info name="Beastmaster's Bindings" type="MAIL" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="167"/>
@@ -140,7 +140,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="21502" phase="4">
+	<wrist id="21502" phase="5">
 		<info name="Sand Reaver Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_bracer_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="181"/>
@@ -153,7 +153,7 @@
 		</source>
 	</wrist>
 
-	<item id="22443" phase="5">
+	<item id="22443" phase="6">
 		<info name="Crypstalker Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>

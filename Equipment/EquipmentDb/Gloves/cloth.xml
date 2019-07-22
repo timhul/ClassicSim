@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16684" phase="0">
+	<item id="16684" phase="1">
 		<info name="Magister's Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="52"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="13253" phase="0">
+	<item id="13253" phase="1">
 		<info name="Hands of Power" type="CLOTH" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_gauntlets_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="53"/>
@@ -26,7 +26,7 @@
 		</source>
 	</item>
 
-	<item id="14543" phase="0">
+	<item id="14543" phase="1">
 		<info name="Darkshade Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -41,7 +41,7 @@
 		</source>
 	</item>
 
-	<item id="14146" phase="0">
+	<item id="14146" phase="1">
 		<info name="Gloves of Spell Mastery" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_gauntlets_06.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -57,7 +57,7 @@
 		</source>
 	</item>
 
-	<item id="16979" phase="0">
+	<item id="16979" phase="1">
 		<info name="Flarecore Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_gauntlets_26.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -73,7 +73,7 @@
 		</source>
 	</item>
 
-	<item id="16801" phase="0">
+	<item id="16801" phase="1">
 		<info name="Arcanist Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_14.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -90,7 +90,7 @@
 		</source>
 	</item>
 
-	<item id="18693" phase="1">
+	<item id="18693" phase="2">
 		<info name="Shivery Handwraps" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -104,7 +104,7 @@
 		</source>
 	</item>
 
-	<item id="18409" phase="1">
+	<item id="18409" phase="2">
 		<info name="Mooncloth Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_gauntlets_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -117,7 +117,7 @@
 		</source>
 	</item>
 
-	<item id="18407" phase="1">
+	<item id="18407" phase="2">
 		<info name="Felcloth Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_gauntlets_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -129,7 +129,7 @@
 		</source>
 	</item>
 
-	<item id="22870" phase="1">
+	<item id="22870" phase="2">
 		<info name="Blood Guard's Silk Handguards" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_06.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -146,7 +146,7 @@
 		</source>
 	</item>
 
-	<item id="23290" phase="1">
+	<item id="23290" phase="2">
 		<info name="Knight-Lieutenant's Silk Handguards" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_06.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -163,7 +163,7 @@
 		</source>
 	</item>
 
-	<item id="16540" phase="1">
+	<item id="16540" phase="2">
 		<info name="General's Silk Handguards" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_19.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -181,7 +181,7 @@
 		</source>
 	</item>
 
-	<item id="16440" phase="1">
+	<item id="16440" phase="2">
 		<info name="Marshal's Silk Handguards" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_14.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -199,7 +199,7 @@
 		</source>
 	</item>
 
-	<item id="19369" phase="2">
+	<item id="19369" phase="3">
 		<info name="Gloves of Rapid Evolution" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_gauntlets_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="70"/>
@@ -212,7 +212,7 @@
 		</source>
 	</item>
 
-	<item id="19407" phase="2">
+	<item id="19407" phase="3">
 		<info name="Ebony Flame Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_gauntlets_27.png"/>
 		<stats>
 			<stat type="ARMOR" value="72"/>
@@ -225,7 +225,7 @@
 		</source>
 	</item>
 
-	<item id="16913" phase="2">
+	<item id="16913" phase="3">
 		<info name="Netherwind Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_14.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -242,7 +242,7 @@
 		</source>
 	</item>
 
-	<item id="19929" phase="3">
+	<item id="19929" phase="4">
 		<info name="Bloodtinged Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="62"/>
@@ -257,7 +257,7 @@
 		</source>
 	</item>
 
-	<item id="20618" phase="3">
+	<item id="20618" phase="4">
 		<info name="Gloves of Delusional Power" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="69"/>
@@ -271,7 +271,7 @@
 		</source>
 	</item>
 
-	<item id="22066" phase="4">
+	<item id="22066" phase="5">
 		<info name="Sorcerer's Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="58" item_lvl="55" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -287,7 +287,7 @@
 		</source>
 	</item>
 
-	<item id="20716" phase="4">
+	<item id="20716" phase="5">
 		<info name="Sandworm Skin Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_gauntlets_17.png"/>
 		<mutex item_id="20705"/>
 		<class_restriction class="MAGE"/>
@@ -303,7 +303,7 @@
 		</source>
 	</item>
 
-	<item id="21888" phase="4">
+	<item id="21888" phase="5">
 		<info name="Gloves of the Immortal" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_14.png"/>
 		<stats>
 			<stat type="ARMOR" value="188"/>
@@ -315,7 +315,7 @@
 		</source>
 	</item>
 
-	<item id="21585" phase="4">
+	<item id="21585" phase="5">
 		<info name="Darkstorm Gauntlets" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="83"/>
@@ -329,7 +329,7 @@
 		</source>
 	</item>
 
-	<item id="23084" phase="5">
+	<item id="23084" phase="6">
 		<info name="Gloves of Undead Cleansing" type="CLOTH" slot="GLOVES" unique="no" req_lvl="50" item_lvl="63" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="56"/>
@@ -342,7 +342,7 @@
 		</source>
 	</item>
 
-	<item id="23128" phase="5">
+	<item id="23128" phase="6">
 		<info name="The Shadow's Grasp" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -355,7 +355,7 @@
 		</source>
 	</item>
 
-	<item id="22654" phase="5">
+	<item id="22654" phase="6">
 		<info name="Glacial Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="80" quality="EPIC" boe="yes" icon="Inv_gauntlets_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="76"/>
@@ -368,7 +368,7 @@
 		</source>
 	</item>
 
-	<item id="22501" phase="5">
+	<item id="22501" phase="6">
 		<info name="Frostfire Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

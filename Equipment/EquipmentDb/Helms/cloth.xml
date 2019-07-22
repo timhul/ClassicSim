@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="10033" phase="0">
+	<item id="10033" phase="1">
 		<info name="Red Mageweave Headband" type="CLOTH" slot="HEAD" unique="no" req_lvl="43" item_lvl="48" quality="UNCOMMON" boe="yes" icon="Inv_misc_bandana_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="51"/>
@@ -11,7 +11,7 @@
 		</source>
 	</item>
 
-	<item id="10025" phase="0">
+	<item id="10025" phase="1">
 		<info name="Shadoweave Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="44" item_lvl="49" quality="UNCOMMON" boe="yes" icon="Inv_helmet_27.png"/>
 		<stats>
 			<stat type="ARMOR" value="52"/>
@@ -23,7 +23,7 @@
 		</source>
 	</item>
 
-	<item id="10504001" phase="0">
+	<item id="10504001" phase="1">
 		<info name="Green Lens of Arcane Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -35,7 +35,7 @@
 		</source>
 	</item>
 
-	<item id="10504002" phase="0">
+	<item id="10504002" phase="1">
 		<info name="Green Lens of Fiery Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -47,7 +47,7 @@
 		</source>
 	</item>
 
-	<item id="10504003" phase="0">
+	<item id="10504003" phase="1">
 		<info name="Green Lens of Frozen Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -59,7 +59,7 @@
 		</source>
 	</item>
 
-	<item id="10504004" phase="0">
+	<item id="10504004" phase="1">
 		<info name="Green Lens of Holy Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -71,7 +71,7 @@
 		</source>
 	</item>
 
-	<item id="10504005" phase="0">
+	<item id="10504005" phase="1">
 		<info name="Green Lens of Nature Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -83,7 +83,7 @@
 		</source>
 	</item>
 
-	<item id="10504006" phase="0">
+	<item id="10504006" phase="1">
 		<info name="Green Lens of Shadow Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -95,7 +95,7 @@
 		</source>
 	</item>
 
-	<item id="9470" phase="0">
+	<item id="9470" phase="1">
 		<info name="Bad Mojo Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="44" item_lvl="49" quality="RARE" boe="no" icon="Inv_banner_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -107,7 +107,7 @@
 		</source>
 	</item>
 
-	<item id="14441" phase="0">
+	<item id="14441" phase="1">
 		<info name="Venomshroud Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="45" item_lvl="50" quality="UNCOMMON" boe="yes" icon="Inv_helmet_32.png"/>
 		<stats>
 			<stat type="ARMOR" value="53"/>
@@ -120,7 +120,7 @@
 		</source>
 	</item>
 
-	<item id="10041" phase="0">
+	<item id="10041" phase="1">
 		<info name="Dreamweave Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="45" item_lvl="50" quality="RARE" boe="yes" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="58"/>
@@ -133,7 +133,7 @@
 		</source>
 	</item>
 
-	<item id="10630" phase="0">
+	<item id="10630" phase="1">
 		<info name="Soulcatcher Halo" type="CLOTH" slot="HEAD" unique="no" req_lvl="46" item_lvl="51" quality="RARE" boe="yes" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="59"/>
@@ -145,7 +145,7 @@
 		</source>
 	</item>
 
-	<item id="8254" phase="0">
+	<item id="8254" phase="1">
 		<info name="Imperial Red Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="48" item_lvl="53" quality="UNCOMMON" boe="yes" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="56"/>
@@ -157,7 +157,7 @@
 		</source>
 	</item>
 
-	<item id="15999" phase="0">
+	<item id="15999" phase="1">
 		<info name="Spellpower Goggles Xtreme Plus" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="54" quality="UNCOMMON" boe="yes" icon="Inv_helmet_47.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -168,7 +168,7 @@
 		</source>
 	</item>
 
-	<item id="10751" phase="0">
+	<item id="10751" phase="1">
 		<info name="Gemburst Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="54" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
 		<mutex item_id="10749"/>
 		<mutex item_id="10750"/>
@@ -184,7 +184,7 @@
 		</source>
 	</item>
 
-	<item id="17715" phase="0">
+	<item id="17715" phase="1">
 		<info name="Eye of Theradras" type="CLOTH" slot="HEAD" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="63"/>
@@ -197,7 +197,7 @@
 		</source>
 	</item>
 
-	<item id="10782" phase="0">
+	<item id="10782" phase="1">
 		<info name="Hakkari Shroud" type="CLOTH" slot="HEAD" unique="no" req_lvl="46" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_helmet_38.png"/>
 		<stats>
 			<stat type="ARMOR" value="58"/>
@@ -209,7 +209,7 @@
 		</source>
 	</item>
 
-	<item id="11839" phase="0">
+	<item id="11839" phase="1">
 		<info name="Chief Architect's Monocle" type="CLOTH" slot="HEAD" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="64"/>
@@ -222,7 +222,7 @@
 		</source>
 	</item>
 
-	<item id="3075" phase="0">
+	<item id="3075" phase="1">
 		<info name="Eye of Flame" type="CLOTH" slot="HEAD" unique="no" req_lvl="49" item_lvl="55" quality="EPIC" boe="yes" icon="Inv_helmet_44.png"/>
 		<stats>
 			<stat type="ARMOR" value="70"/>
@@ -236,7 +236,7 @@
 		</source>
 	</item>
 
-	<item id="14449" phase="0">
+	<item id="14449" phase="1">
 		<info name="Highborne Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -249,7 +249,7 @@
 		</source>
 	</item>
 
-	<item id="16008" phase="0">
+	<item id="16008" phase="1">
 		<info name="Master Engineer's Goggles" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="58" quality="UNCOMMON" boe="yes" icon="Inv_helmet_47.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -261,7 +261,7 @@
 		</source>
 	</item>
 
-	<item id="14111" phase="0">
+	<item id="14111" phase="1">
 		<info name="Felcloth Hood" type="CLOTH" slot="HEAD" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="yes" icon="Inv_helmet_34.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -273,7 +273,7 @@
 		</source>
 	</item>
 
-	<item id="8292" phase="0">
+	<item id="8292" phase="1">
 		<info name="Arcane Cover" type="CLOTH" slot="HEAD" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="yes" icon="Inv_helmet_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -286,7 +286,7 @@
 		</source>
 	</item>
 
-	<item id="13866" phase="0">
+	<item id="13866" phase="1">
 		<info name="Runecloth Headband" type="CLOTH" slot="HEAD" unique="no" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="yes" icon="Inv_misc_bandana_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>
@@ -298,7 +298,7 @@
 		</source>
 	</item>
 
-	<item id="18727" phase="0">
+	<item id="18727" phase="1">
 		<info name="Crimson Felt Hat" type="CLOTH" slot="HEAD" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_helmet_51.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>
@@ -312,7 +312,7 @@
 		</source>
 	</item>
 
-	<item id="12604" phase="0">
+	<item id="12604" phase="1">
 		<info name="Starfire Tiara" type="CLOTH" slot="HEAD" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_crown_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="69"/>
@@ -325,7 +325,7 @@
 		</source>
 	</item>
 
-	<item id="13390" phase="0">
+	<item id="13390" phase="1">
 		<info name="The Postmaster's Band" type="CLOTH" slot="HEAD" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_bandage_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="70"/>
@@ -339,7 +339,7 @@
 		</source>
 	</item>
 
-	<item id="14140" phase="0">
+	<item id="14140" phase="1">
 		<info name="Mooncloth Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_misc_bandana_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="71"/>
@@ -352,7 +352,7 @@
 		</source>
 	</item>
 
-	<item id="16693" phase="0">
+	<item id="16693" phase="1">
 		<info name="Devout Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="71"/>
@@ -365,7 +365,7 @@
 		</source>
 	</item>
 
-	<item id="16698" phase="0">
+	<item id="16698" phase="1">
 		<info name="Dreadmist Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_29.png"/>
 		<stats>
 			<stat type="ARMOR" value="71"/>
@@ -378,7 +378,7 @@
 		</source>
 	</item>
 
-	<item id="16686" phase="0">
+	<item id="16686" phase="1">
 		<info name="Magister's Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_crown_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="71"/>
@@ -391,7 +391,7 @@
 		</source>
 	</item>
 
-	<item id="12752" phase="0">
+	<item id="12752" phase="1">
 		<info name="Cap of the Scarlet Savant" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_helmet_59.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -409,7 +409,7 @@
 		</source>
 	</item>
 
-	<item id="13986" phase="0">
+	<item id="13986" phase="1">
 		<info name="Crown of Caer Darrow" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
 		<mutex item_id="13982"/>
 		<mutex item_id="13984"/>
@@ -425,7 +425,7 @@
 		</source>
 	</item>
 
-	<item id="16795" phase="0">
+	<item id="16795" phase="1">
 		<info name="Arcanist Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_53.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -442,7 +442,7 @@
 		</source>
 	</item>
 
-	<item id="16914" phase="0">
+	<item id="16914" phase="1">
 		<info name="Netherwind Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_70.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -460,7 +460,7 @@
 		</source>
 	</item>
 
-	<item id="18526" phase="1">
+	<item id="18526" phase="2">
 		<info name="Crown of the Ogre King" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="73"/>
@@ -474,7 +474,7 @@
 		</source>
 	</item>
 
-	<item id="23318" phase="1">
+	<item id="23318" phase="2">
 		<info name="Lieutenant Commander's Silk Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_06.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -490,7 +490,7 @@
 		</source>
 	</item>
 
-	<item id="23263" phase="1">
+	<item id="23263" phase="2">
 		<info name="Champion's Silk Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_06.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -506,7 +506,7 @@
 		</source>
 	</item>
 
-	<item id="16441" phase="1">
+	<item id="16441" phase="2">
 		<info name="Field Marshal's Coronet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_24.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -522,7 +522,7 @@
 		</source>
 	</item>
 
-	<item id="16533" phase="1">
+	<item id="16533" phase="2">
 		<info name="Warlord's Silk Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_08.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -538,7 +538,7 @@
 		</source>
 	</item>
 
-	<item id="19105" phase="2">
+	<item id="19105" phase="3">
 		<info name="Frost Runed Headdress" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_61.png"/>
 		<stats>
 			<stat type="ARMOR" value="73"/>
@@ -551,7 +551,7 @@
 		</source>
 	</item>
 
-	<item id="19375" phase="2">
+	<item id="19375" phase="3">
 		<info name="Mish'undare, Circlet of the Mind Flayer" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_52.png"/>
 		<stats>
 			<stat type="ARMOR" value="102"/>
@@ -566,7 +566,7 @@
 		</source>
 	</item>
 
-	<item id="19999" phase="3">
+	<item id="19999" phase="4">
 		<info name="Bloodvine Goggles" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_helmet_47.png"/>
 		<stats>
 			<stat type="ARMOR" value="75"/>
@@ -579,7 +579,7 @@
 		</source>
 	</item>
 
-	<item id="19886" phase="3">
+	<item id="19886" phase="4">
 		<info name="The Hexxer's Cover" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_mask_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="81"/>
@@ -592,7 +592,7 @@
 		</source>
 	</item>
 
-	<item id="22225" phase="4">
+	<item id="22225" phase="5">
 		<info name="Dragonskin Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_helmet_27.png"/>
 		<stats>
 			<stat type="ARMOR" value="69"/>
@@ -608,7 +608,7 @@
 		</source>
 	</item>
 
-	<item id="22065" phase="4">
+	<item id="22065" phase="5">
 		<info name="Sorcerer's Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -624,7 +624,7 @@
 		</source>
 	</item>
 
-	<item id="22267" phase="4">
+	<item id="22267" phase="5">
 		<info name="Spellweaver's Turban" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_62.png"/>
 		<stats>
 			<stat type="ARMOR" value="73"/>
@@ -637,7 +637,7 @@
 		</source>
 	</item>
 
-	<item id="16042" phase="4">
+	<item id="16042" phase="5">
 		<info name="Ironweave Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_30.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -652,7 +652,7 @@
 		</source>
 	</item>
 
-	<item id="21517" phase="4">
+	<item id="21517" phase="5">
 		<info name="Gnomish Turban of Psychic Might" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_63.png"/>
 		<stats>
 			<stat type="ARMOR" value="93"/>
@@ -668,7 +668,7 @@
 		</source>
 	</item>
 
-	<item id="21347" phase="4">
+	<item id="21347" phase="5">
 		<info name="Enigma Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -685,7 +685,7 @@
 		</source>
 	</item>
 
-	<item id="22757" phase="5">
+	<item id="22757" phase="6">
 		<info name="Sylvan Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="yes" icon="Inv_crown_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="80"/>
@@ -698,7 +698,7 @@
 		</source>
 	</item>
 
-	<item id="23035" phase="5">
+	<item id="23035" phase="6">
 		<info name="Preceptor's Hat" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_50.png"/>
 		<stats>
 			<stat type="ARMOR" value="102"/>
@@ -711,7 +711,7 @@
 		</source>
 	</item>
 
-	<item id="23032" phase="5">
+	<item id="23032" phase="6">
 		<info name="Glacial Headdress" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_53.png"/>
 		<stats>
 			<stat type="ARMOR" value="102"/>
@@ -725,7 +725,7 @@
 		</source>
 	</item>
 
-	<item id="22498" phase="5">
+	<item id="22498" phase="6">
 		<info name="Frostfire Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_crown_01.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

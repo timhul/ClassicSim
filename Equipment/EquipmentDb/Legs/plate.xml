@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13075" phase="0">
+	<item id="13075" phase="1">
 		<info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="575"/>
@@ -14,7 +14,7 @@
 		</source>
 	</item>
 
-	<item id="14554" phase="0">
+	<item id="14554" phase="1">
 		<info name="Cloudkeeper Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="617"/>
@@ -33,7 +33,7 @@
 		</source>
 	</item>
 
-	<item id="18380" phase="1">
+	<item id="18380" phase="2">
 		<info name="Eldritch Reinforced Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="566"/>
@@ -47,7 +47,7 @@
 		</source>
 	</item>
 
-	<item id="23301" phase="1">
+	<item id="23301" phase="2">
 		<info name="Knight-Captain's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -61,7 +61,7 @@
 		</source>
 	</item>
 
-	<item id="22873" phase="1">
+	<item id="22873" phase="2">
 		<info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -75,7 +75,7 @@
 		</source>
 	</item>
 
-	<item id="23273" phase="1">
+	<item id="23273" phase="2">
 		<info name="Knight-Captain's Lamellar Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -90,7 +90,7 @@
 		</source>
 	</item>
 
-	<item id="16475" phase="1">
+	<item id="16475" phase="2">
 		<info name="Marshal's Lamellar Legplates" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_04.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -106,7 +106,7 @@
 		</source>
 	</item>
 
-	<item id="16479" phase="1">
+	<item id="16479" phase="2">
 		<info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -121,7 +121,7 @@
 		</source>
 	</item>
 
-	<item id="16543" phase="1">
+	<item id="16543" phase="2">
 		<info name="General's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -136,7 +136,7 @@
 		</source>
 	</item>
 
-	<item id="19402" phase="2">
+	<item id="19402" phase="3">
 		<info name="Legguards of the Fallen Crusader" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_pants_plate_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="740"/>
@@ -150,7 +150,7 @@
 		</source>
 	</item>
 
-	<item id="22651" phase="3">
+	<item id="22651" phase="4">
 		<info name="Outrider's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_plate_20.png"/>
 		<stats>
 			<stat type="ARMOR" value="646"/>
@@ -164,7 +164,7 @@
 		</source>
 	</item>
 
-	<item id="22672" phase="3">
+	<item id="22672" phase="4">
 		<info name="Sentinel's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_20.png"/>
 		<stats>
 			<stat type="ARMOR" value="646"/>
@@ -178,7 +178,7 @@
 		</source>
 	</item>
 
-	<item id="22753" phase="3">
+	<item id="22753" phase="4">
 		<info name="Sentinel's Lamellar Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="646"/>
@@ -193,7 +193,7 @@
 		</source>
 	</item>
 
-	<item id="22385" phase="4">
+	<item id="22385" phase="5">
 		<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="598"/>
@@ -206,7 +206,7 @@
 		</source>
 	</item>
 
-	<item id="21495" phase="4">
+	<item id="21495" phase="5">
 		<info name="Legplates of the Qiraji Command" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_plate_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="644"/>
@@ -219,7 +219,7 @@
 		</source>
 	</item>
 
-	<item id="21332" phase="4">
+	<item id="21332" phase="5">
 		<info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -235,7 +235,7 @@
 		</source>
 	</item>
 
-	<item id="21390" phase="4">
+	<item id="21390" phase="5">
 		<info name="Avenger's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_02.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -254,7 +254,7 @@
 		</source>
 	</item>
 
-	<item id="23068" phase="5">
+	<item id="23068" phase="6">
 		<info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
 		<stats>
 			<stat type="ARMOR" value="815"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="20642" phase="0">
+	<item id="20642" phase="1">
 		<info name="Antiquated Nobleman's Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="42" item_lvl="47" quality="UNCOMMON" boe="no" icon="Inv_chest_cloth_47.png"/>
 		<mutex item_id="20643"/>
 		<stats>
@@ -14,7 +14,7 @@
 		</source>
 	</item>
 
-	<item id="17741" phase="0">
+	<item id="17741" phase="1">
 		<info name="Nature's Embrace" type="CLOTH" slot="CHEST" unique="no" req_lvl="46" item_lvl="51" quality="RARE" boe="no" icon="Inv_chest_cloth_15.png"/>
 		<stats>
 			<stat type="ARMOR" value="73"/>
@@ -26,7 +26,7 @@
 		</source>
 	</item>
 
-	<item id="14042" phase="0">
+	<item id="14042" phase="1">
 		<info name="Cindercloth Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="47" item_lvl="52" quality="UNCOMMON" boe="yes" icon="Inv_chest_cloth_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>
@@ -38,7 +38,7 @@
 		</source>
 	</item>
 
-	<item id="14136" phase="0">
+	<item id="14136" phase="1">
 		<info name="Robe of Winter Night" type="CLOTH" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_chest_cloth_49.png"/>
 		<stats>
 			<stat type="ARMOR" value="81"/>
@@ -51,7 +51,7 @@
 		</source>
 	</item>
 
-	<item id="11924" phase="0">
+	<item id="11924" phase="1">
 		<info name="Robes of the Royal Crown" type="CLOTH" slot="CHEST" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_chest_cloth_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="85"/>
@@ -65,7 +65,7 @@
 		</source>
 	</item>
 
-	<item id="14106" phase="0">
+	<item id="14106" phase="1">
 		<info name="Felcloth Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="UNCOMMON" boe="yes" icon="Inv_chest_cloth_09.png"/>
 		<stats>
 			<stat type="ARMOR" value="79"/>
@@ -77,7 +77,7 @@
 		</source>
 	</item>
 
-	<item id="14626" phase="0">
+	<item id="14626" phase="1">
 		<info name="Necropile Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_cloth_43.png"/>
 		<stats>
 			<stat type="ARMOR" value="87"/>
@@ -91,7 +91,7 @@
 		</source>
 	</item>
 
-	<item id="13388" phase="0">
+	<item id="13388" phase="1">
 		<info name="The Postmaster's Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="87"/>
@@ -105,7 +105,7 @@
 		</source>
 	</item>
 
-	<item id="14340" phase="0">
+	<item id="14340" phase="1">
 		<info name="Freezing Lich Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_cloth_46.png"/>
 		<stats>
 			<stat type="ARMOR" value="88"/>
@@ -117,7 +117,7 @@
 		</source>
 	</item>
 
-	<item id="13314" phase="0">
+	<item id="13314" phase="1">
 		<info name="Alanna's Embrace" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_cloth_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="96"/>
@@ -131,7 +131,7 @@
 		</source>
 	</item>
 
-	<item id="14152" phase="0">
+	<item id="14152" phase="1">
 		<info name="Robe of the Archmage" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_cloth_38.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -149,7 +149,7 @@
 		</source>
 	</item>
 
-	<item id="16690" phase="0">
+	<item id="16690" phase="1">
 		<info name="Devout Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="84"/>
@@ -162,7 +162,7 @@
 		</source>
 	</item>
 
-	<item id="16700" phase="0">
+	<item id="16700" phase="1">
 		<info name="Dreadmist Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_49.png"/>
 		<stats>
 			<stat type="ARMOR" value="89"/>
@@ -175,7 +175,7 @@
 		</source>
 	</item>
 
-	<item id="16688" phase="0">
+	<item id="16688" phase="1">
 		<info name="Magister's Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="89"/>
@@ -188,7 +188,7 @@
 		</source>
 	</item>
 
-	<item id="19156" phase="0">
+	<item id="19156" phase="1">
 		<info name="Flarecore Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_chest_cloth_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="102"/>
@@ -201,7 +201,7 @@
 		</source>
 	</item>
 
-	<item id="19145" phase="0">
+	<item id="19145" phase="1">
 		<info name="Robes of Volatile Power" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="102"/>
@@ -216,7 +216,7 @@
 		</source>
 	</item>
 
-	<item id="16798" phase="0">
+	<item id="16798" phase="1">
 		<info name="Arcanist Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_03.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -232,7 +232,7 @@
 		</source>
 	</item>
 
-	<item id="18450" phase="1">
+	<item id="18450" phase="2">
 		<info name="Robe of Combustion" type="CLOTH" slot="CHEST" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_chest_cloth_24.png"/>
 		<stats>
 			<stat type="ARMOR" value="77"/>
@@ -244,7 +244,7 @@
 		</source>
 	</item>
 
-	<item id="18486" phase="1">
+	<item id="18486" phase="2">
 		<info name="Mooncloth Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_chest_cloth_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="87"/>
@@ -257,7 +257,7 @@
 		</source>
 	</item>
 
-	<item id="18532" phase="1">
+	<item id="18532" phase="2">
 		<info name="Mindsurge Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_cloth_29.png"/>
 		<stats>
 			<stat type="ARMOR" value="88"/>
@@ -270,7 +270,7 @@
 		</source>
 	</item>
 
-	<item id="18385" phase="1">
+	<item id="18385" phase="2">
 		<info name="Robe of Everlasting Night" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_cloth_51.png"/>
 		<stats>
 			<stat type="ARMOR" value="88"/>
@@ -284,7 +284,7 @@
 		</source>
 	</item>
 
-	<item id="23305" phase="1">
+	<item id="23305" phase="2">
 		<info name="Knight-Captain's Silk Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_cloth_28.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -300,7 +300,7 @@
 		</source>
 	</item>
 
-	<item id="22886" phase="1">
+	<item id="22886" phase="2">
 		<info name="Legionnaire's Silk Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_cloth_28.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -316,7 +316,7 @@
 		</source>
 	</item>
 
-	<item id="16443" phase="1">
+	<item id="16443" phase="2">
 		<info name="Field Marshal's Silk Vestments" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_cloth_12.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -332,7 +332,7 @@
 		</source>
 	</item>
 
-	<item id="16535" phase="1">
+	<item id="16535" phase="2">
 		<info name="Warlord's Silk Raiments" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_leather_01.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -348,7 +348,7 @@
 		</source>
 	</item>
 
-	<item id="19399" phase="2">
+	<item id="19399" phase="3">
 		<info name="Black Ash Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_cloth_50.png"/>
 		<stats>
 			<stat type="ARMOR" value="114"/>
@@ -362,7 +362,7 @@
 		</source>
 	</item>
 
-	<item id="16916" phase="2">
+	<item id="16916" phase="3">
 		<info name="Netherwind Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_03.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -380,7 +380,7 @@
 		</source>
 	</item>
 
-	<item id="19682" phase="3">
+	<item id="19682" phase="4">
 		<info name="Bloodvine Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_cloth_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="92"/>
@@ -393,7 +393,7 @@
 		</source>
 	</item>
 
-	<item id="20032" phase="3">
+	<item id="20032" phase="4">
 		<info name="Flowing Ritual Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_cloth_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="100"/>
@@ -407,7 +407,7 @@
 		</source>
 	</item>
 
-	<item id="20034" phase="3">
+	<item id="20034" phase="4">
 		<info name="Zandalar Illusionist's Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_cloth_12.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -422,7 +422,7 @@
 		</source>
 	</item>
 
-	<item id="20635" phase="3">
+	<item id="20635" phase="4">
 		<info name="Jade Inlaid Vestments" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_chest_cloth_39.png"/>
 		<stats>
 			<stat type="ARMOR" value="109"/>
@@ -436,7 +436,7 @@
 		</source>
 	</item>
 
-	<item id="20530" phase="0">
+	<item id="20530" phase="1">
 		<info name="Robes of Servitude" type="CLOTH" slot="CHEST" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_chest_cloth_10.png"/>
 		<mutex item_id="20536"/>
 		<stats>
@@ -451,7 +451,7 @@
 		</source>
 	</item>
 
-	<item id="22069" phase="4">
+	<item id="22069" phase="5">
 		<info name="Sorcerer's Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_cloth_25.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -467,7 +467,7 @@
 		</source>
 	</item>
 
-	<item id="22301" phase="4">
+	<item id="22301" phase="5">
 		<info name="Ironweave Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_48.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -482,7 +482,7 @@
 		</source>
 	</item>
 
-	<item id="21183" phase="4">
+	<item id="21183" phase="5">
 		<info name="Earthpower Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_chest_cloth_06.png"/>
 		<mutex item_id="21181"/>
 		<mutex item_id="21182"/>
@@ -497,7 +497,7 @@
 		</source>
 	</item>
 
-	<item id="21499" phase="4">
+	<item id="21499" phase="5">
 		<info name="Vestments of the Shifting Sands" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="102"/>
@@ -512,7 +512,7 @@
 		</source>
 	</item>
 
-	<item id="21838" phase="4">
+	<item id="21838" phase="5">
 		<info name="Garb of Royal Ascension" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_chest_cloth_48.png"/>
 		<stats>
 			<stat type="ARMOR" value="109"/>
@@ -526,7 +526,7 @@
 		</source>
 	</item>
 
-	<item id="21696" phase="4">
+	<item id="21696" phase="5">
 		<info name="Robes of the Triumvirate" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_cloth_22.png"/>
 		<stats>
 			<stat type="ARMOR" value="114"/>
@@ -540,7 +540,7 @@
 		</source>
 	</item>
 
-	<item id="21671" phase="4">
+	<item id="21671" phase="5">
 		<info name="Robes of the Battleguard" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="116"/>
@@ -555,7 +555,7 @@
 		</source>
 	</item>
 
-	<item id="21527" phase="4">
+	<item id="21527" phase="5">
 		<info name="Darkwater Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_chest_cloth_31.png"/>
 		<mutex item_id="21526"/>
 		<stats>
@@ -570,7 +570,7 @@
 		</source>
 	</item>
 
-	<item id="21343" phase="4">
+	<item id="21343" phase="5">
 		<info name="Enigma Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_cloth_11.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -587,7 +587,7 @@
 		</source>
 	</item>
 
-	<item id="23085" phase="5">
+	<item id="23085" phase="6">
 		<info name="Robe of Undead Cleansing" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="89"/>
@@ -600,7 +600,7 @@
 		</source>
 	</item>
 
-	<item id="22756" phase="5">
+	<item id="22756" phase="6">
 		<info name="Sylvan Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="yes" icon="Inv_chest_plate07.png"/>
 		<stats>
 			<stat type="ARMOR" value="98"/>
@@ -613,7 +613,7 @@
 		</source>
 	</item>
 
-	<item id="23069" phase="5">
+	<item id="23069" phase="6">
 		<info name="Necro-Knight's Garb" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_cloth_46.png"/>
 		<class_restriction class="MAGE"/>
 		<class_restriction class="PRIEST"/>
@@ -628,7 +628,7 @@
 		</source>
 	</item>
 
-	<item id="22652" phase="5">
+	<item id="22652" phase="6">
 		<info name="Glacial Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="80" quality="EPIC" boe="yes" icon="Inv_chest_cloth_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="121"/>
@@ -641,7 +641,7 @@
 		</source>
 	</item>
 
-	<item id="23220" phase="5">
+	<item id="23220" phase="6">
 		<info name="Crystal Webbed Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_cloth_46.png"/>
 		<stats>
 			<stat type="ARMOR" value="128"/>
@@ -654,7 +654,7 @@
 		</source>
 	</item>
 
-	<item id="22496" phase="5">
+	<item id="22496" phase="6">
 		<info name="Frostfire Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_cloth_43.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>

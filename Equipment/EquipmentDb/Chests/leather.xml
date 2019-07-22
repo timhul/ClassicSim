@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13944" phase="0">
+	<item id="13944" phase="1">
 		<info name="Tombstone Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="174"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="14637" phase="0">
+	<item id="14637" phase="1">
 		<info name="Cadaverous Armor" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="172"/>
@@ -26,7 +26,7 @@
 		</source>
 	</item>
 
-	<item id="12603" phase="0">
+	<item id="12603" phase="1">
 		<info name="Nightbrace Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_plate06.png"/>
 		<stats>
 			<stat type="ARMOR" value="172"/>
@@ -41,7 +41,7 @@
 		</source>
 	</item>
 
-	<item id="16721" phase="0">
+	<item id="16721" phase="1">
 		<info name="Shadowcraft Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_leather_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="176"/>
@@ -54,7 +54,7 @@
 		</source>
 	</item>
 
-	<item id="12757" phase="0">
+	<item id="12757" phase="1">
 		<info name="Breastplate of Bloodthirst" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="190"/>
@@ -68,7 +68,7 @@
 		</source>
 	</item>
 
-	<item id="16820" phase="0">
+	<item id="16820" phase="1">
 		<info name="Nightslayer Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -84,7 +84,7 @@
 		</source>
 	</item>
 
-	<item id="16905" phase="2">
+	<item id="16905" phase="3">
 		<info name="Bloodfang Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -102,7 +102,7 @@
 		</source>
 	</item>
 
-	<item id="19405" phase="2">
+	<item id="19405" phase="3">
 		<info name="Malfurion's Blessed Bulwark" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="392"/>
@@ -114,7 +114,7 @@
 		</source>
 	</item>
 
-	<item id="19685" phase="3">
+	<item id="19685" phase="4">
 		<info name="Primal Batskin Jerkin" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="181"/>
@@ -127,7 +127,7 @@
 		</source>
 	</item>
 
-	<item id="19834" phase="3">
+	<item id="19834" phase="4">
 		<info name="Zandalar Madcap's Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_leather_10.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -141,7 +141,7 @@
 		</source>
 	</item>
 
-	<item id="21680" phase="4">
+	<item id="21680" phase="5">
 		<info name="Vest of Swift Execution" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_chest_cloth_45.png"/>
 		<stats>
 			<stat type="ARMOR" value="229"/>
@@ -154,7 +154,7 @@
 		</source>
 	</item>
 
-	<item id="21364" phase="4">
+	<item id="21364" phase="5">
 		<info name="Deathdealer's Vest" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -170,7 +170,7 @@
 		</source>
 	</item>
 
-	<item id="23226" phase="5">
+	<item id="23226" phase="6">
 		<info name="Ghoul Skin Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="411"/>
@@ -183,7 +183,7 @@
 		</source>
 	</item>
 
-	<item id="22476" phase="5">
+	<item id="22476" phase="6">
 		<info name="Bonescythe Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>

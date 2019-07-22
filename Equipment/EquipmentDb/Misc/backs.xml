@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13397" phase="0">
+	<item id="13397" phase="1">
 		<info name="Stoneskin Gargoyle Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="43"/>
@@ -13,7 +13,7 @@
 		</source>
 	</item>
 
-	<item id="13340" phase="0">
+	<item id="13340" phase="1">
 		<info name="Cape of the Black Baron" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
 		<stats>
 			<stat type="AGILITY" value="15"/>
@@ -24,7 +24,7 @@
 		</source>
 	</item>
 
-	<item id="15138" phase="0">
+	<item id="15138" phase="1">
 		<info name="Onyxia Scale Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_05.png"/>
 		<stats>
 			<stat type="STAMINA" value="7"/>
@@ -38,7 +38,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="17078" phase="0">
+	<item id="17078" phase="1">
 		<info name="Sapphiron Drape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_misc_cape_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="55"/>
@@ -53,7 +53,7 @@
 		</source>
 	</item>
 
-	<item id="17107" phase="0">
+	<item id="17107" phase="1">
 		<info name="Dragon's Blood Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="116"/>
@@ -68,7 +68,7 @@
 		</source>
 	</item>
 
-	<item id="17102" phase="0">
+	<item id="17102" phase="1">
 		<info name="Cloak of the Shrouded Mists" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_misc_cape_17.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -82,7 +82,7 @@
 		</source>
 	</item>
 	
-	<item id="18204" phase="1">
+	<item id="18204" phase="2">
 		<info name="Eskhandar's Pelt" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_cape_07.png"/>
 		<stats>
 			<stat type="ARMOR" value="51"/>
@@ -94,7 +94,7 @@
 		</source>
 	</item>
 	
-	<item id="18509" phase="1">
+	<item id="18509" phase="2">
 		<info name="Chromatic Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_misc_cape_02.png"/>
 		<stats>
 			<stat type="STAMINA" value="10"/>
@@ -107,7 +107,7 @@
 		</source>
 	</item>
 
-	<item id="18541" phase="1">
+	<item id="18541" phase="2">
 		<info name="Puissant Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_misc_cape_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="54"/>
@@ -120,7 +120,7 @@
 		</source>
 	</item>
 
-	<item id="19436" phase="2">
+	<item id="19436" phase="3">
 		<info name="Cloak of Draconic Might" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_misc_cape_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="54"/>
@@ -133,7 +133,7 @@
 		</source>
 	</item>
 
-	<item id="19398" phase="2">
+	<item id="19398" phase="3">
 		<info name="Cloak of Firemaw" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_cape_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -145,7 +145,7 @@
 		</source>
 	</item>
 
-	<item id="19378" phase="2">
+	<item id="19378" phase="3">
 		<info name="Cloak of the Brood Lord" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
 		<stats>
 			<stat type="ARMOR" value="63"/>
@@ -161,7 +161,7 @@
 		</source>
 	</item>
 
-	<item id="20073" phase="3">
+	<item id="20073" phase="4">
 		<info name="Cloak of the Honor Guard" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="50"/>
@@ -174,7 +174,7 @@
 		</source>
 	</item>
 
-	<item id="20068" phase="3">
+	<item id="20068" phase="4">
 		<info name="Deathguard's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="50"/>
@@ -187,7 +187,7 @@
 		</source>
 	</item>
 
-	<item id="22712" phase="3">
+	<item id="22712" phase="4">
 		<info name="Might of the Tribe" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_misc_cape_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -199,7 +199,7 @@
 		</source>
 	</item>
 
-	<item id="19907" phase="3">
+	<item id="19907" phase="4">
 		<info name="Zulian Tigerhide Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_misc_cape_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -212,7 +212,7 @@
 		</source>
 	</item>
 
-	<item id="22711" phase="3">
+	<item id="22711" phase="4">
 		<info name="Cloak of the Hakkari Worshipers" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_misc_cape_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="48"/>
@@ -225,7 +225,7 @@
 		</source>
 	</item>
 
-	<item id="19857" phase="3">
+	<item id="19857" phase="4">
 		<info name="Cloak of Consumption" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_misc_cape_22.png"/>
 		<stats>
 			<stat type="ARMOR" value="52"/>
@@ -238,7 +238,7 @@
 		</source>
 	</item>
 
-	<item id="22269" phase="4">
+	<item id="22269" phase="5">
 		<info name="Shadow Prowler's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
 		<stats>
 			<stat type="ARMOR" value="45"/>
@@ -250,7 +250,7 @@
 		</source>
 	</item>
 
-	<item id="22337" phase="4">
+	<item id="22337" phase="5">
 		<info name="Shroud of Domination" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="45"/>
@@ -262,7 +262,7 @@
 		</source>
 	</item>
 
-	<item id="21394" phase="4">
+	<item id="21394" phase="5">
 		<info name="Drape of Unyielding Strength" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -277,7 +277,7 @@
 		</source>
 	</item>
 
-	<item id="21397" phase="4">
+	<item id="21397" phase="5">
 		<info name="Cape of Eternal Justice" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_14.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -292,7 +292,7 @@
 		</source>
 	</item>
 
-	<item id="21406" phase="4">
+	<item id="21406" phase="5">
 		<info name="Cloak of Veiled Shadows" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_19.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -306,7 +306,7 @@
 		</source>
 	</item>
 
-	<item id="21403" phase="4">
+	<item id="21403" phase="5">
 		<info name="Cloak of the Unseen Path" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_15.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -320,7 +320,7 @@
 		</source>
 	</item>
 
-	<item id="21415" phase="4">
+	<item id="21415" phase="5">
 		<info name="Drape of Vaulted Secrets" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_19.png"/>
 		<class_restriction class="MAGE"/>
 		<stats>
@@ -335,7 +335,7 @@
 		</source>
 	</item>
 
-	<item id="20697" phase="4">
+	<item id="20697" phase="5">
 		<info name="Crystalline Threaded Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_19.png"/>
 		<stats>
 			<stat type="ARMOR" value="45"/>
@@ -348,7 +348,7 @@
 		</source>
 	</item>
 
-	<item id="20691" phase="4">
+	<item id="20691" phase="5">
 		<info name="Windshear Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
 		<stats>
 			<stat type="ARMOR" value="50"/>
@@ -362,7 +362,7 @@
 		</source>
 	</item>
 
-	<item id="21697" phase="4">
+	<item id="21697" phase="5">
 		<info name="Cape of the Trinity" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_cape_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="57"/>
@@ -375,7 +375,7 @@
 		</source>
 	</item>
 
-	<item id="21701" phase="4">
+	<item id="21701" phase="5">
 		<info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="56"/>
@@ -389,7 +389,7 @@
 		</source>
 	</item>
 
-	<item id="21710" phase="4">
+	<item id="21710" phase="5">
 		<info name="Cloak of the Fallen God" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_misc_cape_10.png"/>
 		<mutex item_id="21712"/>
 		<mutex item_id="21709"/>
@@ -404,7 +404,7 @@
 		</source>
 	</item>
 
-	<item id="22731" phase="4">
+	<item id="22731" phase="5">
 		<info name="Cloak of the Devoured" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_misc_cape_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="66"/>
@@ -418,7 +418,7 @@
 		</source>
 	</item>
 
-	<item id="23127" phase="5">
+	<item id="23127" phase="6">
 		<info name="Cloak of Revanchion" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="45"/>
@@ -431,7 +431,7 @@
 		</source>
 	</item>
 
-	<item id="23030" phase="5">
+	<item id="23030" phase="6">
 		<info name="Cloak of the Scourge" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="63"/>
@@ -444,7 +444,7 @@
 		</source>
 	</item>
 
-	<item id="23017" phase="5">
+	<item id="23017" phase="6">
 		<info name="Veil of Eclipse" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="63"/>
@@ -458,7 +458,7 @@
 		</source>
 	</item>
 
-	<item id="23405" phase="5">
+	<item id="23405" phase="6">
 		<info name="Shroud of Dominion" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>
@@ -471,7 +471,7 @@
 		</source>
 	</item>
 
-	<item id="23050" phase="5">
+	<item id="23050" phase="6">
 		<info name="Cloak of the Necropolis" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="68"/>

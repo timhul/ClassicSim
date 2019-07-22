@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="23287" phase="1">
+	<item id="23287" phase="2">
 		<info name="Knight-Lieutenant's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -14,7 +14,7 @@
 		</source>
 	</item>
 
-	<item id="22858" phase="1">
+	<item id="22858" phase="2">
 		<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -28,7 +28,7 @@
 		</source>
 	</item>
 
-	<item id="23275" phase="1">
+	<item id="23275" phase="2">
 		<info name="Knight-Lieutenant's Lamellar Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_boots_plate_03.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -43,7 +43,7 @@
 		</source>
 	</item>
 
-	<item id="16472" phase="1">
+	<item id="16472" phase="2">
 		<info name="Marshal's Lamellar Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -59,7 +59,7 @@
 		</source>
 	</item>
 
-	<item id="16483" phase="1">
+	<item id="16483" phase="2">
 		<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -74,7 +74,7 @@
 		</source>
 	</item>
 
-	<item id="16545" phase="1">
+	<item id="16545" phase="2">
 		<info name="General's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -89,7 +89,7 @@
 		</source>
 	</item>
 
-	<item id="19387" phase="2">
+	<item id="19387" phase="3">
 		<info name="Chromatic Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="596"/>
@@ -103,7 +103,7 @@
 		</source>
 	</item>
 
-	<item id="20049"  phase="3">
+	<item id="20049"  phase="4">
 		<info name="Highlander's Lamellar Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -121,7 +121,7 @@
 		</source>
 	</item>
 
-	<item id="20048"  phase="3">
+	<item id="20048"  phase="4">
 		<info name="Highlander's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
@@ -139,7 +139,7 @@
 		</source>
 	</item>
 
-	<item id="20208" phase="3">
+	<item id="20208" phase="4">
 		<info name="Defiler's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -156,7 +156,7 @@
 		</source>
 	</item>
 
-	<item id="21481" phase="4">
+	<item id="21481" phase="5">
 		<info name="Boots of the Desert Protector" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="519"/>
@@ -170,7 +170,7 @@
 		</source>
 	</item>
 
-	<item id="21490" phase="4">
+	<item id="21490" phase="5">
 		<info name="Slime Kickers" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="519"/>
@@ -184,7 +184,7 @@
 		</source>
 	</item>
 
-	<item id="21688" phase="4">
+	<item id="21688" phase="5">
 		<info name="Boots of the Fallen Hero" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_boots_plate_01.png"/>
 		<stats>
 			<stat type="ARMOR" value="581"/>
@@ -198,7 +198,7 @@
 		</source>
 	</item>
 
-	<item id="21333" phase="4">
+	<item id="21333" phase="5">
 		<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -213,7 +213,7 @@
 		</source>
 	</item>
 
-	<item id="21388" phase="4">
+	<item id="21388" phase="5">
 		<info name="Avenger's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_07.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>

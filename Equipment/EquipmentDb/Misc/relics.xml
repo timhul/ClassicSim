@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="22401" phase="4">
+	<item id="22401" phase="5">
 		<info name="Libram of Hope" type="RANGED" slot="RELIC" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_relics_libramofhope.png"/>
 		<stats/>
 		<source>
@@ -14,7 +14,7 @@
 		</special_equip_effect>
 	</item>
 
-	<item id="23203" phase="5">
+	<item id="23203" phase="6">
 		<info name="Libram of Fervor" type="RANGED" slot="RELIC" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_relics_libramoftruth.png"/>
 		<stats/>
 		<source>

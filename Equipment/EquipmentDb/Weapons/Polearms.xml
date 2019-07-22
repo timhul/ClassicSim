@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="13056" phase="0">
+	<melee_weapon id="13056" phase="1">
 		<info name="Frenzied Striker" type="POLEARM" slot="2H" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_spear_07.png"/>
 		<dmg_range min="108" max="162" speed="2.8"/>
 		<stats>
@@ -12,7 +12,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="12583" phase="0">
+	<melee_weapon id="12583" phase="1">
 		<info name="Blackhand Doomsaw" type="POLEARM" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_halberd_04.png"/>
 		<dmg_range min="151" max="227" speed="3.5"/>
 		<proc>
@@ -26,7 +26,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17074" phase="0">
+	<melee_weapon id="17074" phase="1">
 		<info name="Shadowstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
 		<dmg_range min="147" max="221" speed="3.1"/>
 		<proc>
@@ -43,7 +43,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="17223" phase="0">
+	<melee_weapon id="17223" phase="1">
 		<info name="Thunderstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
 		<dmg_range min="147" max="221" speed="3.1"/>
 		<proc>
@@ -61,7 +61,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18725" phase="1">
+	<melee_weapon id="18725" phase="2">
 		<info name="Peacemaker" type="POLEARM" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_spear_07.png"/>
 		<dmg_range min="137" max="206" speed="3.4"/>
 		<stats>
@@ -73,7 +73,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18869" phase="1">
+	<melee_weapon id="18869" phase="2">
 		<info name="Grand Marshal's Glaive" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_spear_08.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -86,7 +86,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18871" phase="1">
+	<melee_weapon id="18871" phase="2">
 		<info name="High Warlord's Pig Sticker" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_spear_01.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
 		<stats>
@@ -99,7 +99,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19167" phase="2">
+	<melee_weapon id="19167" phase="3">
 		<info name="Blackfury" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_spear_08.png"/>
 		<dmg_range min="105" max="158" speed="2.1"/>
 		<stats>
@@ -113,7 +113,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19106" phase="2">
+	<melee_weapon id="19106" phase="3">
 		<info name="Ice Barbed Spear" type="POLEARM" slot="2H" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_spear_04.png"/>
 		<dmg_range min="155" max="233" speed="3.6"/>
 		<mutex item_id="19107"/>
@@ -129,7 +129,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19963" phase="3">
+	<melee_weapon id="19963" phase="4">
 		<info name="Pitchfork of Madness" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_spear_03.png"/>
 		<dmg_range min="163" max="246" speed="3.5"/>
 		<stats>
@@ -140,7 +140,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19946" phase="3">
+	<melee_weapon id="19946" phase="4">
 		<info name="Tigule's Harpoon" type="POLEARM" slot="2H" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_spear_04.png"/>
 		<dmg_range min="154" max="232" speed="3.3"/>
 		<stats>
@@ -153,7 +153,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19874" phase="3">
+	<melee_weapon id="19874" phase="4">
 		<info name="Halberd of Smiting" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_weapon_halberd_12.png"/>
 		<dmg_range min="175" max="263" speed="3.5"/>
 		<proc>
@@ -167,7 +167,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="22314" phase="4">
+	<melee_weapon id="22314" phase="5">
 		<info name="Huntsman's Harpoon" type="POLEARM" slot="2H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_spear_06.png"/>
 		<dmg_range min="150" max="226" speed="3.6"/>
 		<stats>
@@ -178,7 +178,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20660" phase="4">
+	<melee_weapon id="20660" phase="5">
 		<info name="Stonecutting Glaive" type="POLEARM" slot="2H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_spear_06.png"/>
 		<dmg_range min="152" max="228" speed="3.7"/>
 		<stats>
@@ -190,7 +190,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="21635" phase="4">
+	<melee_weapon id="21635" phase="5">
 		<info name="Barb of the Sand Reaver" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_halberd_ahnqiraj.png"/>
 		<dmg_range min="225" max="338" speed="3.7"/>
 		<stats>
@@ -202,7 +202,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="23039" phase="5">
+	<melee_weapon id="23039" phase="6">
 		<info name="The Eye of Nerub" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_weapon_halberd_04.png"/>
 		<dmg_range min="251" max="378" speed="3.7"/>
 		<stats>

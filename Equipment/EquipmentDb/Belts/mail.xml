@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16680" phase="0">
+	<item id="16680" phase="1">
 		<info name="Beaststalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_28.png"/>
 		<stats>
 			<stat type="ARMOR" value="193"/>
@@ -15,7 +15,7 @@
 		</source>
 	</item>
 
-	<item id="16851" phase="0">
+	<item id="16851" phase="1">
 		<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -32,7 +32,7 @@
 		</source>
 	</item>
 
-	<item id="18393" phase="1">
+	<item id="18393" phase="2">
 		<info name="Warpwood Binding" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_34.png"/>
 		<stats>
 			<stat type="ARMOR" value="202"/>
@@ -46,7 +46,7 @@
 		</source>
 	</item>
 
-	<item id="16936" phase="2">
+	<item id="16936" phase="3">
 		<info name="Dragonstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_28.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -63,7 +63,7 @@
 		</source>
 	</item>
 
-	<item id="19380" phase="2">
+	<item id="19380" phase="3">
 		<info name="Therazane's Link" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="295"/>
@@ -82,7 +82,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="20150" phase="3">
+	<item id="20150" phase="4">
 		<info name="Defiler's Chain Girdle" type="MAIL" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_20.png"/>
 		<class_restriction class="HUNTER"/>
 		<class_restriction class="SHAMAN"/>
@@ -97,7 +97,7 @@
 		</source>
 	</item>
 
-	<item id="20043" phase="3">
+	<item id="20043" phase="4">
 		<info name="Highlander's Chain Girdle" type="MAIL" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_20.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -111,7 +111,7 @@
 		</source>
 	</item>
 
-	<item id="19832" phase="3">
+	<item id="19832" phase="4">
 		<info name="Zandalar Predator's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_belt_19.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
@@ -127,7 +127,7 @@
 		</source>
 	</item>
 
-	<item id="21463" phase="4">
+	<item id="21463" phase="5">
 		<info name="Ossirian's Binding" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="258"/>
@@ -142,7 +142,7 @@
 		</source>
 	</item>
 
-	<item id="14614" phase="4">
+	<item id="14614" phase="5">
 		<info name="Bloodmail Belt" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="202"/>
@@ -156,7 +156,7 @@
 		</source>
 	</item>
 
-	<item id="22010" phase="4">
+	<item id="22010" phase="5">
 		<info name="Beastmaster's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
 		<stats>
 			<stat type="ARMOR" value="214"/>
@@ -169,7 +169,7 @@
 		</source>
 	</item>
 
-	<item id="22207" phase="4">
+	<item id="22207" phase="5">
 		<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
 		<stats>
 			<stat type="ARMOR" value="199"/>
@@ -185,7 +185,7 @@
 		</source>
 	</item>
 
-	<item id="22195" phase="4">
+	<item id="22195" phase="5">
 		<info name="Light Obsidian Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="224"/>
@@ -198,7 +198,7 @@
 		</source>
 	</item>
 
-	<item id="22232" phase="4">
+	<item id="22232" phase="5">
 		<info name="Marksman's Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="202"/>
@@ -210,7 +210,7 @@
 		</source>
 	</item>
 
-	<item id="22442" phase="5">
+	<item id="22442" phase="6">
 		<info name="Crypstalker Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_22.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>

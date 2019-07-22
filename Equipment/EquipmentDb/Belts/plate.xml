@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13959" phase="0">
+	<item id="13959" phase="1">
 		<info name="Omokk's Girth Restrainer" type="PLATE" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
 		<mutex item_id="13958"/>
 		<mutex item_id="13961"/>
@@ -17,7 +17,7 @@
 		</source>
 	</item>
 
-	<item id="13502" phase="0">
+	<item id="13502" phase="1">
 		<info name="Handcrafted Mastersmith Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
 		<stats>
 			<stat type="ARMOR" value="519"/>
@@ -30,7 +30,7 @@
 		</source>
 	</item>
 	
-	<item id="19137" phase="1">
+	<item id="19137" phase="2">
 		<info name="Onslaught Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_belt_29.png"/>
 		<stats>
 			<stat type="ARMOR" value="494"/>
@@ -44,7 +44,7 @@
 		</source>
 	</item>
 
-	<item id="19392" phase="2">
+	<item id="19392" phase="3">
 		<info name="Girdle of the Fallen Crusader" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_belt_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="488"/>
@@ -59,7 +59,7 @@
 		</source>
 	</item>
 
-	<item id="20042" phase="3">
+	<item id="20042" phase="4">
 		<info name="Highlander's Lamellar Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_14.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -74,7 +74,7 @@
 		</source>
 	</item>
 
-	<item id="20041" phase="3">
+	<item id="20041" phase="4">
 		<info name="Highlander's Plate Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_14.png"/>
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
@@ -89,7 +89,7 @@
 		</source>
 	</item>
 
-	<item id="20204" phase="3">
+	<item id="20204" phase="4">
 		<info name="Defiler's Plate Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_14.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
@@ -103,7 +103,7 @@
 		</source>
 	</item>
 
-	<item id="20213" phase="3">
+	<item id="20213" phase="4">
 		<info name="Belt of Shrunken Heads" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="408"/>
@@ -116,7 +116,7 @@
 		</source>
 	</item>
 
-	<item id="22197" phase="4">
+	<item id="22197" phase="5">
 		<info name="Heavy Obsidian Belt" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
 		<stats>
 			<stat type="ARMOR" value="397"/>
@@ -128,7 +128,7 @@
 		</source>
 	</item>
 
-	<item id="21692" phase="4">
+	<item id="21692" phase="5">
 		<info name="Triad Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="476"/>
@@ -141,7 +141,7 @@
 		</source>
 	</item>
 
-	<item id="23666" phase="5">
+	<item id="23666" phase="6">
 		<info name="Belt of the Grand Crusader" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_belt_27.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
@@ -157,7 +157,7 @@
 		</source>
 	</item>
 
-	<item id="23219" phase="5">
+	<item id="23219" phase="6">
 		<info name="Girdle of the Mentor" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
 			<stat type="ARMOR" value="536"/>
