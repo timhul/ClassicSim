@@ -40,14 +40,7 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-* Mage Frost/Arcane abilities, rotations, and talents.
-* Updated probable phase unlocks for several items.
-* Wands now available for relevant classes.
-* Many cloth items now available to equip.
-* Stat weight calculations for magic stats now available.
-* Item stat filters for magic stats now available.
-* Poisons no longer scale with nature damage modifiers.
-* Update rage cost refund for Execute and Whirlwind after beta tests (thanks to Vilnius at Fight Club discord).
+None (available release is up to date with the latest on master).
 
 # Q&A
 
@@ -58,7 +51,7 @@ classes/specs are planned to be supported.
 
 Q: What is the proc chance of Ironfoe or other procs?
 
-A: Ironfoe has at the time of writing a 2.7% proc chance. Most procs have a placeholder proc chance at 5%, but you can
+A: Ironfoe has at the time of writing a 4.0% proc chance. Most procs uses proc rates from private servers, but you can
 change the 'rate' attribute in the .xml files. Try a 100% proc rate Ironfoe!
 
 Q: How is this or that mechanic implemented?
