@@ -936,5 +936,31 @@
         <file>QML/Assets/items/Inv_boots_cloth_14.png</file>
         <file>QML/Assets/items/Inv_boots_cloth_16.png</file>
         <file>QML/Assets/items/Inv_boots_03.png</file>
+        <file>QML/Assets/druid/druid_balance.jpg</file>
+        <file>QML/Assets/druid/druid_feral.jpg</file>
+        <file>QML/Assets/druid/druid_restoration.jpg</file>
+        <file>QML/Assets/spell/Spell_arcane_starfire.png</file>
+        <file>QML/Assets/spell/Spell_nature_forceofnature.png</file>
+        <file>QML/Assets/spell/Spell_nature_naturesblessing.png</file>
+        <file>QML/Assets/spell/Spell_nature_natureswrath.png</file>
+        <file>QML/Assets/spell/Spell_nature_sentinal.png</file>
+        <file>QML/Assets/spell/Spell_nature_thorns.png</file>
+        <file>QML/Assets/ability/Ability_druid_bash.png</file>
+        <file>QML/Assets/ability/Ability_druid_demoralizingroar2.png</file>
+        <file>QML/Assets/ability/Ability_druid_ravage.png</file>
+        <file>QML/Assets/ability/Ability_hunter_pet_bear.png</file>
+        <file>QML/Assets/ability/Ability_hunter_pet_cat.png</file>
+        <file>QML/Assets/ability/Ability_hunter_pet_hyena.png</file>
+        <file>QML/Assets/ability/Ability_racial_cannibalize.png</file>
+        <file>QML/Assets/spell/Spell_holy_blessingofagility.png</file>
+        <file>QML/Assets/ability/Ability_druid_enrage.png</file>
+        <file>QML/Assets/items/Inv_relics_idolofrejuvenation.png</file>
+        <file>QML/Assets/spell/Spell_holy_elunesgrace.png</file>
+        <file>QML/Assets/spell/Spell_nature_healingwavegreater.png</file>
+        <file>QML/Assets/spell/Spell_nature_insectswarm.png</file>
+        <file>QML/Assets/spell/Spell_nature_protectionformnature.png</file>
+        <file>QML/Assets/spell/Spell_nature_rejuvenation.png</file>
+        <file>QML/Assets/spell/Spell_nature_resistnature.png</file>
+        <file>QML/Assets/spell/Spell_shadow_vampiricaura.png</file>
     </qresource>
 </RCC>

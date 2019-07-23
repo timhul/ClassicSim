@@ -1,15 +1,20 @@
 #include "Druid.h"
 
+#include "Balance.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
+#include "DruidEnchants.h"
 #include "DruidSpells.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Energy.h"
 #include "Equipment.h"
+#include "FeralCombat.h"
 #include "Mana.h"
 #include "Race.h"
 #include "Rage.h"
 #include "RaidControl.h"
+#include "RestorationDruid.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
@@ -17,6 +22,7 @@ Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, R
     Character("Druid", "#FF7D0A", race, sim_settings, raid_control, party, member) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
+    available_enchants = new DruidEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -36,6 +42,8 @@ Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, R
     mana->set_base_mana(1244);
 
     druid_spells->activate_racials();
+
+    initialize_talents();
 }
 
 Druid::~Druid()
@@ -44,6 +52,7 @@ Druid::~Druid()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete energy;
     delete rage;
@@ -100,7 +109,8 @@ double Druid::global_cooldown() const {
 }
 
 void Druid::initialize_talents() {
-
+    for (int i = 0; i < 3; ++i)
+        talents->add_talent_tree(new Balance(this), new FeralCombat(this), new RestorationDruid(this));
 }
 
 unsigned Druid::get_resource_level(const ResourceType resource_type) const {

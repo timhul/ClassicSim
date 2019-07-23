@@ -20,6 +20,10 @@ SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Druid/DruidEnchants.cpp \
+    Class/Druid/TalentTrees/Balance.cpp \
+    Class/Druid/TalentTrees/FeralCombat.cpp \
+    Class/Druid/TalentTrees/RestorationDruid.cpp \
     Class/Mage/Buffs/ArcanePowerBuff.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
     Class/Mage/Buffs/ElementalVulnerability.cpp \
@@ -462,6 +466,10 @@ HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Druid/DruidEnchants.h \
+    Class/Druid/TalentTrees/Balance.h \
+    Class/Druid/TalentTrees/FeralCombat.h \
+    Class/Druid/TalentTrees/RestorationDruid.h \
     Class/Mage/Buffs/ArcanePowerBuff.h \
     Class/Mage/Buffs/CombustionBuff.h \
     Class/Mage/Buffs/ElementalVulnerability.h \
@@ -943,6 +951,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Mage/Spells \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \
+    $$PWD/Class/Druid/TalentTrees \
     $$PWD/Class/Hunter \
     $$PWD/Class/Hunter/Buffs \
     $$PWD/Class/Hunter/Procs \
