@@ -51,6 +51,8 @@ Shaman::~Shaman()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
+    delete cstats;
     delete shaman_spells;
     delete mana;
 }
