@@ -442,24 +442,32 @@ Rectangle {
 
         property string rightArrowType: talents.getRightArrow(treePos, talentPos)
         source: getArrowIcon(rightArrowType)
-        height: parent.height * 0.73
-        width: height /*{
+        height: {
             switch (rightArrowType) {
             case "HOOK":
+                return parent.height * 0.73
+            case "RIGHT":
                 return parent.height * 0.2
-            case "VERTICAL1":
-                return parent.height * 1.20
-            case "VERTICAL2":
-                return parent.height * 2.4
             }
-        }*/
+        }
+        width: height
 
         visible: talents.showRightArrow(treePos, talentPos)
 
         anchors {
             left: border.right
         }
-        y: height / 2
+
+        y: {
+            switch (rightArrowType) {
+            case "HOOK":
+                return height / 2
+            case "RIGHT":
+                return parent.height / 2 - 5
+            }
+
+            return 0
+        }
     }
 
     Colorize {
