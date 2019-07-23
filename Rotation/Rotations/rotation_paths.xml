@@ -20,4 +20,6 @@
 	<file path="Rotations/Mage/Fire.xml"/>
 	<file path="Rotations/Mage/Frost.xml"/>
 	<file path="Rotations/Mage/Arcane.xml"/>
+
+	<file path="Rotations/Druid/FeralPowershifting.xml"/>
 </paths>

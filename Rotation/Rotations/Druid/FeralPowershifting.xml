@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<rotation class="Druid" name="Feral Powershift 5CP Ferocious Bite" attack_mode="melee">
+	<description>
+	A rotation using powershifting and Ferocious Bite at 5CP.
+	</description>
+
+	<precombat_actions>
+		<spell name="Cat Form"/>
+	</precombat_actions>
+
+	<cast_if name="Manual Crowd Pummeler"/>
+	<cast_if name="Kiss of the Spider"/>
+	<cast_if name="Jom Gabbar"/>
+	<cast_if name="Badge of the Swarmguard"/>
+	<cast_if name="Slayer's Crest"/>
+	<cast_if name="Earthstrike"/>
+	<cast_if name="Zandalarian Hero Medallion"/>
+	<cast_if name="Diamond Flask"/>
+
+	<cast_if name="Mana Potion"/>
+	<cast_if name="Demonic Rune"/>
+	<cast_if name="Night Dragon's Breath"/>
+
+	<cast_if name="Cat Form"/>
+
+	<cast_if name="Tiger's Fury">
+		resource "Energy" eq 100
+	</cast_if>
+
+	<cast_if name="Ferocious Bite">
+		variable "combo_points" eq 5
+	</cast_if>
+
+	<cast_if name="Shred"/>
+
+	<cast_if name="Caster Form">
+		resource "Energy" leq 20
+		and resource "Mana" geq 400
+	</cast_if>
+</rotation>
