@@ -11,6 +11,7 @@
 #include "TestBalance.h"
 #include "TestFeralCombat.h"
 #include "TestRestorationDruid.h"
+#include "TestWrath.h"
 
 TestDruid::TestDruid(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -22,6 +23,8 @@ void TestDruid::test_all() {
     TestBalance(equipment_db).test_all();
     TestFeralCombat(equipment_db).test_all();
     TestRestorationDruid(equipment_db).test_all();
+
+    TestWrath(equipment_db).test_all();
 }
 
 void TestDruid::test_values_after_initialization() {

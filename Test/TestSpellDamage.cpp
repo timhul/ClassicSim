@@ -47,3 +47,9 @@ void TestSpellDamage::run_mandatory_tests(const bool prepare_combat_iterations) 
 void TestSpellDamage::run_class_specific_tests() {
 
 }
+
+void TestSpellDamage::then_character_has_resource(Character* pchar, const ResourceType resource_type, const unsigned resource_level) {
+    if (resource_level != pchar->get_resource_level(resource_type))
+        qDebug() << "Expected" << resource_level << "resources but has" << pchar->get_resource_level(resource_type);
+    assert(pchar->get_resource_level(resource_type) == resource_level);
+}

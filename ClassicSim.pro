@@ -21,6 +21,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Druid/DruidEnchants.cpp \
+    Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
     Class/Druid/TalentTrees/FeralCombat.cpp \
     Class/Druid/TalentTrees/RestorationDruid.cpp \
@@ -118,10 +119,12 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Druid/Spells/TestWrath.cpp \
     Test/Druid/Talents/TestBalance.cpp \
     Test/Druid/Talents/TestFeralCombat.cpp \
     Test/Druid/Talents/TestRestorationDruid.cpp \
     Test/Druid/TestDruid.cpp \
+    Test/Druid/TestSpellDruid.cpp \
     Test/Mage/Spells/TestArcaneMissiles.cpp \
     Test/Mage/Spells/TestEvocation.cpp \
     Test/Mage/Spells/TestFireball.cpp \
@@ -471,6 +474,7 @@ HEADERS += \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
     Class/Druid/DruidEnchants.h \
+    Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
     Class/Druid/TalentTrees/FeralCombat.h \
     Class/Druid/TalentTrees/RestorationDruid.h \
@@ -569,10 +573,12 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Druid/Spells/TestWrath.h \
     Test/Druid/Talents/TestBalance.h \
     Test/Druid/Talents/TestFeralCombat.h \
     Test/Druid/Talents/TestRestorationDruid.h \
     Test/Druid/TestDruid.h \
+    Test/Druid/TestSpellDruid.h \
     Test/Mage/Spells/TestArcaneMissiles.h \
     Test/Mage/Spells/TestEvocation.h \
     Test/Mage/Spells/TestFireball.h \
@@ -959,6 +965,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Mage/Spells \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \
+    $$PWD/Class/Druid/Spells \
     $$PWD/Class/Druid/TalentTrees \
     $$PWD/Class/Hunter \
     $$PWD/Class/Hunter/Buffs \
@@ -1014,6 +1021,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Mage/Spells \
     $$PWD/Test/Mage/Talents \
     $$PWD/Test/Druid \
+    $$PWD/Test/Druid/Spells \
     $$PWD/Test/Druid/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \

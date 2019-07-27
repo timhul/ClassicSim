@@ -29,9 +29,9 @@ Balance::Balance(Druid* druid) :
     };
 
     QMap<QString, Talent*> tier1 {
-        {"1LL", new Talent(druid, this, "Improved Wrath", "1LL", "Assets/items/Spell_nature_abolishmagic.png", 5, "Reduces the cast time of your Wrath spell by %1 sec.", QVector<QPair<double, double>>{{0.1, 0.1}})},
         {"1ML", new Talent(druid, this, "Nature's Grasp", "1ML", "Assets/spell/Spell_nature_natureswrath.png", 1, "While active, any time an enemy strikes the caster they have a 35% chance to become afflicted by Entangling Roots (Rank 1). Only useable outdoors. 1 charge. Lasts 45 sec.", QVector<QPair<unsigned, unsigned>>())},
     };
+    add_improved_wrath(tier1);
     add_improved_natures_grasp(tier1);
     add_talents(tier1);
 
@@ -93,6 +93,15 @@ void Balance::add_improved_natures_grasp(QMap<QString, Talent*>& talent_tier) {
                                                {4, base_str.arg(65)}};
     Talent* talent = new Talent(druid, this, "Improved Nature's Grasp", "1MR", "Assets/spell/Spell_nature_natureswrath.png", 4,
                                 rank_descriptions);
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_improved_wrath(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Improved Wrath", "1LL", "Assets/items/Spell_nature_abolishmagic.png", 5,
+                                    "Reduces the cast time of your Wrath spell by 0.%1 sec.",
+                                    QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Wrath")});
 
     add_talent_to_tier(talent_tier, talent);
 }
