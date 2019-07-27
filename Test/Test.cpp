@@ -37,6 +37,7 @@
 #include "TestCharacterStats.h"
 #include "TestCombatRoll.h"
 #include "TestConditionVariableBuiltin.h"
+#include "TestDruid.h"
 #include "TestFelstrikerProc.h"
 #include "TestHunter.h"
 #include "TestMage.h"
@@ -89,6 +90,7 @@ void Test::test_all() {
     TestPaladin(equipment_db).test_all();
     TestShaman(equipment_db).test_all();
     TestMage(equipment_db).test_all();
+    TestDruid(equipment_db).test_all();
 
     TestFelstrikerProc(equipment_db).test_all();
 }

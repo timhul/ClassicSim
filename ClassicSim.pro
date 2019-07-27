@@ -118,6 +118,10 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Druid/Talents/TestBalance.cpp \
+    Test/Druid/Talents/TestFeralCombat.cpp \
+    Test/Druid/Talents/TestRestorationDruid.cpp \
+    Test/Druid/TestDruid.cpp \
     Test/Mage/Spells/TestArcaneMissiles.cpp \
     Test/Mage/Spells/TestEvocation.cpp \
     Test/Mage/Spells/TestFireball.cpp \
@@ -565,6 +569,10 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Druid/Talents/TestBalance.h \
+    Test/Druid/Talents/TestFeralCombat.h \
+    Test/Druid/Talents/TestRestorationDruid.h \
+    Test/Druid/TestDruid.h \
     Test/Mage/Spells/TestArcaneMissiles.h \
     Test/Mage/Spells/TestEvocation.h \
     Test/Mage/Spells/TestFireball.h \
@@ -1005,6 +1013,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Mage \
     $$PWD/Test/Mage/Spells \
     $$PWD/Test/Mage/Talents \
+    $$PWD/Test/Druid \
+    $$PWD/Test/Druid/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \
     $$PWD/Class/Common/Enchants \
