@@ -125,36 +125,3 @@ void TestMarksmanship::spec_marksmanship() {
     assert(increment("Ranged Weapon Specialization", 4));
     assert(increment("Trueshot Aura"));
 }
-
-QString TestMarksmanship::get_position(const QString& name) const {
-    if (name == "Improved Concussive Shot")
-        return "1ML";
-    if (name == "Efficiency")
-        return "1MR";
-    if (name == "Improved Hunter's Mark")
-        return "2ML";
-    if (name == "Lethal Shots")
-        return "2MR";
-    if (name == "Aimed Shot")
-        return "3LL";
-    if (name == "Improved Arcane Shot")
-        return "3ML";
-    if (name == "Hawk Eye")
-        return "3RR";
-    if (name == "Improved Serpent Sting")
-        return "4ML";
-    if (name == "Mortal Shots")
-        return "4MR";
-    if (name == "Scatter Shot")
-        return "5LL";
-    if (name == "Barrage")
-        return "5ML";
-    if (name == "Improved Scorpid Sting")
-        return "5MR";
-    if (name == "Ranged Weapon Specialization")
-        return "6MR";
-    if (name == "Trueshot Aura")
-        return "7ML";
-
-    return "";
-}

@@ -36,6 +36,7 @@ public:
     int get_tree_points(const QString& tree_position) const;
     QString get_tree_name(const QString& tree_position) const;
     QString get_talent_name(const QString& tree_position, const QString& talent_position) const;
+    QString get_talent_position(const QString& tree_position, const QString& talent_name) const;
     void increase_to_max_rank(const QString& tree_position, const QString& talent_position);
     void decrease_to_min_rank(const QString& tree_position, const QString& talent_position);
 

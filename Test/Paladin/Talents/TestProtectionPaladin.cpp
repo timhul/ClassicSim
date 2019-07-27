@@ -94,38 +94,3 @@ void TestProtectionPaladin::spec_protection() {
     assert(increment("One-Handed Weapon Specialization", 5));
     assert(increment("Holy Shield", 1));
 }
-
-QString TestProtectionPaladin::get_position(const QString& name) const {
-    if (name == "Improved Devotion Aura")
-        return "1ML";
-    if (name == "Redoubt")
-        return "1MR";
-    if (name == "Precision")
-        return "2LL";
-    if (name == "Guardian's Favor")
-        return "2ML";
-    if (name == "Toughness")
-        return "2RR";
-    if (name == "Blessing of Kings")
-        return "3LL";
-    if (name == "Improved Righteous Fury")
-        return "3ML";
-    if (name == "Shield Specialization")
-        return "3MR";
-    if (name == "Anticipation")
-        return "3RR";
-    if (name == "Improved Hammer of Justice")
-        return "4ML";
-    if (name == "Improved Concentration Aura")
-        return "4MR";
-    if (name == "Blessing of Sanctuary")
-        return "5ML";
-    if (name == "Reckoning")
-        return "5MR";
-    if (name == "One-Handed Weapon Specialization")
-        return "6MR";
-    if (name == "Holy Shield")
-        return "7ML";
-
-    return "";
-}

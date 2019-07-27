@@ -34,8 +34,6 @@ protected:
 
     virtual void run_extra_tests();
 
-    virtual QString get_position(const QString& name) const = 0;
-
     bool increment(const QString& name, int num_times = 1);
     bool decrement(const QString& name, int num_times = 1);
     void clear_tree();

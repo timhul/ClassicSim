@@ -73,45 +73,10 @@ void TestRetribution::spec_retribution() {
     assert(increment("Conviction", 5));
     assert(increment("Seal of Command", 1));
     assert(increment("Pursuit of Justice", 2));
-    assert(increment("Eye of an Eye", 2));
+    assert(increment("Eye for an Eye", 2));
     assert(increment("Improved Retribution Aura", 2));
     assert(increment("Two-Handed Weapon Specialization", 3));
     assert(increment("Sanctity Aura", 1));
     assert(increment("Vengeance", 5));
     assert(increment("Repentance", 1));
-}
-
-QString TestRetribution::get_position(const QString& name) const {
-    if (name == "Improved Blessing of Might")
-        return "1ML";
-    if (name == "Benediction")
-        return "1MR";
-    if (name == "Improved Judgement")
-        return "2LL";
-    if (name == "Improved Seal of the Crusader")
-        return "2ML";
-    if (name == "Deflection")
-        return "2MR";
-    if (name == "Vindication")
-        return "3LL";
-    if (name == "Conviction")
-        return "3ML";
-    if (name == "Seal of Command")
-        return "3MR";
-    if (name == "Pursuit of Justice")
-        return "3RR";
-    if (name == "Eye of an Eye")
-        return "4LL";
-    if (name == "Improved Retribution Aura")
-        return "4MR";
-    if (name == "Two-Handed Weapon Specialization")
-        return "5LL";
-    if (name == "Sanctity Aura")
-        return "5MR";
-    if (name == "Vengeance")
-        return "6ML";
-    if (name == "Repentance")
-        return "7ML";
-
-    return "";
 }

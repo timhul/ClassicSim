@@ -346,6 +346,13 @@ Talent* TalentTree::get_talent_from_name(const QString& name) const {
     return talents[position]->talent;
 }
 
+QString TalentTree::get_position_from_talent_name(const QString& name) const {
+    if (!talent_names_to_locations.contains(name))
+        return "<not found>";
+
+    return talent_names_to_locations[name];
+}
+
 void TalentTree::add_talent_to_tier(QMap<QString, Talent*>& talent_tier, Talent* talent) {
     check(!talent_tier.contains(talent->get_position()),
           QString("TalentTree::add_talent_to_tier failed because talent position %1 is taken").arg(talent->get_position()).toStdString());

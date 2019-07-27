@@ -88,6 +88,7 @@ public:
     QVector<QPair<QString, QString>> get_talent_tree_setup() const;
 
     Talent* get_talent_from_name(const QString& name) const;
+    QString get_position_from_talent_name(const QString& name) const;
 
 protected:
     const QString name;

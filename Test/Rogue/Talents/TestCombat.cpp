@@ -54,38 +54,38 @@ void TestCombat::test_spending_talent_points() {
     assert(increment("Improved Sprint", 2));
 
     // Assert cannot spend points into Dual-Wield Specialization if 5/5 Precision is missing
-    assert(!increment("Dual-Wield Specialization"));
+    assert(!increment("Dual Wield Specialization"));
     assert(increment("Precision"));
-    assert(!increment("Dual-Wield Specialization"));
+    assert(!increment("Dual Wield Specialization"));
     assert(increment("Precision"));
-    assert(!increment("Dual-Wield Specialization"));
+    assert(!increment("Dual Wield Specialization"));
     assert(increment("Precision"));
-    assert(!increment("Dual-Wield Specialization"));
+    assert(!increment("Dual Wield Specialization"));
     assert(increment("Precision"));
-    assert(!increment("Dual-Wield Specialization"));
+    assert(!increment("Dual Wield Specialization"));
     assert(increment("Precision"));
 
     // Assert cannot remove points from Precision once points are spent in Dual-Wield Specialization
-    assert(increment("Dual-Wield Specialization"));
+    assert(increment("Dual Wield Specialization"));
     assert(!decrement("Precision"));
-    assert(increment("Dual-Wield Specialization"));
+    assert(increment("Dual Wield Specialization"));
     assert(!decrement("Precision"));
-    assert(increment("Dual-Wield Specialization"));
+    assert(increment("Dual Wield Specialization"));
     assert(!decrement("Precision"));
-    assert(increment("Dual-Wield Specialization"));
+    assert(increment("Dual Wield Specialization"));
     assert(!decrement("Precision"));
-    assert(increment("Dual-Wield Specialization"));
+    assert(increment("Dual Wield Specialization"));
     assert(!decrement("Precision"));
 
     // 20 points spent
-    assert(decrement("Dual-Wield Specialization", 4));
+    assert(decrement("Dual Wield Specialization", 4));
     assert(decrement("Improved Backstab", 1));
     assert(tree_has_points(20));
 
     assert(increment("Blade Flurry"));
 
     // Cannot decrement lower tiers
-    assert(!decrement("Dual-Wield Specialization"));
+    assert(!decrement("Dual Wield Specialization"));
     assert(!decrement("Improved Sprint"));
     assert(!decrement("Improved Backstab"));
     assert(!decrement("Lightning Reflexes"));
@@ -109,12 +109,12 @@ void TestCombat::test_spending_talent_points() {
     assert(decrement("Riposte"));
 
     // Try shifting points in T4
-    assert(!decrement("Dual-Wield Specialization"));
+    assert(!decrement("Dual Wield Specialization"));
     assert(increment("Dagger Specialization"));
-    assert(decrement("Dual-Wield Specialization"));
+    assert(decrement("Dual Wield Specialization"));
     assert(!decrement("Dagger Specialization"));
 
-    assert(increment("Dual-Wield Specialization"));
+    assert(increment("Dual Wield Specialization"));
     assert(decrement("Dagger Specialization"));
 
     // Assert cannot remove parent (Blade Flurry) when child (Weapon Expertise) is active although points allow
@@ -128,7 +128,7 @@ void TestCombat::test_spending_talent_points() {
     assert(increment("Aggression", 3));
     assert(tree_has_points(30));
     assert(increment("Adrenaline Rush"));
-    assert(!decrement("Dual-Wield Specialization"));
+    assert(!decrement("Dual Wield Specialization"));
     assert(!decrement("Improved Sprint"));
     assert(!decrement("Deflection"));
     assert(!decrement("Improved Sinister Strike"));
@@ -144,7 +144,7 @@ void TestCombat::test_clearing_tree_after_filling() {
     assert(increment("Precision", 5));
     assert(increment("Endurance", 2));
     assert(increment("Improved Sprint", 2));
-    assert(increment("Dual-Wield Specialization", 5));
+    assert(increment("Dual Wield Specialization", 5));
     assert(increment("Dagger Specialization", 5));
     assert(increment("Blade Flurry"));
     assert(increment("Weapon Expertise", 2));
@@ -178,51 +178,10 @@ void TestCombat::spec_combat() {
     assert(increment("Precision", 5));
     assert(increment("Improved Sprint", 2));
     assert(increment("Dagger Specialization", 5));
-    assert(increment("Dual-Wield Specialization", 5));
+    assert(increment("Dual Wield Specialization", 5));
     assert(increment("Sword Specialization", 5));
     assert(increment("Blade Flurry", 1));
     assert(increment("Weapon Expertise", 2));
     assert(increment("Aggression", 3));
     assert(increment("Adrenaline Rush", 1));
-}
-
-QString TestCombat::get_position(const QString& name) const {
-    if (name == "Improved Gouge")
-        return "1LL";
-    if (name == "Improved Sinister Strike")
-        return "1ML";
-    if (name == "Lightning Reflexes")
-        return "1MR";
-    if (name == "Improved Backstab")
-        return "2LL";
-    if (name == "Deflection")
-        return "2ML";
-    if (name == "Precision")
-        return "2MR";
-    if (name == "Endurance")
-        return "3LL";
-    if (name == "Riposte")
-        return "3ML";
-    if (name == "Improved Sprint")
-        return "3RR";
-    if (name == "Improved Kick")
-        return "4LL";
-    if (name == "Dagger Specialization")
-        return "4ML";
-    if (name == "Dual-Wield Specialization")
-        return "4MR";
-    if (name == "Mace Specialization")
-        return "5LL";
-    if (name == "Blade Flurry")
-        return "5ML";
-    if (name == "Sword Specialization")
-        return "5MR";
-    if (name == "Weapon Expertise")
-        return "6ML";
-    if (name == "Aggression")
-        return "6MR";
-    if (name == "Adrenaline Rush")
-        return "7ML";
-
-    return "";
 }

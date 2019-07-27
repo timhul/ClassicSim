@@ -258,6 +258,16 @@ QString CharacterTalents::get_talent_name(const QString& tree_position, const QS
     return talent_trees[current_index][tree_position]->get_talent_name(talent_position);
 }
 
+QString CharacterTalents::get_talent_position(const QString& tree_position, const QString& talent_name) const {
+    check((current_index >= 0 && current_index < talent_trees.size()), "CharacterTalents::get_talent_position() Index out of range");
+    if (!talent_trees[current_index].contains(tree_position)) {
+        qDebug() << "CharacterTalents::get_talent_position() could not find tree position" << tree_position;
+        return "Missing tree!";
+    }
+
+    return talent_trees[current_index][tree_position]->get_position_from_talent_name(talent_name);
+}
+
 void CharacterTalents::increase_to_max_rank(const QString& tree_position, const QString& talent_position) {
     check((current_index >= 0 && current_index < talent_trees.size()), "Index out of range 25");
     if (!talent_trees[current_index].contains(tree_position)) {

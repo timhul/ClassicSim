@@ -99,13 +99,13 @@ void TestAssassination::test_spending_talent_points() {
     assert(decrement("Improved Eviscerate"));
 
     // Try shifting points in T2
-    assert(increment("Improved Slice and Dice"));
+    assert(increment("Improved Slice And Dice"));
     assert(decrement("Murder"));
-    assert(!decrement("Improved Slice and Dice"));
+    assert(!decrement("Improved Slice And Dice"));
     assert(!decrement("Murder"));
 
     assert(increment("Murder"));
-    assert(decrement("Improved Slice and Dice"));
+    assert(decrement("Improved Slice And Dice"));
 
     // Try shifting points in T3
     assert(increment("Improved Expose Armor"));
@@ -148,7 +148,7 @@ void TestAssassination::test_clearing_tree_after_filling() {
     assert(increment("Malice", 5));
     assert(increment("Ruthlessness", 3));
     assert(increment("Murder", 2));
-    assert(increment("Improved Slice and Dice", 3));
+    assert(increment("Improved Slice And Dice", 3));
     assert(increment("Relentless Strikes", 1));
     assert(increment("Lethality", 5));
     assert(increment("Improved Poisons", 5));
@@ -182,46 +182,10 @@ void TestAssassination::spec_seal_fate() {
     assert(increment("Malice", 5));
     assert(increment("Ruthlessness", 3));
     assert(increment("Murder", 2));
-    assert(increment("Improved Slice and Dice", 3));
+    assert(increment("Improved Slice And Dice", 3));
     assert(increment("Relentless Strikes", 1));
     assert(increment("Lethality", 5));
     assert(increment("Improved Poisons", 5));
     assert(increment("Cold Blood", 1));
     assert(increment("Seal Fate", 5));
-}
-
-QString TestAssassination::get_position(const QString& name) const {
-    if (name == "Improved Eviscerate")
-        return "1LL";
-    if (name == "Remorseless Attacks")
-        return "1ML";
-    if (name == "Malice")
-        return "1MR";
-    if (name == "Ruthlessness")
-        return "2LL";
-    if (name == "Murder")
-        return "2ML";
-    if (name == "Improved Slice and Dice")
-        return "2RR";
-    if (name == "Relentless Strikes")
-        return "3LL";
-    if (name == "Improved Expose Armor")
-        return "3ML";
-    if (name == "Lethality")
-        return "3MR";
-    if (name == "Vile Poisons")
-        return "4ML";
-    if (name == "Improved Poisons")
-        return "4MR";
-    if (name == "Cold Blood")
-        return "5ML";
-    if (name == "Improved Kidney Shot")
-        return "5MR";
-    if (name == "Seal Fate")
-        return "6ML";
-    if (name == "Vigor")
-        return "7ML";
-
-    assert(false);
-    return "";
 }

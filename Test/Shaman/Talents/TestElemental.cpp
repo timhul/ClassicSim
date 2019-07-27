@@ -103,38 +103,3 @@ void TestElemental::spec_elemental() {
     assert(increment("Lightning Mastery", 5));
     assert(increment("Elemental Mastery", 1));
 }
-
-QString TestElemental::get_position(const QString& name) const {
-    if (name == "Convection")
-        return "1ML";
-    if (name == "Concussion")
-        return "1MR";
-    if (name == "Earth's Grasp")
-        return "2LL";
-    if (name == "Elemental Warding")
-        return "2ML";
-    if (name == "Call of Flame")
-        return "2MR";
-    if (name == "Elemental Focus")
-        return "3LL";
-    if (name == "Reverberation")
-        return "3ML";
-    if (name == "Call of Thunder")
-        return "3MR";
-    if (name == "Improved Fire Totems")
-        return "4LL";
-    if (name == "Eye of the Storm")
-        return "4ML";
-    if (name == "Elemental Devastation")
-        return "4RR";
-    if (name == "Storm Reach")
-        return "5LL";
-    if (name == "Elemental Fury")
-        return "5ML";
-    if (name == "Lightning Mastery")
-        return "6MR";
-    if (name == "Elemental Mastery")
-        return "7ML";
-
-    return "";
-}

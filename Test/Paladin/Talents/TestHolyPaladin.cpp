@@ -45,7 +45,7 @@ void TestHolyPaladin::test_spending_talent_points() {
     assert(increment("Spiritual Focus", 4));
 
     // Assert cannot spend points into Divine Favor if 5/5 Illumination is missing
-    assert(increment("Improyed Lay on Hands", 2));
+    assert(increment("Improved Lay on Hands", 2));
     assert(increment("Healing Light", 3));
     assert(increment("Consecration", 1));
     assert(increment("Unyielding Faith", 2));
@@ -83,8 +83,8 @@ void TestHolyPaladin::test_spending_talent_points() {
     // Assert cannot decrement lower tiers
     assert(!decrement("Divine Intellect"));
     assert(!decrement("Spiritual Focus"));
-    assert(decrement("Improyed Lay on Hands"));
-    assert(!decrement("Improyed Lay on Hands"));
+    assert(decrement("Improved Lay on Hands"));
+    assert(!decrement("Improved Lay on Hands"));
     assert(!decrement("Improved Blessing of Wisdom"));
     assert(!decrement("Divine Favor"));
     assert(!decrement("Holy Power"));
@@ -121,7 +121,7 @@ void TestHolyPaladin::spec_holy() {
     assert(increment("Improved Seal of Righteousness", 5));
     assert(increment("Healing Light", 3));
     assert(increment("Consecration", 1));
-    assert(increment("Improyed Lay on Hands", 2));
+    assert(increment("Improved Lay on Hands", 2));
     assert(increment("Unyielding Faith", 2));
     assert(increment("Illumination", 5));
     assert(increment("Improved Blessing of Wisdom", 2));
@@ -129,37 +129,4 @@ void TestHolyPaladin::spec_holy() {
     assert(increment("Lasting Judgement", 3));
     assert(increment("Holy Power", 5));
     assert(increment("Holy Shock", 1));
-}
-
-QString TestHolyPaladin::get_position(const QString& name) const {
-    if (name == "Divine Strength")
-        return "1ML";
-    if (name == "Divine Intellect")
-        return "1MR";
-    if (name == "Spiritual Focus")
-        return "2ML";
-    if (name == "Improved Seal of Righteousness")
-        return "2MR";
-    if (name == "Healing Light")
-        return "3LL";
-    if (name == "Consecration")
-        return "3ML";
-    if (name == "Improyed Lay on Hands")
-        return "3MR";
-    if (name == "Unyielding Faith")
-        return "3RR";
-    if (name == "Illumination")
-        return "4ML";
-    if (name == "Improved Blessing of Wisdom")
-        return "4MR";
-    if (name == "Divine Favor")
-        return "5ML";
-    if (name == "Lasting Judgement")
-        return "5MR";
-    if (name == "Holy Power")
-        return "6MR";
-    if (name == "Holy Shock")
-        return "7ML";
-
-    return "";
 }

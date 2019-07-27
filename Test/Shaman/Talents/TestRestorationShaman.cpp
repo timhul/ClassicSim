@@ -81,38 +81,3 @@ void TestRestorationShaman::spec_restoration() {
     assert(increment("Purification", 4));
     assert(increment("Mana Tide Totem", 1));
 }
-
-QString TestRestorationShaman::get_position(const QString& name) const {
-    if (name == "Improved Healing Wave")
-        return "1ML";
-    if (name == "Tidal Focus")
-        return "1MR";
-    if (name == "Improved Reincarnation")
-        return "2LL";
-    if (name == "Ancestral Healing")
-        return "2ML";
-    if (name == "Totemic Focus")
-        return "2MR";
-    if (name == "Nature's Guidance")
-        return "3LL";
-    if (name == "Healing Focus")
-        return "3ML";
-    if (name == "Totemic Mastery")
-        return "3MR";
-    if (name == "Healing Grace")
-        return "3RR";
-    if (name == "Restorative Totems")
-        return "4ML";
-    if (name == "Tidal Mastery")
-        return "4MR";
-    if (name == "Healing Way")
-        return "5LL";
-    if (name == "Nature's Swiftness")
-        return "5MR";
-    if (name == "Purification")
-        return "6MR";
-    if (name == "Mana Tide Totem")
-        return "7ML";
-
-    return "";
-}
