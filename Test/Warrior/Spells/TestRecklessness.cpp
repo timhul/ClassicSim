@@ -55,11 +55,7 @@ void TestRecklessness::test_all() {
     tear_down();
 
     set_up();
-    test_glancing_hits_converted_to_crits();
-    tear_down();
-
-    set_up();
-    test_white_hit_converted_to_crit();
+    test_glancing_hits_still_glances();
     tear_down();
 
     set_up();
@@ -239,7 +235,7 @@ void TestRecklessness::test_white_block_still_blocks() {
     then_damage_dealt_is(0);
 }
 
-void TestRecklessness::test_glancing_hits_converted_to_crits() {
+void TestRecklessness::test_glancing_hits_still_glances() {
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
@@ -247,22 +243,9 @@ void TestRecklessness::test_glancing_hits_converted_to_crits() {
 
     when_reck_and_mh_attack_is_performed();
 
-    // [Damage] = base_dmg + (wpn_speed * AP / 14) * crit_dmg_modifier
-    // [571] = (100 + (2.6 * 1000 / 14)) * 2.0
-    then_damage_dealt_is(571);
-}
-
-void TestRecklessness::test_white_hit_converted_to_crit() {
-    given_target_has_0_armor();
-    given_a_mainhand_weapon_with_100_min_max_dmg();
-    given_1000_melee_ap();
-    given_a_guaranteed_white_hit();
-
-    when_reck_and_mh_attack_is_performed();
-
-    // [Damage] = base_dmg + (wpn_speed * AP / 14) * crit_dmg_modifier
-    // [571] = (100 + (2.6 * 1000 / 14)) * 2.0
-    then_damage_dealt_is(571);
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_penalty
+    // [157 - 214] = (100 + (2.6 * 1000 / 14)) * [0.55 - 0.75]
+    then_damage_dealt_is_in_range(157, 214);
 }
 
 void TestRecklessness::test_white_crit_still_crits() {

@@ -65,9 +65,6 @@ int OffhandAttackWarrior::calculate_damage() {
         return result;
     }
 
-    if (spells->get_recklessness_buff()->is_active())
-        result = PhysicalAttackResult::CRITICAL;
-
     double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_oh_dmg() * offhand_penalty);
 
     if (result == PhysicalAttackResult::CRITICAL) {

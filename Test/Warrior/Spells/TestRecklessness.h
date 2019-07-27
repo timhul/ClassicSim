@@ -28,8 +28,7 @@ private:
     void test_white_dodge_still_dodges();
     void test_white_parry_still_parries();
     void test_white_block_still_blocks();
-    void test_glancing_hits_converted_to_crits();
-    void test_white_hit_converted_to_crit();
+    void test_glancing_hits_still_glances();
     void test_white_crit_still_crits();
     void test_ability_hit_converted_to_crit();
     void test_ability_crit_still_crits();
