@@ -5,8 +5,8 @@
 #include "CooldownControl.h"
 #include "Race.h"
 
-Berserking::Berserking(Character* pchar) :
-    Spell("Berserking", "Assets/races/Racial_troll_berserk.png", pchar, new CooldownControl(pchar, 180.0), RestrictedByGcd::Yes, ResourceType::Rage, 0),
+Berserking::Berserking(Character* pchar, const ResourceType resource_type, const unsigned resource_cost) :
+    Spell("Berserking", "Assets/races/Racial_troll_berserk.png", pchar, new CooldownControl(pchar, 180.0), RestrictedByGcd::Yes, resource_type, resource_cost),
     buff(new BerserkingBuff(pchar))
 {
     this->enabled = false;

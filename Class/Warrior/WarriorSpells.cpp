@@ -7,6 +7,7 @@
 #include "BerserkerRage.h"
 #include "BerserkerStance.h"
 #include "BerserkerStanceBuff.h"
+#include "Berserking.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
 #include "CharacterStats.h"
@@ -38,6 +39,9 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     CharacterSpells(pchar),
     warr(pchar)
 {
+    this->berserking = new Berserking(pchar, ResourceType::Rage, 5);
+    add_spell_group({berserking});
+
     this->anger_management = new AngerManagement(pchar);
     this->battle_stance = new BattleStance(pchar);
     this->berserker_rage = new BerserkerRage(pchar);

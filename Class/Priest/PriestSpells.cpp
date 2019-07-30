@@ -1,17 +1,18 @@
-
 #include "PriestSpells.h"
-#include "Priest.h"
 
+#include "Berserking.h"
 #include "MainhandAttack.h"
-
+#include "Priest.h"
 
 PriestSpells::PriestSpells(Priest* priest) :
     CharacterSpells(priest),
     priest(priest)
 {
-    this->mh_attack = new MainhandAttack(priest);
+    this->berserking = new Berserking(pchar, ResourceType::Mana, 110);
+    add_spell_group({berserking});
 
-    spells.append(mh_attack);
+    this->mh_attack = new MainhandAttack(priest);
+    add_spell_group({mh_attack});
 }
 
 PriestSpells::~PriestSpells() = default;

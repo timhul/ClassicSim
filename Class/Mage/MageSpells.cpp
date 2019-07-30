@@ -2,6 +2,7 @@
 
 #include "ArcaneMissiles.h"
 #include "ArcanePower.h"
+#include "Berserking.h"
 #include "ClearcastingMage.h"
 #include "Combustion.h"
 #include "ElementalVulnerability.h"
@@ -28,8 +29,10 @@ MageSpells::MageSpells(Mage* mage) :
     CharacterSpells(mage),
     mage(mage)
 {
-    this->mh_attack = new MainhandAttack(mage);
+    this->berserking = new Berserking(pchar, ResourceType::Mana, 100);
+    add_spell_group({berserking});
 
+    this->mh_attack = new MainhandAttack(mage);
     add_spell_group({mh_attack});
 
     auto winters_chill_buff = dynamic_cast<WintersChill*>(mage->get_raid_control()->get_shared_raid_buff("Winter's Chill"));

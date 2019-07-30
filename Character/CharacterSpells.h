@@ -90,7 +90,7 @@ protected:
     MainhandAttack* mh_attack{};
     OffhandAttack* oh_attack{};
 
-    Berserking* berserking;
+    Berserking* berserking {nullptr};
     BloodFury* blood_fury;
 
     DemonicRune* demonic_rune;

@@ -225,21 +225,21 @@ void Test::test_character_creation() {
     assert(race->get_gun_bonus() == 0);
     delete race;
 
-    race = new Tauren();
-    assert(race->get_name() == "Tauren");
-    assert(race->get_axe_bonus() == 0);
-    assert(race->get_mace_bonus() == 0);
-    assert(race->get_sword_bonus() == 0);
-    assert(race->get_bow_bonus() == 0);
-    assert(race->get_gun_bonus() == 0);
-    delete race;
-
     race = new Troll();
     assert(race->get_name() == "Troll");
     assert(race->get_axe_bonus() == 0);
     assert(race->get_mace_bonus() == 0);
     assert(race->get_sword_bonus() == 0);
     assert(race->get_bow_bonus() == 5);
+    assert(race->get_gun_bonus() == 0);
+    delete race;
+
+    race = new Tauren();
+    assert(race->get_name() == "Tauren");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
     assert(race->get_gun_bonus() == 0);
 
     auto* sim_settings = new SimSettings();

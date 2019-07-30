@@ -6,7 +6,7 @@ class BerserkingBuff;
 
 class Berserking: public Spell {
 public:
-    Berserking(Character* pchar);
+    Berserking(Character* pchar, const ResourceType resource_type, const unsigned resource_cost);
     ~Berserking() override;
 
 private:

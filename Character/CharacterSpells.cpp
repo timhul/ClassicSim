@@ -34,14 +34,12 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     attack_mode(AttackMode::MeleeAttack),
     attack_mode_active(false)
 {
-    berserking = new Berserking(pchar);
     blood_fury = new BloodFury(pchar);
     demonic_rune = new DemonicRune(pchar);
     mana_potion = new ManaPotion(pchar);
     night_dragons_breath = new NightDragonsBreath(pchar);
     dragonbreath_chili = new DragonbreathChili(pchar);
 
-    add_spell_group({berserking});
     add_spell_group({blood_fury});
     add_spell_group({demonic_rune});
     add_spell_group({mana_potion});

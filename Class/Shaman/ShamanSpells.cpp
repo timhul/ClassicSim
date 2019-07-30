@@ -1,5 +1,6 @@
 #include "ShamanSpells.h"
 
+#include "Berserking.h"
 #include "ClearcastingShaman.h"
 #include "ElementalDevastation.h"
 #include "Flurry.h"
@@ -15,6 +16,9 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     CharacterSpells(shaman),
     shaman(shaman)
 {
+    this->berserking = new Berserking(pchar, ResourceType::Mana, 120);
+    add_spell_group({berserking});
+
     this->mh_attack = new MainhandAttack(shaman);
 
     add_spell_group({mh_attack});

@@ -3,6 +3,7 @@
 #include "AimedShot.h"
 #include "AspectOfTheHawk.h"
 #include "AutoShot.h"
+#include "Berserking.h"
 #include "BestialWrath.h"
 #include "Engine.h"
 #include "ExposeWeaknessBuff.h"
@@ -23,6 +24,9 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     CharacterSpells(hunter),
     hunter(hunter)
 {
+    this->berserking = new Berserking(pchar, ResourceType::Mana, 130);
+    add_spell_group({berserking});
+
     this->aimed_shot = new AimedShot(hunter, new_cooldown_control("Aimed Shot", 6.0));
     this->aspect_of_the_hawk = new AspectOfTheHawk(hunter);
     this->auto_shot = new AutoShot(hunter);

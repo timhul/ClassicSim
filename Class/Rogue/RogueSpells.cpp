@@ -2,6 +2,7 @@
 
 #include "AdrenalineRush.h"
 #include "Backstab.h"
+#include "Berserking.h"
 #include "BladeFlurry.h"
 #include "Engine.h"
 #include "Eviscerate.h"
@@ -16,6 +17,9 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     CharacterSpells(rogue),
     rogue(rogue)
 {
+    this->berserking = new Berserking(pchar, ResourceType::Energy, 10);
+    add_spell_group({berserking});
+
     this->mh_attack = new MainhandAttack(rogue);
     this->oh_attack = new OffhandAttackRogue(rogue);
     this->adrenaline_rush = new AdrenalineRush(rogue);
