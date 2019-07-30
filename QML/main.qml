@@ -70,10 +70,15 @@ Window {
 
     Connections {
         target: character
-        onSimResultUpdated: {
+        onSimPersonalResultUpdated: {
             continuousDpsUpdateText.text = value;
             percentualDifference.text = change;
             percentualDifference.color = positive ? brightGreen : brightRed
+        }
+        onSimRaidResultUpdated: {
+            continuousRaidDpsUpdateText.text = value;
+            percentualDifferenceRaidDps.text = change;
+            percentualDifferenceRaidDps.color = positive ? brightGreen : brightRed
         }
     }
 
@@ -353,16 +358,65 @@ Window {
             height: parent.height * 0.95
         }
 
+        Text {
+            id: continuousRaidDpsUpdateText
+            visible: parent.state === "RAIDSETUP"
+            height: 40
+            width: 250 - percentualDifferenceRaidDps
+
+            anchors {
+                right: percentualDifferenceRaidDps.left
+            }
+
+            text: "0.0"
+
+            font {
+                family: fontNumbers
+                bold: true
+                pointSize: 28
+            }
+
+            color: gray
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+
+        Text {
+            id: percentualDifferenceRaidDps
+            visible: parent.state === "RAIDSETUP"
+            anchors {
+                right: parent.right
+            }
+
+            height: 40
+            width: 100
+
+            text: "+0.0%"
+
+            font {
+                family: fontNumbers
+                bold: true
+                pointSize: 10
+            }
+
+            color: gray
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+
         RectangleBorders {
+            id: damageMetersRect
             x: raidSetup.width + 40
             width: 250
-            height: parent.height * 0.95
+            height: parent.height * 0.95 - continuousRaidDpsUpdateText.height
             visible: parent.state === "RAIDSETUP"
 
             anchors.right: parent.right
             anchors.rightMargin: 20
-            anchors.top: parent.top
-            anchors.topMargin: parent.height / 2 - height / 2
+            anchors.top: continuousRaidDpsUpdateText.bottom
 
             ScrollView {
                 anchors.fill: parent

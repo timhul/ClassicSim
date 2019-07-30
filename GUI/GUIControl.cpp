@@ -843,16 +843,27 @@ QString GUIControl::get_information_rotation_description() const {
 }
 
 void GUIControl::update_displayed_dps_value(const double new_dps_value) {
-    double previous = last_quick_sim_result;
-    last_quick_sim_result = new_dps_value;
-    double delta = ((last_quick_sim_result - previous) / previous);
+    double previous = last_personal_sim_result;
+    last_personal_sim_result = new_dps_value;
+    double delta = ((last_personal_sim_result - previous) / previous);
     QString change = delta > 0 ? "+" : "";
-    change += QString::number(((last_quick_sim_result - previous) / previous) * 100, 'f', 1) + "%";
+    change += QString::number(((last_personal_sim_result - previous) / previous) * 100, 'f', 1) + "%";
 
-    QString dps = QString::number(last_quick_sim_result, 'f', 2);
+    QString dps = QString::number(last_personal_sim_result, 'f', 2);
     qDebug() << "Total DPS: " << dps;
-    qDebug() << "Total Raid DPS:" << number_cruncher->get_raid_dps();
-    simResultUpdated(dps, change, delta > 0);
+    simPersonalResultUpdated(dps, change, delta > 0);
+}
+
+void GUIControl::update_displayed_raid_dps_value(const double new_dps_value) {
+    double previous = last_raid_sim_result;
+    last_raid_sim_result = new_dps_value;
+    double delta = ((last_raid_sim_result - previous) / previous);
+    QString change = delta > 0 ? "+" : "";
+    change += QString::number(((last_raid_sim_result - previous) / previous) * 100, 'f', 1) + "%";
+
+    QString dps = QString::number(last_raid_sim_result, 'f', 2);
+    qDebug() << "Total Raid DPS:" << dps;
+    simRaidResultUpdated(dps, change, delta > 0);
 }
 
 void GUIControl::calculate_displayed_dps_value() {
@@ -928,6 +939,7 @@ void GUIControl::compile_thread_results() {
     damage_meters_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
     update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale));
+    update_displayed_raid_dps_value(number_cruncher->get_raid_dps());
     dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
     sim_in_progress = false;
