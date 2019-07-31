@@ -147,7 +147,7 @@ Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
                                              base_dot_damage, base_dot_duration,
                                              resource_cost, casting_time_ms,
                                              spell_dmg_coefficient,
-                                             PeriodicDamageSpell::get_spell_coefficient_from_duration(base_dot_duration),
+                                             0.0,
                                              spell_rank);
 }
 
