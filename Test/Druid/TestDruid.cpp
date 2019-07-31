@@ -12,6 +12,7 @@
 #include "TestFeralCombat.h"
 #include "TestMoonfire.h"
 #include "TestRestorationDruid.h"
+#include "TestStarfire.h"
 #include "TestWrath.h"
 
 TestDruid::TestDruid(EquipmentDb* equipment_db):
@@ -27,6 +28,7 @@ void TestDruid::test_all() {
 
     TestWrath(equipment_db).test_all();
     TestMoonfire(equipment_db).test_all();
+    TestStarfire(equipment_db).test_all();
 }
 
 void TestDruid::test_values_after_initialization() {

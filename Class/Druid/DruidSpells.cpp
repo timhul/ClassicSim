@@ -3,6 +3,7 @@
 #include "Druid.h"
 #include "MainhandAttack.h"
 #include "Moonfire.h"
+#include "Starfire.h"
 #include "Wrath.h"
 
 DruidSpells::DruidSpells(Druid* druid) :
@@ -31,6 +32,16 @@ DruidSpells::DruidSpells(Druid* druid) :
                         new Moonfire(druid, this, 8),
                         new Moonfire(druid, this, 9),
                         new Moonfire(druid, this, 10),
+                    });
+
+    add_spell_group({
+                        new Starfire(druid, this, 1),
+                        new Starfire(druid, this, 2),
+                        new Starfire(druid, this, 3),
+                        new Starfire(druid, this, 4),
+                        new Starfire(druid, this, 5),
+                        new Starfire(druid, this, 6),
+                        new Starfire(druid, this, 7),
                     });
 }
 

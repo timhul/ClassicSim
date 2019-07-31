@@ -15,6 +15,7 @@
 #include "RestorationDruid.h"
 #include "SimSettings.h"
 #include "Spell.h"
+#include "Starfire.h"
 #include "Talent.h"
 #include "Wrath.h"
 
@@ -50,6 +51,10 @@ Wrath* TestSpellDruid::wrath() const {
 
 Moonfire* TestSpellDruid::moonfire() const {
     return dynamic_cast<Moonfire*>(get_max_rank_spell_by_name("Moonfire"));
+}
+
+Starfire* TestSpellDruid::starfire() const {
+    return dynamic_cast<Starfire*>(get_max_rank_spell_by_name("Starfire"));
 }
 
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {

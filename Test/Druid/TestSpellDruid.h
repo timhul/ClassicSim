@@ -5,6 +5,7 @@
 class Druid;
 class Moonfire;
 class Spell;
+class Starfire;
 class Wrath;
 
 class TestSpellDruid: public TestSpellDamage {
@@ -21,6 +22,7 @@ protected:
 
     Wrath* wrath() const;
     Moonfire* moonfire() const;
+    Starfire* starfire() const;
 
     void given_balance_talent_rank(const QString& talent_name, const unsigned num);
     void given_feral_talent_rank(const QString& talent_name, const unsigned num);

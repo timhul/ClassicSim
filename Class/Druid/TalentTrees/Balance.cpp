@@ -52,8 +52,8 @@ Balance::Balance(Druid* druid) :
 
     QMap<QString, Talent*> tier4 {
         {"4ML", new Talent(druid, this, "Vengeance", "4ML", "Assets/spell/Spell_nature_purge.png", 5, "Increases the critical strike damage bonus of your Starfire, Moonfire, and Wrath spells by %1%.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
-        {"4MR", new Talent(druid, this, "Improved Starfire", "4MR", "Assets/spell/Spell_arcane_starfire.png", 5, "Reduces the cast time of Starfire by 0.%1 sec and has a %2% chance to stun the target for 3 sec.", QVector<QPair<unsigned, unsigned>>{{1, 1}, {3, 3}})},
     };
+    add_improved_starfire(tier4);
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {
@@ -111,6 +111,15 @@ void Balance::add_improved_moonfire(QMap<QString, Talent*>& talent_tier) {
                                     "Increases the damage and critical strike chance of your Moonfire spell by %1%.",
                                     QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Moonfire")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_improved_starfire(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Improved Starfire", "4MR", "Assets/spell/Spell_arcane_starfire.png", 5,
+                                    "Reduces the cast time of Starfire by 0.%1 sec and has a %2% chance to stun the target for 3 sec.",
+                                    QVector<QPair<unsigned, unsigned>>{{1, 1}, {3, 3}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Starfire")});
 
     add_talent_to_tier(talent_tier, talent);
 }
