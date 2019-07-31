@@ -21,6 +21,10 @@ void TestStarfire::test_all() {
     tear_down();
 
     set_up();
+    test_crit_dmg_5_of_5_vengeance();
+    tear_down();
+
+    set_up();
     test_hit_damage_1_of_5_moonfury();
     tear_down();
 
@@ -110,6 +114,20 @@ void TestStarfire::test_crit_dmg() {
     // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
     // [2243 - 2376] = ([495 - 584] + 1000 * (3.5 / 3.5)) * 1.5
     then_damage_dealt_is_in_range(2243, 2376);
+}
+
+void TestStarfire::test_crit_dmg_5_of_5_vengeance() {
+    given_balance_talent_ranks({{"Improved Moonfire", 5}, {"Vengeance", 5}});
+    given_a_guaranteed_magic_crit(MagicSchool::Arcane);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_starfire_is_performed();
+    when_running_queued_events_until(3.501);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
+    // [2990 - 3168] = ([495 - 584] + 1000 * (3.5 / 3.5)) * 2
+    then_damage_dealt_is_in_range(2990, 3168);
 }
 
 void TestStarfire::test_hit_damage_1_of_5_moonfury() {

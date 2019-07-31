@@ -18,6 +18,7 @@ private:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_crit_dmg_5_of_5_vengeance_and_5_of_imp_moonfire();
     void test_duration_dmg_after_hit();
     void test_duration_dmg_after_crit();
     void test_hit_damage_1_of_5_moonfury();

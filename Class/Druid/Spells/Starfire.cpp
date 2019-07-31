@@ -114,7 +114,8 @@ void Starfire::complete_cast_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(MagicSchool::Arcane);
-        damage_dealt = round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod());
+        const double spell_crit_dmg_mod = 1 + (pchar->get_stats()->get_spell_crit_dmg_mod() - 1) * vengeance_crit_damage_bonus;
+        damage_dealt = round(damage_dealt * spell_crit_dmg_mod);
         add_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0);
     }
     else {
@@ -133,6 +134,9 @@ void Starfire::set_base_damage_range() {
 void Starfire::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Starfire")
         casting_time_ms = base_casting_time_ms - improved_starfire_ranks[curr];
+
+    if (talent_name == "Vengeance")
+        vengeance_crit_damage_bonus = vengeance_ranks[curr];
 
     if (talent_name == "Moonfury") {
         moonfury_damage_bonus = moonfury_ranks[curr];

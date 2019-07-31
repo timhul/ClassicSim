@@ -21,6 +21,10 @@ void TestMoonfire::test_all() {
     tear_down();
 
     set_up();
+    test_crit_dmg_5_of_5_vengeance_and_5_of_imp_moonfire();
+    tear_down();
+
+    set_up();
     test_duration_dmg_after_hit();
     tear_down();
 
@@ -91,6 +95,19 @@ void TestMoonfire::test_crit_dmg() {
     // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
     // [517 - 566] = ([195 - 228] + 1000 * ((1.5 / 3.5) ^ 2) / (1.5 / 3.5 + 12 / 15))) * 1.5
     then_damage_dealt_is_in_range(517, 566);
+}
+
+void TestMoonfire::test_crit_dmg_5_of_5_vengeance_and_5_of_imp_moonfire() {
+    given_balance_talent_ranks({{"Improved Moonfire", 5}, {"Vengeance", 5}});
+    given_a_guaranteed_magic_crit(MagicSchool::Arcane);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_moonfire_is_performed();
+
+    // [Damage] = (base_dmg * imp_moonfire + spell_power * spell_coefficient) * spell_crit_dmg_modifier
+    // [729 - 801] = ([195 * 1.1 - 228 * 1.1] + 1000 * ((1.5 / 3.5) ^ 2) / (1.5 / 3.5 + 12 / 15))) * 2
+    then_damage_dealt_is_in_range(729, 801);
 }
 
 void TestMoonfire::test_duration_dmg_after_hit() {

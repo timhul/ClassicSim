@@ -42,6 +42,9 @@ private:
         {1.0, 0}, {1.02, 200}, {1.04, 400}, {1.06, 600}, {1.08, 800}, {1.10, 1000},
     };
 
+    double vengeance_crit_damage_bonus {1.0};
+    const QVector<double> vengeance_ranks {1.0, 1.2, 1.4, 1.6, 1.8, 2.0};
+
     double moonfury_damage_bonus {1.0};
     const QVector<double> moonfury_ranks {1.0, 1.02, 1.04, 1.06, 1.08, 1.10};
 

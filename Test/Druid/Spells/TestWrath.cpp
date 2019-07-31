@@ -21,6 +21,10 @@ void TestWrath::test_all() {
     tear_down();
 
     set_up();
+    test_crit_dmg_5_of_5_vengeance();
+    tear_down();
+
+    set_up();
     test_hit_damage_1_of_5_moonfury();
     tear_down();
 
@@ -110,6 +114,20 @@ void TestWrath::test_crit_dmg() {
     // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
     // [1211 - 1255] = ([236 - 265] + 1000 * (2 / 3.5)) * 1.5
     then_damage_dealt_is_in_range(1211, 1255);
+}
+
+void TestWrath::test_crit_dmg_5_of_5_vengeance() {
+    given_balance_talent_ranks({{"Improved Moonfire", 5}, {"Vengeance", 5}});
+    given_a_guaranteed_magic_crit(MagicSchool::Nature);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_wrath_is_performed();
+    when_running_queued_events_until(2.01);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
+    // [1615 - 1673] = ([236 - 265] + 1000 * (2 / 3.5)) * 2.0
+    then_damage_dealt_is_in_range(1615, 1673);
 }
 
 void TestWrath::test_hit_damage_1_of_5_moonfury() {

@@ -29,6 +29,9 @@ private:
     const unsigned base_casting_time_ms;
     const QVector<unsigned> improved_starfire_ranks {0, 100, 200, 300, 400, 500};
 
+    double vengeance_crit_damage_bonus {1.0};
+    const QVector<double> vengeance_ranks {1.0, 1.2, 1.4, 1.6, 1.8, 2.0};
+
     double moonfury_damage_bonus {1.0};
     const QVector<double> moonfury_ranks {1.0, 1.02, 1.04, 1.06, 1.08, 1.10};
 

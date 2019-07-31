@@ -50,9 +50,8 @@ Balance::Balance(Druid* druid) :
     };
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {
-        {"4ML", new Talent(druid, this, "Vengeance", "4ML", "Assets/spell/Spell_nature_purge.png", 5, "Increases the critical strike damage bonus of your Starfire, Moonfire, and Wrath spells by %1%.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
-    };
+    QMap<QString, Talent*> tier4 {};
+    add_vengeance(tier4);
     add_improved_starfire(tier4);
     add_talents(tier4);
 
@@ -110,6 +109,19 @@ void Balance::add_improved_moonfire(QMap<QString, Talent*>& talent_tier) {
                                     "Increases the damage and critical strike chance of your Moonfire spell by %1%.",
                                     QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Moonfire")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_vengeance(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Vengeance", "4ML", "Assets/spell/Spell_nature_purge.png", 5,
+                                    "Increases the critical strike damage bonus of your Starfire, Moonfire, and Wrath spells by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{20, 20}},
+                                    QVector<SpellRankGroup*>{
+                                        spells->get_spell_rank_group_by_name("Starfire"),
+                                        spells->get_spell_rank_group_by_name("Moonfire"),
+                                        spells->get_spell_rank_group_by_name("Wrath"),
+                                    });
 
     add_talent_to_tier(talent_tier, talent);
 }
