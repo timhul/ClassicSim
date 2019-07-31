@@ -10,6 +10,7 @@
 #include "Equipment.h"
 #include "FeralCombat.h"
 #include "Item.h"
+#include "Moonfire.h"
 #include "RaidControl.h"
 #include "RestorationDruid.h"
 #include "SimSettings.h"
@@ -45,6 +46,10 @@ void TestSpellDruid::run_class_specific_tests() {
 
 Wrath* TestSpellDruid::wrath() const {
     return dynamic_cast<Wrath*>(get_max_rank_spell_by_name("Wrath"));
+}
+
+Moonfire* TestSpellDruid::moonfire() const {
+    return dynamic_cast<Moonfire*>(get_max_rank_spell_by_name("Moonfire"));
 }
 
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {

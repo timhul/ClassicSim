@@ -6,11 +6,9 @@
 
 #include <QVector>
 
-class Buff;
 class Druid;
 class DruidSpells;
 class Random;
-class StatisticsResource;
 
 class Wrath: public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:

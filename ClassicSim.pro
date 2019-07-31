@@ -21,6 +21,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Druid/DruidEnchants.cpp \
+    Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
     Class/Druid/TalentTrees/FeralCombat.cpp \
@@ -119,6 +120,7 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Druid/Spells/TestMoonfire.cpp \
     Test/Druid/Spells/TestWrath.cpp \
     Test/Druid/Talents/TestBalance.cpp \
     Test/Druid/Talents/TestFeralCombat.cpp \
@@ -474,6 +476,7 @@ HEADERS += \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
     Class/Druid/DruidEnchants.h \
+    Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
     Class/Druid/TalentTrees/FeralCombat.h \
@@ -573,6 +576,7 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Druid/Spells/TestMoonfire.h \
     Test/Druid/Spells/TestWrath.h \
     Test/Druid/Talents/TestBalance.h \
     Test/Druid/Talents/TestFeralCombat.h \

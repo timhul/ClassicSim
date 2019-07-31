@@ -3,6 +3,7 @@
 #include "TestSpellDamage.h"
 
 class Druid;
+class Moonfire;
 class Spell;
 class Wrath;
 
@@ -19,6 +20,7 @@ protected:
     void run_class_specific_tests() override;
 
     Wrath* wrath() const;
+    Moonfire* moonfire() const;
 
     void given_balance_talent_rank(const QString& talent_name, const unsigned num);
     void given_feral_talent_rank(const QString& talent_name, const unsigned num);

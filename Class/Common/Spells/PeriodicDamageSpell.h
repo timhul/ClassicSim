@@ -4,8 +4,6 @@
 
 #include <QVector>
 
-class StatisticsResource;
-
 enum class MagicSchool: int;
 enum class Priority : int;
 
@@ -24,8 +22,6 @@ public:
                         const double cast_time_ms,
                         const double spell_coefficient);
     ~PeriodicDamageSpell() override;
-
-    static double get_spell_coefficient_from_duration(const double duration);
 
 private:
     const MagicSchool school;

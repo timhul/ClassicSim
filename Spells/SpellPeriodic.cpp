@@ -89,3 +89,15 @@ void SpellPeriodic::add_next_tick() {
 void SpellPeriodic::start_ticking() {
     pchar->get_engine()->add_event(new DotTick(this, pchar->get_engine()->get_current_priority() + tick_rate, ++application_id));
 }
+
+double SpellPeriodic::get_spell_coefficient_from_duration(const double duration) {
+    return std::max(0.0, std::min(1.0, duration / 15));
+}
+
+double SpellPeriodic::get_spell_coefficient_for_dot_portion_of_hybrid_spell(const double duration, const double cast_time) {
+    return std::max(0.0, std::min(1.0, (std::pow(duration / 15, 2) / (cast_time / 3.5 + duration / 15))));
+}
+
+double SpellPeriodic::get_spell_coefficient_for_instant_portion_of_hybrid_spell(const double duration, const double cast_time) {
+    return std::max(0.0, std::min(1.0, (std::pow(cast_time / 3.5, 2) / (cast_time / 3.5 + duration / 15))));
+}

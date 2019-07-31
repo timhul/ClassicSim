@@ -19,6 +19,10 @@ public:
 
     void perform_periodic(const int application_id);
 
+    static double get_spell_coefficient_from_duration(const double duration);
+    static double get_spell_coefficient_for_dot_portion_of_hybrid_spell(const double duration, const double cast_time);
+    static double get_spell_coefficient_for_instant_portion_of_hybrid_spell(const double duration, const double cast_time);
+
     bool is_active() const;
     void invalidate();
 

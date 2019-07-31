@@ -10,6 +10,7 @@
 #include "SimSettings.h"
 #include "TestBalance.h"
 #include "TestFeralCombat.h"
+#include "TestMoonfire.h"
 #include "TestRestorationDruid.h"
 #include "TestWrath.h"
 
@@ -25,6 +26,7 @@ void TestDruid::test_all() {
     TestRestorationDruid(equipment_db).test_all();
 
     TestWrath(equipment_db).test_all();
+    TestMoonfire(equipment_db).test_all();
 }
 
 void TestDruid::test_values_after_initialization() {

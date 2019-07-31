@@ -38,10 +38,6 @@ PeriodicDamageSpell::~PeriodicDamageSpell() {
     delete marker_buff;
 }
 
-double PeriodicDamageSpell::get_spell_coefficient_from_duration(const double duration) {
-    return duration / 15;
-}
-
 bool PeriodicDamageSpell::check_application_success() {
     return true;
 }

@@ -37,10 +37,10 @@ Balance::Balance(Druid* druid) :
 
     QMap<QString, Talent*> tier2 {
         {"2LL", new Talent(druid, this, "Improved Entangling Roots", "2LL", "Assets/spell/Spell_nature_stranglevines.png", 3, "Gives you a %1% chance to avoid interruption caused by damage while casting Entangling Roots.", QVector<QPair<unsigned, unsigned>>{{40, 30}})},
-        {"2ML", new Talent(druid, this, "Improved Moonfire", "2ML", "Assets/spell/Spell_nature_starfall.png", 5, "Increases the damage and critical strike chance of your Moonfire spell by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
         {"2MR", new Talent(druid, this, "Natural Weapons", "2MR", "Assets/items/Inv_staff_01.png", 5, "Increases the damage you deal with physical attacks in all forms by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
         {"2RR", new Talent(druid, this, "Natural Shapeshifter", "2RR", "Assets/spell/Spell_nature_wispsplode.png", 3, "Reduces the mana cost of all shapeshifting by %1%.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
     };
+    add_improved_moonfire(tier2);
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {
@@ -85,6 +85,15 @@ Balance::Balance(Druid* druid) :
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
+void Balance::add_improved_wrath(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Improved Wrath", "1LL", "Assets/items/Spell_nature_abolishmagic.png", 5,
+                                    "Reduces the cast time of your Wrath spell by 0.%1 sec.",
+                                    QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Wrath")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
 void Balance::add_improved_natures_grasp(QMap<QString, Talent*>& talent_tier) {
     QString base_str = "Increases the chance for your Nature's Grasp to entangle an enemy by %1%.";
     QMap<unsigned, QString> rank_descriptions {{0, base_str.arg(15)}, {1, base_str.arg(15)},
@@ -97,11 +106,11 @@ void Balance::add_improved_natures_grasp(QMap<QString, Talent*>& talent_tier) {
     add_talent_to_tier(talent_tier, talent);
 }
 
-void Balance::add_improved_wrath(QMap<QString, Talent*>& talent_tier) {
-    Talent* talent = get_new_talent(druid, "Improved Wrath", "1LL", "Assets/items/Spell_nature_abolishmagic.png", 5,
-                                    "Reduces the cast time of your Wrath spell by 0.%1 sec.",
-                                    QVector<QPair<unsigned, unsigned>>{{1, 1}},
-                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Wrath")});
+void Balance::add_improved_moonfire(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Improved Moonfire", "2ML", "Assets/spell/Spell_nature_starfall.png", 5,
+                                    "Increases the damage and critical strike chance of your Moonfire spell by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Moonfire")});
 
     add_talent_to_tier(talent_tier, talent);
 }

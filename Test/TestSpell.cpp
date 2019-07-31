@@ -1063,8 +1063,12 @@ void TestSpell::when_running_queued_events_until(const double priority) {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        event->act();
+        if (ignored_events.contains(Event::get_name_for_event(event))) {
+            delete event;
+            continue;
+        }
 
+        event->act();
         delete event;
     }
 }
