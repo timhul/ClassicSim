@@ -117,6 +117,7 @@ public:
     void given_character_has_spirit(const int value);
     void given_character_has_stamina(const int value);
     void given_talent_rank(const TalentTree& talent_tree, const QString& talent_name, const unsigned num);
+    void given_talent_ranks(const TalentTree& talent_tree, const QVector<QPair<QString, unsigned>>& talent_ranks);
     void given_character_has_strength(const int value);
 
     void given_character_has_spell_damage(const unsigned, const MagicSchool school);

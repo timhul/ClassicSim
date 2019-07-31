@@ -18,6 +18,8 @@ private:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_hit_damage_1_of_5_moonfury();
+    void test_hit_damage_5_of_5_moonfury();
     void test_cast_time_1_of_5_improved_wrath();
     void test_cast_time_2_of_5_improved_wrath();
     void test_cast_time_3_of_5_improved_wrath();

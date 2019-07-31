@@ -27,6 +27,14 @@ void TestMoonfire::test_all() {
     set_up();
     test_duration_dmg_after_crit();
     tear_down();
+
+    set_up();
+    test_hit_damage_1_of_5_moonfury();
+    tear_down();
+
+    set_up();
+    test_hit_damage_5_of_5_moonfury();
+    tear_down();
 }
 
 void TestMoonfire::test_name_correct() {
@@ -105,6 +113,32 @@ void TestMoonfire::test_duration_dmg_after_crit() {
     // [Damage] = instant_dmg + full_duration_dmg * spell_coefficient
     // [1422 - 1471] = ([345 - 378] + (384 + 1000 * ((12/15) ^ 2) / (1.5 / 3.5 + 12 / 15)))) * 1.5
     then_damage_dealt_is_in_range(1422, 1471);
+}
+
+void TestMoonfire::test_hit_damage_1_of_5_moonfury() {
+    given_balance_talent_ranks({{"Nature's Grace", 1}, {"Moonfury", 1}});
+    given_a_guaranteed_magic_hit(MagicSchool::Arcane);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_moonfire_is_performed();
+
+    // [Damage] = base_dmg * moonfury + spell_power * spell_coefficient
+    // [349 - 383] = [195 * 1.02 - 228 * 1.02] + 1000 * ((1.5 / 3.5) ^ 2) / (1.5 / 3.5 + 12 / 15))
+    then_damage_dealt_is_in_range(349, 383);
+}
+
+void TestMoonfire::test_hit_damage_5_of_5_moonfury() {
+    given_balance_talent_ranks({{"Nature's Grace", 1}, {"Moonfury", 5}});
+    given_a_guaranteed_magic_hit(MagicSchool::Arcane);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_moonfire_is_performed();
+
+    // [Damage] = base_dmg * moonfury + spell_power * spell_coefficient
+    // [365 - 401] = [195 * 1.10 - 228 * 1.10] + 1000 * ((1.5 / 3.5) ^ 2) / (1.5 / 3.5 + 12 / 15))
+    then_damage_dealt_is_in_range(365, 401);
 }
 
 void TestMoonfire::when_moonfire_is_performed() {

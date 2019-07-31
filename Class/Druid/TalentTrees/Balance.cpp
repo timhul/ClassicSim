@@ -62,9 +62,8 @@ Balance::Balance(Druid* druid) :
     };
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {
-        {"6ML", new Talent(druid, this, "Moonfury", "6ML", "Assets/spell/Spell_nature_moonglow.png", 5, "Increases the damage done by your Starfire, Moonfire and Wrath spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
-    };
+    QMap<QString, Talent*> tier6 {};
+    add_moonfury(tier6);
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {
@@ -120,6 +119,19 @@ void Balance::add_improved_starfire(QMap<QString, Talent*>& talent_tier) {
                                     "Reduces the cast time of Starfire by 0.%1 sec and has a %2% chance to stun the target for 3 sec.",
                                     QVector<QPair<unsigned, unsigned>>{{1, 1}, {3, 3}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Starfire")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_moonfury(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Moonfury", "6ML", "Assets/spell/Spell_nature_moonglow.png", 5,
+                                    "Increases the damage done by your Starfire, Moonfire and Wrath spells by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                    QVector<SpellRankGroup*>{
+                                        spells->get_spell_rank_group_by_name("Starfire"),
+                                        spells->get_spell_rank_group_by_name("Moonfire"),
+                                        spells->get_spell_rank_group_by_name("Wrath"),
+                                    });
 
     add_talent_to_tier(talent_tier, talent);
 }

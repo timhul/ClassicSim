@@ -1010,6 +1010,11 @@ void TestSpell::given_talent_rank(const TalentTree& talent_tree, const QString& 
         check(talent->increment_rank(), QString("Failed to increment %1 to rank %2, does it have parent talents?").arg(talent_name).arg(i + 1).toStdString());
 }
 
+void TestSpell::given_talent_ranks(const TalentTree& talent_tree, const QVector<QPair<QString, unsigned>>& talent_ranks) {
+    for (const auto & talent : talent_ranks)
+        given_talent_rank(talent_tree, talent.first, talent.second);
+}
+
 void TestSpell::given_character_has_strength(const int value) {
     int delta = static_cast<int>(pchar->get_stats()->get_strength()) - value;
 

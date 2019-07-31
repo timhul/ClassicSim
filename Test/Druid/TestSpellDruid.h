@@ -27,6 +27,7 @@ protected:
     void given_balance_talent_rank(const QString& talent_name, const unsigned num);
     void given_feral_talent_rank(const QString& talent_name, const unsigned num);
     void given_restoration_talent_rank(const QString& talent_name, const unsigned num);
+    void given_balance_talent_ranks(const QVector<QPair<QString, unsigned>>& talent_ranks);
 
     void given_druid_has_mana(const unsigned mana);
     void given_druid_is_on_gcd(Spell* spell);

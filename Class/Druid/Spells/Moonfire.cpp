@@ -204,14 +204,22 @@ void Moonfire::tick_effect() {
     add_next_tick();
 }
 
+void Moonfire::set_base_damage_range() {
+    const unsigned new_min_damage = static_cast<unsigned>(std::round(base_instant_damage_min * imp_moonfire_damage_bonus * moonfury_damage_bonus));
+    const unsigned new_max_damage = static_cast<unsigned>(std::round(base_instant_damage_max * imp_moonfire_damage_bonus * moonfury_damage_bonus));
+    instant_dmg->set_new_range(new_min_damage, new_max_damage);
+}
+
 void Moonfire::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Moonfire") {
         imp_moonfire_damage_bonus = improved_moonfire_ranks[curr].first;
         imp_moonfire_crit_bonus = improved_moonfire_ranks[curr].second;
+        set_base_damage_range();
+    }
 
-        const unsigned new_min_damage = static_cast<unsigned>(std::round(base_instant_damage_min * imp_moonfire_damage_bonus));
-        const unsigned new_max_damage = static_cast<unsigned>(std::round(base_instant_damage_max * imp_moonfire_damage_bonus));
-        instant_dmg->set_new_range(new_min_damage, new_max_damage);
+    if (talent_name == "Moonfury") {
+        moonfury_damage_bonus = moonfury_ranks[curr];
+        set_base_damage_range();
     }
 }
 

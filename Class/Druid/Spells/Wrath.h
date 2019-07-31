@@ -29,8 +29,13 @@ private:
     unsigned base_casting_time_ms;
     const QVector<unsigned> improved_wrath_ranks {0, 100, 200, 300, 400, 500};
 
+    double moonfury_damage_bonus {1.0};
+    const QVector<double> moonfury_ranks {1.0, 1.02, 1.04, 1.06, 1.08, 1.10};
+
     void spell_effect() override;
     void complete_cast_effect() override;
+
+    void set_base_damage_range();
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

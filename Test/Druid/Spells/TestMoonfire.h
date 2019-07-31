@@ -20,6 +20,8 @@ private:
     void test_crit_dmg();
     void test_duration_dmg_after_hit();
     void test_duration_dmg_after_crit();
+    void test_hit_damage_1_of_5_moonfury();
+    void test_hit_damage_5_of_5_moonfury();
 
     void when_moonfire_is_performed();
 };

@@ -69,6 +69,10 @@ void TestSpellDruid::given_restoration_talent_rank(const QString&  talent_name, 
     given_talent_rank(RestorationDruid(druid), talent_name, num);
 }
 
+void TestSpellDruid::given_balance_talent_ranks(const QVector<QPair<QString, unsigned>>& talent_ranks) {
+    given_talent_ranks(Balance(druid), talent_ranks);
+}
+
 void TestSpellDruid::given_druid_is_on_gcd(Spell* spell) {
     unsigned mana_before = druid->get_resource_level(ResourceType::Mana);
     druid->gain_mana(static_cast<unsigned>(spell->get_resource_cost()));

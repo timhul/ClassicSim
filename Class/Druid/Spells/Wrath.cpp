@@ -16,6 +16,7 @@ Wrath::Wrath(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 2000),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Wrath", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
                    }),
     druid_spells(druid_spells)
 {
@@ -116,12 +117,22 @@ void Wrath::complete_cast_effect() {
     }
 }
 
+void Wrath::set_base_damage_range() {
+    const unsigned new_min_damage = static_cast<unsigned>(std::round(base_damage_min * moonfury_damage_bonus));
+    const unsigned new_max_damage = static_cast<unsigned>(std::round(base_damage_max * moonfury_damage_bonus));
+    instant_dmg->set_new_range(new_min_damage, new_max_damage);
+}
+
 void Wrath::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Wrath")
         casting_time_ms = base_casting_time_ms - improved_wrath_ranks[curr];
+
+    if (talent_name == "Moonfury") {
+        moonfury_damage_bonus = moonfury_ranks[curr];
+        set_base_damage_range();
+    }
 }
 
 void Wrath::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
-    if (talent_name == "Improved Wrath")
-        casting_time_ms = base_casting_time_ms - improved_wrath_ranks[curr];
+    increase_talent_rank_effect(talent_name, curr);
 }

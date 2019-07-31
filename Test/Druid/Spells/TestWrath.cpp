@@ -21,6 +21,14 @@ void TestWrath::test_all() {
     tear_down();
 
     set_up();
+    test_hit_damage_1_of_5_moonfury();
+    tear_down();
+
+    set_up();
+    test_hit_damage_5_of_5_moonfury();
+    tear_down();
+
+    set_up();
     test_cast_time_1_of_5_improved_wrath();
     tear_down();
 
@@ -102,6 +110,34 @@ void TestWrath::test_crit_dmg() {
     // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
     // [1211 - 1255] = ([236 - 265] + 1000 * (2 / 3.5)) * 1.5
     then_damage_dealt_is_in_range(1211, 1255);
+}
+
+void TestWrath::test_hit_damage_1_of_5_moonfury() {
+    given_balance_talent_ranks({{"Nature's Grace", 1}, {"Moonfury", 1}});
+    given_a_guaranteed_magic_hit(MagicSchool::Nature);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_wrath_is_performed();
+    when_running_queued_events_until(2.01);
+
+    // [Damage] = base_dmg * moonfury + spell_power * spell_coefficient
+    // [812 - 841] = [236 * 1.02 - 265 * 1.02] + 1000 * (2 / 3.5)
+    then_damage_dealt_is_in_range(812, 841);
+}
+
+void TestWrath::test_hit_damage_5_of_5_moonfury() {
+    given_balance_talent_ranks({{"Nature's Grace", 1}, {"Moonfury", 5}});
+    given_a_guaranteed_magic_hit(MagicSchool::Nature);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+
+    when_wrath_is_performed();
+    when_running_queued_events_until(2.01);
+
+    // [Damage] = base_dmg * moonfury + spell_power * spell_coefficient
+    // [831 - 863] = [236 * 1.10 - 265 * 1.10] + 1000 * (2 / 3.5)
+    then_damage_dealt_is_in_range(831, 863);
 }
 
 void TestWrath::test_cast_time_1_of_5_improved_wrath() {

@@ -18,4 +18,5 @@ private:
     void add_improved_natures_grasp(QMap<QString, Talent*>& talent_tier);
     void add_improved_moonfire(QMap<QString, Talent*>& talent_tier);
     void add_improved_starfire(QMap<QString, Talent*>& talent_tier);
+    void add_moonfury(QMap<QString, Talent*>& talent_tier);
 };
