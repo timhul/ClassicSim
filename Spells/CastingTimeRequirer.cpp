@@ -41,7 +41,7 @@ void CastingTimeRequirer::reset_effect() {
 double CastingTimeRequirer::spell_coefficient_from_casting_time(const unsigned casting_time_ms, const unsigned level_req) {
     if (casting_time_ms < 1500)
         return 1500 / 3500;
-    if (casting_time_ms > 3000)
+    if (casting_time_ms > 3500)
         return 1.0;
 
     const double base_coefficient = static_cast<double>(casting_time_ms) / 3500;
