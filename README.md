@@ -40,7 +40,10 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Raid DPS summation text now displayed in Raid Setup.
+* Mage Fireball DoT damage no longer scales with spell power.
+* Blood Fury now scales with Agility (previously only Strength and level-based AP).
+* Berserking now increases casting speed and has an appropriate resource cost.
 
 # Q&A
 
