@@ -57,8 +57,8 @@ Balance::Balance(Druid* druid) :
 
     QMap<QString, Talent*> tier5 {
         {"5ML", new Talent(druid, this, "Nature's Grace", "5ML", "Assets/spell/Spell_nature_naturesblessing.png", 1, "All spell criticals grace you with a blessing of nature, reducing the casting time of your next spell by 0.5 sec.", QVector<QPair<unsigned, unsigned>>())},
-        {"5MR", new Talent(druid, this, "Moonglow", "5MR", "Assets/spell/Spell_nature_sentinal.png", 3, "Reduces the Mana cost of your Moonfire, Starfire, Wrath, Healing Touch, Regrowth and Rejuvenation spells by %1%.", QVector<QPair<unsigned, unsigned>>{{3, 3}})},
     };
+    add_moonglow(tier5);
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {};
@@ -131,6 +131,19 @@ void Balance::add_improved_starfire(QMap<QString, Talent*>& talent_tier) {
                                     "Reduces the cast time of Starfire by 0.%1 sec and has a %2% chance to stun the target for 3 sec.",
                                     QVector<QPair<unsigned, unsigned>>{{1, 1}, {3, 3}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Starfire")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_moonglow(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Moonglow", "5MR", "Assets/spell/Spell_nature_sentinal.png", 3,
+                                    "Reduces the Mana cost of your Moonfire, Starfire, Wrath, Healing Touch, Regrowth and Rejuvenation spells by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{3, 3}},
+                                    QVector<SpellRankGroup*>{
+                                        spells->get_spell_rank_group_by_name("Starfire"),
+                                        spells->get_spell_rank_group_by_name("Moonfire"),
+                                        spells->get_spell_rank_group_by_name("Wrath"),
+                                    });
 
     add_talent_to_tier(talent_tier, talent);
 }

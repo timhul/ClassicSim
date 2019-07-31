@@ -26,8 +26,8 @@ private:
     void test_cast_time_3_of_5_improved_wrath();
     void test_cast_time_4_of_5_improved_wrath();
     void test_cast_time_5_of_5_improved_wrath();
-
     void test_casting_speed_increases_reduces_casting_time();
+    void test_resource_cost_3_of_3_moonglow();
 
     void when_wrath_is_performed();
 };

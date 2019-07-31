@@ -138,6 +138,9 @@ void Starfire::increase_talent_rank_effect(const QString& talent_name, const int
     if (talent_name == "Vengeance")
         vengeance_crit_damage_bonus = vengeance_ranks[curr];
 
+    if (talent_name == "Moonglow")
+        resource_cost = static_cast<unsigned>(std::round(base_resource_cost * moonglow_ranks[curr]));
+
     if (talent_name == "Moonfury") {
         moonfury_damage_bonus = moonfury_ranks[curr];
         set_base_damage_range();

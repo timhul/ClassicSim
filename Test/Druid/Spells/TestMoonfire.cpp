@@ -39,6 +39,10 @@ void TestMoonfire::test_all() {
     set_up();
     test_hit_damage_5_of_5_moonfury();
     tear_down();
+
+    set_up();
+    test_resource_cost_3_of_3_moonglow();
+    tear_down();
 }
 
 void TestMoonfire::test_name_correct() {
@@ -156,6 +160,15 @@ void TestMoonfire::test_hit_damage_5_of_5_moonfury() {
     // [Damage] = base_dmg * moonfury + spell_power * spell_coefficient
     // [365 - 401] = [195 * 1.10 - 228 * 1.10] + 1000 * ((1.5 / 3.5) ^ 2) / (1.5 / 3.5 + 12 / 15))
     then_damage_dealt_is_in_range(365, 401);
+}
+
+void TestMoonfire::test_resource_cost_3_of_3_moonglow() {
+    given_balance_talent_rank("Moonglow", 3);
+    given_druid_has_mana(static_cast<unsigned>(std::round(375 * 0.91) + 1));
+
+    when_moonfire_is_performed();
+
+    then_druid_has_mana(1);
 }
 
 void TestMoonfire::when_moonfire_is_performed() {

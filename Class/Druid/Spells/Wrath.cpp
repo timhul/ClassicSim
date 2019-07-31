@@ -17,6 +17,7 @@ Wrath::Wrath(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Wrath", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Vengeance", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Moonglow", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
                    }),
     druid_spells(druid_spells)
@@ -131,6 +132,9 @@ void Wrath::increase_talent_rank_effect(const QString& talent_name, const int cu
 
     if (talent_name == "Vengeance")
         vengeance_crit_damage_bonus = vengeance_ranks[curr];
+
+    if (talent_name == "Moonglow")
+        resource_cost = static_cast<unsigned>(std::round(base_resource_cost * moonglow_ranks[curr]));
 
     if (talent_name == "Moonfury") {
         moonfury_damage_bonus = moonfury_ranks[curr];

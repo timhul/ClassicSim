@@ -23,6 +23,7 @@ private:
     void test_duration_dmg_after_crit();
     void test_hit_damage_1_of_5_moonfury();
     void test_hit_damage_5_of_5_moonfury();
+    void test_resource_cost_3_of_3_moonglow();
 
     void when_moonfire_is_performed();
 };

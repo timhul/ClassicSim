@@ -55,6 +55,10 @@ void TestWrath::test_all() {
     set_up();
     test_casting_speed_increases_reduces_casting_time();
     tear_down();
+
+    set_up();
+    test_resource_cost_3_of_3_moonglow();
+    tear_down();
 }
 
 void TestWrath::test_name_correct() {
@@ -211,6 +215,16 @@ void TestWrath::test_casting_speed_increases_reduces_casting_time() {
 
     pchar->get_stats()->decrease_casting_speed(100);
     assert(almost_equal(2.0, wrath()->get_cast_time()));
+}
+
+void TestWrath::test_resource_cost_3_of_3_moonglow() {
+    given_balance_talent_rank("Moonglow", 3);
+    given_druid_has_mana(static_cast<unsigned>(std::round(180 * 0.91) + 1));
+
+    when_wrath_is_performed();
+    when_running_queued_events_until(2.01);
+
+    then_druid_has_mana(1);
 }
 
 void TestWrath::when_wrath_is_performed() {

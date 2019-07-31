@@ -55,6 +55,10 @@ void TestStarfire::test_all() {
     set_up();
     test_casting_speed_increases_reduces_casting_time();
     tear_down();
+
+    set_up();
+    test_resource_cost_3_of_3_moonglow();
+    tear_down();
 }
 
 void TestStarfire::test_name_correct() {
@@ -211,6 +215,16 @@ void TestStarfire::test_casting_speed_increases_reduces_casting_time() {
 
     pchar->get_stats()->decrease_casting_speed(100);
     assert(almost_equal(3.5, starfire()->get_cast_time()));
+}
+
+void TestStarfire::test_resource_cost_3_of_3_moonglow() {
+    given_balance_talent_rank("Moonglow", 3);
+    given_druid_has_mana(static_cast<unsigned>(std::round(340 * 0.91) + 1));
+
+    when_starfire_is_performed();
+    when_running_queued_events_until(3.501);
+
+    then_druid_has_mana(1);
 }
 
 void TestStarfire::when_starfire_is_performed() {

@@ -19,5 +19,6 @@ private:
     void add_improved_moonfire(QMap<QString, Talent*>& talent_tier);
     void add_vengeance(QMap<QString, Talent*>& talent_tier);
     void add_improved_starfire(QMap<QString, Talent*>& talent_tier);
+    void add_moonglow(QMap<QString, Talent*>& talent_tier);
     void add_moonfury(QMap<QString, Talent*>& talent_tier);
 };
