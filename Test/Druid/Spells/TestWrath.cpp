@@ -1,7 +1,9 @@
 #include "TestWrath.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "Druid.h"
+#include "DruidSpells.h"
 #include "Event.h"
 #include "Wrath.h"
 
@@ -58,6 +60,18 @@ void TestWrath::test_all() {
 
     set_up();
     test_resource_cost_3_of_3_moonglow();
+    tear_down();
+
+    set_up(false);
+    test_natures_grace_reduces_casting_time();
+    tear_down();
+
+    set_up(false);
+    test_natures_grace_activated_on_spell_crit_if_enabled();
+    tear_down();
+
+    set_up();
+    test_natures_grace_not_activated_on_spell_crit_if_not_enabled();
     tear_down();
 }
 
@@ -225,6 +239,41 @@ void TestWrath::test_resource_cost_3_of_3_moonglow() {
     when_running_queued_events_until(2.01);
 
     then_druid_has_mana(1);
+}
+
+void TestWrath::test_natures_grace_reduces_casting_time() {
+    given_a_guaranteed_magic_hit(MagicSchool::Nature);
+    given_balance_talent_rank("Improved Wrath", 5);
+    given_balance_talent_rank("Nature's Grace", 1);
+    pchar->prepare_set_of_combat_iterations();
+    dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->apply_buff();
+
+    when_wrath_is_performed();
+
+    then_next_event_is(EventType::CastComplete, "1.000", RUN_EVENT);
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+}
+
+void TestWrath::test_natures_grace_activated_on_spell_crit_if_enabled() {
+    given_a_guaranteed_magic_crit(MagicSchool::Nature);
+    given_balance_talent_rank("Nature's Grace", 1);
+    pchar->prepare_set_of_combat_iterations();
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+
+    when_wrath_is_performed();
+    when_running_queued_events_until(2.01);
+
+    assert(dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+}
+
+void TestWrath::test_natures_grace_not_activated_on_spell_crit_if_not_enabled() {
+    given_a_guaranteed_magic_crit(MagicSchool::Nature);
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+
+    when_wrath_is_performed();
+    when_running_queued_events_until(2.01);
+
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
 }
 
 void TestWrath::when_wrath_is_performed() {

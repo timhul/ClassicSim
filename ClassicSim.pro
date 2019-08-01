@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/Starfire.cpp \
@@ -477,6 +478,7 @@ HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/Starfire.h \
@@ -973,6 +975,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Mage/Spells \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \
+    $$PWD/Class/Druid/Buffs \
     $$PWD/Class/Druid/Spells \
     $$PWD/Class/Druid/TalentTrees \
     $$PWD/Class/Hunter \

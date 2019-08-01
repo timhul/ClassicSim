@@ -28,6 +28,9 @@ private:
     void test_cast_time_5_of_5_improved_starfire();
     void test_casting_speed_increases_reduces_casting_time();
     void test_resource_cost_3_of_3_moonglow();
+    void test_natures_grace_reduces_casting_time();
+    void test_natures_grace_activated_on_spell_crit_if_enabled();
+    void test_natures_grace_not_activated_on_spell_crit_if_not_enabled();
 
     void when_starfire_is_performed();
 };

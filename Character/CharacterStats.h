@@ -52,6 +52,10 @@ public:
     void suppress_casting_time(Buff* buff);
     void return_casting_time(Buff* buff);
 
+    unsigned get_casting_speed_flat_reduction() const;
+    void increase_casting_speed_flat_reduction(const unsigned value);
+    void decrease_casting_speed_flat_reduction(const unsigned value);
+
     unsigned get_strength() const;
     void increase_strength(const unsigned value);
     void decrease_strength(const unsigned value);
@@ -260,6 +264,8 @@ private:
 
     unsigned mp5 {0};
     unsigned mana_skill_reduction {0};
+
+    unsigned casting_speed_flat_reduction {0};
 
     unsigned crit_penalty {0};
 

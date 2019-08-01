@@ -546,6 +546,19 @@ void CharacterStats::return_casting_time(Buff* buff) {
     check(false, QString("Failed to remove %1").arg(buff->get_name()).toStdString());
 }
 
+unsigned CharacterStats::get_casting_speed_flat_reduction() const {
+    return this->casting_speed_flat_reduction;
+}
+
+void CharacterStats::increase_casting_speed_flat_reduction(const unsigned value) {
+    casting_speed_flat_reduction += value;
+}
+
+void CharacterStats::decrease_casting_speed_flat_reduction(const unsigned value) {
+    check((casting_speed_flat_reduction >= value), "Underflow reduction of flat casting speed");
+    casting_speed_flat_reduction -= value;
+}
+
 void CharacterStats::increase_strength(const unsigned value) {
     base_stats->increase_strength(value);
 }

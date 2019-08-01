@@ -31,7 +31,10 @@ void CastingTimeRequirer::complete_cast() {
 }
 
 double CastingTimeRequirer::get_cast_time() const {
-    return (double(casting_time_ms) / 1000) / caster->get_stats()->get_casting_speed_mod();
+    const double flat_reduction = static_cast<double>(caster->get_stats()->get_casting_speed_flat_reduction()) / 1000;
+    const double reduction_after_mod = (static_cast<double>(casting_time_ms) / 1000) / caster->get_stats()->get_casting_speed_mod();
+
+    return std::max(0.0, reduction_after_mod - flat_reduction);
 }
 
 void CastingTimeRequirer::reset_effect() {

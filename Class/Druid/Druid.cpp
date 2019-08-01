@@ -1,6 +1,7 @@
 #include "Druid.h"
 
 #include "Balance.h"
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CharacterTalents.h"
 #include "DruidEnchants.h"
@@ -154,6 +155,12 @@ void Druid::increase_base_mana(const unsigned value) {
 
 void Druid::decrease_base_mana(const unsigned value) {
     mana->base_mana -= value;
+}
+
+void Druid::spell_critical_effect(MagicSchool) {
+    druid_spells->get_natures_grace()->apply_buff();
+
+    enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
 int Druid::get_highest_possible_armor_type() const {

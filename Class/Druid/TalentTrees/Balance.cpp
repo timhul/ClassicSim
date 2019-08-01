@@ -56,9 +56,8 @@ Balance::Balance(Druid* druid) :
     add_improved_starfire(tier4);
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {
-        {"5ML", new Talent(druid, this, "Nature's Grace", "5ML", "Assets/spell/Spell_nature_naturesblessing.png", 1, "All spell criticals grace you with a blessing of nature, reducing the casting time of your next spell by 0.5 sec.", QVector<QPair<unsigned, unsigned>>())},
-    };
+    QMap<QString, Talent*> tier5 {};
+    add_natures_grace(tier5);
     add_moonglow(tier5);
     add_talents(tier5);
 
@@ -143,6 +142,16 @@ void Balance::add_improved_starfire(QMap<QString, Talent*>& talent_tier) {
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Starfire")});
 
     add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_natures_grace(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Nature's Grace", "5ML", "Assets/spell/Spell_nature_naturesblessing.png", 1,
+                                    "All spell criticals grace you with a blessing of nature, reducing the casting time of your next spell by 0.5 sec.",
+                                    QVector<QPair<unsigned, unsigned>>(), {},
+                                    QVector<Buff*>{spells->get_natures_grace()});
+
+    add_talent_to_tier(talent_tier, talent);
+
 }
 
 void Balance::add_moonglow(QMap<QString, Talent*>& talent_tier) {

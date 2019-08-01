@@ -3,6 +3,7 @@
 #include "Druid.h"
 #include "MainhandAttack.h"
 #include "Moonfire.h"
+#include "NaturesGrace.h"
 #include "Starfire.h"
 #include "Wrath.h"
 
@@ -43,6 +44,14 @@ DruidSpells::DruidSpells(Druid* druid) :
                         new Starfire(druid, this, 6),
                         new Starfire(druid, this, 7),
                     });
+
+    natures_grace = new NaturesGrace(druid);
 }
 
-DruidSpells::~DruidSpells() = default;
+Buff* DruidSpells::get_natures_grace() const {
+    return this->natures_grace;
+}
+
+DruidSpells::~DruidSpells() {
+    delete natures_grace;
+}

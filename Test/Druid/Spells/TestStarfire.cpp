@@ -1,7 +1,9 @@
 #include "TestStarfire.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "Druid.h"
+#include "DruidSpells.h"
 #include "Event.h"
 #include "Starfire.h"
 
@@ -58,6 +60,18 @@ void TestStarfire::test_all() {
 
     set_up();
     test_resource_cost_3_of_3_moonglow();
+    tear_down();
+
+    set_up(false);
+    test_natures_grace_reduces_casting_time();
+    tear_down();
+
+    set_up(false);
+    test_natures_grace_activated_on_spell_crit_if_enabled();
+    tear_down();
+
+    set_up();
+    test_natures_grace_not_activated_on_spell_crit_if_not_enabled();
     tear_down();
 }
 
@@ -225,6 +239,42 @@ void TestStarfire::test_resource_cost_3_of_3_moonglow() {
     when_running_queued_events_until(3.501);
 
     then_druid_has_mana(1);
+}
+
+void TestStarfire::test_natures_grace_reduces_casting_time() {
+    given_a_guaranteed_magic_hit(MagicSchool::Arcane);
+    given_balance_talent_rank("Nature's Grace", 1);
+    given_balance_talent_rank("Improved Starfire", 5);
+    pchar->prepare_set_of_combat_iterations();
+    dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->apply_buff();
+
+    when_starfire_is_performed();
+
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "2.500", RUN_EVENT);
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+}
+
+void TestStarfire::test_natures_grace_activated_on_spell_crit_if_enabled() {
+    given_a_guaranteed_magic_crit(MagicSchool::Arcane);
+    given_balance_talent_rank("Nature's Grace", 1);
+    pchar->prepare_set_of_combat_iterations();
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+
+    when_starfire_is_performed();
+    when_running_queued_events_until(3.51);
+
+    assert(dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+}
+
+void TestStarfire::test_natures_grace_not_activated_on_spell_crit_if_not_enabled() {
+    given_a_guaranteed_magic_crit(MagicSchool::Arcane);
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+
+    when_starfire_is_performed();
+    when_running_queued_events_until(3.51);
+
+    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
 }
 
 void TestStarfire::when_starfire_is_performed() {

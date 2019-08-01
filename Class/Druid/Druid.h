@@ -36,6 +36,8 @@ public:
     void increase_base_mana(const unsigned value) override;
     void decrease_base_mana(const unsigned value) override;
 
+    void spell_critical_effect(MagicSchool magic_school) override;
+
 private:
     DruidSpells* druid_spells;
 
