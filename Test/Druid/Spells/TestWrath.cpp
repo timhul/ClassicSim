@@ -210,10 +210,10 @@ void TestWrath::test_cast_time_5_of_5_improved_wrath() {
 void TestWrath::test_casting_speed_increases_reduces_casting_time() {
     assert(almost_equal(2.0, wrath()->get_cast_time()));
 
-    pchar->get_stats()->increase_casting_speed(100);
+    pchar->get_stats()->increase_casting_speed_mod(100);
     assert(almost_equal(1.0, wrath()->get_cast_time()));
 
-    pchar->get_stats()->decrease_casting_speed(100);
+    pchar->get_stats()->decrease_casting_speed_mod(100);
     assert(almost_equal(2.0, wrath()->get_cast_time()));
 }
 

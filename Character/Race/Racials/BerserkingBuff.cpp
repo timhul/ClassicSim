@@ -17,7 +17,7 @@ BerserkingBuff::~BerserkingBuff() {
 void BerserkingBuff::buff_effect_when_applied() {
     pchar->increase_melee_attack_speed(10);
     pchar->increase_ranged_attack_speed(10);
-    pchar->get_stats()->increase_casting_speed(10);
+    pchar->get_stats()->increase_casting_speed_mod(10);
 
     curr_buff = random->get_roll();
     if (curr_buff == 0)
@@ -25,18 +25,18 @@ void BerserkingBuff::buff_effect_when_applied() {
 
     pchar->increase_melee_attack_speed(curr_buff);
     pchar->increase_ranged_attack_speed(curr_buff);
-    pchar->get_stats()->increase_casting_speed(curr_buff);
+    pchar->get_stats()->increase_casting_speed_mod(curr_buff);
 }
 
 void BerserkingBuff::buff_effect_when_removed() {
     pchar->decrease_melee_attack_speed(10);
     pchar->decrease_ranged_attack_speed(10);
-    pchar->get_stats()->decrease_casting_speed(10);
+    pchar->get_stats()->decrease_casting_speed_mod(10);
 
     if (curr_buff == 0)
         return;
 
     pchar->decrease_melee_attack_speed(curr_buff);
     pchar->decrease_ranged_attack_speed(curr_buff);
-    pchar->get_stats()->decrease_casting_speed(curr_buff);
+    pchar->get_stats()->decrease_casting_speed_mod(curr_buff);
 }

@@ -45,8 +45,8 @@ public:
     void decrease_ranged_attack_speed(const unsigned value);
 
     double get_casting_speed_mod() const;
-    void increase_casting_speed(const unsigned value);
-    void decrease_casting_speed(const unsigned value);
+    void increase_casting_speed_mod(const unsigned value);
+    void decrease_casting_speed_mod(const unsigned value);
 
     bool casting_time_suppressed() const;
     void suppress_casting_time(Buff* buff);

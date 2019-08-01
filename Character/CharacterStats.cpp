@@ -365,7 +365,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::RangedAttackSpeedPercent:
         return pchar->increase_ranged_attack_speed(value);
     case ItemStats::CastingSpeedPercent:
-        return pchar->get_stats()->increase_casting_speed(value);
+        return pchar->get_stats()->increase_casting_speed_mod(value);
     case ItemStats::AttackPower:
         increase_melee_ap(value);
         return increase_ranged_ap(value);
@@ -472,7 +472,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::RangedAttackSpeedPercent:
         return pchar->decrease_ranged_attack_speed(value);
     case ItemStats::CastingSpeedPercent:
-        return pchar->get_stats()->decrease_casting_speed(value);
+        return pchar->get_stats()->decrease_casting_speed_mod(value);
     case ItemStats::AttackPower:
         decrease_melee_ap(value);
         return decrease_ranged_ap(value);
@@ -513,11 +513,11 @@ double CharacterStats::get_casting_speed_mod() const {
     return casting_speed_mod;
 }
 
-void CharacterStats::increase_casting_speed(const unsigned value) {
+void CharacterStats::increase_casting_speed_mod(const unsigned value) {
     add_multiplicative_effect(casting_speed_buffs, static_cast<int>(value), casting_speed_mod);
 }
 
-void CharacterStats::decrease_casting_speed(const unsigned value) {
+void CharacterStats::decrease_casting_speed_mod(const unsigned value) {
     remove_multiplicative_effect(casting_speed_buffs, static_cast<int>(value), casting_speed_mod);
 }
 
