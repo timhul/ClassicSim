@@ -13,6 +13,7 @@ enum TalentStat {
     PetCritChance,
     PetFocusGain,
     AttackPower,
+    PhysicalDmgMod,
     DmgModAgainstBeast,
     DmgModAgainstDragonkin,
     DmgModAgainstGiant,

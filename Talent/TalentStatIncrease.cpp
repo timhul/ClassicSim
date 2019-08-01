@@ -60,6 +60,11 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_melee_ap(change);
             cstats->increase_ranged_ap(change);
             continue;
+        case PhysicalDmgMod:
+            if (curr_points != 1)
+                cstats->decrease_total_phys_dmg_mod(static_cast<int>((curr_points - 1) * change));
+            cstats->increase_total_phys_dmg_mod(static_cast<int>(change * curr_points));
+            continue;
         case DmgModAgainstBeast:
             cstats->increase_dmg_vs_type(Target::CreatureType::Beast, static_cast<double>(change) / 100);
             continue;
@@ -233,6 +238,12 @@ void TalentStatIncrease::remove_rank_effect() {
         case AttackPower:
             cstats->decrease_melee_ap(change);
             cstats->decrease_ranged_ap(change);
+            continue;
+        case PhysicalDmgMod:
+            cstats->decrease_total_phys_dmg_mod(static_cast<int>((curr_points + 1) * change));
+
+            if (curr_points > 0)
+                cstats->increase_total_phys_dmg_mod(static_cast<int>(curr_points * change));
             continue;
         case DmgModAgainstBeast:
             cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, static_cast<double>(change) / 100);

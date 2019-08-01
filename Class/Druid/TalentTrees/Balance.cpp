@@ -3,6 +3,7 @@
 #include "Druid.h"
 #include "DruidSpells.h"
 #include "Talent.h"
+#include "TalentStatIncrease.h"
 
 Balance::Balance(Druid* druid) :
     TalentTree("Balance", "Assets/druid/druid_balance.jpg"),
@@ -37,10 +38,10 @@ Balance::Balance(Druid* druid) :
 
     QMap<QString, Talent*> tier2 {
         {"2LL", new Talent(druid, this, "Improved Entangling Roots", "2LL", "Assets/spell/Spell_nature_stranglevines.png", 3, "Gives you a %1% chance to avoid interruption caused by damage while casting Entangling Roots.", QVector<QPair<unsigned, unsigned>>{{40, 30}})},
-        {"2MR", new Talent(druid, this, "Natural Weapons", "2MR", "Assets/items/Inv_staff_01.png", 5, "Increases the damage you deal with physical attacks in all forms by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
         {"2RR", new Talent(druid, this, "Natural Shapeshifter", "2RR", "Assets/spell/Spell_nature_wispsplode.png", 3, "Reduces the mana cost of all shapeshifting by %1%.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
     };
     add_improved_moonfire(tier2);
+    add_natural_weapons(tier2);
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {
@@ -109,6 +110,15 @@ void Balance::add_improved_moonfire(QMap<QString, Talent*>& talent_tier) {
                                     "Increases the damage and critical strike chance of your Moonfire spell by %1%.",
                                     QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Moonfire")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_natural_weapons(QMap<QString, Talent*>& talent_tier) {
+    auto talent = new TalentStatIncrease(druid, this, "Natural Weapons", "2MR", "Assets/items/Inv_staff_01.png", 5,
+                                         "Increases the damage you deal with physical attacks in all forms by %1%.",
+                                         QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                         QVector<QPair<TalentStat, unsigned>>{{TalentStat::PhysicalDmgMod, 2}});
 
     add_talent_to_tier(talent_tier, talent);
 }
