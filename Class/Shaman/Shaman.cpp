@@ -105,6 +105,12 @@ double Shaman::global_cooldown() const {
     return 1.5;
 }
 
+void Shaman::melee_mh_white_hit_effect() {
+    shaman_spells->get_flurry()->use_charge();
+
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSwing);
+}
+
 void Shaman::melee_mh_white_critical_effect() {
     shaman_spells->get_flurry()->apply_buff();
 

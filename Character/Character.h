@@ -94,7 +94,7 @@ public:
     void start_trinket_cooldown(const double);
     bool on_trinket_cooldown() const;
 
-    void melee_mh_white_hit_effect();
+    virtual void melee_mh_white_hit_effect();
     virtual void melee_mh_white_critical_effect();
     void melee_mh_yellow_hit_effect();
     virtual void melee_mh_yellow_critical_effect();

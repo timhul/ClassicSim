@@ -20,6 +20,7 @@ public:
     double get_mp5_from_spirit() const override;
     double global_cooldown() const override;
 
+    void melee_mh_white_hit_effect() override;
     void melee_mh_white_critical_effect() override;
     void melee_mh_yellow_critical_effect() override;
     void spell_critical_effect(MagicSchool) override;
