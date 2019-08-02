@@ -15,8 +15,7 @@ private:
     WarriorSpells* spells;
     StatisticsResource* statistics_resource {nullptr};
 
-    void spell_effect() override;
-    int calculate_damage() override;
+    void calculate_damage() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 
     void gain_rage(const double rage_gain);

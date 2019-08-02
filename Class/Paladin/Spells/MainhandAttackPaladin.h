@@ -17,6 +17,5 @@ private:
 
     double sotc_penalty {1.0};
 
-    void spell_effect() override;
-    int calculate_damage() override;
+    void calculate_damage() override;
 };

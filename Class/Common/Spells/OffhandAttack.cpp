@@ -40,22 +40,16 @@ void OffhandAttack::spell_effect() {
     calculate_damage();
 }
 
-int OffhandAttack::calculate_damage() {
+void OffhandAttack::calculate_damage() {
     const unsigned oh_wpn_skill = pchar->get_oh_wpn_skill();
     const int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
 
-    if (result == PhysicalAttackResult::MISS) {
-        increment_miss();
-        return result;
-    }
-    if (result == PhysicalAttackResult::DODGE) {
-        increment_dodge();
-        return result;
-    }
-    if (result == PhysicalAttackResult::PARRY) {
-        increment_parry();
-        return result;
-    }
+    if (result == PhysicalAttackResult::MISS)
+        return increment_miss();
+    if (result == PhysicalAttackResult::DODGE)
+        return increment_dodge();
+    if (result == PhysicalAttackResult::PARRY)
+        return increment_parry();
 
     double damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_oh_dmg() * offhand_penalty);
 
@@ -64,7 +58,7 @@ int OffhandAttack::calculate_damage() {
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 
         pchar->melee_oh_white_critical_effect();
-        return result;
+        return;
     }
 
     pchar->melee_oh_white_hit_effect();
@@ -72,11 +66,10 @@ int OffhandAttack::calculate_damage() {
     if (result == PhysicalAttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-        return result;
+        return;
     }
 
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-    return result;
 }
 
 double OffhandAttack::get_next_expected_use() const {

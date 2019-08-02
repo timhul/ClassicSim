@@ -39,24 +39,18 @@ void MainhandAttack::spell_effect() {
     calculate_damage();
 }
 
-int MainhandAttack::calculate_damage() {
+void MainhandAttack::calculate_damage() {
     pchar->add_player_reaction_event();
 
     const unsigned mh_wpn_skill = pchar->get_mh_wpn_skill();
     const int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
-    if (result == PhysicalAttackResult::MISS) {
-        increment_miss();
-        return result;
-    }
-    if (result == PhysicalAttackResult::DODGE) {
-        increment_dodge();
-        return result;
-    }
-    if (result == PhysicalAttackResult::PARRY) {
-        increment_parry();
-        return result;
-    }
+    if (result == PhysicalAttackResult::MISS)
+        return increment_miss();
+    if (result == PhysicalAttackResult::DODGE)
+        return increment_dodge();
+    if (result == PhysicalAttackResult::PARRY)
+        return increment_parry();
 
     double damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_mh_dmg());
 
@@ -64,7 +58,7 @@ int MainhandAttack::calculate_damage() {
         damage_dealt *= 2;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->melee_mh_white_critical_effect();
-        return result;
+        return;
     }
 
     pchar->melee_mh_white_hit_effect();
@@ -72,11 +66,10 @@ int MainhandAttack::calculate_damage() {
     if (result == PhysicalAttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-        return result;
+        return;
     }
 
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-    return result;
 }
 
 double MainhandAttack::get_next_expected_use() const {

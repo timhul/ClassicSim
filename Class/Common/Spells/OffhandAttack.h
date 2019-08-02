@@ -26,7 +26,7 @@ protected:
     virtual void spell_effect() override;
     void reset_effect() override;
 
-    virtual int calculate_damage();
+    virtual void calculate_damage();
 
 private:
     void prepare_set_of_combat_iterations_spell_specific() override;

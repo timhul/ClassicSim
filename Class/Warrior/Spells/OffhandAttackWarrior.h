@@ -18,8 +18,7 @@ private:
     StatisticsResource* statistics_resource {nullptr};
     const QVector<double> talent_ranks;
 
-    void spell_effect() override;
-    int calculate_damage() override;
+    void calculate_damage() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;

@@ -31,38 +31,30 @@ void OffhandAttackWarrior::decrease_talent_rank_effect(const QString&, const int
     offhand_penalty = talent_ranks[curr];
 }
 
-void OffhandAttackWarrior::spell_effect() {
-    complete_swing();
-    const int result = calculate_damage();
-
-    if (result == PhysicalAttackResult::HIT || result == PhysicalAttackResult::GLANCING)
-        spells->get_flurry()->use_charge();
-}
-
-int OffhandAttackWarrior::calculate_damage() {
+void OffhandAttackWarrior::calculate_damage() {
     const unsigned oh_wpn_skill = warr->get_oh_wpn_skill();
-    int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
+    const int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
 
-    if (result == PhysicalAttackResult::MISS) {
-        increment_miss();
-        return result;
-    }
+    spells->get_flurry()->use_charge();
+
+    if (result == PhysicalAttackResult::MISS)
+        return increment_miss();
 
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         spells->get_overpower_buff()->apply_buff();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
-        return result;
+        return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
-        return result;
+        return;
     }
     if (result == PhysicalAttackResult::BLOCK || result == PhysicalAttackResult::BLOCK_CRITICAL) {
         increment_full_block();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
-        return result;
+        return;
     }
 
     double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_oh_dmg() * offhand_penalty);
@@ -73,7 +65,7 @@ int OffhandAttackWarrior::calculate_damage() {
         gain_rage(damage_dealt);
 
         warr->melee_oh_white_critical_effect();
-        return result;
+        return;
     }
 
     warr->melee_oh_white_hit_effect();
@@ -82,13 +74,12 @@ int OffhandAttackWarrior::calculate_damage() {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
         add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         gain_rage(damage_dealt);
-        return result;
+        return;
     }
 
     damage_dealt = round(damage_dealt);
     add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
     gain_rage(damage_dealt);
-    return result;
 }
 
 void OffhandAttackWarrior::prepare_set_of_combat_iterations_spell_specific() {

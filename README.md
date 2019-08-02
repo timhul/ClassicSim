@@ -44,6 +44,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Mage Fireball DoT damage no longer scales with spell power.
 * Blood Fury now scales with Agility (previously only Strength and level-based AP).
 * Berserking now increases casting speed and has an appropriate resource cost.
+* Warrior Flurry charges now consumed on non-hits and extra attacks.
 
 # Q&A
 
