@@ -2,8 +2,6 @@
 
 #include "PartyBuff.h"
 
-#include <QVector>
-
 class Warrior;
 
 class BattleShoutBuff: public PartyBuff {
