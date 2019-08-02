@@ -149,7 +149,8 @@ int Moonfire::duration_for_spell_rank(const unsigned spell_rank) {
 }
 
 bool Moonfire::check_application_success() {
-    pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
+    if (!druid_spells->omen_of_clarity_active())
+        pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
     cooldown->add_gcd_event();
 
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Arcane, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Arcane) + imp_moonfire_crit_bonus);

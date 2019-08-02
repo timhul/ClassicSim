@@ -22,6 +22,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
+    Class/Druid/Procs/ClearcastingDruid.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/Starfire.cpp \
     Class/Druid/Spells/Wrath.cpp \
@@ -480,6 +481,7 @@ HEADERS += \
     Class/Common/Spells/UseItem.h \
     Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \
+    Class/Druid/Procs/ClearcastingDruid.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/Starfire.h \
     Class/Druid/Spells/Wrath.h \
@@ -976,6 +978,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \
     $$PWD/Class/Druid/Buffs \
+    $$PWD/Class/Druid/Procs \
     $$PWD/Class/Druid/Spells \
     $$PWD/Class/Druid/TalentTrees \
     $$PWD/Class/Hunter \

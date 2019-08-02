@@ -98,7 +98,8 @@ void Starfire::spell_effect() {
 }
 
 void Starfire::complete_cast_effect() {
-    pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
+    if (!druid_spells->omen_of_clarity_active())
+        pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
     druid_spells->get_natures_grace()->use_charge();
 
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Arcane, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Arcane));

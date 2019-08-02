@@ -1,5 +1,6 @@
 #include "DruidSpells.h"
 
+#include "ClearcastingDruid.h"
 #include "Druid.h"
 #include "MainhandAttack.h"
 #include "Moonfire.h"
@@ -46,12 +47,24 @@ DruidSpells::DruidSpells(Druid* druid) :
                     });
 
     natures_grace = new NaturesGrace(druid);
+    omen_of_clarity = new ClearcastingDruid(druid);
+}
+
+DruidSpells::~DruidSpells() {
+    delete natures_grace;
+    delete omen_of_clarity;
 }
 
 Buff* DruidSpells::get_natures_grace() const {
     return this->natures_grace;
 }
 
-DruidSpells::~DruidSpells() {
-    delete natures_grace;
+Proc* DruidSpells::get_omen_of_clarity() const {
+    return this->omen_of_clarity;
+}
+
+bool DruidSpells::omen_of_clarity_active() const {
+    const bool active = omen_of_clarity->buff->is_active();
+    omen_of_clarity->buff->use_charge();
+    return active;
 }

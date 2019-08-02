@@ -93,7 +93,8 @@ void Wrath::spell_effect() {
 }
 
 void Wrath::complete_cast_effect() {
-    pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
+    if (!druid_spells->omen_of_clarity_active())
+        pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
     druid_spells->get_natures_grace()->use_charge();
 
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Nature));

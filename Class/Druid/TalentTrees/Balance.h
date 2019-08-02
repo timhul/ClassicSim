@@ -18,6 +18,7 @@ private:
     void add_improved_natures_grasp(QMap<QString, Talent*>& talent_tier);
     void add_improved_moonfire(QMap<QString, Talent*>& talent_tier);
     void add_natural_weapons(QMap<QString, Talent*>& talent_tier);
+    void add_omen_of_clarity(QMap<QString, Talent*>& talent_tier);
     void add_vengeance(QMap<QString, Talent*>& talent_tier);
     void add_improved_starfire(QMap<QString, Talent*>& talent_tier);
     void add_natures_grace(QMap<QString, Talent*>& talent_tier);

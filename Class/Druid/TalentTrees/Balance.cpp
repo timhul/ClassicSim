@@ -46,9 +46,9 @@ Balance::Balance(Druid* druid) :
 
     QMap<QString, Talent*> tier3 {
         {"3LL", new Talent(druid, this, "Improved Thorns", "3LL", "Assets/spell/Spell_nature_thorns.png", 3, "Increases damage caused by your Thorns spell by %1%.", QVector<QPair<unsigned, unsigned>>{{25, 25}})},
-        {"3MR", new Talent(druid, this, "Omen of Clarity", "3MR", "Assets/items/Inv_misc_orb_01.png", 1, "Imbues the Druid with natural energy. Each of the Druid's melee attacks has a chance of causing the caster to enter a Clearcasting state. The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by 100%. Lasts 10 min.", QVector<QPair<unsigned, unsigned>>())},
         {"3RR", new Talent(druid, this, "Nature's Reach", "3RR", "Assets/items/Inv_misc_branch_01.png", 2, "Increases the range of your Wrath, Entangling Roots, Faerie Fire, Moonfire, Starfire, and Hurricane spells by %1%.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
     };
+    add_omen_of_clarity(tier3);
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {};
@@ -122,6 +122,15 @@ void Balance::add_natural_weapons(QMap<QString, Talent*>& talent_tier) {
     add_talent_to_tier(talent_tier, talent);
 }
 
+void Balance::add_omen_of_clarity(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Omen of Clarity", "3MR", "Assets/items/Inv_misc_orb_01.png", 1,
+                                    "Imbues the Druid with natural energy. Each of the Druid's melee attacks has a chance of causing the caster to enter a Clearcasting state. The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by 100%. Lasts 10 min.",
+                                    QVector<QPair<unsigned, unsigned>>(), {}, {},
+                                    QVector<Proc*>{spells->get_omen_of_clarity()});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
 void Balance::add_vengeance(QMap<QString, Talent*>& talent_tier) {
     Talent* talent = get_new_talent(druid, "Vengeance", "4ML", "Assets/spell/Spell_nature_purge.png", 5,
                                     "Increases the critical strike damage bonus of your Starfire, Moonfire, and Wrath spells by %1%.",
@@ -151,7 +160,6 @@ void Balance::add_natures_grace(QMap<QString, Talent*>& talent_tier) {
                                     QVector<Buff*>{spells->get_natures_grace()});
 
     add_talent_to_tier(talent_tier, talent);
-
 }
 
 void Balance::add_moonglow(QMap<QString, Talent*>& talent_tier) {
