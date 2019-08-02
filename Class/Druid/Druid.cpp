@@ -9,6 +9,7 @@
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Energy.h"
+#include "Engine.h"
 #include "Equipment.h"
 #include "FeralCombat.h"
 #include "Mana.h"
@@ -105,8 +106,21 @@ unsigned Druid::get_ranged_ap_per_agi() const {
 }
 
 double Druid::global_cooldown() const {
-    // Incomplete implementation, is stance specific.
+    switch (current_form) {
+    case DruidForm::Caster:
+    case DruidForm::Bear:
+    case DruidForm::Moonkin:
+        return 1.5;
+    case DruidForm::Cat:
+        return 1.0;
+    }
+
+    check(false, "Reached end of Druid::global_cooldown() switch");
     return 1.5;
+}
+
+double Druid::form_cooldown() const {
+    return 1.0;
 }
 
 void Druid::initialize_talents() {
@@ -163,6 +177,41 @@ void Druid::spell_critical_effect(MagicSchool) {
     enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
+DruidForm Druid::get_current_form() const {
+    return this->current_form;
+}
+
+bool Druid::on_form_cooldown() const {
+    return engine->get_current_priority() < this->next_form_cd;
+}
+
+void Druid::cancel_form() {
+    switch (this->current_form) {
+    default:
+        break;
+    }
+
+    current_form = DruidForm::Caster;
+}
+
+void Druid::switch_to_form(const DruidForm new_form) {
+    if (new_form == DruidForm::Caster)
+        return cancel_form();
+
+    if (on_form_cooldown())
+        return;
+
+    cancel_form();
+
+    switch (new_form) {
+    default:
+        break;
+    }
+
+    this->current_form = new_form;
+    this->next_form_cd = engine->get_current_priority() + form_cooldown();
+}
+
 int Druid::get_highest_possible_armor_type() const {
     return ArmorTypes::LEATHER;
 }
@@ -190,5 +239,6 @@ void Druid::reset_resource() {
 }
 
 void Druid::reset_class_specific() {
-
+    cancel_form();
+    this->next_form_cd = 0.0;
 }

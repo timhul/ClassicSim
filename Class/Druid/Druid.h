@@ -7,6 +7,13 @@ class Energy;
 class Mana;
 class Rage;
 
+enum class DruidForm : int {
+    Caster,
+    Bear,
+    Cat,
+    Moonkin,
+};
+
 class Druid: public Character {
 public:
     Druid(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
@@ -21,6 +28,7 @@ public:
     double get_int_needed_for_one_percent_spell_crit() const override;
     double get_mp5_from_spirit() const override;
     double global_cooldown() const override;
+    double form_cooldown() const;
 
     unsigned get_melee_ap_per_strength() const override;
     unsigned get_melee_ap_per_agi() const override;
@@ -38,12 +46,20 @@ public:
 
     void spell_critical_effect(MagicSchool magic_school) override;
 
+    DruidForm get_current_form() const;
+    bool on_form_cooldown() const;
+    void cancel_form();
+    void switch_to_form(const DruidForm new_form);
+
 private:
     DruidSpells* druid_spells;
 
     Energy* energy;
     Mana* mana;
     Rage* rage;
+
+    DruidForm current_form {DruidForm::Caster};
+    double next_form_cd {0.0};
 
     void initialize_talents() override;
     void reset_class_specific() override;
