@@ -38,9 +38,9 @@ Balance::Balance(Druid* druid) :
 
     QMap<QString, Talent*> tier2 {
         {"2LL", new Talent(druid, this, "Improved Entangling Roots", "2LL", "Assets/spell/Spell_nature_stranglevines.png", 3, "Gives you a %1% chance to avoid interruption caused by damage while casting Entangling Roots.", QVector<QPair<unsigned, unsigned>>{{40, 30}})},
-        {"2RR", new Talent(druid, this, "Natural Shapeshifter", "2RR", "Assets/spell/Spell_nature_wispsplode.png", 3, "Reduces the mana cost of all shapeshifting by %1%.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
     };
     add_improved_moonfire(tier2);
+    add_natural_shapeshifter(tier2);
     add_natural_weapons(tier2);
     add_talents(tier2);
 
@@ -108,6 +108,19 @@ void Balance::add_improved_moonfire(QMap<QString, Talent*>& talent_tier) {
                                     "Increases the damage and critical strike chance of your Moonfire spell by %1%.",
                                     QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Moonfire")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_natural_shapeshifter(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Natural Shapeshifter", "2RR", "Assets/spell/Spell_nature_wispsplode.png", 3,
+                                    "Reduces the mana cost of all shapeshifting by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{10, 10}},
+                                    QVector<SpellRankGroup*>{
+                                        spells->get_spell_rank_group_by_name("Bear Form"),
+                                        spells->get_spell_rank_group_by_name("Cat Form"),
+                                        spells->get_spell_rank_group_by_name("Moonkin Form"),
+                                    });
 
     add_talent_to_tier(talent_tier, talent);
 }

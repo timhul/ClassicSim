@@ -7,9 +7,11 @@
 
 MoonkinForm::MoonkinForm(Character* pchar, MoonkinFormBuff* buff) :
     Spell("Moonkin Form", "Assets/spell/Spell_nature_forceofnature.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
-    TalentRequirer({new TalentRequirerInfo("Moonkin Form", 1, DisabledAtZero::Yes)}),
+    TalentRequirer({new TalentRequirerInfo("Moonkin Form", 1, DisabledAtZero::Yes),
+                    new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
     druid(dynamic_cast<Druid*>(pchar)),
-    buff(buff)
+    buff(buff),
+    base_resource_cost(resource_cost)
 {
     enabled = false;
 }
@@ -30,10 +32,11 @@ void MoonkinForm::spell_effect() {
     buff->apply_buff();
 }
 
-void MoonkinForm::increase_talent_rank_effect(const QString&, const int) {
-
+void MoonkinForm::increase_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Natural Shapeshifter")
+        resource_cost = static_cast<unsigned>(std::round(base_resource_cost * natural_shapeshifter_ranks[curr]));
 }
 
-void MoonkinForm::decrease_talent_rank_effect(const QString&, const int) {
-
+void MoonkinForm::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
+    increase_talent_rank_effect(talent_name, curr);
 }

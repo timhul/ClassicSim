@@ -6,8 +6,10 @@
 
 BearForm::BearForm(Character* pchar) :
     Spell("Bear Form", "Assets/ability/Ability_druid_demoralizingroar2.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
+    TalentRequirer({new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
     druid(dynamic_cast<Druid*>(pchar)),
-    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT))
+    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT)),
+    base_resource_cost(resource_cost)
 {
     buff->enable_buff();
 }
@@ -27,4 +29,13 @@ SpellStatus BearForm::is_ready_spell_specific() const {
 void BearForm::spell_effect() {
     pchar->lose_mana(static_cast<unsigned>(round(resource_cost)));
     buff->apply_buff();
+}
+
+void BearForm::increase_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Natural Shapeshifter")
+        resource_cost = static_cast<unsigned>(std::round(base_resource_cost * natural_shapeshifter_ranks[curr]));
+}
+
+void BearForm::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
+    increase_talent_rank_effect(talent_name, curr);
 }

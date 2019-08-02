@@ -17,6 +17,10 @@ void TestMoonkinForm::test_all() {
     set_up(false);
     test_gives_spell_crit_to_party_members();
     tear_down();
+
+    set_up();
+    test_resource_cost_with_3_of_3_natural_shapeshifter();
+    tear_down();
 }
 
 void TestMoonkinForm::test_name_correct() {
@@ -45,6 +49,15 @@ void TestMoonkinForm::test_is_ready_conditions() {
     assert(moonkin_form()->get_spell_status() == SpellStatus::Available);
 }
 
+void TestMoonkinForm::test_resource_cost() {
+    given_balance_talent_rank("Moonkin Form", 1);
+    given_druid_has_mana(101);
+
+    when_moonkin_form_is_performed();
+
+    then_druid_has_mana(1);
+}
+
 void TestMoonkinForm::test_gives_spell_crit_to_party_members() {
     Druid* druid_2 = new Druid(race, equipment_db, sim_settings, raid_control, 0, 1);
     given_balance_talent_rank("Moonkin Form", 1);
@@ -68,9 +81,10 @@ void TestMoonkinForm::test_gives_spell_crit_to_party_members() {
     delete druid_2;
 }
 
-void TestMoonkinForm::test_resource_cost() {
-    given_balance_talent_rank("Moonkin Form", 1);
-    given_druid_has_mana(101);
+void TestMoonkinForm::test_resource_cost_with_3_of_3_natural_shapeshifter() {
+    given_balance_talent_rank("Natural Shapeshifter", 3);
+
+    given_druid_has_mana(71);
 
     when_moonkin_form_is_performed();
 
