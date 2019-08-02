@@ -2,20 +2,20 @@
 
 #include "CooldownControl.h"
 #include "Druid.h"
+#include "MoonkinFormBuff.h"
 #include "NoEffectSelfBuff.h"
 
-MoonkinForm::MoonkinForm(Character* pchar) :
+MoonkinForm::MoonkinForm(Character* pchar, MoonkinFormBuff* buff) :
     Spell("Moonkin Form", "Assets/spell/Spell_nature_forceofnature.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
     TalentRequirer({new TalentRequirerInfo("Moonkin Form", 1, DisabledAtZero::Yes)}),
     druid(dynamic_cast<Druid*>(pchar)),
-    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT))
+    buff(buff)
 {
     enabled = false;
 }
 
 MoonkinForm::~MoonkinForm() {
     delete cooldown;
-    delete buff;
 }
 
 SpellStatus MoonkinForm::is_ready_spell_specific() const {
@@ -31,9 +31,9 @@ void MoonkinForm::spell_effect() {
 }
 
 void MoonkinForm::increase_talent_rank_effect(const QString&, const int) {
-    buff->enable_buff();
+
 }
 
 void MoonkinForm::decrease_talent_rank_effect(const QString&, const int) {
-    buff->disable_buff();
+
 }

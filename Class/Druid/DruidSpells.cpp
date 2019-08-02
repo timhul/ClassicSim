@@ -7,7 +7,9 @@
 #include "MainhandAttack.h"
 #include "Moonfire.h"
 #include "MoonkinForm.h"
+#include "MoonkinFormBuff.h"
 #include "NaturesGrace.h"
+#include "RaidControl.h"
 #include "Starfire.h"
 #include "Wrath.h"
 
@@ -24,7 +26,12 @@ DruidSpells::DruidSpells(Druid* druid) :
     this->cat_form = new CatForm(druid);
     add_spell_group({cat_form});
 
-    this->moonkin_form = new MoonkinForm(druid);
+    auto buff = dynamic_cast<MoonkinFormBuff*>(pchar->get_raid_control()->get_shared_party_buff("Moonkin Form", pchar->get_party()));
+    if (buff == nullptr) {
+        buff = new MoonkinFormBuff(druid);
+        buff->enable_buff();
+    }
+    this->moonkin_form = new MoonkinForm(druid, buff);
     add_spell_group({moonkin_form});
 
     add_spell_group({

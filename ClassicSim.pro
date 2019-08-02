@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Druid/Buffs/MoonkinFormBuff.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
@@ -127,6 +128,7 @@ SOURCES += main.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
     Test/Druid/Spells/TestMoonfire.cpp \
+    Test/Druid/Spells/TestMoonkinForm.cpp \
     Test/Druid/Spells/TestStarfire.cpp \
     Test/Druid/Spells/TestWrath.cpp \
     Test/Druid/Talents/TestBalance.cpp \
@@ -482,6 +484,7 @@ HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Druid/Buffs/MoonkinFormBuff.h \
     Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \
     Class/Druid/Procs/ClearcastingDruid.h \
@@ -590,6 +593,7 @@ HEADERS += \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
     Test/Druid/Spells/TestMoonfire.h \
+    Test/Druid/Spells/TestMoonkinForm.h \
     Test/Druid/Spells/TestStarfire.h \
     Test/Druid/Spells/TestWrath.h \
     Test/Druid/Talents/TestBalance.h \

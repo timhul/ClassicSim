@@ -11,6 +11,7 @@
 #include "FeralCombat.h"
 #include "Item.h"
 #include "Moonfire.h"
+#include "MoonkinForm.h"
 #include "RaidControl.h"
 #include "RestorationDruid.h"
 #include "SimSettings.h"
@@ -55,6 +56,10 @@ Moonfire* TestSpellDruid::moonfire() const {
 
 Starfire* TestSpellDruid::starfire() const {
     return dynamic_cast<Starfire*>(get_max_rank_spell_by_name("Starfire"));
+}
+
+MoonkinForm* TestSpellDruid::moonkin_form() const {
+    return dynamic_cast<MoonkinForm*>(get_max_rank_spell_by_name("Moonkin Form"));
 }
 
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {

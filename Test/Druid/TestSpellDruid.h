@@ -4,6 +4,7 @@
 
 class Druid;
 class Moonfire;
+class MoonkinForm;
 class Spell;
 class Starfire;
 class Wrath;
@@ -23,6 +24,7 @@ protected:
     Wrath* wrath() const;
     Moonfire* moonfire() const;
     Starfire* starfire() const;
+    MoonkinForm* moonkin_form() const;
 
     void given_balance_talent_rank(const QString& talent_name, const unsigned num);
     void given_feral_talent_rank(const QString& talent_name, const unsigned num);
