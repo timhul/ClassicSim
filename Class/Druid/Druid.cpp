@@ -205,6 +205,8 @@ void Druid::cancel_form() {
     }
 
     current_form = DruidForm::Caster;
+
+    add_player_reaction_event();
 }
 
 void Druid::switch_to_form(const DruidForm new_form) {
