@@ -9,6 +9,4 @@ public:
 private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
-
-    void set_tables_for_guaranteed_hit(const unsigned wpn_skill);
 };
