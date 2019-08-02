@@ -68,6 +68,14 @@ QString StatisticsRotationExecutor::get_description_for_status(const SpellStatus
         return "FAIL: In Berserker Stance";
     case SpellStatus::InDefensiveStance:
         return "FAIL: In Defensive Stance";
+    case SpellStatus::InCasterForm:
+        return "FAIL: In Caster Form";
+    case SpellStatus::InBearForm:
+        return "FAIL: In Bear Form";
+    case SpellStatus::InCatForm:
+        return "FAIL: In Cat Form";
+    case SpellStatus::InMoonkinForm:
+        return "FAIL: In Moonkin Form";
     case SpellStatus::IncorrectWeaponType:
         return "FAIL: Incorrect weapon type";
     case SpellStatus::InsufficientComboPoints:
@@ -84,6 +92,8 @@ QString StatisticsRotationExecutor::get_description_for_status(const SpellStatus
         return "FAIL: On global cooldown";
     case SpellStatus::OnStanceCooldown:
         return "FAIL: On stance cooldown";
+    case SpellStatus::OnFormCooldown:
+        return "FAIL: On form cooldown";
     case SpellStatus::OnTrinketCooldown:
         return "FAIL: On shared trinket cooldown";
     case SpellStatus::OvercapResource:

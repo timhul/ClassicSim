@@ -24,4 +24,5 @@ private:
     void add_natures_grace(QMap<QString, Talent*>& talent_tier);
     void add_moonglow(QMap<QString, Talent*>& talent_tier);
     void add_moonfury(QMap<QString, Talent*>& talent_tier);
+    void add_moonkin_form(QMap<QString, Talent*>& talent_tier);
 };

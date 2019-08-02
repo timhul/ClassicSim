@@ -65,9 +65,8 @@ Balance::Balance(Druid* druid) :
     add_moonfury(tier6);
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {
-        {"7ML", new Talent(druid, this, "Moonkin Form", "7ML", "Assets/spell/Spell_nature_forceofnature.png", 1, "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360% and all party members within 30 yards have their spell critical chance increased by 3%. The Moonkin can only cast Balance spells while shapeshifted.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.", QVector<QPair<unsigned, unsigned>>())},
-    };
+    QMap<QString, Talent*> tier7 {};
+    add_moonkin_form(tier7);
     add_talents(tier7);
 
     talents["1ML"]->talent->set_right_child(talents["1MR"]->talent);
@@ -184,6 +183,15 @@ void Balance::add_moonfury(QMap<QString, Talent*>& talent_tier) {
                                         spells->get_spell_rank_group_by_name("Moonfire"),
                                         spells->get_spell_rank_group_by_name("Wrath"),
                                     });
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Balance::add_moonkin_form(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Moonkin Form", "7ML", "Assets/spell/Spell_nature_forceofnature.png", 1,
+                                    "Transforms the Druid into Moonkin Form.  While in this form the armor contribution from items is increased by 360% and all party members within 30 yards have their spell critical chance increased by 3%. The Moonkin can only cast Balance spells while shapeshifted.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+                                    QVector<QPair<unsigned, unsigned>>(),
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Moonkin Form")});
 
     add_talent_to_tier(talent_tier, talent);
 }

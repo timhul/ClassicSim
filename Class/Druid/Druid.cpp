@@ -1,7 +1,9 @@
 #include "Druid.h"
 
 #include "Balance.h"
+#include "BearForm.h"
 #include "Buff.h"
+#include "CatForm.h"
 #include "CharacterStats.h"
 #include "CharacterTalents.h"
 #include "DruidEnchants.h"
@@ -13,6 +15,8 @@
 #include "Equipment.h"
 #include "FeralCombat.h"
 #include "Mana.h"
+#include "MoonkinForm.h"
+#include "PlayerAction.h"
 #include "Race.h"
 #include "Rage.h"
 #include "RaidControl.h"
@@ -187,7 +191,16 @@ bool Druid::on_form_cooldown() const {
 
 void Druid::cancel_form() {
     switch (this->current_form) {
-    default:
+    case DruidForm::Caster:
+        break;
+    case DruidForm::Bear:
+        druid_spells->get_bear_form()->buff->cancel_buff();
+        break;
+    case DruidForm::Cat:
+        druid_spells->get_cat_form()->buff->cancel_buff();
+        break;
+    case DruidForm::Moonkin:
+        druid_spells->get_moonkin_form()->buff->cancel_buff();
         break;
     }
 
@@ -204,12 +217,26 @@ void Druid::switch_to_form(const DruidForm new_form) {
     cancel_form();
 
     switch (new_form) {
-    default:
+    case DruidForm::Bear:
+        druid_spells->get_bear_form()->perform();
         break;
+    case DruidForm::Cat:
+        druid_spells->get_cat_form()->perform();
+        break;
+    case DruidForm::Moonkin:
+        druid_spells->get_moonkin_form()->perform();
+        break;
+    default:
+        check(false, "Unhandled form in Druid::switch_to_form()");
     }
 
     this->current_form = new_form;
     this->next_form_cd = engine->get_current_priority() + form_cooldown();
+
+    if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
+        this->next_gcd = engine->get_current_priority() + 0.5;
+        engine->add_event(new PlayerAction(spells, next_gcd));
+    }
 }
 
 int Druid::get_highest_possible_armor_type() const {

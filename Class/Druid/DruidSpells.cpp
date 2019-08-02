@@ -1,9 +1,12 @@
 #include "DruidSpells.h"
 
+#include "BearForm.h"
+#include "CatForm.h"
 #include "ClearcastingDruid.h"
 #include "Druid.h"
 #include "MainhandAttack.h"
 #include "Moonfire.h"
+#include "MoonkinForm.h"
 #include "NaturesGrace.h"
 #include "Starfire.h"
 #include "Wrath.h"
@@ -14,6 +17,15 @@ DruidSpells::DruidSpells(Druid* druid) :
 {
     this->mh_attack = new MainhandAttack(druid);
     add_spell_group({mh_attack});
+
+    this->bear_form = new BearForm(druid);
+    add_spell_group({bear_form});
+
+    this->cat_form = new CatForm(druid);
+    add_spell_group({cat_form});
+
+    this->moonkin_form = new MoonkinForm(druid);
+    add_spell_group({moonkin_form});
 
     add_spell_group({
                         new Wrath(druid, this, 4),
@@ -53,6 +65,18 @@ DruidSpells::DruidSpells(Druid* druid) :
 DruidSpells::~DruidSpells() {
     delete natures_grace;
     delete omen_of_clarity;
+}
+
+BearForm* DruidSpells::get_bear_form() const {
+    return this->bear_form;
+}
+
+CatForm* DruidSpells::get_cat_form() const {
+    return this->cat_form;
+}
+
+MoonkinForm* DruidSpells::get_moonkin_form() const {
+    return this->moonkin_form;
 }
 
 Buff* DruidSpells::get_natures_grace() const {

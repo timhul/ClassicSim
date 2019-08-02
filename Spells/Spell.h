@@ -27,6 +27,10 @@ enum class SpellStatus: int {
     InBattleStance,
     InBerserkerStance,
     InDefensiveStance,
+    InCasterForm,
+    InBearForm,
+    InCatForm,
+    InMoonkinForm,
     IncorrectWeaponType,
     InsufficientComboPoints,
     InsufficientResources,
@@ -35,6 +39,7 @@ enum class SpellStatus: int {
     OnCooldown,
     OnGCD,
     OnStanceCooldown,
+    OnFormCooldown,
     OnTrinketCooldown,
     OvercapResource,
 };

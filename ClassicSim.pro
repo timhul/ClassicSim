@@ -23,7 +23,10 @@ SOURCES += main.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
+    Class/Druid/Spells/BearForm.cpp \
+    Class/Druid/Spells/CatForm.cpp \
     Class/Druid/Spells/Moonfire.cpp \
+    Class/Druid/Spells/MoonkinForm.cpp \
     Class/Druid/Spells/Starfire.cpp \
     Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
@@ -482,7 +485,10 @@ HEADERS += \
     Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \
     Class/Druid/Procs/ClearcastingDruid.h \
+    Class/Druid/Spells/BearForm.h \
+    Class/Druid/Spells/CatForm.h \
     Class/Druid/Spells/Moonfire.h \
+    Class/Druid/Spells/MoonkinForm.h \
     Class/Druid/Spells/Starfire.h \
     Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
