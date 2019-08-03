@@ -1,6 +1,7 @@
 #include "DruidSpells.h"
 
 #include "BearForm.h"
+#include "CasterForm.h"
 #include "CatForm.h"
 #include "ClearcastingDruid.h"
 #include "Druid.h"
@@ -19,6 +20,9 @@ DruidSpells::DruidSpells(Druid* druid) :
 {
     this->mh_attack = new MainhandAttack(druid);
     add_spell_group({mh_attack});
+
+    this->caster_form = new CasterForm(druid);
+    add_spell_group({caster_form});
 
     this->bear_form = new BearForm(druid);
     add_spell_group({bear_form});
@@ -72,6 +76,10 @@ DruidSpells::DruidSpells(Druid* druid) :
 DruidSpells::~DruidSpells() {
     delete natures_grace;
     delete omen_of_clarity;
+}
+
+CasterForm* DruidSpells::get_caster_form() const {
+    return this->caster_form;
 }
 
 BearForm* DruidSpells::get_bear_form() const {

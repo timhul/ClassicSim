@@ -4,6 +4,7 @@
 #include "BearForm.h"
 #include "Buff.h"
 #include "CatForm.h"
+#include "CasterForm.h"
 #include "CharacterStats.h"
 #include "CharacterTalents.h"
 #include "DruidEnchants.h"
@@ -205,6 +206,7 @@ void Druid::cancel_form() {
     }
 
     current_form = DruidForm::Caster;
+    druid_spells->get_caster_form()->buff->apply_buff();
 
     add_player_reaction_event();
 }
@@ -217,6 +219,7 @@ void Druid::switch_to_form(const DruidForm new_form) {
         return;
 
     cancel_form();
+    druid_spells->get_caster_form()->buff->cancel_buff();
 
     switch (new_form) {
     case DruidForm::Bear:

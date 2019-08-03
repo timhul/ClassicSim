@@ -4,6 +4,7 @@
 
 class BearForm;
 class Buff;
+class CasterForm;
 class CatForm;
 class ClearcastingDruid;
 class Druid;
@@ -15,6 +16,7 @@ public:
     DruidSpells(Druid* druid);
     ~DruidSpells() override;
 
+    CasterForm* get_caster_form() const;
     BearForm* get_bear_form() const;
     CatForm* get_cat_form() const;
     MoonkinForm* get_moonkin_form() const;
@@ -26,6 +28,7 @@ public:
 private:
     Druid* druid;
 
+    CasterForm* caster_form;
     BearForm* bear_form;
     CatForm* cat_form;
     MoonkinForm* moonkin_form;
