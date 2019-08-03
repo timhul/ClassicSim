@@ -15,6 +15,7 @@
 #include "MoonkinForm.h"
 #include "RaidControl.h"
 #include "RestorationDruid.h"
+#include "Shred.h"
 #include "SimSettings.h"
 #include "Spell.h"
 #include "Starfire.h"
@@ -67,6 +68,10 @@ CatForm* TestSpellDruid::cat_form() const {
     return dynamic_cast<CatForm*>(get_max_rank_spell_by_name("Cat Form"));
 }
 
+Shred* TestSpellDruid::shred() const {
+    return dynamic_cast<Shred*>(get_max_rank_spell_by_name("Shred"));
+}
+
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {
     given_talent_rank(Balance(druid), talent_name, num);
 }
@@ -110,4 +115,10 @@ void TestSpellDruid::then_druid_has_mana(const unsigned mana) {
     if (mana != druid->get_resource_level(ResourceType::Mana))
         qDebug() << "Expected" << mana << "mana but has" << druid->get_resource_level(ResourceType::Mana);
     assert(druid->get_resource_level(ResourceType::Mana) == mana);
+}
+
+void TestSpellDruid::then_druid_has_energy(const unsigned energy) {
+    if (energy != druid->get_resource_level(ResourceType::Energy))
+        qDebug() << "Expected" << energy << "energy but has" << druid->get_resource_level(ResourceType::Energy);
+    assert(druid->get_resource_level(ResourceType::Energy) == energy);
 }

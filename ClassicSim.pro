@@ -31,6 +31,7 @@ SOURCES += main.cpp \
     Class/Druid/Spells/MainhandAttackDruid.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/MoonkinForm.cpp \
+    Class/Druid/Spells/Shred.cpp \
     Class/Druid/Spells/Starfire.cpp \
     Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
@@ -133,6 +134,7 @@ SOURCES += main.cpp \
     Test/Druid/Spells/TestCatForm.cpp \
     Test/Druid/Spells/TestMoonfire.cpp \
     Test/Druid/Spells/TestMoonkinForm.cpp \
+    Test/Druid/Spells/TestShred.cpp \
     Test/Druid/Spells/TestStarfire.cpp \
     Test/Druid/Spells/TestWrath.cpp \
     Test/Druid/Talents/TestBalance.cpp \
@@ -499,6 +501,7 @@ HEADERS += \
     Class/Druid/Spells/MainhandAttackDruid.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/MoonkinForm.h \
+    Class/Druid/Spells/Shred.h \
     Class/Druid/Spells/Starfire.h \
     Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
@@ -602,6 +605,7 @@ HEADERS += \
     Test/Druid/Spells/TestCatForm.h \
     Test/Druid/Spells/TestMoonfire.h \
     Test/Druid/Spells/TestMoonkinForm.h \
+    Test/Druid/Spells/TestShred.h \
     Test/Druid/Spells/TestStarfire.h \
     Test/Druid/Spells/TestWrath.h \
     Test/Druid/Talents/TestBalance.h \

@@ -13,4 +13,6 @@ public:
 private:
     Druid* druid;
     DruidSpells* spells;
+
+    void add_improved_shred(QMap<QString, Talent*>& talent_tier);
 };

@@ -14,6 +14,7 @@
 #include "TestMoonfire.h"
 #include "TestMoonkinForm.h"
 #include "TestRestorationDruid.h"
+#include "TestShred.h"
 #include "TestStarfire.h"
 #include "TestWrath.h"
 
@@ -33,6 +34,7 @@ void TestDruid::test_all() {
     TestStarfire(equipment_db).test_all();
     TestMoonkinForm(equipment_db).test_all();
     TestCatForm(equipment_db).test_all();
+    TestShred(equipment_db).test_all();
 }
 
 void TestDruid::test_values_after_initialization() {

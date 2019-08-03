@@ -11,6 +11,7 @@
 #include "MoonkinFormBuff.h"
 #include "NaturesGrace.h"
 #include "RaidControl.h"
+#include "Shred.h"
 #include "Starfire.h"
 #include "Wrath.h"
 
@@ -67,6 +68,14 @@ DruidSpells::DruidSpells(Druid* druid) :
                         new Starfire(druid, this, 5),
                         new Starfire(druid, this, 6),
                         new Starfire(druid, this, 7),
+                    });
+
+    add_spell_group({
+                        new Shred(druid, this, 1),
+                        new Shred(druid, this, 2),
+                        new Shred(druid, this, 3),
+                        new Shred(druid, this, 4),
+                        new Shred(druid, this, 5),
                     });
 
     natures_grace = new NaturesGrace(druid);

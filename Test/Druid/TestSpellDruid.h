@@ -6,6 +6,7 @@ class CatForm;
 class Druid;
 class Moonfire;
 class MoonkinForm;
+class Shred;
 class Spell;
 class Starfire;
 class Wrath;
@@ -27,6 +28,7 @@ protected:
     Starfire* starfire() const;
     MoonkinForm* moonkin_form() const;
     CatForm* cat_form() const;
+    Shred* shred() const;
 
     void given_balance_talent_rank(const QString& talent_name, const unsigned num);
     void given_feral_talent_rank(const QString& talent_name, const unsigned num);
@@ -37,4 +39,5 @@ protected:
     void given_druid_is_on_gcd(Spell* spell);
 
     void then_druid_has_mana(const unsigned mana);
+    void then_druid_has_energy(const unsigned energy);
 };

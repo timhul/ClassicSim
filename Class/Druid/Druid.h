@@ -41,6 +41,10 @@ public:
     unsigned get_max_resource_level(const ResourceType) const override;
     void gain_mana(const unsigned value) override;
     void lose_mana(const unsigned value) override;
+    void gain_rage(const unsigned value) override;
+    void lose_rage(const unsigned value) override;
+    void gain_energy(const unsigned value) override;
+    void lose_energy(const unsigned value) override;
 
     void increase_base_mana(const unsigned value) override;
     void decrease_base_mana(const unsigned value) override;
@@ -54,6 +58,14 @@ public:
 
     unsigned rage_gained_from_dd(const unsigned damage_dealt) const;
 
+    unsigned get_combo_points() const;
+    void spend_combo_points();
+    void gain_combo_points(const unsigned);
+
+    void enter_stealth();
+    void exit_stealth();
+    bool is_stealthed() const;
+
 private:
     DruidSpells* druid_spells;
 
@@ -64,6 +76,8 @@ private:
     DruidForm current_form {DruidForm::Caster};
     double next_form_cd {0.0};
     double rage_conversion_value;
+    unsigned combo_points {0};
+    bool stealthed {false};
 
     void initialize_talents() override;
     void reset_class_specific() override;

@@ -173,6 +173,24 @@ void Druid::lose_mana(const unsigned value) {
     mana->lose_resource(value);
 }
 
+void Druid::gain_rage(const unsigned value) {
+    this->rage->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Druid::lose_rage(const unsigned value) {
+    this->rage->lose_resource(value);
+}
+
+void Druid::gain_energy(const unsigned value) {
+    this->energy->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Druid::lose_energy(const unsigned value) {
+    this->energy->lose_resource(value);
+}
+
 void Druid::increase_base_mana(const unsigned value) {
     mana->base_mana += value;
 }
@@ -253,6 +271,37 @@ unsigned Druid::rage_gained_from_dd(const unsigned damage_dealt) const {
     return static_cast<unsigned>(std::max(1, int(round(damage_dealt / rage_conversion_value * 7.5))));
 }
 
+unsigned Druid::get_combo_points() const {
+    return this->combo_points;
+}
+
+void Druid::spend_combo_points() {
+    combo_points = 0;
+}
+
+void Druid::gain_combo_points(const unsigned combo_points) {
+    this->combo_points += combo_points;
+
+    if (this->combo_points > 5)
+        this->combo_points = 5;
+}
+
+void Druid::enter_stealth() {
+    if (is_stealthed())
+        return;
+
+    spells->stop_attack();
+    stealthed = true;
+}
+
+void Druid::exit_stealth() {
+    stealthed = false;
+}
+
+bool Druid::is_stealthed() const {
+    return this->stealthed;
+}
+
 int Druid::get_highest_possible_armor_type() const {
     return ArmorTypes::LEATHER;
 }
@@ -282,4 +331,6 @@ void Druid::reset_resource() {
 void Druid::reset_class_specific() {
     cancel_form();
     this->next_form_cd = 0.0;
+    this->combo_points = 0;
+    this->stealthed = false;
 }

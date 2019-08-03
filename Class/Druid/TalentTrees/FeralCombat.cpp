@@ -49,11 +49,11 @@ FeralCombat::FeralCombat(Druid* druid) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {
-        {"4LL", new Talent(druid, this, "Improved Shred", "4LL", "Assets/spell/Spell_shadow_vampiricaura.png", 2, "Reduces the Energy cost of your Shred ability by %1.", QVector<QPair<unsigned, unsigned>>{{6, 6}})},
         {"4ML", new Talent(druid, this, "Predatory Strikes", "4ML", "Assets/ability/Ability_hunter_pet_cat.png", 3, "Increases your melee attack power in Cat, Bear and Dire Bear Forms by %1% of your level.", QVector<QPair<unsigned, unsigned>>{{50, 50}})},
         {"4MR", new Talent(druid, this, "Blood Frenzy", "4MR", "Assets/ability/Ability_ghoulfrenzy.png", 2, "Your critical strikes from Cat Form abilities that add combo points have a %1% chance to add an additional combo point.", QVector<QPair<unsigned, unsigned>>{{50, 50}})},
         {"4RR", new Talent(druid, this, "Primal Fury", "4RR", "Assets/ability/Ability_racial_cannibalize.png", 2, "Gives you a %1% chance to gain an additional 5 Rage anytime you get a critical strike while in Bear and Dire Bear Form.", QVector<QPair<unsigned, unsigned>>{{50, 50}})},
     };
+    add_improved_shred(tier4);
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {
@@ -79,4 +79,13 @@ FeralCombat::FeralCombat(Druid* druid) :
 
     talents["4ML"]->talent->set_bottom_child(talents["6ML"]->talent);
     talents["6ML"]->talent->set_parent(talents["4ML"]->talent);
+}
+
+void FeralCombat::add_improved_shred(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Improved Shred", "4LL", "Assets/spell/Spell_shadow_vampiricaura.png", 2,
+                                    "Reduces the Energy cost of your Shred ability by %1.",
+                                    QVector<QPair<unsigned, unsigned>>{{6, 6}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Shred")});
+
+    add_talent_to_tier(talent_tier, talent);
 }
