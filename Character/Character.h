@@ -120,6 +120,7 @@ public:
     unsigned get_ranged_wpn_skill() const;
 
     unsigned get_avg_mh_damage();
+    unsigned get_avg_oh_damage();
 
     void increase_melee_attack_speed(unsigned);
     void decrease_melee_attack_speed(unsigned);

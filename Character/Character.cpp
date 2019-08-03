@@ -297,6 +297,16 @@ unsigned Character::get_avg_mh_damage() {
     return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, attack_power, mh->get_base_weapon_speed())));
 }
 
+unsigned Character::get_avg_oh_damage() {
+    if (!is_dual_wielding())
+        return 0;
+
+    const unsigned attack_power = cstats->get_melee_ap();
+    const Weapon* oh = cstats->get_equipment()->get_offhand();
+    const auto avg_dmg = static_cast<unsigned>(round(oh->get_min_dmg() + oh->get_max_dmg() + cstats->get_oh_flat_damage_bonus()) / 2);
+    return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, attack_power, oh->get_base_weapon_speed())));
+}
+
 double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon) {
     unsigned attack_power = cstats->get_melee_ap();
     if (weapon == nullptr)
