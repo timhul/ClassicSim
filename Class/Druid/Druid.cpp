@@ -228,13 +228,13 @@ void Druid::switch_to_form(const DruidForm new_form) {
 
     switch (new_form) {
     case DruidForm::Bear:
-        druid_spells->get_bear_form()->perform();
+        druid_spells->get_bear_form()->buff->apply_buff();
         break;
     case DruidForm::Cat:
-        druid_spells->get_cat_form()->perform();
+        druid_spells->get_cat_form()->buff->apply_buff();
         break;
     case DruidForm::Moonkin:
-        druid_spells->get_moonkin_form()->perform();
+        druid_spells->get_moonkin_form()->buff->apply_buff();
         break;
     default:
         check(false, "Unhandled form in Druid::switch_to_form()");

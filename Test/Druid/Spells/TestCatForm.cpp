@@ -177,5 +177,5 @@ void TestCatForm::test_glancing_dmg() {
 }
 
 void TestCatForm::when_cat_form_is_performed() {
-    druid->switch_to_form(DruidForm::Cat);
+    cat_form()->perform();
 }

@@ -83,7 +83,6 @@ void TestMoonkinForm::test_gives_spell_crit_to_party_members() {
 
 void TestMoonkinForm::test_resource_cost_with_3_of_3_natural_shapeshifter() {
     given_balance_talent_rank("Natural Shapeshifter", 3);
-
     given_druid_has_mana(71);
 
     when_moonkin_form_is_performed();
@@ -92,5 +91,5 @@ void TestMoonkinForm::test_resource_cost_with_3_of_3_natural_shapeshifter() {
 }
 
 void TestMoonkinForm::when_moonkin_form_is_performed() {
-    druid->switch_to_form(DruidForm::Moonkin);
+    moonkin_form()->perform();
 }

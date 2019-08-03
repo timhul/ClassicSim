@@ -29,7 +29,7 @@ SpellStatus CatForm::is_ready_spell_specific() const {
 
 void CatForm::spell_effect() {
     pchar->lose_mana(static_cast<unsigned>(round(resource_cost)));
-    buff->apply_buff();
+    druid->switch_to_form(DruidForm::Cat);
 }
 
 void CatForm::increase_talent_rank_effect(const QString& talent_name, const int curr) {
