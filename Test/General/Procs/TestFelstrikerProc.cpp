@@ -42,19 +42,13 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
     assert(buff != nullptr);
     assert(buff->get_name() == "Felstriker");
 
-    set_melee_auto_table_for_miss(mh_wpn_skill);
-    set_melee_auto_table_for_miss(oh_wpn_skill);
-    set_melee_special_table_for_miss(mh_wpn_skill);
-    set_melee_special_table_for_miss(oh_wpn_skill);
-
     const unsigned crit_before_buff = pchar->get_stats()->get_mh_crit_chance();
     const unsigned hit_before_buff = pchar->get_stats()->get_melee_hit_chance();
     buff->apply_buff();
 
-    assert_melee_auto_table_can_only_crit(mh_wpn_skill);
-    assert_melee_auto_table_can_only_crit(oh_wpn_skill);
-    assert_melee_special_table_can_only_crit(mh_wpn_skill);
-    assert_melee_special_table_can_only_crit(oh_wpn_skill);
+    const unsigned aura_crit_suppression = 180;
+    assert(crit_before_buff + 10000 - aura_crit_suppression == pchar->get_stats()->get_mh_crit_chance());
+    assert(hit_before_buff + 10000 == pchar->get_stats()->get_melee_hit_chance());
 
     then_next_event_is(EventType::BuffRemoval, "3.000", RUN_EVENT);
 
