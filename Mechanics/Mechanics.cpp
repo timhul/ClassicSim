@@ -90,7 +90,7 @@ int Mechanics::get_boss_base_armor() {
 }
 
 double Mechanics::get_reduction_from_armor(const int armor, const unsigned clvl) {
-    return armor / (armor + 400 + 85 * (clvl + 4.5 * (clvl - 60)));
+    return static_cast<double>(armor) / (static_cast<double>(armor) + 400 + 85 * clvl);
 }
 
 double Mechanics::get_melee_crit_suppression(const unsigned clvl) const {
