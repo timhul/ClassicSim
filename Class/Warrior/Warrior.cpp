@@ -118,7 +118,6 @@ void Warrior::lose_rage(const unsigned lost_rage) {
 }
 
 unsigned Warrior::rage_gained_from_dd(const unsigned damage_dealt) const {
-    // TODO: Check if you are guaranteed 1 rage on swing even with very low damage.
     return static_cast<unsigned>(std::max(1, int(round(damage_dealt / rage_conversion_value * 7.5))));
 }
 
