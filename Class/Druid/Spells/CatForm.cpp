@@ -1,5 +1,6 @@
 #include "CatForm.h"
 
+#include "CatFormBuff.h"
 #include "CooldownControl.h"
 #include "Druid.h"
 #include "NoEffectSelfBuff.h"
@@ -8,7 +9,7 @@ CatForm::CatForm(Character* pchar) :
     Spell("Cat Form", "Assets/spell/Spell_nature_ravenform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
     TalentRequirer({new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
     druid(dynamic_cast<Druid*>(pchar)),
-    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT)),
+    buff(new CatFormBuff(druid)),
     base_resource_cost(resource_cost)
 {
     buff->enable_buff();

@@ -5,7 +5,7 @@
 #include "CatForm.h"
 #include "ClearcastingDruid.h"
 #include "Druid.h"
-#include "MainhandAttack.h"
+#include "MainhandAttackDruid.h"
 #include "Moonfire.h"
 #include "MoonkinForm.h"
 #include "MoonkinFormBuff.h"
@@ -18,7 +18,7 @@ DruidSpells::DruidSpells(Druid* druid) :
     CharacterSpells(druid),
     druid(druid)
 {
-    this->mh_attack = new MainhandAttack(druid);
+    this->mh_attack = new MainhandAttackDruid(druid);
     add_spell_group({mh_attack});
 
     this->caster_form = new CasterForm(druid);

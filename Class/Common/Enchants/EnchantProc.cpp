@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "Crusader.h"
+#include "EnabledProcs.h"
 #include "FieryWeapon.h"
 #include "GenericSpellProc.h"
 #include "InstantSpellAttack.h"
@@ -48,4 +49,16 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int 
 EnchantProc::~EnchantProc() {
     proc->disable_proc();
     delete proc;
+}
+
+void EnchantProc::enable_proc() {
+    proc->enable_proc();
+}
+
+void EnchantProc::disable_proc() {
+    proc->disable_proc();
+}
+
+bool EnchantProc::proc_enabled() const {
+    return pchar->get_enabled_procs()->proc_enabled(proc);
 }

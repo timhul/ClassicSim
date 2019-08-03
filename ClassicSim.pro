@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Druid/Buffs/CatFormBuff.cpp \
     Class/Druid/Buffs/MoonkinFormBuff.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
@@ -27,6 +28,7 @@ SOURCES += main.cpp \
     Class/Druid/Spells/BearForm.cpp \
     Class/Druid/Spells/CasterForm.cpp \
     Class/Druid/Spells/CatForm.cpp \
+    Class/Druid/Spells/MainhandAttackDruid.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/MoonkinForm.cpp \
     Class/Druid/Spells/Starfire.cpp \
@@ -128,6 +130,7 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Druid/Spells/TestCatForm.cpp \
     Test/Druid/Spells/TestMoonfire.cpp \
     Test/Druid/Spells/TestMoonkinForm.cpp \
     Test/Druid/Spells/TestStarfire.cpp \
@@ -485,6 +488,7 @@ HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Druid/Buffs/CatFormBuff.h \
     Class/Druid/Buffs/MoonkinFormBuff.h \
     Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \
@@ -492,6 +496,7 @@ HEADERS += \
     Class/Druid/Spells/BearForm.h \
     Class/Druid/Spells/CasterForm.h \
     Class/Druid/Spells/CatForm.h \
+    Class/Druid/Spells/MainhandAttackDruid.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/MoonkinForm.h \
     Class/Druid/Spells/Starfire.h \
@@ -594,6 +599,7 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Druid/Spells/TestCatForm.h \
     Test/Druid/Spells/TestMoonfire.h \
     Test/Druid/Spells/TestMoonkinForm.h \
     Test/Druid/Spells/TestStarfire.h \

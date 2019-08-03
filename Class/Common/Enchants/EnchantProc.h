@@ -11,6 +11,10 @@ public:
     EnchantProc(EnchantName::Name enchant, Character* pchar, const int slot);
     ~EnchantProc() override;
 
+    void enable_proc();
+    void disable_proc();
+    bool proc_enabled() const;
+
 private:
     Character* pchar;
     Proc* proc;

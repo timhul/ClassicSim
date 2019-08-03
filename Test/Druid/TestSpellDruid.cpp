@@ -4,6 +4,7 @@
 
 #include "Balance.h"
 #include "Buff.h"
+#include "CatForm.h"
 #include "CharacterStats.h"
 #include "Druid.h"
 #include "DruidSpells.h"
@@ -60,6 +61,10 @@ Starfire* TestSpellDruid::starfire() const {
 
 MoonkinForm* TestSpellDruid::moonkin_form() const {
     return dynamic_cast<MoonkinForm*>(get_max_rank_spell_by_name("Moonkin Form"));
+}
+
+CatForm* TestSpellDruid::cat_form() const {
+    return dynamic_cast<CatForm*>(get_max_rank_spell_by_name("Cat Form"));
 }
 
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {

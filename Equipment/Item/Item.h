@@ -44,6 +44,9 @@ public:
     void apply_equip_effect(Character*, const int eq_slot);
     void remove_equip_effect();
 
+    void enable_proc_effects();
+    void disable_proc_effects();
+
     QString get_value(const QString& key) const;
     QString get_base_stat_tooltip() const;
     QString get_equip_effect_tooltip() const;
@@ -60,6 +63,7 @@ public:
     void clear_enchant();
     QString get_enchant_effect() const;
     EnchantName::Name get_enchant_enum_value() const;
+    Enchant* get_enchant() const;
 
     bool available_for_faction(AvailableFactions::Name faction) const;
     bool available_for_class(const QString& class_name) const;

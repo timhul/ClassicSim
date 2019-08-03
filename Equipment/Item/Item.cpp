@@ -190,6 +190,16 @@ void Item::remove_equip_effect() {
         call_item_modifications(false);
 }
 
+void Item::enable_proc_effects() {
+    for (const auto & proc : active_procs)
+        proc->enable_proc();
+}
+
+void Item::disable_proc_effects() {
+    for (const auto & proc : active_procs)
+        proc->disable_proc();
+}
+
 void Item::call_item_modifications(const bool activate) const {
     for (const auto & name : item_modifications) {
         call_modifications_by_specific_name(name, activate);
@@ -280,6 +290,10 @@ QString Item::get_enchant_effect() const {
 
 EnchantName::Name Item::get_enchant_enum_value() const {
     return enchant != nullptr ? enchant->get_enum_name() : EnchantName::NoEnchant;
+}
+
+Enchant* Item::get_enchant() const {
+    return this->enchant;
 }
 
 bool Item::available_for_faction(AvailableFactions::Name faction) const {
@@ -517,9 +531,6 @@ void Item::add_default_proc_sources(QVector<ProcInfo::Source>& proc_sources, con
 }
 
 void Item::add_proc_sources_from_map(QVector<ProcInfo::Source>& proc_sources, const QMap<QString, QString>& proc_map, const int eq_slot) {
-    if (proc_map.contains("proc_magic_hit"))
-        proc_sources.append(ProcInfo::Source::MagicSpell);
-
     if (proc_map.contains("proc_magic_hit"))
         proc_sources.append(ProcInfo::Source::MagicSpell);
 

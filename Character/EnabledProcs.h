@@ -34,6 +34,8 @@ public:
 
     void prepare_set_of_combat_iterations();
 
+    bool proc_enabled(Proc* proc) const;
+
 private:
     Character* pchar;
     Faction* faction;

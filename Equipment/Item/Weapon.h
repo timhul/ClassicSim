@@ -32,9 +32,13 @@ public:
     void apply_enchant(EnchantName::Name enchant_name, Character* pchar, const int weapon_slot);
     void apply_temporary_enchant(EnchantName::Name enchant_name, Character* pchar, const int enchant_slot);
     void clear_temporary_enchant();
+    void enable_druid_form_enchants(Character* pchar, const EnchantName::Name enchant_name, const EnchantName::Name temp_enchant_name);
+    void disable_druid_form_enchants();
     void clear_windfury();
     QString get_temporary_enchant_effect() const;
     EnchantName::Name get_temporary_enchant_enum_value() const;
+
+    Enchant* get_temporary_enchant() const;
 
 private:
     Random* random;

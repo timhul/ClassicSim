@@ -160,6 +160,58 @@ void Weapon::clear_temporary_enchant() {
     temporary_enchant = nullptr;
 }
 
+void Weapon::enable_druid_form_enchants(Character* pchar, const EnchantName::Name enchant_name, const EnchantName::Name temp_enchant_name) {
+    switch (enchant_name) {
+    case EnchantName::Crusader:
+    case EnchantName::FieryWeapon:
+        dynamic_cast<EnchantProc*>(enchant)->enable_proc();
+        break;
+    case EnchantName::SuperiorStriking:
+        apply_enchant(enchant_name, pchar, EnchantSlot::MAINHAND);
+        break;
+    default:
+        break;
+    }
+
+    switch (temp_enchant_name) {
+    case EnchantName::ShadowOil:
+    case EnchantName::WindfuryTotem:
+        dynamic_cast<EnchantProc*>(enchant)->enable_proc();
+        break;
+    case EnchantName::DenseSharpeningStone:
+        temporary_enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::MAINHAND);
+        break;
+    default:
+        break;
+    }
+}
+
+void Weapon::disable_druid_form_enchants() {
+    switch (get_enchant_enum_value()) {
+    case EnchantName::Crusader:
+    case EnchantName::FieryWeapon:
+        dynamic_cast<EnchantProc*>(enchant)->disable_proc();
+        break;
+    case EnchantName::SuperiorStriking:
+        clear_enchant();
+        break;
+    default:
+        break;
+    }
+
+    switch (get_temporary_enchant_enum_value()) {
+    case EnchantName::ShadowOil:
+    case EnchantName::WindfuryTotem:
+        dynamic_cast<EnchantProc*>(enchant)->disable_proc();
+        break;
+    case EnchantName::DenseSharpeningStone:
+        clear_temporary_enchant();
+        break;
+    default:
+        break;
+    }
+}
+
 void Weapon::clear_windfury() {
     if (temporary_enchant != nullptr && temporary_enchant->get_enum_name() == EnchantName::WindfuryTotem)
         clear_temporary_enchant();
@@ -171,6 +223,10 @@ QString Weapon::get_temporary_enchant_effect() const {
 
 EnchantName::Name Weapon::get_temporary_enchant_enum_value() const {
     return temporary_enchant != nullptr ? temporary_enchant->get_enum_name() : EnchantName::NoEnchant;
+}
+
+Enchant* Weapon::get_temporary_enchant() const {
+    return this->temporary_enchant;
 }
 
 bool Weapon::is_2hand() const {

@@ -128,6 +128,11 @@ double Druid::form_cooldown() const {
     return 1.0;
 }
 
+void Druid::set_clvl(const unsigned clvl) {
+    this->clvl = clvl;
+    this->rage_conversion_value = 0.0091107836 * std::pow(clvl, 2) + 3.225598133 * clvl + 4.2652911;
+}
+
 void Druid::initialize_talents() {
     for (int i = 0; i < 3; ++i)
         talents->add_talent_tree(new Balance(this), new FeralCombat(this), new RestorationDruid(this));
@@ -242,6 +247,10 @@ void Druid::switch_to_form(const DruidForm new_form) {
         this->next_gcd = engine->get_current_priority() + 0.5;
         engine->add_event(new PlayerAction(spells, next_gcd));
     }
+}
+
+unsigned Druid::rage_gained_from_dd(const unsigned damage_dealt) const {
+    return static_cast<unsigned>(std::max(1, int(round(damage_dealt / rage_conversion_value * 7.5))));
 }
 
 int Druid::get_highest_possible_armor_type() const {

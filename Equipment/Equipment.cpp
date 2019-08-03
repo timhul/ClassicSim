@@ -936,6 +936,38 @@ void Equipment::unequip(Projectile*& item, const int eq_slot) {
     item = nullptr;
 }
 
+void Equipment::druid_cat_form_switch_to_claws() {
+    mh_enchant = get_current_enchant_enum_value(mainhand);
+    mh_temp_enchant = get_current_temp_enchant_enum_value(mainhand);
+
+    if (mainhand) {
+        mainhand->disable_proc_effects();
+        mainhand->disable_druid_form_enchants();
+    }
+
+    druid_form_mh_storage = mainhand;
+    druid_form_oh_storage = offhand;
+
+    mainhand = nullptr;
+    offhand = nullptr;
+
+    // Druid claws are created as hidden items with an item id of 11223300 + clvl
+    set_mainhand(11223300 + static_cast<int>(pchar->get_clvl()));
+}
+
+void Equipment::druid_switch_to_normal_weapon() {
+    delete mainhand;
+    delete offhand;
+
+    mainhand = druid_form_mh_storage;
+    offhand = druid_form_oh_storage;
+
+    if (mainhand) {
+        mainhand->enable_proc_effects();
+        mainhand->enable_druid_form_enchants(pchar, mh_enchant, mh_temp_enchant);
+    }
+}
+
 void Equipment::clear_item_id_if_equipped_in_any_slot(const int item_id) {
     if (get_mainhand() && get_mainhand()->item_id == item_id)
         clear_mainhand();

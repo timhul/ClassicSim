@@ -101,6 +101,9 @@ public:
     void equip(Projectile*& current, Projectile* next, const int eq_slot);
     void unequip(Projectile*& current, const int eq_slot);
 
+    void druid_cat_form_switch_to_claws();
+    void druid_switch_to_normal_weapon();
+
 private:
     int setup_index;
     EquipmentDb* db;
@@ -126,6 +129,11 @@ private:
     Item* caster_offhand;
     Item* relic;
     Projectile* projectile;
+
+    Weapon* druid_form_mh_storage {nullptr};
+    Weapon* druid_form_oh_storage {nullptr};
+    EnchantName::Name mh_enchant {EnchantName::Name::NoEnchant};
+    EnchantName::Name mh_temp_enchant {EnchantName::Name::NoEnchant};
 
     QVector<Stats*> stats_from_equipped_gear;
     QVector<QVector<int>> item_setups;

@@ -9,6 +9,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 #include "TestBalance.h"
+#include "TestCatForm.h"
 #include "TestFeralCombat.h"
 #include "TestMoonfire.h"
 #include "TestMoonkinForm.h"
@@ -31,6 +32,7 @@ void TestDruid::test_all() {
     TestMoonfire(equipment_db).test_all();
     TestStarfire(equipment_db).test_all();
     TestMoonkinForm(equipment_db).test_all();
+    TestCatForm(equipment_db).test_all();
 }
 
 void TestDruid::test_values_after_initialization() {

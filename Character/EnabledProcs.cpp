@@ -87,3 +87,11 @@ void EnabledProcs::prepare_set_of_combat_iterations() {
     for (const auto & proc : enabled_procs)
         proc->prepare_set_of_combat_iterations();
 }
+
+bool EnabledProcs::proc_enabled(Proc* proc) const {
+    for (const auto & enabled_proc : enabled_procs)
+        if (enabled_proc->get_instance_id() == proc->get_instance_id())
+            return true;
+
+    return false;
+}

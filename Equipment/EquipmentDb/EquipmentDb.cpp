@@ -13,6 +13,7 @@ EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
     read_equipment_files();
+    add_druid_cat_form_claws();
     set_content_phase(Content::Phase::Naxxramas);
 
     all_slots_items = {
@@ -56,6 +57,16 @@ void EquipmentDb::delete_items(QVector<Item *>* list) {
 
 void EquipmentDb::add_item_id(Item* item) {
     item_id_to_item[item->item_id] = item;
+}
+
+void EquipmentDb::add_druid_cat_form_claws() {
+    for (int i = 1; i <= 60; ++i) {
+        const unsigned min_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(i * 0.85))));
+        const unsigned max_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(i * 1.25))));
+        const int item_id = 11223300 + i;
+        Weapon* claw = new Weapon(QString("Claw level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND, min_dmg, max_dmg, 1.0);
+        add_melee_weapon(claw);
+    }
 }
 
 void EquipmentDb::add_melee_weapon(Weapon* wpn) {

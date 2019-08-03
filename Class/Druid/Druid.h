@@ -29,6 +29,7 @@ public:
     double get_mp5_from_spirit() const override;
     double global_cooldown() const override;
     double form_cooldown() const;
+    void set_clvl(const unsigned clvl) override;
 
     unsigned get_melee_ap_per_strength() const override;
     unsigned get_melee_ap_per_agi() const override;
@@ -51,6 +52,8 @@ public:
     void cancel_form();
     void switch_to_form(const DruidForm new_form);
 
+    unsigned rage_gained_from_dd(const unsigned damage_dealt) const;
+
 private:
     DruidSpells* druid_spells;
 
@@ -60,6 +63,7 @@ private:
 
     DruidForm current_form {DruidForm::Caster};
     double next_form_cd {0.0};
+    double rage_conversion_value;
 
     void initialize_talents() override;
     void reset_class_specific() override;

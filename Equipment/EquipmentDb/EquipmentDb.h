@@ -57,6 +57,7 @@ private:
     void take_items_of_slot_from_given_items(QVector<Item*> &mixed_items, QVector<Item *> &sorted, const int slot);
     void delete_items(QVector<Item*>*);
     void add_item_id(Item* item);
+    void add_druid_cat_form_claws();
 
     QVector<Item*> mh_slot_items;
     QVector<Item*> current_phase_mh_slot_items;
