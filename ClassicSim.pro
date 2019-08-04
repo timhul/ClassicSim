@@ -24,6 +24,7 @@ SOURCES += main.cpp \
     Class/Druid/Buffs/LeaderOfThePack.cpp \
     Class/Druid/Buffs/MoonkinFormBuff.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
+    Class/Druid/Buffs/TigersFuryBuff.cpp \
     Class/Druid/DruidEnchants.cpp \
     Class/Druid/Procs/BloodFrenzy.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
@@ -37,6 +38,7 @@ SOURCES += main.cpp \
     Class/Druid/Spells/MoonkinForm.cpp \
     Class/Druid/Spells/Shred.cpp \
     Class/Druid/Spells/Starfire.cpp \
+    Class/Druid/Spells/TigersFury.cpp \
     Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
     Class/Druid/TalentTrees/FeralCombat.cpp \
@@ -499,6 +501,7 @@ HEADERS += \
     Class/Druid/Buffs/LeaderOfThePack.h \
     Class/Druid/Buffs/MoonkinFormBuff.h \
     Class/Druid/Buffs/NaturesGrace.h \
+    Class/Druid/Buffs/TigersFuryBuff.h \
     Class/Druid/DruidEnchants.h \
     Class/Druid/Procs/BloodFrenzy.h \
     Class/Druid/Procs/ClearcastingDruid.h \
@@ -512,6 +515,7 @@ HEADERS += \
     Class/Druid/Spells/MoonkinForm.h \
     Class/Druid/Spells/Shred.h \
     Class/Druid/Spells/Starfire.h \
+    Class/Druid/Spells/TigersFury.h \
     Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
     Class/Druid/TalentTrees/FeralCombat.h \

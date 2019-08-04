@@ -18,6 +18,8 @@
 #include "RaidControl.h"
 #include "Shred.h"
 #include "Starfire.h"
+#include "TigersFury.h"
+#include "TigersFuryBuff.h"
 #include "Wrath.h"
 
 DruidSpells::DruidSpells(Druid* druid) :
@@ -99,6 +101,15 @@ DruidSpells::DruidSpells(Druid* druid) :
                         new FerociousBite(druid, 5),
                     });
 
+    tigers_fury_buff = new TigersFuryBuff(pchar);
+    tigers_fury_buff->enable_buff();
+    add_spell_group({
+                        new TigersFury(druid, this, tigers_fury_buff, 1),
+                        new TigersFury(druid, this, tigers_fury_buff, 2),
+                        new TigersFury(druid, this, tigers_fury_buff, 3),
+                        new TigersFury(druid, this, tigers_fury_buff, 4),
+                    });
+
     natures_grace = new NaturesGrace(druid);
     omen_of_clarity = new ClearcastingDruid(druid);
 }
@@ -109,6 +120,7 @@ DruidSpells::~DruidSpells() {
     delete cat_form_buff;
     delete blood_frenzy;
     delete furor;
+    delete tigers_fury_buff;
 }
 
 CasterForm* DruidSpells::get_caster_form() const {

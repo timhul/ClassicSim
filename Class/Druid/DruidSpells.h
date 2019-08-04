@@ -10,6 +10,7 @@ class ClearcastingDruid;
 class Druid;
 class MoonkinForm;
 class Proc;
+class TigersFuryBuff;
 
 class DruidSpells: public CharacterSpells {
 public:
@@ -37,6 +38,7 @@ private:
     MoonkinForm* moonkin_form;
     Buff* natures_grace;
     Buff* cat_form_buff;
+    TigersFuryBuff* tigers_fury_buff;
     ClearcastingDruid* omen_of_clarity;
     Proc* blood_frenzy;
     Proc* furor;

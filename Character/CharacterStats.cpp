@@ -1105,6 +1105,19 @@ void CharacterStats::decrease_ranged_weapon_damage_bonus(const unsigned value) {
     this->ranged_weapon_dmg_bonus -= value;
 }
 
+unsigned CharacterStats::get_flat_physical_damage_bonus() const {
+    return physical_flat_dmg_bonus;
+}
+
+void CharacterStats::increase_flat_physical_damage_bonus(const unsigned value) {
+    physical_flat_dmg_bonus += value;
+}
+
+void CharacterStats::decrease_flat_physical_damage_bonus(const unsigned value) {
+    check((physical_flat_dmg_bonus >= value), "Underflow decrease flat physical damage bonus");
+    physical_flat_dmg_bonus -= value;
+}
+
 unsigned CharacterStats::get_mana_skill_reduction() const {
     return mana_skill_reduction;
 }

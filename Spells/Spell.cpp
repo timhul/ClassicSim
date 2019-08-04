@@ -180,8 +180,8 @@ void Spell::add_crit_dmg(const int damage, const double resource_cost, const dou
 }
 
 double Spell::damage_after_modifiers(const double damage) const {
-    double armor_reduction = 1 - Mechanics::get_reduction_from_armor(pchar->get_target()->get_armor(), pchar->get_clvl());
-    return damage * pchar->get_stats()->get_total_physical_damage_mod() * armor_reduction;
+    const double armor_reduction = 1 - Mechanics::get_reduction_from_armor(pchar->get_target()->get_armor(), pchar->get_clvl());
+    return (damage * pchar->get_stats()->get_total_physical_damage_mod() + pchar->get_stats()->get_flat_physical_damage_bonus()) * armor_reduction;
 }
 
 double Spell::get_partial_resist_dmg_modifier(const int resist_result) const {
