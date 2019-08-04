@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ItemModificationRequirer.h"
 #include "SpellPeriodic.h"
 #include "TalentRequirer.h"
 
@@ -10,7 +11,7 @@ class Druid;
 class DruidSpells;
 class Random;
 
-class Moonfire: public SpellPeriodic, public TalentRequirer {
+class Moonfire: public SpellPeriodic, public TalentRequirer, public ItemModificationRequirer {
 public:
     Moonfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank);
     ~Moonfire() override;
@@ -60,4 +61,7 @@ private:
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
+
+    void activate_item_effect(const int item_id) override;
+    void deactivate_item_effect(const int item_id) override;
 };

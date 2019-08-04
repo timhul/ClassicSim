@@ -21,6 +21,7 @@ Moonfire::Moonfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank
                    new TalentRequirerInfo("Moonglow", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
                    }),
+    ItemModificationRequirer({23197}),
     druid_spells(druid_spells)
 {
     switch (spell_rank) {
@@ -233,4 +234,12 @@ void Moonfire::increase_talent_rank_effect(const QString& talent_name, const int
 
 void Moonfire::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     increase_talent_rank_effect(talent_name, curr);
+}
+
+void Moonfire::activate_item_effect(const int) {
+
+}
+
+void Moonfire::deactivate_item_effect(const int) {
+
 }

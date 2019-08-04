@@ -29,4 +29,17 @@
 		and the Holy damage increase of your Judgement of the Crusader by 33.
 		</special_equip_effect>
 	</item>
+
+	<item id="23197" phase="6">
+		<info name="Idol of the Moon" type="RANGED" slot="RELIC" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_relics_idolofrejuvenation.png"/>
+		<class_restriction class="DRUID"/>
+		<stats/>
+		<source>
+		World drop.
+		</source>
+		<modifies name="Moonfire"/>
+		<special_equip_effect>
+		Equip: Increases the damage of your Moonfire spell by up to 17% (HAS NO EFFECT CURRENTLY).
+		</special_equip_effect>
+	</item>
 </items>
