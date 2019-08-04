@@ -3,26 +3,28 @@
 #include "Spell.h"
 #include "TalentRequirer.h"
 
-class NoEffectSelfBuff;
+class Buff;
 class Warrior;
 class WarriorSpells;
 
 class HeroicStrike: public Spell, public TalentRequirer {
 public:
-    HeroicStrike(Warrior* pchar, WarriorSpells* spells);
+    HeroicStrike(Warrior* pchar, WarriorSpells* spells, Buff* hs_buff, const int spell_rank);
     ~HeroicStrike() override;
 
     bool is_queued() const;
     void cancel();
     void calculate_damage();
 
+    bool is_rank_learned() const override;
+
 private:
     Warrior* warr;
     WarriorSpells* spells;
-    NoEffectSelfBuff* hs_buff;
-    QVector<unsigned> spell_ranks;
-    QVector<unsigned> talent_ranks;
+    Buff* hs_buff;
     unsigned additional_dmg;
+
+    const QVector<unsigned> improved_hs_ranks {15, 14, 13, 12};
 
     void spell_effect() override;
 

@@ -45,16 +45,16 @@ void Slam::spell_effect() {
     cooldown->add_gcd_event();
     start_cast();
 
-    pchar->get_spells()->stop_attack();
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_heroic_strike()->cancel();
+    spells->stop_attack();
+    spells->cancel_heroic_strike();
 }
 
 void Slam::complete_cast_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
-    pchar->get_spells()->get_mh_attack()->reset_swingtimer();
-    pchar->get_spells()->get_oh_attack()->reset_swingtimer();
-    pchar->get_spells()->start_attack();
+    spells->get_mh_attack()->reset_swingtimer();
+    spells->get_oh_attack()->reset_swingtimer();
+    spells->start_attack();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

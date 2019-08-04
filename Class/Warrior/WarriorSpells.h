@@ -52,7 +52,6 @@ public:
     DeathWish* get_death_wish() const;
     DeepWounds* get_deep_wounds() const;
     Execute* get_execute() const;
-    HeroicStrike* get_heroic_strike() const;
     MortalStrike* get_mortal_strike() const;
     Overpower* get_overpower() const;
     Recklessness* get_recklessness() const;
@@ -70,6 +69,7 @@ public:
     Proc* get_unbridled_wrath() const;
 
     void apply_deep_wounds();
+    void cancel_heroic_strike();
 
 private:
     Warrior* warr;
@@ -99,9 +99,12 @@ private:
     Buff* battle_stance_buff;
     Buff* overpower_buff;
     DefensiveStanceBuff* defensive_stance_buff;
+    Buff* hs_buff;
     Flurry* flurry;
     RecklessnessBuff* recklessness_buff;
 
     SwordSpecialization* sword_spec;
     UnbridledWrath* unbridled_wrath;
+
+    void prepare_set_of_combat_iterations_class_specific() override;
 };

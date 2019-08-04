@@ -30,6 +30,7 @@
 #include "RecklessnessBuff.h"
 #include "Rend.h"
 #include "Slam.h"
+#include "SpellRankGroup.h"
 #include "SwordSpecialization.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
@@ -52,7 +53,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->deep_wounds = new DeepWounds(pchar);
     this->execute = new Execute(pchar, this);
     this->hamstring = new Hamstring(pchar, this);
-    this->heroic_strike = new HeroicStrike(pchar, this);
+
     this->mortal_strike = new MortalStrike(pchar, this, new_cooldown_control("Mortal Strike", 6.0));
     this->overpower = new Overpower(pchar, this, new_cooldown_control("Overpower", 5.0));
     this->recklessness = new Recklessness(pchar, this);
@@ -80,7 +81,21 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell_group({deep_wounds});
     add_spell_group({execute});
     add_spell_group({hamstring});
-    add_spell_group({heroic_strike});
+
+    this->hs_buff = new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT);
+    this->hs_buff->enable_buff();
+    add_spell_group({
+                        new HeroicStrike(pchar, this, hs_buff, 1),
+                        new HeroicStrike(pchar, this, hs_buff, 2),
+                        new HeroicStrike(pchar, this, hs_buff, 3),
+                        new HeroicStrike(pchar, this, hs_buff, 4),
+                        new HeroicStrike(pchar, this, hs_buff, 5),
+                        new HeroicStrike(pchar, this, hs_buff, 6),
+                        new HeroicStrike(pchar, this, hs_buff, 7),
+                        new HeroicStrike(pchar, this, hs_buff, 8),
+                        new HeroicStrike(pchar, this, hs_buff, 9),
+                    });
+
     add_spell_group({overpower});
     add_spell_group({mortal_strike});
     add_spell_group({recklessness});
@@ -116,6 +131,7 @@ WarriorSpells::~WarriorSpells() {
     delete flurry;
     delete overpower_buff;
     delete recklessness_buff;
+    delete hs_buff;
 }
 
 void WarriorSpells::mh_auto_attack(const int iteration) {
@@ -178,10 +194,6 @@ DeepWounds* WarriorSpells::get_deep_wounds() const {
     return this->deep_wounds;
 }
 
-HeroicStrike* WarriorSpells::get_heroic_strike() const {
-    return this->heroic_strike;
-}
-
 Execute* WarriorSpells::get_execute() const {
     return this->execute;
 }
@@ -220,6 +232,14 @@ Recklessness* WarriorSpells::get_recklessness() const {
 
 void WarriorSpells::apply_deep_wounds() {
     deep_wounds->perform();
+}
+
+void WarriorSpells::cancel_heroic_strike() {
+    hs_buff->cancel_buff();
+}
+
+void WarriorSpells::prepare_set_of_combat_iterations_class_specific() {
+    heroic_strike = dynamic_cast<HeroicStrike*>(get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank());
 }
 
 Buff* WarriorSpells::get_flurry() const {

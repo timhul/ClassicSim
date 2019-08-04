@@ -318,6 +318,10 @@ CooldownControl* CharacterSpells::new_cooldown_control(const QString& spell_name
     return new_cc;
 }
 
+void CharacterSpells::prepare_set_of_combat_iterations_class_specific() {
+
+}
+
 void CharacterSpells::prepare_set_of_combat_iterations() {
     cast_is_in_progress = false;
     id_of_cast_in_progress = 0;
@@ -328,4 +332,6 @@ void CharacterSpells::prepare_set_of_combat_iterations() {
 
     if (rotation)
         rotation->prepare_set_of_combat_iterations();
+
+    prepare_set_of_combat_iterations_class_specific();
 }

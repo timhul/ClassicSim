@@ -20,6 +20,8 @@ protected:
     void run_class_specific_tests() override;
     virtual void test_stance_cooldown() = 0;
 
+    HeroicStrike* heroic_strike() const;
+
     void given_0_of_2_impale();
     void given_1_of_2_impale();
     void given_2_of_2_impale();

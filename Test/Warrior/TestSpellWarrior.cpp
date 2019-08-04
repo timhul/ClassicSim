@@ -8,10 +8,12 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Fury.h"
+#include "HeroicStrike.h"
 #include "Impale.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
 #include "Spell.h"
+#include "SpellRankGroup.h"
 #include "TacticalMastery.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
@@ -45,6 +47,10 @@ void TestSpellWarrior::run_class_specific_tests() {
     set_up(should_prepare_combat);
     test_stance_cooldown();
     tear_down();
+}
+
+HeroicStrike* TestSpellWarrior::heroic_strike() const {
+    return dynamic_cast<HeroicStrike*>(spells->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank());
 }
 
 void TestSpellWarrior::given_0_of_2_impale() {

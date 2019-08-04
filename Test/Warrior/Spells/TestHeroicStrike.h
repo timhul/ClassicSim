@@ -11,8 +11,6 @@ public:
     void test_all();
 
 private:
-    HeroicStrike* heroic_strike() const;
-
     void test_name_correct() override;
     void test_spell_cooldown() override;
     void test_stance_cooldown() override;

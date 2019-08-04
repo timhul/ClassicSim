@@ -100,6 +100,8 @@ protected:
 
     CooldownControl* new_cooldown_control(const QString& spell_name, const double cooldown);
 
+    virtual void prepare_set_of_combat_iterations_class_specific();
+
 private:
     void start_melee_attack();
     void add_spell(Spell* spell, bool relink=true);

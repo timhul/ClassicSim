@@ -6,26 +6,72 @@
 #include "CooldownControl.h"
 #include "MainhandAttackWarrior.h"
 #include "NoEffectSelfBuff.h"
+#include "SimSettings.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 15),
+HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells, Buff* hs_buff, const int spell_rank) :
+    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 15, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    hs_buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT))
+    hs_buff(hs_buff)
 {
-    hs_buff->enable_buff();
-    spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
-    additional_dmg = 157;
-
-    talent_ranks = {15, 14, 13, 12};
+    switch (spell_rank) {
+    case 1:
+        additional_dmg = 11;
+        level_req = 1;
+        break;
+    case 2:
+        additional_dmg = 21;
+        level_req = 8;
+        break;
+    case 3:
+        additional_dmg = 32;
+        level_req = 16;
+        break;
+    case 4:
+        additional_dmg = 44;
+        level_req = 24;
+        break;
+    case 5:
+        additional_dmg = 58;
+        level_req = 32;
+        break;
+    case 6:
+        additional_dmg = 80;
+        level_req = 40;
+        break;
+    case 7:
+        additional_dmg = 111;
+        level_req = 48;
+        break;
+    case 8:
+        additional_dmg = 138;
+        level_req = 56;
+        break;
+    case 9:
+        additional_dmg = 157;
+        level_req = 60;
+        break;
+    default:
+        check(false, QString("%1 does not support rank %2").arg(name).arg(spell_rank).toStdString());
+    }
 }
 
 HeroicStrike::~HeroicStrike() {
-    delete hs_buff;
     delete cooldown;
+}
+
+bool HeroicStrike::is_rank_learned() const {
+    if (spell_rank >= 1 && spell_rank <= 8)
+        return pchar->get_clvl() >= level_req;
+
+    if (spell_rank == 9)
+        return pchar->get_clvl() >= 60 && static_cast<int>(pchar->get_sim_settings()->get_phase()) >= 5;
+
+    check(false, QString("%1::is_rank_learned() failed for rank %2").arg(name).arg(spell_rank).toStdString());
+    return false;
 }
 
 bool HeroicStrike::is_queued() const {
@@ -78,9 +124,9 @@ void HeroicStrike::spell_effect() {
 }
 
 void HeroicStrike::increase_talent_rank_effect(const QString&, const int curr) {
-    resource_cost = talent_ranks[curr];
+    resource_cost = improved_hs_ranks[curr];
 }
 
 void HeroicStrike::decrease_talent_rank_effect(const QString&, const int curr) {
-    resource_cost = talent_ranks[curr];
+    resource_cost = improved_hs_ranks[curr];
 }
