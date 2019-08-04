@@ -9,6 +9,7 @@ CatFormBuff::CatFormBuff(Druid* pchar):
     TalentRequirer({
                    new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Predatory Strikes", 3, DisabledAtZero::No),
+                   new TalentRequirerInfo("Heart of the Wild", 5, DisabledAtZero::No),
                    }),
     druid(pchar)
 {}
@@ -21,6 +22,9 @@ void CatFormBuff::buff_effect_when_applied() {
 
     if (predatory_strikes_bonus > 0)
         druid->get_stats()->increase_melee_ap(predatory_strikes_bonus);
+
+    if (heart_of_the_wild_mod > 0)
+        druid->get_stats()->add_strength_mod(heart_of_the_wild_mod);
 }
 
 void CatFormBuff::buff_effect_when_removed() {
@@ -31,6 +35,9 @@ void CatFormBuff::buff_effect_when_removed() {
 
     if (predatory_strikes_bonus > 0)
         druid->get_stats()->decrease_melee_ap(predatory_strikes_bonus);
+
+    if (heart_of_the_wild_mod > 0)
+        druid->get_stats()->remove_strength_mod(heart_of_the_wild_mod);
 }
 
 void CatFormBuff::increase_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -53,6 +60,20 @@ void CatFormBuff::increase_talent_rank_effect(const QString& talent_name, const 
         if (is_active())
             druid->get_stats()->increase_melee_ap(predatory_strikes_bonus);
     }
+
+    if (talent_name == "Heart of the Wild") {
+        if (curr > 1) {
+            druid->get_stats()->remove_intellect_mod(heart_of_the_wild_mod);
+            if (is_active())
+                druid->get_stats()->remove_strength_mod(heart_of_the_wild_mod);
+        }
+
+        heart_of_the_wild_mod = heart_of_the_wild_str_mod_ranks[curr];
+
+        if (is_active())
+            druid->get_stats()->add_strength_mod(heart_of_the_wild_mod);
+        druid->get_stats()->add_intellect_mod(heart_of_the_wild_mod);
+    }
 }
 
 void CatFormBuff::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -74,5 +95,19 @@ void CatFormBuff::decrease_talent_rank_effect(const QString& talent_name, const 
 
         if (is_active() && predatory_strikes_bonus > 0)
             druid->get_stats()->increase_melee_ap(predatory_strikes_bonus);
+    }
+
+    if (talent_name == "Heart of the Wild") {
+        if (is_active())
+            druid->get_stats()->remove_strength_mod(heart_of_the_wild_mod);
+        druid->get_stats()->remove_intellect_mod(heart_of_the_wild_mod);
+
+        heart_of_the_wild_mod = heart_of_the_wild_str_mod_ranks[curr];
+
+        if (heart_of_the_wild_mod > 0) {
+            druid->get_stats()->add_intellect_mod(heart_of_the_wild_mod);
+            if (is_active())
+                druid->get_stats()->add_strength_mod(heart_of_the_wild_mod);
+        }
     }
 }

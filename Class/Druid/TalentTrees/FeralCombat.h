@@ -19,4 +19,5 @@ private:
     void add_improved_shred(QMap<QString, Talent*>& talent_tier);
     void add_predatory_strikes(QMap<QString, Talent*>& talent_tier);
     void add_blood_frenzy(QMap<QString, Talent*>& talent_tier);
+    void add_heart_of_the_wild(QMap<QString, Talent*>& talent_tier);
 };

@@ -62,9 +62,8 @@ FeralCombat::FeralCombat(Druid* druid) :
     };
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {
-        {"6ML", new Talent(druid, this, "Heart of the Wild", "6ML", "Assets/spell/Spell_holy_blessingofagility.png", 5, "Increases your Intellect by %1%. In addition, while in Bear or Dire Bear Form your Stamina is increased by %2% and while in Cat Form your Strength is increased by %3%.", QVector<QPair<unsigned, unsigned>>{{4, 4}, {4, 4}, {4, 4}})},
-    };
+    QMap<QString, Talent*> tier6 {};
+    add_heart_of_the_wild(tier6);
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {
@@ -122,6 +121,15 @@ void FeralCombat::add_blood_frenzy(QMap<QString, Talent*>& talent_tier) {
                                     "Your critical strikes from Cat Form abilities that add combo points have a %1% chance to add an additional combo point.",
                                     QVector<QPair<unsigned, unsigned>>{{50, 50}}, {}, {},
                                     QVector<Proc*>{spells->get_blood_frenzy()});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void FeralCombat::add_heart_of_the_wild(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Heart of the Wild", "6ML", "Assets/spell/Spell_holy_blessingofagility.png", 5,
+                                    "Increases your Intellect by %1%. In addition, while in Bear or Dire Bear Form your Stamina is increased by %2% and while in Cat Form your Strength is increased by %3%.",
+                                    QVector<QPair<unsigned, unsigned>>{{4, 4}, {4, 4}, {4, 4}}, {},
+                                    QVector<Buff*>{spells->get_cat_form_buff()});
 
     add_talent_to_tier(talent_tier, talent);
 }
