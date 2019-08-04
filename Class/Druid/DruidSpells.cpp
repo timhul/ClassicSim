@@ -3,6 +3,7 @@
 #include "BearForm.h"
 #include "CasterForm.h"
 #include "CatForm.h"
+#include "CatFormBuff.h"
 #include "ClearcastingDruid.h"
 #include "Druid.h"
 #include "FerociousBite.h"
@@ -29,7 +30,8 @@ DruidSpells::DruidSpells(Druid* druid) :
     this->bear_form = new BearForm(druid);
     add_spell_group({bear_form});
 
-    this->cat_form = new CatForm(druid);
+    this->cat_form_buff = new CatFormBuff(druid);
+    this->cat_form = new CatForm(druid, cat_form_buff);
     add_spell_group({cat_form});
 
     auto buff = dynamic_cast<MoonkinFormBuff*>(pchar->get_raid_control()->get_shared_party_buff("Moonkin Form", pchar->get_party()));
@@ -94,6 +96,7 @@ DruidSpells::DruidSpells(Druid* druid) :
 DruidSpells::~DruidSpells() {
     delete natures_grace;
     delete omen_of_clarity;
+    delete cat_form_buff;
 }
 
 CasterForm* DruidSpells::get_caster_form() const {
@@ -114,6 +117,10 @@ MoonkinForm* DruidSpells::get_moonkin_form() const {
 
 Buff* DruidSpells::get_natures_grace() const {
     return this->natures_grace;
+}
+
+Buff* DruidSpells::get_cat_form_buff() const {
+    return this->cat_form_buff;
 }
 
 Proc* DruidSpells::get_omen_of_clarity() const {

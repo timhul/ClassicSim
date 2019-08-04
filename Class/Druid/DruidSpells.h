@@ -21,6 +21,7 @@ public:
     CatForm* get_cat_form() const;
     MoonkinForm* get_moonkin_form() const;
     Buff* get_natures_grace() const;
+    Buff* get_cat_form_buff() const;
     Proc* get_omen_of_clarity() const;
 
     bool omen_of_clarity_active() const;
@@ -33,5 +34,6 @@ private:
     CatForm* cat_form;
     MoonkinForm* moonkin_form;
     Buff* natures_grace;
+    Buff* cat_form_buff;
     ClearcastingDruid* omen_of_clarity;
 };

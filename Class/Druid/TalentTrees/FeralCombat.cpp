@@ -44,8 +44,8 @@ FeralCombat::FeralCombat(Druid* druid) :
     QMap<QString, Talent*> tier3 {
         {"3LL", new Talent(druid, this, "Feline Swiftness", "3LL", "Assets/spell/Spell_nature_spiritwolf.png", 2, "Increases your movement speed by %1% while outdoors in Cat Form and increases your chance to dodge while in Cat Form by %2%.", QVector<QPair<unsigned, unsigned>>{{15, 15}, {2, 2}})},
         {"3ML", new Talent(druid, this, "Feral Charge", "3ML", "Assets/ability/Ability_hunter_pet_bear.png", 1, "Causes you to charge an enemy, immobilizing and interrupting any spell being cast for 4 sec.", QVector<QPair<unsigned, unsigned>>())},
-        {"3MR", new Talent(druid, this, "Sharpened Claws", "3MR", "Assets/items/Inv_misc_monsterclaw_04.png", 3, "Increases your critical strike chance while in Bear, Dire Bear or Cat Form by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
     };
+    add_sharpened_claws(tier3);
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {
@@ -86,6 +86,15 @@ void FeralCombat::add_feral_aggression(QMap<QString, Talent*>& talent_tier) {
                                     "Increases the Attack Power reduction of your Demoralizing Roar by %1% and the damage caused by your Ferocious Bite by %2%.",
                                     QVector<QPair<unsigned, unsigned>>{{8, 8}, {3, 3}},
                                     QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Ferocious Bite")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void FeralCombat::add_sharpened_claws(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Sharpened Claws", "3MR", "Assets/items/Inv_misc_monsterclaw_04.png", 3,
+                                    "Increases your critical strike chance while in Bear, Dire Bear or Cat Form by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{2, 2}}, {},
+                                    QVector<Buff*>{spells->get_cat_form_buff()});
 
     add_talent_to_tier(talent_tier, talent);
 }

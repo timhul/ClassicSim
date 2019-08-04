@@ -1,15 +1,18 @@
 #include "CatForm.h"
 
-#include "CatFormBuff.h"
+#include "Buff.h"
+#include "CharacterStats.h"
 #include "CooldownControl.h"
 #include "Druid.h"
-#include "NoEffectSelfBuff.h"
 
-CatForm::CatForm(Character* pchar) :
+CatForm::CatForm(Character* pchar, Buff* cat_form) :
     Spell("Cat Form", "Assets/spell/Spell_nature_ravenform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
-    TalentRequirer({new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
+    TalentRequirer({
+                   new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
+                   new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
+                   }),
     druid(dynamic_cast<Druid*>(pchar)),
-    buff(new CatFormBuff(druid)),
+    buff(cat_form),
     base_resource_cost(resource_cost)
 {
     buff->enable_buff();
@@ -17,7 +20,6 @@ CatForm::CatForm(Character* pchar) :
 
 CatForm::~CatForm() {
     delete cooldown;
-    delete buff;
 }
 
 SpellStatus CatForm::is_ready_spell_specific() const {
@@ -38,5 +40,6 @@ void CatForm::increase_talent_rank_effect(const QString& talent_name, const int 
 }
 
 void CatForm::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
-    increase_talent_rank_effect(talent_name, curr);
+    if (talent_name == "Natural Shapeshifter")
+        resource_cost = static_cast<unsigned>(std::round(base_resource_cost * natural_shapeshifter_ranks[curr]));
 }

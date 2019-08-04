@@ -8,7 +8,7 @@ class Druid;
 
 class CatForm: public Spell, public TalentRequirer {
 public:
-    CatForm(Character* pchar);
+    CatForm(Character* pchar, Buff* cat_form);
     ~CatForm() override;
 
 private:
@@ -18,7 +18,7 @@ private:
     Buff* buff;
     unsigned base_resource_cost;
 
-    QVector<double> natural_shapeshifter_ranks {1.0, 0.9, 0.8, 0.7};
+    const QVector<double> natural_shapeshifter_ranks {1.0, 0.9, 0.8, 0.7};
 
     SpellStatus is_ready_spell_specific() const override;
     void spell_effect() override;
