@@ -133,6 +133,9 @@ void Equipment::change_setup(const int index) {
 }
 
 void Equipment::unequip_all() {
+    if (druid_form_mh_storage)
+        druid_switch_to_normal_weapon();
+
     clear_mainhand();
     clear_offhand();
     clear_ranged();
@@ -961,6 +964,9 @@ void Equipment::druid_switch_to_normal_weapon() {
 
     mainhand = druid_form_mh_storage;
     offhand = druid_form_oh_storage;
+
+    druid_form_mh_storage = nullptr;
+    druid_form_oh_storage = nullptr;
 
     if (mainhand) {
         mainhand->enable_proc_effects();
