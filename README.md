@@ -40,11 +40,14 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+* Druid DPS (Balance and Feral) now available.
 * Raid DPS summation text now displayed in Raid Setup.
 * Mage Fireball DoT damage no longer scales with spell power.
 * Blood Fury now scales with Agility (previously only Strength and level-based AP).
 * Berserking now increases casting speed and has an appropriate resource cost.
 * Warrior Flurry charges now consumed on non-hits and extra attacks.
+* Warrior Heroic Strike and Battle Shout now has all spell ranks available (previously only max from phase 5).
+* Warrior offhand rage from non-hits now uses offhand damage range with offhand penalty applied for speculative rage gain.
 
 # Q&A
 
