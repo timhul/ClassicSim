@@ -14,4 +14,5 @@ private:
     DruidSpells* spells;
 
     void add_furor(QMap<QString, Talent*>& talent_tier);
+    void add_reflection(QMap<QString, Talent*>& talent_tier);
 };
