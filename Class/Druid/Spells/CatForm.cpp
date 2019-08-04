@@ -6,7 +6,7 @@
 #include "Druid.h"
 
 CatForm::CatForm(Character* pchar, Buff* cat_form) :
-    Spell("Cat Form", "Assets/spell/Spell_nature_ravenform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
+    Spell("Cat Form", "Assets/ability/Ability_druid_catform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
     TalentRequirer({
                    new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),

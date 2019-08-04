@@ -962,5 +962,7 @@
         <file>QML/Assets/spell/Spell_nature_rejuvenation.png</file>
         <file>QML/Assets/spell/Spell_nature_resistnature.png</file>
         <file>QML/Assets/spell/Spell_shadow_vampiricaura.png</file>
+        <file>QML/Assets/ability/Ability_druid_catform.png</file>
+        <file>QML/Assets/ability/Ability_racial_bearform.png</file>
     </qresource>
 </RCC>

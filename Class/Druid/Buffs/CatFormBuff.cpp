@@ -6,7 +6,7 @@
 #include "Proc.h"
 
 CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor):
-    SelfBuff(pchar, "Cat Form", "Assets/spell/Spell_nature_ravenform.png",  BuffDuration::PERMANENT, 0),
+    SelfBuff(pchar, "Cat Form", "Assets/ability/Ability_druid_catform.png",  BuffDuration::PERMANENT, 0),
     TalentRequirer({
                    new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Predatory Strikes", 3, DisabledAtZero::No),

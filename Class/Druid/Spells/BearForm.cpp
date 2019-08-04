@@ -5,10 +5,10 @@
 #include "NoEffectSelfBuff.h"
 
 BearForm::BearForm(Character* pchar) :
-    Spell("Bear Form", "Assets/ability/Ability_druid_demoralizingroar2.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
+    Spell("Bear Form", "Assets/ability/Ability_racial_bearform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
     TalentRequirer({new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
     druid(dynamic_cast<Druid*>(pchar)),
-    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT)),
+    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, "Bear Form", icon, Hidden::No)),
     base_resource_cost(resource_cost)
 {
     buff->enable_buff();
