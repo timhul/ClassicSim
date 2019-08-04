@@ -161,7 +161,7 @@ bool Fireball::is_rank_learned() const {
         return pchar->get_clvl() >= level_req;
 
     if (spell_rank == 12)
-        return static_cast<int>(pchar->get_sim_settings()->get_phase()) >= 4;
+        return static_cast<int>(pchar->get_sim_settings()->get_phase()) >= 5;
 
     check(false, QString("%1::is_rank_learned() failed for rank %2").arg(name).arg(spell_rank).toStdString());
     return false;
