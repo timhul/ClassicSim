@@ -52,6 +52,9 @@ EnchantProc::~EnchantProc() {
 }
 
 void EnchantProc::enable_proc() {
+    if (proc_enabled())
+        return;
+
     proc->enable_proc();
 }
 
