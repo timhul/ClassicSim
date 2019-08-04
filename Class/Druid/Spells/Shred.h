@@ -7,10 +7,11 @@
 
 class Druid;
 class DruidSpells;
+class Proc;
 
 class Shred: public Spell, public TalentRequirer {
 public:
-    Shred(Druid* pchar, DruidSpells* druid_spells, const int spell_rank);
+    Shred(Druid* pchar, DruidSpells* druid_spells, Proc* blood_frenzy, const int spell_rank);
     ~Shred() override;
 
     bool is_rank_learned() const override;
@@ -18,11 +19,12 @@ public:
 private:
     Druid* druid;
     DruidSpells* druid_spells;
+    Proc* blood_frenzy;
 
     const unsigned base_resource_cost {60};
     unsigned bonus_damage;
 
-    QVector<unsigned> improved_shred_ranks {0, 6, 12};
+    const QVector<unsigned> improved_shred_ranks {0, 6, 12};
 
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;

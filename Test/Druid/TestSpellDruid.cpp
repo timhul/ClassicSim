@@ -93,6 +93,10 @@ void TestSpellDruid::given_balance_talent_ranks(const QVector<QPair<QString, uns
     given_talent_ranks(Balance(druid), talent_ranks);
 }
 
+void TestSpellDruid::given_feral_talent_ranks(const QVector<QPair<QString, unsigned>>& talent_ranks) {
+    given_talent_ranks(FeralCombat(druid), talent_ranks);
+}
+
 void TestSpellDruid::given_druid_has_combo_points(const unsigned num) {
     druid->spend_combo_points();
 

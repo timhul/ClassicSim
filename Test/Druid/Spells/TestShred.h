@@ -19,7 +19,10 @@ private:
     void test_resource_cost_2_of_2_improved_shred();
     void test_hit_dmg();
     void test_crit_dmg();
-    void test_shred_awards_combo_points();
+    void test_shred_hit_with_0_of_2_blood_frenzy_awards_1_combo_point();
+    void test_shred_crit_with_0_of_2_blood_frenzy_awards_1_combo_point();
+    void test_shred_hit_with_2_of_2_blood_frenzy_awards_1_combo_point();
+    void test_shred_crit_with_2_of_2_blood_frenzy_awards_2_combo_points();
 
     void given_druid_in_cat_form();
     void when_shred_is_performed();

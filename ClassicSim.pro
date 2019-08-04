@@ -24,6 +24,7 @@ SOURCES += main.cpp \
     Class/Druid/Buffs/MoonkinFormBuff.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
+    Class/Druid/Procs/BloodFrenzy.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
     Class/Druid/Spells/BearForm.cpp \
     Class/Druid/Spells/CasterForm.cpp \
@@ -496,6 +497,7 @@ HEADERS += \
     Class/Druid/Buffs/MoonkinFormBuff.h \
     Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \
+    Class/Druid/Procs/BloodFrenzy.h \
     Class/Druid/Procs/ClearcastingDruid.h \
     Class/Druid/Spells/BearForm.h \
     Class/Druid/Spells/CasterForm.h \

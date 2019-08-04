@@ -23,6 +23,7 @@ public:
     Buff* get_natures_grace() const;
     Buff* get_cat_form_buff() const;
     Proc* get_omen_of_clarity() const;
+    Proc* get_blood_frenzy() const;
 
     bool omen_of_clarity_active() const;
 
@@ -36,4 +37,5 @@ private:
     Buff* natures_grace;
     Buff* cat_form_buff;
     ClearcastingDruid* omen_of_clarity;
+    Proc* blood_frenzy;
 };

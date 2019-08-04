@@ -1,6 +1,7 @@
 #include "DruidSpells.h"
 
 #include "BearForm.h"
+#include "BloodFrenzy.h"
 #include "CasterForm.h"
 #include "CatForm.h"
 #include "CatFormBuff.h"
@@ -73,12 +74,13 @@ DruidSpells::DruidSpells(Druid* druid) :
                         new Starfire(druid, this, 7),
                     });
 
+    this->blood_frenzy = new BloodFrenzy(druid);
     add_spell_group({
-                        new Shred(druid, this, 1),
-                        new Shred(druid, this, 2),
-                        new Shred(druid, this, 3),
-                        new Shred(druid, this, 4),
-                        new Shred(druid, this, 5),
+                        new Shred(druid, this, blood_frenzy, 1),
+                        new Shred(druid, this, blood_frenzy, 2),
+                        new Shred(druid, this, blood_frenzy, 3),
+                        new Shred(druid, this, blood_frenzy, 4),
+                        new Shred(druid, this, blood_frenzy, 5),
                     });
 
     add_spell_group({
@@ -97,6 +99,7 @@ DruidSpells::~DruidSpells() {
     delete natures_grace;
     delete omen_of_clarity;
     delete cat_form_buff;
+    delete blood_frenzy;
 }
 
 CasterForm* DruidSpells::get_caster_form() const {
@@ -125,6 +128,10 @@ Buff* DruidSpells::get_cat_form_buff() const {
 
 Proc* DruidSpells::get_omen_of_clarity() const {
     return this->omen_of_clarity;
+}
+
+Proc* DruidSpells::get_blood_frenzy() const {
+    return this->blood_frenzy;
 }
 
 bool DruidSpells::omen_of_clarity_active() const {

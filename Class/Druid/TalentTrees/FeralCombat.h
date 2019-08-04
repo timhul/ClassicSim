@@ -18,4 +18,5 @@ private:
     void add_sharpened_claws(QMap<QString, Talent*>& talent_tier);
     void add_improved_shred(QMap<QString, Talent*>& talent_tier);
     void add_predatory_strikes(QMap<QString, Talent*>& talent_tier);
+    void add_blood_frenzy(QMap<QString, Talent*>& talent_tier);
 };

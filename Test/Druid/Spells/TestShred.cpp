@@ -30,7 +30,19 @@ void TestShred::test_all() {
     tear_down();
 
     set_up();
-    test_shred_awards_combo_points();
+    test_shred_hit_with_0_of_2_blood_frenzy_awards_1_combo_point();
+    tear_down();
+
+    set_up();
+    test_shred_crit_with_0_of_2_blood_frenzy_awards_1_combo_point();
+    tear_down();
+
+    set_up(false);
+    test_shred_hit_with_2_of_2_blood_frenzy_awards_1_combo_point();
+    tear_down();
+
+    set_up(false);
+    test_shred_crit_with_2_of_2_blood_frenzy_awards_2_combo_points();
     tear_down();
 }
 
@@ -130,7 +142,31 @@ void TestShred::test_crit_dmg() {
     then_damage_dealt_is_in_range(911, 1019);
 }
 
-void TestShred::test_shred_awards_combo_points() {
+void TestShred::test_shred_hit_with_0_of_2_blood_frenzy_awards_1_combo_point() {
+    given_druid_in_cat_form();
+    given_a_guaranteed_melee_ability_crit();
+    given_engine_priority_at(0.51);
+    assert(druid->get_combo_points() == 0);
+
+    when_shred_is_performed();
+
+    assert(druid->get_combo_points() == 1);
+}
+
+void TestShred::test_shred_crit_with_0_of_2_blood_frenzy_awards_1_combo_point() {
+    given_druid_in_cat_form();
+    given_a_guaranteed_melee_ability_crit();
+    given_engine_priority_at(0.51);
+    assert(druid->get_combo_points() == 0);
+
+    when_shred_is_performed();
+
+    assert(druid->get_combo_points() == 1);
+}
+
+void TestShred::test_shred_hit_with_2_of_2_blood_frenzy_awards_1_combo_point() {
+    given_feral_talent_ranks({{"Sharpened Claws", 3}, {"Blood Frenzy", 2}});
+    pchar->prepare_set_of_combat_iterations();
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_hit();
     given_engine_priority_at(0.51);
@@ -139,6 +175,19 @@ void TestShred::test_shred_awards_combo_points() {
     when_shred_is_performed();
 
     assert(druid->get_combo_points() == 1);
+}
+
+void TestShred::test_shred_crit_with_2_of_2_blood_frenzy_awards_2_combo_points() {
+    given_feral_talent_ranks({{"Sharpened Claws", 3}, {"Blood Frenzy", 2}});
+    pchar->prepare_set_of_combat_iterations();
+    given_druid_in_cat_form();
+    given_a_guaranteed_melee_ability_crit();
+    given_engine_priority_at(0.51);
+    assert(druid->get_combo_points() == 0);
+
+    when_shred_is_performed();
+
+    assert(druid->get_combo_points() == 2);
 }
 
 void TestShred::when_shred_is_performed() {

@@ -49,11 +49,11 @@ FeralCombat::FeralCombat(Druid* druid) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {
-        {"4MR", new Talent(druid, this, "Blood Frenzy", "4MR", "Assets/ability/Ability_ghoulfrenzy.png", 2, "Your critical strikes from Cat Form abilities that add combo points have a %1% chance to add an additional combo point.", QVector<QPair<unsigned, unsigned>>{{50, 50}})},
         {"4RR", new Talent(druid, this, "Primal Fury", "4RR", "Assets/ability/Ability_racial_cannibalize.png", 2, "Gives you a %1% chance to gain an additional 5 Rage anytime you get a critical strike while in Bear and Dire Bear Form.", QVector<QPair<unsigned, unsigned>>{{50, 50}})},
     };
     add_improved_shred(tier4);
     add_predatory_strikes(tier4);
+    add_blood_frenzy(tier4);
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {
@@ -113,6 +113,15 @@ void FeralCombat::add_predatory_strikes(QMap<QString, Talent*>& talent_tier) {
                                     "Increases your melee attack power in Cat, Bear and Dire Bear Forms by %1% of your level.",
                                     QVector<QPair<unsigned, unsigned>>{{50, 50}}, {},
                                     QVector<Buff*>{spells->get_cat_form_buff()});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void FeralCombat::add_blood_frenzy(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Blood Frenzy", "4MR", "Assets/ability/Ability_ghoulfrenzy.png", 2,
+                                    "Your critical strikes from Cat Form abilities that add combo points have a %1% chance to add an additional combo point.",
+                                    QVector<QPair<unsigned, unsigned>>{{50, 50}}, {}, {},
+                                    QVector<Proc*>{spells->get_blood_frenzy()});
 
     add_talent_to_tier(talent_tier, talent);
 }
