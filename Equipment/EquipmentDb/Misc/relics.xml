@@ -42,4 +42,18 @@
 		Equip: Increases the damage of your Moonfire spell by up to 17% (HAS NO EFFECT CURRENTLY).
 		</special_equip_effect>
 	</item>
+
+	<item id="23199" phase="6">
+		<info name="Totem of the Storm" type="RANGED" slot="RELIC" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_relics_totemofrage.png"/>
+		<class_restriction class="SHAMAN"/>
+		<stats/>
+		<source>
+		World drop.
+		</source>
+		<modifies name="Lightning Bolt"/>
+		<modifies name="Chain Lightning"/>
+		<special_equip_effect>
+		Equip: Increases damage done by Chain Lightning and Lightning Bolt by up to 33.
+		</special_equip_effect>
+	</item>
 </items>

@@ -21,6 +21,7 @@ LightningBolt::LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spel
                    new TalentRequirerInfo("Convection", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Lightning Mastery", 5, DisabledAtZero::No),
                    }),
+    ItemModificationRequirer({23199}),
     spells(spells)
 {
     switch (spell_rank) {
@@ -137,7 +138,7 @@ void LightningBolt::complete_cast_effect() {
 
     spells->roll_clearcasting();
 
-    const unsigned damage_dealt = random->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Nature) * spell_dmg_coefficient));
+    const unsigned damage_dealt = random->get_roll() + static_cast<unsigned>(round((pchar->get_stats()->get_spell_damage(MagicSchool::Nature) + totem_of_the_storm_bonus) * spell_dmg_coefficient));
 
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
     const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature);
@@ -176,4 +177,12 @@ void LightningBolt::decrease_talent_rank_effect(const QString& talent_name, cons
         resource_cost = static_cast<unsigned>(round(base_resource_cost * convection_ranks[curr]));
     if (talent_name == "Lightning Mastery")
         casting_time_ms += lightning_mastery_mod;
+}
+
+void LightningBolt::activate_item_effect(const int) {
+    totem_of_the_storm_bonus = 33;
+}
+
+void LightningBolt::deactivate_item_effect(const int) {
+    totem_of_the_storm_bonus = 0;
 }
