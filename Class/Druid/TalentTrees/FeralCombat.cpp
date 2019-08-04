@@ -30,8 +30,8 @@ FeralCombat::FeralCombat(Druid* druid) :
 
     QMap<QString, Talent*> tier1 {
         {"1ML", new Talent(druid, this, "Ferocity", "1ML", "Assets/ability/Ability_hunter_pet_hyena.png", 5, "Reduces the cost of your Maul, Swipe, Claw, and Rake abilities by %1 Rage or Energy.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
-        {"1MR", new Talent(druid, this, "Feral Aggression", "1MR", "Assets/ability/Ability_druid_demoralizingroar2.png", 5, "Increases the Attack Power reduction of your Demoralizing Roar by %1% and the damage caused by your Ferocious Bite by %2%.", QVector<QPair<unsigned, unsigned>>{{8, 8}, {3, 3}})},
     };
+    add_feral_aggression(tier1);
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {
@@ -79,6 +79,15 @@ FeralCombat::FeralCombat(Druid* druid) :
 
     talents["4ML"]->talent->set_bottom_child(talents["6ML"]->talent);
     talents["6ML"]->talent->set_parent(talents["4ML"]->talent);
+}
+
+void FeralCombat::add_feral_aggression(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Feral Aggression", "1MR", "Assets/ability/Ability_druid_demoralizingroar2.png", 5,
+                                    "Increases the Attack Power reduction of your Demoralizing Roar by %1% and the damage caused by your Ferocious Bite by %2%.",
+                                    QVector<QPair<unsigned, unsigned>>{{8, 8}, {3, 3}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Ferocious Bite")});
+
+    add_talent_to_tier(talent_tier, talent);
 }
 
 void FeralCombat::add_improved_shred(QMap<QString, Talent*>& talent_tier) {

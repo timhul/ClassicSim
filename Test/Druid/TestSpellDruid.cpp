@@ -10,6 +10,7 @@
 #include "DruidSpells.h"
 #include "Equipment.h"
 #include "FeralCombat.h"
+#include "FerociousBite.h"
 #include "Item.h"
 #include "Moonfire.h"
 #include "MoonkinForm.h"
@@ -72,6 +73,10 @@ Shred* TestSpellDruid::shred() const {
     return dynamic_cast<Shred*>(get_max_rank_spell_by_name("Shred"));
 }
 
+FerociousBite* TestSpellDruid::ferocious_bite() const {
+    return dynamic_cast<FerociousBite*>(get_max_rank_spell_by_name("Ferocious Bite"));
+}
+
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {
     given_talent_rank(Balance(druid), talent_name, num);
 }
@@ -86,6 +91,18 @@ void TestSpellDruid::given_restoration_talent_rank(const QString&  talent_name, 
 
 void TestSpellDruid::given_balance_talent_ranks(const QVector<QPair<QString, unsigned>>& talent_ranks) {
     given_talent_ranks(Balance(druid), talent_ranks);
+}
+
+void TestSpellDruid::given_druid_has_combo_points(const unsigned num) {
+    druid->spend_combo_points();
+
+    if (num == 0) {
+        assert(druid->get_combo_points() == 0);
+        return;
+    }
+
+    druid->gain_combo_points(num);
+    assert(druid->get_combo_points() == num);
 }
 
 void TestSpellDruid::given_druid_is_on_gcd(Spell* spell) {

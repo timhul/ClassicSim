@@ -28,6 +28,7 @@ SOURCES += main.cpp \
     Class/Druid/Spells/BearForm.cpp \
     Class/Druid/Spells/CasterForm.cpp \
     Class/Druid/Spells/CatForm.cpp \
+    Class/Druid/Spells/FerociousBite.cpp \
     Class/Druid/Spells/MainhandAttackDruid.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/MoonkinForm.cpp \
@@ -132,6 +133,7 @@ SOURCES += main.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
     Test/Druid/Spells/TestCatForm.cpp \
+    Test/Druid/Spells/TestFerociousBite.cpp \
     Test/Druid/Spells/TestMoonfire.cpp \
     Test/Druid/Spells/TestMoonkinForm.cpp \
     Test/Druid/Spells/TestShred.cpp \
@@ -498,6 +500,7 @@ HEADERS += \
     Class/Druid/Spells/BearForm.h \
     Class/Druid/Spells/CasterForm.h \
     Class/Druid/Spells/CatForm.h \
+    Class/Druid/Spells/FerociousBite.h \
     Class/Druid/Spells/MainhandAttackDruid.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/MoonkinForm.h \
@@ -603,6 +606,7 @@ HEADERS += \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
     Test/Druid/Spells/TestCatForm.h \
+    Test/Druid/Spells/TestFerociousBite.h \
     Test/Druid/Spells/TestMoonfire.h \
     Test/Druid/Spells/TestMoonkinForm.h \
     Test/Druid/Spells/TestShred.h \

@@ -6,6 +6,7 @@
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
+#include "Druid.h"
 #include "Engine.h"
 #include "MainhandAttack.h"
 #include "Rogue.h"
@@ -54,8 +55,17 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     }
     case BuiltinVariables::MeleeAP:
         return cmp_values(pchar->get_stats()->get_melee_ap());
-    case BuiltinVariables::ComboPoints:
-        return cmp_values(dynamic_cast<Rogue*>(pchar)->get_combo_points());
+    case BuiltinVariables::ComboPoints: {
+        const auto rogue = dynamic_cast<Rogue*>(pchar);
+        if (rogue != nullptr)
+            return cmp_values(rogue->get_combo_points());
+
+        const auto druid = dynamic_cast<Druid*>(pchar);
+        if (druid != nullptr)
+            return cmp_values(druid->get_combo_points());
+
+        return false;
+    }
     default:
         check(false, "ConditionVariableBuiltin::condition_fulfilled reached end of switch");
         return false;

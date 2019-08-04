@@ -5,6 +5,7 @@
 #include "CatForm.h"
 #include "ClearcastingDruid.h"
 #include "Druid.h"
+#include "FerociousBite.h"
 #include "MainhandAttackDruid.h"
 #include "Moonfire.h"
 #include "MoonkinForm.h"
@@ -76,6 +77,14 @@ DruidSpells::DruidSpells(Druid* druid) :
                         new Shred(druid, this, 3),
                         new Shred(druid, this, 4),
                         new Shred(druid, this, 5),
+                    });
+
+    add_spell_group({
+                        new FerociousBite(druid, 1),
+                        new FerociousBite(druid, 2),
+                        new FerociousBite(druid, 3),
+                        new FerociousBite(druid, 4),
+                        new FerociousBite(druid, 5),
                     });
 
     natures_grace = new NaturesGrace(druid);
