@@ -2,6 +2,8 @@
 
 #include "TestSpellWarrior.h"
 
+class BattleShout;
+
 class TestBattleShout: public TestSpellWarrior {
 public:
     TestBattleShout(EquipmentDb* equipment_db);

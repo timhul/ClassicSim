@@ -68,10 +68,17 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
         buff = new BattleShoutBuff(pchar);
         buff->enable_buff();
     }
-    this->battle_shout = new BattleShout(pchar, buff);
+    add_spell_group({
+                        new BattleShout(pchar, buff, 1),
+                        new BattleShout(pchar, buff, 2),
+                        new BattleShout(pchar, buff, 3),
+                        new BattleShout(pchar, buff, 4),
+                        new BattleShout(pchar, buff, 5),
+                        new BattleShout(pchar, buff, 6),
+                        new BattleShout(pchar, buff, 7),
+                    });
 
     add_spell_group({anger_management});
-    add_spell_group({battle_shout});
     add_spell_group({battle_stance});
     add_spell_group({berserker_rage});
     add_spell_group({berserker_stance});

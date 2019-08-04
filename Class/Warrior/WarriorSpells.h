@@ -3,8 +3,6 @@
 #include "CharacterSpells.h"
 
 class AngerManagement;
-class BattleShout;
-class BattleShoutBuff;
 class BattleStance;
 class BerserkerRage;
 class BerserkerStance;
@@ -75,7 +73,6 @@ private:
     Warrior* warr;
 
     AngerManagement* anger_management;
-    BattleShout* battle_shout;
     BattleStance* battle_stance;
     BerserkerRage* berserker_rage;
     BerserkerStance* berserker_stance;
