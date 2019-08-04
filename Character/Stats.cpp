@@ -677,7 +677,7 @@ void Stats::increase_spell_damage_vs_school(const unsigned increase, const Magic
 }
 
 void Stats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
-    check((decrease <= magic_school_damage_bonus[school]), "Underflow decrease");
+    check((decrease <= magic_school_damage_bonus[school]), "Underflow Stats::decrease_spell_damage_vs_school()");
     magic_school_damage_bonus[school] -= decrease;
 }
 

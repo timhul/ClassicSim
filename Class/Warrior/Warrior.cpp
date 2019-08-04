@@ -172,7 +172,7 @@ void Warrior::increase_stance_rage_remainder() {
 }
 
 void Warrior::decrease_stance_rage_remainder() {
-    check((stance_rage_remainder >= 5), "Underflow decrease");
+    check((stance_rage_remainder >= 5), "Underflow Warrior:decrease_stance_rage_remainder()");
     this->stance_rage_remainder -= 5;
 }
 

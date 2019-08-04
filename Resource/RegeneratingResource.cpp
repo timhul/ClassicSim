@@ -27,7 +27,7 @@ void RegeneratingResource::gain_resource(const unsigned value) {
 void RegeneratingResource::lose_resource(const unsigned value) {
     resource_tick->perform();
 
-    check((current >= value), "Underflow decrease");
+    check((current >= value), "Underflow decrease RegeneratingResource::lose_resource()");
     current -= value;
 
     lose_resource_effect();

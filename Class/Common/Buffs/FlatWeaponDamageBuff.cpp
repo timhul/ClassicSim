@@ -62,7 +62,7 @@ void FlatWeaponDamageBuff::buff_effect_when_removed() {
 void FlatWeaponDamageBuff::charge_change_effect() {
     check((base_charges > 0), "Base charges was zero while a charge was consumed");
     check((base_charges > 0), "Current charges was zero while a charge was consumed");
-    check((active_bonus >= bonus), "Underflow decrease");
+    check((active_bonus >= bonus), "Underflow decrease FlatWeaponDamageBuff::charge_chance_effect");
 
     active_bonus -= bonus;
 

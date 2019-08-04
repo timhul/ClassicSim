@@ -16,7 +16,7 @@ void Rage::gain_resource(const unsigned rage) {
 }
 
 void Rage::lose_resource(const unsigned rage) {
-    check((current >= rage), "Underflow decrease");
+    check((current >= rage), "Underflow decrease Rage::lose_resource()");
     current -= rage;
 }
 

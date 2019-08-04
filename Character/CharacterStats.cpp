@@ -215,19 +215,19 @@ void CharacterStats::increase_wpn_skill(const int weapon_type, const unsigned va
 void CharacterStats::decrease_wpn_skill(const int weapon_type, const unsigned value) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
-        check((axe_skill_bonus >= value), "Underflow decrease");
+        check((axe_skill_bonus >= value), "Underflow decrease axe skill");
         axe_skill_bonus -= value;
         break;
     case WeaponTypes::DAGGER:
-        check((dagger_skill_bonus >= value), "Underflow decrease");
+        check((dagger_skill_bonus >= value), "Underflow decrease dagger skill");
         dagger_skill_bonus -= value;
         break;
     case WeaponTypes::MACE:
-        check((mace_skill_bonus >= value), "Underflow decrease");
+        check((mace_skill_bonus >= value), "Underflow decrease mace skill");
         mace_skill_bonus -= value;
         break;
     case WeaponTypes::SWORD:
-        check((sword_skill_bonus >= value), "Underflow decrease");
+        check((sword_skill_bonus >= value), "Underflow decrease sword skill");
         sword_skill_bonus -= value;
         break;
     }
@@ -1075,7 +1075,7 @@ void CharacterStats::increase_mh_weapon_damage_bonus(const unsigned value) {
 }
 
 void CharacterStats::decrease_mh_weapon_damage_bonus(const unsigned value) {
-    check((mh_weapon_dmg_bonus >= value), "Underflow decrease");
+    check((mh_weapon_dmg_bonus >= value), "Underflow decrease mh weapon damage bonus");
     this->mh_weapon_dmg_bonus -= value;
 }
 
@@ -1088,7 +1088,7 @@ void CharacterStats::increase_oh_weapon_damage_bonus(const unsigned value) {
 }
 
 void CharacterStats::decrease_oh_weapon_damage_bonus(const unsigned value) {
-    check((oh_weapon_dmg_bonus >= value), "Underflow decrease");
+    check((oh_weapon_dmg_bonus >= value), "Underflow decrease oh weapon damage bonus");
     this->oh_weapon_dmg_bonus -= value;
 }
 
@@ -1101,7 +1101,7 @@ void CharacterStats::increase_ranged_weapon_damage_bonus(const unsigned value) {
 }
 
 void CharacterStats::decrease_ranged_weapon_damage_bonus(const unsigned value) {
-    check((ranged_weapon_dmg_bonus >= value), "Underflow decrease");
+    check((ranged_weapon_dmg_bonus >= value), "Underflow decrease ranged weapon damage bonus");
     this->ranged_weapon_dmg_bonus -= value;
 }
 
