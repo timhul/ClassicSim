@@ -23,6 +23,8 @@ private:
     void test_crit_dmg();
     void test_glancing_dmg();
     void test_leader_of_the_pack_gives_crit_to_party_members();
+    void test_0_of_5_furor_gives_0_energy_on_entering_cat_form();
+    void test_5_of_5_furor_gives_40_energy_on_entering_cat_form();
 
     void when_cat_form_is_performed();
 };

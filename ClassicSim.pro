@@ -27,6 +27,7 @@ SOURCES += main.cpp \
     Class/Druid/DruidEnchants.cpp \
     Class/Druid/Procs/BloodFrenzy.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
+    Class/Druid/Procs/Furor.cpp \
     Class/Druid/Spells/BearForm.cpp \
     Class/Druid/Spells/CasterForm.cpp \
     Class/Druid/Spells/CatForm.cpp \
@@ -501,6 +502,7 @@ HEADERS += \
     Class/Druid/DruidEnchants.h \
     Class/Druid/Procs/BloodFrenzy.h \
     Class/Druid/Procs/ClearcastingDruid.h \
+    Class/Druid/Procs/Furor.h \
     Class/Druid/Spells/BearForm.h \
     Class/Druid/Spells/CasterForm.h \
     Class/Druid/Spells/CatForm.h \

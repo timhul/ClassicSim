@@ -29,8 +29,8 @@ RestorationDruid::RestorationDruid(Druid* druid) :
 
     QMap<QString, Talent*> tier1 {
         {"1ML", new Talent(druid, this, "Improved Mark of the Wild", "1ML", "Assets/spell/Spell_nature_regeneration.png", 5, "Increases the effects of your Mark of the Wild and Gift of the Wild spells by %1%.", QVector<QPair<unsigned, unsigned>>{{7, 7}})},
-        {"1MR", new Talent(druid, this, "Furor", "1MR", "Assets/spell/Spell_holy_blessingofstamina.png", 5, "Gives you %1% chance to gain 10 Rage when you shapeshift into Bear and Dire Bear Form or 40 Energy when you shapeshift into Cat Form.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
     };
+    add_furor(tier1);
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {
@@ -78,4 +78,13 @@ RestorationDruid::RestorationDruid(Druid* druid) :
 
     talents["4ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["4ML"]->talent);
+}
+
+void RestorationDruid::add_furor(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Furor", "1MR", "Assets/spell/Spell_holy_blessingofstamina.png", 5,
+                                    "Gives you %1% chance to gain 10 Rage when you shapeshift into Bear and Dire Bear Form or 40 Energy when you shapeshift into Cat Form.",
+                                    QVector<QPair<unsigned, unsigned>>{{20, 20}}, {}, {},
+                                    QVector<Proc*>{spells->get_furor()});
+
+    add_talent_to_tier(talent_tier, talent);
 }

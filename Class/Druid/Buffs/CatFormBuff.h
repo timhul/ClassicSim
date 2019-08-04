@@ -10,11 +10,12 @@ class Druid;
 
 class CatFormBuff: public SelfBuff, public TalentRequirer {
 public:
-    CatFormBuff(Druid* pchar, Buff* leader_of_the_pack);
+    CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor);
 
 private:
     Druid* druid;
     Buff* leader_of_the_pack;
+    Proc* furor;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

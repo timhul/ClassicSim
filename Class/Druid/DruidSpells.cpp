@@ -8,6 +8,7 @@
 #include "ClearcastingDruid.h"
 #include "Druid.h"
 #include "FerociousBite.h"
+#include "Furor.h"
 #include "LeaderOfThePack.h"
 #include "MainhandAttackDruid.h"
 #include "Moonfire.h"
@@ -37,7 +38,8 @@ DruidSpells::DruidSpells(Druid* druid) :
         leader_of_the_pack = new LeaderOfThePack(druid);
         leader_of_the_pack->enable_buff();
     }
-    this->cat_form_buff = new CatFormBuff(druid, leader_of_the_pack);
+    this->furor = new Furor(druid);
+    this->cat_form_buff = new CatFormBuff(druid, leader_of_the_pack, furor);
     this->cat_form = new CatForm(druid, cat_form_buff);
     add_spell_group({cat_form});
 
@@ -106,6 +108,7 @@ DruidSpells::~DruidSpells() {
     delete omen_of_clarity;
     delete cat_form_buff;
     delete blood_frenzy;
+    delete furor;
 }
 
 CasterForm* DruidSpells::get_caster_form() const {
@@ -138,6 +141,10 @@ Proc* DruidSpells::get_omen_of_clarity() const {
 
 Proc* DruidSpells::get_blood_frenzy() const {
     return this->blood_frenzy;
+}
+
+Proc* DruidSpells::get_furor() const {
+    return this->furor;
 }
 
 bool DruidSpells::omen_of_clarity_active() const {

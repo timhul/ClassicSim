@@ -49,6 +49,14 @@ void TestCatForm::test_all() {
     set_up(false);
     test_leader_of_the_pack_gives_crit_to_party_members();
     tear_down();
+
+    set_up();
+    test_0_of_5_furor_gives_0_energy_on_entering_cat_form();
+    tear_down();
+
+    set_up(false);
+    test_5_of_5_furor_gives_40_energy_on_entering_cat_form();
+    tear_down();
 }
 
 void TestCatForm::test_name_correct() {
@@ -203,6 +211,24 @@ void TestCatForm::test_leader_of_the_pack_gives_crit_to_party_members() {
     assert(druid_2_melee_crit_before == druid_2->get_stats()->get_mh_crit_chance());
 
     delete druid_2;
+}
+
+void TestCatForm::test_0_of_5_furor_gives_0_energy_on_entering_cat_form() {
+    given_druid_has_energy(0);
+
+    when_cat_form_is_performed();
+
+    then_druid_has_energy(0);
+}
+
+void TestCatForm::test_5_of_5_furor_gives_40_energy_on_entering_cat_form() {
+    given_restoration_talent_rank("Furor", 5);
+    pchar->prepare_set_of_combat_iterations();
+    given_druid_has_energy(0);
+
+    when_cat_form_is_performed();
+
+    then_druid_has_energy(40);
 }
 
 void TestCatForm::when_cat_form_is_performed() {

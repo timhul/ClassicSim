@@ -3,8 +3,9 @@
 #include "CharacterStats.h"
 #include "Druid.h"
 #include "Equipment.h"
+#include "Proc.h"
 
-CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack):
+CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor):
     SelfBuff(pchar, "Cat Form", "Assets/spell/Spell_nature_ravenform.png",  BuffDuration::PERMANENT, 0),
     TalentRequirer({
                    new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
@@ -13,7 +14,8 @@ CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack):
                    new TalentRequirerInfo("Leader of the Pack", 1, DisabledAtZero::No),
                    }),
     druid(pchar),
-    leader_of_the_pack(leader_of_the_pack)
+    leader_of_the_pack(leader_of_the_pack),
+    furor(furor)
 {}
 
 void CatFormBuff::buff_effect_when_applied() {
@@ -30,6 +32,9 @@ void CatFormBuff::buff_effect_when_applied() {
 
     if (supplies_leader_of_the_pack)
         leader_of_the_pack->apply_buff();
+
+    if (furor->is_enabled() && furor->check_proc_success())
+        furor->perform();
 }
 
 void CatFormBuff::buff_effect_when_removed() {

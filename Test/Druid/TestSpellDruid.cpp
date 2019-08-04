@@ -132,6 +132,13 @@ void TestSpellDruid::given_druid_has_mana(const unsigned mana) {
     then_druid_has_mana(mana);
 }
 
+void TestSpellDruid::given_druid_has_energy(const unsigned energy) {
+    if (druid->get_resource_level(ResourceType::Energy) > 0)
+        druid->lose_energy(druid->get_resource_level(ResourceType::Energy));
+    druid->gain_energy(energy);
+    then_druid_has_energy(energy);
+}
+
 void TestSpellDruid::then_druid_has_mana(const unsigned mana) {
     if (mana != druid->get_resource_level(ResourceType::Mana))
         qDebug() << "Expected" << mana << "mana but has" << druid->get_resource_level(ResourceType::Mana);

@@ -12,4 +12,6 @@ public:
 private:
     Druid* druid;
     DruidSpells* spells;
+
+    void add_furor(QMap<QString, Talent*>& talent_tier);
 };
