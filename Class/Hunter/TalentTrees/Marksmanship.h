@@ -9,7 +9,6 @@ class Talent;
 class Marksmanship: public TalentTree {
 public:
     Marksmanship(Hunter* pchar);
-    ~Marksmanship() override = default;
 
 private:
     Hunter* hunter;

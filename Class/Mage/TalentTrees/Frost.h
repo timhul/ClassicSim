@@ -8,7 +8,6 @@ class MageSpells;
 class Frost: public TalentTree {
 public:
     Frost(Mage* mage);
-    ~Frost() override = default;
 
 private:
     Mage* mage;

@@ -8,7 +8,6 @@ class HunterSpells;
 class Survival: public TalentTree {
 public:
     Survival(Hunter* pchar);
-    ~Survival() override = default;
 
 private:
     Hunter* hunter;

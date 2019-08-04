@@ -8,7 +8,6 @@ class HunterSpells;
 class BeastMastery: public TalentTree {
 public:
     BeastMastery(Hunter* hunter);
-    ~BeastMastery() override = default;
 
 private:
     Hunter* hunter;

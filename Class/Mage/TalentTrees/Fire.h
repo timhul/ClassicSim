@@ -8,7 +8,6 @@ class MageSpells;
 class Fire: public TalentTree {
 public:
     Fire(Mage* mage);
-    ~Fire() override = default;
 
 private:
     Mage* mage;

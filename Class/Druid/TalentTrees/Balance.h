@@ -8,7 +8,6 @@ class DruidSpells;
 class Balance: public TalentTree {
 public:
     Balance(Druid* druid);
-    ~Balance() override = default;
 
 private:
     Druid* druid;
