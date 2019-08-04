@@ -2,6 +2,7 @@
 <items>
 	<item id="22401" phase="5">
 		<info name="Libram of Hope" type="RANGED" slot="RELIC" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_relics_libramofhope.png"/>
+		<class_restriction class="PALADIN"/>
 		<stats/>
 		<source>
 		Drops from Isalien in Dire Maul.
@@ -16,6 +17,7 @@
 
 	<item id="23203" phase="6">
 		<info name="Libram of Fervor" type="RANGED" slot="RELIC" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_relics_libramoftruth.png"/>
+		<class_restriction class="PALADIN"/>
 		<stats/>
 		<source>
 		World drop.
