@@ -2,8 +2,10 @@
 
 #include "Buff.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CooldownControl.h"
 #include "Druid.h"
+#include "StatisticsResource.h"
 
 CatForm::CatForm(Character* pchar, Buff* cat_form) :
     Spell("Cat Form", "Assets/ability/Ability_druid_catform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
@@ -11,6 +13,7 @@ CatForm::CatForm(Character* pchar, Buff* cat_form) :
                    new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
                    }),
+    ItemModificationRequirer({8345}),
     druid(dynamic_cast<Druid*>(pchar)),
     buff(cat_form),
     base_resource_cost(resource_cost)
@@ -20,6 +23,10 @@ CatForm::CatForm(Character* pchar, Buff* cat_form) :
 
 CatForm::~CatForm() {
     delete cooldown;
+}
+
+void CatForm::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics("Wolfshead Helm", "Assets/items/Inv_helmet_04.png");
 }
 
 SpellStatus CatForm::is_ready_spell_specific() const {
@@ -32,6 +39,19 @@ SpellStatus CatForm::is_ready_spell_specific() const {
 void CatForm::spell_effect() {
     pchar->lose_mana(static_cast<unsigned>(round(resource_cost)));
     druid->switch_to_form(DruidForm::Cat);
+    gain_energy(wolfshead_bonus);
+}
+
+void CatForm::gain_energy(const unsigned energy) {
+    if (energy == 0)
+        return;
+
+    const unsigned before_gain = druid->get_resource_level(ResourceType::Energy);
+
+    druid->gain_energy(energy);
+
+    const unsigned delta = druid->get_resource_level(ResourceType::Energy) - before_gain;
+    statistics_resource->add_resource_gain(ResourceType::Energy, delta);
 }
 
 void CatForm::increase_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -42,4 +62,12 @@ void CatForm::increase_talent_rank_effect(const QString& talent_name, const int 
 void CatForm::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Natural Shapeshifter")
         resource_cost = static_cast<unsigned>(std::round(base_resource_cost * natural_shapeshifter_ranks[curr]));
+}
+
+void CatForm::activate_item_effect(const int) {
+    wolfshead_bonus = 20;
+}
+
+void CatForm::deactivate_item_effect(const int) {
+    wolfshead_bonus = 0;
 }

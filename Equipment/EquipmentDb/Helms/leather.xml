@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="8345" phase="1">
+		<info name="Wolfshead Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="40" item_lvl="45" quality="RARE" boe="yes" icon="Inv_helmet_04.png"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="109"/>
+			<stat type="SPIRIT" value="10"/>
+		</stats>
+		<modifies name="Cat Form"/>
+		<special_equip_effect>
+		Equip: When shapeshifting into Cat form the Druid gains 20 energy, when shapeshifting into Bear form the Druid gains 5 rage.
+		</special_equip_effect>
+		<source>
+			Crafted by Leatherworkers.
+		</source>
+	</item>
+
 	<item id="13404" phase="1">
 		<info name="Mask of the Unforgiven" type="LEATHER" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_misc_bandana_01.png"/>
 		<stats>
