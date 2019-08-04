@@ -13,9 +13,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     switch (enchant_name) {
     case EnchantName::SuperiorStriking:
         if (enchant_slot == EnchantSlot::MAINHAND)
-            pchar->get_stats()->increase_mh_flat_damage_bonus(5);
+            pchar->get_stats()->increase_mh_weapon_damage_bonus(5);
         else if (enchant_slot == EnchantSlot::OFFHAND)
-            pchar->get_stats()->increase_oh_flat_damage_bonus(5);
+            pchar->get_stats()->increase_oh_weapon_damage_bonus(5);
         else
             check(false, "Unhandled case in switch");
         break;
@@ -59,13 +59,13 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->get_stats()->increase_agility(25);
         break;
     case EnchantName::Enchant2HWeaponSuperiorImpact:
-        pchar->get_stats()->increase_mh_flat_damage_bonus(9);
+        pchar->get_stats()->increase_mh_weapon_damage_bonus(9);
         break;
     case EnchantName::Biznicks247x128Accurascope:
         pchar->get_stats()->increase_ranged_hit(300);
         break;
     case EnchantName::SniperScope:
-        pchar->get_stats()->increase_ranged_flat_damage_bonus(7);
+        pchar->get_stats()->increase_ranged_weapon_damage_bonus(7);
         break;
     case EnchantName::ArcanumOfFocus:
         pchar->get_stats()->increase_base_spell_damage(8);
@@ -141,9 +141,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         break;
     case EnchantName::DenseSharpeningStone:
         if (enchant_slot == EnchantSlot::MAINHAND)
-            pchar->get_stats()->increase_mh_flat_damage_bonus(8);
+            pchar->get_stats()->increase_mh_weapon_damage_bonus(8);
         else if (enchant_slot == EnchantSlot::OFFHAND)
-            pchar->get_stats()->increase_oh_flat_damage_bonus(8);
+            pchar->get_stats()->increase_oh_weapon_damage_bonus(8);
         else
             check(false, "Unhandled case in switch");
         break;
@@ -167,9 +167,9 @@ EnchantStatic::~EnchantStatic() {
     switch (enchant_name) {
     case EnchantName::SuperiorStriking:
         if (enchant_slot == EnchantSlot::MAINHAND)
-            pchar->get_stats()->decrease_mh_flat_damage_bonus(5);
+            pchar->get_stats()->decrease_mh_weapon_damage_bonus(5);
         else if (enchant_slot == EnchantSlot::OFFHAND)
-            pchar->get_stats()->decrease_oh_flat_damage_bonus(5);
+            pchar->get_stats()->decrease_oh_weapon_damage_bonus(5);
         break;
     case EnchantName::EnchantWeaponAgility:
         pchar->get_stats()->decrease_agility(15);
@@ -211,13 +211,13 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_agility(25);
         break;
     case EnchantName::Enchant2HWeaponSuperiorImpact:
-        pchar->get_stats()->decrease_mh_flat_damage_bonus(9);
+        pchar->get_stats()->decrease_mh_weapon_damage_bonus(9);
         break;
     case EnchantName::Biznicks247x128Accurascope:
         pchar->get_stats()->decrease_ranged_hit(300);
         break;
     case EnchantName::SniperScope:
-        pchar->get_stats()->decrease_ranged_flat_damage_bonus(7);
+        pchar->get_stats()->decrease_ranged_weapon_damage_bonus(7);
         break;
     case EnchantName::ArcanumOfFocus:
         pchar->get_stats()->decrease_base_spell_damage(8);
@@ -293,9 +293,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::DenseSharpeningStone:
         if (enchant_slot == EnchantSlot::MAINHAND)
-            pchar->get_stats()->decrease_mh_flat_damage_bonus(8);
+            pchar->get_stats()->decrease_mh_weapon_damage_bonus(8);
         else if (enchant_slot == EnchantSlot::OFFHAND)
-            pchar->get_stats()->decrease_oh_flat_damage_bonus(8);
+            pchar->get_stats()->decrease_oh_weapon_damage_bonus(8);
         break;
     case EnchantName::LesserManaOil:
         pchar->get_stats()->decrease_mp5(8);

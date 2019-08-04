@@ -381,8 +381,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::RangedAttackPower:
         return increase_ap_vs_type(get_type_for_stat(stat_type), value);
     case ItemStats::FlatWeaponDamage:
-        increase_mh_flat_damage_bonus(value);
-        return increase_oh_flat_damage_bonus(value);
+        increase_mh_weapon_damage_bonus(value);
+        return increase_oh_weapon_damage_bonus(value);
     }
 }
 
@@ -488,8 +488,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::RangedAttackPower:
         return decrease_ap_vs_type(get_type_for_stat(stat_type), value);
     case ItemStats::FlatWeaponDamage:
-        decrease_mh_flat_damage_bonus(value);
-        return decrease_oh_flat_damage_bonus(value);
+        decrease_mh_weapon_damage_bonus(value);
+        return decrease_oh_weapon_damage_bonus(value);
     }
 }
 
@@ -1066,43 +1066,43 @@ void CharacterStats::decrease_magic_school_damage_mod(const unsigned decrease, c
     remove_multiplicative_effect(magic_school_damage_changes[school], static_cast<int>(decrease), magic_school_damage_modifiers[school]);
 }
 
-unsigned CharacterStats::get_mh_flat_damage_bonus() const {
-    return mh_flat_dmg_bonus + equipment->get_stats()->get_flat_weapon_damage();
+unsigned CharacterStats::get_mh_weapon_damage_bonus() const {
+    return mh_weapon_dmg_bonus + equipment->get_stats()->get_flat_weapon_damage();
 }
 
-void CharacterStats::increase_mh_flat_damage_bonus(const unsigned value) {
-    this->mh_flat_dmg_bonus += value;
+void CharacterStats::increase_mh_weapon_damage_bonus(const unsigned value) {
+    this->mh_weapon_dmg_bonus += value;
 }
 
-void CharacterStats::decrease_mh_flat_damage_bonus(const unsigned value) {
-    check((mh_flat_dmg_bonus >= value), "Underflow decrease");
-    this->mh_flat_dmg_bonus -= value;
+void CharacterStats::decrease_mh_weapon_damage_bonus(const unsigned value) {
+    check((mh_weapon_dmg_bonus >= value), "Underflow decrease");
+    this->mh_weapon_dmg_bonus -= value;
 }
 
-unsigned CharacterStats::get_oh_flat_damage_bonus() const {
-    return oh_flat_dmg_bonus + equipment->get_stats()->get_flat_weapon_damage();
+unsigned CharacterStats::get_oh_weapon_damage_bonus() const {
+    return oh_weapon_dmg_bonus + equipment->get_stats()->get_flat_weapon_damage();
 }
 
-void CharacterStats::increase_oh_flat_damage_bonus(const unsigned value) {
-    this->oh_flat_dmg_bonus += value;
+void CharacterStats::increase_oh_weapon_damage_bonus(const unsigned value) {
+    this->oh_weapon_dmg_bonus += value;
 }
 
-void CharacterStats::decrease_oh_flat_damage_bonus(const unsigned value) {
-    check((oh_flat_dmg_bonus >= value), "Underflow decrease");
-    this->oh_flat_dmg_bonus -= value;
+void CharacterStats::decrease_oh_weapon_damage_bonus(const unsigned value) {
+    check((oh_weapon_dmg_bonus >= value), "Underflow decrease");
+    this->oh_weapon_dmg_bonus -= value;
 }
 
-unsigned CharacterStats::get_ranged_flat_damage_bonus() const {
-    return ranged_flat_dmg_bonus;
+unsigned CharacterStats::get_ranged_weapon_damage_bonus() const {
+    return ranged_weapon_dmg_bonus;
 }
 
-void CharacterStats::increase_ranged_flat_damage_bonus(const unsigned value) {
-    this->ranged_flat_dmg_bonus += value;
+void CharacterStats::increase_ranged_weapon_damage_bonus(const unsigned value) {
+    this->ranged_weapon_dmg_bonus += value;
 }
 
-void CharacterStats::decrease_ranged_flat_damage_bonus(const unsigned value) {
-    check((ranged_flat_dmg_bonus >= value), "Underflow decrease");
-    this->ranged_flat_dmg_bonus -= value;
+void CharacterStats::decrease_ranged_weapon_damage_bonus(const unsigned value) {
+    check((ranged_weapon_dmg_bonus >= value), "Underflow decrease");
+    this->ranged_weapon_dmg_bonus -= value;
 }
 
 unsigned CharacterStats::get_mana_skill_reduction() const {

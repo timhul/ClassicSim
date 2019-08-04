@@ -209,17 +209,17 @@ public:
     void increase_dodge(const double value);
     void decrease_dodge(const double value);
 
-    unsigned get_mh_flat_damage_bonus() const;
-    void increase_mh_flat_damage_bonus(const unsigned value);
-    void decrease_mh_flat_damage_bonus(const unsigned value);
+    unsigned get_mh_weapon_damage_bonus() const;
+    void increase_mh_weapon_damage_bonus(const unsigned value);
+    void decrease_mh_weapon_damage_bonus(const unsigned value);
 
-    unsigned get_oh_flat_damage_bonus() const;
-    void increase_oh_flat_damage_bonus(const unsigned value);
-    void decrease_oh_flat_damage_bonus(const unsigned value);
+    unsigned get_oh_weapon_damage_bonus() const;
+    void increase_oh_weapon_damage_bonus(const unsigned value);
+    void decrease_oh_weapon_damage_bonus(const unsigned value);
 
-    unsigned get_ranged_flat_damage_bonus() const;
-    void increase_ranged_flat_damage_bonus(const unsigned value);
-    void decrease_ranged_flat_damage_bonus(const unsigned value);
+    unsigned get_ranged_weapon_damage_bonus() const;
+    void increase_ranged_weapon_damage_bonus(const unsigned value);
+    void decrease_ranged_weapon_damage_bonus(const unsigned value);
 
     unsigned get_mana_skill_reduction() const;
     void increase_mana_skill_reduction(const unsigned value);
@@ -258,9 +258,9 @@ private:
     unsigned mace_skill_bonus {0};
     unsigned sword_skill_bonus {0};
 
-    unsigned mh_flat_dmg_bonus {0};
-    unsigned oh_flat_dmg_bonus {0};
-    unsigned ranged_flat_dmg_bonus {0};
+    unsigned mh_weapon_dmg_bonus {0};
+    unsigned oh_weapon_dmg_bonus {0};
+    unsigned ranged_weapon_dmg_bonus {0};
 
     unsigned mp5 {0};
     unsigned mana_skill_reduction {0};

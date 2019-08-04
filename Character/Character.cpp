@@ -258,31 +258,31 @@ void Character::spell_critical_effect(MagicSchool) {
 
 double Character::get_random_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    return get_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_flat_damage_bonus(), mh);
+    return get_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_weapon_damage_bonus(), mh);
 }
 
 double Character::get_random_non_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    return get_non_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_flat_damage_bonus(),
+    return get_non_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_weapon_damage_bonus(),
                                   cstats->get_melee_ap(),
                                   mh->get_base_weapon_speed());
 }
 
 double Character::get_random_non_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
-    return get_non_normalized_dmg(oh->get_random_dmg() + cstats->get_oh_flat_damage_bonus(),
+    return get_non_normalized_dmg(oh->get_random_dmg() + cstats->get_oh_weapon_damage_bonus(),
                                   cstats->get_melee_ap(),
                                   oh->get_base_weapon_speed());
 }
 
 double Character::get_random_normalized_ranged_dmg() {
     Weapon* ranged = cstats->get_equipment()->get_ranged();
-    return get_normalized_dmg(ranged->get_random_dmg() + cstats->get_ranged_flat_damage_bonus(), ranged);
+    return get_normalized_dmg(ranged->get_random_dmg() + cstats->get_ranged_weapon_damage_bonus(), ranged);
 }
 
 double Character::get_random_non_normalized_ranged_dmg() {
     Weapon* ranged = cstats->get_equipment()->get_ranged();
-    return get_non_normalized_dmg(ranged->get_random_dmg() + cstats->get_ranged_flat_damage_bonus(),
+    return get_non_normalized_dmg(ranged->get_random_dmg() + cstats->get_ranged_weapon_damage_bonus(),
                                   cstats->get_ranged_ap(),
                                   ranged->get_base_weapon_speed());
 }
@@ -293,7 +293,7 @@ unsigned Character::get_avg_mh_damage() {
 
     unsigned attack_power = cstats->get_melee_ap();
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg() + cstats->get_mh_flat_damage_bonus()) / 2);
+    auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg() + cstats->get_mh_weapon_damage_bonus()) / 2);
     return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, attack_power, mh->get_base_weapon_speed())));
 }
 
@@ -303,7 +303,7 @@ unsigned Character::get_avg_oh_damage() {
 
     const unsigned attack_power = cstats->get_melee_ap();
     const Weapon* oh = cstats->get_equipment()->get_offhand();
-    const auto avg_dmg = static_cast<unsigned>(round(oh->get_min_dmg() + oh->get_max_dmg() + cstats->get_oh_flat_damage_bonus()) / 2);
+    const auto avg_dmg = static_cast<unsigned>(round(oh->get_min_dmg() + oh->get_max_dmg() + cstats->get_oh_weapon_damage_bonus()) / 2);
     return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, attack_power, oh->get_base_weapon_speed())));
 }
 

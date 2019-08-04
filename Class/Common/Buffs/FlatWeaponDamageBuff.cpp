@@ -22,18 +22,18 @@ void FlatWeaponDamageBuff::buff_effect_when_applied() {
 
     switch (wpn_side) {
     case AffectedWeaponSide::Mainhand:
-        pchar->get_stats()->increase_mh_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->increase_mh_weapon_damage_bonus(active_bonus);
         break;
     case AffectedWeaponSide::Offhand:
-        pchar->get_stats()->increase_oh_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->increase_oh_weapon_damage_bonus(active_bonus);
         break;
     case AffectedWeaponSide::Ranged:
-        pchar->get_stats()->increase_ranged_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->increase_ranged_weapon_damage_bonus(active_bonus);
         break;
     case AffectedWeaponSide::All:
-        pchar->get_stats()->increase_mh_flat_damage_bonus(active_bonus);
-        pchar->get_stats()->increase_oh_flat_damage_bonus(active_bonus);
-        pchar->get_stats()->increase_ranged_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->increase_mh_weapon_damage_bonus(active_bonus);
+        pchar->get_stats()->increase_oh_weapon_damage_bonus(active_bonus);
+        pchar->get_stats()->increase_ranged_weapon_damage_bonus(active_bonus);
         break;
     }
 }
@@ -41,18 +41,18 @@ void FlatWeaponDamageBuff::buff_effect_when_applied() {
 void FlatWeaponDamageBuff::buff_effect_when_removed() {
     switch (wpn_side) {
     case AffectedWeaponSide::Mainhand:
-        pchar->get_stats()->decrease_mh_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->decrease_mh_weapon_damage_bonus(active_bonus);
         break;
     case AffectedWeaponSide::Offhand:
-        pchar->get_stats()->decrease_oh_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->decrease_oh_weapon_damage_bonus(active_bonus);
         break;
     case AffectedWeaponSide::Ranged:
-        pchar->get_stats()->decrease_ranged_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->decrease_ranged_weapon_damage_bonus(active_bonus);
         break;
     case AffectedWeaponSide::All:
-        pchar->get_stats()->decrease_mh_flat_damage_bonus(active_bonus);
-        pchar->get_stats()->decrease_oh_flat_damage_bonus(active_bonus);
-        pchar->get_stats()->decrease_ranged_flat_damage_bonus(active_bonus);
+        pchar->get_stats()->decrease_mh_weapon_damage_bonus(active_bonus);
+        pchar->get_stats()->decrease_oh_weapon_damage_bonus(active_bonus);
+        pchar->get_stats()->decrease_ranged_weapon_damage_bonus(active_bonus);
         break;
     }
 
@@ -68,18 +68,18 @@ void FlatWeaponDamageBuff::charge_change_effect() {
 
     switch (wpn_side) {
     case AffectedWeaponSide::Mainhand:
-        pchar->get_stats()->decrease_mh_flat_damage_bonus(bonus);
+        pchar->get_stats()->decrease_mh_weapon_damage_bonus(bonus);
         break;
     case AffectedWeaponSide::Offhand:
-        pchar->get_stats()->decrease_oh_flat_damage_bonus(bonus);
+        pchar->get_stats()->decrease_oh_weapon_damage_bonus(bonus);
         break;
     case AffectedWeaponSide::Ranged:
-        pchar->get_stats()->decrease_ranged_flat_damage_bonus(bonus);
+        pchar->get_stats()->decrease_ranged_weapon_damage_bonus(bonus);
         break;
     case AffectedWeaponSide::All:
-        pchar->get_stats()->decrease_mh_flat_damage_bonus(bonus);
-        pchar->get_stats()->decrease_oh_flat_damage_bonus(bonus);
-        pchar->get_stats()->decrease_ranged_flat_damage_bonus(bonus);
+        pchar->get_stats()->decrease_mh_weapon_damage_bonus(bonus);
+        pchar->get_stats()->decrease_oh_weapon_damage_bonus(bonus);
+        pchar->get_stats()->decrease_ranged_weapon_damage_bonus(bonus);
         break;
     }
 }
