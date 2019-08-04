@@ -39,6 +39,8 @@ void MortalStrike::spell_effect() {
         return;
     }
 
+    warr->lose_rage(resource_cost);
+
     double damage_dealt = damage_after_modifiers(warr->get_random_normalized_mh_dmg() + 160);
 
     if (result == PhysicalAttackResult::CRITICAL) {
@@ -50,8 +52,6 @@ void MortalStrike::spell_effect() {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
-
-    warr->lose_rage(resource_cost);
 }
 
 SpellStatus MortalStrike::is_ready_spell_specific() const {

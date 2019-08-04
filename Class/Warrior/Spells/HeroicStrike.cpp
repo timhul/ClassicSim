@@ -105,6 +105,8 @@ void HeroicStrike::calculate_damage() {
         return;
     }
 
+    warr->lose_rage(resource_cost);
+
     double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_mh_dmg() + additional_dmg);
 
     if (result == PhysicalAttackResult::CRITICAL) {
@@ -115,8 +117,6 @@ void HeroicStrike::calculate_damage() {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
     }
-
-    warr->lose_rage(resource_cost);
 }
 
 void HeroicStrike::spell_effect() {

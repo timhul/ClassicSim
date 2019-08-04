@@ -19,6 +19,10 @@ MainhandAttackWarrior::MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spel
     spells(spells)
 {}
 
+void MainhandAttackWarrior::extra_attack() {
+    spells->mh_auto_attack(iteration);
+}
+
 void MainhandAttackWarrior::calculate_damage() {
     const unsigned mh_wpn_skill = warr->get_mh_wpn_skill();
     const int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());

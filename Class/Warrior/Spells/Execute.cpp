@@ -67,19 +67,20 @@ void Execute::spell_effect() {
         return;
     }
 
-    double damage_dealt = initial_dmg + (warr->get_resource_level(resource_type) - resource_cost) * dmg_per_rage_converted;
+    const unsigned rage = warr->get_resource_level(resource_type);
+    warr->lose_rage(rage);
+
+    double damage_dealt = initial_dmg + (rage - resource_cost) * dmg_per_rage_converted;
     damage_dealt = damage_after_modifiers(damage_dealt);
 
     if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), warr->get_resource_level(resource_type), pchar->global_cooldown());
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), rage, pchar->global_cooldown());
     }
     else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)), warr->get_resource_level(resource_type), pchar->global_cooldown());
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), rage, pchar->global_cooldown());
     }
-
-    warr->lose_rage(warr->get_resource_level(resource_type));
 }
 
 void Execute::increase_talent_rank_effect(const QString&, const int curr) {

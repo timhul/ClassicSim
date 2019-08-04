@@ -15,7 +15,7 @@ public:
     void complete_swing();
     void reset_swingtimer();
     void add_next_mh_attack();
-    void extra_attack();
+    virtual void extra_attack();
 
 protected:
     double next_expected_use;

@@ -10,6 +10,8 @@ class MainhandAttackWarrior: public MainhandAttack {
 public:
     MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
 
+    void extra_attack() override;
+
 private:
     Warrior* warr;
     WarriorSpells* spells;
