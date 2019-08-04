@@ -198,6 +198,10 @@ void CharacterLoader::equip_gear(CharacterDecoder& decoder, Character* pchar) {
     item = decoder.get_value("PROJECTILE").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_projectile(item);
+
+    item = decoder.get_value("RELIC").toInt(&key_converted);
+    if (key_converted)
+        pchar->get_equipment()->set_relic(item);
 }
 
 void CharacterLoader::invest_talent_points(CharacterDecoder &decoder, Character* pchar) {

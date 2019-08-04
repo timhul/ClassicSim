@@ -52,6 +52,7 @@ QString CharacterEncoder::get_current_setup_string() {
     add_item("TRINKET1", dynamic_cast<Item*>(pchar->get_equipment()->get_trinket1()));
     add_item("TRINKET2", dynamic_cast<Item*>(pchar->get_equipment()->get_trinket2()));
     add_item("PROJECTILE", dynamic_cast<Item*>(pchar->get_equipment()->get_projectile()));
+    add_item("RELIC", dynamic_cast<Item*>(pchar->get_equipment()->get_relic()));
 
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup = pchar->get_talents()->get_current_talent_setup();
     add_vector(setup);
