@@ -4,14 +4,16 @@
 #include "Druid.h"
 #include "Equipment.h"
 
-CatFormBuff::CatFormBuff(Druid* pchar):
+CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack):
     SelfBuff(pchar, "Cat Form", "Assets/spell/Spell_nature_ravenform.png",  BuffDuration::PERMANENT, 0),
     TalentRequirer({
                    new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Predatory Strikes", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Heart of the Wild", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Leader of the Pack", 1, DisabledAtZero::No),
                    }),
-    druid(pchar)
+    druid(pchar),
+    leader_of_the_pack(leader_of_the_pack)
 {}
 
 void CatFormBuff::buff_effect_when_applied() {
@@ -25,6 +27,9 @@ void CatFormBuff::buff_effect_when_applied() {
 
     if (heart_of_the_wild_mod > 0)
         druid->get_stats()->add_strength_mod(heart_of_the_wild_mod);
+
+    if (supplies_leader_of_the_pack)
+        leader_of_the_pack->apply_buff();
 }
 
 void CatFormBuff::buff_effect_when_removed() {
@@ -38,6 +43,9 @@ void CatFormBuff::buff_effect_when_removed() {
 
     if (heart_of_the_wild_mod > 0)
         druid->get_stats()->remove_strength_mod(heart_of_the_wild_mod);
+
+    if (supplies_leader_of_the_pack)
+        leader_of_the_pack->cancel_buff();
 }
 
 void CatFormBuff::increase_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -74,6 +82,12 @@ void CatFormBuff::increase_talent_rank_effect(const QString& talent_name, const 
             druid->get_stats()->add_strength_mod(heart_of_the_wild_mod);
         druid->get_stats()->add_intellect_mod(heart_of_the_wild_mod);
     }
+
+    if (talent_name == "Leader of the Pack") {
+        supplies_leader_of_the_pack = true;
+        if (is_active())
+            leader_of_the_pack->apply_buff();
+    }
 }
 
 void CatFormBuff::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -109,5 +123,11 @@ void CatFormBuff::decrease_talent_rank_effect(const QString& talent_name, const 
             if (is_active())
                 druid->get_stats()->add_strength_mod(heart_of_the_wild_mod);
         }
+    }
+
+    if (talent_name == "Leader of the Pack") {
+        supplies_leader_of_the_pack = false;
+        if (is_active())
+            leader_of_the_pack->cancel_buff();
     }
 }

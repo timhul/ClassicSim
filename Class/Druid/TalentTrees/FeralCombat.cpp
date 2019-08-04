@@ -66,9 +66,8 @@ FeralCombat::FeralCombat(Druid* druid) :
     add_heart_of_the_wild(tier6);
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {
-        {"7ML", new Talent(druid, this, "Leader of the Pack", "7ML", "Assets/spell/Spell_nature_unyeildingstamina.png", 1, "While in Cat, Bear or Dire Bear Form, the Leader of the Pack increases ranged and melee critical chance of all party members within 45 yards by 3%.", QVector<QPair<unsigned, unsigned>>())},
-    };
+    QMap<QString, Talent*> tier7 {};
+    add_leader_of_the_pack(tier7);
     add_talents(tier7);
 
     talents["3MR"]->talent->set_right_child(talents["4RR"]->talent);
@@ -129,6 +128,15 @@ void FeralCombat::add_heart_of_the_wild(QMap<QString, Talent*>& talent_tier) {
     Talent* talent = get_new_talent(druid, "Heart of the Wild", "6ML", "Assets/spell/Spell_holy_blessingofagility.png", 5,
                                     "Increases your Intellect by %1%. In addition, while in Bear or Dire Bear Form your Stamina is increased by %2% and while in Cat Form your Strength is increased by %3%.",
                                     QVector<QPair<unsigned, unsigned>>{{4, 4}, {4, 4}, {4, 4}}, {},
+                                    QVector<Buff*>{spells->get_cat_form_buff()});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void FeralCombat::add_leader_of_the_pack(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(druid, "Leader of the Pack", "7ML", "Assets/spell/Spell_nature_unyeildingstamina.png", 1,
+                                    "While in Cat, Bear or Dire Bear Form, the Leader of the Pack increases ranged and melee critical chance of all party members within 45 yards by 3%.",
+                                    QVector<QPair<unsigned, unsigned>>(), {},
                                     QVector<Buff*>{spells->get_cat_form_buff()});
 
     add_talent_to_tier(talent_tier, talent);

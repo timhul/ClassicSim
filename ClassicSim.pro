@@ -21,6 +21,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Druid/Buffs/CatFormBuff.cpp \
+    Class/Druid/Buffs/LeaderOfThePack.cpp \
     Class/Druid/Buffs/MoonkinFormBuff.cpp \
     Class/Druid/Buffs/NaturesGrace.cpp \
     Class/Druid/DruidEnchants.cpp \
@@ -494,6 +495,7 @@ HEADERS += \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
     Class/Druid/Buffs/CatFormBuff.h \
+    Class/Druid/Buffs/LeaderOfThePack.h \
     Class/Druid/Buffs/MoonkinFormBuff.h \
     Class/Druid/Buffs/NaturesGrace.h \
     Class/Druid/DruidEnchants.h \

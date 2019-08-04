@@ -45,6 +45,10 @@ void TestCatForm::test_all() {
     set_up();
     test_glancing_dmg();
     tear_down();
+
+    set_up(false);
+    test_leader_of_the_pack_gives_crit_to_party_members();
+    tear_down();
 }
 
 void TestCatForm::test_name_correct() {
@@ -174,6 +178,31 @@ void TestCatForm::test_glancing_dmg() {
     // [Damage] = ([min - max] + AP / 14) * glancing_dmg_modifier
     // [67 - 110] = ([60 * 0.85 - 60 * 1.25] + 1000 / 14) * [0.55 - 0.75]
     then_damage_dealt_is_in_range(67, 110);
+}
+
+void TestCatForm::test_leader_of_the_pack_gives_crit_to_party_members() {
+    Druid* druid_2 = new Druid(race, equipment_db, sim_settings, raid_control, 0, 1);
+    given_feral_talent_rank("Leader of the Pack", 1);
+    pchar->prepare_set_of_combat_iterations();
+    raid_control->prepare_set_of_combat_iterations();
+
+    const unsigned self_melee_crit_before = pchar->get_stats()->get_mh_crit_chance();
+    const unsigned druid_2_melee_crit_before = druid_2->get_stats()->get_mh_crit_chance();
+
+    when_cat_form_is_performed();
+
+    const unsigned aura_suppression = 180;
+    assert(self_melee_crit_before + 300 - aura_suppression == pchar->get_stats()->get_mh_crit_chance());
+    assert(druid_2_melee_crit_before + 300 - aura_suppression == druid_2->get_stats()->get_mh_crit_chance());
+
+    given_engine_priority_pushed_forward(1.01);
+    druid->cancel_form();
+    assert(druid->get_current_form() == DruidForm::Caster);
+
+    assert(self_melee_crit_before == pchar->get_stats()->get_mh_crit_chance());
+    assert(druid_2_melee_crit_before == druid_2->get_stats()->get_mh_crit_chance());
+
+    delete druid_2;
 }
 
 void TestCatForm::when_cat_form_is_performed() {

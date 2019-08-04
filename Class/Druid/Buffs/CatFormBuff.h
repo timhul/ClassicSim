@@ -5,14 +5,16 @@
 
 #include <QVector>
 
+class Buff;
 class Druid;
 
 class CatFormBuff: public SelfBuff, public TalentRequirer {
 public:
-    CatFormBuff(Druid* pchar);
+    CatFormBuff(Druid* pchar, Buff* leader_of_the_pack);
 
 private:
     Druid* druid;
+    Buff* leader_of_the_pack;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
@@ -25,6 +27,8 @@ private:
 
     int heart_of_the_wild_mod {0};
     const QVector<int> heart_of_the_wild_str_mod_ranks {0, 4, 8, 12, 16, 20};
+
+    bool supplies_leader_of_the_pack {false};
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

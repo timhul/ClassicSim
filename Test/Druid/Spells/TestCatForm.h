@@ -22,6 +22,7 @@ private:
     void test_hit_dmg();
     void test_crit_dmg();
     void test_glancing_dmg();
+    void test_leader_of_the_pack_gives_crit_to_party_members();
 
     void when_cat_form_is_performed();
 };

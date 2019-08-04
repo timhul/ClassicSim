@@ -8,6 +8,7 @@
 #include "ClearcastingDruid.h"
 #include "Druid.h"
 #include "FerociousBite.h"
+#include "LeaderOfThePack.h"
 #include "MainhandAttackDruid.h"
 #include "Moonfire.h"
 #include "MoonkinForm.h"
@@ -31,16 +32,21 @@ DruidSpells::DruidSpells(Druid* druid) :
     this->bear_form = new BearForm(druid);
     add_spell_group({bear_form});
 
-    this->cat_form_buff = new CatFormBuff(druid);
+    auto leader_of_the_pack = dynamic_cast<LeaderOfThePack*>(pchar->get_raid_control()->get_shared_party_buff("Leader of the Pack", pchar->get_party()));
+    if (leader_of_the_pack == nullptr) {
+        leader_of_the_pack = new LeaderOfThePack(druid);
+        leader_of_the_pack->enable_buff();
+    }
+    this->cat_form_buff = new CatFormBuff(druid, leader_of_the_pack);
     this->cat_form = new CatForm(druid, cat_form_buff);
     add_spell_group({cat_form});
 
-    auto buff = dynamic_cast<MoonkinFormBuff*>(pchar->get_raid_control()->get_shared_party_buff("Moonkin Form", pchar->get_party()));
-    if (buff == nullptr) {
-        buff = new MoonkinFormBuff(druid);
-        buff->enable_buff();
+    auto moonkin_aura = dynamic_cast<MoonkinFormBuff*>(pchar->get_raid_control()->get_shared_party_buff("Moonkin Form", pchar->get_party()));
+    if (moonkin_aura == nullptr) {
+        moonkin_aura = new MoonkinFormBuff(druid);
+        moonkin_aura->enable_buff();
     }
-    this->moonkin_form = new MoonkinForm(druid, buff);
+    this->moonkin_form = new MoonkinForm(druid, moonkin_aura);
     add_spell_group({moonkin_form});
 
     add_spell_group({
