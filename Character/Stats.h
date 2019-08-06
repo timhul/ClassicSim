@@ -76,6 +76,10 @@ public:
     void increase_dagger_skill(const unsigned value);
     void decrease_dagger_skill(const unsigned value);
 
+    unsigned get_fist_skill() const;
+    void increase_fist_skill(const unsigned value);
+    void decrease_fist_skill(const unsigned value);
+
     unsigned get_mace_skill() const;
     void increase_mace_skill(const unsigned value);
     void decrease_mace_skill(const unsigned value);
@@ -83,6 +87,18 @@ public:
     unsigned get_sword_skill() const;
     void increase_sword_skill(const unsigned value);
     void decrease_sword_skill(const unsigned value);
+
+    unsigned get_twohand_axe_skill() const;
+    void increase_twohand_axe_skill(const unsigned value);
+    void decrease_twohand_axe_skill(const unsigned value);
+
+    unsigned get_twohand_mace_skill() const;
+    void increase_twohand_mace_skill(const unsigned value);
+    void decrease_twohand_mace_skill(const unsigned value);
+
+    unsigned get_twohand_sword_skill() const;
+    void increase_twohand_sword_skill(const unsigned value);
+    void decrease_twohand_sword_skill(const unsigned value);
 
     unsigned get_bow_skill() const;
     void increase_bow_skill(const unsigned value);
@@ -194,8 +210,12 @@ private:
 
     unsigned axe_skill {0};
     unsigned dagger_skill {0};
+    unsigned fist_skill {0};
     unsigned mace_skill {0};
     unsigned sword_skill {0};
+    unsigned twohand_axe_skill {0};
+    unsigned twohand_mace_skill {0};
+    unsigned twohand_sword_skill {0};
     unsigned bow_skill {0};
     unsigned crossbow_skill {0};
     unsigned gun_skill {0};

@@ -20,10 +20,8 @@ MaceSpecialization::~MaceSpecialization() = default;
 
 void MaceSpecialization::apply_rank_effect() {
     pchar->get_stats()->increase_wpn_skill(WeaponTypes::MACE, 1);
-    pchar->get_stats()->increase_wpn_skill(WeaponTypes::TWOHAND_MACE, 1);
 }
 
 void MaceSpecialization::remove_rank_effect() {
     pchar->get_stats()->decrease_wpn_skill(WeaponTypes::MACE, 1);
-    pchar->get_stats()->decrease_wpn_skill(WeaponTypes::TWOHAND_MACE, 1);
 }

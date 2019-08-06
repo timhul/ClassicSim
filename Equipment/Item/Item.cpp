@@ -697,10 +697,20 @@ void Item::set_stat(const QString& key, const QString& value) {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Swords +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
     }
+    else if (key == "TWOHAND_AXE_SKILL") {
+        this->stats->increase_twohand_axe_skill(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Axes +%1.").arg(value));
+        this->item_stat_values.insert(ItemStats::Skill2hAxe, value.toUInt());
+    }
+    else if (key == "TWOHAND_MACE_SKILL") {
+        this->stats->increase_twohand_mace_skill(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Maces +%1.").arg(value));
+        this->item_stat_values.insert(ItemStats::Skill2hMace, value.toUInt());
+    }
     else if (key == "TWOHAND_SWORD_SKILL") {
-        this->stats->increase_sword_skill(value.toUInt());
+        this->stats->increase_twohand_sword_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Swords +%1.").arg(value));
-        this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
+        this->item_stat_values.insert(ItemStats::Skill2hSword, value.toUInt());
     }
     else if (key == "BOW_SKILL") {
         this->stats->increase_bow_skill(value.toUInt());

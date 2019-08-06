@@ -257,11 +257,6 @@ private:
     QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
     QMap<MagicSchool, double> magic_school_damage_modifiers;
 
-    unsigned axe_skill_bonus {0};
-    unsigned dagger_skill_bonus {0};
-    unsigned mace_skill_bonus {0};
-    unsigned sword_skill_bonus {0};
-
     unsigned mh_weapon_dmg_bonus {0};
     unsigned oh_weapon_dmg_bonus {0};
     unsigned ranged_weapon_dmg_bonus {0};

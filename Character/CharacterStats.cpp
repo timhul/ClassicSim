@@ -198,38 +198,80 @@ unsigned CharacterStats::get_ranged_crit_chance() const {
 void CharacterStats::increase_wpn_skill(const int weapon_type, const unsigned value) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
-        axe_skill_bonus += value;
+        base_stats->increase_axe_skill(value);
         break;
     case WeaponTypes::DAGGER:
-        dagger_skill_bonus += value;
+        base_stats->increase_dagger_skill(value);
+        break;
+    case WeaponTypes::FIST:
+        base_stats->increase_fist_skill(value);
         break;
     case WeaponTypes::MACE:
-        mace_skill_bonus += value;
+        base_stats->increase_mace_skill(value);
         break;
     case WeaponTypes::SWORD:
-        sword_skill_bonus += value;
+        base_stats->increase_sword_skill(value);
         break;
+    case WeaponTypes::TWOHAND_AXE:
+        base_stats->increase_twohand_axe_skill(value);
+        break;
+    case WeaponTypes::TWOHAND_MACE:
+        base_stats->increase_twohand_mace_skill(value);
+        break;
+    case WeaponTypes::TWOHAND_SWORD:
+        base_stats->increase_twohand_sword_skill(value);
+        break;
+    case WeaponTypes::BOW:
+        base_stats->increase_bow_skill(value);
+        break;
+    case WeaponTypes::CROSSBOW:
+        base_stats->increase_crossbow_skill(value);
+        break;
+    case WeaponTypes::GUN:
+        base_stats->increase_gun_skill(value);
+        break;
+    default:
+        check(false, QString("CharacterStats::increase_wpn_skill has no effect for weapon type %1").arg(weapon_type).toStdString());
     }
 }
 
 void CharacterStats::decrease_wpn_skill(const int weapon_type, const unsigned value) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
-        check((axe_skill_bonus >= value), "Underflow decrease axe skill");
-        axe_skill_bonus -= value;
+        base_stats->decrease_axe_skill(value);
         break;
     case WeaponTypes::DAGGER:
-        check((dagger_skill_bonus >= value), "Underflow decrease dagger skill");
-        dagger_skill_bonus -= value;
+        base_stats->decrease_dagger_skill(value);
+        break;
+    case WeaponTypes::FIST:
+        base_stats->decrease_fist_skill(value);
         break;
     case WeaponTypes::MACE:
-        check((mace_skill_bonus >= value), "Underflow decrease mace skill");
-        mace_skill_bonus -= value;
+        base_stats->decrease_mace_skill(value);
         break;
     case WeaponTypes::SWORD:
-        check((sword_skill_bonus >= value), "Underflow decrease sword skill");
-        sword_skill_bonus -= value;
+        base_stats->decrease_sword_skill(value);
         break;
+    case WeaponTypes::TWOHAND_AXE:
+        base_stats->decrease_twohand_axe_skill(value);
+        break;
+    case WeaponTypes::TWOHAND_MACE:
+        base_stats->decrease_twohand_mace_skill(value);
+        break;
+    case WeaponTypes::TWOHAND_SWORD:
+        base_stats->decrease_twohand_sword_skill(value);
+        break;
+    case WeaponTypes::BOW:
+        base_stats->decrease_bow_skill(value);
+        break;
+    case WeaponTypes::CROSSBOW:
+        base_stats->decrease_crossbow_skill(value);
+        break;
+    case WeaponTypes::GUN:
+        base_stats->decrease_gun_skill(value);
+        break;
+    default:
+        check(false, QString("CharacterStats::decrease_wpn_skill has no effect for weapon type %1").arg(weapon_type).toStdString());
     }
 }
 
@@ -246,37 +288,48 @@ unsigned CharacterStats::get_ranged_wpn_skill() const {
 }
 
 unsigned CharacterStats::get_wpn_skill(Weapon* weapon) const {
+    const unsigned level_based_skill = pchar->get_clvl() * 5;
     if (weapon == nullptr)
-        return pchar->get_clvl() * 5;
+        return level_based_skill;
 
     unsigned skill_bonus = 0;
     switch (weapon->get_weapon_type()) {
     case WeaponTypes::AXE:
+        skill_bonus += pchar->get_race()->get_axe_bonus() + equipment->get_stats()->get_axe_skill() + base_stats->get_axe_skill();
+        break;
     case WeaponTypes::TWOHAND_AXE:
-        skill_bonus += pchar->get_race()->get_axe_bonus() + equipment->get_stats()->get_axe_skill() + axe_skill_bonus;
+        skill_bonus += pchar->get_race()->get_axe_bonus() + equipment->get_stats()->get_twohand_axe_skill() + base_stats->get_twohand_axe_skill();
         break;
     case WeaponTypes::DAGGER:
-        skill_bonus += equipment->get_stats()->get_dagger_skill() + dagger_skill_bonus;
+        skill_bonus += equipment->get_stats()->get_dagger_skill() + base_stats->get_dagger_skill();
+        break;
+    case WeaponTypes::FIST:
+        skill_bonus += equipment->get_stats()->get_fist_skill() + base_stats->get_fist_skill();
         break;
     case WeaponTypes::SWORD:
+        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_sword_skill() + base_stats->get_sword_skill();
+        break;
     case WeaponTypes::TWOHAND_SWORD:
-        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_sword_skill() + sword_skill_bonus;
+        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_twohand_sword_skill() + base_stats->get_twohand_sword_skill();
         break;
     case WeaponTypes::MACE:
+        skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill() + base_stats->get_mace_skill();
+        break;
     case WeaponTypes::TWOHAND_MACE:
-        skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill() + mace_skill_bonus;
+        skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_twohand_mace_skill() + base_stats->get_twohand_mace_skill();
         break;
     case WeaponTypes::BOW:
-        skill_bonus += pchar->get_race()->get_bow_bonus() + equipment->get_stats()->get_bow_skill();
+        skill_bonus += pchar->get_race()->get_bow_bonus() + equipment->get_stats()->get_bow_skill() + base_stats->get_bow_skill();
         break;
     case WeaponTypes::CROSSBOW:
-        skill_bonus += equipment->get_stats()->get_crossbow_skill();
+        skill_bonus += equipment->get_stats()->get_crossbow_skill() + base_stats->get_crossbow_skill();
         break;
     case WeaponTypes::GUN:
-        skill_bonus += pchar->get_race()->get_gun_bonus() + equipment->get_stats()->get_gun_skill();
+        skill_bonus += pchar->get_race()->get_gun_bonus() + equipment->get_stats()->get_gun_skill() + base_stats->get_gun_skill();
         break;
     }
-    return pchar->get_clvl() * 5 + skill_bonus;
+
+    return level_based_skill + skill_bonus;
 }
 
 void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned value) {
@@ -344,13 +397,27 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::ResistanceShadow:
     case ItemStats::ResistanceAll:
     case ItemStats::SkillAxe:
+        return increase_wpn_skill(WeaponTypes::AXE, value);
     case ItemStats::SkillDagger:
+        return increase_wpn_skill(WeaponTypes::DAGGER, value);
+    case ItemStats::SkillFist:
+        return increase_wpn_skill(WeaponTypes::FIST, value);
     case ItemStats::SkillMace:
+        return increase_wpn_skill(WeaponTypes::MACE, value);
     case ItemStats::SkillSword:
+        return increase_wpn_skill(WeaponTypes::SWORD, value);
+    case ItemStats::Skill2hAxe:
+        return increase_wpn_skill(WeaponTypes::TWOHAND_AXE, value);
+    case ItemStats::Skill2hMace:
+        return increase_wpn_skill(WeaponTypes::TWOHAND_MACE, value);
+    case ItemStats::Skill2hSword:
+        return increase_wpn_skill(WeaponTypes::TWOHAND_SWORD, value);
     case ItemStats::SkillBow:
+        return increase_wpn_skill(WeaponTypes::BOW, value);
     case ItemStats::SkillCrossbow:
+        return increase_wpn_skill(WeaponTypes::CROSSBOW, value);
     case ItemStats::SkillGun:
-        return;
+        return increase_wpn_skill(WeaponTypes::GUN, value);
     case ItemStats::HitChance:
         increase_ranged_hit(value);
         return increase_melee_hit(value);
@@ -451,13 +518,27 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::ResistanceShadow:
     case ItemStats::ResistanceAll:
     case ItemStats::SkillAxe:
+        return decrease_wpn_skill(WeaponTypes::AXE, value);
     case ItemStats::SkillDagger:
+        return decrease_wpn_skill(WeaponTypes::DAGGER, value);
+    case ItemStats::SkillFist:
+        return decrease_wpn_skill(WeaponTypes::FIST, value);
     case ItemStats::SkillMace:
+        return decrease_wpn_skill(WeaponTypes::MACE, value);
     case ItemStats::SkillSword:
+        return decrease_wpn_skill(WeaponTypes::SWORD, value);
+    case ItemStats::Skill2hAxe:
+        return decrease_wpn_skill(WeaponTypes::TWOHAND_AXE, value);
+    case ItemStats::Skill2hMace:
+        return decrease_wpn_skill(WeaponTypes::TWOHAND_MACE, value);
+    case ItemStats::Skill2hSword:
+        return decrease_wpn_skill(WeaponTypes::TWOHAND_SWORD, value);
     case ItemStats::SkillBow:
+        return decrease_wpn_skill(WeaponTypes::BOW, value);
     case ItemStats::SkillCrossbow:
+        return decrease_wpn_skill(WeaponTypes::CROSSBOW, value);
     case ItemStats::SkillGun:
-        return;
+        return decrease_wpn_skill(WeaponTypes::GUN, value);
     case ItemStats::HitChance:
         decrease_ranged_hit(value);
         return decrease_melee_hit(value);
