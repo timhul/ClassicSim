@@ -1,8 +1,8 @@
 #include "Fury.h"
 
 #include "Buff.h"
-#include "Cruelty.h"
 #include "Talent.h"
+#include "TalentStatIncrease.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
@@ -32,7 +32,8 @@ Fury::Fury(Warrior* pchar) :
         {"Bloodthirst", "7ML"},
     };
 
-    QMap<QString, Talent*> tier1 {{"1MR", new Cruelty(pchar, this)}};
+    QMap<QString, Talent*> tier1 {};
+    add_cruelty(tier1);
     add_booming_voice(tier1);
     add_talents(tier1);
 
@@ -79,6 +80,15 @@ void Fury::add_booming_voice(QMap<QString, Talent*>& talent_tier) {
     Talent* talent = new Talent(warrior, this, "Booming Voice", "1ML",
                                 "Assets/spell/Spell_nature_purge.png", 5, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Battle Shout")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Fury::add_cruelty(QMap<QString, Talent*>& talent_tier) {
+    auto talent = new TalentStatIncrease(warrior, this, "Cruelty", "1MR", "Assets/ability/Ability_rogue_eviscerate.png", 5,
+                                         "Increases your chance to get a critical strike with melee weapons by %1%.",
+                                         QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                         QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}});
 
     add_talent_to_tier(talent_tier, talent);
 }

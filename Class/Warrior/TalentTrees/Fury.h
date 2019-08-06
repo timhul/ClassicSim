@@ -14,6 +14,7 @@ private:
     WarriorSpells* spells;
 
     void add_booming_voice(QMap<QString, Talent*>& talent_tier);
+    void add_cruelty(QMap<QString, Talent*>& talent_tier);
     void add_unbridled_wrath(QMap<QString, Talent*>& talent_tier);
     void add_improved_battle_shout(QMap<QString, Talent*>& talent_tier);
     void add_dual_wield_specialization(QMap<QString, Talent*>& talent_tier);

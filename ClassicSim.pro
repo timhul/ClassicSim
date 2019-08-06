@@ -198,7 +198,6 @@ SOURCES += main.cpp \
     Class/Warrior/TalentTrees/Arms.cpp \
     Class/Warrior/TalentTrees/Fury.cpp \
     Class/Warrior/TalentTrees/Protection.cpp \
-    Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
     Class/Warrior/TalentTrees/Arms/Impale.cpp \
     GUI/GUIControl.cpp \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
@@ -308,7 +307,6 @@ SOURCES += main.cpp \
     Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
     Test/Warrior/Spells/TestDeathWish.cpp \
     Test/TestCharacterStats.cpp \
-    Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.cpp \
     Class/Warrior/Procs/SwordSpecialization.cpp \
     Test/Warrior/Procs/TestSwordSpecialization.cpp \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
@@ -682,7 +680,6 @@ HEADERS += \
     Class/Warrior/TalentTrees/Arms.h \
     Class/Warrior/TalentTrees/Fury.h \
     Class/Warrior/TalentTrees/Protection.h \
-    Class/Warrior/TalentTrees/Fury/Cruelty.h \
     Class/Warrior/TalentTrees/Arms/Impale.h \
     GUI/GUIControl.h \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
@@ -792,7 +789,6 @@ HEADERS += \
     Class/Warrior/Buffs/DefensiveStanceBuff.h \
     Test/Warrior/Spells/TestDeathWish.h \
     Test/TestCharacterStats.h \
-    Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.h \
     Class/Warrior/Procs/SwordSpecialization.h \
     Test/Warrior/Procs/TestSwordSpecialization.h \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.h \

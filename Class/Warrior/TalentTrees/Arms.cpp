@@ -11,7 +11,6 @@
 #include "Overpower.h"
 #include "PolearmSpecialization.h"
 #include "Rend.h"
-#include "SwordSpecializationTalent.h"
 #include "TacticalMastery.h"
 #include "Talent.h"
 #include "TwoHandedWeaponSpecialization.h"
@@ -66,8 +65,8 @@ Arms::Arms(Warrior* pchar) :
 
     QMap<QString, Talent*> tier5 {{"5LL", new AxeSpecialization(pchar, this)},
                                   {"5ML", new Talent(pchar, this, "Sweeping Strikes", "5ML", "Assets/ability/Ability_rogue_slicedice.png", 1, "Your next 5 melee attacks strike an additional nearby opponent.", QVector<QPair<unsigned, unsigned>>{})},
-                                  {"5MR", new Talent(pchar, this, "Mace Specialization", "5MR", "Assets/items/Inv_mace_01.png", 5, "Gives you a %1% chance to stun your target for 3 sec with a Mace.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
-                                  {"5RR", new SwordSpecializationTalent(pchar, this)}};
+                                  {"5MR", new Talent(pchar, this, "Mace Specialization", "5MR", "Assets/items/Inv_mace_01.png", 5, "Gives you a %1% chance to stun your target for 3 sec with a Mace.", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
+    add_sword_specialization(tier5);
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6LL", new PolearmSpecialization(pchar, this)},
@@ -150,6 +149,15 @@ void Arms::add_deep_wounds(QMap<QString, Talent*>& talent_tier) {
     Talent* talent = new Talent(warr, this, "Deep Wounds", "3MR",
                                 "Assets/ability/Ability_backstab.png", 3, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Deep Wounds")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Arms::add_sword_specialization(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(warr, "Sword Specialization", "5RR", "Assets/items/Inv_sword_27.png", 5,
+                                    "Gives you a %1% chance to get an extra attack on the same target after dealing damage with your Sword.",
+                                    QVector<QPair<unsigned, unsigned>>{{1, 1}}, {}, {},
+                                    QVector<Proc*>{spells->get_sword_spec()});
 
     add_talent_to_tier(talent_tier, talent);
 }

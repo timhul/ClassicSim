@@ -28,10 +28,4 @@ private:
 
     void test_mh_proc_conditions_fulfilled_if_using_2h_sword();
     void test_mh_proc_conditions_not_fulfilled_if_using_other_types_of_2h();
-
-    void given_1_of_5_sword_spec();
-    void given_2_of_5_sword_pec();
-    void given_3_of_5_sword_spec();
-    void given_4_of_5_sword_spec();
-    void given_5_of_5_sword_spec();
 };

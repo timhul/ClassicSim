@@ -20,4 +20,5 @@ private:
     void add_improved_overpower(QMap<QString, Talent*>& talent_tier);
     void add_anger_management(QMap<QString, Talent*>& talent_tier);
     void add_deep_wounds(QMap<QString, Talent*>& talent_tier);
+    void add_sword_specialization(QMap<QString, Talent*>& talent_tier);
 };

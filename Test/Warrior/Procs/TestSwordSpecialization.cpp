@@ -1,11 +1,11 @@
 #include "TestSwordSpecialization.h"
 
+#include "Arms.h"
 #include "CharacterStats.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
 #include "ProcInfo.h"
 #include "SwordSpecialization.h"
-#include "SwordSpecializationTalent.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 #include "Weapon.h"
@@ -69,68 +69,33 @@ void TestSwordSpecialization::test_name_correct() {
 }
 
 void TestSwordSpecialization::test_proc_range_for_1_of_5_sword_spec() {
-    given_1_of_5_sword_spec();
+    given_talent_rank(Arms(warrior), "Sword Specialization", 1);
 
     then_proc_range_is(sword_spec(), 100);
 }
 
 void TestSwordSpecialization::test_proc_range_for_2_of_5_sword_spec() {
-    given_2_of_5_sword_pec();
+    given_talent_rank(Arms(warrior), "Sword Specialization", 2);
 
     then_proc_range_is(sword_spec(), 200);
 }
 
 void TestSwordSpecialization::test_proc_range_for_3_of_5_sword_spec() {
-    given_3_of_5_sword_spec();
+    given_talent_rank(Arms(warrior), "Sword Specialization", 3);
 
     then_proc_range_is(sword_spec(), 300);
 }
 
 void TestSwordSpecialization::test_proc_range_for_4_of_5_sword_spec() {
-    given_4_of_5_sword_spec();
+    given_talent_rank(Arms(warrior), "Sword Specialization", 4);
 
     then_proc_range_is(sword_spec(), 400);
 }
 
 void TestSwordSpecialization::test_proc_range_for_5_of_5_sword_spec() {
-    given_5_of_5_sword_spec();
+    given_talent_rank(Arms(warrior), "Sword Specialization", 5);
 
     then_proc_range_is(sword_spec(), 500);
-}
-
-void TestSwordSpecialization::given_1_of_5_sword_spec() {
-    SwordSpecializationTalent spec(warrior, nullptr);
-    assert(spec.increment_rank());
-}
-
-void TestSwordSpecialization::given_2_of_5_sword_pec() {
-    SwordSpecializationTalent spec(warrior, nullptr);
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-}
-
-void TestSwordSpecialization::given_3_of_5_sword_spec() {
-    SwordSpecializationTalent spec(warrior, nullptr);
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-}
-
-void TestSwordSpecialization::given_4_of_5_sword_spec() {
-    SwordSpecializationTalent spec(warrior, nullptr);
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-}
-
-void TestSwordSpecialization::given_5_of_5_sword_spec() {
-    SwordSpecializationTalent spec(warrior, nullptr);
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
-    assert(spec.increment_rank());
 }
 
 void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_in_mh() {
