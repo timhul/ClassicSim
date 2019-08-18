@@ -965,5 +965,6 @@
         <file>QML/Assets/ability/Ability_druid_catform.png</file>
         <file>QML/Assets/ability/Ability_racial_bearform.png</file>
         <file>QML/Assets/items/Inv_relics_totemofrage.png</file>
+        <file>QML/Assets/items/Inv_helmet_18.png</file>
     </qresource>
 </RCC>

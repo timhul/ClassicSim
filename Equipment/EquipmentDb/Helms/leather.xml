@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="9375" phase="1">
+		<info name="Expert Goldminer's Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="33" item_lvl="38" quality="RARE" boe="yes" icon="Inv_helmet_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="95"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="AGILITY" value="5"/>
+			<stat type="AXE_SKILL" value="7"/>
+		</stats>
+		<source>
+			Drops from Digmaster Shovelphlange in Loch Modan.
+		</source>
+	</item>
+
 	<item id="8345" phase="1">
 		<info name="Wolfshead Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="40" item_lvl="45" quality="RARE" boe="yes" icon="Inv_helmet_04.png"/>
 		<class_restriction class="DRUID"/>
