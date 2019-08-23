@@ -88,13 +88,6 @@
 		spell "Mortal Strike" greater 1.5
 	</cast_if>
 
-	<cast_if name="Slam">
-		variable "time_since_swing" less 0.3
-		and spell "Whirlwind" greater 1.5
-		and resource "Rage" greater 45
-		and buff_duration "Overpower" is false
-	</cast_if>
-
 	<!-- Special heroic strike usage: attempt to dump rage when Overpower is up. -->
 	<cast_if name="Heroic Strike">
 		variable "time_remaining_execute" greater 3
@@ -102,6 +95,10 @@
 		and buff_duration "Overpower" greater 3
 		and buff_duration "Battle Stance" is false
 		and spell "Mainhand Attack" less 1.5
+	</cast_if>
+
+	<cast_if name="Heroic Strike">
+		resource "Rage" greater 65
 	</cast_if>
 
 	<!-- Switch to Battle Stance -->
