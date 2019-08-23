@@ -29,7 +29,7 @@ public:
         ByMaxDPR,
         ByMinDPET,
         ByAvgDPET,
-        ByMaxDPET
+        ByMaxDPET,
     };
     Q_ENUMS(Methods)
 };

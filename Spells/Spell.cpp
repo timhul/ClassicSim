@@ -155,10 +155,6 @@ void Spell::increment_full_block() {
     statistics_spell->increment_full_block();
 }
 
-void Spell::add_partial_resist_dmg(const int damage, const double resource_cost, const double execution_time) {
-    statistics_spell->add_partial_resist_dmg(damage, resource_cost, execution_time);
-}
-
 void Spell::add_partial_block_dmg(const int damage, const double resource_cost, const double execution_time) {
     statistics_spell->add_partial_block_dmg(damage, resource_cost, execution_time);
 }
@@ -175,8 +171,16 @@ void Spell::add_hit_dmg(const int damage, const double resource_cost, const doub
     statistics_spell->add_hit_dmg(damage, resource_cost, execution_time);
 }
 
+void Spell::add_spell_hit_dmg(const int damage, const double resource_cost, const double execution_time, const int resist_result) {
+    statistics_spell->add_spell_hit_dmg(damage, resource_cost, execution_time, resist_result);
+}
+
 void Spell::add_crit_dmg(const int damage, const double resource_cost, const double execution_time) {
     statistics_spell->add_crit_dmg(damage, resource_cost, execution_time);
+}
+
+void Spell::add_spell_crit_dmg(const int damage, const double resource_cost, const double execution_time, const int resist_result) {
+    statistics_spell->add_spell_crit_dmg(damage, resource_cost, execution_time, resist_result);
 }
 
 double Spell::damage_after_modifiers(const double damage) const {

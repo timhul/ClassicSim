@@ -398,6 +398,12 @@ Rectangle {
                 dodgepercent: _dodgepercent
                 numparries: _numparries
                 parrypercent: _parrypercent
+                numpartial25: _numpartial25
+                partial25percent: _partial25percent
+                numpartial50: _numpartial50
+                partial50percent: _partial50percent
+                numpartial75: _numpartial75
+                partial75percent: _partial75percent
             }
         }
     }

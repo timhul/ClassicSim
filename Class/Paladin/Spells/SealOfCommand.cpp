@@ -54,7 +54,7 @@ bool SealOfCommand::proc_is_in_progress() const {
 
 void SealOfCommand::judge_effect() {
     const int hit_roll = roll->get_ranged_ability_result(pchar->get_ranged_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
-    const int resist_roll = roll->get_spell_resist_result(MagicSchool::Holy);
+    int resist_roll = roll->get_spell_resist_result(MagicSchool::Holy);
 
     if (hit_roll == PhysicalAttackResult::MISS) {
         return increment_full_resist();
@@ -63,31 +63,20 @@ void SealOfCommand::judge_effect() {
     double damage_dealt = random->get_roll() + pchar->get_stats()->get_spell_damage(MagicSchool::Holy) * 0.43;
     damage_dealt *= pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
 
-    double resist_mod = 1.0;
     switch (resist_roll) {
-    case MagicResistResult::NO_RESIST:
-        break;
-    case MagicResistResult::PARTIAL_RESIST_25:
-        resist_mod = 0.75;
-        break;
-    case MagicResistResult::PARTIAL_RESIST_50:
-        resist_mod = 0.5;
-        break;
     case MagicResistResult::FULL_RESIST:
-    case MagicResistResult::PARTIAL_RESIST_75:
-        resist_mod = 0.25;
+        resist_roll = MagicResistResult::PARTIAL_RESIST_75;
         break;
-    default:
-        check(false, "SealOfCommandProc::proc_effect reached end of switch");
     }
+    const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), get_resource_cost(), 0);
+        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), get_resource_cost(), 0, resist_roll);
     }
     else {
         pchar->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), get_resource_cost(), 0);
+        add_spell_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), get_resource_cost(), 0, resist_roll);
     }
 }
 
@@ -116,24 +105,13 @@ void SealOfCommand::run_proc() {
     double damage_dealt = (pchar->get_random_normalized_mh_dmg() + pchar->get_stats()->get_spell_damage(MagicSchool::Holy) * 0.2) * 0.7;
     damage_dealt *= pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
 
-    const int resist_result = roll->get_spell_resist_result(MagicSchool::Holy);
-    double resist_mod = 1.0;
+    int resist_result = roll->get_spell_resist_result(MagicSchool::Holy);
     switch (resist_result) {
-    case MagicResistResult::NO_RESIST:
-        break;
-    case MagicResistResult::PARTIAL_RESIST_25:
-        resist_mod = 0.75;
-        break;
-    case MagicResistResult::PARTIAL_RESIST_50:
-        resist_mod = 0.5;
-        break;
     case MagicResistResult::FULL_RESIST:
-    case MagicResistResult::PARTIAL_RESIST_75:
-        resist_mod = 0.25;
+        resist_result = MagicResistResult::PARTIAL_RESIST_75;
         break;
-    default:
-        check(false, "SealOfCommandProc::proc_effect reached end of switch");
     }
+    const double resist_mod = get_partial_resist_dmg_modifier(resist_result);
 
     damage_dealt *= resist_mod;
 
@@ -142,10 +120,10 @@ void SealOfCommand::run_proc() {
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_melee_ability_crit_dmg_mod();
         pchar->melee_mh_yellow_critical_effect();
-        return add_crit_dmg(static_cast<int>(round(damage_dealt)), 0, pchar->global_cooldown());
+        return add_spell_crit_dmg(static_cast<int>(round(damage_dealt)), 0, pchar->global_cooldown(), resist_result);
     }
     pchar->melee_mh_yellow_hit_effect();
-    return add_hit_dmg(static_cast<int>(round(damage_dealt)), 0, pchar->global_cooldown());
+    return add_spell_hit_dmg(static_cast<int>(round(damage_dealt)), 0, pchar->global_cooldown(), resist_result);
 }
 
 void SealOfCommand::prepare_set_of_combat_iterations_spell_specific() {

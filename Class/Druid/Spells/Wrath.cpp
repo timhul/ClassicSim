@@ -113,12 +113,12 @@ void Wrath::complete_cast_effect() {
         pchar->spell_critical_effect(MagicSchool::Nature);
         const double spell_crit_dmg_mod = 1 + (pchar->get_stats()->get_spell_crit_dmg_mod() - 1) * vengeance_crit_damage_bonus;
         damage_dealt = round(damage_dealt * spell_crit_dmg_mod);
-        add_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0);
+        add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
     }
     else {
         pchar->spell_hit_effect(MagicSchool::Nature);
         damage_dealt = round(damage_dealt);
-        add_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0);
+        add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
     }
 }
 

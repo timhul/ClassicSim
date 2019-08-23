@@ -23,6 +23,12 @@ bool dodge_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool num_dodges(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool parry_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool num_parries(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool partial_25_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_partial_25(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool partial_50_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_partial_50(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool partial_75_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_partial_75(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool min_hit(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool avg_hit(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool max_hit(StatisticsSpell* lhs, StatisticsSpell* rhs);
@@ -47,15 +53,20 @@ public:
         Dodge,
         Parry,
         FullBlock,
-        PartialResist,
+        PartialResist25,
+        PartialResist50,
+        PartialResist75,
+        PartialResistCrit25,
+        PartialResistCrit50,
+        PartialResistCrit75,
         PartialBlock,
         PartialBlockCrit,
         Glancing,
         Hit,
-        Crit
+        Crit,
     };
 
-    StatisticsSpell(QString  name, QString  icon);
+    StatisticsSpell(QString name, QString icon);
     ~StatisticsSpell();
 
     void reset();
@@ -70,7 +81,9 @@ public:
     void increment_parry();
     void increment_full_block();
 
-    void increment_partial_resist();
+    void increment_partial_resist25();
+    void increment_partial_resist50();
+    void increment_partial_resist75();
     void increment_partial_block();
     void increment_partial_block_crit();
 
@@ -78,12 +91,13 @@ public:
     void increment_hit();
     void increment_crit();
 
-    void add_partial_resist_dmg(const int dmg, const double resource_cost, const double execution_time);
     void add_partial_block_dmg(const int dmg, const double resource_cost, const double execution_time);
     void add_partial_block_crit_dmg(const int dmg, const double resource_cost, const double execution_time);
     void add_glancing_dmg(const int dmg, const double resource_cost, const double execution_time);
     void add_hit_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_spell_hit_dmg(const int dmg, const double resource_cost, const double execution_time, const int resist_result);
     void add_crit_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_spell_crit_dmg(const int dmg, const double resource_cost, const double execution_time, const int resist_result);
 
     int get_misses() const;
     int get_full_resists() const;
@@ -91,15 +105,21 @@ public:
     int get_parries() const;
     int get_full_blocks() const;
 
-    int get_partial_resist() const;
+    int get_partial_resists_25() const;
+    int get_partial_resists_50() const;
+    int get_partial_resists_75() const;
     int get_partial_blocks() const;
     int get_partial_block_crits() const;
 
     int get_glances() const;
     int get_hits() const;
+    int get_hits_including_partial_resists() const;
     int get_crits() const;
+    int get_crits_including_partial_resists() const;
 
-    int get_partial_resist_dmg() const;
+    int get_partial_resist25_dmg() const;
+    int get_partial_resist50_dmg() const;
+    int get_partial_resist75_dmg() const;
     int get_partial_block_dmg() const;
     int get_partial_block_crit_dmg() const;
 
@@ -150,7 +170,8 @@ private:
     double avg_dpet;
     bool dpet_set;
 
-    int get_attempts(const Outcome) const;
+    int get_attempts(const Outcome outcome) const;
+    int get_attempts(const QSet<Outcome>& outcomes) const;
     int get_dmg(const Outcome) const;
     int get_min_dmg(const Outcome) const;
     int get_max_dmg(const Outcome) const;

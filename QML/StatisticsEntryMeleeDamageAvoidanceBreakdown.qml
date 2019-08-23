@@ -23,6 +23,12 @@ Rectangle {
     property string dodgepercent
     property string numparries
     property string parrypercent
+    property string numpartial25
+    property string partial25percent
+    property string numpartial50
+    property string partial50percent
+    property string numpartial75
+    property string partial75percent
 
     Row {
         anchors.fill: parent
@@ -171,6 +177,60 @@ Rectangle {
 
             TextSmall {
                 text: parrypercent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: numpartial25
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: partial25percent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: numpartial50
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: partial50percent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: numpartial75
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: partial75percent
             }
         }
     }

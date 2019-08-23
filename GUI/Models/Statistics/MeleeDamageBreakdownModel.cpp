@@ -187,13 +187,13 @@ QVariant MeleeDamageBreakdownModel::data(const QModelIndex & index, int role) co
     if (role == MeleeDamageBreakdownSorting::ByMinHit)
         return spell_stat->get_min_hit_dmg();
     if (role == MeleeDamageBreakdownSorting::ByAvgHit)
-        return QString::number(double(spell_stat->get_hit_dmg()) / spell_stat->get_hits(), 'f', 1);
+        return QString::number(static_cast<double>(spell_stat->get_hit_dmg()) / spell_stat->get_hits(), 'f', 1);
     if (role == MeleeDamageBreakdownSorting::ByMaxHit)
         return spell_stat->get_max_hit_dmg();
     if (role == MeleeDamageBreakdownSorting::ByMinCrit)
         return spell_stat->get_min_crit_dmg();
     if (role == MeleeDamageBreakdownSorting::ByAvgCrit)
-        return QString::number(double(spell_stat->get_crit_dmg()) / spell_stat->get_crits(), 'f', 1);
+        return QString::number(static_cast<double>(spell_stat->get_crit_dmg()) / spell_stat->get_crits(), 'f', 1);
     if (role == MeleeDamageBreakdownSorting::ByMaxCrit)
         return spell_stat->get_max_crit_dmg();
     if (role == MeleeDamageBreakdownSorting::ByMinGlance)
@@ -201,7 +201,7 @@ QVariant MeleeDamageBreakdownModel::data(const QModelIndex & index, int role) co
     if (role == MeleeDamageBreakdownSorting::ByAvgGlance) {
         if (spell_stat->get_glances() == 0)
             return "0";
-        return QString::number(double(spell_stat->get_glancing_dmg()) / spell_stat->get_glances(), 'f', 1);
+        return QString::number(static_cast<double>(spell_stat->get_glancing_dmg()) / spell_stat->get_glances(), 'f', 1);
     }
     if (role == MeleeDamageBreakdownSorting::ByMaxGlance)
         return spell_stat->get_max_glancing_dmg();

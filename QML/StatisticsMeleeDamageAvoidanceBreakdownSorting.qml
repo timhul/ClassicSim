@@ -255,5 +255,107 @@ RectangleBorders {
                 text: "Parry %"
             }
         }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumPartial25
+
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
+
+            TextSmall {
+                text: "Num R25%"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByPartial25Percent
+
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
+
+            TextSmall {
+                text: "R25% %"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumPartial50
+
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
+
+            TextSmall {
+                text: "Num R50%"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByPartial50Percent
+
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
+
+            TextSmall {
+                text: "R50% %"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumPartial75
+
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
+
+            TextSmall {
+                text: "Num R75%"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByPartial75Percent
+
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
+
+            TextSmall {
+                text: "R75% %"
+            }
+        }
     }
 }

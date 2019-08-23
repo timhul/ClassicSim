@@ -25,7 +25,13 @@ public:
         ByNumDodges,
         ByDodgePercent,
         ByNumParries,
-        ByParryPercent
+        ByParryPercent,
+        ByNumPartial25,
+        ByPartial25Percent,
+        ByNumPartial50,
+        ByPartial50Percent,
+        ByNumPartial75,
+        ByPartial75Percent,
     };
     Q_ENUMS(Methods)
 };

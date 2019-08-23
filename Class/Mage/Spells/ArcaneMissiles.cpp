@@ -147,12 +147,12 @@ void ArcaneMissiles::tick_effect() {
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(MagicSchool::Arcane);
         damage_dealt = round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod());
-        add_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0);
+        add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
     }
     else {
         pchar->spell_hit_effect(MagicSchool::Arcane);
         damage_dealt = round(damage_dealt);
-        add_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0);
+        add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
     }
 
     mage_spells->roll_clearcasting();

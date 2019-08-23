@@ -23,6 +23,12 @@ MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCru
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByDodgePercent, SortDirection::Forward);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumParries, SortDirection::Forward);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByParryPercent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumPartial25, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByPartial25Percent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumPartial50, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByPartial50Percent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumPartial75, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByPartial75Percent, SortDirection::Forward);
 }
 
 MeleeDamageAvoidanceBreakdownModel::~MeleeDamageAvoidanceBreakdownModel() {
@@ -90,6 +96,30 @@ void MeleeDamageAvoidanceBreakdownModel::selectSort(const int method) {
         break;
     case MeleeDamageAvoidanceBreakdownSorting::Methods::ByParryPercent:
         std::sort(spell_stats.begin(), spell_stats.end(), parry_percent);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumPartial25:
+        std::sort(spell_stats.begin(), spell_stats.end(), num_partial_25);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByPartial25Percent:
+        std::sort(spell_stats.begin(), spell_stats.end(), partial_25_percent);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumPartial50:
+        std::sort(spell_stats.begin(), spell_stats.end(), num_partial_50);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByPartial50Percent:
+        std::sort(spell_stats.begin(), spell_stats.end(), partial_50_percent);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumPartial75:
+        std::sort(spell_stats.begin(), spell_stats.end(), num_partial_75);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByPartial75Percent:
+        std::sort(spell_stats.begin(), spell_stats.end(), partial_75_percent);
         select_new_method(sorting_method);
         break;
     }
@@ -166,30 +196,51 @@ QVariant MeleeDamageAvoidanceBreakdownModel::data(const QModelIndex & index, int
         return spell_stat->get_icon();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByTotalAttempts)
         return spell_stat->get_total_attempts_made();
+
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumHits)
-        return spell_stat->get_hits();
+        return spell_stat->get_hits_including_partial_resists();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByHitPercent)
-        return QString("%1 %").arg(QString::number(double(spell_stat->get_hits()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_hits_including_partial_resists()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumCrits)
-        return spell_stat->get_crits();
+        return spell_stat->get_crits_including_partial_resists();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByCritPercent)
-        return QString("%1 %").arg(QString::number(double(spell_stat->get_crits()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_crits_including_partial_resists()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumGlances)
         return spell_stat->get_glances();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByGlancePercent)
-        return QString("%1 %").arg(QString::number(double(spell_stat->get_glances()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_glances()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumMisses)
         return spell_stat->get_misses();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByMissPercent)
-        return QString("%1 %").arg(QString::number(double(spell_stat->get_misses()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_misses()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumDodges)
         return spell_stat->get_dodges();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByDodgePercent)
-        return QString("%1 %").arg(QString::number(double(spell_stat->get_dodges()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_dodges()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumParries)
         return spell_stat->get_parries();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByParryPercent)
-        return QString("%1 %").arg(QString::number(double(spell_stat->get_parries()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_parries()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
+    if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumPartial25)
+        return spell_stat->get_partial_resists_25();
+    if (role == MeleeDamageAvoidanceBreakdownSorting::ByPartial25Percent)
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_partial_resists_25()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
+    if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumPartial50)
+        return spell_stat->get_partial_resists_50();
+    if (role == MeleeDamageAvoidanceBreakdownSorting::ByPartial50Percent)
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_partial_resists_50()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+
+    if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumPartial75)
+        return spell_stat->get_partial_resists_75();
+    if (role == MeleeDamageAvoidanceBreakdownSorting::ByPartial75Percent)
+        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_partial_resists_75()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     return QVariant();
 }
@@ -211,5 +262,11 @@ QHash<int, QByteArray> MeleeDamageAvoidanceBreakdownModel::roleNames() const {
     roles[MeleeDamageAvoidanceBreakdownSorting::ByDodgePercent] = "_dodgepercent";
     roles[MeleeDamageAvoidanceBreakdownSorting::ByNumParries] = "_numparries";
     roles[MeleeDamageAvoidanceBreakdownSorting::ByParryPercent] = "_parrypercent";
+    roles[MeleeDamageAvoidanceBreakdownSorting::ByNumPartial25] = "_numpartial25";
+    roles[MeleeDamageAvoidanceBreakdownSorting::ByPartial25Percent] = "_partial25percent";
+    roles[MeleeDamageAvoidanceBreakdownSorting::ByNumPartial50] = "_numpartial50";
+    roles[MeleeDamageAvoidanceBreakdownSorting::ByPartial50Percent] = "_partial50percent";
+    roles[MeleeDamageAvoidanceBreakdownSorting::ByNumPartial75] = "_numpartial75";
+    roles[MeleeDamageAvoidanceBreakdownSorting::ByPartial75Percent] = "_partial75percent";
     return roles;
 }

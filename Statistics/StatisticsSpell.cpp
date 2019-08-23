@@ -2,6 +2,8 @@
 
 #include <utility>
 
+#include "MagicAttackResult.h"
+#include "Utils/Check.h"
 #include "Utils/CompareDouble.h"
 
 bool name(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -23,8 +25,8 @@ bool total_attempts(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool hit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_hit = double(lhs->get_hits()) / lhs->get_total_attempts_made();
-    auto rhs_hit = double(rhs->get_hits()) / rhs->get_total_attempts_made();
+    auto lhs_hit = static_cast<double>(lhs->get_hits()) / lhs->get_total_attempts_made();
+    auto rhs_hit = static_cast<double>(rhs->get_hits()) / rhs->get_total_attempts_made();
 
     return lhs_hit > rhs_hit;
 }
@@ -37,8 +39,8 @@ bool num_hits(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool crit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_crit = double(lhs->get_crits()) / lhs->get_total_attempts_made();
-    auto rhs_crit = double(rhs->get_crits()) / rhs->get_total_attempts_made();
+    auto lhs_crit = static_cast<double>(lhs->get_crits()) / lhs->get_total_attempts_made();
+    auto rhs_crit = static_cast<double>(rhs->get_crits()) / rhs->get_total_attempts_made();
 
     return lhs_crit > rhs_crit;
 }
@@ -51,8 +53,8 @@ bool num_crits(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool glance_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_glance = double(lhs->get_glances()) / lhs->get_total_attempts_made();
-    auto rhs_glance = double(rhs->get_glances()) / rhs->get_total_attempts_made();
+    auto lhs_glance = static_cast<double>(lhs->get_glances()) / lhs->get_total_attempts_made();
+    auto rhs_glance = static_cast<double>(rhs->get_glances()) / rhs->get_total_attempts_made();
 
     return lhs_glance > rhs_glance;
 }
@@ -65,8 +67,8 @@ bool num_glances(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool miss_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_miss = double(lhs->get_misses()) / lhs->get_total_attempts_made();
-    auto rhs_miss = double(rhs->get_misses()) / rhs->get_total_attempts_made();
+    auto lhs_miss = static_cast<double>(lhs->get_misses()) / lhs->get_total_attempts_made();
+    auto rhs_miss = static_cast<double>(rhs->get_misses()) / rhs->get_total_attempts_made();
 
     return lhs_miss > rhs_miss;
 }
@@ -79,8 +81,8 @@ bool num_misses(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool dodge_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_dodge = double(lhs->get_dodges()) / lhs->get_total_attempts_made();
-    auto rhs_dodge = double(rhs->get_dodges()) / rhs->get_total_attempts_made();
+    auto lhs_dodge = static_cast<double>(lhs->get_dodges()) / lhs->get_total_attempts_made();
+    auto rhs_dodge = static_cast<double>(rhs->get_dodges()) / rhs->get_total_attempts_made();
 
     return lhs_dodge > rhs_dodge;
 }
@@ -93,8 +95,8 @@ bool num_dodges(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool parry_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_parry = double(lhs->get_parries()) / lhs->get_total_attempts_made();
-    auto rhs_parry = double(rhs->get_parries()) / rhs->get_total_attempts_made();
+    auto lhs_parry = static_cast<double>(lhs->get_parries()) / lhs->get_total_attempts_made();
+    auto rhs_parry = static_cast<double>(rhs->get_parries()) / rhs->get_total_attempts_made();
 
     return lhs_parry > rhs_parry;
 }
@@ -106,12 +108,54 @@ bool num_parries(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs_parry == rhs_parry ? name(lhs, rhs) : lhs_parry > rhs_parry;
 }
 
+bool partial_25_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_partial_25 = static_cast<double>(lhs->get_partial_resists_25()) / lhs->get_total_attempts_made();
+    auto rhs_partial_25 = static_cast<double>(rhs->get_partial_resists_25()) / rhs->get_total_attempts_made();
+
+    return lhs_partial_25 > rhs_partial_25;
+}
+
+bool num_partial_25(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_partial_25 = lhs->get_partial_resists_25();
+    auto rhs_partial_25 = rhs->get_partial_resists_25();
+
+    return lhs_partial_25 == rhs_partial_25 ? name(lhs, rhs) : lhs_partial_25 > rhs_partial_25;
+}
+
+bool partial_50_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_partial_50 = static_cast<double>(lhs->get_partial_resists_50()) / lhs->get_total_attempts_made();
+    auto rhs_partial_50 = static_cast<double>(rhs->get_partial_resists_50()) / rhs->get_total_attempts_made();
+
+    return lhs_partial_50 > rhs_partial_50;
+}
+
+bool num_partial_50(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_partial_50 = lhs->get_partial_resists_50();
+    auto rhs_partial_50 = rhs->get_partial_resists_50();
+
+    return lhs_partial_50 == rhs_partial_50 ? name(lhs, rhs) : lhs_partial_50 > rhs_partial_50;
+}
+
+bool partial_75_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_partial_75 = static_cast<double>(lhs->get_partial_resists_75()) / lhs->get_total_attempts_made();
+    auto rhs_partial_75 = static_cast<double>(rhs->get_partial_resists_75()) / rhs->get_total_attempts_made();
+
+    return lhs_partial_75 > rhs_partial_75;
+}
+
+bool num_partial_75(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_partial_75 = lhs->get_partial_resists_75();
+    auto rhs_partial_75 = rhs->get_partial_resists_75();
+
+    return lhs_partial_75 == rhs_partial_75 ? name(lhs, rhs) : lhs_partial_75 > rhs_partial_75;
+}
+
 bool min_hit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_min_hit_dmg() > rhs->get_min_hit_dmg();
 }
 
 bool avg_hit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return (double(lhs->get_hit_dmg()) / lhs->get_hits()) > (double(rhs->get_hit_dmg()) / rhs->get_hits());
+    return (static_cast<double>(lhs->get_hit_dmg()) / lhs->get_hits()) > (static_cast<double>(rhs->get_hit_dmg()) / rhs->get_hits());
 }
 
 bool max_hit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -123,7 +167,7 @@ bool min_crit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool avg_crit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return (double(lhs->get_crit_dmg()) / lhs->get_crits()) > (double(rhs->get_crit_dmg()) / rhs->get_crits());
+    return (static_cast<double>(lhs->get_crit_dmg()) / lhs->get_crits()) > (static_cast<double>(rhs->get_crit_dmg()) / rhs->get_crits());
 }
 
 bool max_crit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -135,7 +179,7 @@ bool min_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool avg_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return (double(lhs->get_glancing_dmg()) / lhs->get_glances()) > (double(rhs->get_glancing_dmg()) / rhs->get_glances());
+    return (static_cast<double>(lhs->get_glancing_dmg()) / lhs->get_glances()) > (static_cast<double>(rhs->get_glancing_dmg()) / rhs->get_glances());
 }
 
 bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -185,7 +229,12 @@ StatisticsSpell::StatisticsSpell(QString  name, QString  icon):
                                                 Outcome::Dodge,
                                                 Outcome::Parry,
                                                 Outcome::FullBlock,
-                                                Outcome::PartialResist,
+                                                Outcome::PartialResist25,
+                                                Outcome::PartialResist50,
+                                                Outcome::PartialResist75,
+                                                Outcome::PartialResistCrit25,
+                                                Outcome::PartialResistCrit50,
+                                                Outcome::PartialResistCrit75,
                                                 Outcome::PartialBlock,
                                                 Outcome::PartialBlockCrit,
                                                 Outcome::Glancing,
@@ -193,7 +242,12 @@ StatisticsSpell::StatisticsSpell(QString  name, QString  icon):
                                                 Outcome::Crit
                                             })),
     possible_success_outcomes(QSet<Outcome>({
-                                                Outcome::PartialResist,
+                                                Outcome::PartialResist25,
+                                                Outcome::PartialResist50,
+                                                Outcome::PartialResist75,
+                                                Outcome::PartialResistCrit25,
+                                                Outcome::PartialResistCrit50,
+                                                Outcome::PartialResistCrit75,
                                                 Outcome::PartialBlock,
                                                 Outcome::PartialBlockCrit,
                                                 Outcome::Glancing,
@@ -246,8 +300,16 @@ void StatisticsSpell::increment_full_block() {
     increment(Outcome::FullBlock);
 }
 
-void StatisticsSpell::increment_partial_resist() {
-    increment(Outcome::PartialResist);
+void StatisticsSpell::increment_partial_resist25() {
+    increment(Outcome::PartialResist25);
+}
+
+void StatisticsSpell::increment_partial_resist50() {
+    increment(Outcome::PartialResist50);
+}
+
+void StatisticsSpell::increment_partial_resist75() {
+    increment(Outcome::PartialResist75);
 }
 
 void StatisticsSpell::increment_partial_block() {
@@ -319,11 +381,6 @@ void StatisticsSpell::add_dpet(const int dmg, const double execution_time) {
     avg_dpet = avg_dpet + (damage_per_execution_time - avg_dpet) / damage_dealt_successes;
 }
 
-void StatisticsSpell::add_partial_resist_dmg(const int dmg, const double resource_cost, const double execution_time) {
-    increment_partial_resist();
-    add_dmg(Outcome::PartialResist, dmg, resource_cost, execution_time);
-}
-
 void StatisticsSpell::add_partial_block_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_partial_block();
     add_dmg(Outcome::PartialBlock, dmg, resource_cost, execution_time);
@@ -344,16 +401,68 @@ void StatisticsSpell::add_hit_dmg(const int dmg, const double resource_cost, con
     add_dmg(Outcome::Hit, dmg, resource_cost, execution_time);
 }
 
+void StatisticsSpell::add_spell_hit_dmg(const int dmg, const double resource_cost, const double execution_time, const int resist_result) {
+    switch (resist_result) {
+    case MagicResistResult::NO_RESIST:
+        increment_hit();
+        add_dmg(Outcome::Hit, dmg, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_25:
+        increment(Outcome::PartialResist25);
+        add_dmg(Outcome::PartialResist25, dmg, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_50:
+        increment(Outcome::PartialResist50);
+        add_dmg(Outcome::PartialResist50, dmg, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_75:
+        increment(Outcome::PartialResist75);
+        add_dmg(Outcome::PartialResist75, dmg, resource_cost, execution_time);
+        break;
+    default:
+        check(false, "StatisticsSpell::add_spell_hit_dmg failed due to unhandled resist result");
+    }
+}
+
 void StatisticsSpell::add_crit_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_crit();
     add_dmg(Outcome::Crit, dmg, resource_cost, execution_time);
 }
 
-int StatisticsSpell::get_attempts(const Outcome outcome) const {
-    if (!attempts.contains(outcome))
-        return 0;
+void StatisticsSpell::add_spell_crit_dmg(const int dmg, const double resource_cost, const double execution_time, const int resist_result) {
+    switch (resist_result) {
+    case MagicResistResult::NO_RESIST:
+        increment_crit();
+        add_dmg(Outcome::Crit, dmg, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_25:
+        increment(Outcome::PartialResistCrit25);
+        add_dmg(Outcome::PartialResistCrit25, dmg, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_50:
+        increment(Outcome::PartialResistCrit50);
+        add_dmg(Outcome::PartialResistCrit50, dmg, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_75:
+        increment(Outcome::PartialResistCrit75);
+        add_dmg(Outcome::PartialResistCrit75, dmg, resource_cost, execution_time);
+        break;
+    default:
+        check(false, "StatisticsSpell::add_spell_crit_dmg failed due to unhandled resist result");
+    }
+}
 
+int StatisticsSpell::get_attempts(const Outcome outcome) const {
     return attempts[outcome];
+}
+
+int StatisticsSpell::get_attempts(const QSet<Outcome>& outcomes) const {
+    int sum = 0;
+
+    for (const auto & outcome : outcomes)
+        sum += get_attempts(outcome);
+
+    return sum;
 }
 
 int StatisticsSpell::get_misses() const {
@@ -376,8 +485,16 @@ int StatisticsSpell::get_full_blocks() const  {
     return get_attempts(Outcome::FullBlock);
 }
 
-int StatisticsSpell::get_partial_resist() const {
-    return get_attempts(Outcome::PartialResist);
+int StatisticsSpell::get_partial_resists_25() const {
+    return get_attempts({Outcome::PartialResist25, Outcome::PartialResistCrit25});
+}
+
+int StatisticsSpell::get_partial_resists_50() const {
+    return get_attempts({Outcome::PartialResist50, Outcome::PartialResistCrit50});
+}
+
+int StatisticsSpell::get_partial_resists_75() const {
+    return get_attempts({Outcome::PartialResist75, Outcome::PartialResistCrit75});
 }
 
 int StatisticsSpell::get_partial_blocks() const {
@@ -396,8 +513,16 @@ int StatisticsSpell::get_hits() const {
     return get_attempts(Outcome::Hit);
 }
 
+int StatisticsSpell::get_hits_including_partial_resists() const {
+    return get_attempts({Outcome::Hit, Outcome::PartialResist25, Outcome::PartialResist50, Outcome::PartialResist75});
+}
+
 int StatisticsSpell::get_crits() const  {
     return get_attempts(Outcome::Crit);
+}
+
+int StatisticsSpell::get_crits_including_partial_resists() const {
+    return get_attempts({Outcome::Crit, Outcome::PartialResistCrit25, Outcome::PartialResistCrit50, Outcome::PartialResistCrit75});
 }
 
 int StatisticsSpell::get_dmg(const Outcome outcome) const {
@@ -421,8 +546,16 @@ int StatisticsSpell::get_max_dmg(const Outcome outcome) const {
     return max_damage[outcome];
 }
 
-int StatisticsSpell::get_partial_resist_dmg() const {
-    return get_dmg(Outcome::PartialResist);
+int StatisticsSpell::get_partial_resist25_dmg() const {
+    return get_dmg(Outcome::PartialResist25);
+}
+
+int StatisticsSpell::get_partial_resist50_dmg() const {
+    return get_dmg(Outcome::PartialResist50);
+}
+
+int StatisticsSpell::get_partial_resist75_dmg() const {
+    return get_dmg(Outcome::PartialResist75);
 }
 
 int StatisticsSpell::get_partial_block_dmg() const {
