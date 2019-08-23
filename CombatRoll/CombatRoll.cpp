@@ -72,6 +72,9 @@ int CombatRoll::get_spell_ability_result(const MagicSchool school, const unsigne
 }
 
 int CombatRoll::get_spell_resist_result(const MagicSchool school) {
+    if (school == MagicSchool::Physical)
+        return MagicResistResult::NO_RESIST;
+
     const unsigned roll = random->get_roll();
 
     MagicAttackTable* attack_table = get_magic_attack_table(school);
