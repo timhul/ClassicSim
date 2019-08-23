@@ -1949,6 +1949,8 @@ void GUIControl::load_gui_settings() {
             activate_gui_setting(reader.name(), reader.readElementText().trimmed());
     }
 
+    equipment_db->set_content_phase(sim_settings->get_phase());
+
     if (current_char == nullptr)
         set_character(chars["Warrior"]);
 
