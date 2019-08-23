@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="12114" phase="1">
+		<info name="Nightfall Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="48" item_lvl="56" quality="UNCOMMON" boe="no" icon="Inv_gauntlets_17.png"/>
+		<stats>
+			<stat type="ARMOR" value="91"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STRENGTH" value="12"/>
+		</stats>
+		<source>
+			Quest reward. Requires Lord Incendius in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="21319" phase="1">
+		<info name="Gloves of the Pathfinder" type="LEATHER" slot="GLOVES" unique="no" req_lvl="45" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_gauntlets_21.png"/>
+		<mutex item_id="21318"/>
+		<mutex item_id="21320"/>
+		<mutex item_id="21322"/>
+		<stats>
+			<stat type="ARMOR" value="94"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="AGILITY" value="12"/>
+		</stats>
+		<source>
+			Quest reward. Trivial quest in Winterspring.
+		</source>
+	</item>
+
+	<item id="15708" phase="1">
+		<info name="Blight Leather Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="48" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_gauntlets_25.png"/>
+		<stats>
+			<stat type="ARMOR" value="94"/>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STRENGTH" value="8"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
+			Quest reward. Trivial quest in Felwood.
+		</source>
+	</item>
+
 	<item id="15063" phase="1">
 		<info name="Devilsaur Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_gauntlets_26.png"/>
 		<stats>
@@ -24,7 +64,7 @@
 			Drops from Skul in Stratholme.
 		</source>
 	</item>
-	
+
 	<item id="14640" phase="1">
 		<info name="Cadaverous Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
 		<stats>

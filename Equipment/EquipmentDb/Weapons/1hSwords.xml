@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="809" phase="1">
+		<info name="Bloodrazor" type="SWORD" slot="MH" unique="no" req_lvl="45" item_lvl="50" quality="EPIC" boe="yes" icon="Inv_sword_28.png"/>
+		<dmg_range min="70" max="130" speed="2.7"/>
+		<stats/>
+		<special_equip_effect>
+			Chance on hit: Wounds the target causing them to bleed for 120 damage over 30 sec.
+		</special_equip_effect>
+		<source>
+			World drop.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17705" phase="1">
-		<info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
+		<info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
 		<dmg_range min="66" max="124" speed="2.7"/>
 		<mutex item_id="17743"/>
 		<mutex item_id="17753"/>
@@ -13,6 +25,33 @@
 		</special_equip_effect>
 		<source>
 			Quest reward. Requires killing Princess Theradras in Maraudon.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="12535" phase="1">
+		<info name="Doomforged Straightedge" type="SWORD" slot="1H" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="yes" icon="Inv_sword_41.png"/>
+		<dmg_range min="47" max="89" speed="1.9"/>
+		<stats>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="ATTACK_POWER" value="12"/>
+		</stats>
+		<source>
+			Rare drop from trash mobs in Blackrock Depths.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="8190" phase="1">
+		<info name="Hanzo Sword" type="SWORD" slot="1H" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_sword_10.png"/>
+		<dmg_range min="38" max="71" speed="1.5"/>
+		<stats/>
+		<proc>
+			<spell name="PHYSICAL_ATTACK" min="75" max="75" instant="yes" rate="0.05633333" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Wounds the target for 75 damage.
+		</special_equip_effect>
+		<source>
+			World drop.
 		</source>
 	</melee_weapon>
 
@@ -29,6 +68,33 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="11817" phase="1">
+		<info name="Lord General's Sword" type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="no" icon="Inv_sword_25.png"/>
+		<dmg_range min="67" max="125" speed="2.6"/>
+		<proc>
+			<spell name="GENERIC_STAT_BUFF" type="ATTACK_POWER" amount="50" instant="yes" rate="0.08" duration="30" internal_cd="0"/>
+			<source proc_melee_weapon_side="true"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Increases attack power by 50 for 30 sec.
+		</special_equip_effect>
+		<source>
+			Drops from General Angerforge in Blackrock Depths.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13182" phase="1">
+		<info name="Phase Blade" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
+		<dmg_range min="55" max="103" speed="2.1"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="STRENGTH" value="7"/>
+		</stats>
+		<source>
+			Drops from Burning Felguard in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="13036" phase="1">
 		<info name="Assassination Blade" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_sword_42.png"/>
 		<dmg_range min="71" max="132" speed="2.7"/>
@@ -38,6 +104,21 @@
 		</stats>
 		<source>
 			World drop.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="14576" phase="1">
+		<info name="Ebon Hilt of Marduk" type="SWORD" slot="MH" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_sword_15.png"/>
+		<dmg_range min="73" max="137" speed="2.7"/>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="210" max="210" instant="yes" rate="0.08" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Corrupts the target, causing 210 damage over 3 sec.
+		</special_equip_effect>
+		<stats/>
+		<source>
+			Drops from Marduk Blackpool in Scholomance.
 		</source>
 	</melee_weapon>
 

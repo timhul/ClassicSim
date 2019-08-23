@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="13198" phase="1">
+		<info name="Hurd Smasher" type="FIST" slot="MH" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_gauntlets_11.png"/>
+		<dmg_range min="49" max="93" speed="1.8"/>
+		<stats/>
+		<special_equip_effect>
+			Chance on hit: Knocks target silly for 2 sec.
+		</special_equip_effect>
+		<source>
+			Drops from Ghok Bashguud in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18203" phase="2">
 		<info name="Eskhandar's Right Claw" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
 		<dmg_range min="50" max="94" speed="1.5"/>

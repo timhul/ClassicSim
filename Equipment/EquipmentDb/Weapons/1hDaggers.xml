@@ -12,6 +12,30 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="12582" phase="1">
+		<info name="Keris of Zul'Serak" type="DAGGER" slot="1H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_weapon_shortblade_12.png"/>
+		<dmg_range min="49" max="93" speed="1.8"/>
+		<stats/>
+		<special_equip_effect>
+			Chance on hit: Inflicts numbing pain that deals 10 Nature damage every 2 sec and increases time between target's attacks by 10% for 10 sec.
+		</special_equip_effect>
+		<source>
+			Drops from War Master Voone in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13218" phase="1">
+		<info name="Fang of the Crystal Spider" type="DAGGER" slot="1H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_shortblade_16.png"/>
+		<dmg_range min="45" max="84" speed="1.6"/>
+		<stats/>
+		<special_equip_effect>
+			Chance on hit: Slows target enemy's casting speed and increases the time between melee and ranged attacks by 10% for 10 sec.
+		</special_equip_effect>
+		<source>
+			Drops from Crystal Fang in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="5267" phase="1">
 		<info name="Scarlet Kris" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_03.png"/>
 		<dmg_range min="43" max="81" speed="1.5"/>

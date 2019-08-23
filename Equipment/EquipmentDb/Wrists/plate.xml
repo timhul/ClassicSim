@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<wrist id="15860" phase="1">
+		<info name="Blinkstrike Armguards" type="PLATE" slot="WRIST" unique="no" req_lvl="57" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_bracer_17.png"/>
+		<mutex item_id="15861"/>
+		<stats>
+			<stat type="ARMOR" value="249"/>
+			<stat type="STRENGTH" value="3"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Upper Blackrock Spire (UBRS).
+		</source>
+	</wrist>
+
 	<wrist id="12936" phase="1">
 		<info name="Battleborn Armbraces" type="PLATE" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
 		<stats>

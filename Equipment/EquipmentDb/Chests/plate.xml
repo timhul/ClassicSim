@@ -15,6 +15,19 @@
 		</source>
 	</item>
 
+	<item id="11678" phase="1">
+		<info name="Carapace of Anub'shiah" type="PLATE" slot="CHEST" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_chest_plate08.png"/>
+		<stats>
+			<stat type="ARMOR" value="577"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="STRENGTH" value="11"/>
+			<stat type="AGILITY" value="11"/>
+		</stats>
+		<source>
+			Drops from Anub'shiah in the Arena in Blackrock Depths.
+		</source>
+	</item>
+
 	<item id="16477" phase="2">
 		<info name="Field Marshal's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_plate03.png"/>
 		<class_restriction class="WARRIOR"/>

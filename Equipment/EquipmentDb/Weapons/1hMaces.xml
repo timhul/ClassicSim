@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="11805" phase="1">
+		<info name="Rubidium Hammer" type="MACE" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="no" icon="Inv_hammer_09.png"/>
+		<dmg_range min="51" max="96" speed="2.0"/>
+		<stats>
+			<stat type="ARMOR" value="120"/>
+			<stat type="STRENGTH" value="5"/>
+		</stats>
+		<source>
+			Drops from Bael'Gar in Blackrock Depths.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18044" phase="1">
+		<info name="Hurley's Tankard" type="MACE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_drink_04.png"/>
+		<dmg_range min="71" max="132" speed="2.7"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="AGILITY" value="5"/>
+		</stats>
+		<source>
+			Drops from Hurley Blackbreath in Blackrock Depths.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18671" phase="1">
+		<info name="Baron Charr's Sceptre" type="MACE" slot="MH" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_mace_08.png"/>
+		<dmg_range min="70" max="132" speed="2.6"/>
+		<proc>
+			<spell name="FIRE_ATTACK" min="35" max="35" instant="yes" rate="0.04" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Blasts a target for 35 Fire damage.
+		</special_equip_effect>
+		<source>
+			Drops from Baron Charr in Un'Goro Crater.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13204" phase="1">
+		<info name="Bashguuder" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_mace_15.png"/>
+		<dmg_range min="49" max="93" speed="1.8"/>
+		<proc>
+			<spell name="ARMOR_PENETRATION" value="200" max_stacks="3" duration="30" rate="0.04" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Puncture's target's armor lowering it by 200. Can be applied up to 3 times.
+		</special_equip_effect>
+		<source>
+			Drops from Ghok Bashguud in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13183" phase="1">
+		<info name="Venomspitter" type="MACE" slot="1H" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_wand_10.png"/>
+		<dmg_range min="52" max="98" speed="1.9"/>
+		<stats/>
+		<special_equip_effect>
+			Chance on hit: Poisons target for 7 Nature damage every 2 sec for 30 sec.
+		</special_equip_effect>
+		<source>
+			Drops from Mother Smolderweb in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="11684" phase="1">
 		<info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
 		<dmg_range min="73" max="136" speed="2.4"/>

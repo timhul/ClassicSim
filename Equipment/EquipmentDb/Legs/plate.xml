@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="17711" phase="1">
+		<info name="Elemental Rockridge Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="496"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+		Drops from Princess Theradras in Maraudon.
+		</source>
+	</item>
+
+	<item id="21316" phase="1">
+		<info name="Leggings of the Ursa" type="PLATE" slot="LEGS" unique="no" req_lvl="45" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_pants_mail_10.png"/>
+		<mutex item_id="21317"/>
+		<stats>
+			<stat type="ARMOR" value="459"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Trivial quest in Winterspring.
+		</source>
+	</item>
+
+	<item id="11802" phase="1">
+		<info name="Lavacrest Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="531"/>
+			<stat type="STRENGTH" value="28"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+		Drops from Bael'Gar in Blackrock Depths.
+		</source>
+	</item>
+
 	<item id="13075" phase="1">
 		<info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
 		<stats>

@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="11626" phase="1">
+		<info name="Blackveil Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="48" item_lvl="53" quality="RARE" boe="no" icon="Inv_misc_cape_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="38"/>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="AGILITY" value="14"/>
+		</stats>
+		<source>
+			Drops from High Interrogator Gerstahn in Blackrock Depths (BRD).
+		</source>
+	</item>
+
+	<item id="13203" phase="1">
+		<info name="Armswake Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
+		<stats>
+			<stat type="ARMOR" value="43"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
+			Drops from Ghok Bashguud in Lower Blackrock Spire (LBRS).
+		</source>
+	</item>
+
 	<item id="13397" phase="1">
 		<info name="Stoneskin Gargoyle Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
 		<stats>
@@ -81,7 +105,7 @@
 			Drops from Ragnaros in Molten Core.
 		</source>
 	</item>
-	
+
 	<item id="18204" phase="2">
 		<info name="Eskhandar's Pelt" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_cape_07.png"/>
 		<stats>
@@ -93,7 +117,7 @@
 			Drops from Lord Kazzak (world boss in Blasted Lands).
 		</source>
 	</item>
-	
+
 	<item id="18509" phase="2">
 		<info name="Chromatic Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_misc_cape_02.png"/>
 		<stats>

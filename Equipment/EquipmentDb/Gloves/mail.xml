@@ -13,6 +13,46 @@
 		</source>
 	</item>
 
+	<item id="11867" phase="1">
+		<info name="Maddening Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="48" item_lvl="53" quality="UNCOMMON" boe="no" icon="Inv_gauntlets_26.png"/>
+		<mutex item_id="11868"/>
+		<stats>
+			<stat type="ARMOR" value="180"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="AGILITY" value="5"/>
+		</stats>
+		<source>
+			Quest reward. Trivial quest in Burning Steppes.
+		</source>
+	</item>
+
+	<item id="17736" phase="1">
+		<info name="Rockgrip Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="48" item_lvl="53" quality="RARE" boe="no" icon="Inv_gauntlets_28.png"/>
+		<stats>
+			<stat type="ARMOR" value="198"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
+			Drops from Landslide in Maraudon.
+		</source>
+	</item>
+
+	<item id="4513" phase="1">
+		<info name="Brazen Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="48" item_lvl="54" quality="UNCOMMON" boe="no" icon="Inv_gauntlets_04.png"/>
+		<mutex item_id="12050"/>
+		<stats>
+			<stat type="ARMOR" value="183"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="STAMINA" value="2"/>
+			<stat type="AGILITY" value="12"/>
+		</stats>
+		<source>
+			Quest reward. Trivial quest mostly taking part in Un'Goro Crater.
+		</source>
+	</item>
+
 	<item id="16676" phase="1">
 		<info name="Beaststalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_10.png"/>
 		<stats>
@@ -57,7 +97,7 @@
 			Quest reward. Part of Onyxia quest chain. Requires LBRS.
 		</source>
 	</item>
-	
+
 	<item id="14615" phase="1">
 		<info name="Bloodmail Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
 		<stats>

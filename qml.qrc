@@ -966,5 +966,15 @@
         <file>QML/Assets/ability/Ability_racial_bearform.png</file>
         <file>QML/Assets/items/Inv_relics_totemofrage.png</file>
         <file>QML/Assets/items/Inv_helmet_18.png</file>
+        <file>QML/Assets/items/Inv_belt_33.png</file>
+        <file>QML/Assets/items/Inv_mace_15.png</file>
+        <file>QML/Assets/items/Inv_weapon_halberd_11.png</file>
+        <file>QML/Assets/items/Inv_drink_04.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_12.png</file>
+        <file>QML/Assets/items/Inv_pick_05.png</file>
+        <file>QML/Assets/items/Inv_hammer_09.png</file>
+        <file>QML/Assets/items/Inv_sword_25.png</file>
+        <file>QML/Assets/items/Inv_boots_plate_08.png</file>
+        <file>QML/Assets/misc/Inv_potion_94.png</file>
     </qresource>
 </RCC>

@@ -40,6 +40,34 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="13286" phase="1">
+		<info name="Rivenspike" type="AXE" slot="1H" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_pick_05.png"/>
+		<dmg_range min="77" max="144" speed="2.9"/>
+		<proc>
+			<spell name="ARMOR_PENETRATION" value="200" max_stacks="3" duration="30" rate="0.04" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Puncture's target's armor lowering it by 200. Can be applied up to 3 times.
+		</special_equip_effect>
+		<source>
+			Drops from Spirestone Butcher in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="12621" phase="1">
+		<info name="Demonfork" type="AXE" slot="MH" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_halberd_11.png"/>
+		<dmg_range min="76" max="142" speed="2.8"/>
+		<proc>
+			<spell name="SHADOW_DOT" instant="no" amount="0"  min="10" max="10" tick_rate="5" duration="25" rate="0.10" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Transfers 10 health every 5 seconds from the target to the caster for 25 sec.
+		</special_equip_effect>
+		<source>
+			Drops from Bannok Grimaxe in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17016" phase="1">
 		<info name="Dark Iron Destroyer" type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_12.png"/>
 		<dmg_range min="71" max="134" speed="2.4"/>

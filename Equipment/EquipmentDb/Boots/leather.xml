@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="11675" phase="1">
+		<info name="Shadefiend Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="109"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="AGILITY" value="11"/>
+		</stats>
+		<source>
+		Drops from Anub'shiah in the Arena in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="18043" phase="1">
+		<info name="Coal Miner Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="112"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+		Drops from Hurley Blackbreath in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="15861" phase="1">
+		<info name="Swiftfoot Treads" type="LEATHER" slot="BOOTS" unique="no" req_lvl="57" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_boots_07.png"/>
+		<mutex item_id="15860"/>
+		<stats>
+			<stat type="ARMOR" value="106"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STRENGTH" value="5"/>
+		</stats>
+		<source>
+		Quest reward. Requires Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
 	<item id="16711" phase="1">
 		<info name="Shadowcraft Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
 		<stats>

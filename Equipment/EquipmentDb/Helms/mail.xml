@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="7719" phase="1">
+		<info name="Raging Berserker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="37" item_lvl="42" quality="RARE" boe="no" icon="Inv_helmet_25.png"/>
+		<stats>
+			<stat type="ARMOR" value="213"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Herod in Scarlet Monastery.
+		</source>
+	</item>
+
 	<item id="13359" phase="1">
 		<info name="Crown of Tyranny" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_03.png"/>
 		<stats>

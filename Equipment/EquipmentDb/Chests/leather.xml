@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="12793" phase="1">
+		<info name="Mixologist's Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_chest_leather_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="158"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="AGILITY" value="11"/>
+		</stats>
+		<source>
+		Drops from Plugger Spazzring in Blackrock Depths.
+		</source>
+	</item>
+
 	<item id="13944" phase="1">
 		<info name="Tombstone Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
 		<stats>

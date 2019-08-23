@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="11919" phase="1">
+		<info name="Cragplate Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="49" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_boots_plate_08.png"/>
+		<mutex item_id="11918"/>
+		<stats>
+			<stat type="ARMOR" value="361"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+		Quest reward. Trivial quest in Un'Goro Crater.
+		</source>
+	</item>
+
+	<item id="12555" phase="1">
+		<info name="Battlechaser's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_boots_plate_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="397"/>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
+		Rare drop from trash mobs in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="13070" phase="1">
+		<info name="Sapphiron's Scale Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_boots_plate_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="417"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
 	<item id="23287" phase="2">
 		<info name="Knight-Lieutenant's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
