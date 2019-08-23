@@ -195,7 +195,7 @@ void SimControl::remove_option(Character* pchar, SimOption::Name option) {
         pchar->get_stats()->decrease_melee_ap(10);
         break;
     case SimOption::Name::ScaleHitChance:
-        pchar->get_stats()->decrease_melee_hit(1);
+        pchar->get_stats()->decrease_melee_hit(100);
         break;
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->decrease_melee_crit(100);
