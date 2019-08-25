@@ -184,6 +184,21 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::ElixirOfGreaterAgility:
         pchar->get_stats()->increase_agility(25);
         break;
+    case ExternalBuffName::CurseOfTheElements:
+        pchar->get_target()->increase_magic_school_damage_mod(10, MagicSchool::Fire);
+        pchar->get_target()->increase_magic_school_damage_mod(10, MagicSchool::Frost);
+        pchar->get_target()->decrease_resistance(MagicSchool::Fire, 75);
+        pchar->get_target()->decrease_resistance(MagicSchool::Frost, 75);
+        break;
+    case ExternalBuffName::CurseOfShadow:
+        pchar->get_target()->increase_magic_school_damage_mod(10, MagicSchool::Arcane);
+        pchar->get_target()->increase_magic_school_damage_mod(10, MagicSchool::Shadow);
+        pchar->get_target()->decrease_resistance(MagicSchool::Arcane, 75);
+        pchar->get_target()->decrease_resistance(MagicSchool::Shadow, 75);
+        break;
+    case ExternalBuffName::ShadowWeaving:
+        pchar->get_target()->increase_magic_school_damage_mod(15, MagicSchool::Shadow);
+        break;
     }
 }
 
@@ -328,6 +343,21 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::ElixirOfGreaterAgility:
         pchar->get_stats()->decrease_agility(25);
+        break;
+    case ExternalBuffName::CurseOfTheElements:
+        pchar->get_target()->decrease_magic_school_damage_mod(10, MagicSchool::Fire);
+        pchar->get_target()->decrease_magic_school_damage_mod(10, MagicSchool::Frost);
+        pchar->get_target()->increase_resistance(MagicSchool::Fire, 75);
+        pchar->get_target()->increase_resistance(MagicSchool::Frost, 75);
+        break;
+    case ExternalBuffName::CurseOfShadow:
+        pchar->get_target()->decrease_magic_school_damage_mod(10, MagicSchool::Arcane);
+        pchar->get_target()->decrease_magic_school_damage_mod(10, MagicSchool::Shadow);
+        pchar->get_target()->increase_resistance(MagicSchool::Arcane, 75);
+        pchar->get_target()->increase_resistance(MagicSchool::Shadow, 75);
+        break;
+    case ExternalBuffName::ShadowWeaving:
+        pchar->get_target()->decrease_magic_school_damage_mod(15, MagicSchool::Shadow);
         break;
     }
 }
@@ -490,6 +520,18 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Elixir of Greater Agility", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_94.png",
                                 "+25 Agility");
+    case ExternalBuffName::CurseOfTheElements:
+        return new ExternalBuff(pchar, "Curse of the Elements", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_chilltouch.png",
+                                "10% Fire/Frost damage,\n-75 Fire/Frost resistances");
+    case ExternalBuffName::CurseOfShadow:
+        return new ExternalBuff(pchar, "Curse of Shadow", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_curseofachimonde.png",
+                                "10% Arcane/Shadow damage,\n-75 Arcane/Shadow resistances");
+    case ExternalBuffName::ShadowWeaving:
+        return new ExternalBuff(pchar, "Shadow Weaving", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_blackplague.png",
+                                "15% Shadow Damage");
     }
 
     return nullptr;

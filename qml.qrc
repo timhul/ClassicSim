@@ -976,5 +976,7 @@
         <file>QML/Assets/items/Inv_sword_25.png</file>
         <file>QML/Assets/items/Inv_boots_plate_08.png</file>
         <file>QML/Assets/misc/Inv_potion_94.png</file>
+        <file>QML/Assets/spell/Spell_shadow_curseofachimonde.png</file>
+        <file>QML/Assets/spell/Spell_shadow_blackplague.png</file>
     </qresource>
 </RCC>

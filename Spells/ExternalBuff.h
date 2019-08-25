@@ -45,6 +45,9 @@ enum class ExternalBuffName: int {
     TotemStrengthOfEarth,
     TrueshotAura,
     WinterfallFirewater,
+    CurseOfTheElements,
+    CurseOfShadow,
+    ShadowWeaving,
 };
 
 class ExternalBuff;

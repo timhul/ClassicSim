@@ -59,6 +59,14 @@ Target::Target(const unsigned target_lvl):
     this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Nature, {});
     this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Physical, {});
     this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Shadow, {});
+
+    this->school_resistances.insert(MagicSchool::Arcane, 70);
+    this->school_resistances.insert(MagicSchool::Fire, 70);
+    this->school_resistances.insert(MagicSchool::Frost, 70);
+    this->school_resistances.insert(MagicSchool::Holy, 0);
+    this->school_resistances.insert(MagicSchool::Nature, 70);
+    this->school_resistances.insert(MagicSchool::Physical, 0);
+    this->school_resistances.insert(MagicSchool::Shadow, 70);
 }
 
 Target::~Target() {
@@ -108,7 +116,15 @@ int Target::get_base_armor() const {
 }
 
 int Target::get_resistance(const MagicSchool school) const {
-    return school != MagicSchool::Holy ? 70 : 0;
+    return school_resistances[school] < 0 ? 0 : school_resistances[school];
+}
+
+void Target::increase_resistance(const MagicSchool school, const int value) {
+    school_resistances[school] += value;
+}
+
+void Target::decrease_resistance(const MagicSchool school, const int value) {
+    school_resistances[school] -= value;
 }
 
 double Target::get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge) const {

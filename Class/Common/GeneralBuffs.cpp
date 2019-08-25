@@ -30,6 +30,9 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
             {false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::ImprovedShadowBolt, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::FireVulnerability, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::CurseOfTheElements, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::CurseOfShadow, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::ShadowWeaving, pchar)},
         };
 
         this->external_debuffs.append(external_debuff_setup);

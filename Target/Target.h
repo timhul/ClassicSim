@@ -52,6 +52,8 @@ public:
     void set_base_armor(const int);
 
     int get_resistance(const MagicSchool school) const;
+    void increase_resistance(const MagicSchool school, const int value);
+    void decrease_resistance(const MagicSchool school, const int value);
 
     CreatureType get_creature_type() const;
     QString get_creature_type_string() const;
@@ -82,6 +84,7 @@ private:
     Stats* stats;
     QMap<QString, CreatureType> string_to_creature_type;
     QMap<CreatureType, QString> creature_type_strings;
+    QMap<MagicSchool, int> school_resistances;
     QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
     QMap<MagicSchool, double> magic_school_damage_modifiers;
     QMap<MagicSchool, QVector<Buff*>> magic_school_modifier_buffs_with_charges;
