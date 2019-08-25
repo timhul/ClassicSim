@@ -40,7 +40,11 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Partial resists now displayed in the ability outcome section.
+* More caster debuffs are available (CoS, CoE, Shadow Weaving).
+* EP calculations including melee hit chance fixed, a bug was causing bonus melee hit chance to not reset properly.
+* Further pre-raid phase 1 items have been added for physical classes.
+* Greater Agility and Solid Weightstone added.
 
 # Q&A
 
