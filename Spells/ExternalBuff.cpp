@@ -181,6 +181,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::FireVulnerability:
         pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Fire);
         break;
+    case ExternalBuffName::ElixirOfGreaterAgility:
+        pchar->get_stats()->increase_agility(25);
+        break;
     }
 }
 
@@ -322,6 +325,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::FireVulnerability:
         pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Fire);
+        break;
+    case ExternalBuffName::ElixirOfGreaterAgility:
+        pchar->get_stats()->decrease_agility(25);
         break;
     }
 }
@@ -480,6 +486,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Fire Vulnerability", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/spell/Spell_fire_soulburn.png",
                                 "15% Fire Damage");
+    case ExternalBuffName::ElixirOfGreaterAgility:
+        return new ExternalBuff(pchar, "Elixir of Greater Agility", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_94.png",
+                                "+25 Agility");
     }
 
     return nullptr;

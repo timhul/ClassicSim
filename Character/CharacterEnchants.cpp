@@ -41,6 +41,31 @@ bool CharacterEnchants::has_sharp_weapon(const int equipment_slot) const {
     }
 }
 
+bool CharacterEnchants::has_blunt_weapon(const int equipment_slot) const {
+    Weapon* wpn = nullptr;
+    switch (equipment_slot) {
+    case EquipmentSlot::MAINHAND:
+        wpn = pchar->get_stats()->get_equipment()->get_mainhand();
+        break;
+    case EquipmentSlot::OFFHAND:
+        wpn = pchar->get_stats()->get_equipment()->get_offhand();
+        break;
+    default:
+        check(false, "CharacterEnchants::has_sharp_weapon reached end of switch");
+    }
+
+    if (wpn == nullptr)
+        return false;
+
+    switch (wpn->get_weapon_type()) {
+    case WeaponTypes::MACE:
+    case WeaponTypes::TWOHAND_MACE:
+        return true;
+    default:
+        return false;
+    }
+}
+
 bool CharacterEnchants::has_2hand() const {
     if (pchar->get_equipment()->get_mainhand() == nullptr)
         return false;
@@ -106,6 +131,8 @@ bool CharacterEnchants::temp_enchant_valid(EnchantName::Name enchant_name, const
             return true;
         case EnchantName::DenseSharpeningStone:
             return has_sharp_weapon(equipment_slot);
+        case EnchantName::SolidWeightstone:
+            return has_blunt_weapon(equipment_slot);
         case EnchantName::WindfuryTotem:
             return equipment_slot != EquipmentSlot::OFFHAND && pchar->get_faction()->is_horde();
         case EnchantName::InstantPoison:

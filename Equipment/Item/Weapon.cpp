@@ -128,12 +128,13 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     case EnchantName::WindfuryTotem:
         temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;
+    case EnchantName::BrilliantManaOil:
+    case EnchantName::BrilliantWizardOil:
     case EnchantName::ConsecratedSharpeningStone:
     case EnchantName::DenseSharpeningStone:
     case EnchantName::ElementalSharpeningStone:
     case EnchantName::LesserManaOil:
-    case EnchantName::BrilliantManaOil:
-    case EnchantName::BrilliantWizardOil:
+    case EnchantName::SolidWeightstone:
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:

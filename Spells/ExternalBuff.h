@@ -16,6 +16,7 @@ enum class ExternalBuffName: int {
     DragonbreathChili,
     ElixirOfBruteForce,
     ElixirOfGiants,
+    ElixirOfGreaterAgility,
     ElixirOfTheMongoose,
     FaerieFire,
     FengusFerocity,

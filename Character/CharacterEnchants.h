@@ -22,5 +22,6 @@ protected:
     Character* pchar;
 
     bool has_sharp_weapon(const int equipment_slot) const;
+    bool has_blunt_weapon(const int equipment_slot) const;
     bool has_2hand() const;
 };

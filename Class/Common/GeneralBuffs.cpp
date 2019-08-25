@@ -42,6 +42,7 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     mutex_buff_groups.append({"Juju Power", "Elixir of Giants"});
     mutex_buff_groups.append({"Juju Might", "Winterfall Firewater"});
     mutex_buff_groups.append({"R.O.I.D.S", "Ground Scorpok Assay"});
+    mutex_buff_groups.append({"Elixir of the Mongoose", "Elixir of Greater Agility"});
 }
 
 GeneralBuffs::~GeneralBuffs() {
@@ -221,6 +222,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
         ExternalBuffName::ElixirOfBruteForce,
         ExternalBuffName::ElixirOfGiants,
         ExternalBuffName::ElixirOfTheMongoose,
+        ExternalBuffName::ElixirOfGreaterAgility,
     };
 
     QVector<ExternalBuffName> physical_farmables = {
@@ -274,7 +276,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
     };
 
     if (class_name == "Warrior") {
-        // Hunters currently double-applies Battle Shout if given as external buff, so temporarily exclude it.
+        // Warriors currently double-applies Battle Shout if given as external buff, so temporarily exclude it.
         QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::TrueshotAura};
         return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
     }

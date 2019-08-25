@@ -74,6 +74,9 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
+        else if (has_blunt_weapon(equipment_slot))
+            enchants.prepend(EnchantName::SolidWeightstone);
+
         if (pchar->get_faction()->is_horde())
             enchants.prepend(EnchantName::WindfuryTotem);
         return enchants;
@@ -87,6 +90,8 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
+        else if (has_blunt_weapon(equipment_slot))
+            enchants.prepend(EnchantName::SolidWeightstone);
         return enchants;
     }
 

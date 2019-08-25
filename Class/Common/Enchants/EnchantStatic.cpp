@@ -147,6 +147,14 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         else
             check(false, "Unhandled case in switch");
         break;
+    case EnchantName::SolidWeightstone:
+        if (enchant_slot == EnchantSlot::MAINHAND)
+            pchar->get_stats()->increase_mh_weapon_damage_bonus(6);
+        else if (enchant_slot == EnchantSlot::OFFHAND)
+            pchar->get_stats()->increase_oh_weapon_damage_bonus(6);
+        else
+            check(false, "Unhandled case in switch");
+        break;
     case EnchantName::LesserManaOil:
         pchar->get_stats()->increase_mp5(8);
         break;
@@ -296,6 +304,12 @@ EnchantStatic::~EnchantStatic() {
             pchar->get_stats()->decrease_mh_weapon_damage_bonus(8);
         else if (enchant_slot == EnchantSlot::OFFHAND)
             pchar->get_stats()->decrease_oh_weapon_damage_bonus(8);
+        break;
+    case EnchantName::SolidWeightstone:
+        if (enchant_slot == EnchantSlot::MAINHAND)
+            pchar->get_stats()->decrease_mh_weapon_damage_bonus(6);
+        else if (enchant_slot == EnchantSlot::OFFHAND)
+            pchar->get_stats()->decrease_oh_weapon_damage_bonus(6);
         break;
     case EnchantName::LesserManaOil:
         pchar->get_stats()->decrease_mp5(8);
