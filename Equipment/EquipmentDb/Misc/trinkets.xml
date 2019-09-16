@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="20130" phase="1">
-		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
-		<mutex item_id="20251"/>
-		<mutex item_id="20517"/>
-		<stats/>
-		<uses>
-			<use name="GENERIC_STAT_BUFF" type="STRENGTH" value="75" duration="60" cooldown="360"/>
-		</uses>
-		<special_equip_effect>
-			Use: Restores 9 health every 5 sec and increases your Strength by 75. Lasts 1 min. (cooldown 6 min)
-		</special_equip_effect>
-		<source>
-			Quest reward. Requires running Sunken Temple.
-		</source>
-		<flavour_text>
-			"Served on the rocks."
-		</flavour_text>
-	</item>
-
 	<item id="11832" phase="1">
 		<info name="Burst of Knowledge" type="TRINKET" slot="TRINKET" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_amulet_07.png"/>
 		<stats>
@@ -272,6 +253,25 @@
 		<source>
 			Drops from Nefarian in Blackwing Lair.
 		</source>
+	</item>
+
+	<item id="20130" phase="4">
+		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
+		<mutex item_id="20251"/>
+		<mutex item_id="20517"/>
+		<stats/>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="STRENGTH" value="75" duration="60" cooldown="360"/>
+		</uses>
+		<special_equip_effect>
+			Use: Restores 9 health every 5 sec and increases your Strength by 75. Lasts 1 min. (cooldown 6 min)
+		</special_equip_effect>
+		<source>
+			Quest reward. Requires running Sunken Temple.
+		</source>
+		<flavour_text>
+			"Served on the rocks."
+		</flavour_text>
 	</item>
 
 	<item id="19991" phase="1">
