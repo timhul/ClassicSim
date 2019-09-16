@@ -35,7 +35,7 @@ void DeepWounds::refresh_effect() {
 }
 
 void DeepWounds::tick_effect() {
-    double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
+    double damage_dealt = (warr->get_avg_mh_damage() * wpn_percent) / 6;
 
     damage_dealt += previous_tick_rest;
     previous_tick_rest = damage_dealt - round(damage_dealt);

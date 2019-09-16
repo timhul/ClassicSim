@@ -39,7 +39,7 @@ private:
     void test_damage_of_2_of_3_deep_wounds();
     void test_damage_of_3_of_3_deep_wounds();
 
-    void test_damage_stacks_when_multiple_crits_occur();
+    void test_damage_does_not_stack_when_multiple_crits_occur();
 
     void given_deep_wounds_enabled();
 

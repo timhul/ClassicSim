@@ -84,7 +84,7 @@ void TestDeepWounds::test_all() {
     tear_down();
 
     set_up(prepare_combat_iterations);
-    test_damage_stacks_when_multiple_crits_occur();
+    test_damage_does_not_stack_when_multiple_crits_occur();
     tear_down();
 }
 
@@ -318,7 +318,7 @@ void TestDeepWounds::test_damage_of_3_of_3_deep_wounds() {
     then_damage_is_dealt_over_12_seconds();
 }
 
-void TestDeepWounds::test_damage_stacks_when_multiple_crits_occur() {
+void TestDeepWounds::test_damage_does_not_stack_when_multiple_crits_occur() {
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1000_melee_ap();
@@ -329,9 +329,9 @@ void TestDeepWounds::test_damage_stacks_when_multiple_crits_occur() {
     when_mh_attack_is_performed();
 
     // total_deep_wounds_damage = (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * deep_wounds_percent
-    // [342] = [((100 + (2.6 * 1000 / 14)) * 0.6)] + [((100 + (2.6 * 1000 / 14)) * 0.6)]
-    // TODO: Rounding causes slight deep wounds increase in damage, asserting 343 instead of 342.
-    then_deep_wounds_damage_dealt_is(343);
+    // [171] = (100 + (2.6 * 1000 / 14)) * 0.6
+    // TODO: Rounding causes slight deep wounds increase in damage, asserting 172 instead of 171.
+    then_deep_wounds_damage_dealt_is(172);
     then_damage_is_dealt_over_12_seconds();
 }
 
