@@ -24,6 +24,18 @@
 		</source>
 	</item>
 
+	<item id="18689" phase="1">
+		<info name="Phantasmal Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+		<stats>
+			<stat type="ARMOR" value="114"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="STAMINA" value="11"/>
+		</stats>
+		<source>
+			Drops from Jandice Barov in Scholomance.
+		</source>
+	</item>
+
 	<item id="13397" phase="1">
 		<info name="Stoneskin Gargoyle Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
 		<stats>
