@@ -68,6 +68,7 @@ public:
 
     void apply_deep_wounds();
     void cancel_heroic_strike();
+    bool is_heroic_strike_queued() const;
 
 private:
     Warrior* warr;

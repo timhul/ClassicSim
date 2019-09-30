@@ -10,6 +10,7 @@
 #include "Engine.h"
 #include "Equipment.h"
 #include "Fury.h"
+#include "HeroicStrike.h"
 #include "PlayerAction.h"
 #include "Protection.h"
 #include "Race.h"
@@ -272,6 +273,13 @@ void Warrior::melee_oh_white_critical_effect() {
     warr_spells->apply_deep_wounds();
 
     enabled_procs->run_proc_check(ProcInfo::Source::OffhandSwing);
+}
+
+bool Warrior::is_dual_wielding() const {
+    if (warr_spells->is_heroic_strike_queued())
+        return false;
+
+    return cstats->get_equipment()->is_dual_wielding();
 }
 
 void Warrior::initialize_talents() {

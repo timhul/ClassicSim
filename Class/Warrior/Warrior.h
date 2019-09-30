@@ -53,6 +53,8 @@ public:
     void melee_mh_yellow_critical_effect() override;
     void melee_oh_white_critical_effect() override;
 
+    bool is_dual_wielding() const override;
+
 private:
     int stance;
     unsigned stance_rage_remainder;

@@ -10,10 +10,10 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells, Buff* hs_buff, const int spell_rank) :
-    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 15, spell_rank),
+HeroicStrike::HeroicStrike(Warrior* warrior, WarriorSpells* spells, Buff* hs_buff, const int rank_spell) :
+    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", warrior, new CooldownControl(warrior, 0.0), RestrictedByGcd::No, ResourceType::Rage, 15, rank_spell),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
-    warr(pchar),
+    warr(warrior),
     spells(spells),
     hs_buff(hs_buff)
 {
@@ -80,13 +80,15 @@ bool HeroicStrike::is_queued() const {
 
 void HeroicStrike::cancel() {
     hs_buff->cancel_buff();
+    pchar->get_combat_roll()->update_melee_white_miss_chance();
 }
 
 void HeroicStrike::calculate_damage() {
-    hs_buff->cancel_buff();
     warr->get_spells()->get_mh_attack()->complete_swing();
 
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
+
+    cancel();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
@@ -121,6 +123,7 @@ void HeroicStrike::calculate_damage() {
 
 void HeroicStrike::spell_effect() {
     hs_buff->apply_buff();
+    pchar->get_combat_roll()->update_melee_white_miss_chance();
 }
 
 void HeroicStrike::increase_talent_rank_effect(const QString&, const int curr) {

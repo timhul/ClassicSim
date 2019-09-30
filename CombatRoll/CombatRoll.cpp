@@ -103,11 +103,11 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) 
         return melee_white_tables[wpn_skill];
 
     unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(wpn_skill) * 10000));
-    unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
+    const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
-    double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
+    const double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
                 0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
     auto* table = new MeleeWhiteHitTable(
@@ -219,6 +219,7 @@ MeleeSpecialTable* CombatRoll::get_pet_ability_table(const unsigned wpn_skill) {
 double CombatRoll::get_white_miss_chance(const unsigned wpn_skill) {
     if (pchar->is_dual_wielding())
         return mechanics->get_dw_white_miss_chance(wpn_skill);
+
     return mechanics->get_2h_white_miss_chance(wpn_skill);
 }
 
@@ -238,7 +239,7 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const unsigned wpn_skill) {
     return static_cast<double>(glance_roll->get_roll()) / 10000;
 }
 
-void CombatRoll::update_melee_miss_chance() {
+void CombatRoll::update_melee_yellow_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
     for (const auto & table: melee_special_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->wpn_skill) * 10000));
@@ -246,7 +247,10 @@ void CombatRoll::update_melee_miss_chance() {
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
         table->update_miss_chance(miss_chance);
     }
+}
 
+void CombatRoll::update_melee_white_miss_chance() {
+    const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
     for (const auto & table: melee_white_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(table->wpn_skill) * 10000));
 

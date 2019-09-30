@@ -9,7 +9,7 @@ class WarriorSpells;
 
 class HeroicStrike: public Spell, public TalentRequirer {
 public:
-    HeroicStrike(Warrior* pchar, WarriorSpells* spells, Buff* hs_buff, const int spell_rank);
+    HeroicStrike(Warrior* warrior, WarriorSpells* spells, Buff* hs_buff, const int spell_rank);
     ~HeroicStrike() override;
 
     bool is_queued() const;

@@ -796,12 +796,14 @@ double CharacterStats::get_spell_damage_taken_mod() const {
 
 void CharacterStats::increase_melee_hit(const unsigned value) {
     base_stats->increase_melee_hit(value);
-    pchar->get_combat_roll()->update_melee_miss_chance();
+    pchar->get_combat_roll()->update_melee_yellow_miss_chance();
+    pchar->get_combat_roll()->update_melee_white_miss_chance();
 }
 
 void CharacterStats::decrease_melee_hit(const unsigned value) {
     base_stats->decrease_melee_hit(value);
-    pchar->get_combat_roll()->update_melee_miss_chance();
+    pchar->get_combat_roll()->update_melee_yellow_miss_chance();
+    pchar->get_combat_roll()->update_melee_white_miss_chance();
 }
 
 void CharacterStats::increase_melee_crit(const unsigned value) {

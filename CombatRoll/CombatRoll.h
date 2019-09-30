@@ -45,7 +45,8 @@ public:
     double get_yellow_miss_chance(const unsigned wpn_skill);
     double get_glancing_blow_dmg_penalty(const unsigned wpn_skill);
 
-    void update_melee_miss_chance();
+    void update_melee_yellow_miss_chance();
+    void update_melee_white_miss_chance();
     void update_ranged_miss_chance();
     void update_spell_miss_chance(const MagicSchool school, const unsigned spell_hit);
     void update_target_resistance(const MagicSchool school, const unsigned target_resistance);

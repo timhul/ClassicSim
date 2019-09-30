@@ -1,6 +1,7 @@
 #include "TestHeroicStrike.h"
 
 #include "Arms.h"
+#include "CombatRoll.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
 #include "Talent.h"
@@ -47,6 +48,10 @@ void TestHeroicStrike::test_all() {
 
     set_up();
     test_dodge_applies_overpower_buff();
+    tear_down();
+
+    set_up();
+    test_miss_chance_while_dual_wielding();
     tear_down();
 }
 
@@ -203,6 +208,22 @@ void TestHeroicStrike::test_dodge_applies_overpower_buff() {
     when_heroic_strike_is_performed();
 
     then_overpower_is_active();
+}
+
+void TestHeroicStrike::test_miss_chance_while_dual_wielding() {
+    given_1h_axe_equipped_in_mainhand(warrior);
+    given_1h_axe_equipped_in_offhand(warrior);
+    given_warrior_has_rage(100);
+    assert(almost_equal(0.2448, pchar->get_combat_roll()->get_white_miss_chance(pchar->get_oh_wpn_skill())));
+    assert(warrior->is_dual_wielding() == true);
+
+    heroic_strike()->perform();
+    assert(warrior->is_dual_wielding() == false);
+    assert(almost_equal(0.056, pchar->get_combat_roll()->get_white_miss_chance(pchar->get_oh_wpn_skill())));
+
+    when_heroic_strike_is_performed();
+    assert(warrior->is_dual_wielding() == true);
+    assert(almost_equal(0.2448, pchar->get_combat_roll()->get_white_miss_chance(pchar->get_oh_wpn_skill())));
 }
 
 void TestHeroicStrike::given_1_of_3_improved_hs() {

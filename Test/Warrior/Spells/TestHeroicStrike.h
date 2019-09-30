@@ -28,6 +28,7 @@ private:
     void test_crit_dmg_1_of_2_impale();
     void test_crit_dmg_2_of_2_impale();
     void test_dodge_applies_overpower_buff();
+    void test_miss_chance_while_dual_wielding();
 
     void given_1_of_3_improved_hs();
     void given_2_of_3_improved_hs();

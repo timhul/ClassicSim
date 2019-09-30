@@ -114,7 +114,7 @@ int Character::get_party_member() const {
     return this->party_member;
 }
 
-bool Character::is_dual_wielding() {
+bool Character::is_dual_wielding() const {
     return cstats->get_equipment()->is_dual_wielding();
 }
 

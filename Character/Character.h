@@ -86,7 +86,7 @@ public:
 
     void add_player_reaction_event();
 
-    bool is_dual_wielding();
+    virtual bool is_dual_wielding() const;
     bool action_ready() const;
     void start_global_cooldown();
     virtual double global_cooldown() const;

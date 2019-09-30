@@ -242,7 +242,11 @@ void WarriorSpells::apply_deep_wounds() {
 }
 
 void WarriorSpells::cancel_heroic_strike() {
-    hs_buff->cancel_buff();
+    heroic_strike->cancel();
+}
+
+bool WarriorSpells::is_heroic_strike_queued() const {
+    return hs_buff->is_active();
 }
 
 void WarriorSpells::prepare_set_of_combat_iterations_class_specific() {
