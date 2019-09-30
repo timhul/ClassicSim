@@ -156,10 +156,53 @@
 		</source>
 	</item>
 
+	<item id="18399" phase="1">
+		<info name="Ocean's Breeze" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_28.png"/>
+		<mutex item_id="18398"/>
+		<stats>
+			<stat type="AGILITY" value="7"/>
+			<stat type="STRENGTH" value="4"/>
+			<stat type="STAMINA" value="4"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+			Quest reward. Requires killing multiple bosses in Molten Core.
+		</source>
+	</item>
+
+	<item id="18403" phase="1">
+		<info name="Dragonslayer's Signet" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_ring_27.png"/>
+		<mutex item_id="18404"/>
+		<mutex item_id="18406"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward from turning in Head of Onyxia.
+		</source>
+	</item>
+
 	<item id="19147" phase="1">
 		<info name="Ring of Spell Power" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Molten Core.
+		</source>
+	</item>
+
+	<item id="18821" phase="1">
+		<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="STRENGTH" value="5"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="30"/>
 		</stats>
 		<source>
 			Drops from multiple bosses in Molten Core.
@@ -175,20 +218,6 @@
 		</stats>
 		<source>
 			Drops from Ragnaros in Molten Core.
-		</source>
-	</item>
-
-	<item id="18399" phase="2">
-		<info name="Ocean's Breeze" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_28.png"/>
-		<mutex item_id="18398"/>
-		<stats>
-			<stat type="AGILITY" value="7"/>
-			<stat type="STRENGTH" value="4"/>
-			<stat type="STAMINA" value="4"/>
-			<stat type="FIRE_RESISTANCE" value="15"/>
-		</stats>
-		<source>
-			Quest reward. Requires killing multiple bosses in Molten Core.
 		</source>
 	</item>
 
@@ -233,35 +262,6 @@
 		</stats>
 		<source>
 			Drops from King Gordok in Dire Maul.
-		</source>
-	</item>
-
-	<item id="18403" phase="2">
-		<info name="Dragonslayer's Signet" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_ring_27.png"/>
-		<mutex item_id="18404"/>
-		<mutex item_id="18406"/>
-		<stats>
-			<stat type="INTELLECT" value="12"/>
-			<stat type="SPIRIT" value="6"/>
-			<stat type="STAMINA" value="12"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Quest reward from turning in Head of Onyxia.
-		</source>
-	</item>
-
-	<item id="18821" phase="2">
-		<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
-		<stats>
-			<stat type="STAMINA" value="8"/>
-			<stat type="STRENGTH" value="5"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="ATTACK_POWER" value="30"/>
-		</stats>
-		<source>
-			Drops from multiple bosses in Molten Core.
 		</source>
 	</item>
 

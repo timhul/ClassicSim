@@ -81,6 +81,31 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18738" phase="1">
+		<info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
+		<dmg_range min="82" max="124" speed="3.3"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="AGILITY" value="4"/>
+		</stats>
+		<source>
+        Drops from Nerub'enkan in Stratholme Undead.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18713" phase="1">
+		<info name="Rhok'delar, Longbow of the Ancient Keepers" type="BOW" slot="RANGED" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_01.png"/>
+		<class_restriction class="HUNTER"/>
+		<dmg_range min="89" max="166" speed="2.9"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="RANGED_ATTACK_POWER" value="17"/>
+		</stats>
+		<source>
+        Quest reward. Quest chain starts with drop from Majordomo Executus in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18388" phase="2">
 		<info name="Stoneshatter" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_crossbow_08.png"/>
 		<dmg_range min="73" max="111" speed="2.9"/>
@@ -101,31 +126,6 @@
 		</stats>
 		<source>
         Crafted by Engineers. Schematic drops in Molten Core. Requires Molten Core materials.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18738" phase="2">
-		<info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
-		<dmg_range min="82" max="124" speed="3.3"/>
-		<stats>
-			<stat type="STAMINA" value="9"/>
-			<stat type="AGILITY" value="4"/>
-		</stats>
-		<source>
-        Drops from Nerub'enkan in Stratholme Undead.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18713" phase="2">
-		<info name="Rhok'delar, Longbow of the Ancient Keepers" type="BOW" slot="RANGED" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_01.png"/>
-		<class_restriction class="HUNTER"/>
-		<dmg_range min="89" max="166" speed="2.9"/>
-		<stats>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="RANGED_ATTACK_POWER" value="17"/>
-		</stats>
-		<source>
-        Quest reward. Quest chain starts with drop from Majordomo Executus in Molten Core.
 		</source>
 	</melee_weapon>
 

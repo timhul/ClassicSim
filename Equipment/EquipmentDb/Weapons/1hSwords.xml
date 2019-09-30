@@ -254,6 +254,33 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18832" phase="1">
+		<info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
+		<dmg_range min="90" max="168" speed="2.5"/>
+		<stats>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Garr in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17103" phase="1">
+		<info name="Azuresong Mageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_39.png"/>
+		<dmg_range min="64" max="140" speed="2.4"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+		</stats>
+		<source>
+			Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18348" phase="2">
 		<info name="Quel'Serrar" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -274,33 +301,6 @@
 		</flavour_text>
 	</melee_weapon>
 
-	<melee_weapon id="18832" phase="2">
-		<info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
-		<dmg_range min="90" max="168" speed="2.5"/>
-		<stats>
-			<stat type="STRENGTH" value="9"/>
-			<stat type="AGILITY" value="9"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Garr in Molten Core.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="17103" phase="2">
-		<info name="Azuresong Mageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_39.png"/>
-		<dmg_range min="64" max="140" speed="2.4"/>
-		<stats>
-			<stat type="INTELLECT" value="12"/>
-			<stat type="STAMINA" value="7"/>
-			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
-			<stat type="SPELL_DAMAGE" value="40"/>
-		</stats>
-		<source>
-			Drops from Golemagg the Incinerator in Molten Core.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="18396" phase="2">
 		<info name="Mind Carver" type="SWORD" slot="MH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_22.png"/>
 		<dmg_range min="57" max="106" speed="2.0"/>
@@ -312,7 +312,6 @@
 			Drops from Prince Tortheldrin in Dire Maul.
 		</source>
 	</melee_weapon>
-
 
 	<melee_weapon id="16345" phase="2">
 		<info name="High Warlord's Blade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_11.png"/>

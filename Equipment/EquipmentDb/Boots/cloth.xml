@@ -98,7 +98,7 @@
 		</source>
 	</item>
 
-	<item id="18735" phase="2">
+	<item id="18735" phase="1">
 		<info name="Maleki's Footwraps" type="CLOTH" slot="BOOTS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_boots_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="60"/>
@@ -111,7 +111,7 @@
 		</source>
 	</item>
 
-	<item id="18102" phase="2">
+	<item id="18102" phase="1">
 		<info name="Dragonrider Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>

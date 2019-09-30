@@ -40,6 +40,18 @@
 		</source>
 	</wrist>
 
+	<wrist id="19146" phase="1">
+		<info name="Wristguards of Stability" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="86"/>
+			<stat type="STRENGTH" value="24"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
+        Drops from several bosses in Molten Core.
+		</source>
+	</wrist>
+
 	<wrist id="18375" phase="2">
 		<info name="Bracers of the Eclipse" type="LEATHER" slot="WRIST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
@@ -50,18 +62,6 @@
 		</stats>
 		<source>
         Drops from Prince Tortheldrin in Dire Maul.
-		</source>
-	</wrist>
-
-	<wrist id="19146" phase="2">
-		<info name="Wristguards of Stability" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="86"/>
-			<stat type="STRENGTH" value="24"/>
-			<stat type="STAMINA" value="8"/>
-		</stats>
-		<source>
-        Drops from several bosses in Molten Core.
 		</source>
 	</wrist>
 

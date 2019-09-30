@@ -87,7 +87,7 @@
 		</source>
 	</item>
 
-	<item id="18718" phase="2">
+	<item id="18718" phase="1">
 		<info name="Grand Crusader's Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
 		<stats>
 			<stat type="ARMOR" value="584"/>

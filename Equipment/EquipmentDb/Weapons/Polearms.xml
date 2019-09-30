@@ -61,7 +61,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18725" phase="2">
+	<melee_weapon id="18725" phase="1">
 		<info name="Peacemaker" type="POLEARM" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_spear_07.png"/>
 		<dmg_range min="137" max="206" speed="3.4"/>
 		<stats>

@@ -78,7 +78,7 @@
 		</source>
 	</item>
 
-	<item id="19143" phase="2">
+	<item id="19143" phase="1">
 		<info name="Flameguard Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
 		<stats>
 			<stat type="ARMOR" value="488"/>

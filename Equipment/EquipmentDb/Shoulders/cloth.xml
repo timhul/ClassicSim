@@ -348,7 +348,7 @@
 		</source>
 	</item>
 
-	<item id="18681" phase="2">
+	<item id="18681" phase="1">
 		<info name="Burial Shawl" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="65"/>

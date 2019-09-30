@@ -80,7 +80,7 @@
 		</source>
 	</item>
 
-	<item id="19144" phase="2">
+	<item id="19144" phase="1">
 		<info name="Sabatons of the Flamewalker" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>
 		<stats>
 			<stat type="ARMOR" value="298"/>

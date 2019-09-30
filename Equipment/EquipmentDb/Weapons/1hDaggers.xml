@@ -88,7 +88,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18878" phase="2">
+	<melee_weapon id="18878" phase="1">
 		<info name="Sorcerous Dagger" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_07.png"/>
 		<dmg_range min="39" max="79" speed="1.4"/>
 		<stats>
@@ -101,7 +101,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18816" phase="2">
+	<melee_weapon id="18816" phase="1">
 		<info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
 		<dmg_range min="73" max="137" speed="1.8"/>
 		<proc>

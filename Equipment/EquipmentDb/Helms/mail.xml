@@ -87,7 +87,7 @@
 		</source>
 	</item>
 
-	<item id="18817" phase="2">
+	<item id="18817" phase="1">
 		<info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
 		<stats>
 			<stat type="ARMOR" value="392"/>

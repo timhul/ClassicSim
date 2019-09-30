@@ -54,6 +54,20 @@
 		</source>
 	</item>
 
+	<wrist id="18812" phase="1">
+		<info name="Wristguards of True Flight" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="198"/>
+			<stat type="AGILITY" value="19"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Majordomo Executus in Molten Core.
+		</source>
+	</wrist>
+
 	<wrist id="18296" phase="2">
 		<info name="Marksman Bands" type="MAIL" slot="WRIST" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_bracer_06.png"/>
 		<stats>
@@ -66,20 +80,6 @@
 		</stats>
 		<source>
 			Rare drop from Satyr trash mobs in Dire Maul.
-		</source>
-	</wrist>
-
-	<wrist id="18812" phase="2">
-		<info name="Wristguards of True Flight" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
-		<stats>
-			<stat type="ARMOR" value="198"/>
-			<stat type="AGILITY" value="19"/>
-			<stat type="STAMINA" value="11"/>
-			<stat type="INTELLECT" value="6"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Majordomo Executus in Molten Core.
 		</source>
 	</wrist>
 

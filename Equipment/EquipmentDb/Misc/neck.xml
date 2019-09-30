@@ -97,6 +97,34 @@
 		</source>
 	</item>
 
+	<item id="18205" phase="1">
+		<info name="Eskhandar's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Onyxia.
+		</source>
+	</item>
+
+	<item id="18404" phase="1">
+		<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+		<mutex item_id="18403"/>
+		<mutex item_id="18406"/>
+		<stats>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward from turning in Head of Onyxia.
+		</source>
+	</item>
+
 	<item id="22150" phase="2">
 		<info name="Beads of Ogre Might" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
 		<mutex item_id="22149"/>
@@ -139,34 +167,6 @@
 		<special_equip_effect>
 			Equip: Adds 2 fire damage to your melee attacks.
 		</special_equip_effect>
-	</item>
-
-	<item id="18205" phase="2">
-		<info name="Eskhandar's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
-		<stats>
-			<stat type="STAMINA" value="17"/>
-			<stat type="DODGE_CHANCE" value="0.01"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Drops from Onyxia.
-		</source>
-	</item>
-
-	<item id="18404" phase="2">
-		<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
-		<mutex item_id="18403"/>
-		<mutex item_id="18406"/>
-		<stats>
-			<stat type="AGILITY" value="12"/>
-			<stat type="STAMINA" value="9"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Quest reward from turning in Head of Onyxia.
-		</source>
 	</item>
 
 	<item id="19538" phase="3">

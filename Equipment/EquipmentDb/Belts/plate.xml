@@ -43,7 +43,7 @@
 		</source>
 	</item>
 
-	<item id="19137" phase="2">
+	<item id="19137" phase="1">
 		<info name="Onslaught Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_belt_29.png"/>
 		<stats>
 			<stat type="ARMOR" value="494"/>

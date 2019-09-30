@@ -27,6 +27,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18822" phase="1">
+		<info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
+		<dmg_range min="176" max="264" speed="3.4"/>
+		<stats>
+			<stat type="STRENGTH" value="42"/>
+			<stat type="TWOHAND_SWORD_SKILL" value="8"/>
+		</stats>
+		<source>
+        Drops from multiple bosses in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17076" phase="1">
 		<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
 		<dmg_range min="206" max="310" speed="3.4"/>
@@ -54,18 +66,6 @@
 		</stats>
 		<source>
         Drops from King Gordok in Dire Maul.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="18822" phase="2">
-		<info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
-		<dmg_range min="176" max="264" speed="3.4"/>
-		<stats>
-			<stat type="STRENGTH" value="42"/>
-			<stat type="TWOHAND_SWORD_SKILL" value="8"/>
-		</stats>
-		<source>
-        Drops from multiple bosses in Molten Core.
 		</source>
 	</melee_weapon>
 

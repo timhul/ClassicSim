@@ -16,6 +16,17 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="19120" phase="1">
+		<info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="20"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires killing elite mobs (level 47-50) in The Hinterlands.
+		</source>
+	</item>
+
 	<item id="19812" phase="1">
 		<info name="Rune of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_rune_06.png"/>
 		<mutex item_id="13209"/>
@@ -99,7 +110,17 @@
 		</source>
 	</item>
 
-	<item id="18820" phase="2">
+	<item id="12930" phase="1">
+		<info name="Briarwood Reed" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_root_02.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="29"/>
+		</stats>
+		<source>
+			Drops from Jed Runewatcher, a rare mob in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="18820" phase="1">
 		<info name="Talisman of Ephemeral Power" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_stonetablet_11.png"/>
 		<stats/>
 		<uses>
@@ -164,16 +185,6 @@
 		</source>
 	</item>
 
-	<item id="12930" phase="2">
-		<info name="Briarwood Reed" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_root_02.png"/>
-		<stats>
-			<stat type="SPELL_DAMAGE" value="29"/>
-		</stats>
-		<source>
-			Drops from Jed Runewatcher, a rare mob in Upper Blackrock Spire (UBRS).
-		</source>
-	</item>
-
 	<item id="12930" phase="3">
 		<info name="Rune of Perfection" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="40" item_lvl="45" quality="RARE" boe="no" icon="Inv_misc_rune_05.png"/>
 		<class_restriction class="PRIEST"/>
@@ -187,17 +198,6 @@
 		</stats>
 		<source>
 			Sold by Warsong Gulch vendor.
-		</source>
-	</item>
-
-	<item id="19120" phase="1">
-		<info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="20"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Quest reward. Requires killing elite mobs (level 47-50) in The Hinterlands.
 		</source>
 	</item>
 

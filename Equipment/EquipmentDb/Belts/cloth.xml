@@ -82,7 +82,7 @@
 		</source>
 	</item>
 
-	<item id="18809" phase="2">
+	<item id="18809" phase="1">
 		<info name="Sash of Whispered Secrets" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
@@ -95,7 +95,7 @@
 		</source>
 	</item>
 
-	<item id="19136" phase="2">
+	<item id="19136" phase="1">
 		<info name="Mana Igniting Cord" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_11.png"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>

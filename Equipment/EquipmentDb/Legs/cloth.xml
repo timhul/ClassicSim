@@ -88,7 +88,7 @@
 		</source>
 	</item>
 
-	<item id="18872" phase="2">
+	<item id="18872" phase="1">
 		<info name="Manastorm Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<stats>
 			<stat type="ARMOR" value="85"/>

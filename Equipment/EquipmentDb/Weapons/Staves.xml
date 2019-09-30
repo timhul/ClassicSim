@@ -179,7 +179,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18082" phase="2">
+	<melee_weapon id="18082" phase="1">
 		<info name="Zum'rah's Vexing Cane" type="STAFF" slot="2H" unique="no" req_lvl="42" item_lvl="47" quality="RARE" boe="no" icon="Inv_staff_10.png"/>
 		<dmg_range min="88" max="133" speed="2.7"/>
 		<stats>
