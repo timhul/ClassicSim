@@ -2,6 +2,7 @@
 
 #include "TestSpellWarrior.h"
 
+class Buff;
 class HeroicStrike;
 
 class TestHeroicStrike: public TestSpellWarrior {
@@ -29,12 +30,17 @@ private:
     void test_crit_dmg_2_of_2_impale();
     void test_dodge_applies_overpower_buff();
     void test_miss_chance_while_dual_wielding();
+    void test_flurry_charges_not_consumed();
 
     void given_1_of_3_improved_hs();
     void given_2_of_3_improved_hs();
     void given_3_of_3_improved_hs();
 
+    void given_5_of_5_flurry();
+
     void when_heroic_strike_is_performed();
 
     void then_heroic_strike_costs(const unsigned rage);
+
+    Buff* flurry() const;
 };

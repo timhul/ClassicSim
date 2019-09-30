@@ -1,8 +1,10 @@
 #include "TestHeroicStrike.h"
 
 #include "Arms.h"
+#include "Buff.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
+#include "Fury.h"
 #include "HeroicStrike.h"
 #include "Talent.h"
 #include "WarriorSpells.h"
@@ -52,6 +54,10 @@ void TestHeroicStrike::test_all() {
 
     set_up();
     test_miss_chance_while_dual_wielding();
+    tear_down();
+
+    set_up();
+    test_flurry_charges_not_consumed();
     tear_down();
 }
 
@@ -226,6 +232,19 @@ void TestHeroicStrike::test_miss_chance_while_dual_wielding() {
     assert(almost_equal(0.2448, pchar->get_combat_roll()->get_white_miss_chance(pchar->get_oh_wpn_skill())));
 }
 
+void TestHeroicStrike::test_flurry_charges_not_consumed() {
+    given_1h_axe_equipped_in_mainhand(warrior);
+    given_a_guaranteed_melee_ability_hit();
+    given_5_of_5_flurry();
+    given_warrior_has_rage(100);
+    flurry()->apply_buff();
+    assert(flurry()->get_charges() == 3);
+
+    when_heroic_strike_is_performed();
+
+    assert(flurry()->get_charges() == 3);
+}
+
 void TestHeroicStrike::given_1_of_3_improved_hs() {
     given_arms_talent_with_rank("Improved Heroic Strike", 1);
 }
@@ -236,6 +255,14 @@ void TestHeroicStrike::given_2_of_3_improved_hs() {
 
 void TestHeroicStrike::given_3_of_3_improved_hs() {
     given_arms_talent_with_rank("Improved Heroic Strike", 3);
+}
+
+void TestHeroicStrike::given_5_of_5_flurry() {
+    const auto fury = Fury(warrior);
+    given_talent_rank(fury, "Enrage", 5);
+    given_talent_rank(fury, "Flurry", 5);
+
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {
@@ -253,4 +280,8 @@ void TestHeroicStrike::then_heroic_strike_costs(const unsigned rage) {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage - 1);
     assert(heroic_strike()->get_spell_status() == SpellStatus::InsufficientResources);
+}
+
+Buff* TestHeroicStrike::flurry() const {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_flurry();
 }
