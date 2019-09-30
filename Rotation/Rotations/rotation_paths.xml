@@ -2,6 +2,7 @@
 <paths>
 	<file path="Rotations/Warrior/DWFury.xml"/>
 	<file path="Rotations/Warrior/DWFuryConservative.xml"/>
+	<file path="Rotations/Warrior/DWFuryHSFocus.xml"/>
 	<file path="Rotations/Warrior/2hFury.xml"/>
 	<file path="Rotations/Warrior/Arms.xml"/>
 
