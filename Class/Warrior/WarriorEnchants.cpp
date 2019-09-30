@@ -47,7 +47,8 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
     case EquipmentSlot::LEGS:
         return {
             EnchantName::Name::ArcanumOfRapidity,
-            EnchantName::Name::LesserArcanumOfVoracityStrength
+            EnchantName::Name::LesserArcanumOfVoracityAgility,
+            EnchantName::Name::LesserArcanumOfVoracityStrength,
         };
     case EquipmentSlot::SHOULDERS:
         return {
