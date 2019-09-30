@@ -89,7 +89,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell_group({execute});
     add_spell_group({hamstring});
 
-    this->hs_buff = new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT);
+    this->hs_buff = new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, "Heroic Strike Queued", "Assets/ability/Ability_rogue_ambush.png", Hidden::No);
     this->hs_buff->enable_buff();
     add_spell_group({
                         new HeroicStrike(pchar, this, hs_buff, 1),
