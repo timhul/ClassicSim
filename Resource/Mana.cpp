@@ -6,6 +6,7 @@
 #include "Engine.h"
 #include "Utils/Check.h"
 #include "Utils/CompareDouble.h"
+#include <cmath>
 
 Mana::Mana(Character* pchar) :
     RegeneratingResource(pchar)

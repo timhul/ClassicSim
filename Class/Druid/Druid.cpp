@@ -24,6 +24,7 @@
 #include "RestorationDruid.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
+#include <cmath>
 
 Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, RaidControl* raid_control, const int party, const int member) :
     Character("Druid", "#FF7D0A", race, sim_settings, raid_control, party, member) {

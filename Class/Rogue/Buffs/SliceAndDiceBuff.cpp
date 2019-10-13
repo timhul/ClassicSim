@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 SliceAndDiceBuff::SliceAndDiceBuff(Character* pchar):
     SelfBuff(pchar, "Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", 9, 0),

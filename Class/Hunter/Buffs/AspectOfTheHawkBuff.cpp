@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 AspectOfTheHawkBuff::AspectOfTheHawkBuff(Character* pchar):
     SelfBuff(pchar, "Aspect of the Hawk", "Assets/spell/Spell_nature_ravenform.png", BuffDuration::PERMANENT, 0),

@@ -6,6 +6,7 @@
 #include "CooldownControl.h"
 #include "Druid.h"
 #include "StatisticsResource.h"
+#include <cmath>
 
 CatForm::CatForm(Character* pchar, Buff* cat_form) :
     Spell("Cat Form", "Assets/ability/Ability_druid_catform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),

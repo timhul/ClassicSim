@@ -8,6 +8,7 @@
 #include "Projectile.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
+#include <cmath>
 
 EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)

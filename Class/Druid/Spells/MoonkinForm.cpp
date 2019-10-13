@@ -4,6 +4,7 @@
 #include "Druid.h"
 #include "MoonkinFormBuff.h"
 #include "NoEffectSelfBuff.h"
+#include <cmath>
 
 MoonkinForm::MoonkinForm(Character* pchar, MoonkinFormBuff* buff) :
     Spell("Moonkin Form", "Assets/spell/Spell_nature_forceofnature.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),

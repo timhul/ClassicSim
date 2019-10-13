@@ -4,6 +4,7 @@
 #include "Druid.h"
 #include "Equipment.h"
 #include "Proc.h"
+#include <cmath>
 
 CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor):
     SelfBuff(pchar, "Cat Form", "Assets/ability/Ability_druid_catform.png",  BuffDuration::PERMANENT, 0),
@@ -68,7 +69,7 @@ void CatFormBuff::increase_talent_rank_effect(const QString& talent_name, const 
         if (is_active() && curr > 1)
             druid->get_stats()->decrease_melee_ap(predatory_strikes_bonus);
 
-        predatory_strikes_bonus = static_cast<unsigned>(std::round(pchar->get_clvl() * predatory_strikes_ranks[curr]));
+        predatory_strikes_bonus = static_cast<unsigned>(round(pchar->get_clvl() * predatory_strikes_ranks[curr]));
 
         if (is_active())
             druid->get_stats()->increase_melee_ap(predatory_strikes_bonus);

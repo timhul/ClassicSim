@@ -4,6 +4,7 @@
 #include "Stats.h"
 #include "Target.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 JudgementOfTheCrusader::JudgementOfTheCrusader(Paladin* pchar):
     SharedDebuff(pchar, "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", Priority::Mid, 10, 0),

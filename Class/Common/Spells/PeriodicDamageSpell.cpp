@@ -4,6 +4,7 @@
 #include "CharacterStats.h"
 #include "MagicSchools.h"
 #include "NoEffectUniqueDebuff.h"
+#include <cmath>
 
 PeriodicDamageSpell::PeriodicDamageSpell(const QString& name,
                                          const QString& icon,

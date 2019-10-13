@@ -3,6 +3,7 @@
 #include "CooldownControl.h"
 #include "Druid.h"
 #include "NoEffectSelfBuff.h"
+#include <cmath>
 
 BearForm::BearForm(Character* pchar) :
     Spell("Bear Form", "Assets/ability/Ability_racial_bearform.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),

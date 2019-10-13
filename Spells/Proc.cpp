@@ -8,6 +8,7 @@
 #include "EnabledProcs.h"
 #include "Random.h"
 #include "StatisticsProc.h"
+#include <cmath>
 
 Proc::Proc(const QString& name,
            const QString& icon,

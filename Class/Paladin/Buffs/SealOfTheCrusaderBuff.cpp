@@ -6,6 +6,7 @@
 #include "Paladin.h"
 #include "PaladinSpells.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* pchar):
     SelfBuff(pchar, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),

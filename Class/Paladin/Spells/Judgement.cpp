@@ -5,6 +5,7 @@
 #include "Paladin.h"
 #include "PaladinSeal.h"
 #include "PaladinSpells.h"
+#include <cmath>
 
 Judgement::Judgement(Paladin* pchar, CooldownControl* cooldown_control) :
     Spell("Judgement", "Assets/spell/Spell_holy_righteousfury.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 86),

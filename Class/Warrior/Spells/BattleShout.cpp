@@ -6,6 +6,7 @@
 #include "SimSettings.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
+#include <cmath>
 
 BattleShout::BattleShout(Warrior* pchar, BattleShoutBuff* buff, const int spell_rank) :
     Spell("Battle Shout", "Assets/ability/Ability_warrior_battleshout.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10, spell_rank),

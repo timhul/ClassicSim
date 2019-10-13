@@ -7,6 +7,7 @@
 #include "ProcInfo.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
+#include <cmath>
 
 ClearcastingDruid::ClearcastingDruid(Druid* pchar) :
     ProcPPM("Clearcasting", "Assets/spell/Spell_shadow_manaburn.png", EnchantSlot::MAINHAND, 0.0, 0, QVector<Proc*>(),

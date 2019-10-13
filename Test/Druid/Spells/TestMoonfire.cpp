@@ -6,6 +6,7 @@
 #include "DruidSpells.h"
 #include "Event.h"
 #include "Moonfire.h"
+#include <cmath>
 
 TestMoonfire::TestMoonfire(EquipmentDb* equipment_db) :
     TestSpellDruid(equipment_db, "Moonfire")

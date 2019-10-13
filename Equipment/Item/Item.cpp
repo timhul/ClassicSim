@@ -35,6 +35,7 @@
 #include "UseTrinket.h"
 #include "Utils/Check.h"
 #include "ZandalarianHeroCharm.h"
+#include <cmath>
 
 Item::Item(QString name,
            const int item_id,

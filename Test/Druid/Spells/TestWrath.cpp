@@ -6,6 +6,7 @@
 #include "DruidSpells.h"
 #include "Event.h"
 #include "Wrath.h"
+#include <cmath>
 
 TestWrath::TestWrath(EquipmentDb* equipment_db) :
     TestSpellDruid(equipment_db, "Wrath")

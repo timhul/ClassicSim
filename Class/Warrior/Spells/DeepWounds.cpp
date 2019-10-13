@@ -6,6 +6,7 @@
 #include "NoEffectUniqueDebuff.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
+#include <cmath>
 
 DeepWounds::DeepWounds(Character* pchar) :
     SpellPeriodic("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar,

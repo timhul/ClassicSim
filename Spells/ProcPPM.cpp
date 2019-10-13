@@ -5,6 +5,7 @@
 #include "ItemNamespace.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
+#include <cmath>
 
 ProcPPM::ProcPPM(const QString& name,
                  const QString& icon,

@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CooldownControl.h"
 #include "HuntersMarkBuff.h"
+#include <cmath>
 
 HuntersMark::HuntersMark(Character* pchar, HuntersMarkBuff* hunters_mark) :
     Spell("Hunter's Mark",

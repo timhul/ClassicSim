@@ -7,6 +7,7 @@
 #include "Frost.h"
 #include "Mana.h"
 #include "Talent.h"
+#include <cmath>
 
 TestMageTalentStatIncrease::TestMageTalentStatIncrease(EquipmentDb* equipment_db) :
     TestSpellMage(equipment_db, "MageTalentStatIncrease")

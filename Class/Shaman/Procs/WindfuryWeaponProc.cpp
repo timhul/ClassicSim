@@ -8,6 +8,7 @@
 #include "Shaman.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 WindfuryWeaponProc::WindfuryWeaponProc(Shaman* pchar, const int spell_rank) :
     Proc(QString("Windfury Weapon MH (rank %1)").arg(spell_rank), "Assets/spell/Spell_nature_cyclone.png", 0.2, 0, QVector<Proc*>(),

@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "SharedDebuff.h"
 #include "Utils/CompareDouble.h"
+#include <cmath>
 
 SpellPeriodic::SpellPeriodic(const QString& name,
                              const QString& icon,

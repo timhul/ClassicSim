@@ -10,6 +10,7 @@
 #include "Random.h"
 #include "SimSettings.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 Starfire::Starfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
     Spell("Starfire", "Assets/spell/Spell_arcane_starfire.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),

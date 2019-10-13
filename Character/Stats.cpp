@@ -1,6 +1,7 @@
 #include "Stats.h"
 
 #include "Utils/Check.h"
+#include <cmath>
 
 Stats::Stats() {
     this->melee_ap_against_creature[Target::CreatureType::Beast] = 0;

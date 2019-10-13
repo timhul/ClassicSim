@@ -6,6 +6,7 @@
 #include "DruidSpells.h"
 #include "Event.h"
 #include "Starfire.h"
+#include <cmath>
 
 TestStarfire::TestStarfire(EquipmentDb* equipment_db) :
     TestSpellDruid(equipment_db, "Starfire")

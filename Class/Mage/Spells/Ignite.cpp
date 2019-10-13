@@ -5,6 +5,7 @@
 #include "IgniteBuff.h"
 #include "Mage.h"
 #include "Utils/Check.h"
+#include <cmath>
 
 Ignite::Ignite(Mage* pchar, IgniteBuff* ignite_buff) :
     SpellPeriodic("Ignite", "Assets/spell/Spell_fire_incinerate.png", pchar,

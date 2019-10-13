@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include <cmath>
 
 BloodFuryBuff::BloodFuryBuff(Character *pchar) :
     SelfBuff(pchar, "Blood Fury", "Assets/races/Racial_orc_berserkerstrength.png", 15, 1)
