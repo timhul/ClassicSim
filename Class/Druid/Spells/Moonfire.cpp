@@ -124,7 +124,6 @@ Moonfire::Moonfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank
 }
 
 Moonfire::~Moonfire() {
-    delete cooldown;
     delete instant_dmg;
     delete marker_buff;
 }
