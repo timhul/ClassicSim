@@ -16,8 +16,7 @@ find_package(Qt5 COMPONENTS Core Quick Charts REQUIRED)
 
 add_definitions(-DQT_DEPRECATED_WARNINGS)
 
-add_executable(ClassicSim
-    main.cpp
+add_library(ClassicSimLib
     Class/Common/Buffs/NoEffectSelfBuff.cpp
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp
     Class/Common/Buffs/SuppressCastBuff.cpp
@@ -1095,6 +1094,16 @@ include_directories(
     Phases
     Resource
     Talent)
-  target_compile_definitions(ClassicSim
+
+add_executable(ClassicSim main.cpp)
+target_link_libraries(ClassicSim PUBLIC ClassicSimLib)
+target_compile_definitions(ClassicSimLib
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(ClassicSim PRIVATE Qt5::Core Qt5::Quick Qt5::Charts)
+target_compile_definitions(ClassicSim
+  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+target_link_libraries(ClassicSimLib PUBLIC Qt5::Core Qt5::Quick Qt5::Charts)
+
+add_subdirectory(pybind11)
+pybind11_add_module(classic_sim python/PyBindings.cpp)
+target_link_libraries(classic_sim PUBLIC ClassicSimLib)
+
