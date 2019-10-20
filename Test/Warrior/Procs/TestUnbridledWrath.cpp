@@ -1,5 +1,7 @@
 #include "TestUnbridledWrath.h"
 
+#include <cassert>
+
 #include "EnabledProcs.h"
 #include "Fury.h"
 #include "ProcInfo.h"

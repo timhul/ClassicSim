@@ -1,5 +1,6 @@
 #include "TestCombatRoll.h"
 
+#include <cassert>
 #include <QDebug>
 
 #include "CombatRoll.h"

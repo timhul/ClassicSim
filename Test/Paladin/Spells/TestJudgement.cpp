@@ -1,5 +1,7 @@
 #include "TestJudgement.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"

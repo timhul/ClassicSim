@@ -1,5 +1,6 @@
 #include "TestSpellHunter.h"
 
+#include <cassert>
 #include <QDebug>
 #include <utility>
 

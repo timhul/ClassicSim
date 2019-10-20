@@ -1,5 +1,7 @@
 #include "TestDeathWish.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"

@@ -1,5 +1,7 @@
 #include "TestMana.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Event.h"
 #include "Hunter.h"

@@ -1,5 +1,7 @@
 #include "TestScorch.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Event.h"
 #include "Scorch.h"

@@ -1,5 +1,6 @@
 #include "TestSpellWarrior.h"
 
+#include <cassert>
 #include <QDebug>
 #include <utility>
 

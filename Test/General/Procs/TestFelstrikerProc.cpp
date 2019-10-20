@@ -1,5 +1,7 @@
 #include "TestFelstrikerProc.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "EnabledBuffs.h"
 #include "Equipment.h"

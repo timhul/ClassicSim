@@ -1,5 +1,7 @@
 #include "ProcPPM.h"
 
+#include <cmath>
+
 #include "Character.h"
 #include "Equipment.h"
 #include "ItemNamespace.h"

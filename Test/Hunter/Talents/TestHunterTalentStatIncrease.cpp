@@ -1,5 +1,7 @@
 #include "TestHunterTalentStatIncrease.h"
 
+#include <cassert>
+
 #include "BeastMastery.h"
 #include "CharacterStats.h"
 #include "Marksmanship.h"

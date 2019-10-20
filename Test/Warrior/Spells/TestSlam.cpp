@@ -1,5 +1,7 @@
 #include "TestSlam.h"
 
+#include <cassert>
+
 #include "Engine.h"
 #include "Equipment.h"
 #include "Event.h"

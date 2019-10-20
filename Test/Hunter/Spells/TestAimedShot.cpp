@@ -1,5 +1,7 @@
 #include "TestAimedShot.h"
 
+#include <cassert>
+
 #include "AimedShot.h"
 #include "CharacterStats.h"
 #include "Equipment.h"

@@ -1,5 +1,7 @@
 #include "Stats.h"
 
+#include <cmath>
+
 #include "Utils/Check.h"
 
 Stats::Stats() {

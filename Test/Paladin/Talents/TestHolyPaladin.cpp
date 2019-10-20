@@ -1,5 +1,7 @@
 #include "TestHolyPaladin.h"
 
+#include <cassert>
+
 #include "Human.h"
 #include "Paladin.h"
 #include "RaidControl.h"

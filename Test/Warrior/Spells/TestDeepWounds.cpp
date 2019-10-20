@@ -1,5 +1,7 @@
 #include "TestDeepWounds.h"
 
+#include <cassert>
+
 #include "Arms.h"
 #include "Bloodthirst.h"
 #include "ClassStatistics.h"

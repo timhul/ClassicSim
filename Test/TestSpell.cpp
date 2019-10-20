@@ -1,5 +1,6 @@
 #include "TestSpell.h"
 
+#include <cassert>
 #include <utility>
 
 #include "Character.h"

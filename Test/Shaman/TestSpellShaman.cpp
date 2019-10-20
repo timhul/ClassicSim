@@ -1,5 +1,6 @@
 #include "TestSpellShaman.h"
 
+#include <cassert>
 #include <QDebug>
 #include <utility>
 

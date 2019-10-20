@@ -1,5 +1,7 @@
 #include "TestFury.h"
 
+#include <cassert>
+
 #include "Orc.h"
 #include "RaidControl.h"
 #include "SimSettings.h"

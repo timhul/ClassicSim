@@ -1,5 +1,7 @@
 #include "TestHemorrhage.h"
 
+#include <cassert>
+
 #include "Equipment.h"
 #include "Event.h"
 #include "Hemorrhage.h"

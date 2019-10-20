@@ -1,5 +1,7 @@
 #include "SpellPeriodic.h"
 
+#include <cmath>
+
 #include "Buff.h"
 #include "Character.h"
 #include "CooldownControl.h"

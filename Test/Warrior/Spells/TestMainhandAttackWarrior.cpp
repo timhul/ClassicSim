@@ -1,5 +1,7 @@
 #include "TestMainhandAttackWarrior.h"
 
+#include <cassert>
+
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
 

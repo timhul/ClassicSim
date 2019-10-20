@@ -1,5 +1,8 @@
 #include "TestMageTalentStatIncrease.h"
 
+#include <cassert>
+#include <cmath>
+
 #include "Arcane.h"
 #include "Character.h"
 #include "CharacterStats.h"

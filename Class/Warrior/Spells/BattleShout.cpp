@@ -1,5 +1,7 @@
 #include "BattleShout.h"
 
+#include <cmath>
+
 #include "BattleShoutBuff.h"
 #include "CooldownControl.h"
 #include "EnabledBuffs.h"

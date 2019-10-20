@@ -1,5 +1,7 @@
 #include "TestElemental.h"
 
+#include <cassert>
+
 #include "Orc.h"
 #include "RaidControl.h"
 #include "Shaman.h"

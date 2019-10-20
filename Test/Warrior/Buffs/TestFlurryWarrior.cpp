@@ -1,5 +1,7 @@
 #include "TestFlurryWarrior.h"
 
+#include <cassert>
+
 #include "Bloodthirst.h"
 #include "Equipment.h"
 #include "Flurry.h"

@@ -1,5 +1,7 @@
 #include "SliceAndDiceBuff.h"
 
+#include <cmath>
+
 #include "Character.h"
 #include "Utils/Check.h"
 

@@ -1,5 +1,7 @@
 #include "Druid.h"
 
+#include <cmath>
+
 #include "Balance.h"
 #include "BearForm.h"
 #include "Buff.h"

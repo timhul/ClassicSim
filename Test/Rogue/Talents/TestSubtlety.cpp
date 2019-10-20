@@ -1,5 +1,7 @@
 #include "TestSubtlety.h"
 
+#include <cassert>
+
 #include "Orc.h"
 #include "RaidControl.h"
 #include "Rogue.h"

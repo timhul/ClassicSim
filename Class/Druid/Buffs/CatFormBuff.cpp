@@ -1,5 +1,7 @@
 #include "CatFormBuff.h"
 
+#include <cmath>
+
 #include "CharacterStats.h"
 #include "Druid.h"
 #include "Equipment.h"

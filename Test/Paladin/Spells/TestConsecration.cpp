@@ -1,5 +1,7 @@
 #include "TestConsecration.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Consecration.h"
 #include "Equipment.h"

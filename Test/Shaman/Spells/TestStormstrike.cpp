@@ -1,5 +1,7 @@
 #include "TestStormstrike.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Event.h"
 #include "Shaman.h"

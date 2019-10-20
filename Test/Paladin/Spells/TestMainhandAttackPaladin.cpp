@@ -1,5 +1,7 @@
 #include "TestMainhandAttackPaladin.h"
 
+#include <cassert>
+
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 

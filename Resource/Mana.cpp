@@ -1,5 +1,7 @@
 #include "Mana.h"
 
+#include <cmath>
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CharacterStats.h"

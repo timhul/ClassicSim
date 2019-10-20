@@ -1,5 +1,7 @@
 #include "TestBloodrage.h"
 
+#include <cassert>
+
 #include "Bloodrage.h"
 #include "Engine.h"
 #include "Event.h"

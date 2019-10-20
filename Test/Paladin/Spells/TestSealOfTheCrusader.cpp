@@ -1,5 +1,7 @@
 #include "TestSealOfTheCrusader.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Paladin.h"

@@ -1,5 +1,7 @@
 #include "TestTwoHandedWeaponSpecialization.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Orc.h"

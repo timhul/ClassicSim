@@ -1,5 +1,6 @@
 #include "EquipmentDb.h"
 
+#include <cmath>
 #include <QDebug>
 #include <QDir>
 #include <QVersionNumber>

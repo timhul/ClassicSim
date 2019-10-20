@@ -1,5 +1,7 @@
 #include "PeriodicDamageSpell.h"
 
+#include <cmath>
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "MagicSchools.h"

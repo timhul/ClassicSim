@@ -1,5 +1,7 @@
 #include "ClearcastingDruid.h"
 
+#include <cmath>
+
 #include "Druid.h"
 #include "Equipment.h"
 #include "ItemNamespace.h"

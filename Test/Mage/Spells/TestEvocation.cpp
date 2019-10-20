@@ -1,5 +1,7 @@
 #include "TestEvocation.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Event.h"

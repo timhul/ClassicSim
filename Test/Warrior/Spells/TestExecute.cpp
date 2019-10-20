@@ -1,5 +1,7 @@
 #include "TestExecute.h"
 
+#include <cassert>
+
 #include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"

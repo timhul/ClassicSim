@@ -1,5 +1,6 @@
 #include "TestSpellMage.h"
 
+#include <cassert>
 #include <utility>
 
 #include "Arcane.h"

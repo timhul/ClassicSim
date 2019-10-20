@@ -1,5 +1,7 @@
 #include "TestEnergy.h"
 
+#include <cassert>
+
 #include "Event.h"
 #include "Rogue.h"
 #include "Vigor.h"

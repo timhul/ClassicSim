@@ -1,5 +1,7 @@
 #include "MoonkinForm.h"
 
+#include <cmath>
+
 #include "CooldownControl.h"
 #include "Druid.h"
 #include "MoonkinFormBuff.h"

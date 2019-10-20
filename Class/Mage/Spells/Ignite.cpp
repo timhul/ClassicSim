@@ -1,5 +1,7 @@
 #include "Ignite.h"
 
+#include <cmath>
+
 #include "CharacterSpells.h"
 #include "Engine.h"
 #include "IgniteBuff.h"

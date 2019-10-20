@@ -1,5 +1,7 @@
 #include "TestCatForm.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "CatForm.h"
 #include "CharacterStats.h"

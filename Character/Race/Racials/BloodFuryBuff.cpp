@@ -1,5 +1,7 @@
 #include "BloodFuryBuff.h"
 
+#include <cmath>
+
 #include "Character.h"
 #include "CharacterStats.h"
 

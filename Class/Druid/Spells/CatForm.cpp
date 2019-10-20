@@ -1,5 +1,7 @@
 #include "CatForm.h"
 
+#include <cmath>
+
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
