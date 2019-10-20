@@ -28,6 +28,20 @@
 		</source>
 	</item>
 
+	<item id="13394" phase="1">
+		<info name="Skul's Cold Embrace" type="PLATE" slot="CHEST" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_chest_chain_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="617"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="DEFENSE" value="6"/>
+		</stats>
+		<source>
+			Drops from Skul in Stratholme.
+		</source>
+	</item>
+
 	<item id="16477" phase="2">
 		<info name="Field Marshal's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_plate03.png"/>
 		<class_restriction class="WARRIOR"/>
