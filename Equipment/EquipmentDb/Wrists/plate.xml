@@ -25,6 +25,20 @@
 		</source>
 	</wrist>
 
+	<wrist id="16735" phase="1">
+		<info name="Bracers of Valor" type="PLATE" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_bracer_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="261"/>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="AGILITY" value="3"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPIRIT" value="2"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Blackrock Spire.
+		</source>
+	</wrist>
+
 	<wrist id="18533" phase="2">
 		<info name="Gordok Bracers of Power" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
 		<stats>
