@@ -494,6 +494,24 @@
 		</source>
 	</melee_weapon>
 
+		<proc>
+			<spell name="ATTACK_SPEED" amount="0.2" duration="10" rate="0.046666667" internal_cd="0"/>
+		</proc>
+
+	<melee_weapon id="13246" phase="1">
+		<info name="Argent Avenger" type="SWORD" slot="1H" unique="no" item_lvl="62" quality="RARE" boe="no" icon="Inv_sword_05.png"/>
+		<dmg_range min="71" max="108" speed="2.2"/>
+		<proc>
+			<spell name="ATTACK_POWER_UNDEAD" min="200" max="200" instant="yes" rate="0.041666677" internal_cd="0" duration="10"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Increases Attack Power against Undead by 200 for 10 sec.
+		</special_equip_effect>
+		<source>
+			Quest reward from The Argent Hold.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="19901" phase="4">
 		<info name="Zulian Slicer" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
 		<dmg_range min="78" max="146" speed="2.5"/>
