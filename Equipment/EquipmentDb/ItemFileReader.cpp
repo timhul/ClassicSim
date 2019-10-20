@@ -28,7 +28,7 @@ void ItemFileReader::read_items(QVector<Item *>& items, const QString& path) {
         else if (reader.name() == "projectiles")
             ProjectileFileReader().file_handler(reader, items);
         else
-            qDebug() << QString("%1 - no appropriate handler for start element %2").arg(__func__).arg(reader.name());
+            qDebug() << QString("%1 - no appropriate handler for start element %2").arg(__func__).arg(reader.name().toString());
     }
 
     file.close();
