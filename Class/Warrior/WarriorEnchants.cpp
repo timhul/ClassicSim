@@ -66,6 +66,7 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
     case EquipmentSlot::GLOVES:
         return {
             EnchantName::Name::EnchantGlovesSuperiorAgility,
+            EnchantName::Name::EnchantGlovesGreaterAgility,
             EnchantName::Name::EnchantGlovesMinorHaste,
             EnchantName::Name::EnchantGlovesGreaterStrength
         };

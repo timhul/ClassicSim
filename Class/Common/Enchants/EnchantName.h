@@ -28,6 +28,7 @@ public:
         EnchantBracerMinorAgility,
         EnchantBracerSuperiorStrength,
         EnchantGlovesSuperiorAgility,
+        EnchantGlovesGreaterAgility,
         EnchantGlovesGreaterStrength,
         EnchantGlovesMinorHaste,
         EnchantGlovesFirePower,
@@ -90,6 +91,8 @@ public:
             return "Superior Strength";
         case EnchantName::EnchantGlovesSuperiorAgility:
             return "Superior Agility";
+        case EnchantName::EnchantGlovesGreaterAgility:
+            return "Greater Agility";
         case EnchantName::EnchantGlovesGreaterStrength:
             return "Greater Strength";
         case EnchantName::EnchantGlovesMinorHaste:
@@ -191,6 +194,8 @@ public:
             return "+9 Strength";
         case EnchantName::EnchantGlovesSuperiorAgility:
             return "+15 Agility";
+        case EnchantName::EnchantGlovesGreaterAgility:
+            return "+7 Agility";
         case EnchantName::EnchantGlovesGreaterStrength:
             return "+7 Strength";
         case EnchantName::EnchantGlovesMinorHaste:
