@@ -38,6 +38,18 @@
 		</source>
 	</item>
 
+	<item id="13498" phase="1">
+		<info name="Handcrafted Mastersmith Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="548"/>
+			<stat type="STRENGTH" value="29"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+		Drops from Goraluk Anvilcraft in Upper Blackrock Spire.
+		</source>
+	</item>
+
 	<item id="13075" phase="1">
 		<info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
 		<stats>
