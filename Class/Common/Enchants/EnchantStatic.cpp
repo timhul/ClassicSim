@@ -40,6 +40,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::EnchantGlovesSuperiorAgility:
         pchar->get_stats()->increase_agility(15);
         break;
+    case EnchantName::EnchantGlovesGreaterAgility:
+        pchar->get_stats()->increase_agility(7);
+        break;
     case EnchantName::EnchantGlovesGreaterStrength:
         pchar->get_stats()->increase_strength(7);
         break;
@@ -199,6 +202,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::EnchantGlovesSuperiorAgility:
         pchar->get_stats()->decrease_agility(15);
+        break;
+    case EnchantName::EnchantGlovesGreaterAgility:
+        pchar->get_stats()->decrease_agility(7);
         break;
     case EnchantName::EnchantGlovesGreaterStrength:
         pchar->get_stats()->decrease_strength(7);
