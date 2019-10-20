@@ -1,5 +1,7 @@
 #include "TestSwordSpecialization.h"
 
+#include <cassert>
+
 #include "Arms.h"
 #include "CharacterStats.h"
 #include "EnabledProcs.h"

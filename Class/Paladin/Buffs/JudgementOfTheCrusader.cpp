@@ -1,5 +1,7 @@
 #include "JudgementOfTheCrusader.h"
 
+#include <cmath>
+
 #include "Paladin.h"
 #include "Stats.h"
 #include "Target.h"

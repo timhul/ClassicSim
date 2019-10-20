@@ -1,5 +1,7 @@
 #include "TestFire.h"
 
+#include <cassert>
+
 #include "Mage.h"
 #include "RaidControl.h"
 #include "SimSettings.h"

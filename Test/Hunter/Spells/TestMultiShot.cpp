@@ -1,5 +1,7 @@
 #include "TestMultiShot.h"
 
+#include <cassert>
+
 #include "Equipment.h"
 #include "MultiShot.h"
 

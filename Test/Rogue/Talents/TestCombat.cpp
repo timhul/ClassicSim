@@ -1,5 +1,7 @@
 #include "TestCombat.h"
 
+#include <cassert>
+
 #include "Combat.h"
 #include "Orc.h"
 #include "RaidControl.h"

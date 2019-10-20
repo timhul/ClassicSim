@@ -1,5 +1,6 @@
 #include "Item.h"
 
+#include <cmath>
 #include <QDebug>
 #include <utility>
 

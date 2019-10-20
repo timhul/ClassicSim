@@ -1,5 +1,7 @@
 #include "TestBalance.h"
 
+#include <cassert>
+
 #include "Druid.h"
 #include "RaidControl.h"
 #include "SimSettings.h"

@@ -1,5 +1,7 @@
 #include "TestBackstab.h"
 
+#include <cassert>
+
 #include "Backstab.h"
 #include "Equipment.h"
 #include "Event.h"

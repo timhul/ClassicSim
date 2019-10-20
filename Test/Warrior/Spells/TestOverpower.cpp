@@ -1,5 +1,7 @@
 #include "TestOverpower.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "Equipment.h"
 #include "Event.h"

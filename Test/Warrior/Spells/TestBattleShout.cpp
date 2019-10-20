@@ -1,5 +1,7 @@
 #include "TestBattleShout.h"
 
+#include <cassert>
+
 #include "BattleShout.h"
 #include "CharacterStats.h"
 #include "Fury.h"

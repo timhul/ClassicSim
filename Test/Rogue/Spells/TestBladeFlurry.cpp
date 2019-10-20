@@ -1,5 +1,7 @@
 #include "TestBladeFlurry.h"
 
+#include <cassert>
+
 #include "Backstab.h"
 #include "BladeFlurry.h"
 #include "Combat.h"

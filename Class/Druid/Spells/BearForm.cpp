@@ -1,5 +1,7 @@
 #include "BearForm.h"
 
+#include <cmath>
+
 #include "CooldownControl.h"
 #include "Druid.h"
 #include "NoEffectSelfBuff.h"

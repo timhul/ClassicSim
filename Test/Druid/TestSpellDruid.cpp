@@ -1,5 +1,6 @@
 #include "TestSpellDruid.h"
 
+#include <cassert>
 #include <utility>
 
 #include "Balance.h"

@@ -1,5 +1,7 @@
 #include "TestFerociousBite.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "CatForm.h"
 #include "Druid.h"

@@ -1,5 +1,7 @@
 #include "DeepWounds.h"
 
+#include <cmath>
+
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"

@@ -1,5 +1,7 @@
 #include "TestPaladinTalentStatIncrease.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "HolyPaladin.h"
 #include "Paladin.h"

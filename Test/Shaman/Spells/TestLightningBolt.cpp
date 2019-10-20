@@ -1,5 +1,7 @@
 #include "TestLightningBolt.h"
 
+#include <cassert>
+
 #include "CharacterStats.h"
 #include "Event.h"
 #include "LightningBolt.h"

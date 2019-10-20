@@ -1,5 +1,7 @@
 #include "TestAssassination.h"
 
+#include <cassert>
+
 #include "Assassination.h"
 #include "Orc.h"
 #include "RaidControl.h"

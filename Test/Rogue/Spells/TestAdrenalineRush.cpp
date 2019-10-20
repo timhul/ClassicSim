@@ -1,5 +1,7 @@
 #include "TestAdrenalineRush.h"
 
+#include <cassert>
+
 #include "AdrenalineRush.h"
 #include "Backstab.h"
 #include "Combat.h"

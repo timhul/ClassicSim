@@ -1,5 +1,7 @@
 #include "SealOfTheCrusaderBuff.h"
 
+#include <cmath>
+
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "MainhandAttackPaladin.h"

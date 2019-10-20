@@ -1,5 +1,7 @@
 #include "TestArms.h"
 
+#include <cassert>
+
 #include "Arms.h"
 #include "Orc.h"
 #include "RaidControl.h"

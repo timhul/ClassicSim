@@ -1,5 +1,7 @@
 #include "TestBloodFury.h"
 
+#include <cassert>
+
 #include "BloodFury.h"
 #include "CharacterStats.h"
 

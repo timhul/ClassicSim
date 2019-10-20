@@ -1,5 +1,7 @@
 #include "TestMoonkinForm.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Druid.h"

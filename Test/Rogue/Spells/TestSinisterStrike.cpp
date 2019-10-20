@@ -1,5 +1,7 @@
 #include "TestSinisterStrike.h"
 
+#include <cassert>
+
 #include "Equipment.h"
 #include "Event.h"
 #include "RogueSpells.h"

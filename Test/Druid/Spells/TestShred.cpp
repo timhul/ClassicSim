@@ -1,5 +1,7 @@
 #include "TestShred.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "CatForm.h"
 #include "Druid.h"

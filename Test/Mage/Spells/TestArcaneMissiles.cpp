@@ -1,5 +1,7 @@
 #include "TestArcaneMissiles.h"
 
+#include <cassert>
+
 #include "ArcaneMissiles.h"
 #include "Mage.h"
 

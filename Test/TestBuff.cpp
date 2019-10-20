@@ -1,7 +1,7 @@
-
 #include "TestBuff.h"
 #include "Buff.h"
 
+#include <cassert>
 #include <utility>
 
 TestBuff::TestBuff(EquipmentDb *equipment_db, QString buff_under_test) :

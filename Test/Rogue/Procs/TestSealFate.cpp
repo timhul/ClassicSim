@@ -1,5 +1,7 @@
 #include "TestSealFate.h"
 
+#include <cassert>
+
 #include "Assassination.h"
 #include "EnabledProcs.h"
 #include "ProcInfo.h"

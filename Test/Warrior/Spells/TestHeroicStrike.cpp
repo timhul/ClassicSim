@@ -1,5 +1,7 @@
 #include "TestHeroicStrike.h"
 
+#include <cassert>
+
 #include "Arms.h"
 #include "Buff.h"
 #include "CombatRoll.h"

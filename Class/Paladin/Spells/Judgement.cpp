@@ -1,5 +1,7 @@
 #include "Judgement.h"
 
+#include <cmath>
+
 #include "Buff.h"
 #include "CooldownControl.h"
 #include "Paladin.h"

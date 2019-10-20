@@ -1,5 +1,7 @@
 #include "TestBloodthirst.h"
 
+#include <cassert>
+
 #include "Bloodthirst.h"
 #include "Event.h"
 

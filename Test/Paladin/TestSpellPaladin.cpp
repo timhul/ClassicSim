@@ -1,5 +1,6 @@
 #include "TestSpellPaladin.h"
 
+#include <cassert>
 #include <QDebug>
 #include <utility>
 

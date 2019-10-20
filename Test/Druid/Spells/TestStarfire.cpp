@@ -1,5 +1,8 @@
 #include "TestStarfire.h"
 
+#include <cassert>
+#include <cmath>
+
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Druid.h"

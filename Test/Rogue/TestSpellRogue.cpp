@@ -1,5 +1,6 @@
 #include "TestSpellRogue.h"
 
+#include <cassert>
 #include <QDebug>
 
 #include "Assassination.h"

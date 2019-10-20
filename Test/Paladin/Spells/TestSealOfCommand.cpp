@@ -1,5 +1,7 @@
 #include "TestSealOfCommand.h"
 
+#include <cassert>
+
 #include "Buff.h"
 #include "Equipment.h"
 #include "Paladin.h"

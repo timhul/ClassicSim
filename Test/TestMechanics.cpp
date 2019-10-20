@@ -1,5 +1,6 @@
 #include "TestMechanics.h"
 
+#include <cassert>
 #include <QDebug>
 
 #include "Mechanics.h"

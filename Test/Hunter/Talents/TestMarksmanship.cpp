@@ -1,5 +1,7 @@
 #include "TestMarksmanship.h"
 
+#include <cassert>
+
 #include "Hunter.h"
 #include "Orc.h"
 #include "RaidControl.h"

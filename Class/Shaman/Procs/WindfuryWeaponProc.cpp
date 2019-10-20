@@ -1,5 +1,7 @@
 #include "WindfuryWeaponProc.h"
 
+#include <cmath>
+
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"

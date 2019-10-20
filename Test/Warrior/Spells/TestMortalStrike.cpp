@@ -1,5 +1,7 @@
 #include "TestMortalStrike.h"
 
+#include <cassert>
+
 #include "Event.h"
 #include "MortalStrike.h"
 

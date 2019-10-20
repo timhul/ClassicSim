@@ -1,5 +1,7 @@
 #include "TestBerserkerStance.h"
 
+#include <cassert>
+
 #include "BerserkerStance.h"
 #include "CharacterStats.h"
 #include "Event.h"

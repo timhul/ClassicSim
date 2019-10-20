@@ -1,5 +1,7 @@
 #include "HuntersMark.h"
 
+#include <cmath>
+
 #include "Character.h"
 #include "CooldownControl.h"
 #include "HuntersMarkBuff.h"
