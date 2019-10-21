@@ -24,6 +24,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18683" phase="1">
+		<info name="Hammer of the Vesper" type="MACE" slot="1H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_hammer_13.png"/>
+		<dmg_range min="70" max="131" speed="2.5"/>
+		<stats>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+			Drops from the six bosses in Scholomance.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18671" phase="1">
 		<info name="Baron Charr's Sceptre" type="MACE" slot="MH" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_mace_08.png"/>
 		<dmg_range min="70" max="132" speed="2.6"/>
