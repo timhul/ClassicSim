@@ -47,6 +47,7 @@
 #include "TestRogue.h"
 #include "TestRotationFileReader.h"
 #include "TestShaman.h"
+#include "TestStats.h"
 #include "TestWarrior.h"
 #include "Troll.h"
 #include "Undead.h"
@@ -78,6 +79,7 @@ void Test::test_all() {
     TestCombatRoll(equipment_db).test_all();
     TestTarget().test_all();
     TestAttackTables(equipment_db).test_all();
+    TestStats().test_all();
     TestCharacterStats(equipment_db).test_all();
     TestConditionVariableBuiltin(equipment_db).test_all();
     TestRotationFileReader().test_all();

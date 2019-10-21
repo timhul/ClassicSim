@@ -222,6 +222,7 @@ SOURCES += main.cpp \
     Equipment/Item/Weapon.cpp \
     Test/TestBloodFury.cpp \
     Test/TestCombatRoll.cpp \
+    Test/TestStats.cpp \
     Test/Warrior/Spells/TestBattleShout.cpp \
     Test/Warrior/TestWarrior.cpp \
     Test/Warrior/Spells/TestExecute.cpp \
@@ -703,6 +704,7 @@ HEADERS += \
     Equipment/Item/Weapon.h \
     Test/TestBloodFury.h \
     Test/TestCombatRoll.h \
+    Test/TestStats.h \
     Test/Warrior/Spells/TestBattleShout.h \
     Test/Warrior/TestWarrior.h \
     Test/Warrior/Spells/TestExecute.h \

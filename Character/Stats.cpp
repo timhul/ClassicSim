@@ -415,10 +415,10 @@ unsigned Stats::get_twohand_axe_skill() const {
 }
 
 void Stats::increase_twohand_axe_skill(const unsigned value) {
-    axe_skill += value;
+    twohand_axe_skill += value;
 }
 void Stats::decrease_twohand_axe_skill(const unsigned value) {
-    axe_skill -= value;
+    twohand_axe_skill -= value;
 }
 
 unsigned Stats::get_twohand_mace_skill() const {
@@ -426,11 +426,11 @@ unsigned Stats::get_twohand_mace_skill() const {
 }
 
 void Stats::increase_twohand_mace_skill(const unsigned value) {
-    mace_skill += value;
+    twohand_mace_skill += value;
 }
 
 void Stats::decrease_twohand_mace_skill(const unsigned value) {
-    mace_skill -= value;
+    twohand_mace_skill -= value;
 }
 
 unsigned Stats::get_twohand_sword_skill() const {
@@ -438,11 +438,11 @@ unsigned Stats::get_twohand_sword_skill() const {
 }
 
 void Stats::increase_twohand_sword_skill(const unsigned value) {
-    sword_skill += value;
+    twohand_sword_skill += value;
 }
 
 void Stats::decrease_twohand_sword_skill(const unsigned value) {
-    sword_skill -= value;
+    twohand_sword_skill -= value;
 }
 
 unsigned Stats::get_bow_skill() const {
