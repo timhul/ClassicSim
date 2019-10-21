@@ -213,33 +213,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="19019" phase="1">
-		<info name="Thunderfury, Blessed Blade of the Windseeker" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_sword_39.png"/>
-		<class_restriction class="WARRIOR"/>
-		<class_restriction class="PALADIN"/>
-		<class_restriction class="HUNTER"/>
-		<class_restriction class="ROGUE"/>
-		<dmg_range min="44" max="115" speed="1.9"/>
-		<stats>
-			<stat type="AGILITY" value="5"/>
-			<stat type="STAMINA" value="8"/>
-			<stat type="FIRE_RESISTANCE" value="8"/>
-			<stat type="NATURE_RESISTANCE" value="9"/>
-		</stats>
-		<proc>
-			<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
-			<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.2" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
-			Each jump reduces that victim's Nature resistance by 25. Affects 5 targets.
-			Your primary target is also consumed by a cyclone, slowing its attack speed by 20% for 12 sec.
-		</special_equip_effect>
-		<source>
-			Quest reward. Requires Left and Right Bindings of the Windseeker from Garr and Baron Geddon in Molten Core.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="17075" phase="1">
 		<info name="Vis'kag the Bloodletter" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
 		<dmg_range min="100" max="187" speed="2.6"/>
@@ -435,6 +408,33 @@
 		</stats>
 		<source>
 			Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19019" phase="3">
+		<info name="Thunderfury, Blessed Blade of the Windseeker" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_sword_39.png"/>
+		<class_restriction class="WARRIOR"/>
+		<class_restriction class="PALADIN"/>
+		<class_restriction class="HUNTER"/>
+		<class_restriction class="ROGUE"/>
+		<dmg_range min="44" max="115" speed="1.9"/>
+		<stats>
+			<stat type="AGILITY" value="5"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="FIRE_RESISTANCE" value="8"/>
+			<stat type="NATURE_RESISTANCE" value="9"/>
+		</stats>
+		<proc>
+			<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.2" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
+			Each jump reduces that victim's Nature resistance by 25. Affects 5 targets.
+			Your primary target is also consumed by a cyclone, slowing its attack speed by 20% for 12 sec.
+		</special_equip_effect>
+		<source>
+			Quest reward. Requires Left and Right Bindings of the Windseeker from Garr and Baron Geddon in Molten Core.
 		</source>
 	</melee_weapon>
 
