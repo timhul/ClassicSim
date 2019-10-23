@@ -27,6 +27,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="13348" phase="1">
+		<info name="Demonshear" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_14.png"/>
+		<dmg_range min="163" max="246" speed="3.8"/>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="150" max="150" instant="yes" rate="0.06" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+		Chance on hit: Sends a shadowy bolt at the enemy causing 150 Shadow damage and dealing 40 damage every 2 sec for 6 sec.
+		</special_equip_effect>
+		<source>
+        Drops from Grand Crusader Dathrohan and Balnazzar in Stratholme.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18822" phase="1">
 		<info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
 		<dmg_range min="176" max="264" speed="3.4"/>
