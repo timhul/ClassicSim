@@ -25,6 +25,19 @@
 		</source>
 	</wrist>
 
+	<wrist id="13400" phase="1">
+		<info name="Vambraces of the Sadist" type="PLATE" slot="WRIST" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
+		<stats>
+			<stat type="ARMOR" value="270"/>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Timmy the Cruel in Stratholme.
+		</source>
+	</wrist>
+
 	<wrist id="16735" phase="1">
 		<info name="Bracers of Valor" type="PLATE" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_bracer_18.png"/>
 		<stats>
