@@ -106,7 +106,7 @@ void TestAimedShot::test_all() {
     tear_down();
 
     set_up();
-    test_aimed_shot_cast_time_reduced_by_ranged_attack_speed_boosts();
+    test_aimed_shot_cast_time_not_reduced_by_ranged_attack_speed_boosts();
     tear_down();
 }
 
@@ -556,16 +556,17 @@ void TestAimedShot::test_mana_cost_5_of_5_efficiency() {
     then_hunter_has_mana(0);
 }
 
-void TestAimedShot::test_aimed_shot_cast_time_reduced_by_ranged_attack_speed_boosts() {
+void TestAimedShot::test_aimed_shot_cast_time_not_reduced_by_ranged_attack_speed_boosts() {
+    given_event_is_ignored("PlayerAction");
     given_aimed_shot_is_enabled();
     hunter->get_stats()->increase_ranged_attack_speed(200);
     hunter->get_stats()->increase_melee_attack_speed(200);
 
     when_aimed_shot_is_performed();
 
-    // [cast_time] = base_cast_time / ranged_attack_speed_mod
-    // 1.000 = 3.000 / 3.0
-    then_next_event_is(EventType::CastComplete, "1.000");
+    // [cast_time] = base_cast_time
+    // 3.000 = 3.000 / 1.0
+    then_next_event_is(EventType::CastComplete, "3.000");
 }
 
 void TestAimedShot::given_aimed_shot_is_enabled() {

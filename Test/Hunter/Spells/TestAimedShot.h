@@ -47,7 +47,7 @@ private:
     void test_mana_cost_4_of_5_efficiency();
     void test_mana_cost_5_of_5_efficiency();
 
-    void test_aimed_shot_cast_time_reduced_by_ranged_attack_speed_boosts();
+    void test_aimed_shot_cast_time_not_reduced_by_ranged_attack_speed_boosts();
 
     void given_aimed_shot_is_enabled();
     void when_aimed_shot_is_performed();
