@@ -31,5 +31,5 @@ bool ConditionBuffStacks::condition_fulfilled() const {
 }
 
 QString ConditionBuffStacks::condition_description() const {
-    return QString("%1 buff stacks %2 %3").arg(buff->get_name()).arg(comparator_as_string()).arg(cmp_value);
+    return QString("%1 buff stacks %2 %3").arg(buff->name).arg(comparator_as_string()).arg(cmp_value);
 }

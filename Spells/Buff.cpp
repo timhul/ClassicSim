@@ -13,10 +13,10 @@
 #include "Utils/Check.h"
 
 Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
-    pchar(pchar),
-    raid_control(pchar->get_raid_control()),
     name(std::move(name)),
     icon(std::move(icon)),
+    pchar(pchar),
+    raid_control(pchar->get_raid_control()),
     duration(duration),
     base_charges(base_charges),
     enabled(false),
@@ -25,14 +25,6 @@ Buff::Buff(Character* pchar, QString name, QString icon, const int duration, con
     instance_id(InstanceID::INACTIVE)
 {
     initialize();
-}
-
-QString Buff::get_name() const {
-    return this->name;
-}
-
-QString Buff::get_icon() const {
-    return this->icon;
 }
 
 int Buff::get_charges() const {

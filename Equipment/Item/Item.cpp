@@ -335,7 +335,7 @@ void Item::set_uses() {
         }
         else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);
-            spell = new UseTrinket(pchar, buff->get_name(), buff->get_icon(), 120, buff, nullptr);
+            spell = new UseTrinket(pchar, buff->name, buff->icon, 120, buff, nullptr);
         }
         else if (use_name == "ZANDALARIAN_HERO_MEDALLION") {
             QVector<ProcInfo::Source> proc_sources;

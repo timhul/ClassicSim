@@ -13,8 +13,8 @@ RectangleBorders {
     signal selectRangeOfBuffs()
     signal toggleSingleBuff()
 
-    height: 60
-    width: 250
+    height: 30
+    width: 420
 
     rectColor: buffActive === true ? selectedColor : root.darkDarkGray
     rectColorHighlighted: buffActive === true ? selectedHighlightColor : root.darkGray
@@ -42,7 +42,7 @@ RectangleBorders {
 
         Image {
             id: icon
-            height: 45
+            height: parent.height - 5
             width: height
             y: parent.height / 2 - height / 2
 

@@ -116,7 +116,7 @@ void TestBladeFlurry::test_attack_speed() {
     given_1_of_1_blade_flurry();
     given_a_mainhand_weapon_with_2_speed();
     given_no_offhand();
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
 
     when_blade_flurry_is_performed();
 

@@ -32,6 +32,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18420" phase="2">
+		<info name="Bonecrusher" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="56" item_lvl="63" quality="RARE" boe="no" icon="Inv_mace_02.png"/>
+		<dmg_range min="129" max="194" speed="3.0"/>
+		<stats>
+			<stat type="STRENGTH" value="30"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward from The Treasure of the Shen'dralar.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18803" phase="1">
 		<info name="Finkle's Lava Dredger" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_gizmo_02.png"/>
 		<dmg_range min="155" max="234" speed="2.9"/>

@@ -28,10 +28,10 @@ void BuffModel::set_phase(const Content::Phase phase) {
 void BuffModel::toggle_single_buff(const QString& name) {
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->get_name() != name)
+        if (buffs[i]->name != name)
             continue;
 
-        general_buffs->toggle_external_buff(buffs[i]->get_name());
+        general_buffs->toggle_external_buff(buffs[i]->name);
         last_toggled = i;
         break;
     }
@@ -42,17 +42,17 @@ void BuffModel::toggle_single_buff(const QString& name) {
 void BuffModel::clear_buffs_and_select_single_buff(const QString& name) {
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->get_name() != name) {
-            if (general_buffs->buff_active(buffs[i]->get_name()))
-                general_buffs->toggle_external_buff(buffs[i]->get_name());
+        if (buffs[i]->name != name) {
+            if (general_buffs->buff_active(buffs[i]->name))
+                general_buffs->toggle_external_buff(buffs[i]->name);
 
             continue;
         }
 
         last_toggled = i;
 
-        if (!general_buffs->buff_active(buffs[i]->get_name()))
-            general_buffs->toggle_external_buff(buffs[i]->get_name());
+        if (!general_buffs->buff_active(buffs[i]->name))
+            general_buffs->toggle_external_buff(buffs[i]->name);
     }
 
     dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
@@ -63,7 +63,7 @@ void BuffModel::select_range_of_buffs(const QString& name) {
 
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->get_name() != name)
+        if (buffs[i]->name != name)
             continue;
 
         target_index = i;
@@ -80,14 +80,14 @@ void BuffModel::select_range_of_buffs(const QString& name) {
 
     if (target_index > last_toggled) {
         for (int i = last_toggled; i <= target_index; ++i) {
-            if (!general_buffs->buff_active(buffs[i]->get_name()))
-                general_buffs->toggle_external_buff(buffs[i]->get_name());
+            if (!general_buffs->buff_active(buffs[i]->name))
+                general_buffs->toggle_external_buff(buffs[i]->name);
         }
     }
     else {
         for (int i = last_toggled; i >= target_index; --i) {
-            if (!general_buffs->buff_active(buffs[i]->get_name()))
-                general_buffs->toggle_external_buff(buffs[i]->get_name());
+            if (!general_buffs->buff_active(buffs[i]->name))
+                general_buffs->toggle_external_buff(buffs[i]->name);
         }
     }
 
@@ -111,7 +111,7 @@ void BuffModel::update_buffs() {
 }
 
 int BuffModel::rowCount(const QModelIndex & parent) const {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return external_buffs.count();
 }
 
@@ -122,13 +122,13 @@ QVariant BuffModel::data(const QModelIndex & index, int role) const {
     const ExternalBuff* buff = external_buffs[index.row()];
 
     if (role == NameRole)
-        return buff->get_name();
+        return buff->name;
     if (role == IconRole)
-        return buff->get_icon();
+        return buff->icon;
     if (role == DescriptionRole)
         return buff->get_description();
     if (role == ActiveRole)
-        return pchar->get_enabled_buffs()->get_general_buffs()->buff_active(buff->get_name());
+        return pchar->get_enabled_buffs()->get_general_buffs()->buff_active(buff->name);
 
     return QVariant();
 }

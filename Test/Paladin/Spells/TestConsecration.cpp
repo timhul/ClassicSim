@@ -82,7 +82,8 @@ void TestConsecration::test_is_ready_conditions() {
 }
 
 void TestConsecration::test_damage() {
-    ignored_events = {"BuffRemoval", "PlayerAction"};
+    given_event_is_ignored(EventType::BuffRemoval);
+    given_event_is_ignored(EventType::PlayerAction);
     given_consecration_is_enabled();
     given_character_has_spell_damage(100, MagicSchool::Holy);
     given_a_guaranteed_magic_hit(MagicSchool::Holy);
@@ -104,7 +105,8 @@ void TestConsecration::test_damage() {
 }
 
 void TestConsecration::test_damage_sanctity_aura() {
-    ignored_events = {"BuffRemoval", "PlayerAction"};
+    given_event_is_ignored(EventType::BuffRemoval);
+    given_event_is_ignored(EventType::PlayerAction);
     given_character_has_spell_damage(100, MagicSchool::Holy);
     given_a_guaranteed_magic_hit(MagicSchool::Holy);
     given_retribution_talent_rank("Sanctity Aura", 1);

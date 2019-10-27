@@ -129,8 +129,8 @@ void TestCatForm::test_proc_enchants_on_weapon_disabled_in_cat_form() {
 }
 
 void TestCatForm::test_attack_speed_in_and_out_of_cat_form() {
-    given_event_is_ignored("PlayerAction");
-    given_event_is_ignored("DotTick");
+    given_event_is_ignored(EventType::PlayerAction);
+    given_event_is_ignored(EventType::DotTick);
     given_in_melee_attack_mode();
     given_staff_equipped(druid);
     pchar->get_spells()->start_attack();

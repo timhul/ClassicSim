@@ -172,7 +172,7 @@ void TestSliceAndDice::test_stealth() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(1);
     rogue->get_spells()->start_attack();
@@ -187,7 +187,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(2);
     rogue->get_spells()->start_attack();
@@ -202,7 +202,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(3);
     rogue->get_spells()->start_attack();
@@ -217,7 +217,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(4);
     rogue->get_spells()->start_attack();
@@ -232,7 +232,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
     rogue->get_spells()->start_attack();
@@ -247,7 +247,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_of_3_imp_snd() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_assassination_talent_rank("Improved Slice And Dice", 1);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
@@ -263,7 +263,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_assassination_talent_rank("Improved Slice And Dice", 2);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
@@ -279,7 +279,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     given_assassination_talent_rank("Improved Slice And Dice", 3);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);

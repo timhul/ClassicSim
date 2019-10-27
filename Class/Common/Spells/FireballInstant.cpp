@@ -12,26 +12,26 @@
 #include "Random.h"
 #include "Utils/Check.h"
 
-FireballInstant::FireballInstant(Character* pchar,
-                                 const QString& name,
+FireballInstant::FireballInstant(Character* pchar_,
+                                 const QString& name_,
                                  const unsigned instant_min,
                                  const unsigned instant_max,
                                  const unsigned dmg_over_duration,
                                  const int duration,
-                                 const unsigned resource_cost,
+                                 const unsigned resource_cost_,
                                  const unsigned casting_time,
                                  const double spell_coefficient,
                                  const double spell_coefficient_dot,
-                                 const int spell_rank) :
-    Spell(QString("Fireball%1").arg(name), "Assets/spell/Spell_fire_flamebolt.png", pchar,
-          new CooldownControl(pchar, 0.0),
+                                 const int spell_rank_) :
+    Spell(QString("Fireball%1").arg(name_), "Assets/spell/Spell_fire_flamebolt.png", pchar_,
+          new CooldownControl(pchar_, 0.0),
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           0,
-          spell_rank),
-    fireball_dot(new PeriodicDamageSpell(QString("Fireball DoT (rank %1)").arg(spell_rank),
-                                         "Assets/spell/Spell_fire_flamebolt.png", pchar, Priority::Trash, RestrictedByGcd::No,
-                                         MagicSchool::Fire, 2.0, duration, dmg_over_duration, resource_cost, casting_time, spell_coefficient_dot)),
+          spell_rank_),
+    fireball_dot(new PeriodicDamageSpell(QString("Fireball DoT (rank %1)").arg(spell_rank_),
+                                         "Assets/spell/Spell_fire_flamebolt.png", pchar_, Priority::Trash, RestrictedByGcd::No,
+                                         MagicSchool::Fire, 2.0, duration, dmg_over_duration, resource_cost_, casting_time, spell_coefficient_dot)),
     instant_dmg(new Random(instant_min, instant_max)),
     spell_coefficient(spell_coefficient)
 {

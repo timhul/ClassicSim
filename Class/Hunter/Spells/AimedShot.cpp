@@ -10,33 +10,31 @@
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-AimedShot::AimedShot(Hunter* pchar, CooldownControl* cooldown_control) :
+AimedShot::AimedShot(Hunter* hunter, CooldownControl* cooldown_control) :
     Spell("Aimed Shot",
           "Assets/items/Inv_spear_07.png",
-          pchar,
+          hunter,
           cooldown_control,
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           310),
-    CastingTimeRequirer(pchar, SuppressibleCast::No, 3000),
+    CastingTimeRequirer(hunter, SuppressibleCast::No, 3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Cryptstalker Armor"}),
-    hunter(pchar),
-    base_casting_time_ms(3000),
+    hunter(hunter),
     efficiency_ranks({1.0, 0.98, 0.96, 0.94, 0.92, 0.90}),
     mortal_shots_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
 {
     this->enabled = false;
     resource_base = resource_cost;
-    casting_time_ms = base_casting_time_ms;
+    casting_time_ms = 3000;
 }
 
 void AimedShot::spell_effect() {
     pchar->get_spells()->stop_attack();
     cooldown->add_gcd_event();
-    casting_time_ms = static_cast<unsigned>(round(base_casting_time_ms / pchar->get_stats()->get_ranged_attack_speed_mod()));
     start_cast();
 }
 

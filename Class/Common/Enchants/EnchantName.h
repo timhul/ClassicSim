@@ -58,6 +58,7 @@ public:
         BrilliantWizardOil,
         ShadowOil,
         SolidWeightstone,
+        DenseWeightstone,
     };
 
     Q_ENUMS(Name)
@@ -159,6 +160,8 @@ public:
             return "Shadow Oil";
         case EnchantName::SolidWeightstone:
             return "Solid Weightstone";
+        case EnchantName::DenseWeightstone:
+            return "Dense Weightstone";
         }
 
         check(false, "EnchantName::get_name reached end of switch");
@@ -266,6 +269,8 @@ public:
             return "15% R3 Shadow Bolt";
         case EnchantName::SolidWeightstone:
             return "+6 Damage";
+        case EnchantName::DenseWeightstone:
+            return "+8 Damage";
         }
 
         check(false, "EnchantName::get_effect reached end of switch");

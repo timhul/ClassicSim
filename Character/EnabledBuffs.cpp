@@ -27,7 +27,7 @@ void EnabledBuffs::remove_buff(Buff* buff, QVector<Buff*>& buffs) {
 }
 
 void EnabledBuffs::add_buff(Buff* buff) {
-    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
+    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->name).toStdString());
     enabled_buffs.append(buff);
 
     if (buff->get_instance_id() == InstanceID::INACTIVE)
@@ -39,7 +39,7 @@ void EnabledBuffs::remove_buff(Buff* buff) {
 }
 
 void EnabledBuffs::add_start_of_combat_buff(Buff* buff) {
-    check(buff->is_enabled(), QString("Expected pre-combat buff '%1' to be enabled").arg(buff->get_name()).toStdString());
+    check(buff->is_enabled(), QString("Expected pre-combat buff '%1' to be enabled").arg(buff->name).toStdString());
     start_of_combat_buffs.append(buff);
 }
 
@@ -49,7 +49,7 @@ void EnabledBuffs::remove_start_of_combat_buff(Buff *buff) {
 
 Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
     for (const auto & buff : enabled_buffs) {
-        if (buff->get_name() == name)
+        if (buff->name == name)
             return buff;
     }
 
@@ -58,7 +58,7 @@ Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
 
 SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
     for (const auto & buff : enabled_buffs) {
-        if (buff->get_name() == name) {
+        if (buff->name == name) {
             auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
             uniq_buff->increment_reference();
             return uniq_buff;
@@ -69,7 +69,7 @@ SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
 
 void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
     for (const auto & buff : enabled_buffs) {
-        if (buff->get_name() != shared_buff->get_name())
+        if (buff->name != shared_buff->name)
             continue;
 
         auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
@@ -83,7 +83,7 @@ void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
         return;
     }
 
-    check(false, QString("Failed to find shared buff %1 to return").arg(shared_buff->get_name()).toStdString());
+    check(false, QString("Failed to find shared buff %1 to return").arg(shared_buff->name).toStdString());
 }
 
 void EnabledBuffs::reset() {
@@ -136,7 +136,7 @@ QVector<QString> EnabledBuffs::get_active_external_buffs() {
 
     for (const auto & buff : buffs) {
         if (buff->is_active())
-            active_external_buffs.append(buff->get_name());
+            active_external_buffs.append(buff->name);
     }
 
     return active_external_buffs;
@@ -148,7 +148,7 @@ QVector<QString> EnabledBuffs::get_active_external_debuffs() {
 
     for (const auto & debuff : debuffs) {
         if (debuff->is_active())
-            active_external_debuffs.append(debuff->get_name());
+            active_external_debuffs.append(debuff->name);
     }
 
     return active_external_debuffs;

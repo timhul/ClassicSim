@@ -176,7 +176,7 @@ void Target::set_creature_type(const QString& target) {
 
 bool Target::add_debuff(Buff* debuff, const Priority priority) {
     check((priority != Priority::Invalid),
-          QString("Debuff %1 has invalid priority %2").arg(debuff->get_name()).toStdString());
+          QString("Debuff %1 has invalid priority %2").arg(debuff->name).toStdString());
 
     if (size_debuffs == debuff_limit) {
         if (!remove_oldest_lowest_priority_debuff(static_cast<int>(priority)))
@@ -241,7 +241,7 @@ void Target::add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when) {
         damage_bonus_buffs_with_charges_for_all_magic_schools.append(buff);
         break;
     default:
-        check(false, QString("Target::add_charge_debuff generic failed for %1").arg(buff->get_name()).toStdString());
+        check(false, QString("Target::add_charge_debuff generic failed for %1").arg(buff->name).toStdString());
     }
 }
 
@@ -251,7 +251,7 @@ void Target::add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, con
         magic_school_modifier_buffs_with_charges[school].append(buff);
         break;
     default:
-        check(false, QString("Target::add_charge_debuff school-specific failed for %1").arg(buff->get_name()).toStdString());
+        check(false, QString("Target::add_charge_debuff school-specific failed for %1").arg(buff->name).toStdString());
     }
 }
 
@@ -261,7 +261,7 @@ void Target::remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when) 
         remove_buff_if_exists(damage_bonus_buffs_with_charges_for_all_magic_schools, buff->get_instance_id());
         break;
     default:
-        check(false, QString("Target::remove_charge_debuff generic failed for %1").arg(buff->get_name()).toStdString());
+        check(false, QString("Target::remove_charge_debuff generic failed for %1").arg(buff->name).toStdString());
     }
 }
 
@@ -271,6 +271,6 @@ void Target::remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, 
         remove_buff_if_exists(magic_school_modifier_buffs_with_charges[school], buff->get_instance_id());
         break;
     default:
-        check(false, QString("Target::remove_charge_debuff school-specific failed for %1").arg(buff->get_name()).toStdString());
+        check(false, QString("Target::remove_charge_debuff school-specific failed for %1").arg(buff->name).toStdString());
     }
 }

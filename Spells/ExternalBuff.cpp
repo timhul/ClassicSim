@@ -199,6 +199,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::ShadowWeaving:
         pchar->get_target()->increase_magic_school_damage_mod(15, MagicSchool::Shadow);
         break;
+    case ExternalBuffName::BlessedSunfruit:
+        pchar->get_stats()->increase_strength(10);
+        break;
     }
 }
 
@@ -358,6 +361,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::ShadowWeaving:
         pchar->get_target()->decrease_magic_school_damage_mod(15, MagicSchool::Shadow);
+        break;
+    case ExternalBuffName::BlessedSunfruit:
+        pchar->get_stats()->decrease_strength(10);
         break;
     }
 }
@@ -532,6 +538,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Shadow Weaving", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_blackplague.png",
                                 "15% Shadow Damage");
+    case ExternalBuffName::BlessedSunfruit:
+        return new ExternalBuff(pchar, "Blessed Sunfruit", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_food_41.png",
+                                "+10 Strength");
     }
 
     return nullptr;

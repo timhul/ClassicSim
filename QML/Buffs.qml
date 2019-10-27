@@ -14,8 +14,8 @@ Rectangle {
             height: parent.height
             width: parent.width * 0.75
 
-            cellWidth: 300
-            cellHeight: 70
+            cellWidth: 430
+            cellHeight: 30
 
             model: buffModel
             delegate: BuffBox {
@@ -37,8 +37,8 @@ Rectangle {
             height: parent.height
             width: parent.width * 0.25
 
-            cellWidth: 300
-            cellHeight: 70
+            cellWidth: 280
+            cellHeight: 50
 
             model: debuffModel
             delegate: BuffBox {
@@ -49,6 +49,8 @@ Rectangle {
                 buffActive: _active
                 selectedColor: "#8c5c15"
                 selectedHighlightColor: "#ff6600"
+                width: 270
+                height: 45
 
                 onToggleSingleBuff: settings.toggleSingleDebuff(name)
                 onSelectRangeOfBuffs: settings.selectRangeOfDebuffs(name)

@@ -10,12 +10,11 @@ class StatisticsResource;
 
 class AimedShot: public Spell, public CastingTimeRequirer, public TalentRequirer, public SetBonusRequirer {
 public:
-    AimedShot(Hunter* pchar, CooldownControl* cooldown_control);
+    AimedShot(Hunter* hunter, CooldownControl* cooldown_control);
 
 private:
     Hunter* hunter;
     StatisticsResource* statistics_resource {nullptr};
-    const unsigned base_casting_time_ms;
     unsigned adrenaline_rush {0};
     double resource_base;
     double mortal_shots_bonus {0.0};

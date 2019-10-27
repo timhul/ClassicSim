@@ -48,6 +48,7 @@ enum class ExternalBuffName: int {
     CurseOfTheElements,
     CurseOfShadow,
     ShadowWeaving,
+    BlessedSunfruit,
 };
 
 class ExternalBuff;

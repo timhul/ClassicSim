@@ -624,7 +624,7 @@ void CharacterStats::return_casting_time(Buff* buff) {
             return casting_time_suppression_buffs.removeAt(i);
     }
 
-    check(false, QString("Failed to remove %1").arg(buff->get_name()).toStdString());
+    check(false, QString("Failed to remove %1").arg(buff->name).toStdString());
 }
 
 unsigned CharacterStats::get_casting_speed_flat_reduction() const {

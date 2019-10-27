@@ -24,6 +24,9 @@ PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
 {}
 
 PeriodicResourceGainSpell::~PeriodicResourceGainSpell() {
+    if (marker_buff->is_enabled())
+        marker_buff->disable_buff();
+
     delete marker_buff;
 }
 
