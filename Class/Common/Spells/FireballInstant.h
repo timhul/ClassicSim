@@ -8,17 +8,17 @@ class PeriodicDamageSpell;
 
 class FireballInstant: public Spell {
 public:
-    FireballInstant(Character* pchar,
-                    const QString& name,
+    FireballInstant(Character* pchar_,
+                    const QString& name_,
                     const unsigned instant_min,
                     const unsigned instant_max,
                     const unsigned dmg_over_duration,
                     const int duration,
-                    const unsigned resource_cost,
+                    const unsigned resource_cost_,
                     const unsigned casting_time,
                     const double spell_coefficient,
                     const double spell_coefficient_dot,
-                    const int spell_rank);
+                    const int spell_rank_);
     ~FireballInstant() override;
 
 private:
