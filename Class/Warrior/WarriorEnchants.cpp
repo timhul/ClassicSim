@@ -95,8 +95,10 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
-        else if (has_blunt_weapon(equipment_slot))
+        else if (has_blunt_weapon(equipment_slot)) {
+            enchants.prepend(EnchantName::DenseWeightstone);
             enchants.prepend(EnchantName::SolidWeightstone);
+        }
 
         if (pchar->get_faction()->is_horde())
             enchants.prepend(EnchantName::WindfuryTotem);
@@ -110,8 +112,10 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
-        else if (has_blunt_weapon(equipment_slot))
+        else if (has_blunt_weapon(equipment_slot)) {
+            enchants.prepend(EnchantName::DenseWeightstone);
             enchants.prepend(EnchantName::SolidWeightstone);
+        }
         return enchants;
     }
 

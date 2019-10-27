@@ -89,8 +89,10 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_temp_enchants(const int
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
-        else if (has_blunt_weapon(equipment_slot))
+        else if (has_blunt_weapon(equipment_slot)) {
+            enchants.prepend(EnchantName::DenseWeightstone);
             enchants.prepend(EnchantName::SolidWeightstone);
+        }
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
