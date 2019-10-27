@@ -557,7 +557,7 @@ void TestAimedShot::test_mana_cost_5_of_5_efficiency() {
 }
 
 void TestAimedShot::test_aimed_shot_cast_time_not_reduced_by_ranged_attack_speed_boosts() {
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     given_aimed_shot_is_enabled();
     hunter->get_stats()->increase_ranged_attack_speed(200);
     hunter->get_stats()->increase_melee_attack_speed(200);

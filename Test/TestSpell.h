@@ -81,7 +81,7 @@ public:
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
     void given_engine_priority_pushed_forward(const double priority);
-    void given_event_is_ignored(const QString& event);
+    void given_event_is_ignored(const EventType event);
     void given_1h_axe_equipped_in_mainhand(Character* pchar);
     void given_1h_mace_equipped_in_mainhand(Character* pchar);
     void given_1h_sword_equipped_in_mainhand(Character* pchar);
@@ -138,7 +138,7 @@ protected:
     Race* race {nullptr};
     RaidControl* raid_control {nullptr};
     QString spell_under_test;
-    QSet<QString> ignored_events;
+    QSet<EventType> ignored_events;
 
     Spell* get_max_rank_spell_by_name(const QString& name) const;
 

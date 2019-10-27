@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QHash>
 #include <QString>
 
 enum class EventType: int {
@@ -17,6 +18,10 @@ enum class EventType: int {
     RangedHit,
     SpellCallback,
 };
+
+inline uint qHash(const EventType event_type) {
+    return qHash(static_cast<int>(event_type), 0xF0F0F);
+}
 
 class Event {
 public:

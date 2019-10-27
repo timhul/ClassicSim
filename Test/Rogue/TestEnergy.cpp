@@ -54,7 +54,7 @@ void TestEnergy::test_energy_ticks_up_after_use() {
     then_rogue_has_energy(100);
     rogue->lose_energy(75);
     then_rogue_has_energy(25);
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
 
     then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_rogue_has_energy(45);
@@ -142,7 +142,7 @@ void TestEnergy::test_energy_tick_timer_is_pushed_forward_if_completed_before_lo
 }
 
 void TestEnergy::test_only_single_resource_gain_is_queued() {
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
     rogue->lose_energy(10);
     rogue->gain_energy(10);
     rogue->lose_energy(100);

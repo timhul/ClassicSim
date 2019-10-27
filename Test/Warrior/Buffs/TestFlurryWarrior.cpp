@@ -143,7 +143,7 @@ void TestFlurryWarrior::test_has_15_second_duration() {
 
     when_flurry_is_applied();
 
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     then_next_event_is(EventType::MainhandMeleeHit);
     then_next_event_is(EventType::OffhandMeleeHit);
     then_next_event_is(EventType::BuffRemoval, "15.000");
@@ -165,7 +165,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied()
 
     warrior->get_spells()->start_attack();
 
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
@@ -181,7 +181,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied()
 
     warrior->get_spells()->start_attack();
 
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
@@ -197,7 +197,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied()
 
     warrior->get_spells()->start_attack();
 
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
@@ -213,7 +213,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied()
 
     warrior->get_spells()->start_attack();
 
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
@@ -229,7 +229,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied()
 
     warrior->get_spells()->start_attack();
 
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
     then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
@@ -238,7 +238,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed() {
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -260,7 +260,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed() {
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -282,7 +282,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed() {
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -304,7 +304,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed() {
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -326,7 +326,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_5_of_5_flurry_removed() {
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();

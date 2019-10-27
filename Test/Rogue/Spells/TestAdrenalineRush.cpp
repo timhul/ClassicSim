@@ -114,7 +114,7 @@ void TestAdrenalineRush::test_stealth() {
 void TestAdrenalineRush::test_tick_rate_over_entire_duration() {
     given_1_of_1_adrenaline_rush();
     given_rogue_has_energy(0);
-    ignored_events = {"PlayerAction"};
+    given_event_is_ignored(EventType::PlayerAction);
 
     when_adrenaline_rush_is_performed();
 

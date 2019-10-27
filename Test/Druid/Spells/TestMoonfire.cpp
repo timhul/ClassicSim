@@ -129,7 +129,7 @@ void TestMoonfire::test_crit_dmg_5_of_5_vengeance_and_5_of_imp_moonfire() {
 
 void TestMoonfire::test_duration_dmg_after_hit() {
     test_hit_dmg();
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
 
     when_running_queued_events_until(12.01);
 
@@ -140,7 +140,7 @@ void TestMoonfire::test_duration_dmg_after_hit() {
 
 void TestMoonfire::test_duration_dmg_after_crit() {
     test_crit_dmg();
-    given_event_is_ignored("PlayerAction");
+    given_event_is_ignored(EventType::PlayerAction);
 
     when_running_queued_events_until(12.01);
 

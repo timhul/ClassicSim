@@ -1054,7 +1054,7 @@ void TestSpell::given_engine_priority_pushed_forward(const double priority) {
     delete event;
 }
 
-void TestSpell::given_event_is_ignored(const QString& event) {
+void TestSpell::given_event_is_ignored(const EventType event) {
     ignored_events.insert(event);
 }
 
@@ -1069,7 +1069,7 @@ void TestSpell::when_running_queued_events_until(const double priority) {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (ignored_events.contains(Event::get_name_for_event(event))) {
+        if (ignored_events.contains(event->event_type)) {
             delete event;
             continue;
         }
@@ -1117,7 +1117,7 @@ void TestSpell::then_next_event_is(const EventType event_type, const QString& pr
         event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (!ignored_events.contains(Event::get_name_for_event(event)))
+        if (!ignored_events.contains(event->event_type))
             break;
 
         delete event;
