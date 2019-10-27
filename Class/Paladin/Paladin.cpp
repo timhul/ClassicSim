@@ -90,11 +90,11 @@ double Paladin::get_int_needed_for_one_percent_spell_crit() const {
 }
 
 unsigned Paladin::get_melee_ap_per_strength() const {
-    return 1;
+    return 2;
 }
 
 unsigned Paladin::get_melee_ap_per_agi() const {
-    return 1;
+    return 0;
 }
 
 unsigned Paladin::get_ranged_ap_per_agi() const {
