@@ -37,6 +37,9 @@ PeriodicDamageSpell::PeriodicDamageSpell(const QString& name,
 {}
 
 PeriodicDamageSpell::~PeriodicDamageSpell() {
+    if (marker_buff->is_enabled())
+        marker_buff->disable_buff();
+
     delete marker_buff;
 }
 
