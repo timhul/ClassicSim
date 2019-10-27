@@ -308,4 +308,16 @@
 			Drops from Kel'Thuzad in Naxxramas.
 		</source>
 	</melee_weapon>
+
+	<melee_weapon id="18392" phase="2">
+		<info name="Distracting Dagger" type="DAGGER" slot="OH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_05.png"/>
+		<dmg_range min="42" max="64" speed="1.3"/>
+		<stats>
+			<stat type="DAGGER_SKILL" value="6"/>
+		</stats>
+		<source>
+			Drops from Prince Tortheldrin in Dire Maul West.
+		</source>
+	</melee_weapon>
+
 </weapons>
