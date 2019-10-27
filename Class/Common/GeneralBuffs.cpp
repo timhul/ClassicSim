@@ -41,7 +41,7 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     buffs.append(new EssenceOfTheRed(pchar));
 
     mutex_buff_groups.append({"Flask of Supreme Power", "Flask of Distilled Wisdom"});
-    mutex_buff_groups.append({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili"});
+    mutex_buff_groups.append({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili", "Blessed Sunfruit"});
     mutex_buff_groups.append({"Juju Power", "Elixir of Giants"});
     mutex_buff_groups.append({"Juju Might", "Winterfall Firewater"});
     mutex_buff_groups.append({"R.O.I.D.S", "Ground Scorpok Assay"});
@@ -217,6 +217,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
 
     QVector<ExternalBuffName> physical_food = {
         ExternalBuffName::GrilledSquid,
+        ExternalBuffName::BlessedSunfruit,
         ExternalBuffName::SmokedDesertDumplings,
         ExternalBuffName::DragonbreathChili,
     };

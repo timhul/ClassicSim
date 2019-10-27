@@ -979,5 +979,6 @@
         <file>QML/Assets/spell/Spell_shadow_curseofachimonde.png</file>
         <file>QML/Assets/spell/Spell_shadow_blackplague.png</file>
         <file>QML/Assets/items/Inv_mace_02.png</file>
+        <file>QML/Assets/misc/Inv_misc_food_41.png</file>
     </qresource>
 </RCC>
