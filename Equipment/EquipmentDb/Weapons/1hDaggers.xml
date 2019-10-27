@@ -12,6 +12,21 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="13984" phase="1">
+		<info name="Darrowspike" type="DAGGER" slot="1H" unique="no" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_shortblade_21.png"/>
+		<dmg_range min="43" max="81" speed="1.5"/>
+		<stats/>
+		<proc>
+			<spell name="FROST_ATTACK" min="90" max="90" instant="yes" rate="0.02816667" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Blasts a target for 90 Frost damage.
+		</special_equip_effect>
+		<source>
+			Quest reward from "The Lich, Ras Frostwhisper".
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="12582" phase="1">
 		<info name="Keris of Zul'Serak" type="DAGGER" slot="1H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_weapon_shortblade_12.png"/>
 		<dmg_range min="49" max="93" speed="1.8"/>
