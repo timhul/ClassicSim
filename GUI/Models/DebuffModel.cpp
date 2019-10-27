@@ -28,7 +28,7 @@ void DebuffModel::set_phase(const Content::Phase phase) {
 void DebuffModel::toggle_single_debuff(const QString& name) {
     QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_debuffs();
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->get_name() != name)
+        if (buffs[i]->name != name)
             continue;
 
         general_buffs->toggle_external_debuff(name);
@@ -42,16 +42,16 @@ void DebuffModel::toggle_single_debuff(const QString& name) {
 void DebuffModel::clear_debuffs_and_select_single_debuff(const QString& name) {
     QVector<ExternalBuff*> buffs = general_buffs->get_external_debuffs();
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->get_name() != name) {
-            if (general_buffs->debuff_active(buffs[i]->get_name()))
-                general_buffs->toggle_external_debuff(buffs[i]->get_name());
+        if (buffs[i]->name != name) {
+            if (general_buffs->debuff_active(buffs[i]->name))
+                general_buffs->toggle_external_debuff(buffs[i]->name);
 
             continue;
         }
 
         last_toggled = i;
 
-        if (!general_buffs->debuff_active(buffs[i]->get_name()))
+        if (!general_buffs->debuff_active(buffs[i]->name))
             general_buffs->toggle_external_debuff(name);
     }
 
@@ -63,7 +63,7 @@ void DebuffModel::select_range_of_debuffs(const QString& name) {
 
     QVector<ExternalBuff*> buffs = general_buffs->get_external_debuffs();
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->get_name() != name)
+        if (buffs[i]->name != name)
             continue;
 
         target_index = i;
@@ -80,14 +80,14 @@ void DebuffModel::select_range_of_debuffs(const QString& name) {
 
     if (target_index > last_toggled) {
         for (int i = last_toggled; i <= target_index; ++i) {
-            if (!general_buffs->debuff_active(buffs[i]->get_name()))
-                general_buffs->toggle_external_debuff(buffs[i]->get_name());
+            if (!general_buffs->debuff_active(buffs[i]->name))
+                general_buffs->toggle_external_debuff(buffs[i]->name);
         }
     }
     else {
         for (int i = last_toggled; i >= target_index; --i) {
-            if (!general_buffs->debuff_active(buffs[i]->get_name()))
-                general_buffs->toggle_external_debuff(buffs[i]->get_name());
+            if (!general_buffs->debuff_active(buffs[i]->name))
+                general_buffs->toggle_external_debuff(buffs[i]->name);
         }
     }
 
@@ -111,7 +111,7 @@ void DebuffModel::update_debuffs() {
 }
 
 int DebuffModel::rowCount(const QModelIndex & parent) const {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
     return external_debuffs.count();
 }
 
@@ -122,13 +122,13 @@ QVariant DebuffModel::data(const QModelIndex & index, int role) const {
     const ExternalBuff* buff = external_debuffs[index.row()];
 
     if (role == NameRole)
-        return buff->get_name();
+        return buff->name;
     if (role == IconRole)
-        return buff->get_icon();
+        return buff->icon;
     if (role == DescriptionRole)
         return buff->get_description();
     if (role == ActiveRole)
-        return pchar->get_enabled_buffs()->get_general_buffs()->debuff_active(buff->get_name());
+        return pchar->get_enabled_buffs()->get_general_buffs()->debuff_active(buff->name);
 
     return QVariant();
 }

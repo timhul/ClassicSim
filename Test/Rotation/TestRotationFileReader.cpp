@@ -220,7 +220,7 @@ void TestRotationFileReader::verify_resource_condition(ConditionResource* condit
 void TestRotationFileReader::verify_buff_condition(ConditionBuffDuration* condition, const QString& name,
                                                    const double cmp_value, const Comparator comparator) {
     assert(condition != nullptr);
-    assert(condition->buff->get_name() == name);
+    assert(condition->buff->name == name);
     assert(almost_equal(condition->cmp_value, cmp_value));
     assert(condition->comparator == comparator);
 }

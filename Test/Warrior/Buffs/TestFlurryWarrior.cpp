@@ -134,7 +134,7 @@ void TestFlurryWarrior::test_all() {
 }
 
 void TestFlurryWarrior::test_name_correct() {
-    assert(spells->get_flurry()->get_name() == "Flurry");
+    assert(spells->get_flurry()->name== "Flurry");
 }
 
 void TestFlurryWarrior::test_has_15_second_duration() {

@@ -79,7 +79,7 @@ void GeneralBuffs::switch_faction() {
 
 Buff* GeneralBuffs::get_general_buff_by_name(const QString& buff_name) const {
     for (const auto & buff : buffs) {
-        if (buff->get_name() == buff_name)
+        if (buff->name == buff_name)
             return buff;
     }
 
@@ -106,7 +106,7 @@ QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
 
 void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) {
     for (auto & i : vec[current_setup]) {
-        if (i.second->get_name() != name)
+        if (i.second->name != name)
             continue;
 
         if (i.second->is_active()) {
@@ -134,7 +134,7 @@ void GeneralBuffs::toggle_external_debuff(const QString& debuff_name) {
 
 bool GeneralBuffs::external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) const {
     for (const auto & i : vec[current_setup]) {
-        if (i.second->get_name() == name)
+        if (i.second->name == name)
             return i.second->is_active();
     }
 

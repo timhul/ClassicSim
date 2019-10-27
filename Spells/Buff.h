@@ -42,8 +42,6 @@ public:
     Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
     virtual ~Buff() = default;
 
-    QString get_name() const;
-    QString get_icon() const;
     int get_charges() const;
     int get_stacks() const;
     void apply_buff();
@@ -69,12 +67,13 @@ public:
     virtual void enable_buff() = 0;
     virtual void disable_buff() = 0;
 
+    const QString name;
+    const QString icon;
+
 protected:
     Character* pchar;
     RaidControl* raid_control;
     StatisticsBuff* statistics_buff {nullptr};
-    const QString name;
-    const QString icon;
     int duration;
     const int base_charges;
     int current_charges {0};

@@ -42,7 +42,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
     buff->prepare_set_of_combat_iterations();
 
     assert(buff != nullptr);
-    assert(buff->get_name() == "Felstriker");
+    assert(buff->name == "Felstriker");
 
     const unsigned crit_before_buff = pchar->get_stats()->get_mh_crit_chance();
     const unsigned hit_before_buff = pchar->get_stats()->get_melee_hit_chance();
