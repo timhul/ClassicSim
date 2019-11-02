@@ -312,7 +312,7 @@ QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
         return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::MACE, WeaponTypes::POLEARM,
+                             WeaponTypes::MACE, WeaponTypes::TWOHAND_MACE,
                              WeaponTypes::STAFF});
     case EquipmentSlot::OFFHAND:
         return QVector<int>({WeaponTypes::CASTER_OFFHAND});
