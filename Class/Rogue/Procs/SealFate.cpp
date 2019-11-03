@@ -3,12 +3,12 @@
 #include "ProcInfo.h"
 #include "Rogue.h"
 
-SealFate::SealFate(Character* pchar) :
+SealFate::SealFate(Rogue* rogue) :
     Proc("Seal Fate", "Assets/spell/Spell_shadow_chilltouch.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
-         pchar),
+         rogue),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal Fate", 5, DisabledAtZero::Yes)}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
+    rogue(rogue),
     talent_ranks({0, 2000, 4000, 6000, 8000, 10000})
 {
     this->enabled = false;

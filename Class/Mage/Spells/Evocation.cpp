@@ -3,15 +3,16 @@
 #include "Buff.h"
 #include "CooldownControl.h"
 #include "EvocationBuff.h"
+#include "Mage.h"
 #include "Utils/Check.h"
 
-Evocation::Evocation(Character* pchar) :
-    SpellPeriodic("Evocation", "Assets/spell/Spell_nature_purge.png", pchar, new EvocationBuff(pchar), RestrictedByGcd::Yes, ResourceType::Mana, 2.0, 0,  1),
-    CastingTimeRequirer(pchar, SuppressibleCast::No, 8000),
+Evocation::Evocation(Mage* mage) :
+    SpellPeriodic("Evocation", "Assets/spell/Spell_nature_purge.png", mage, new EvocationBuff(mage), RestrictedByGcd::Yes, ResourceType::Mana, 2.0, 0,  1),
+    CastingTimeRequirer(mage, SuppressibleCast::No, 8000),
     SetBonusRequirer({"Frostfire Regalia"})
 {
     delete cooldown;
-    cooldown = new CooldownControl(pchar, 480.0);
+    cooldown = new CooldownControl(mage, 480.0);
     level_req = 20;
 
     enabled = true;

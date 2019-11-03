@@ -33,7 +33,7 @@ void TestBladeFlurry::test_all() {
 }
 
 BladeFlurry *TestBladeFlurry::blade_flurry() const {
-    return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_blade_flurry();
+    return static_cast<RogueSpells*>(rogue->get_spells())->get_blade_flurry();
 }
 
 void TestBladeFlurry::test_name_correct() {

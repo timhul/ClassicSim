@@ -8,7 +8,7 @@ class Rogue;
 
 class AdrenalineRush: public Spell, public TalentRequirer {
 public:
-    AdrenalineRush(Character* pchar);
+    AdrenalineRush(Rogue* rogue);
     ~AdrenalineRush() override;
 
 private:

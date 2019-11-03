@@ -139,9 +139,9 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:
-        temporary_enchant = enchant_slot == EnchantSlot::MAINHAND ? dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison() :
-                                                                    dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison();
-        dynamic_cast<InstantPoison*>(temporary_enchant)->enable();
+        temporary_enchant = enchant_slot == EnchantSlot::MAINHAND ? static_cast<Rogue*>(pchar)->get_mh_instant_poison() :
+                                                                    static_cast<Rogue*>(pchar)->get_oh_instant_poison();
+        static_cast<InstantPoison*>(temporary_enchant)->enable();
         break;
     default:
         check(false, "Weapon::apply_temporary_enchant reached end of switch");
@@ -153,7 +153,7 @@ void Weapon::clear_temporary_enchant() {
 
     switch (enchant) {
     case EnchantName::InstantPoison:
-        dynamic_cast<InstantPoison*>(temporary_enchant)->disable();
+        static_cast<InstantPoison*>(temporary_enchant)->disable();
         break;
     default:
         delete temporary_enchant;
@@ -166,7 +166,7 @@ void Weapon::enable_druid_form_enchants(Character* pchar, const EnchantName::Nam
     switch (enchant_name) {
     case EnchantName::Crusader:
     case EnchantName::FieryWeapon:
-        dynamic_cast<EnchantProc*>(enchant)->enable_proc();
+        static_cast<EnchantProc*>(enchant)->enable_proc();
         break;
     case EnchantName::SuperiorStriking:
         apply_enchant(enchant_name, pchar, EnchantSlot::MAINHAND);
@@ -178,7 +178,7 @@ void Weapon::enable_druid_form_enchants(Character* pchar, const EnchantName::Nam
     switch (temp_enchant_name) {
     case EnchantName::ShadowOil:
     case EnchantName::WindfuryTotem:
-        dynamic_cast<EnchantProc*>(enchant)->enable_proc();
+        static_cast<EnchantProc*>(enchant)->enable_proc();
         break;
     case EnchantName::DenseSharpeningStone:
         temporary_enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::MAINHAND);
@@ -192,7 +192,7 @@ void Weapon::disable_druid_form_enchants() {
     switch (get_enchant_enum_value()) {
     case EnchantName::Crusader:
     case EnchantName::FieryWeapon:
-        dynamic_cast<EnchantProc*>(enchant)->disable_proc();
+        static_cast<EnchantProc*>(enchant)->disable_proc();
         break;
     case EnchantName::SuperiorStriking:
         clear_enchant();
@@ -204,7 +204,7 @@ void Weapon::disable_druid_form_enchants() {
     switch (get_temporary_enchant_enum_value()) {
     case EnchantName::ShadowOil:
     case EnchantName::WindfuryTotem:
-        dynamic_cast<EnchantProc*>(enchant)->disable_proc();
+        static_cast<EnchantProc*>(enchant)->disable_proc();
         break;
     case EnchantName::DenseSharpeningStone:
         clear_temporary_enchant();

@@ -8,7 +8,7 @@
 RestorationShaman::RestorationShaman(Shaman* shaman) :
     TalentTree("Restoration", "Assets/shaman/shaman_restoration.jpg"),
     shaman(shaman),
-    spells(dynamic_cast<ShamanSpells*>(shaman->get_spells()))
+    spells(static_cast<ShamanSpells*>(shaman->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Healing Wave", "1ML"},

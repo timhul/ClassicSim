@@ -9,7 +9,7 @@ class SliceAndDiceBuff;
 
 class SliceAndDice: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
-    SliceAndDice(Character* pchar);
+    SliceAndDice(Rogue* rogue);
     ~SliceAndDice() override;
 
 private:

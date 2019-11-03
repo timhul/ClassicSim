@@ -10,7 +10,7 @@ class Druid;
 
 class FerociousBite: public Spell, public TalentRequirer {
 public:
-    FerociousBite(Character* pchar, const int spell_rank);
+    FerociousBite(Druid* druid, const int spell_rank);
     ~FerociousBite() override;
 
     bool is_rank_learned() const override;

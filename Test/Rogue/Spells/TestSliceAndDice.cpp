@@ -56,7 +56,7 @@ void TestSliceAndDice::test_all() {
 }
 
 SliceAndDice* TestSliceAndDice::slice_and_dice() const {
-    return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_slice_and_dice();
+    return static_cast<RogueSpells*>(rogue->get_spells())->get_slice_and_dice();
 }
 
 void TestSliceAndDice::test_name_correct() {

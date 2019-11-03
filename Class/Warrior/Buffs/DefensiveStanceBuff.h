@@ -6,10 +6,10 @@ class Warrior;
 
 class DefensiveStanceBuff: public SelfBuff {
 public:
-    DefensiveStanceBuff(Character* pchar);
+    DefensiveStanceBuff(Warrior* warrior);
 
 private:
-    Warrior* warr;
+    Warrior* warrior;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

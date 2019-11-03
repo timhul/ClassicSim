@@ -35,7 +35,7 @@ DruidSpells::DruidSpells(Druid* druid) :
     this->bear_form = new BearForm(druid);
     add_spell_group({bear_form});
 
-    auto leader_of_the_pack = dynamic_cast<LeaderOfThePack*>(pchar->get_raid_control()->get_shared_party_buff("Leader of the Pack", pchar->get_party()));
+    auto leader_of_the_pack = static_cast<LeaderOfThePack*>(pchar->get_raid_control()->get_shared_party_buff("Leader of the Pack", pchar->get_party()));
     if (leader_of_the_pack == nullptr) {
         leader_of_the_pack = new LeaderOfThePack(druid);
         leader_of_the_pack->enable_buff();
@@ -45,7 +45,7 @@ DruidSpells::DruidSpells(Druid* druid) :
     this->cat_form = new CatForm(druid, cat_form_buff);
     add_spell_group({cat_form});
 
-    auto moonkin_aura = dynamic_cast<MoonkinFormBuff*>(pchar->get_raid_control()->get_shared_party_buff("Moonkin Form", pchar->get_party()));
+    auto moonkin_aura = static_cast<MoonkinFormBuff*>(pchar->get_raid_control()->get_shared_party_buff("Moonkin Form", pchar->get_party()));
     if (moonkin_aura == nullptr) {
         moonkin_aura = new MoonkinFormBuff(druid);
         moonkin_aura->enable_buff();

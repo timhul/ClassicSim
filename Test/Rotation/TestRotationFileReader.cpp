@@ -106,7 +106,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     condition_groups = rotation->all_executors[0]->condition_groups;
     assert(condition_groups.size() == 1 && condition_groups[0].size() == 1);
     // resource "Rage" less 50
-    resource_condition = dynamic_cast<ConditionResource*>(condition_groups[0][0]);
+    resource_condition = static_cast<ConditionResource*>(condition_groups[0][0]);
     verify_resource_condition(resource_condition, 50.0, Comparator::Less, ResourceType::Rage);
 
     //
@@ -118,19 +118,19 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     // Condition group 0
     assert(condition_groups[0].size() == 1);
     // buff "Battle Shout" less 3
-    buff_condition = dynamic_cast<ConditionBuffDuration*>(condition_groups[0][0]);
+    buff_condition = static_cast<ConditionBuffDuration*>(condition_groups[0][0]);
     verify_buff_condition(buff_condition, "Battle Shout", 3.0, Comparator::Less);
 
     // Condition group 1
     assert(condition_groups[1].size() == 3);
     // variable "time_remaining_execute" less 10
-    builtin_condition = dynamic_cast<ConditionVariableBuiltin*>(condition_groups[1][0]);
+    builtin_condition = static_cast<ConditionVariableBuiltin*>(condition_groups[1][0]);
     verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 10.0, Comparator::Less);
     // variable "time_remaining_execute" greater 0
-    builtin_condition = dynamic_cast<ConditionVariableBuiltin*>(condition_groups[1][1]);
+    builtin_condition = static_cast<ConditionVariableBuiltin*>(condition_groups[1][1]);
     verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 0.0, Comparator::Greater);
     // buff "Battle Shout" less 45
-    buff_condition = dynamic_cast<ConditionBuffDuration*>(condition_groups[1][2]);
+    buff_condition = static_cast<ConditionBuffDuration*>(condition_groups[1][2]);
     verify_buff_condition(buff_condition, "Battle Shout", 45.0, Comparator::Less);
 
     //
@@ -139,10 +139,10 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     condition_groups = rotation->all_executors[2]->condition_groups;
     assert(condition_groups.size() == 1 && condition_groups[0].size() == 2);
     // "time_remaining_execute" greater 3
-    builtin_condition = dynamic_cast<ConditionVariableBuiltin*>(condition_groups[0][0]);
+    builtin_condition = static_cast<ConditionVariableBuiltin*>(condition_groups[0][0]);
     verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 3.0, Comparator::Greater);
     // resource "Rage" greater 50
-    resource_condition = dynamic_cast<ConditionResource*>(condition_groups[0][1]);
+    resource_condition = static_cast<ConditionResource*>(condition_groups[0][1]);
     verify_resource_condition(resource_condition, 50.0, Comparator::Greater, ResourceType::Rage);
 }
 

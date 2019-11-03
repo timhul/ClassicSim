@@ -10,7 +10,7 @@
 Fury::Fury(Warrior* pchar) :
     TalentTree("Fury", "Assets/warrior/warrior_fury.jpg"),
     warrior(pchar),
-    spells(dynamic_cast<WarriorSpells*>(pchar->get_spells()))
+    spells(static_cast<WarriorSpells*>(pchar->get_spells()))
 {
     talent_names_to_locations = {
         {"Booming Voice", "1ML"},

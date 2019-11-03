@@ -36,14 +36,14 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->oh_attack = new OffhandAttack(hunter);
     this->rapid_fire = new RapidFire(hunter);
 
-    auto* hunters_mark_buff = dynamic_cast<HuntersMarkBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Hunter's Mark"));
+    auto* hunters_mark_buff = static_cast<HuntersMarkBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Hunter's Mark"));
     if (hunters_mark_buff == nullptr) {
         hunters_mark_buff = new HuntersMarkBuff(hunter);
         hunters_mark_buff->enable_buff();
     }
     this->hunters_mark = new HuntersMark(hunter, hunters_mark_buff);
 
-    auto* expose_weakness_buff = dynamic_cast<ExposeWeaknessBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Expose Weakness"));
+    auto* expose_weakness_buff = static_cast<ExposeWeaknessBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Expose Weakness"));
     if (expose_weakness_buff == nullptr) {
         expose_weakness_buff = new ExposeWeaknessBuff(hunter);
         expose_weakness_buff->enable_buff();

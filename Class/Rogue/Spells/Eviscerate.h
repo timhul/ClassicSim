@@ -11,7 +11,7 @@ class Rogue;
 
 class Eviscerate: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
-    Eviscerate(Character* pchar);
+    Eviscerate(Rogue* rogue);
     ~Eviscerate() override;
 
 private:

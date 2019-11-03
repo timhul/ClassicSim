@@ -33,7 +33,7 @@ void TestAdrenalineRush::test_all() {
 }
 
 AdrenalineRush *TestAdrenalineRush::adrenaline_rush() const {
-    return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_adrenaline_rush();
+    return static_cast<RogueSpells*>(rogue->get_spells())->get_adrenaline_rush();
 }
 
 void TestAdrenalineRush::test_name_correct() {

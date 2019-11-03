@@ -1,12 +1,12 @@
 #include "EvocationBuff.h"
 
-#include "Character.h"
+#include "Mage.h"
 #include "Mana.h"
 #include "Utils/Check.h"
 
-EvocationBuff::EvocationBuff(Character* pchar):
-    SelfBuff(pchar, "Evocation", "Assets/spell/Spell_nature_purge.png", 8, 0),
-    mana(dynamic_cast<Mana*>(pchar->get_resource()))
+EvocationBuff::EvocationBuff(Mage* mage):
+    SelfBuff(mage, "Evocation", "Assets/spell/Spell_nature_purge.png", 8, 0),
+    mana(static_cast<Mana*>(mage->get_resource()))
 {
     check((mana != nullptr), "EvocationBuff:: Mana nullptr");
 }

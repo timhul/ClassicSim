@@ -3,9 +3,9 @@
 #include "Energy.h"
 #include "Rogue.h"
 
-AdrenalineRushBuff::AdrenalineRushBuff(Character* pchar):
-    SelfBuff(pchar, "Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", 15, 0),
-    rogue(dynamic_cast<Rogue*>(pchar))
+AdrenalineRushBuff::AdrenalineRushBuff(Rogue* rogue):
+    SelfBuff(rogue, "Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", 15, 0),
+    rogue(rogue)
 {}
 
 AdrenalineRushBuff::~AdrenalineRushBuff() {

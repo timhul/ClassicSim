@@ -116,16 +116,16 @@ void TestCatForm::test_proc_enchants_on_weapon_disabled_in_cat_form() {
     Weapon* mh = pchar->get_equipment()->get_mainhand();
     mh->apply_enchant(EnchantName::Crusader, druid, WeaponSlots::MAINHAND);
     mh->apply_temporary_enchant(EnchantName::ShadowOil, druid, WeaponSlots::MAINHAND);
-    assert(true == dynamic_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
-    assert(true == dynamic_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
+    assert(true == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
+    assert(true == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
 
     when_cat_form_is_performed();
-    assert(false == dynamic_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
-    assert(false == dynamic_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
+    assert(false == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
+    assert(false == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
 
     druid->cancel_form();
-    assert(true == dynamic_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
-    assert(true == dynamic_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
+    assert(true == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
+    assert(true == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
 }
 
 void TestCatForm::test_attack_speed_in_and_out_of_cat_form() {

@@ -10,16 +10,15 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-SinisterStrike::SinisterStrike(Character* pchar) :
-    Spell("Sinister Strike", "Assets/spell/Spell_shadow_ritualofsacrifice.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 45),
+SinisterStrike::SinisterStrike(Rogue* rogue) :
+    Spell("Sinister Strike", "Assets/spell/Spell_shadow_ritualofsacrifice.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 45),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No),
                    new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)
                    }),
     SetBonusRequirer({"Bonescythe Armor"}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
-    statistics_resource(nullptr),
+    rogue(rogue),
     imp_ss_ranks({45, 42, 40}),
     aggression_ranks({1.0, 1.02, 1.04, 1.06}),
     lethality_ranks({1.0, 1.06, 1.12, 1.18, 1.24, 1.30})

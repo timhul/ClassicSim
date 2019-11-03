@@ -9,7 +9,7 @@ class Paladin;
 
 class Vengeance: public SelfBuff, public TalentRequirer {
 public:
-    Vengeance(Paladin* pchar);
+    Vengeance(Paladin* paladin);
     ~Vengeance() override = default;
 
 private:

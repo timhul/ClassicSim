@@ -2,12 +2,12 @@
 
 #include "SelfBuff.h"
 
-class Character;
+class Mage;
 class Mana;
 
 class EvocationBuff: public SelfBuff {
 public:
-    EvocationBuff(Character* pchar);
+    EvocationBuff(Mage* mage);
 
 private:
     Mana* mana;

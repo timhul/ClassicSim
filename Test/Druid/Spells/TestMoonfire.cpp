@@ -188,20 +188,20 @@ void TestMoonfire::test_natures_grace_activated_on_spell_crit_if_enabled() {
     given_a_guaranteed_magic_crit(MagicSchool::Arcane);
     given_balance_talent_rank("Nature's Grace", 1);
     pchar->prepare_set_of_combat_iterations();
-    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+    assert(!static_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
 
     when_moonfire_is_performed();
 
-    assert(dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+    assert(static_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
 }
 
 void TestMoonfire::test_natures_grace_not_activated_on_spell_crit_if_not_enabled() {
     given_a_guaranteed_magic_crit(MagicSchool::Arcane);
-    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+    assert(!static_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
 
     when_moonfire_is_performed();
 
-    assert(!dynamic_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
+    assert(!static_cast<DruidSpells*>(druid->get_spells())->get_natures_grace()->is_active());
 }
 
 void TestMoonfire::when_moonfire_is_performed() {

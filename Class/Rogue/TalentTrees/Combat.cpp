@@ -16,10 +16,10 @@
 #include "Talent.h"
 #include "WeaponExpertise.h"
 
-Combat::Combat(Character *pchar) :
+Combat::Combat(Rogue* pchar) :
     TalentTree("Combat", "Assets/rogue/rogue_combat.jpg"),
-    rogue(dynamic_cast<Rogue*>(pchar)),
-    spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
+    rogue(pchar),
+    spells(static_cast<RogueSpells*>(pchar->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Gouge", "1LL"},

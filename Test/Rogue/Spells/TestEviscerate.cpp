@@ -121,7 +121,7 @@ void TestEviscerate::test_all() {
 }
 
 Eviscerate* TestEviscerate::eviscerate() const {
-    return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_eviscerate();
+    return static_cast<RogueSpells*>(rogue->get_spells())->get_eviscerate();
 }
 
 void TestEviscerate::test_name_correct() {

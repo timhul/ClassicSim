@@ -10,20 +10,21 @@
 #include "SealOfCommandProc.h"
 #include "Utils/Check.h"
 
-SealOfCommand::SealOfCommand(Paladin* pchar) :
-    PaladinSeal("Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", pchar,
+SealOfCommand::SealOfCommand(Paladin* paladin, PaladinSpells* paladin_spells) :
+    PaladinSeal("Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", paladin,
                 RestrictedByGcd::Yes,
                 ResourceType::Mana, 65,
-                new NoEffectSelfBuff(pchar, 30, "Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", Hidden::No)),
+                new NoEffectSelfBuff(paladin, 30, "Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", Hidden::No)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal of Command", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
-    proc(new SealOfCommandProc(pchar, this))
+    paladin_spells(paladin_spells),
+    proc(new SealOfCommandProc(paladin, this))
 {
     this->random = new Random(base_min_dmg, base_max_dmg);
     enabled = false;
     seal->disable_buff();
-    dynamic_cast<NoEffectSelfBuff*>(seal)->link_proc_application(proc);
-    dynamic_cast<NoEffectSelfBuff*>(seal)->link_proc_expiration(proc);
+    static_cast<NoEffectSelfBuff*>(seal)->link_proc_application(proc);
+    static_cast<NoEffectSelfBuff*>(seal)->link_proc_expiration(proc);
 }
 
 SealOfCommand::~SealOfCommand() {
@@ -98,7 +99,7 @@ void SealOfCommand::run_proc() {
         return;
     }
 
-    PaladinSeal* seal = dynamic_cast<PaladinSpells*>(pchar->get_spells())->get_seal();
+    PaladinSeal* seal = paladin_spells->get_seal();
     if (seal != nullptr)
         seal->refresh_seal();
 

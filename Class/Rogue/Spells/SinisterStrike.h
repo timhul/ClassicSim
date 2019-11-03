@@ -9,12 +9,12 @@ class Rogue;
 
 class SinisterStrike: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
-    SinisterStrike(Character* pchar);
+    SinisterStrike(Rogue* rogue);
     ~SinisterStrike() override;
 
 private:
     Rogue* rogue;
-    StatisticsResource* statistics_resource;
+    StatisticsResource* statistics_resource {nullptr};
     double aggression {1.0};
     double lethality {1.0};
     const QVector<unsigned> imp_ss_ranks;

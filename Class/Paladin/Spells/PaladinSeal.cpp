@@ -6,14 +6,14 @@
 #include "PaladinSpells.h"
 #include "Utils/Check.h"
 
-PaladinSeal::PaladinSeal(QString name,
-                         QString icon,
-                         Paladin* pchar,
-                         const RestrictedByGcd restricted_by_gcd,
-                         const ResourceType resource_type,
-                         unsigned resource_cost,
+PaladinSeal::PaladinSeal(QString name_,
+                         QString icon_,
+                         Paladin* paladin,
+                         const RestrictedByGcd restricted_by_gcd_,
+                         const ResourceType resource_type_,
+                         unsigned resource_cost_,
                          Buff* seal) :
-    Spell(name, icon, pchar, new CooldownControl(pchar, 0.0), restricted_by_gcd, resource_type, resource_cost),
+    Spell(name_, icon_, paladin, new CooldownControl(paladin, 0.0), restricted_by_gcd_, resource_type_, resource_cost_),
     seal(seal)
 {
     seal->enable_buff();
@@ -37,7 +37,7 @@ void PaladinSeal::judge_seal() {
 }
 
 void PaladinSeal::spell_effect() {
-    dynamic_cast<PaladinSpells*>(pchar->get_spells())->apply_seal(this);
+    static_cast<PaladinSpells*>(pchar->get_spells())->apply_seal(this);
 
     cooldown->add_gcd_event();
 

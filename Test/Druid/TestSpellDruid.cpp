@@ -51,31 +51,31 @@ void TestSpellDruid::run_class_specific_tests() {
 }
 
 Wrath* TestSpellDruid::wrath() const {
-    return dynamic_cast<Wrath*>(get_max_rank_spell_by_name("Wrath"));
+    return static_cast<Wrath*>(get_max_rank_spell_by_name("Wrath"));
 }
 
 Moonfire* TestSpellDruid::moonfire() const {
-    return dynamic_cast<Moonfire*>(get_max_rank_spell_by_name("Moonfire"));
+    return static_cast<Moonfire*>(get_max_rank_spell_by_name("Moonfire"));
 }
 
 Starfire* TestSpellDruid::starfire() const {
-    return dynamic_cast<Starfire*>(get_max_rank_spell_by_name("Starfire"));
+    return static_cast<Starfire*>(get_max_rank_spell_by_name("Starfire"));
 }
 
 MoonkinForm* TestSpellDruid::moonkin_form() const {
-    return dynamic_cast<MoonkinForm*>(get_max_rank_spell_by_name("Moonkin Form"));
+    return static_cast<MoonkinForm*>(get_max_rank_spell_by_name("Moonkin Form"));
 }
 
 CatForm* TestSpellDruid::cat_form() const {
-    return dynamic_cast<CatForm*>(get_max_rank_spell_by_name("Cat Form"));
+    return static_cast<CatForm*>(get_max_rank_spell_by_name("Cat Form"));
 }
 
 Shred* TestSpellDruid::shred() const {
-    return dynamic_cast<Shred*>(get_max_rank_spell_by_name("Shred"));
+    return static_cast<Shred*>(get_max_rank_spell_by_name("Shred"));
 }
 
 FerociousBite* TestSpellDruid::ferocious_bite() const {
-    return dynamic_cast<FerociousBite*>(get_max_rank_spell_by_name("Ferocious Bite"));
+    return static_cast<FerociousBite*>(get_max_rank_spell_by_name("Ferocious Bite"));
 }
 
 void TestSpellDruid::given_balance_talent_rank(const QString& talent_name, const unsigned num) {

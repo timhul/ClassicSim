@@ -6,11 +6,11 @@ class Warrior;
 
 class BerserkerStance: public Spell {
 public:
-    BerserkerStance(Character* pchar);
+    BerserkerStance(Warrior* warrior);
     ~BerserkerStance() override;
 
 private:
-    Warrior* warr;
+    Warrior* warrior;
 
     SpellStatus is_ready_spell_specific() const override;
     void spell_effect() override;

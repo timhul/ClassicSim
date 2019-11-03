@@ -19,7 +19,7 @@
 Assassination::Assassination(Rogue* pchar) :
     TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg"),
     rogue(pchar),
-    spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
+    spells(static_cast<RogueSpells*>(pchar->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Eviscerate", "1LL"},

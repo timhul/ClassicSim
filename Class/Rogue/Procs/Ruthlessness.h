@@ -7,7 +7,7 @@ class Rogue;
 
 class Ruthlessness: public Proc, public TalentRequirer {
 public:
-    Ruthlessness(Character* pchar);
+    Ruthlessness(Rogue* rogue);
 
     void proc_effect() override;
 

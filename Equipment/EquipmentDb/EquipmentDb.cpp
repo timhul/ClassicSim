@@ -91,12 +91,12 @@ void EquipmentDb::add_ring(Item* ring) {
 Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
     for (const auto & current_phase_mh_slot_item : current_phase_mh_slot_items) {
         if (item_id == current_phase_mh_slot_item->item_id)
-            return new Weapon(dynamic_cast<Weapon*>(current_phase_mh_slot_item));
+            return new Weapon(static_cast<Weapon*>(current_phase_mh_slot_item));
     }
 
     for (const auto & current_phase_oh_slot_item : current_phase_oh_slot_items) {
         if (item_id == current_phase_oh_slot_item->item_id)
-            return new Weapon(dynamic_cast<Weapon*>(current_phase_oh_slot_item));
+            return new Weapon(static_cast<Weapon*>(current_phase_oh_slot_item));
     }
 
     return nullptr;
@@ -114,7 +114,7 @@ Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) 
 Weapon* EquipmentDb::get_ranged(const int item_id) const {
     for (const auto & current_phase_ranged_slot_item : current_phase_ranged_items) {
         if (item_id == current_phase_ranged_slot_item->item_id)
-            return new Weapon(dynamic_cast<Weapon*>(current_phase_ranged_slot_item));
+            return new Weapon(static_cast<Weapon*>(current_phase_ranged_slot_item));
     }
 
     return nullptr;
@@ -179,7 +179,7 @@ Item* EquipmentDb::get_relic(const int item_id) const {
 Projectile* EquipmentDb::get_projectile(const int item_id) const {
     for (const auto & current_phase_projectile : current_phase_projectiles) {
         if (item_id == current_phase_projectile->item_id)
-            return new Projectile(dynamic_cast<Projectile*>(current_phase_projectile));
+            return new Projectile(static_cast<Projectile*>(current_phase_projectile));
     }
 
     return nullptr;
@@ -362,13 +362,13 @@ void EquipmentDb::take_weapons_from_given_items(QVector<Item*> &mixed_items) {
             // C++17 [[clang::fallthrough]];
         case WeaponSlots::OFFHAND:
             item = mixed_items.takeAt(i);
-            oh_slot_items.append(new Weapon(dynamic_cast<Weapon*>(item)));
+            oh_slot_items.append(new Weapon(static_cast<Weapon*>(item)));
             add_item_id(item);
             --i;
             break;
         case WeaponSlots::RANGED:
             item = mixed_items.takeAt(i);
-            ranged_items.append(new Weapon(dynamic_cast<Weapon*>(item)));
+            ranged_items.append(new Weapon(static_cast<Weapon*>(item)));
             add_item_id(item);
             --i;
             break;

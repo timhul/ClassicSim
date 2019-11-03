@@ -7,10 +7,11 @@ class WarriorSpells;
 
 class Recklessness: public Spell {
 public:
-    Recklessness(Warrior* pchar, WarriorSpells* spells);
+    Recklessness(Warrior* warrior, WarriorSpells* spells);
     ~Recklessness() override;
 
 private:
+    Warrior* warrior;
     WarriorSpells* spells;
 
     void spell_effect() override;

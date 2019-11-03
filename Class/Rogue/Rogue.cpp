@@ -21,8 +21,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Rogue::Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Rogue", "#FFF569", race, sim_settings, raid_control, party, member),
+Rogue::Rogue(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Rogue", "#FFF569", race_, sim_settings_, raid_control_, party_, member),
     combo_points(0),
     stealthed(false)
 {
@@ -47,7 +47,7 @@ Rogue::Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, R
     cstats->increase_melee_base_crit(100);
 
     this->rogue_spells = new RogueSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(rogue_spells);
+    this->spells = rogue_spells;
     this->energy = new class Energy(this);
     this->resource = this->energy;
 

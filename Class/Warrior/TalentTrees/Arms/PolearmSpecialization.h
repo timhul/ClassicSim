@@ -3,11 +3,12 @@
 #include "Talent.h"
 
 class TalentTree;
+class Warrior;
 
 class PolearmSpecialization: public Talent {
 public:
-    PolearmSpecialization(Character *pchar, TalentTree* tree);
-    ~PolearmSpecialization() override;
+    PolearmSpecialization(Warrior* warrior, TalentTree* tree);
+    ~PolearmSpecialization() override = default;
 
 private:
     void apply_rank_effect() override;

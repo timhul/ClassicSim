@@ -6,7 +6,7 @@ class Paladin;
 
 class SanctityAuraBuff: public PartyBuff {
 public:
-    SanctityAuraBuff(Paladin* pchar);
+    SanctityAuraBuff(Paladin* paladin);
     ~SanctityAuraBuff() override = default;
 
 private:

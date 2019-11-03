@@ -3,9 +3,9 @@
 #include "Energy.h"
 #include "Rogue.h"
 
-BladeFlurryBuff::BladeFlurryBuff(Character* pchar):
-    SelfBuff(pchar, "Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", 15, 0),
-    rogue(dynamic_cast<Rogue*>(pchar))
+BladeFlurryBuff::BladeFlurryBuff(Rogue* rogue):
+    SelfBuff(rogue, "Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", 15, 0),
+    rogue(rogue)
 {}
 
 BladeFlurryBuff::~BladeFlurryBuff() {

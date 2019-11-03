@@ -8,7 +8,7 @@
 Fire::Fire(Mage* mage) :
     TalentTree("Fire", "Assets/mage/mage_fire.jpg"),
     mage(mage),
-    spells(dynamic_cast<MageSpells*>(mage->get_spells()))
+    spells(static_cast<MageSpells*>(mage->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Fireball", "1ML"},

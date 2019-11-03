@@ -11,7 +11,7 @@
 Marksmanship::Marksmanship(Hunter* hunter) :
     TalentTree("Marksmanship", "Assets/hunter/hunter_marksmanship.jpg"),
     hunter(hunter),
-    spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
+    spells(static_cast<HunterSpells*>(hunter->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Concussive Shot", "1ML"},

@@ -33,7 +33,7 @@ class Whirlwind;
 
 class WarriorSpells: public CharacterSpells {
 public:
-    WarriorSpells(Warrior *warr);
+    WarriorSpells(Warrior* warrior);
     ~WarriorSpells() override;
 
     void mh_auto_attack(const int) override;

@@ -9,7 +9,7 @@ class SealOfCommandProc;
 
 class SealOfCommand: public PaladinSeal, public TalentRequirer {
 public:
-    SealOfCommand(Paladin* pchar);
+    SealOfCommand(Paladin* paladin, PaladinSpells* paladin_spells);
     ~SealOfCommand() override;
 
     void refresh_seal() const override;
@@ -19,6 +19,7 @@ public:
     void run_proc();
 
 private:
+    PaladinSpells* paladin_spells;
     SealOfCommandProc* proc;
     Random* random;
 

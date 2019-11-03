@@ -926,14 +926,14 @@ void Equipment::equip(Projectile*& current, Projectile* next, const int eq_slot)
     unequip(current, eq_slot);
     current = next;
     item_setups[setup_index][eq_slot] = current->item_id;
-    dynamic_cast<Hunter*>(pchar)->set_projectile_dps(current->get_projectile_dps());
+    static_cast<Hunter*>(pchar)->set_projectile_dps(current->get_projectile_dps());
 }
 
 void Equipment::unequip(Projectile*& item, const int eq_slot) {
     if (item == nullptr)
         return;
 
-    dynamic_cast<Hunter*>(pchar)->set_projectile_dps(0.0);
+    static_cast<Hunter*>(pchar)->set_projectile_dps(0.0);
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
     item = nullptr;

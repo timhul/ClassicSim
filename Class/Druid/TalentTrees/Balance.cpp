@@ -8,7 +8,7 @@
 Balance::Balance(Druid* druid) :
     TalentTree("Balance", "Assets/druid/druid_balance.jpg"),
     druid(druid),
-    spells(dynamic_cast<DruidSpells*>(druid->get_spells()))
+    spells(static_cast<DruidSpells*>(druid->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Wrath", "1LL"},

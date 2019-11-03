@@ -9,12 +9,12 @@
 #include "Utils/Check.h"
 #include "Warrior.h"
 
-DeepWounds::DeepWounds(Character* pchar) :
-    SpellPeriodic("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar,
-                  new NoEffectUniqueDebuff(pchar, Priority::Trash, 12, "Deep Wounds", "Assets/ability/Ability_backstab.png", Hidden::No),
+DeepWounds::DeepWounds(Warrior* warrior) :
+    SpellPeriodic("Deep Wounds", "Assets/ability/Ability_backstab.png", warrior,
+                  new NoEffectUniqueDebuff(warrior, Priority::Trash, 12, "Deep Wounds", "Assets/ability/Ability_backstab.png", Hidden::No),
                   RestrictedByGcd::No, ResourceType::Rage, 2.0, 0, 1),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
-    warr(dynamic_cast<Warrior*>(pchar)),
+    warrior(warrior),
     talent_ranks({0.0, 0.2, 0.4, 0.6})
 {
     this->enabled = false;
@@ -37,7 +37,7 @@ void DeepWounds::refresh_effect() {
 }
 
 void DeepWounds::tick_effect() {
-    double damage_dealt = (warr->get_avg_mh_damage() * wpn_percent) / 6;
+    double damage_dealt = (warrior->get_avg_mh_damage() * wpn_percent) / 6;
 
     damage_dealt += previous_tick_rest;
     previous_tick_rest = damage_dealt - round(damage_dealt);

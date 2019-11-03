@@ -27,8 +27,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Druid", "#FF7D0A", race, sim_settings, raid_control, party, member) {
+Druid::Druid(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Druid", "#FF7D0A", race_, sim_settings_, raid_control_, party_, member) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
     available_enchants = new DruidEnchants(this);
@@ -43,7 +43,7 @@ Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, R
     cstats->increase_spirit(90);
 
     this->druid_spells = new DruidSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(druid_spells);
+    this->spells = druid_spells;
 
     this->energy = new class Energy(this);
     this->rage = new class Rage();
@@ -130,8 +130,8 @@ double Druid::form_cooldown() const {
     return 1.0;
 }
 
-void Druid::set_clvl(const unsigned clvl) {
-    this->clvl = clvl;
+void Druid::set_clvl(const unsigned clvl_) {
+    this->clvl = clvl_;
     this->rage_conversion_value = 0.0091107836 * std::pow(clvl, 2) + 3.225598133 * clvl + 4.2652911;
 }
 

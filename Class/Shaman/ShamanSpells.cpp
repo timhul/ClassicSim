@@ -47,7 +47,7 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     this->clearcasting = new ClearcastingShaman(shaman);
     this->elemental_devastation = new ElementalDevastation(shaman);
 
-    auto* stormstrike_buff = dynamic_cast<StormstrikeBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Stormstrike"));
+    auto stormstrike_buff = static_cast<StormstrikeBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Stormstrike"));
     if (stormstrike_buff == nullptr) {
         stormstrike_buff = new StormstrikeBuff(shaman);
         stormstrike_buff->enable_buff();

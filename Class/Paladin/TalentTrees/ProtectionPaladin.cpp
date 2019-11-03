@@ -7,7 +7,7 @@
 ProtectionPaladin::ProtectionPaladin(Paladin* paladin) :
     TalentTree("Protection", "Assets/paladin/paladin_protection.jpg"),
     paladin(paladin),
-    spells(dynamic_cast<PaladinSpells*>(paladin->get_spells()))
+    spells(static_cast<PaladinSpells*>(paladin->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Devotion Aura", "1ML"},

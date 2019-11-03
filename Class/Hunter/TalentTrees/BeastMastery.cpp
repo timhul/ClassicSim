@@ -12,7 +12,7 @@
 BeastMastery::BeastMastery(Hunter* hunter) :
     TalentTree("Beast Mastery", "Assets/hunter/hunter_beastmastery.jpg"),
     hunter(hunter),
-    spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
+    spells(static_cast<HunterSpells*>(hunter->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Aspect of the Hawk", "1ML"},
@@ -113,7 +113,7 @@ void BeastMastery::add_frenzy(QMap<QString, Talent*>& talent_tier) {
                                  QVector<QPair<unsigned, unsigned>>{{20, 20}},
                                  {},
                                  {},
-                                 QVector<Proc*>{dynamic_cast<HunterPet*>(hunter->get_pet())->get_frenzy_proc()});
+                                 QVector<Proc*>{static_cast<HunterPet*>(hunter->get_pet())->get_frenzy_proc()});
 
     add_talent_to_tier(talent_tier, talent);
 }

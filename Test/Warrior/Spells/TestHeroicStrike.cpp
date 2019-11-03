@@ -285,5 +285,5 @@ void TestHeroicStrike::then_heroic_strike_costs(const unsigned rage) {
 }
 
 Buff* TestHeroicStrike::flurry() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_flurry();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_flurry();
 }

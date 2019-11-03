@@ -4,12 +4,13 @@
 
 class Buff;
 class Paladin;
+class PaladinSpells;
 
 class PaladinSeal: public Spell {
 public:
     PaladinSeal(QString name,
                 QString icon,
-                Paladin* pchar,
+                Paladin* paladin,
                 const RestrictedByGcd restricted_by_gcd,
                 const ResourceType resource_type,
                 unsigned resource_cost,

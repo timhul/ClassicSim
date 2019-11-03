@@ -20,7 +20,7 @@
 Arms::Arms(Warrior* pchar) :
     TalentTree("Arms", "Assets/warrior/warrior_arms.jpg"),
     warr(pchar),
-    spells(dynamic_cast<WarriorSpells*>(pchar->get_spells()))
+    spells(static_cast<WarriorSpells*>(pchar->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Heroic Strike", "1LL"},

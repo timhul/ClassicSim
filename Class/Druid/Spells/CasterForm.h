@@ -7,7 +7,7 @@ class Druid;
 
 class CasterForm: public Spell {
 public:
-    CasterForm(Character* pchar);
+    CasterForm(Druid* druid);
     ~CasterForm() override;
 
 private:

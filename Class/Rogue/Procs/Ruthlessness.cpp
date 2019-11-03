@@ -3,12 +3,12 @@
 #include "ProcInfo.h"
 #include "Rogue.h"
 
-Ruthlessness::Ruthlessness(Character* pchar) :
+Ruthlessness::Ruthlessness(Rogue* rogue) :
     Proc("Ruthlessness", "Assets/ability/Ability_druid_disembowel.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
-         pchar),
+         rogue),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Ruthlessness", 3, DisabledAtZero::Yes)}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
+    rogue(rogue),
     talent_ranks({0, 2000, 4000, 6000})
 {
     this->enabled = false;

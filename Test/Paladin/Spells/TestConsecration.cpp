@@ -30,7 +30,7 @@ void TestConsecration::test_all() {
 }
 
 Consecration* TestConsecration::consecration() const {
-    return dynamic_cast<Consecration*>(get_max_rank_spell_by_name("Consecration"));
+    return static_cast<Consecration*>(get_max_rank_spell_by_name("Consecration"));
 }
 
 void TestConsecration::test_name_correct() {

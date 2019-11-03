@@ -5,14 +5,14 @@
 #include "StatisticsResource.h"
 #include "Warrior.h"
 
-UnbridledWrath::UnbridledWrath(Character* pchar) :
+UnbridledWrath::UnbridledWrath(Warrior* warrior) :
     Proc("Unbridled Wrath", "Assets/spell/Spell_nature_stoneclawtotem.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSwing}),
-         pchar),
+         warrior),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Unbridled Wrath", 5, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),
-    warr(dynamic_cast<Warrior*>(pchar)),
+    warrior(warrior),
     talent_ranks({0, 800, 1600, 2400, 3200, 4000})
 {
     this->enabled = false;
@@ -20,10 +20,10 @@ UnbridledWrath::UnbridledWrath(Character* pchar) :
 }
 
 void UnbridledWrath::proc_effect() {
-    unsigned rage = warr->get_resource_level(resource_type);
-    warr->gain_rage(1);
+    const unsigned rage = warrior->get_resource_level(resource_type);
+    warrior->gain_rage(1);
 
-    if (warr->get_resource_level(resource_type) > rage)
+    if (warrior->get_resource_level(resource_type) > rage)
         statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 }
 

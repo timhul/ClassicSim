@@ -28,7 +28,7 @@ void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     should_prepare_combat = prepare_combat_iterations;
     set_up_general();
     warrior = new Warrior(race, equipment_db, sim_settings, raid_control);
-    spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
+    spells = static_cast<WarriorSpells*>(warrior->get_spells());
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;
@@ -51,7 +51,7 @@ void TestSpellWarrior::run_class_specific_tests() {
 }
 
 HeroicStrike* TestSpellWarrior::heroic_strike() const {
-    return dynamic_cast<HeroicStrike*>(spells->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank());
+    return static_cast<HeroicStrike*>(spells->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank());
 }
 
 void TestSpellWarrior::given_0_of_2_impale() {
@@ -149,7 +149,7 @@ void TestSpellWarrior::given_warrior_is_on_gcd() {
     if (pchar->get_equipment()->get_mainhand() == nullptr)
         given_a_mainhand_weapon_with_100_min_max_dmg();
 
-    given_warrior_is_on_gcd(dynamic_cast<WarriorSpells*>(pchar->get_spells())->get_whirlwind());
+    given_warrior_is_on_gcd(static_cast<WarriorSpells*>(pchar->get_spells())->get_whirlwind());
 }
 
 void TestSpellWarrior::given_warrior_is_on_gcd(Spell *spell) {

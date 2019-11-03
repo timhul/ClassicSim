@@ -7,15 +7,14 @@
 #include "Rogue.h"
 #include "Utils/Check.h"
 
-Hemorrhage::Hemorrhage(Character* pchar) :
-    Spell("Hemorrhage", "Assets/spell/Spell_shadow_lifedrain.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
+Hemorrhage::Hemorrhage(Rogue* rogue) :
+    Spell("Hemorrhage", "Assets/spell/Spell_shadow_lifedrain.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Hemorrhage", 1, DisabledAtZero::Yes),
                    new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)
                    }),
     SetBonusRequirer({"Bonescythe Armor"}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
-    statistics_resource(nullptr),
+    rogue(rogue),
     lethality_ranks({1.0, 1.06, 1.12, 1.18, 1.24, 1.30})
 {
     this->enabled = false;

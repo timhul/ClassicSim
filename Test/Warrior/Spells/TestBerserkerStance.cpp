@@ -55,7 +55,7 @@ void TestBerserkerStance::test_all() {
 }
 
 BerserkerStance* TestBerserkerStance::berserker_stance() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_berserker_stance();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_berserker_stance();
 }
 
 void TestBerserkerStance::test_name_correct() {
@@ -144,7 +144,7 @@ void TestBerserkerStance::test_removes_crit_when_stance_exited() {
     when_berserker_stance_is_performed();
     assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance + suppressed_aura_crit(300));
 
-    dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
+    warrior->switch_to_battle_stance();
 
     assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance);
 }
@@ -213,5 +213,5 @@ void TestBerserkerStance::test_rage_is_not_increased_by_switching_stances_with_5
 }
 
 void TestBerserkerStance::when_berserker_stance_is_performed() {
-    dynamic_cast<Warrior*>(pchar)->switch_to_berserker_stance();
+    warrior->switch_to_berserker_stance();
 }

@@ -59,7 +59,7 @@ Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
 SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
     for (const auto & buff : enabled_buffs) {
         if (buff->name == name) {
-            auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
+            auto uniq_buff = static_cast<SharedBuff*>(buff);
             uniq_buff->increment_reference();
             return uniq_buff;
         }
@@ -72,7 +72,7 @@ void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
         if (buff->name != shared_buff->name)
             continue;
 
-        auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
+        auto uniq_buff = static_cast<SharedBuff*>(buff);
         uniq_buff->decrement_reference();
 
         if (uniq_buff->unused()) {

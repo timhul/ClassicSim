@@ -8,7 +8,7 @@
 Enhancement::Enhancement(Shaman* shaman) :
     TalentTree("Enhancement", "Assets/shaman/shaman_enhancement.jpg"),
     shaman(shaman),
-    spells(dynamic_cast<ShamanSpells*>(shaman->get_spells()))
+    spells(static_cast<ShamanSpells*>(shaman->get_spells()))
 {
     talent_names_to_locations = {
         {"Ancestral Knowledge", "1ML"},

@@ -211,12 +211,12 @@ void Item::call_item_modifications(const bool activate) const {
 
 void Item::call_modifications_by_specific_name(const QString& name, const bool activate) const {
     if (QSet<QString>({"BEASTMASTER_HUNTER_PET"}).contains(name)) {
-        if (!dynamic_cast<Hunter*>(pchar))
+        if (pchar->class_name != "Hunter")
             return;
         if (activate)
-            dynamic_cast<HunterPet*>(pchar->get_pet())->activate_item_effect(this->item_id);
+            static_cast<HunterPet*>(pchar->get_pet())->activate_item_effect(this->item_id);
         else
-            dynamic_cast<HunterPet*>(pchar->get_pet())->deactivate_item_effect(this->item_id);
+            static_cast<HunterPet*>(pchar->get_pet())->deactivate_item_effect(this->item_id);
     }
 }
 

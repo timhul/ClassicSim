@@ -12,7 +12,7 @@
 Retribution::Retribution(Paladin* paladin) :
     TalentTree("Retribution", "Assets/paladin/paladin_combat.jpg"),
     paladin(paladin),
-    spells(dynamic_cast<PaladinSpells*>(paladin->get_spells()))
+    spells(static_cast<PaladinSpells*>(paladin->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Blessing of Might", "1ML"},
@@ -92,8 +92,8 @@ void Retribution::add_improved_judgement(QMap<QString, Talent*>& talent_tier) {
 void Retribution::add_improved_seal_of_the_crusader(QMap<QString, Talent*>& talent_tier) {
     QVector<Buff*> affected_buffs = {};
     for (const auto & spell : spells->get_spell_rank_group_by_name("Seal of the Crusader")->spell_group) {
-        affected_buffs.append(dynamic_cast<SealOfTheCrusader*>(spell)->get_judge_debuff());
-        affected_buffs.append(dynamic_cast<SealOfTheCrusader*>(spell)->get_buff());
+        affected_buffs.append(static_cast<SealOfTheCrusader*>(spell)->get_judge_debuff());
+        affected_buffs.append(static_cast<SealOfTheCrusader*>(spell)->get_buff());
     }
 
     Talent* talent = get_new_talent(paladin, "Improved Seal of the Crusader", "2ML", "Assets/spell/Spell_holy_holysmite.png",

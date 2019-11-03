@@ -163,7 +163,7 @@ void WeaponModel::update_items() {
             continue;
 
         if (item_stat_filter_model->item_passes_active_stat_filters(wpn))
-            weapons << dynamic_cast<Weapon*>(wpn);
+            weapons << static_cast<Weapon*>(wpn);
     }
     endInsertRows();
 
@@ -172,8 +172,7 @@ void WeaponModel::update_items() {
     layoutChanged();
 }
 
-int WeaponModel::rowCount(const QModelIndex & parent) const {
-    Q_UNUSED(parent);
+int WeaponModel::rowCount(const QModelIndex &) const {
     return weapons.count();
 }
 

@@ -34,7 +34,7 @@ void TestBloodthirst::test_all() {
 }
 
 Bloodthirst* TestBloodthirst::bloodthirst() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst();
 }
 
 void TestBloodthirst::test_name_correct() {

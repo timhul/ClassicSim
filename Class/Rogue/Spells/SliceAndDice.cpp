@@ -11,11 +11,11 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-SliceAndDice::SliceAndDice(Character* pchar) :
-    Spell("Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 25),
+SliceAndDice::SliceAndDice(Rogue* rogue) :
+    Spell("Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 25),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slice And Dice", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Emblems of Veiled Shadows"}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
+    rogue(rogue),
     buff(new SliceAndDiceBuff(rogue))
 {
     buff->enable_buff();

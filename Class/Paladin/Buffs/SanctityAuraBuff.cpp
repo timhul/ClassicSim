@@ -1,12 +1,11 @@
 #include "SanctityAuraBuff.h"
 
-#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "Paladin.h"
 
-SanctityAuraBuff::SanctityAuraBuff(Paladin* pchar):
-    PartyBuff(pchar, "Sanctity Aura", "Assets/spell/Spell_holy_mindvision.png", BuffDuration::PERMANENT, 0),
-    paladin(dynamic_cast<Paladin*>(pchar))
+SanctityAuraBuff::SanctityAuraBuff(Paladin* paladin):
+    PartyBuff(paladin, "Sanctity Aura", "Assets/spell/Spell_holy_mindvision.png", BuffDuration::PERMANENT, 0),
+    paladin(paladin)
 {}
 
 void SanctityAuraBuff::buff_effect_when_applied() {

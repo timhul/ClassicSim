@@ -8,11 +8,11 @@ class Warrior;
 
 class DeathWish: public Spell, public TalentRequirer {
 public:
-    DeathWish(Character* pchar);
+    DeathWish(Warrior* warrior);
     ~DeathWish() override;
 
 private:
-    Warrior* warr;
+    Warrior* warrior;
     DeathWishBuff* death_wish_buff;
 
     void spell_effect() override;

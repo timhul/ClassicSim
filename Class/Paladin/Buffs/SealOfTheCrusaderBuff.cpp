@@ -9,23 +9,23 @@
 #include "PaladinSpells.h"
 #include "Utils/Check.h"
 
-SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* pchar):
-    SelfBuff(pchar, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),
+SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* paladin):
+    SelfBuff(paladin, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
     ItemModificationRequirer({22401, 23203}),
-    paladin(dynamic_cast<Paladin*>(pchar))
+    paladin(paladin)
 {}
 
 void SealOfTheCrusaderBuff::buff_effect_when_applied() {
     pchar->get_stats()->increase_melee_ap(static_cast<unsigned>(round((sotc_ap_base + libram_of_fervor_bonus) * improved_sotc_mod)));
     pchar->get_stats()->increase_melee_attack_speed(40);
-    dynamic_cast<MainhandAttackPaladin*>(pchar->get_spells()->get_mh_attack())->apply_seal_of_the_crusader_penalty();
+    static_cast<MainhandAttackPaladin*>(pchar->get_spells()->get_mh_attack())->apply_seal_of_the_crusader_penalty();
 }
 
 void SealOfTheCrusaderBuff::buff_effect_when_removed() {
     pchar->get_stats()->decrease_melee_ap(static_cast<unsigned>(round((sotc_ap_base + libram_of_fervor_bonus) * improved_sotc_mod)));
     pchar->get_stats()->decrease_melee_attack_speed(40);
-    dynamic_cast<MainhandAttackPaladin*>(pchar->get_spells()->get_mh_attack())->remove_seal_of_the_crusader_penalty();
+    static_cast<MainhandAttackPaladin*>(pchar->get_spells()->get_mh_attack())->remove_seal_of_the_crusader_penalty();
 }
 
 void SealOfTheCrusaderBuff::increase_talent_rank_effect(const QString&, const int curr) {

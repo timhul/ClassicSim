@@ -8,7 +8,7 @@
 Frost::Frost(Mage* mage) :
     TalentTree("Frost", "Assets/mage/mage_frost.jpg"),
     mage(mage),
-    spells(dynamic_cast<MageSpells*>(mage->get_spells()))
+    spells(static_cast<MageSpells*>(mage->get_spells()))
 {
     talent_names_to_locations = {
         {"Frost Warding", "1LL"},

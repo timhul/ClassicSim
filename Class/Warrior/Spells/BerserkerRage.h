@@ -8,11 +8,11 @@ class Warrior;
 
 class BerserkerRage: public Spell, public TalentRequirer {
 public:
-    BerserkerRage(Character* pchar);
+    BerserkerRage(Warrior* warrior);
     ~BerserkerRage() override;
 
 private:
-    Warrior* warr;
+    Warrior* warrior;
     StatisticsResource* statistics_resource;
     const QVector<unsigned> talent_ranks;
     unsigned rage_gain {0};

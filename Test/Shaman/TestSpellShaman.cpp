@@ -46,11 +46,11 @@ MainhandAttack* TestSpellShaman::mh_attack() const {
 }
 
 Stormstrike* TestSpellShaman::stormstrike() const {
-    return dynamic_cast<Stormstrike*>(get_max_rank_spell_by_name("Stormstrike"));
+    return static_cast<Stormstrike*>(get_max_rank_spell_by_name("Stormstrike"));
 }
 
 LightningBolt* TestSpellShaman::lightning_bolt() const {
-    return dynamic_cast<LightningBolt*>(get_max_rank_spell_by_name("Lightning Bolt"));
+    return static_cast<LightningBolt*>(get_max_rank_spell_by_name("Lightning Bolt"));
 }
 
 void TestSpellShaman::run_class_specific_tests() {

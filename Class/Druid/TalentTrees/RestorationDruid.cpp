@@ -8,7 +8,7 @@
 RestorationDruid::RestorationDruid(Druid* druid) :
     TalentTree("Restoration", "Assets/druid/druid_restoration.jpg"),
     druid(druid),
-    spells(dynamic_cast<DruidSpells*>(druid->get_spells()))
+    spells(static_cast<DruidSpells*>(druid->get_spells()))
 {
     talent_names_to_locations = {
         {"Improved Mark of the Wild", "1ML"},

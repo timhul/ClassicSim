@@ -44,7 +44,7 @@ void TestOverpower::test_all() {
 }
 
 Overpower* TestOverpower::overpower() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_overpower();
 }
 
 void TestOverpower::test_name_correct() {

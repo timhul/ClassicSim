@@ -7,8 +7,8 @@ class Druid;
 
 class BloodFrenzy: public Proc, public TalentRequirer {
 public:
-    BloodFrenzy(Character* pchar);
 
+    BloodFrenzy(Druid* druid);
     void proc_effect() override;
 
 private:

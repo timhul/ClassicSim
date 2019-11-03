@@ -86,7 +86,7 @@ void TestAutoShot::test_all() {
 }
 
 AutoShot* TestAutoShot::auto_shot() const {
-    auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
+    auto spells = static_cast<HunterSpells*>(hunter->get_spells());
     return spells->get_auto_shot();
 }
 

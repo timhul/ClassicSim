@@ -68,7 +68,7 @@ void TestSlam::test_all() {
 }
 
 Slam* TestSlam::slam() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_slam();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_slam();
 }
 
 void TestSlam::test_name_correct() {

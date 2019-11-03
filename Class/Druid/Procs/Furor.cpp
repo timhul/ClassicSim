@@ -5,13 +5,13 @@
 #include "ProcInfo.h"
 #include "StatisticsResource.h"
 
-Furor::Furor(Character* pchar) :
+Furor::Furor(Druid* druid) :
     Proc("Furor", "Assets/spell/Spell_holy_blessingofstamina.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
-         pchar),
+         druid),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Furor", 5, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),
-    druid(dynamic_cast<Druid*>(pchar))
+    druid(druid)
 {
     this->enabled = false;
 

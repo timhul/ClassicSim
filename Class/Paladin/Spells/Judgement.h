@@ -4,13 +4,15 @@
 #include "TalentRequirer.h"
 
 class Paladin;
+class PaladinSpells;
 
 class Judgement: public Spell, public TalentRequirer {
 public:
-    Judgement(Paladin* pchar, CooldownControl* cooldown_control);
+    Judgement(Paladin* paladin, PaladinSpells* paladin_spells, CooldownControl* cooldown_control);
 
 private:
     Paladin* paladin;
+    PaladinSpells* paladin_spells;
 
     const double base_mana_cost { 1436 * 0.06 };
     const QVector<double> benediction_ranks {1.0, 0.97, 0.94, 0.91, 0.88, 0.85};

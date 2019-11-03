@@ -16,8 +16,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Shaman", "#F58CBA", race, sim_settings, raid_control, party, member) {
+Shaman::Shaman(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Shaman", "#F58CBA", race_, sim_settings_, raid_control_, party_, member) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
@@ -34,7 +34,7 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings,
     cstats->increase_melee_ap(160);
 
     this->shaman_spells = new ShamanSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(shaman_spells);
+    this->spells = shaman_spells;
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

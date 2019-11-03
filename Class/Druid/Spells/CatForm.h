@@ -10,7 +10,7 @@ class StatisticsResource;
 
 class CatForm: public Spell, public TalentRequirer, public ItemModificationRequirer {
 public:
-    CatForm(Character* pchar, Buff* cat_form);
+    CatForm(Druid* druid, Buff* cat_form);
     ~CatForm() override;
 
 private:

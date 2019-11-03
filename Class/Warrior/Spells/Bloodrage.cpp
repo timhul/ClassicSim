@@ -7,13 +7,13 @@
 #include "StatisticsResource.h"
 #include "Warrior.h"
 
-Bloodrage::Bloodrage(Character* pchar) :
-    PeriodicResourceGainSpell("Bloodrage", "Assets/ability/Ability_racial_bloodrage.png", pchar, RestrictedByGcd::No, 1.0, 10, {{ResourceType::Rage, 1}}),
+Bloodrage::Bloodrage(Warrior* warrior) :
+    PeriodicResourceGainSpell("Bloodrage", "Assets/ability/Ability_racial_bloodrage.png", warrior, RestrictedByGcd::No, 1.0, 10, {{ResourceType::Rage, 1}}),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Bloodrage", 2, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warrior(warrior)
 {
     delete cooldown;
-    cooldown = new CooldownControl(pchar, 60.0);
+    cooldown = new CooldownControl(warrior, 60.0);
     enabled = true;
     marker_buff->enable_buff();
 }
@@ -25,7 +25,7 @@ void Bloodrage::new_application_effect() {
 }
 
 SpellStatus Bloodrage::is_ready_spell_specific() const {
-    return warr->in_defensive_stance() ? SpellStatus::InDefensiveStance : SpellStatus::Available;
+    return warrior->in_defensive_stance() ? SpellStatus::InDefensiveStance : SpellStatus::Available;
 }
 
 void Bloodrage::increase_talent_rank_effect(const QString&, const int curr) {
@@ -37,11 +37,11 @@ void Bloodrage::decrease_talent_rank_effect(const QString&, const int curr) {
 }
 
 void Bloodrage::gain_rage(const unsigned rage_gain) {
-    const unsigned before = warr->get_resource_level(ResourceType::Rage);
+    const unsigned before = warrior->get_resource_level(ResourceType::Rage);
 
-    warr->gain_rage(rage_gain);
+    warrior->gain_rage(rage_gain);
 
-    const unsigned gain_after_cap = warr->get_resource_level(ResourceType::Rage) - before;
+    const unsigned gain_after_cap = warrior->get_resource_level(ResourceType::Rage) - before;
 
     if (gain_after_cap > 0)
         statistics_resource->add_resource_gain(ResourceType::Rage, gain_after_cap);

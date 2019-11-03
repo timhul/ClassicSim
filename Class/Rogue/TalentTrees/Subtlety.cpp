@@ -8,10 +8,10 @@
 #include "SerratedBlades.h"
 #include "Talent.h"
 
-Subtlety::Subtlety(Character *pchar) :
+Subtlety::Subtlety(Rogue* pchar) :
     TalentTree("Subtlety", "Assets/rogue/rogue_subtlety.jpg"),
-    rogue(dynamic_cast<Rogue*>(pchar)),
-    spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
+    rogue(pchar),
+    spells(static_cast<RogueSpells*>(pchar->get_spells()))
 {
     talent_names_to_locations = {
         {"Master of Deception", "1ML"},

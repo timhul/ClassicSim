@@ -8,7 +8,7 @@
 HolyPaladin::HolyPaladin(Paladin* paladin) :
     TalentTree("Holy", "Assets/paladin/paladin_holy.jpg"),
     paladin(paladin),
-    spells(dynamic_cast<PaladinSpells*>(paladin->get_spells()))
+    spells(static_cast<PaladinSpells*>(paladin->get_spells()))
 {
     talent_names_to_locations = {
         {"Divine Strength", "1ML"},

@@ -6,7 +6,7 @@ class Rogue;
 
 class BladeFlurryBuff: public SelfBuff {
 public:
-    BladeFlurryBuff(Character* pchar);
+    BladeFlurryBuff(Rogue* rogue);
     ~BladeFlurryBuff() override;
 
 private:

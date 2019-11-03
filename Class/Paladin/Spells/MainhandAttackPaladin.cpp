@@ -7,9 +7,10 @@
 #include "PaladinSeal.h"
 #include "PaladinSpells.h"
 
-MainhandAttackPaladin::MainhandAttackPaladin(Paladin* paladin) :
+MainhandAttackPaladin::MainhandAttackPaladin(Paladin* paladin, PaladinSpells* paladin_spells) :
     MainhandAttack(paladin),
-    paladin(paladin)
+    paladin(paladin),
+    paladin_spells(paladin_spells)
 {}
 
 void MainhandAttackPaladin::apply_seal_of_the_crusader_penalty() {
@@ -35,7 +36,7 @@ void MainhandAttackPaladin::calculate_damage() {
     if (result == PhysicalAttackResult::BLOCK || result == PhysicalAttackResult::BLOCK_CRITICAL)
         return increment_full_block();
 
-    PaladinSeal* seal = dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal();
+    PaladinSeal* seal = paladin_spells->get_seal();
     if (seal != nullptr)
         seal->refresh_seal();
 

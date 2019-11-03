@@ -10,11 +10,11 @@ class Warrior;
 
 class DeepWounds: public SpellPeriodic, public TalentRequirer {
 public:
-    DeepWounds(Character* pchar);
+    DeepWounds(Warrior* warrior);
     ~DeepWounds() override;
 
 private:
-    Warrior* warr;
+    Warrior* warrior;
     double wpn_percent {0.0};
     double previous_tick_rest {0.0};
     QVector<int> stacks;

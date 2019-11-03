@@ -54,8 +54,8 @@ void TestMainhandAttackWarrior::test_all() {
 }
 
 MainhandAttackWarrior* TestMainhandAttackWarrior::mh_attack() const {
-    auto* spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
-    return dynamic_cast<MainhandAttackWarrior*>(spells->get_mh_attack());
+    auto spells = static_cast<WarriorSpells*>(warrior->get_spells());
+    return static_cast<MainhandAttackWarrior*>(spells->get_mh_attack());
 }
 
 void TestMainhandAttackWarrior::test_name_correct() {

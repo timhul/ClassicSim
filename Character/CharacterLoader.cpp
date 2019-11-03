@@ -281,7 +281,7 @@ void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar)
 
 void CharacterLoader::setup_target(CharacterDecoder& decoder) {
     target->set_creature_type(decoder.get_value("TARGET_TYPE"));
-    target->set_lvl(decoder.get_value("TARGET_LVL").toInt());
+    target->set_lvl(decoder.get_value("TARGET_LVL").toUInt());
     target->set_base_armor(decoder.get_value("TARGET_BASE_ARMOR").toInt());
 }
 
@@ -308,28 +308,28 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pcha
 }
 
 Character* CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
-    QString pchar_string = decoder.get_class();
+    const QString pchar_string = decoder.get_class();
 
     Character* pchar = nullptr;
 
     if (pchar_string == "Druid")
-        pchar = dynamic_cast<Character*>(new Druid(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Hunter")
-        pchar = dynamic_cast<Character*>(new Hunter(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Mage")
-        pchar = dynamic_cast<Character*>(new Mage(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Paladin")
-        pchar = dynamic_cast<Character*>(new Paladin(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Priest")
-        pchar = dynamic_cast<Character*>(new Priest(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Rogue")
-        pchar = dynamic_cast<Character*>(new Rogue(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Shaman")
-        pchar = dynamic_cast<Character*>(new Shaman(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Warlock")
-        pchar = dynamic_cast<Character*>(new Warlock(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
-    if (pchar_string == "Warrior")
-        pchar = dynamic_cast<Character*>(new Warrior(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt()));
+        pchar = new Druid(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Hunter")
+        pchar = new Hunter(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Mage")
+        pchar = new Mage(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Paladin")
+        pchar = new Paladin(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Priest")
+        pchar = new Priest(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Rogue")
+        pchar = new Rogue(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Shaman")
+        pchar = new Shaman(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Warlock")
+        pchar = new Warlock(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+    else if (pchar_string == "Warrior")
+        pchar = new Warrior(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
 
     if (pchar == nullptr)
         delete race;

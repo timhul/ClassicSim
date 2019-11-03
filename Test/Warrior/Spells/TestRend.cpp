@@ -46,7 +46,7 @@ void TestRend::test_all() {
 }
 
 Rend* TestRend::rend() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_rend();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_rend();
 }
 
 void TestRend::test_name_correct() {

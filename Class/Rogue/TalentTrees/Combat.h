@@ -7,7 +7,7 @@ class RogueSpells;
 
 class Combat: public TalentTree {
 public:
-    Combat(Character *pchar);
+    Combat(Rogue* pchar);
 
 private:
     Rogue* rogue;

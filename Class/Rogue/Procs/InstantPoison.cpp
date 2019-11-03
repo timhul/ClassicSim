@@ -1,5 +1,6 @@
 #include "InstantPoison.h"
 
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -10,14 +11,13 @@
 #include "ProcInfo.h"
 #include "Random.h"
 #include "Rogue.h"
-#include "RogueSpells.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const int weapon) :
+InstantPoison::InstantPoison(Rogue* rogue, const QString& weapon_side, const int weapon) :
     Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.2, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>(),
-         pchar),
+         rogue),
     Enchant(EnchantName::InstantPoison),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Vile Poisons", 5, DisabledAtZero::No),
@@ -25,11 +25,11 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
                    }),
     SetBonusRequirer({"Bloodfang Armor"}),
     dmg_roll(new Random(112, 149)),
-    rogue(dynamic_cast<Rogue*>(pchar)),
+    rogue(rogue),
     vile_poisons(1.0)
 {
     this->enabled = false;
-    this->instant_poison_buff = new InstantPoisonBuff(pchar, this, weapon_side);
+    this->instant_poison_buff = new InstantPoisonBuff(rogue, this, weapon_side);
 
     vile_poisons_modifiers = {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
     improved_poisons_increase = 200;
@@ -58,12 +58,12 @@ void InstantPoison::perform_start_of_combat() {
 void InstantPoison::enable_spell_effect() {
     instant_poison_buff->enable_buff();
     rogue->get_spells()->add_spell_group({this});
-    dynamic_cast<RogueSpells*>(rogue->get_spells())->add_start_of_combat_spell(this);
+    rogue->get_spells()->add_start_of_combat_spell(this);
 }
 
 void InstantPoison::disable_spell_effect() {
     rogue->get_spells()->remove_spell(this);
-    dynamic_cast<RogueSpells*>(rogue->get_spells())->remove_start_of_combat_spell(this);
+    rogue->get_spells()->remove_start_of_combat_spell(this);
 
     if (instant_poison_buff->is_enabled()) {
         instant_poison_buff->cancel_buff();

@@ -10,8 +10,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Priest", "#FFFFFF", race, sim_settings, raid_control, party, member) {
+Priest::Priest(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Priest", "#FFFFFF", race_, sim_settings_, raid_control_, party_, member) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");
@@ -28,7 +28,7 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings,
     cstats->increase_spirit(105);
 
     this->priest_spells = new PriestSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(priest_spells);
+    this->spells = priest_spells;
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

@@ -9,7 +9,7 @@ class Rogue;
 
 class Backstab: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
-    Backstab(Character* pchar);
+    Backstab(Rogue* rogue);
     ~Backstab() override;
 
 private:

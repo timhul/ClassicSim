@@ -22,7 +22,7 @@ void TestBloodFury::test_all() {
 }
 
 BloodFury* TestBloodFury::blood_fury() const {
-    return dynamic_cast<BloodFury*>(get_max_rank_spell_by_name("Blood Fury"));
+    return static_cast<BloodFury*>(get_max_rank_spell_by_name("Blood Fury"));
 }
 
 void TestBloodFury::test_name_correct() {

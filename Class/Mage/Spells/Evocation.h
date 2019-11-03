@@ -4,9 +4,11 @@
 #include "SetBonusRequirer.h"
 #include "SpellPeriodic.h"
 
+class Mage;
+
 class Evocation: public SpellPeriodic, public CastingTimeRequirer, public SetBonusRequirer {
 public:
-    Evocation(Character* pchar);
+    Evocation(Mage* mage);
     ~Evocation() override;
 
 private:

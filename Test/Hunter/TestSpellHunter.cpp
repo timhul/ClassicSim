@@ -61,7 +61,7 @@ void TestSpellHunter::given_hunter_is_on_gcd() {
     if (pchar->get_equipment()->get_ranged() == nullptr)
         given_a_ranged_weapon_with_100_min_max_dmg();
 
-    dynamic_cast<HunterSpells*>(hunter->get_spells())->get_multi_shot()->perform();
+    static_cast<HunterSpells*>(hunter->get_spells())->get_multi_shot()->perform();
 
     int resource_delta = static_cast<int>(hunter->get_resource_level(ResourceType::Mana)) - static_cast<int>(resource_before);
 

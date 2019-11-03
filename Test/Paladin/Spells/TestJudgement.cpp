@@ -94,7 +94,7 @@ void TestJudgement::test_all() {
 }
 
 Judgement* TestJudgement::judgement() const {
-    return dynamic_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));
+    return static_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));
 }
 
 void TestJudgement::test_name_correct() {

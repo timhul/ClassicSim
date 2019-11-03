@@ -38,7 +38,7 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Rai
     mana->set_base_mana(1273);
 
     this->mage_spells = new MageSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(mage_spells);
+    this->spells = mage_spells;
 
     mage_spells->activate_racials();
 

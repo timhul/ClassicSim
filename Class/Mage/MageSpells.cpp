@@ -35,7 +35,7 @@ MageSpells::MageSpells(Mage* mage) :
     this->mh_attack = new MainhandAttack(mage);
     add_spell_group({mh_attack});
 
-    auto winters_chill_buff = dynamic_cast<WintersChill*>(mage->get_raid_control()->get_shared_raid_buff("Winter's Chill"));
+    auto winters_chill_buff = static_cast<WintersChill*>(mage->get_raid_control()->get_shared_raid_buff("Winter's Chill"));
     if (winters_chill_buff == nullptr) {
         winters_chill_buff = new WintersChill(mage);
         winters_chill_buff->enable_buff();
@@ -82,7 +82,7 @@ MageSpells::MageSpells(Mage* mage) :
                         new ArcaneMissiles(mage, this, 8),
                     });
 
-    auto fire_vulnerability_buff = dynamic_cast<FireVulnerability*>(mage->get_raid_control()->get_shared_raid_buff("Fire Vulnerability"));
+    auto fire_vulnerability_buff = static_cast<FireVulnerability*>(mage->get_raid_control()->get_shared_raid_buff("Fire Vulnerability"));
     if (fire_vulnerability_buff == nullptr) {
         fire_vulnerability_buff = new FireVulnerability(mage);
         fire_vulnerability_buff->enable_buff();
@@ -98,7 +98,7 @@ MageSpells::MageSpells(Mage* mage) :
                         new Scorch(mage, this, imp_scorch, 7),
                     });
 
-    auto* ignite_buff = dynamic_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));
+    auto* ignite_buff = static_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));
     if (ignite_buff == nullptr) {
         ignite_buff = new IgniteBuff(mage);
         ignite_buff->enable_buff();

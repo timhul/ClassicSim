@@ -8,7 +8,7 @@
 Arcane::Arcane(Mage* mage) :
     TalentTree("Arcane", "Assets/mage/mage_arcane.jpg"),
     mage(mage),
-    spells(dynamic_cast<MageSpells*>(mage->get_spells()))
+    spells(static_cast<MageSpells*>(mage->get_spells()))
 {
     talent_names_to_locations = {
         {"Arcane Subtlety", "1LL"},

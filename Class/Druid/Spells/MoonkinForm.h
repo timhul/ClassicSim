@@ -11,7 +11,7 @@ class MoonkinFormBuff;
 
 class MoonkinForm: public Spell, public TalentRequirer {
 public:
-    MoonkinForm(Character* pchar, MoonkinFormBuff* buff);
+    MoonkinForm(Druid* druid, MoonkinFormBuff* buff);
     ~MoonkinForm() override;
 
 private:

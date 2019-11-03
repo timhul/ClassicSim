@@ -10,8 +10,8 @@
 #include "WarlockSpells.h"
 #include "Weapon.h"
 
-Warlock::Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Warlock", "#9482C9", race, sim_settings, raid_control, party, member) {
+Warlock::Warlock(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Warlock", "#9482C9", race_, sim_settings_, raid_control_, party_, member) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Orc");
@@ -27,7 +27,7 @@ Warlock::Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     cstats->increase_spirit(100);
 
     this->warlock_spells = new WarlockSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(warlock_spells);
+    this->spells = warlock_spells;
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

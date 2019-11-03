@@ -34,7 +34,7 @@ void TestMortalStrike::test_all() {
 }
 
 MortalStrike* TestMortalStrike::mortal_strike() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_mortal_strike();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_mortal_strike();
 }
 
 void TestMortalStrike::test_name_correct() {

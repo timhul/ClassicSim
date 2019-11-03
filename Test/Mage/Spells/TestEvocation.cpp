@@ -50,14 +50,14 @@ void TestEvocation::test_is_ready_conditions() {
 }
 
 void TestEvocation::test_mana_regen_increase() {
-    assert(17 == dynamic_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
+    assert(17 == static_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
 
     when_evocation_is_performed();
-    assert(283 == dynamic_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
+    assert(283 == static_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
 
     when_running_queued_events_until(8.01);
     // 18 due to rounded tick causing a remainder
-    assert(18 == dynamic_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
+    assert(18 == static_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
 }
 
 void TestEvocation::test_2p_t3_set_bonus_cooldown_decrease() {

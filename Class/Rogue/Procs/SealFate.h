@@ -7,7 +7,7 @@ class Rogue;
 
 class SealFate: public Proc, public TalentRequirer {
 public:
-    SealFate(Character* pchar);
+    SealFate(Rogue* rogue);
 
     void proc_effect() override;
 

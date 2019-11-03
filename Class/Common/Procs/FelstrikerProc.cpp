@@ -8,24 +8,24 @@
 #include "ProcInfo.h"
 #include "Utils/Check.h"
 
-FelstrikerProc::FelstrikerProc(Character* pchar,
-                               const QString& name,
-                               const QVector<ProcInfo::Source>& proc_sources,
+FelstrikerProc::FelstrikerProc(Character* pchar_,
+                               const QString& name_,
+                               const QVector<ProcInfo::Source>& proc_sources_,
                                const double proc_rate,
                                const int duration) :
-    Proc(name, "Assets/items/Inv_weapon_shortblade_25.png", proc_rate, 0, QVector<Proc*>(), proc_sources, pchar)
+    Proc(name_, "Assets/items/Inv_weapon_shortblade_25.png", proc_rate, 0, QVector<Proc*>(), proc_sources_, pchar_)
 {
-    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
+    check((proc_sources_.contains(ProcInfo::Source::MainhandSwing) || proc_sources_.contains(ProcInfo::Source::OffhandSwing)),
           "No valid proc sources found");
 
-    SharedBuff* buff = pchar->get_enabled_buffs()->use_shared_buff("Felstriker");
+    SharedBuff* buff = pchar_->get_enabled_buffs()->use_shared_buff("Felstriker");
     if (buff == nullptr) {
-        felstriker_buff = new FelstrikerBuff(pchar, duration);
+        felstriker_buff = new FelstrikerBuff(pchar_, duration);
         felstriker_buff->increment_reference();
         felstriker_buff->enable_buff();
     }
     else
-        felstriker_buff = dynamic_cast<FelstrikerBuff*>(buff);
+        felstriker_buff = static_cast<FelstrikerBuff*>(buff);
 }
 
 FelstrikerProc::~FelstrikerProc() {

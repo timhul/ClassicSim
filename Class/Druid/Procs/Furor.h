@@ -10,7 +10,7 @@ class StatisticsResource;
 
 class Furor: public Proc, public TalentRequirer {
 public:
-    Furor(Character* pchar);
+    Furor(Druid* druid);
 
     void proc_effect() override;
 

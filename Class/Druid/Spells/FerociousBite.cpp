@@ -10,15 +10,15 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-FerociousBite::FerociousBite(Character* pchar, const int spell_rank) :
-    Spell("Ferocious Bite", "Assets/ability/Ability_druid_ferociousbite.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35, spell_rank),
+FerociousBite::FerociousBite(Druid* druid, const int spell_rank_) :
+    Spell("Ferocious Bite", "Assets/ability/Ability_druid_ferociousbite.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35, spell_rank_),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Feral Aggression", 5, DisabledAtZero::No),
                    }),
-    druid(dynamic_cast<Druid*>(pchar)),
+    druid(druid),
     instant_dmg(new Random(1, 1))
 {
-    switch (spell_rank) {
+    switch (spell_rank_) {
     case 1:
         damage_ranges_per_combo_point = {
             QPair<unsigned, unsigned>(50, 66),
@@ -75,7 +75,7 @@ FerociousBite::FerociousBite(Character* pchar, const int spell_rank) :
         level_req = 60;
         break;
     default:
-        check(false, QString("%1 does not support rank %2").arg(name).arg(spell_rank).toStdString());
+        check(false, QString("%1 does not support rank %2").arg(name).arg(spell_rank_).toStdString());
     }
 }
 

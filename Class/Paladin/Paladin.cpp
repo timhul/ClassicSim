@@ -16,8 +16,8 @@
 #include "Vengeance.h"
 #include "Weapon.h"
 
-Paladin::Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Paladin", "#F58CBA", race, sim_settings, raid_control, party, member) {
+Paladin::Paladin(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Paladin", "#F58CBA", race_, sim_settings_, raid_control_, party_, member) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_enchants = new PaladinEnchants(this);
@@ -33,7 +33,7 @@ Paladin::Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     cstats->increase_melee_ap(160);
 
     this->paladin_spells = new PaladinSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(paladin_spells);
+    this->spells = paladin_spells;
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

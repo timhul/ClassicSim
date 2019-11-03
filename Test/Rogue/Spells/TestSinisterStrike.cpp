@@ -65,7 +65,7 @@ void TestSinisterStrike::test_all() {
 }
 
 SinisterStrike *TestSinisterStrike::sinister_strike() const {
-    return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_sinister_strike();
+    return static_cast<RogueSpells*>(rogue->get_spells())->get_sinister_strike();
 }
 
 void TestSinisterStrike::test_name_correct() {

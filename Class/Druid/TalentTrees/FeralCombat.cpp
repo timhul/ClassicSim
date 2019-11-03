@@ -7,7 +7,7 @@
 FeralCombat::FeralCombat(Druid* druid) :
     TalentTree("Feral Combat", "Assets/druid/druid_feral.jpg"),
     druid(druid),
-    spells(dynamic_cast<DruidSpells*>(druid->get_spells()))
+    spells(static_cast<DruidSpells*>(druid->get_spells()))
 {
     talent_names_to_locations = {
         {"Ferocity", "1ML"},

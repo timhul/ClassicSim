@@ -7,11 +7,11 @@
 #include "MoonkinFormBuff.h"
 #include "NoEffectSelfBuff.h"
 
-MoonkinForm::MoonkinForm(Character* pchar, MoonkinFormBuff* buff) :
-    Spell("Moonkin Form", "Assets/spell/Spell_nature_forceofnature.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
+MoonkinForm::MoonkinForm(Druid* druid, MoonkinFormBuff* buff) :
+    Spell("Moonkin Form", "Assets/spell/Spell_nature_forceofnature.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
     TalentRequirer({new TalentRequirerInfo("Moonkin Form", 1, DisabledAtZero::Yes),
                     new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
-    druid(dynamic_cast<Druid*>(pchar)),
+    druid(druid),
     buff(buff),
     base_resource_cost(resource_cost)
 {

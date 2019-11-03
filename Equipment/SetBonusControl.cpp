@@ -59,15 +59,15 @@ void SetBonusControl::equip_item(const int item_id) {
     if (set_name == "Nightslayer Armor") {
         switch (num_pieces) {
         case 5:
-            dynamic_cast<Rogue*>(pchar)->get_energy()->max += 10;
+            static_cast<Rogue*>(pchar)->get_energy()->max += 10;
             break;
         }
     }
     else if (set_name == "Bloodfang Armor") {
         switch (num_pieces) {
         case 3: {
-            dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison()->activate_set_bonus(set_name, num_pieces);
-            dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison()->activate_set_bonus(set_name, num_pieces);
+            static_cast<Rogue*>(pchar)->get_mh_instant_poison()->activate_set_bonus(set_name, num_pieces);
+            static_cast<Rogue*>(pchar)->get_oh_instant_poison()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         }
@@ -75,7 +75,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Deathdealer's Embrace") {
         switch (num_pieces) {
         case 5: {
-            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
             spells->get_eviscerate()->activate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -84,7 +84,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
         case 4: {
-            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
             spells->get_backstab()->activate_set_bonus(set_name, num_pieces);
             spells->get_hemorrhage()->activate_set_bonus(set_name, num_pieces);
             spells->get_sinister_strike()->activate_set_bonus(set_name, num_pieces);
@@ -103,7 +103,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Trappings of the Unseen Path") {
         switch (num_pieces) {
         case 3:
-            dynamic_cast<Hunter*>(pchar)->get_pet()->increase_damage_modifier(3);
+            static_cast<Hunter*>(pchar)->get_pet()->increase_damage_modifier(3);
             break;
         }
     }
@@ -136,7 +136,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Giantstalker Armor") {
         switch (num_pieces) {
         case 8: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -145,12 +145,12 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Dragonstalker Armor") {
         switch (num_pieces) {
         case 3: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         case 8: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_expose_weakness_proc()->activate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -159,7 +159,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Striker's Garb") {
         switch (num_pieces) {
         case 5: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_rapid_fire()->activate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -168,24 +168,24 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Cryptstalker Armor") {
         switch (num_pieces) {
         case 2: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_rapid_fire()->get_rapid_fire_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         case 4:
             pchar->get_stats()->increase_melee_ap(50);
             pchar->get_stats()->increase_ranged_ap(50);
-            dynamic_cast<Hunter*>(pchar)->get_pet()->increase_attack_power(50);
+            static_cast<Hunter*>(pchar)->get_pet()->increase_attack_power(50);
             break;
         case 6: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_aimed_shot()->activate_set_bonus(set_name, num_pieces);
             spells->get_auto_shot()->activate_set_bonus(set_name, num_pieces);
             spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         case 8: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_aimed_shot()->activate_set_bonus(set_name, num_pieces);
             spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
             break;
@@ -195,7 +195,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Netherwind Regalia") {
         switch (num_pieces) {
         case 8: {
-            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
+            Proc* proc = static_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
             proc->enable();
             proc->enable_proc();
             break;
@@ -205,7 +205,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Enigma Vestments") {
         switch (num_pieces) {
         case 5: {
-            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_enigma_5p_buff();
+            Buff* buff = static_cast<MageSpells*>(pchar->get_spells())->get_enigma_5p_buff();
             buff->enable_buff();
             break;
         }
@@ -217,9 +217,9 @@ void SetBonusControl::equip_item(const int item_id) {
             activate_spell_rank_group("Evocation", set_name, num_pieces);
             break;
         case 6: {
-            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_buff();
+            Buff* buff = static_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_buff();
             dynamic_cast<SetBonusRequirer*>(buff)->activate_set_bonus(set_name, num_pieces);
-            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_proc();
+            Proc* proc = static_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_proc();
             proc->enable();
             proc->enable_proc();
             break;
@@ -243,7 +243,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
-            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
             spells->get_slice_and_dice()->activate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -280,15 +280,15 @@ void SetBonusControl::unequip_item(const int item_id) {
     if (set_name == "Nightslayer Armor") {
         switch (num_pieces) {
         case 5:
-            dynamic_cast<Rogue*>(pchar)->get_energy()->max -= 10;
+            static_cast<Rogue*>(pchar)->get_energy()->max -= 10;
             break;
         }
     }
     else if (set_name == "Bloodfang Armor") {
         switch (num_pieces) {
         case 3: {
-            dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
-            dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
+            static_cast<Rogue*>(pchar)->get_mh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
+            static_cast<Rogue*>(pchar)->get_oh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         }
@@ -296,7 +296,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Deathdealer's Embrace") {
         switch (num_pieces) {
         case 5: {
-            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
             spells->get_eviscerate()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -305,7 +305,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
         case 4: {
-            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
             spells->get_backstab()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_hemorrhage()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
@@ -324,7 +324,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Trappings of the Unseen Path") {
         switch (num_pieces) {
         case 3:
-            dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_damage_modifier(3);
+            static_cast<Hunter*>(pchar)->get_pet()->decrease_damage_modifier(3);
             break;
         }
     }
@@ -345,7 +345,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Giantstalker Armor") {
         switch (num_pieces) {
         case 8: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -354,12 +354,12 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Dragonstalker Armor") {
         switch (num_pieces) {
         case 3: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         case 8: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_expose_weakness_proc()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -368,7 +368,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Striker's Garb") {
         switch (num_pieces) {
         case 5: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_rapid_fire()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
@@ -377,24 +377,24 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Cryptstalker Armor") {
         switch (num_pieces) {
         case 2: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_rapid_fire()->get_rapid_fire_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         case 4:
             pchar->get_stats()->decrease_melee_ap(50);
             pchar->get_stats()->decrease_ranged_ap(50);
-            dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_attack_power(50);
+            static_cast<Hunter*>(pchar)->get_pet()->decrease_attack_power(50);
             break;
         case 6: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_auto_shot()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         case 8: {
-            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
             spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
             break;
@@ -404,7 +404,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Netherwind Regalia") {
         switch (num_pieces) {
         case 8: {
-            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
+            Proc* proc = static_cast<MageSpells*>(pchar->get_spells())->get_t2_8piece_proc();
             proc->disable_proc();
             proc->disable();
             break;
@@ -414,7 +414,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Enigma Vestments") {
         switch (num_pieces) {
         case 5: {
-            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_enigma_5p_buff();
+            Buff* buff = static_cast<MageSpells*>(pchar->get_spells())->get_enigma_5p_buff();
             buff->disable_buff();
             break;
         }
@@ -426,9 +426,9 @@ void SetBonusControl::unequip_item(const int item_id) {
             deactivate_spell_rank_group("Evocation", set_name, num_pieces);
             break;
         case 6: {
-            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_buff();
+            Buff* buff = static_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_buff();
             dynamic_cast<SetBonusRequirer*>(buff)->deactivate_set_bonus(set_name, num_pieces);
-            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_proc();
+            Proc* proc = static_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_proc();
             proc->disable_proc();
             proc->disable();
         }
@@ -451,7 +451,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
-            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
             spells->get_slice_and_dice()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }

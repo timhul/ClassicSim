@@ -16,8 +16,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Hunter::Hunter(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Hunter", "#ABD473", race, sim_settings, raid_control, party, member),
+Hunter::Hunter(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
+    Character("Hunter", "#ABD473", race_, sim_settings_, raid_control_, party_, member),
     projectile_dps(0.0) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
@@ -40,7 +40,7 @@ Hunter::Hunter(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings,
     cstats->increase_ranged_attack_speed(15);
 
     this->hunter_spells = new HunterSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(hunter_spells);
+    this->spells = hunter_spells;
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

@@ -79,7 +79,7 @@ void TestBackstab::test_all() {
 }
 
 Backstab* TestBackstab::backstab() const {
-    return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_backstab();
+    return static_cast<RogueSpells*>(rogue->get_spells())->get_backstab();
 }
 
 void TestBackstab::test_name_correct() {

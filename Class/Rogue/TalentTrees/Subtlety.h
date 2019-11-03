@@ -7,7 +7,7 @@ class RogueSpells;
 
 class Subtlety: public TalentTree {
 public:
-    Subtlety(Character *pchar);
+    Subtlety(Rogue* pchar);
 
 private:
     Rogue* rogue;

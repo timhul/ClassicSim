@@ -8,13 +8,13 @@ class Warrior;
 
 class UnbridledWrath: public Proc, public TalentRequirer {
 public:
-    UnbridledWrath(Character* pchar);
+    UnbridledWrath(Warrior* warrior);
 
     void proc_effect() override;
 
 private:
     StatisticsResource* statistics_resource;
-    Warrior* warr;
+    Warrior* warrior;
     const QVector<unsigned> talent_ranks;
 
     void prepare_set_of_combat_iterations_spell_specific() override;

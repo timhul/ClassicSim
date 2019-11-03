@@ -110,7 +110,7 @@ void TestExecute::test_all() {
 }
 
 Execute* TestExecute::execute() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_execute();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_execute();
 }
 
 void TestExecute::test_name_correct() {

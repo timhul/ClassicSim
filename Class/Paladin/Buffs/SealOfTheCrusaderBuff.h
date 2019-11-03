@@ -10,7 +10,7 @@ class Paladin;
 
 class SealOfTheCrusaderBuff: public SelfBuff, public TalentRequirer, public ItemModificationRequirer {
 public:
-    SealOfTheCrusaderBuff(Paladin* pchar);
+    SealOfTheCrusaderBuff(Paladin* paladin);
     ~SealOfTheCrusaderBuff() override = default;
 
 private:

@@ -38,7 +38,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
 
     assert(mh_wpn_skill != oh_wpn_skill);
 
-    auto* buff = dynamic_cast<FelstrikerBuff*>(pchar->get_enabled_buffs()->use_shared_buff("Felstriker"));
+    auto buff = static_cast<FelstrikerBuff*>(pchar->get_enabled_buffs()->use_shared_buff("Felstriker"));
     buff->prepare_set_of_combat_iterations();
 
     assert(buff != nullptr);

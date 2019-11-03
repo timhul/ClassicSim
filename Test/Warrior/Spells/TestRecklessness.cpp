@@ -74,7 +74,7 @@ void TestRecklessness::test_all() {
 }
 
 Recklessness* TestRecklessness::recklessness() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_recklessness();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_recklessness();
 }
 
 void TestRecklessness::test_name_correct() {
@@ -141,8 +141,8 @@ void TestRecklessness::test_crit_reduced_after_buff_expires() {
     assert(pchar->get_stats()->get_mh_crit_chance() > 999999);
     when_running_queued_events_until(15.01);
 
-    if (dynamic_cast<Warrior*>(pchar)->in_berserker_stance())
-        dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
+    if (warrior->in_berserker_stance())
+        warrior->switch_to_battle_stance();
 
     assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance);
 }
@@ -299,11 +299,11 @@ void TestRecklessness::when_recklessness_is_performed() {
 void TestRecklessness::when_reck_and_mh_attack_is_performed() {
     when_recklessness_is_performed();
     then_next_event_is(EventType::PlayerAction, QString::number(warrior->global_cooldown(), 'f', 3));
-    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_mh_attack()->perform();
+    static_cast<WarriorSpells*>(warrior->get_spells())->get_mh_attack()->perform();
 }
 
 void TestRecklessness::when_reck_and_whirlwind_is_performed() {
     when_recklessness_is_performed();
     then_next_event_is(EventType::PlayerAction, QString::number(warrior->global_cooldown(), 'f', 3));
-    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind()->perform();
+    static_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind()->perform();
 }

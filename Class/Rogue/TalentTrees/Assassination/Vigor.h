@@ -7,8 +7,8 @@ class TalentTree;
 
 class Vigor: public Talent {
 public:
-    Vigor(Character *pchar, TalentTree* tree);
-    ~Vigor() override;
+    Vigor(Rogue* rogue, TalentTree* tree);
+    ~Vigor() override = default;
 
 private:
     Rogue* rogue;

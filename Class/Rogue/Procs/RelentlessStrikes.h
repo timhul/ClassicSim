@@ -10,7 +10,7 @@ class StatisticsResource;
 
 class RelentlessStrikes: public Proc, public TalentRequirer {
 public:
-    RelentlessStrikes(Character* pchar);
+    RelentlessStrikes(Rogue* rogue);
 
     void proc_effect() override;
     void set_current_combo_points(const unsigned);

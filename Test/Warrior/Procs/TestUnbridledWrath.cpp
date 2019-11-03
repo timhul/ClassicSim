@@ -45,7 +45,7 @@ void TestUnbridledWrath::test_all() {
 }
 
 UnbridledWrath* TestUnbridledWrath::unbridled_wrath() {
-    return dynamic_cast<UnbridledWrath*>(spells->get_unbridled_wrath());
+    return static_cast<UnbridledWrath*>(spells->get_unbridled_wrath());
 }
 
 void TestUnbridledWrath::test_name_correct() {

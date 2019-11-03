@@ -8,12 +8,12 @@ class Warrior;
 
 class Bloodrage: public PeriodicResourceGainSpell, public TalentRequirer {
 public:
-    Bloodrage(Character* pchar);
+    Bloodrage(Warrior* warrior);
 
 private:
     friend class ImprovedBloodrage;
 
-    Warrior* warr;
+    Warrior* warrior;
 
     QVector<unsigned> talent_ranks {10, 12, 15};
     unsigned immediate_rage_gain {10};

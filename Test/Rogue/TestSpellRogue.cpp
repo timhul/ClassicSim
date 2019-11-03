@@ -41,7 +41,7 @@ void TestSpellRogue::given_rogue_is_on_gcd() {
     if (pchar->get_equipment()->get_mainhand() == nullptr)
         given_a_mainhand_weapon_with_100_min_max_dmg();
 
-    given_rogue_is_on_gcd(dynamic_cast<RogueSpells*>(pchar->get_spells())->get_backstab());
+    given_rogue_is_on_gcd(static_cast<RogueSpells*>(pchar->get_spells())->get_backstab());
 }
 
 void TestSpellRogue::given_rogue_is_on_gcd(Spell *spell) {

@@ -10,15 +10,15 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Backstab::Backstab(Character* pchar) :
-    Spell("Backstab", "Assets/ability/Ability_backstab.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 60),
+Backstab::Backstab(Rogue* rogue) :
+    Spell("Backstab", "Assets/ability/Ability_backstab.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 60),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Opportunity", 5, DisabledAtZero::No)
                    }),
     SetBonusRequirer({"Bonescythe Armor"}),
-    rogue(dynamic_cast<Rogue*>(pchar))
+    rogue(rogue)
 {}
 
 Backstab::~Backstab() {

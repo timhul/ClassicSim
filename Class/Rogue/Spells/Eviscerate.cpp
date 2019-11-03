@@ -11,14 +11,14 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Eviscerate::Eviscerate(Character* pchar) :
-    Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
+Eviscerate::Eviscerate(Rogue* rogue) :
+    Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)
                    }),
     SetBonusRequirer({"Deathdealer's Embrace"}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
+    rogue(rogue),
     evisc_range(new Random(904, 1012)),
     damage_ranges_per_combo_point({
                                   QPair<unsigned, unsigned>(224, 332),

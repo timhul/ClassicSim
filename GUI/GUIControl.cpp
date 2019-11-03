@@ -1700,7 +1700,7 @@ QVariantList GUIControl::getTooltip(const QString& slot_string) {
 
 void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QString& dmg_range, QString& wpn_speed, QString& dps) {
     slot = std::move(type);
-    auto* wpn = dynamic_cast<Weapon*>(item);
+    auto wpn = static_cast<Weapon*>(item);
     dmg_range = QString("%1 - %2 Damage").arg(QString::number(wpn->get_min_dmg()), QString::number(wpn->get_max_dmg()));
     dps = QString("(%1 damage per second)").arg(QString::number(wpn->get_wpn_dps(), 'f', 1));
     wpn_speed = "Speed " + QString::number(wpn->get_base_weapon_speed(), 'f', 2);
@@ -1709,7 +1709,7 @@ void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QS
 void GUIControl::set_projectile_tooltip(Item* item, QString& slot, QString& dps) {
     slot = get_initial_upper_case_rest_lower_case(slot);
 
-    auto* projectile = dynamic_cast<Projectile*>(item);
+    auto projectile = static_cast<Projectile*>(item);
     dps = QString("Adds %1 damage per second").arg(QString::number(projectile->get_projectile_dps(), 'f', 1));
 }
 

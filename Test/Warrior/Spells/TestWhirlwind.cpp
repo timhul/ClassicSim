@@ -37,7 +37,7 @@ void TestWhirlwind::test_all() {
 }
 
 Whirlwind* TestWhirlwind::whirlwind() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind();
 }
 
 void TestWhirlwind::test_name_correct() {
@@ -67,7 +67,7 @@ void TestWhirlwind::test_how_spell_observes_global_cooldown() {
     given_warrior_has_rage(100);
     assert(whirlwind()->get_spell_status() == SpellStatus::Available);
 
-    given_warrior_is_on_gcd(dynamic_cast<WarriorSpells*>(pchar->get_spells())->get_execute());
+    given_warrior_is_on_gcd(static_cast<WarriorSpells*>(pchar->get_spells())->get_execute());
 
     assert(whirlwind()->get_spell_status() == SpellStatus::OnGCD);
 }

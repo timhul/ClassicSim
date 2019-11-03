@@ -24,7 +24,7 @@ void TestBloodrage::test_all() {
 }
 
 Bloodrage* TestBloodrage::bloodrage() const {
-    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodrage();
+    return static_cast<WarriorSpells*>(warrior->get_spells())->get_bloodrage();
 }
 
 void TestBloodrage::test_name_correct() {

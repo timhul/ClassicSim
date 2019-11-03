@@ -7,7 +7,7 @@
 Survival::Survival(Hunter* pchar) :
     TalentTree("Survival", "Assets/hunter/hunter_survival.jpg"),
     hunter(pchar),
-    spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
+    spells(static_cast<HunterSpells*>(hunter->get_spells()))
 {
     talent_names_to_locations = {
         {"Monster Slaying", "1LL"},

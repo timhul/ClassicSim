@@ -36,46 +36,46 @@
 #include "Warrior.h"
 #include "Whirlwind.h"
 
-WarriorSpells::WarriorSpells(Warrior* pchar) :
-    CharacterSpells(pchar),
-    warr(pchar)
+WarriorSpells::WarriorSpells(Warrior* warrior) :
+    CharacterSpells(warrior),
+    warr(warrior)
 {
-    this->berserking = new Berserking(pchar, ResourceType::Rage, 5);
+    this->berserking = new Berserking(warrior, ResourceType::Rage, 5);
     add_spell_group({berserking});
 
-    this->anger_management = new AngerManagement(pchar);
-    this->battle_stance = new BattleStance(pchar);
-    this->berserker_rage = new BerserkerRage(pchar);
-    this->berserker_stance = new BerserkerStance(pchar);
-    this->bloodrage = new Bloodrage(pchar);
-    this->bt = new Bloodthirst(pchar, this, new_cooldown_control("Bloodthirst", 6.0));
-    this->death_wish = new DeathWish(pchar);
-    this->deep_wounds = new DeepWounds(pchar);
-    this->execute = new Execute(pchar, this);
-    this->hamstring = new Hamstring(pchar, this);
+    this->anger_management = new AngerManagement(warrior, this);
+    this->battle_stance = new BattleStance(warrior);
+    this->berserker_rage = new BerserkerRage(warrior);
+    this->berserker_stance = new BerserkerStance(warrior);
+    this->bloodrage = new Bloodrage(warrior);
+    this->bt = new Bloodthirst(warrior, this, new_cooldown_control("Bloodthirst", 6.0));
+    this->death_wish = new DeathWish(warrior);
+    this->deep_wounds = new DeepWounds(warrior);
+    this->execute = new Execute(warrior, this);
+    this->hamstring = new Hamstring(warrior, this);
 
-    this->mortal_strike = new MortalStrike(pchar, this, new_cooldown_control("Mortal Strike", 6.0));
-    this->overpower = new Overpower(pchar, this, new_cooldown_control("Overpower", 5.0));
-    this->recklessness = new Recklessness(pchar, this);
-    this->rend = new Rend(pchar, this);
-    this->slam = new Slam(pchar, this);
-    this->warr_mh_attack = new MainhandAttackWarrior(pchar, this);
-    this->warr_oh_attack = new OffhandAttackWarrior(pchar, this);
-    this->whirlwind = new Whirlwind(pchar, this);
+    this->mortal_strike = new MortalStrike(warrior, this, new_cooldown_control("Mortal Strike", 6.0));
+    this->overpower = new Overpower(warrior, this, new_cooldown_control("Overpower", 5.0));
+    this->recklessness = new Recklessness(warrior, this);
+    this->rend = new Rend(warrior, this);
+    this->slam = new Slam(warrior, this);
+    this->warr_mh_attack = new MainhandAttackWarrior(warrior, this);
+    this->warr_oh_attack = new OffhandAttackWarrior(warrior, this);
+    this->whirlwind = new Whirlwind(warrior, this);
 
-    auto* buff = dynamic_cast<BattleShoutBuff*>(pchar->get_raid_control()->get_shared_party_buff("Battle Shout", pchar->get_party()));
+    auto* buff = static_cast<BattleShoutBuff*>(warrior->get_raid_control()->get_shared_party_buff("Battle Shout", warrior->get_party()));
     if (buff == nullptr) {
-        buff = new BattleShoutBuff(pchar);
+        buff = new BattleShoutBuff(warrior);
         buff->enable_buff();
     }
     add_spell_group({
-                        new BattleShout(pchar, buff, 1),
-                        new BattleShout(pchar, buff, 2),
-                        new BattleShout(pchar, buff, 3),
-                        new BattleShout(pchar, buff, 4),
-                        new BattleShout(pchar, buff, 5),
-                        new BattleShout(pchar, buff, 6),
-                        new BattleShout(pchar, buff, 7),
+                        new BattleShout(warrior, buff, 1),
+                        new BattleShout(warrior, buff, 2),
+                        new BattleShout(warrior, buff, 3),
+                        new BattleShout(warrior, buff, 4),
+                        new BattleShout(warrior, buff, 5),
+                        new BattleShout(warrior, buff, 6),
+                        new BattleShout(warrior, buff, 7),
                     });
 
     add_spell_group({anger_management});
@@ -89,18 +89,18 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell_group({execute});
     add_spell_group({hamstring});
 
-    this->hs_buff = new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, "Heroic Strike Queued", "Assets/ability/Ability_rogue_ambush.png", Hidden::No);
+    this->hs_buff = new NoEffectSelfBuff(warrior, BuffDuration::PERMANENT, "Heroic Strike Queued", "Assets/ability/Ability_rogue_ambush.png", Hidden::No);
     this->hs_buff->enable_buff();
     add_spell_group({
-                        new HeroicStrike(pchar, this, hs_buff, 1),
-                        new HeroicStrike(pchar, this, hs_buff, 2),
-                        new HeroicStrike(pchar, this, hs_buff, 3),
-                        new HeroicStrike(pchar, this, hs_buff, 4),
-                        new HeroicStrike(pchar, this, hs_buff, 5),
-                        new HeroicStrike(pchar, this, hs_buff, 6),
-                        new HeroicStrike(pchar, this, hs_buff, 7),
-                        new HeroicStrike(pchar, this, hs_buff, 8),
-                        new HeroicStrike(pchar, this, hs_buff, 9),
+                        new HeroicStrike(warrior, this, hs_buff, 1),
+                        new HeroicStrike(warrior, this, hs_buff, 2),
+                        new HeroicStrike(warrior, this, hs_buff, 3),
+                        new HeroicStrike(warrior, this, hs_buff, 4),
+                        new HeroicStrike(warrior, this, hs_buff, 5),
+                        new HeroicStrike(warrior, this, hs_buff, 6),
+                        new HeroicStrike(warrior, this, hs_buff, 7),
+                        new HeroicStrike(warrior, this, hs_buff, 8),
+                        new HeroicStrike(warrior, this, hs_buff, 9),
                     });
 
     add_spell_group({overpower});
@@ -112,20 +112,20 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell_group({warr_mh_attack});
     add_spell_group({warr_oh_attack});
 
-    this->battle_stance_buff = new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, "Battle Stance");
-    this->berserker_stance_buff = new BerserkerStanceBuff(pchar);
-    this->defensive_stance_buff = new DefensiveStanceBuff(pchar);
-    this->flurry = new Flurry(pchar);
-    this->overpower_buff = new NoEffectSelfBuff(pchar, 5, "Overpower");
-    this->recklessness_buff = new RecklessnessBuff(pchar);
+    this->battle_stance_buff = new NoEffectSelfBuff(warrior, BuffDuration::PERMANENT, "Battle Stance");
+    this->berserker_stance_buff = new BerserkerStanceBuff(warrior);
+    this->defensive_stance_buff = new DefensiveStanceBuff(warrior);
+    this->flurry = new Flurry(warrior);
+    this->overpower_buff = new NoEffectSelfBuff(warrior, 5, "Overpower");
+    this->recklessness_buff = new RecklessnessBuff(warrior);
     battle_stance_buff->enable_buff();
     berserker_stance_buff->enable_buff();
     defensive_stance_buff->enable_buff();
     overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
 
-    this->sword_spec = new SwordSpecialization(pchar);
-    this->unbridled_wrath = new UnbridledWrath(pchar);
+    this->sword_spec = new SwordSpecialization(warrior);
+    this->unbridled_wrath = new UnbridledWrath(warrior);
 }
 
 WarriorSpells::~WarriorSpells() {
@@ -182,11 +182,11 @@ void WarriorSpells::add_next_oh_attack() {
 }
 
 MainhandAttack* WarriorSpells::get_mh_attack() const {
-    return dynamic_cast<MainhandAttack*>(warr_mh_attack);
+    return static_cast<MainhandAttack*>(warr_mh_attack);
 }
 
 OffhandAttack* WarriorSpells::get_oh_attack() const {
-    return dynamic_cast<OffhandAttack*>(warr_oh_attack);
+    return static_cast<OffhandAttack*>(warr_oh_attack);
 }
 
 BerserkerStance* WarriorSpells::get_berserker_stance() const {
@@ -250,7 +250,7 @@ bool WarriorSpells::is_heroic_strike_queued() const {
 }
 
 void WarriorSpells::prepare_set_of_combat_iterations_class_specific() {
-    heroic_strike = dynamic_cast<HeroicStrike*>(get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank());
+    heroic_strike = static_cast<HeroicStrike*>(get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank());
 }
 
 Buff* WarriorSpells::get_flurry() const {

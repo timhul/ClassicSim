@@ -6,7 +6,7 @@ class Rogue;
 
 class AdrenalineRushBuff: public SelfBuff {
 public:
-    AdrenalineRushBuff(Character* pchar);
+    AdrenalineRushBuff(Rogue* rogue);
     ~AdrenalineRushBuff() override;
 
 private:

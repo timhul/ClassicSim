@@ -45,23 +45,23 @@ void TestSpellMage::tear_down() {
 }
 
 Fireball* TestSpellMage::fireball() const {
-    return dynamic_cast<Fireball*>(get_max_rank_spell_by_name("Fireball"));
+    return static_cast<Fireball*>(get_max_rank_spell_by_name("Fireball"));
 }
 
 Scorch* TestSpellMage::scorch() const {
-    return dynamic_cast<Scorch*>(get_max_rank_spell_by_name("Scorch"));
+    return static_cast<Scorch*>(get_max_rank_spell_by_name("Scorch"));
 }
 
 Frostbolt* TestSpellMage::frostbolt() const {
-    return dynamic_cast<Frostbolt*>(get_max_rank_spell_by_name("Frostbolt"));
+    return static_cast<Frostbolt*>(get_max_rank_spell_by_name("Frostbolt"));
 }
 
 ArcaneMissiles* TestSpellMage::arcane_missiles() const {
-    return dynamic_cast<ArcaneMissiles*>(get_max_rank_spell_by_name("Arcane Missiles"));
+    return static_cast<ArcaneMissiles*>(get_max_rank_spell_by_name("Arcane Missiles"));
 }
 
 Evocation* TestSpellMage::evocation() const {
-    return dynamic_cast<Evocation*>(get_max_rank_spell_by_name("Evocation"));
+    return static_cast<Evocation*>(get_max_rank_spell_by_name("Evocation"));
 }
 
 void TestSpellMage::run_class_specific_tests() {

@@ -8,7 +8,7 @@ class Rogue;
 
 class BladeFlurry: public Spell, public TalentRequirer {
 public:
-    BladeFlurry(Character* pchar);
+    BladeFlurry(Rogue* rogue);
     ~BladeFlurry() override;
 
 private:
