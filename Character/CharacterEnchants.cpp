@@ -58,6 +58,7 @@ bool CharacterEnchants::has_blunt_weapon(const int equipment_slot) const {
         return false;
 
     switch (wpn->get_weapon_type()) {
+    case WeaponTypes::FIST:
     case WeaponTypes::MACE:
     case WeaponTypes::TWOHAND_MACE:
         return true;
