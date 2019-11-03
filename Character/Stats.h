@@ -121,8 +121,8 @@ public:
     void decrease_ranged_hit(const unsigned value);
 
     unsigned get_melee_crit_chance() const;
-    void increase_melee_crit(const unsigned value);
-    void decrease_melee_crit(const unsigned value);
+    void increase_melee_aura_crit(const unsigned value);
+    void decrease_melee_aura_crit(const unsigned value);
 
     unsigned get_ranged_crit_chance() const;
     void increase_ranged_crit(const unsigned value);

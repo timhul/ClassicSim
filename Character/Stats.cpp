@@ -61,7 +61,7 @@ void Stats::add(const Stats* rhs) {
     increase_gun_skill(rhs->get_gun_skill());
 
     increase_melee_hit(rhs->get_melee_hit_chance());
-    increase_melee_crit(rhs->get_melee_crit_chance());
+    increase_melee_aura_crit(rhs->get_melee_crit_chance());
     increase_ranged_hit(rhs->get_ranged_hit_chance());
     increase_ranged_crit(rhs->get_ranged_crit_chance());
     increase_attack_speed(rhs->get_attack_speed());
@@ -144,7 +144,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_gun_skill(rhs->get_gun_skill());
 
     decrease_melee_hit(rhs->get_melee_hit_chance());
-    decrease_melee_crit(rhs->get_melee_crit_chance());
+    decrease_melee_aura_crit(rhs->get_melee_crit_chance());
     decrease_ranged_hit(rhs->get_ranged_hit_chance());
     decrease_ranged_crit(rhs->get_ranged_crit_chance());
     decrease_attack_speed(rhs->get_attack_speed());
@@ -555,11 +555,11 @@ void Stats::set_int_multiplier(const double value) {
     int_multiplier = value;
 }
 
-void Stats::increase_melee_crit(const unsigned value) {
+void Stats::increase_melee_aura_crit(const unsigned value) {
     melee_crit += value;
 }
 
-void Stats::decrease_melee_crit(const unsigned value) {
+void Stats::decrease_melee_aura_crit(const unsigned value) {
     check((melee_crit >= value), "Underflow melee crit decrease");
     melee_crit -= value;
 }

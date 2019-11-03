@@ -13,9 +13,9 @@ Malice::Malice(Character *pchar, TalentTree* tree) :
 Malice::~Malice() = default;
 
 void Malice::apply_rank_effect() {
-    pchar->get_stats()->increase_melee_crit(100);
+    pchar->get_stats()->increase_melee_aura_crit(100);
 }
 
 void Malice::remove_rank_effect() {
-    pchar->get_stats()->decrease_melee_crit(100);
+    pchar->get_stats()->decrease_melee_aura_crit(100);
 }

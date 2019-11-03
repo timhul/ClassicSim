@@ -20,7 +20,6 @@ public:
     ~CharacterStats();
 
     Equipment* get_equipment() const;
-    Stats* get_stats() const;
 
     static void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
     static void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
@@ -105,8 +104,10 @@ public:
 
     unsigned get_mh_crit_chance() const;
     unsigned get_oh_crit_chance() const;
-    void increase_melee_crit(const unsigned value);
-    void decrease_melee_crit(const unsigned value);
+    void increase_melee_aura_crit(const unsigned value);
+    void decrease_melee_aura_crit(const unsigned value);
+    void increase_melee_base_crit(const unsigned value);
+    void decrease_melee_base_crit(const unsigned value);
 
     unsigned get_ranged_hit_chance() const;
     void increase_ranged_hit(const unsigned value);
@@ -234,6 +235,7 @@ public:
 private:
     Character* pchar;
     Equipment* equipment;
+    Stats* aura_effects;
     Stats* base_stats;
     QVector<int> melee_attack_speed_buffs;
     QVector<int> ranged_attack_speed_buffs;

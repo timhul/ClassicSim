@@ -119,7 +119,7 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::MightOfTheScourge:
         pchar->get_stats()->increase_melee_ap(26);
         pchar->get_stats()->increase_ranged_ap(26);
-        pchar->get_stats()->increase_melee_crit(100);
+        pchar->get_stats()->increase_melee_aura_crit(100);
         break;
     case EnchantName::EnchantChestGreaterStats:
         pchar->get_stats()->increase_agility(4);
@@ -137,7 +137,7 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->get_stats()->increase_spirit(5);
         break;
     case EnchantName:: ElementalSharpeningStone:
-        pchar->get_stats()->increase_melee_crit(200);
+        pchar->get_stats()->increase_melee_aura_crit(200);
         break;
     case EnchantName::ConsecratedSharpeningStone:
         pchar->get_stats()->increase_ap_vs_type(Target::CreatureType::Undead, 100);
@@ -290,7 +290,7 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::MightOfTheScourge:
         pchar->get_stats()->decrease_melee_ap(26);
         pchar->get_stats()->decrease_ranged_ap(26);
-        pchar->get_stats()->decrease_melee_crit(100);
+        pchar->get_stats()->decrease_melee_aura_crit(100);
         break;
     case EnchantName::EnchantChestGreaterStats:
         pchar->get_stats()->decrease_agility(4);
@@ -308,7 +308,7 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_spirit(5);
         break;
     case EnchantName:: ElementalSharpeningStone:
-        pchar->get_stats()->decrease_melee_crit(200);
+        pchar->get_stats()->decrease_melee_aura_crit(200);
         break;
     case EnchantName::ConsecratedSharpeningStone:
         pchar->get_stats()->decrease_ap_vs_type(Target::CreatureType::Undead, 100);

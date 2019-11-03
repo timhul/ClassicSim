@@ -627,7 +627,7 @@ void Item::set_stat(const QString& key, const QString& value) {
     else if (key == "CRIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         const unsigned attack_table_value = display_value * 100;
-        this->stats->increase_melee_crit(attack_table_value);
+        this->stats->increase_melee_aura_crit(attack_table_value);
         this->stats->increase_ranged_crit(attack_table_value);
         QString number = QString::number(display_value);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike by %1%.").arg(number));

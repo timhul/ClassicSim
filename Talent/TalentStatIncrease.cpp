@@ -30,7 +30,7 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_melee_hit(change);
             continue;
         case MeleeCrit:
-            cstats->increase_melee_crit(change);
+            cstats->increase_melee_aura_crit(change);
             continue;
         case MeleeCritDmgBonus:
             cstats->increase_melee_ability_crit_dmg_mod(change);
@@ -210,7 +210,7 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_melee_hit(change);
             continue;
         case MeleeCrit:
-            cstats->decrease_melee_crit(change);
+            cstats->decrease_melee_aura_crit(change);
             continue;
         case MeleeCritDmgBonus:
             cstats->decrease_melee_ability_crit_dmg_mod(change);

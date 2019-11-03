@@ -16,6 +16,7 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) :
     pchar(pchar),
     equipment(new Equipment(equipment_db, pchar))
 {
+    this->aura_effects = new Stats();
     this->base_stats = new Stats();
 
     increase_strength(pchar->get_strength_modifier());
@@ -95,16 +96,13 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) :
 }
 
 CharacterStats::~CharacterStats() {
+    delete aura_effects;
     delete base_stats;
     delete equipment;
 }
 
 Equipment* CharacterStats::get_equipment() const {
     return this->equipment;
-}
-
-Stats* CharacterStats::get_stats() const {
-    return this->base_stats;
 }
 
 unsigned CharacterStats::get_strength() const {
@@ -148,14 +146,14 @@ unsigned CharacterStats::get_melee_hit_chance() const {
 
 unsigned CharacterStats::get_mh_crit_chance() const {
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
-    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
+    const unsigned equip_effect = aura_effects->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
 
     unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
     const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
-    const unsigned crit_chance = crit_from_agi + aura_crit;
+    const unsigned crit_chance = crit_from_agi + aura_crit + base_stats->get_melee_crit_chance();
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
@@ -165,14 +163,14 @@ unsigned CharacterStats::get_oh_crit_chance() const {
         return 0;
 
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
-    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
+    const unsigned equip_effect = aura_effects->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
 
     unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
 
     const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
-    const unsigned crit_chance = crit_from_agi + aura_crit;
+    const unsigned crit_chance = crit_from_agi + aura_crit + base_stats->get_melee_crit_chance();
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
@@ -423,7 +421,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_melee_hit(value);
     case ItemStats::CritChance:
         increase_ranged_crit(value);
-        return increase_melee_crit(value);
+        return increase_melee_aura_crit(value);
     case ItemStats::AttackSpeedPercent:
         pchar->increase_ranged_attack_speed(value);
         return pchar->increase_melee_attack_speed(value);
@@ -544,7 +542,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_melee_hit(value);
     case ItemStats::CritChance:
         decrease_ranged_crit(value);
-        return decrease_melee_crit(value);
+        return decrease_melee_aura_crit(value);
     case ItemStats::AttackSpeedPercent:
         pchar->decrease_ranged_attack_speed(value);
         return pchar->decrease_melee_attack_speed(value);
@@ -806,12 +804,20 @@ void CharacterStats::decrease_melee_hit(const unsigned value) {
     pchar->get_combat_roll()->update_melee_white_miss_chance();
 }
 
-void CharacterStats::increase_melee_crit(const unsigned value) {
-    base_stats->increase_melee_crit(value);
+void CharacterStats::increase_melee_aura_crit(const unsigned value) {
+    aura_effects->increase_melee_aura_crit(value);
 }
 
-void CharacterStats::decrease_melee_crit(const unsigned value) {
-    base_stats->decrease_melee_crit(value);
+void CharacterStats::decrease_melee_aura_crit(const unsigned value) {
+    aura_effects->decrease_melee_aura_crit(value);
+}
+
+void CharacterStats::increase_melee_base_crit(const unsigned value) {
+    base_stats->increase_melee_aura_crit(value);
+}
+
+void CharacterStats::decrease_melee_base_crit(const unsigned value) {
+    base_stats->decrease_melee_aura_crit(value);
 }
 
 void CharacterStats::increase_ranged_hit(const unsigned value) {

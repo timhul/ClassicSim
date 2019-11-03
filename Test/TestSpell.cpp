@@ -183,7 +183,7 @@ void TestSpell::set_melee_special_table_for_crit(const unsigned wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->increase_melee_crit(999999);
+    pchar->get_stats()->increase_melee_aura_crit(999999);
 
     assert_melee_special_table_can_only_crit(wpn_skill);
 }
@@ -251,7 +251,7 @@ void TestSpell::set_melee_auto_table_for_crit(const unsigned wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->increase_melee_crit(999999);
+    pchar->get_stats()->increase_melee_aura_crit(999999);
 
     assert_melee_auto_table_can_only_crit(wpn_skill);
 }

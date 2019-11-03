@@ -9,11 +9,11 @@ ElementalDevastation::ElementalDevastation(Character* pchar):
 {}
 
 void ElementalDevastation::buff_effect_when_applied() {
-    pchar->get_stats()->increase_melee_crit(crit_bonus);
+    pchar->get_stats()->increase_melee_aura_crit(crit_bonus);
 }
 
 void ElementalDevastation::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_melee_crit(crit_bonus);
+    pchar->get_stats()->decrease_melee_aura_crit(crit_bonus);
 }
 
 void ElementalDevastation::increase_talent_rank_effect(const QString&, const int curr) {

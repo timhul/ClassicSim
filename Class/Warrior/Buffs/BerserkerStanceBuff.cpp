@@ -11,11 +11,11 @@ BerserkerStanceBuff::BerserkerStanceBuff(Character* pchar):
 }
 
 void BerserkerStanceBuff::buff_effect_when_applied() {
-    warr->get_stats()->increase_melee_crit(300);
+    warr->get_stats()->increase_melee_aura_crit(300);
     warr->get_stats()->add_phys_damage_taken_mod(10);
 }
 
 void BerserkerStanceBuff::buff_effect_when_removed() {
-    warr->get_stats()->decrease_melee_crit(300);
+    warr->get_stats()->decrease_melee_aura_crit(300);
     warr->get_stats()->remove_phys_damage_taken_mod(10);
 }

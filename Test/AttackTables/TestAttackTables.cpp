@@ -83,7 +83,7 @@ void TestAttackTables::test_white_hit_table_update() {
     assert(table->get_outcome(glancing_range + crit_chance + 1, crit_chance) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(glancing_range + crit_chance, crit_chance - 1) == PhysicalAttackResult::HIT);
 
-    pchar->get_stats()->increase_melee_crit(999999999);
+    pchar->get_stats()->increase_melee_aura_crit(999999999);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 
     delete pchar;

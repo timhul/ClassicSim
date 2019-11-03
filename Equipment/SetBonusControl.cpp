@@ -666,7 +666,7 @@ void SetBonusControl::activate_arathi_basin_physical_set_bonuses(const int num_p
         pchar->get_stats()->increase_stamina(5);
         break;
     case 3:
-        pchar->get_stats()->increase_melee_crit(100);
+        pchar->get_stats()->increase_melee_aura_crit(100);
         pchar->get_stats()->increase_ranged_crit(100);
         break;
     }
@@ -678,7 +678,7 @@ void SetBonusControl::deactivate_arathi_basin_physical_set_bonuses(const int num
         pchar->get_stats()->decrease_stamina(5);
         break;
     case 3:
-        pchar->get_stats()->decrease_melee_crit(100);
+        pchar->get_stats()->decrease_melee_aura_crit(100);
         pchar->get_stats()->decrease_ranged_crit(100);
         break;
     }
