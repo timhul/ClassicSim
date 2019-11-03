@@ -78,7 +78,7 @@
 		<info name="Felstriker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
 		<dmg_range min="54" max="101" speed="1.7"/>
 		<proc>
-			<spell name="FELSTRIKER_PROC" duration="3" instant="yes" rate="0.03966667" internal_cd="0"/>
+			<spell name="FELSTRIKER_PROC" duration="3" instant="yes" rate="0.028333333" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: All attacks are guaranteed to land and will be critical strikes for the next 3 sec.

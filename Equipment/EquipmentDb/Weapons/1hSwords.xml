@@ -18,7 +18,7 @@
 		<mutex item_id="17743"/>
 		<mutex item_id="17753"/>
 		<proc>
-			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.035" internal_cd="0"/>
+			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.045" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Grants an extra attack on your next swing.
@@ -217,7 +217,7 @@
 		<info name="Vis'kag the Bloodletter" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
 		<dmg_range min="100" max="187" speed="2.6"/>
 		<proc>
-			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.025" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.026" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Delivers a fatal wound for 240 damage.

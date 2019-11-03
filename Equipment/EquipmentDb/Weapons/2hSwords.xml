@@ -61,7 +61,7 @@
 			<stat type="CRIT_CHANCE" value="0.01"/>
 		</stats>
 		<proc>
-			<spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.17" internal_cd="0"/>
+			<spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.11333333" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
         Chance on hit: Reduces target's armor by 700 for 10 seconds. This effect stacks up to 3 times.

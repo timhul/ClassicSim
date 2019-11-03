@@ -65,7 +65,7 @@
 		<info name="Sulfuron Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="yes" icon="Inv_hammer_unique_sulfuras.png"/>
 		<dmg_range min="176" max="295" speed="3.7"/>
 		<proc>
-			<spell name="INSTANT_FIREBALL" min="83" max="102" instant="yes" rate="0.061666667" internal_cd="0" duration="8" dmg_over_duration="16"/>
+			<spell name="INSTANT_FIREBALL" min="83" max="102" instant="yes" rate="0.0431666667" internal_cd="0" duration="8" dmg_over_duration="16"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Hurls a fiery ball that causes 83 to 102 Fire damage and an additional 16 damage over 8 sec.

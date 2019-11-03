@@ -80,7 +80,7 @@
 		<info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
 		<dmg_range min="73" max="136" speed="2.4"/>
 		<proc>
-			<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.04" internal_cd="0"/>
+			<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.032" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Grants 2 extra attacks on your next swing.
@@ -105,7 +105,7 @@
 		<info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
 		<dmg_range min="94" max="175" speed="2.8"/>
 		<proc>
-			<spell name="GENERIC_STAT_BUFF" type="ATTACK_SPEED" amount="20" instant="yes" rate="0.046666667" duration="10" internal_cd="0"/>
+			<spell name="GENERIC_STAT_BUFF" type="ATTACK_SPEED" amount="20" instant="yes" rate="0.07" duration="10" internal_cd="0"/>
 			<source proc_melee_weapon_side="true"/>
 		</proc>
 		<special_equip_effect>
