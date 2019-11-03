@@ -58,7 +58,7 @@ RectangleBorders {
         SettingsTextFieldEntry {
             description: "Iterations (full simulation)"
             minVal: 100
-            maxVal: 10000
+            maxVal: 1000000
             valueText: settings.combatIterationsFullSim
             placeholderText: settings.combatIterationsFullSim
             unitText: "iterations"
@@ -69,7 +69,7 @@ RectangleBorders {
         SettingsTextFieldEntry {
             description: "Iterations (quick simulation)"
             minVal: 100
-            maxVal: 10000
+            maxVal: 1000000
             valueText: settings.combatIterationsQuickSim
             placeholderText: settings.combatIterationsQuickSim
             unitText: "iterations"
