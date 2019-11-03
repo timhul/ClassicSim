@@ -43,6 +43,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     cstats->increase_stamina(90);
     cstats->increase_strength(100);
     cstats->increase_melee_ap(160);
+    cstats->increase_melee_base_crit(200);
 
     this->rage = new class Rage();
     this->resource = this->rage;
