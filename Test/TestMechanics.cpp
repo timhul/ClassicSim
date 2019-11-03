@@ -19,8 +19,8 @@ void TestMechanics::test_all() {
 }
 
 void TestMechanics::test_dodge_from_wpn_skill_diff() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
 
     assert(almost_equal(0.065, mechanics->get_dodge_chance(300)));
     assert(almost_equal(0.064, mechanics->get_dodge_chance(301)));
@@ -48,8 +48,8 @@ void TestMechanics::test_dodge_from_wpn_skill_diff() {
 }
 
 void TestMechanics::test_physical_crit_suppression_from_target_level() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
 
     assert(almost_equal(0.03, mechanics->get_melee_crit_suppression(60)));
     assert(almost_equal(0.02, mechanics->get_melee_crit_suppression(61)));
@@ -62,8 +62,8 @@ void TestMechanics::test_physical_crit_suppression_from_target_level() {
 }
 
 void TestMechanics::test_glancing_blow_rate() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
 
     assert(almost_equal(6.3, mechanics->get_glancing_blow_chance(1)));
 
@@ -86,8 +86,8 @@ void TestMechanics::test_glancing_blow_rate() {
 }
 
 void TestMechanics::test_glancing_dmg_penalty() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
 
     assert(almost_equal(0.55, mechanics->get_glancing_blow_dmg_penalty_min(60, 5)));
     assert(almost_equal(0.55, mechanics->get_glancing_blow_dmg_penalty_min(60, 300)));
@@ -108,8 +108,8 @@ void TestMechanics::test_glancing_dmg_penalty() {
 }
 
 void TestMechanics::test_dw_white_miss() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
 
     assert(almost_equal(0.272, mechanics->get_dw_white_miss_chance(300)));
     assert(almost_equal(0.2704, mechanics->get_dw_white_miss_chance(301)));
@@ -134,8 +134,8 @@ void TestMechanics::test_dw_white_miss() {
 }
 
 void TestMechanics::test_2h_white_miss() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
 
     assert(almost_equal(0.090, mechanics->get_2h_white_miss_chance(300)));
     assert(almost_equal(0.088, mechanics->get_2h_white_miss_chance(301)));

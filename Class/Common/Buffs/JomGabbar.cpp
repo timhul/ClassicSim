@@ -13,7 +13,7 @@ JomGabbar::JomGabbar(Character* pchar):
 {}
 
 void JomGabbar::buff_effect_when_applied() {
-    auto* event = new PeriodicRefreshBuff(this, pchar->get_engine()->get_current_priority() + 2.0);
+    auto event = new PeriodicRefreshBuff(this, pchar->get_engine()->get_current_priority() + 2.0);
     pchar->get_engine()->add_event(event);
 
     ++curr_stacks;

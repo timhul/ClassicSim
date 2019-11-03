@@ -110,7 +110,7 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) 
     const double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
                 0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
-    auto* table = new MeleeWhiteHitTable(
+    auto table = new MeleeWhiteHitTable(
                 this->random,
                 wpn_skill,
                 miss_chance,
@@ -133,7 +133,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const unsigned wpn_skill)
 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
-    auto* table = new MeleeSpecialTable(this->random,
+    auto table = new MeleeSpecialTable(this->random,
                                         wpn_skill,
                                         miss_chance,
                                         mechanics->get_dodge_chance(wpn_skill),
@@ -153,7 +153,7 @@ RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const unsigned wpn_skill
 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
-    auto* table = new RangedWhiteHitTable(
+    auto table = new RangedWhiteHitTable(
                 this->random,
                 wpn_skill,
                 miss_chance,
@@ -168,7 +168,7 @@ MagicAttackTable* CombatRoll::get_magic_attack_table(const MagicSchool school) {
     if (magic_attack_tables.contains(school))
         return magic_attack_tables[school];
 
-    auto* table = new MagicAttackTable(mechanics, random,
+    auto table = new MagicAttackTable(mechanics, random,
                                        pchar->get_clvl(),
                                        pchar->get_stats()->get_spell_hit_chance(school),
                                        pchar->get_stats()->get_target_resistance(school));
@@ -185,7 +185,7 @@ MeleeWhiteHitTable* CombatRoll::get_pet_white_table(const unsigned wpn_skill) {
     double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
                 0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
-    auto* table = new MeleeWhiteHitTable(
+    auto table = new MeleeWhiteHitTable(
                 this->random,
                 wpn_skill,
                 miss_chance,
@@ -205,7 +205,7 @@ MeleeSpecialTable* CombatRoll::get_pet_ability_table(const unsigned wpn_skill) {
 
     unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(wpn_skill) * 10000));
 
-    auto* table = new MeleeSpecialTable(this->random,
+    auto table = new MeleeSpecialTable(this->random,
                                         wpn_skill,
                                         miss_chance,
                                         mechanics->get_dodge_chance(wpn_skill),

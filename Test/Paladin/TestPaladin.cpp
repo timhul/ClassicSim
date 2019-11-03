@@ -37,9 +37,9 @@ void TestPaladin::test_all() {
 
 void TestPaladin::test_values_after_initialization() {
     Race* race = new Human();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* paladin = new Paladin(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto paladin = new Paladin(race, equipment_db, sim_settings, raid_control);
 
     assert(paladin->class_name == "Paladin");
     assert(paladin->get_race()->get_name() == "Human");

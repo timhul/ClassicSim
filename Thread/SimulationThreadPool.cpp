@@ -88,8 +88,8 @@ void SimulationThreadPool::remove_threads(const int num_to_remove) {
 }
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
-    auto* runner = new SimulationRunner(thread_id, equipment_db, sim_settings, scaler);
-    auto* thread = new QThread(runner);
+    auto runner = new SimulationRunner(thread_id, equipment_db, sim_settings, scaler);
+    auto thread = new QThread(runner);
 
     connect(this, SIGNAL(start_simulation(uint,QVector<QString>,bool,int)), runner, SLOT(run_sim(uint,QVector<QString>,bool,int)));
     connect(runner, SIGNAL(error(QString,QString)), this, SLOT(error_string(QString,QString)));

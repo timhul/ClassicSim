@@ -138,7 +138,7 @@ Faction* Character::get_faction() const {
     return this->faction;
 }
 
-Pet *Character::get_pet() const {
+Pet* Character::get_pet() const {
     return pet;
 }
 
@@ -185,7 +185,7 @@ SimSettings* Character::get_sim_settings() const {
 }
 
 void Character::add_player_reaction_event() {
-    auto* new_event = new PlayerAction(spells, engine->get_current_priority() + 0.1);
+    auto new_event = new PlayerAction(spells, engine->get_current_priority() + 0.1);
     engine->add_event(new_event);
 }
 

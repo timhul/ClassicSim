@@ -57,7 +57,7 @@ void Buff::apply_buff() {
     this->refreshed = raid_control->get_engine()->get_current_priority();
     this->active = true;
     if (this->duration != BuffDuration::PERMANENT) {
-        auto* new_event = new BuffRemoval(this,
+        auto new_event = new BuffRemoval(this,
                                           raid_control->get_engine()->get_current_priority() + duration,
                                           ++iteration);
         raid_control->get_engine()->add_event(new_event);

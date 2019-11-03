@@ -104,7 +104,7 @@ void OffhandAttack::reset_swingtimer() {
 }
 
 void OffhandAttack::add_next_oh_attack() {
-    auto* new_event = new OffhandMeleeHit(pchar->get_spells(), get_next_expected_use(), get_next_iteration());
+    auto new_event = new OffhandMeleeHit(pchar->get_spells(), get_next_expected_use(), get_next_iteration());
     pchar->get_engine()->add_event(new_event);
 }
 

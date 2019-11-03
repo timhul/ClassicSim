@@ -69,9 +69,9 @@ void TestWarrior::test_all() {
 
 void TestWarrior::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* warr = new Warrior(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto warr = new Warrior(race, equipment_db, sim_settings, raid_control);
 
     assert(warr->class_name == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");

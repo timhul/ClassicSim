@@ -29,9 +29,9 @@ void TestShaman::test_all() {
 
 void TestShaman::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* shaman = new Shaman(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto shaman = new Shaman(race, equipment_db, sim_settings, raid_control);
 
     assert(shaman->class_name == "Shaman");
     assert(shaman->get_race()->get_name() == "Orc");

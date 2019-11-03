@@ -98,7 +98,7 @@ MageSpells::MageSpells(Mage* mage) :
                         new Scorch(mage, this, imp_scorch, 7),
                     });
 
-    auto* ignite_buff = static_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));
+    auto ignite_buff = static_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));
     if (ignite_buff == nullptr) {
         ignite_buff = new IgniteBuff(mage);
         ignite_buff->enable_buff();

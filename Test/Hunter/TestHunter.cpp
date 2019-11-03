@@ -33,9 +33,9 @@ void TestHunter::test_all() {
 
 void TestHunter::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
 
     assert(hunter->class_name == "Hunter");
     assert(hunter->get_race()->get_name() == "Orc");

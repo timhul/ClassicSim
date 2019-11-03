@@ -63,7 +63,7 @@ void Pet::start_attack() {
 
 void Pet::add_gcd_event() {
     next_gcd =  pchar->get_engine()->get_current_priority() + global_cooldown;
-    auto* new_event = new PetAction(this, next_gcd);
+    auto new_event = new PetAction(this, next_gcd);
     pchar->get_engine()->add_event(new_event);
 }
 
@@ -173,7 +173,7 @@ Resource* Pet::get_resource() {
 }
 
 void Pet::add_next_auto_attack() {
-    auto* new_event = new PetMeleeHit(this, pet_auto_attack->get_next_iteration(), pet_auto_attack->get_next_expected_use());
+    auto new_event = new PetMeleeHit(this, pet_auto_attack->get_next_iteration(), pet_auto_attack->get_next_expected_use());
     pchar->get_engine()->add_event(new_event);
 }
 

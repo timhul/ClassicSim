@@ -63,7 +63,7 @@ WarriorSpells::WarriorSpells(Warrior* warrior) :
     this->warr_oh_attack = new OffhandAttackWarrior(warrior, this);
     this->whirlwind = new Whirlwind(warrior, this);
 
-    auto* buff = static_cast<BattleShoutBuff*>(warrior->get_raid_control()->get_shared_party_buff("Battle Shout", warrior->get_party()));
+    auto buff = static_cast<BattleShoutBuff*>(warrior->get_raid_control()->get_shared_party_buff("Battle Shout", warrior->get_party()));
     if (buff == nullptr) {
         buff = new BattleShoutBuff(warrior);
         buff->enable_buff();

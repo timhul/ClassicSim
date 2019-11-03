@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     test.test_all();
 
     QApplication app(argc, argv);
-    auto* gui_control = new GUIControl();
+    auto gui_control = new GUIControl();
 
     QQmlApplicationEngine qml_engine;
     QQmlContext* context = qml_engine.rootContext();

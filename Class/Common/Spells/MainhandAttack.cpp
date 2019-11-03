@@ -103,7 +103,7 @@ void MainhandAttack::reset_swingtimer() {
 }
 
 void MainhandAttack::add_next_mh_attack() {
-    auto* new_event = new MainhandMeleeHit(pchar->get_spells(), get_next_expected_use(), get_next_iteration());
+    auto new_event = new MainhandMeleeHit(pchar->get_spells(), get_next_expected_use(), get_next_iteration());
     pchar->get_engine()->add_event(new_event);
 }
 

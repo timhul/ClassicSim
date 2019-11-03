@@ -33,8 +33,8 @@ void TestAttackTables::test_values_after_initialization() {
 }
 
 void TestAttackTables::test_white_hit_table() {
-    auto* random = new Random(0, 9999);
-    auto* table = new MeleeWhiteHitTable(random, 300, 0, 0.0, 0.0, 0.0, 0.0);
+    auto random = new Random(0, 9999);
+    auto table = new MeleeWhiteHitTable(random, 300, 0, 0.0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, 0.0) == PhysicalAttackResult::HIT);
     delete table;
@@ -54,9 +54,9 @@ void TestAttackTables::test_white_hit_table() {
 
 void TestAttackTables::test_white_hit_table_update() {
     Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     pchar->get_equipment()->set_mainhand(19103);
     pchar->get_equipment()->set_offhand(17075);
     assert(pchar->get_equipment()->get_mainhand()->name == "Frostbite");
@@ -93,8 +93,8 @@ void TestAttackTables::test_white_hit_table_update() {
 }
 
 void TestAttackTables::test_special_hit_table() {
-    auto* random = new Random(0, 9999);
-    auto* table = new MeleeSpecialTable(random, 300, 0, 0.0, 0.0, 0.0);
+    auto random = new Random(0, 9999);
+    auto table = new MeleeSpecialTable(random, 300, 0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == PhysicalAttackResult::HIT);
     delete table;
 
@@ -110,10 +110,10 @@ void TestAttackTables::test_special_hit_table() {
 }
 
 void TestAttackTables::test_magic_attack_table() {
-    auto* random = new Random(0, 9999);
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-    auto* table = new MagicAttackTable(mechanics, random, 60, 0.0, target->get_resistance(MagicSchool::Frost));
+    auto random = new Random(0, 9999);
+    auto target = new Target(63);
+    auto mechanics = new Mechanics(target);
+    auto table = new MagicAttackTable(mechanics, random, 60, 0.0, target->get_resistance(MagicSchool::Frost));
 
     assert(table->get_hit_outcome(0, 0) == MagicAttackResult::MISS);
     assert(table->get_hit_outcome(1699, 0) == MagicAttackResult::MISS);

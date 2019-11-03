@@ -69,7 +69,7 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
 }
 
 void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
-    auto* result = new StatisticsSpell(name, icon);
+    auto result = new StatisticsSpell(name, icon);
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
             continue;
@@ -103,7 +103,7 @@ void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool in
 }
 
 void NumberCruncher::merge_buff_entry(const QString& name, const QString& icon, QList<StatisticsBuff*>& vec) {
-    auto* result = new StatisticsBuff(name, icon, false);
+    auto result = new StatisticsBuff(name, icon, false);
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->buff_statistics.contains(name))
             continue;
@@ -142,7 +142,7 @@ void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
 }
 
 void NumberCruncher::merge_proc_entry(const QString& name, const QString& icon, QList<StatisticsProc*>& vec) {
-    auto* result = new StatisticsProc(name, icon, time_in_combat);
+    auto result = new StatisticsProc(name, icon, time_in_combat);
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->proc_statistics.contains(name))
             continue;
@@ -178,7 +178,7 @@ void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
 }
 
 void NumberCruncher::merge_resource_entry(const QString& name, const QString& icon, QList<StatisticsResource*>& vec) {
-    auto* result = new StatisticsResource(name, icon, time_in_combat);
+    auto result = new StatisticsResource(name, icon, time_in_combat);
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->resource_statistics.contains(name))
             continue;

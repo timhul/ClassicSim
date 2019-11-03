@@ -360,7 +360,7 @@ void TestConditionVariableBuiltin::tear_down() {
 }
 
 void TestConditionVariableBuiltin::set_event_priority(Engine* engine, const double priority) {
-    auto* event = new PlayerAction(nullptr, priority);
+    auto event = new PlayerAction(nullptr, priority);
     engine->set_current_priority(event);
     delete event;
 

@@ -19,11 +19,11 @@ void TestCombatRoll::test_all() {
 }
 
 void TestCombatRoll::test_glancing_penalties() {
-    auto* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
-    auto* roll = pchar->get_combat_roll();
+    auto race = new Orc();
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
+    auto roll = pchar->get_combat_roll();
 
     for (int i = 0; i < 1000; ++i) {
         const double glance_penalty = roll->get_glancing_blow_dmg_penalty(300);

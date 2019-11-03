@@ -39,9 +39,9 @@ void TestMage::test_all() {
 
 void TestMage::test_values_after_initialization() {
     Race* race = new Troll();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* mage = new Mage(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto mage = new Mage(race, equipment_db, sim_settings, raid_control);
 
     assert(mage->class_name == "Mage");
     assert(mage->get_race()->get_name() == "Troll");

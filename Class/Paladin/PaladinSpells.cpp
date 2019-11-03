@@ -30,14 +30,14 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     add_spell_group({mh_attack});
     add_spell_group({new SealOfCommand(paladin, this)});
 
-    auto* sanc_buff = static_cast<SanctityAuraBuff*>(pchar->get_raid_control()->get_shared_party_buff("Sanctity Aura", pchar->get_party()));
+    auto sanc_buff = static_cast<SanctityAuraBuff*>(pchar->get_raid_control()->get_shared_party_buff("Sanctity Aura", pchar->get_party()));
     if (sanc_buff == nullptr) {
         sanc_buff = new SanctityAuraBuff(paladin);
         sanc_buff->enable_buff();
     }
     add_spell_group({new SanctityAura(paladin, sanc_buff)});
 
-    auto* jotc_buff = static_cast<JudgementOfTheCrusader*>(pchar->get_raid_control()->get_shared_raid_buff("Judgement of the Crusader"));
+    auto jotc_buff = static_cast<JudgementOfTheCrusader*>(pchar->get_raid_control()->get_shared_raid_buff("Judgement of the Crusader"));
     if (jotc_buff == nullptr) {
         jotc_buff = new JudgementOfTheCrusader(paladin);
         jotc_buff->enable_buff();

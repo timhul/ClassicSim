@@ -52,9 +52,9 @@ void TestRogue::test_all() {
 
 void TestRogue::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* raid_control = new RaidControl(sim_settings);
-    auto* rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
+    auto sim_settings = new SimSettings();
+    auto raid_control = new RaidControl(sim_settings);
+    auto rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
 
     assert(rogue->class_name == "Rogue");
     assert(rogue->get_race()->get_name() == "Orc");
