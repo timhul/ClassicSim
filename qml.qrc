@@ -982,6 +982,8 @@
         <file>QML/Assets/items/Inv_mace_02.png</file>
         <file>QML/Assets/misc/Inv_misc_food_41.png</file>
         <file>QML/Assets/items/Inv_gauntlets_13.png</file>
-	    <file>QML/Assets/items/Inv_gauntlets_09.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_09.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_11.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_18.png</file>
     </qresource>
 </RCC>

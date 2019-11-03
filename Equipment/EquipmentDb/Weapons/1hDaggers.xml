@@ -101,6 +101,33 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="17071" phase="1">
+		<info name="Gutgore Ripper" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_18.png"/>
+		<dmg_range min="63" max="119" speed="1.8"/>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="75" max="75" instant="yes" rate="0.03" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Sends a shadowy bolt at the enemy causing 75 Shadow damage and lowering all stats by 25 for 30 sec.
+		</special_equip_effect>
+		<source>
+			Drops from Garr in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18805" phase="1">
+		<info name="Core Hound Tooth" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_11.png"/>
+		<dmg_range min="57" max="107" speed="1.6"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
+			Drops from Majordomo Executus in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18816" phase="1">
 		<info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
 		<dmg_range min="73" max="137" speed="1.8"/>
