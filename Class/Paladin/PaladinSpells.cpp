@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "Consecration.h"
 #include "Judgement.h"
+#include "JudgementOfTheCrusader.h"
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 #include "PaladinSeal.h"
@@ -11,7 +12,7 @@
 #include "SanctityAuraBuff.h"
 #include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
-#include "JudgementOfTheCrusader.h"
+#include "Utils/Check.h"
 
 PaladinSpells::PaladinSpells(Paladin* paladin) :
     CharacterSpells(paladin),
@@ -53,6 +54,17 @@ void PaladinSpells::apply_seal(PaladinSeal* new_seal) {
     active_seal->get_buff()->apply_buff();
 }
 
+void PaladinSpells::judge_seal(PaladinSeal* seal) {
+    check((seal && active_seal && seal->get_instance_id() == active_seal->get_instance_id()), "Tried to judge a seal that was not active");
+
+    judged_seal = active_seal;
+    active_seal = nullptr;
+}
+
 PaladinSeal* PaladinSpells::get_active_seal() const {
     return this->active_seal;
+}
+
+PaladinSeal* PaladinSpells::get_judged_seal() const {
+    return this->judged_seal;
 }

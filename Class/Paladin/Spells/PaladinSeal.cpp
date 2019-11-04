@@ -31,6 +31,7 @@ Buff* PaladinSeal::get_buff() const {
 void PaladinSeal::judge_seal() {
     check((seal->is_active()), "Tried to judge an inactive seal");
 
+    static_cast<PaladinSpells*>(pchar->get_spells())->judge_seal(this);
     seal->cancel_buff();
 
     judge_effect();
