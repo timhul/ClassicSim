@@ -36,6 +36,7 @@
 #include "TestBloodFury.h"
 #include "TestCharacterStats.h"
 #include "TestCombatRoll.h"
+#include "TestConditionResource.h"
 #include "TestConditionVariableBuiltin.h"
 #include "TestDruid.h"
 #include "TestFelstrikerProc.h"
@@ -81,6 +82,7 @@ void Test::test_all() {
     TestAttackTables(equipment_db).test_all();
     TestStats().test_all();
     TestCharacterStats(equipment_db).test_all();
+    TestConditionResource(equipment_db).test_all();
     TestConditionVariableBuiltin(equipment_db).test_all();
     TestRotationFileReader().test_all();
     TestMana(equipment_db).test_all();

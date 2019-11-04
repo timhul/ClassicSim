@@ -167,6 +167,7 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
+    Test/Rotation/TestConditionResource.cpp \
     Test/Shaman/Spells/TestLightningBolt.cpp \
     Test/Shaman/Spells/TestStormstrike.cpp \
     Test/Shaman/Talents/TestElemental.cpp \
@@ -644,6 +645,7 @@ HEADERS += \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
+    Test/Rotation/TestConditionResource.h \
     Test/Shaman/Spells/TestLightningBolt.h \
     Test/Shaman/Spells/TestStormstrike.h \
     Test/Shaman/Talents/TestElemental.h \

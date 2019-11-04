@@ -2,9 +2,10 @@
 
 #include "Character.h"
 #include "Utils/Check.h"
+#include "Utils/CompareDouble.h"
 
-ConditionResource::ConditionResource(Character* pchar, const Comparator comparator, const ResourceType resource_type, const double cmp_value) :
-    Condition(comparator),
+ConditionResource::ConditionResource(Character* pchar, const Comparator comparator_, const ResourceType resource_type, const double cmp_value) :
+    Condition(comparator_),
     pchar(pchar),
     resource_type(resource_type),
     cmp_value(cmp_value)
@@ -15,11 +16,13 @@ bool ConditionResource::condition_fulfilled() const {
 
     switch (comparator) {
     case Comparator::Less:
-    case Comparator::Leq:
         return resource < cmp_value;
+    case Comparator::Leq:
+        return resource < cmp_value || almost_equal(resource, cmp_value);
     case Comparator::Eq:
-        return (resource - cmp_value) < 0.000001;
+        return almost_equal(resource, cmp_value);
     case Comparator::Geq:
+        return resource > cmp_value || almost_equal(resource, cmp_value);
     case Comparator::Greater:
         return resource > cmp_value;
     default:

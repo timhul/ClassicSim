@@ -410,6 +410,40 @@ bool Character::has_ranged() const {
     return cstats->get_equipment()->get_ranged() != nullptr;
 }
 
+void Character::gain_resource(const ResourceType resource_type, const unsigned value) {
+    switch (resource_type) {
+    case ResourceType::Energy:
+        gain_energy(value);
+        break;
+    case ResourceType::Focus:
+        gain_focus(value);
+        break;
+    case ResourceType::Mana:
+        gain_mana(value);
+        break;
+    case ResourceType::Rage:
+        gain_rage(value);
+        break;
+    }
+}
+
+void Character::lose_resource(const ResourceType resource_type, const unsigned value) {
+    switch (resource_type) {
+    case ResourceType::Energy:
+        lose_energy(value);
+        break;
+    case ResourceType::Focus:
+        check(false, "Cannot use Character::lose_resource for Focus");
+        break;
+    case ResourceType::Mana:
+        lose_mana(value);
+        break;
+    case ResourceType::Rage:
+        lose_rage(value);
+        break;
+    }
+}
+
 void Character::gain_mana(const unsigned) {
 
 }

@@ -138,6 +138,8 @@ public:
     void reset();
     void prepare_set_of_combat_iterations();
 
+    void gain_resource(const ResourceType resource_type, const unsigned value);
+    void lose_resource(const ResourceType resource_type, const unsigned value);
     virtual void gain_mana(const unsigned);
     virtual void lose_mana(const unsigned);
     virtual void gain_rage(const unsigned);
