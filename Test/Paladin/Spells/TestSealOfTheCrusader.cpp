@@ -70,6 +70,26 @@ void TestSealOfTheCrusader::test_all() {
     set_up();
     test_libram_of_hope_reduces_mana_cost();
     tear_down();
+
+    set_up();
+    test_auto_attack_hits_refreshes_duration();
+    tear_down();
+
+    set_up();
+    test_auto_attack_crits_refreshes_duration();
+    tear_down();
+
+    set_up();
+    test_auto_attack_glancings_refreshes_duration();
+    tear_down();
+
+    set_up();
+    test_auto_attack_dodges_does_not_refresh_duration();
+    tear_down();
+
+    set_up();
+    test_auto_attack_miss_does_not_refresh_duration();
+    tear_down();
 }
 
 void TestSealOfTheCrusader::test_name_correct() {
@@ -278,4 +298,79 @@ void TestSealOfTheCrusader::test_libram_of_hope_reduces_mana_cost() {
 
     given_no_relic_equipped();
     assert(almost_equal(0.0, original_mana_cost - seal_of_the_crusader()->get_resource_cost()));
+}
+
+void TestSealOfTheCrusader::test_auto_attack_hits_refreshes_duration() {
+    given_2h_sword_equipped(paladin);
+    given_a_guaranteed_white_hit();
+    given_a_guaranteed_ranged_white_hit();
+    given_seal_of_the_crusader_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_judgement_is_performed();
+    given_engine_priority_pushed_forward(5.0);
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+
+    when_mh_attack_is_performed();
+    assert(almost_equal(10.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+}
+
+void TestSealOfTheCrusader::test_auto_attack_crits_refreshes_duration() {
+    given_2h_sword_equipped(paladin);
+    given_a_guaranteed_white_crit();
+    given_a_guaranteed_ranged_white_hit();
+    given_seal_of_the_crusader_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_judgement_is_performed();
+    given_engine_priority_pushed_forward(5.0);
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+
+    when_mh_attack_is_performed();
+    assert(almost_equal(10.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+}
+
+void TestSealOfTheCrusader::test_auto_attack_glancings_refreshes_duration() {
+    given_2h_sword_equipped(paladin);
+    given_a_guaranteed_white_glancing_blow();
+    given_a_guaranteed_ranged_white_hit();
+    given_seal_of_the_crusader_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_judgement_is_performed();
+    given_engine_priority_pushed_forward(5.0);
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+
+    when_mh_attack_is_performed();
+    assert(almost_equal(10.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+}
+
+void TestSealOfTheCrusader::test_auto_attack_dodges_does_not_refresh_duration() {
+    given_2h_sword_equipped(paladin);
+    given_a_guaranteed_white_dodge();
+    given_a_guaranteed_ranged_white_hit();
+    given_seal_of_the_crusader_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_judgement_is_performed();
+    given_engine_priority_pushed_forward(5.0);
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+
+    when_mh_attack_is_performed();
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+}
+
+void TestSealOfTheCrusader::test_auto_attack_miss_does_not_refresh_duration() {
+    given_2h_sword_equipped(paladin);
+    given_a_guaranteed_white_miss();
+    given_a_guaranteed_ranged_white_hit();
+    given_seal_of_the_crusader_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_judgement_is_performed();
+    given_engine_priority_pushed_forward(5.0);
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
+
+    when_mh_attack_is_performed();
+    assert(almost_equal(5.0, seal_of_the_crusader()->get_judge_debuff()->time_left()));
 }

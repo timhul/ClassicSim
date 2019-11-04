@@ -93,10 +93,6 @@ void TestJudgement::test_all() {
     tear_down();
 }
 
-Judgement* TestJudgement::judgement() const {
-    return static_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));
-}
-
 void TestJudgement::test_name_correct() {
     assert(judgement()->get_name() == "Judgement");
 }

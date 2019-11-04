@@ -9,6 +9,7 @@
 #include "Equipment.h"
 #include "HolyPaladin.h"
 #include "Item.h"
+#include "Judgement.h"
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
@@ -45,6 +46,10 @@ void TestSpellPaladin::tear_down() {
 
 void TestSpellPaladin::run_class_specific_tests() {
 
+}
+
+Judgement* TestSpellPaladin::judgement() const {
+    return static_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));
 }
 
 MainhandAttackPaladin* TestSpellPaladin::mh_attack() const {
@@ -151,4 +156,8 @@ void TestSpellPaladin::when_seal_of_command_is_performed() {
 
 void TestSpellPaladin::then_paladin_has_mana(const unsigned mana) {
     assert(paladin->get_resource_level(ResourceType::Mana) == mana);
+}
+
+void TestSpellPaladin::when_judgement_is_performed() {
+    judgement()->perform();
 }

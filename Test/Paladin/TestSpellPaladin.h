@@ -2,6 +2,7 @@
 
 #include "TestSpellDamage.h"
 
+class Judgement;
 class MainhandAttackPaladin;
 class Paladin;
 class SealOfCommand;
@@ -20,6 +21,7 @@ protected:
 
     void run_class_specific_tests() override;
 
+    Judgement* judgement() const;
     MainhandAttackPaladin* mh_attack() const;
     SealOfCommand* seal_of_command() const;
     SealOfTheCrusader* seal_of_the_crusader() const;

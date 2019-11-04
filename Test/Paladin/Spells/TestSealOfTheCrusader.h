@@ -30,4 +30,9 @@ private:
     void test_seal_of_the_crusader_removes_active_seal_of_command();
     void test_libram_of_fervor_increases_melee_ap_bonus();
     void test_libram_of_hope_reduces_mana_cost();
+    void test_auto_attack_hits_refreshes_duration();
+    void test_auto_attack_crits_refreshes_duration();
+    void test_auto_attack_glancings_refreshes_duration();
+    void test_auto_attack_dodges_does_not_refresh_duration();
+    void test_auto_attack_miss_does_not_refresh_duration();
 };

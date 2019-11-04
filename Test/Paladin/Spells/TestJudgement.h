@@ -11,8 +11,6 @@ public:
     void test_all();
 
 private:
-    Judgement* judgement() const;
-
     void test_name_correct() override;
     void test_spell_cooldown() override;
     void test_whether_spell_causes_global_cooldown() override;
