@@ -19,13 +19,13 @@ Judgement::Judgement(Paladin* paladin, PaladinSpells* paladin_spells, CooldownCo
 void Judgement::spell_effect() {
     cooldown->add_gcd_event();
 
-    paladin_spells->get_seal()->judge_seal();
+    paladin_spells->get_active_seal()->judge_seal();
 
     pchar->lose_mana(get_resource_cost());
 }
 
 SpellStatus Judgement::is_ready_spell_specific() const {
-    PaladinSeal* seal = paladin_spells->get_seal();
+    PaladinSeal* seal = paladin_spells->get_active_seal();
 
     if (!seal || !seal->get_buff()->is_active())
         return SpellStatus::BuffInactive;

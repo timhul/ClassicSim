@@ -99,7 +99,7 @@ void SealOfCommand::run_proc() {
         return;
     }
 
-    PaladinSeal* seal = paladin_spells->get_seal();
+    PaladinSeal* seal = paladin_spells->get_active_seal();
     if (seal != nullptr)
         seal->refresh_seal();
 

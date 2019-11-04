@@ -36,7 +36,7 @@ void MainhandAttackPaladin::calculate_damage() {
     if (result == PhysicalAttackResult::BLOCK || result == PhysicalAttackResult::BLOCK_CRITICAL)
         return increment_full_block();
 
-    PaladinSeal* seal = paladin_spells->get_seal();
+    PaladinSeal* seal = paladin_spells->get_active_seal();
     if (seal != nullptr)
         seal->refresh_seal();
 

@@ -46,13 +46,13 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
 }
 
 void PaladinSpells::apply_seal(PaladinSeal* new_seal) {
-    if (current_seal != nullptr && current_seal->get_buff()->get_instance_id() != new_seal->get_buff()->get_instance_id())
-        current_seal->get_buff()->cancel_buff();
+    if (active_seal != nullptr && active_seal->get_buff()->get_instance_id() != new_seal->get_buff()->get_instance_id())
+        active_seal->get_buff()->cancel_buff();
 
-    current_seal = new_seal;
-    current_seal->get_buff()->apply_buff();
+    active_seal = new_seal;
+    active_seal->get_buff()->apply_buff();
 }
 
-PaladinSeal* PaladinSpells::get_seal() const {
-    return this->current_seal;
+PaladinSeal* PaladinSpells::get_active_seal() const {
+    return this->active_seal;
 }

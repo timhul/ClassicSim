@@ -10,9 +10,9 @@ public:
     PaladinSpells(Paladin *paladin);
 
     void apply_seal(PaladinSeal* new_seal);
-    PaladinSeal* get_seal() const;
+    PaladinSeal* get_active_seal() const;
 
 private:
     Paladin* paladin;
-    PaladinSeal* current_seal {nullptr};
+    PaladinSeal* active_seal {nullptr};
 };
