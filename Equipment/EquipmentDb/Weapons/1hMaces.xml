@@ -51,8 +51,11 @@
 	</melee_weapon>
 
 	<melee_weapon id="13204" phase="1">
-		<info name="Bashguuder" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_mace_15.png"/>
+		<info name="Bashguuder" type="MACE" slot="1H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_mace_15.png"/>
 		<dmg_range min="49" max="93" speed="1.8"/>
+		<stats>
+			<stat type="STRENGTH" value="9"/>
+		</stats>
 		<proc>
 			<spell name="ARMOR_PENETRATION" value="200" max_stacks="3" duration="30" rate="0.04" internal_cd="0"/>
 		</proc>
