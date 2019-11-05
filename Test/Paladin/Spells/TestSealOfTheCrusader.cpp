@@ -325,7 +325,6 @@ void TestSealOfTheCrusader::test_auto_attack_hit_refreshes_duration_while_no_sea
     given_a_guaranteed_white_hit();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -341,7 +340,6 @@ void TestSealOfTheCrusader::test_auto_attack_crit_refreshes_duration_while_no_se
     given_a_guaranteed_white_crit();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -357,7 +355,6 @@ void TestSealOfTheCrusader::test_auto_attack_glancing_refreshes_duration_while_n
     given_a_guaranteed_white_glancing_blow();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -373,7 +370,6 @@ void TestSealOfTheCrusader::test_auto_attack_dodge_does_not_refresh_duration_whi
     given_a_guaranteed_white_dodge();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -389,7 +385,6 @@ void TestSealOfTheCrusader::test_auto_attack_miss_does_not_refresh_duration_whil
     given_a_guaranteed_white_miss();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -407,7 +402,6 @@ void TestSealOfTheCrusader::test_auto_attack_hit_refreshes_duration_while_seal_o
     given_a_guaranteed_white_hit();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -426,7 +420,6 @@ void TestSealOfTheCrusader::test_auto_attack_crit_refreshes_duration_while_seal_
     given_a_guaranteed_white_crit();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -445,7 +438,6 @@ void TestSealOfTheCrusader::test_auto_attack_glancing_refreshes_duration_while_s
     given_a_guaranteed_white_glancing_blow();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -464,7 +456,6 @@ void TestSealOfTheCrusader::test_auto_attack_dodge_does_not_refresh_duration_whi
     given_a_guaranteed_white_dodge();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);
@@ -483,7 +474,6 @@ void TestSealOfTheCrusader::test_auto_attack_miss_does_not_refresh_duration_whil
     given_a_guaranteed_white_miss();
     given_a_guaranteed_ranged_white_hit();
     given_seal_of_the_crusader_is_active();
-    given_engine_priority_pushed_forward(1.5);
 
     when_judgement_is_performed();
     assert(seal_of_the_crusader()->get_buff()->is_active() == false);

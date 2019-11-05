@@ -102,19 +102,16 @@ void TestJudgement::test_spell_cooldown() {
 }
 
 void TestJudgement::test_how_spell_observes_global_cooldown() {
+    assert(judgement()->get_spell_status() == SpellStatus::BuffInactive);
+
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
 
+    assert(paladin->on_global_cooldown());
     assert(judgement()->get_spell_status() == SpellStatus::Available);
-
-    given_paladin_is_on_gcd();
-
-    assert(judgement()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestJudgement::test_resource_cost() {
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
 
     given_paladin_has_mana(85);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -129,9 +126,6 @@ void TestJudgement::test_resource_cost() {
 
 void TestJudgement::test_is_ready_conditions() {
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
-
     given_paladin_has_mana(86);
     assert(judgement()->get_spell_status() == SpellStatus::Available);
 
@@ -147,14 +141,12 @@ void TestJudgement::test_whether_spell_causes_global_cooldown() {
 
     when_judgement_is_performed();
 
-    assert(!paladin->action_ready());
+    assert(paladin->action_ready());
 }
 
 void TestJudgement::test_resource_cost_1_of_5_benediction() {
-    when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
     given_retribution_talent_rank("Benediction", 1);
+    when_seal_of_the_crusader_is_performed();
 
     given_paladin_has_mana(83);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -168,10 +160,8 @@ void TestJudgement::test_resource_cost_1_of_5_benediction() {
 }
 
 void TestJudgement::test_resource_cost_2_of_5_benediction() {
-    when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
     given_retribution_talent_rank("Benediction", 2);
+    when_seal_of_the_crusader_is_performed();
 
     given_paladin_has_mana(80);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -185,10 +175,8 @@ void TestJudgement::test_resource_cost_2_of_5_benediction() {
 }
 
 void TestJudgement::test_resource_cost_3_of_5_benediction() {
-    when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
     given_retribution_talent_rank("Benediction", 3);
+    when_seal_of_the_crusader_is_performed();
 
     given_paladin_has_mana(77);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -202,10 +190,8 @@ void TestJudgement::test_resource_cost_3_of_5_benediction() {
 }
 
 void TestJudgement::test_resource_cost_4_of_5_benediction() {
-    when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
     given_retribution_talent_rank("Benediction", 4);
+    when_seal_of_the_crusader_is_performed();
 
     given_paladin_has_mana(75);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -219,10 +205,8 @@ void TestJudgement::test_resource_cost_4_of_5_benediction() {
 }
 
 void TestJudgement::test_resource_cost_5_of_5_benediction() {
-    when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
     given_retribution_talent_rank("Benediction", 5);
+    when_seal_of_the_crusader_is_performed();
 
     given_paladin_has_mana(72);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -264,8 +248,6 @@ void TestJudgement::test_auto_hit_refreshes_judgement_of_the_crusader() {
 void TestJudgement::test_judgement_of_the_crusader_deals_zero_damage() {
     given_a_guaranteed_ranged_white_hit();
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     when_judgement_is_performed();
 
@@ -275,8 +257,6 @@ void TestJudgement::test_judgement_of_the_crusader_deals_zero_damage() {
 void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_0_of_3_improved_sotc() {
     given_a_guaranteed_ranged_white_hit();
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
     when_judgement_is_performed();
@@ -288,8 +268,6 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_1_of_3_improve
     given_a_guaranteed_ranged_white_hit();
     given_retribution_talent_rank("Improved Seal of the Crusader", 1);
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
     when_judgement_is_performed();
@@ -301,8 +279,6 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_2_of_3_improve
     given_a_guaranteed_ranged_white_hit();
     given_retribution_talent_rank("Improved Seal of the Crusader", 2);
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
     when_judgement_is_performed();
@@ -314,8 +290,6 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improve
     given_a_guaranteed_ranged_white_hit();
     given_retribution_talent_rank("Improved Seal of the Crusader", 3);
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
     when_judgement_is_performed();
@@ -328,8 +302,6 @@ void TestJudgement::test_judgement_of_the_crusader_r10_pvp_glove_bonus_increases
     assert(pchar->get_stats()->get_equipment()->get_gloves()->name == "Knight-Lieutenant's Lamellar Gauntlets");
     given_a_guaranteed_ranged_white_hit();
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
     when_judgement_is_performed();
@@ -342,8 +314,6 @@ void TestJudgement::test_judgement_of_the_crusader_r13_pvp_glove_bonus_increases
     assert(pchar->get_stats()->get_equipment()->get_gloves()->name == "Marshal's Lamellar Gloves");
     given_a_guaranteed_ranged_white_hit();
     when_seal_of_the_crusader_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
     when_judgement_is_performed();
@@ -355,8 +325,6 @@ void TestJudgement::test_judgement_of_command_damage() {
     given_seal_of_command_is_enabled();
     given_a_guaranteed_ranged_white_hit();
     when_seal_of_command_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
 
     when_judgement_is_performed();
 
@@ -366,15 +334,13 @@ void TestJudgement::test_judgement_of_command_damage() {
 }
 
 void TestJudgement::test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance() {
+    given_character_has_spell_damage(100, MagicSchool::Holy);
     given_sanctity_aura_is_active();
     given_vengeance_is_active(5);
     given_seal_of_command_is_enabled();
     given_a_guaranteed_ranged_white_hit();
     paladin->reset();
     when_seal_of_command_is_performed();
-    given_engine_priority_pushed_forward(1.5);
-    assert(paladin->action_ready());
-    given_character_has_spell_damage(100, MagicSchool::Holy);
 
     when_judgement_is_performed();
 

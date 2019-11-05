@@ -9,7 +9,7 @@
 #include "PaladinSpells.h"
 
 Judgement::Judgement(Paladin* paladin, PaladinSpells* paladin_spells, CooldownControl* cooldown_control) :
-    Spell("Judgement", "Assets/spell/Spell_holy_righteousfury.png", paladin, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 86),
+    Spell("Judgement", "Assets/spell/Spell_holy_righteousfury.png", paladin, cooldown_control, RestrictedByGcd::No, ResourceType::Mana, 86),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Improved Judgement", 2, DisabledAtZero::No)}),
     paladin(paladin),
@@ -17,8 +17,6 @@ Judgement::Judgement(Paladin* paladin, PaladinSpells* paladin_spells, CooldownCo
 {}
 
 void Judgement::spell_effect() {
-    cooldown->add_gcd_event();
-
     paladin_spells->get_active_seal()->judge_seal();
 
     pchar->lose_mana(get_resource_cost());
