@@ -23,6 +23,18 @@
 		</source>
 	</item>
 
+	<item id="13358" phase="1">
+		<info name="Wyrmtongue Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_shoulder_24.png"/>
+		<stats>
+			<stat type="ARMOR" value="132"/>
+			<stat type="AGILITY" value="23"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+			Drops from Grand Crusader Dathrohan in Stratholme Living.
+		</source>
+	</item>
+
 	<item id="16708" phase="1">
 		<info name="Shadowcraft Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_07.png"/>
 		<stats>
