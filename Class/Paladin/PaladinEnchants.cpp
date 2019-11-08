@@ -52,7 +52,8 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
         };
     case EquipmentSlot::WRIST:
         return {
-            EnchantName::Name::EnchantBracerSuperiorStrength
+            EnchantName::Name::EnchantBracerSuperiorStrength,
+            EnchantName::Name::EnchantBracerGreaterIntellect,
         };
     case EquipmentSlot::GLOVES:
         return {
