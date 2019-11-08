@@ -24,6 +24,7 @@ public:
         FalconsCall,
         InstantPoison,
         WindfuryTotem,
+        EnchantBracerGreaterIntellect,
         EnchantBracerManaRegeneration,
         EnchantBracerMinorAgility,
         EnchantBracerSuperiorStrength,
@@ -84,6 +85,8 @@ public:
             return "Strength";
         case EnchantName::EnchantWeaponSpellPower:
             return "Spell Power";
+        case EnchantName::EnchantBracerGreaterIntellect:
+            return "Greater Intellect";
         case EnchantName::EnchantBracerManaRegeneration:
             return "Mana Regeneration";
         case EnchantName::EnchantBracerMinorAgility:
@@ -189,6 +192,8 @@ public:
             return "+15 Strength";
         case EnchantName::EnchantWeaponSpellPower:
             return "+30 Spell Damage/Healing";
+        case EnchantName::EnchantBracerGreaterIntellect:
+            return "+7 Intellect";
         case EnchantName::EnchantBracerManaRegeneration:
             return "+4 mp5";
         case EnchantName::EnchantBracerMinorAgility:
