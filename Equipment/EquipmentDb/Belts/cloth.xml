@@ -26,6 +26,20 @@
 		</source>
 	</item>
 
+	<item id="11662" phase="1">
+		<info name="Ban'thok Sash" type="CLOTH" slot="BELT" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_belt_29.png"/>
+		<stats>
+			<stat type="ARMOR" value="43"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<source>
+		Drops from Ok'thor the Breaker in Blackrock Depths.
+		</source>
+	</item>
+
 	<item id="13956" phase="1">
 		<info name="Clutch of Andros" type="CLOTH" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
 		<stats>
