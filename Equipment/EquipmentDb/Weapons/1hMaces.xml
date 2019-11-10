@@ -12,6 +12,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="14487" phase="1">
+		<info name="Bonechill Hammer" type="MACE" slot="1H" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_hammer_13.png"/>
+		<dmg_range min="68" max="127" speed="2.4"/>
+		<proc>
+			<spell name="FROST_ATTACK" min="90" max="90" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<source>
+			Drops from Ras Frostwhisper in Scholomance.
+		</source>
+		<special_equip_effect>
+			Chance on hit: Blasts a target for 90 Frost damage.
+		</special_equip_effect>
+	</melee_weapon>
+
 	<melee_weapon id="18044" phase="1">
 		<info name="Hurley's Tankard" type="MACE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_drink_04.png"/>
 		<dmg_range min="71" max="132" speed="2.7"/>
