@@ -24,6 +24,19 @@
 		</source>
 	</item>
 
+	<item id="12543" phase="1">
+		<info name="Songstone of Ironforge" type="RING" slot="RING" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_jewelry_ring_05.png"/>
+		<mutex item_id="12548"/>
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="SPIRIT" value="4"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+			Quest reward. Requires Emperor in Blackrock Depths.
+		</source>
+	</item>
+
 	<item id="17713" phase="1">
 		<info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
 		<stats>
