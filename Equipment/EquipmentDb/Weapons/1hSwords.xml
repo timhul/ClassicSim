@@ -40,6 +40,17 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18484" phase="2">
+		<info name="Cho'Rush's Blade" type="SWORD" slot="1H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_shortblade_04.png"/>
+		<dmg_range min="67" max="125" speed="2.4"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
+			Drops from Cho'Rush the Observer in Dire Maul.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="8190" phase="1">
 		<info name="Hanzo Sword" type="SWORD" slot="1H" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_sword_10.png"/>
 		<dmg_range min="38" max="71" speed="1.5"/>
