@@ -12,6 +12,20 @@
 		</source>
 	</item>
 
+	<item id="11623" phase="1">
+		<info name="Spritecaster Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+		<stats>
+			<stat type="ARMOR" value="37"/>
+			<stat type="INTELLECT" value="4"/>
+			<stat type="STAMINA" value="4"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+		</stats>
+		<source>
+			Drops from High Interrogator Gerstahn in Blackrock Depths.
+		</source>
+	</item>
+
 	<item id="13203" phase="1">
 		<info name="Armswake Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
 		<stats>
