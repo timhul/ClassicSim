@@ -13,6 +13,19 @@
 		</source>
 	</item>
 
+	<item id="13170" phase="1">
+		<info name="Skyshroud Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_pants_13.png"/>
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="34"/>
+		</stats>
+		<source>
+		Drops from Highlord Omokk in Lower Blackrock Spire (LBRS).
+		</source>
+	</item>
+
 	<item id="16687" phase="1">
 		<info name="Magister's Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
 		<stats>
