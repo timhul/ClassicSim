@@ -101,7 +101,7 @@ double Druid::get_int_needed_for_one_percent_spell_crit() const {
 }
 
 unsigned Druid::get_melee_ap_per_strength() const {
-    return 1;
+    return 2;
 }
 
 unsigned Druid::get_melee_ap_per_agi() const {
