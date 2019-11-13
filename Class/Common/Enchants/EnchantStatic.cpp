@@ -203,7 +203,7 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_base_spell_damage(30);
         break;
     case EnchantName::EnchantBracerGreaterIntellect:
-        pchar->get_stats()->increase_intellect(7);
+        pchar->get_stats()->decrease_intellect(7);
         break;
     case EnchantName::EnchantBracerManaRegeneration:
         pchar->get_stats()->decrease_mp5(4);
