@@ -52,6 +52,7 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
             EnchantName::Name::EnchantBracerManaRegeneration,
             EnchantName::Name::EnchantBracerSuperiorStrength,
             EnchantName::Name::EnchantBracerMinorAgility,
+            EnchantName::Name::EnchantBracerGreaterIntellect,
         };
     case EquipmentSlot::GLOVES:
         return {

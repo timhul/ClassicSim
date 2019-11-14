@@ -28,6 +28,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::EnchantWeaponSpellPower:
         pchar->get_stats()->increase_base_spell_damage(30);
         break;
+    case EnchantName::EnchantBracerGreaterIntellect:
+        pchar->get_stats()->increase_intellect(7);
+        break;
     case EnchantName::EnchantBracerManaRegeneration:
         pchar->get_stats()->increase_mp5(4);
         break;
@@ -198,6 +201,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::EnchantWeaponSpellPower:
         pchar->get_stats()->decrease_base_spell_damage(30);
+        break;
+    case EnchantName::EnchantBracerGreaterIntellect:
+        pchar->get_stats()->decrease_intellect(7);
         break;
     case EnchantName::EnchantBracerManaRegeneration:
         pchar->get_stats()->decrease_mp5(4);
