@@ -63,6 +63,20 @@
 		</source>
 	</item>
 
+    <item id="18374" phase="2">
+        <info name="Flamescarred Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_shoulder_24.png"/>
+        <stats>
+            <stat type="ARMOR" value="131"/>
+            <stat type="STRENGTH" value="12"/>
+            <stat type="AGILITY" value="12"/>
+            <stat type="STAMINA" value="11"/>
+            <stat type="FIRE_RESISTANCE" value="10"/>
+        </stats>
+        <source>
+            Drops from Magister Kalendris in Dire Maul.
+        </source>
+    </item>
+
 	<item id="16832" phase="3">
 		<info name="Bloodfang Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
 		<class_restriction class="ROGUE"/>
