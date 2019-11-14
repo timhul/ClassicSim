@@ -15,6 +15,22 @@ ItemStats get_item_stats_from_string(const QString& item_stat)  {
         return ItemStats::HitChance;
     else if (item_stat == "ATTACK_POWER")
         return ItemStats::AttackPower;
+    else if (item_stat == "ATTACK_POWER_BEAST")
+        return ItemStats::APVersusBeast;
+    else if (item_stat == "ATTACK_POWER_DEMON")
+        return ItemStats::APVersusDemon;
+    else if (item_stat == "ATTACK_POWER_DRAGONKIN")
+        return ItemStats::APVersusDragonkin;
+    else if (item_stat == "ATTACK_POWER_ELEMENTAL")
+        return ItemStats::APVersusElemental;
+    else if (item_stat == "ATTACK_POWER_GIANT")
+        return ItemStats::APVersusGiant;
+    else if (item_stat == "ATTACK_POWER_HUMANOID")
+        return ItemStats::APVersusHumanoid;
+    else if (item_stat == "ATTACK_POWER_MECHANICAL")
+        return ItemStats::APVersusMechanical;
+    else if (item_stat == "ATTACK_POWER_UNDEAD")
+        return ItemStats::APVersusUndead;
     else if (item_stat == "STRENGTH")
         return ItemStats::Strength;
     else if (item_stat == "AGILITY")
