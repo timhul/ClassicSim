@@ -39,6 +39,19 @@
 		</source>
 	</item>
 
+	<item id="16709" phase="1">
+		<info name="Shadowcraft Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="150"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="AGILITY" value="25"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+			Baron Rivendare.
+		</source>
+	</item>
+
 	<item id="16822" phase="1">
 		<info name="Nightslayer Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="ROGUE"/>
