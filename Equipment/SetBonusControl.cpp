@@ -226,13 +226,6 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
-    else if (set_name == "The Twin Blades of Hakkari") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_wpn_skill(WeaponTypes::SWORD, 6);
-            break;
-        }
-    }
     else if (set_name == "Regalia of Undead Cleansing") {
         switch (num_pieces) {
         case 3:
@@ -248,22 +241,6 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Lieutenant Commander's Battlearmor" || set_name == "Champion's Battlearmor")
-        activate_warrior_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Lieutenant Commander's Redoubt")
-        activate_paladin_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Lieutenant Commander's Pursuance" || set_name == "Champion's Pursuit")
-        activate_hunter_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Battlegear" || set_name == "Warlord's Battlegear")
-        activate_warrior_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Pursuit" || set_name == "Warlord's Pursuit")
-        activate_hunter_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Aegis")
-        activate_paladin_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "The Highlander's Resolution" || set_name == "The Defiler's Resolution" ||
-             set_name == "The Highlander's Determination" || set_name == "The Defiler's Determination" ||
-             set_name == "The Highlander's Resolve")
-        activate_arathi_basin_physical_set_bonuses(num_pieces);
 }
 
 void SetBonusControl::unequip_item(const int item_id) {
@@ -434,13 +411,6 @@ void SetBonusControl::unequip_item(const int item_id) {
         }
         }
     }
-    else if (set_name == "The Twin Blades of Hakkari") {
-        switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->decrease_wpn_skill(WeaponTypes::SWORD, 6);
-            break;
-        }
-    }
     else if (set_name == "Regalia of Undead Cleansing") {
         switch (num_pieces) {
         case 3:
@@ -456,22 +426,6 @@ void SetBonusControl::unequip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Lieutenant Commander's Battlearmor" || set_name == "Champion's Battlearmor")
-        deactivate_warrior_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Lieutenant Commander's Pursuance" || set_name == "Champion's Pursuit")
-        deactivate_hunter_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Lieutenant Commander's Redoubt")
-        deactivate_paladin_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Battlegear" || set_name == "Warlord's Battlegear")
-        deactivate_warrior_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Pursuit" || set_name == "Warlord's Pursuit")
-        deactivate_hunter_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Aegis")
-        deactivate_paladin_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "The Highlander's Resolution" || set_name == "The Defiler's Resolution" ||
-             set_name == "The Highlander's Determination" || set_name == "The Defiler's Determination" ||
-             set_name == "The Highlander's Resolve")
-        deactivate_arathi_basin_physical_set_bonuses(num_pieces);
 }
 
 bool SetBonusControl::is_set_item(const int item_id) const {
@@ -526,162 +480,6 @@ int SetBonusControl::get_num_equipped_pieces_for_set(const QString& set_name) co
     }
 
     return num_set_pieces;
-}
-
-void SetBonusControl::activate_warrior_r10_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_melee_ap(40);
-        break;
-    case 6:
-        pchar->get_stats()->increase_stamina(20);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_warrior_r10_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_melee_ap(40);
-        break;
-    case 6:
-        pchar->get_stats()->decrease_stamina(20);
-        break;
-    }
-}
-
-void SetBonusControl::activate_warrior_r13_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_stamina(20);
-        break;
-    case 6:
-        pchar->get_stats()->increase_melee_ap(40);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_warrior_r13_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_stamina(20);
-        break;
-    case 6:
-        pchar->get_stats()->decrease_melee_ap(40);
-        break;
-    }
-}
-
-void SetBonusControl::activate_paladin_r10_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_base_spell_damage(23);
-        break;
-    case 6:
-        pchar->get_stats()->increase_stamina(20);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_paladin_r10_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_base_spell_damage(23);
-        break;
-    case 6:
-        pchar->get_stats()->decrease_stamina(20);
-        break;
-    }
-}
-
-void SetBonusControl::activate_paladin_r13_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_stamina(20);
-        break;
-    case 6:
-        pchar->get_stats()->increase_base_spell_damage(23);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_paladin_r13_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_stamina(20);
-        break;
-    case 6:
-        pchar->get_stats()->decrease_base_spell_damage(23);
-        break;
-    }
-}
-
-void SetBonusControl::activate_hunter_r10_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_agility(20);
-        break;
-    case 6:
-        pchar->get_stats()->increase_stamina(20);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_hunter_r10_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_agility(20);
-        break;
-    case 6:
-        pchar->get_stats()->decrease_stamina(20);
-        break;
-    }
-}
-
-void SetBonusControl::activate_hunter_r13_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_stamina(20);
-        break;
-    case 6:
-        pchar->get_stats()->increase_agility(20);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_hunter_r13_pvp_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_stamina(20);
-        break;
-    case 6:
-        pchar->get_stats()->decrease_agility(20);
-        break;
-    }
-}
-
-void SetBonusControl::activate_arathi_basin_physical_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->increase_stamina(5);
-        break;
-    case 3:
-        pchar->get_stats()->increase_melee_aura_crit(100);
-        pchar->get_stats()->increase_ranged_crit(100);
-        break;
-    }
-}
-
-void SetBonusControl::deactivate_arathi_basin_physical_set_bonuses(const int num_pieces) {
-    switch (num_pieces) {
-    case 2:
-        pchar->get_stats()->decrease_stamina(5);
-        break;
-    case 3:
-        pchar->get_stats()->decrease_melee_aura_crit(100);
-        pchar->get_stats()->decrease_ranged_crit(100);
-        break;
-    }
 }
 
 void SetBonusControl::activate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces) {

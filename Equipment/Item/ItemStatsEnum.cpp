@@ -31,6 +31,8 @@ ItemStats get_item_stats_from_string(const QString& item_stat)  {
         return ItemStats::APVersusMechanical;
     else if (item_stat == "ATTACK_POWER_UNDEAD")
         return ItemStats::APVersusUndead;
+    else if (item_stat == "SWORD_SKILL")
+        return ItemStats::SkillSword;
     else if (item_stat == "STRENGTH")
         return ItemStats::Strength;
     else if (item_stat == "AGILITY")

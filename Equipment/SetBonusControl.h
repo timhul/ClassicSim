@@ -32,27 +32,6 @@ private:
     QMap<QString, QVector<QPair<int, QString>>> set_bonus_tooltips;
     QMap<QString, QMap<int, QPair<ItemStats, unsigned>>> set_bonus_effects;
 
-    void activate_warrior_r10_pvp_set_bonuses(const int num_pieces);
-    void deactivate_warrior_r10_pvp_set_bonuses(const int num_pieces);
-
-    void activate_warrior_r13_pvp_set_bonuses(const int num_pieces);
-    void deactivate_warrior_r13_pvp_set_bonuses(const int num_pieces);
-
-    void activate_paladin_r10_pvp_set_bonuses(const int num_pieces);
-    void deactivate_paladin_r10_pvp_set_bonuses(const int num_pieces);
-
-    void activate_paladin_r13_pvp_set_bonuses(const int num_pieces);
-    void deactivate_paladin_r13_pvp_set_bonuses(const int num_pieces);
-
-    void activate_hunter_r10_pvp_set_bonuses(const int num_pieces);
-    void deactivate_hunter_r10_pvp_set_bonuses(const int num_pieces);
-
-    void activate_hunter_r13_pvp_set_bonuses(const int num_pieces);
-    void deactivate_hunter_r13_pvp_set_bonuses(const int num_pieces);
-
-    void activate_arathi_basin_physical_set_bonuses(const int num_pieces);
-    void deactivate_arathi_basin_physical_set_bonuses(const int num_pieces);
-
     void activate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces);
     void deactivate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces);
 };

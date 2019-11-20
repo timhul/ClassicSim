@@ -194,7 +194,7 @@
 		<item_id value="19865"/>
 		<item_id value="19866"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="SWORD_SKILL" stat_value="6">
 		(2) Set: Increased Swords +6.
 		</bonus>
 	</set>
@@ -245,10 +245,10 @@
 		<item_id value="20048"/>
 		<item_id value="20057"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
 		(2) Set: +5 Stamina.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
 		(3) Set: Improves your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
@@ -258,10 +258,10 @@
 		<item_id value="20208"/>
 		<item_id value="20212"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
 		(2) Set: +5 Stamina.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
 		(3) Set: Improves your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
@@ -271,10 +271,10 @@
 		<item_id value="20050"/>
 		<item_id value="20055"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
 		(2) Set: +5 Stamina.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
 		(3) Set: Improves your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
@@ -284,10 +284,10 @@
 		<item_id value="20049"/>
 		<item_id value="20058"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
 		(2) Set: +5 Stamina.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
 		(3) Set: Improves your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
@@ -297,10 +297,10 @@
 		<item_id value="20154"/>
 		<item_id value="20150"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
 		(2) Set: +5 Stamina.
 		</bonus>
-		<bonus value="3">
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
 		(3) Set: Improves your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
@@ -313,13 +313,13 @@
 		<item_id value="23276"/>
 		<item_id value="23277"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="SPELL_DAMAGE" stat_value="23">
 		(2) Set: Increases damage and healing done by magical spells and effects by up to 23.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Hammer of Justice by 10 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
 		(6) Set: +20 Stamina.
 		</bonus>
 	</set>
@@ -332,13 +332,13 @@
 		<item_id value="16471"/>
 		<item_id value="16475"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
 		(2) Set: +20 Stamina.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Hammer of Justice by 10 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="SPELL_DAMAGE" stat_value="23">
 		(6) Set: Increases damage and healing done by magical spells and effects by up to 23.
 		</bonus>
 	</set>
@@ -351,13 +351,13 @@
 		<item_id value="23314"/>
 		<item_id value="23315"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="ATTACK_POWER" stat_value="40">
 		(2) Set: +40 Attack Power.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
 		(6) Set: +20 Stamina.
 		</bonus>
 	</set>
@@ -370,13 +370,13 @@
 		<item_id value="16484"/>
 		<item_id value="16479"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
 		(2) Set: +20 Stamina.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="ATTACK_POWER" stat_value="40">
 		(6) Set: +40 Attack Power.
 		</bonus>
 	</set>
@@ -389,13 +389,13 @@
 		<item_id value="23244"/>
 		<item_id value="23243"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="ATTACK_POWER" stat_value="40">
 		(2) Set: +40 Attack Power.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
 		(6) Set: +20 Stamina.
 		</bonus>
 	</set>
@@ -408,13 +408,13 @@
 		<item_id value="16548"/>
 		<item_id value="16543"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
 		(2) Set: +20 Stamina.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="ATTACK_POWER" stat_value="40">
 		(6) Set: +40 Attack Power.
 		</bonus>
 	</set>
@@ -637,13 +637,13 @@
 		<item_id value="23306"/>
 		<item_id value="23307"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="AGILITY" stat_value="20">
 		(2) Set: +20 Agility.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
 		(6) Set: +20 Stamina.
 		</bonus>
 	</set>
@@ -656,13 +656,13 @@
 		<item_id value="22874"/>
 		<item_id value="22875"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="AGILITY" stat_value="20">
 		(2) Set: +20 Agility.
 		</bonus>
 		<bonus value="4">
 		(4) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="STAMINA" stat_value="20">
 		(6) Set: +20 Stamina.
 		</bonus>
 	</set>
@@ -675,13 +675,13 @@
 		<item_id value="16463"/>
 		<item_id value="16467"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
 		(2) Set: +20 Stamina.
 		</bonus>
 		<bonus value="3">
 		(3) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="AGILITY" stat_value="20">
 		(6) Set: +20 Agility.
 		</bonus>
 	</set>
@@ -694,13 +694,13 @@
 		<item_id value="16566"/>
 		<item_id value="16568"/>
 
-		<bonus value="2">
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
 		(2) Set: +20 Stamina.
 		</bonus>
 		<bonus value="3">
 		(3) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
 		</bonus>
-		<bonus value="6">
+		<bonus value="6" item_stat="AGILITY" stat_value="20">
 		(6) Set: +20 Agility.
 		</bonus>
 	</set>
