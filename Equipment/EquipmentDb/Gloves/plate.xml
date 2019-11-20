@@ -24,6 +24,19 @@
 		</source>
 	</item>
 
+	<item id="12639" phase="2">
+		<info name="Stronghold Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="UNCOMMON" boe="no" icon="Inv_gauntlets_30.png"/>
+		<stats>
+			<stat type="ARMOR" value="441"/>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+			Blacksmith crafted.
+		</source>
+	</item>
+
 	<item id="18722" phase="1">
 		<info name="Death Grips" type="PLATE" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_13.png"/>
 		<stats>

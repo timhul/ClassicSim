@@ -482,7 +482,7 @@
 		<bonus value="3">
 		(3) Set: Reduces the cooldown of your Vanish ability by 30 sec.
 		</bonus>
-		<bonus value="5" item_stat="AGILITY" stat_value="10">
+		<bonus value="5">
 		(5) Set: Increases your maximum Energy by 10.
 		</bonus>
 		<bonus value="8">
