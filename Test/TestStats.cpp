@@ -21,12 +21,53 @@ void TestStats::test_all() {
     tear_down();
 
     set_up();
+    test_values_after_add_and_remove_from_another_stats_element();
+    tear_down();
+
+    set_up();
     test_weapon_skill_gains();
     tear_down();
 }
 
 void TestStats::test_values_after_initialization() {
+    assert(stats->get_spell_damage(MagicSchool::Arcane) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Fire) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Frost) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Holy) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Physical) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Nature) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Shadow) == 0);
+}
 
+void TestStats::test_values_after_add_and_remove_from_another_stats_element() {
+    auto stats_copy = new Stats();
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Arcane);
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Fire);
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Frost);
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Holy);
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Physical);
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Nature);
+    stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Shadow);
+
+    stats->add(stats_copy);
+    assert(stats->get_spell_damage(MagicSchool::Arcane) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Fire) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Frost) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Holy) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Physical) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Nature) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Shadow) == 1);
+
+    stats->remove(stats_copy);
+    assert(stats->get_spell_damage(MagicSchool::Arcane) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Fire) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Frost) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Holy) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Physical) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Nature) == 0);
+    assert(stats->get_spell_damage(MagicSchool::Shadow) == 0);
+
+    delete stats_copy;
 }
 
 void TestStats::test_weapon_skill_gains() {

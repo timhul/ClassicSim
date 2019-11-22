@@ -17,5 +17,6 @@ private:
     void tear_down();
 
     void test_values_after_initialization() override;
+    void test_values_after_add_and_remove_from_another_stats_element();
     void test_weapon_skill_gains();
 };
