@@ -56,7 +56,20 @@ void SetBonusControl::equip_item(const int item_id) {
     if (set_bonus_effects.contains(set_name) && set_bonus_effects[set_name].contains(num_pieces))
         pchar->get_stats()->increase_stat(set_bonus_effects[set_name][num_pieces].first, set_bonus_effects[set_name][num_pieces].second);
 
-    if (set_name == "Nightslayer Armor") {
+    if (set_name == "Shadowcraft Armor") {
+        switch (num_pieces) {
+        case 6:
+            if (!active_procs.contains("SHADOWCRAFT_GAIN"))
+                active_procs["SHADOWCRAFT_GAIN"] = new ResourceGainProc(pchar,
+                                                                        "Shadowcraft 6 set",
+                                                                        "Assets/items/Inv_helmet_41.png",
+                                                                        {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
+                                                                        0.01, ResourceType::Energy, 35, 35);
+            active_procs["SHADOWCRAFT_GAIN"]->enable_proc();
+            break;
+        }
+    }
+    else if (set_name == "Nightslayer Armor") {
         switch (num_pieces) {
         case 5:
             static_cast<Rogue*>(pchar)->get_energy()->max += 10;
@@ -254,7 +267,14 @@ void SetBonusControl::unequip_item(const int item_id) {
     if (set_bonus_effects.contains(set_name) && set_bonus_effects[set_name].contains(num_pieces))
         pchar->get_stats()->decrease_stat(set_bonus_effects[set_name][num_pieces].first, set_bonus_effects[set_name][num_pieces].second);
 
-    if (set_name == "Nightslayer Armor") {
+    if (set_name == "Shadowcraft Armor") {
+        switch (num_pieces) {
+        case 6:
+            active_procs["SHADOWCRAFT_GAIN"]->disable_proc();
+            break;
+        }
+    }
+    else if (set_name == "Nightslayer Armor") {
         switch (num_pieces) {
         case 5:
             static_cast<Rogue*>(pchar)->get_energy()->max -= 10;
