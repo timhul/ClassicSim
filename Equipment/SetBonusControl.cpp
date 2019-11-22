@@ -115,7 +115,7 @@ void SetBonusControl::equip_item(const int item_id) {
                                                                           "Beaststalker 6 set",
                                                                           "Assets/items/Inv_belt_28.png",
                                                                           {ProcInfo::RangedAutoShot},
-                                                                          0.04, 200, 200);
+                                                                          0.04, ResourceType::Mana, 200, 200);
             active_procs["BEASTSTALKER_DRAIN"]->enable_proc();
             break;
         }
@@ -128,7 +128,7 @@ void SetBonusControl::equip_item(const int item_id) {
                                                                          "Beastmaster 4 set",
                                                                          "Assets/items/Inv_belt_28.png",
                                                                          {ProcInfo::RangedAutoShot},
-                                                                         0.04, 200, 200);
+                                                                         0.04, ResourceType::Mana, 200, 200);
             active_procs["BEASTMASTER_DRAIN"]->enable_proc();
             break;
         }

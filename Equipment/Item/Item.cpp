@@ -479,7 +479,7 @@ void Item::set_procs(const int eq_slot) {
             };
 
             proc = new ResourceGainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png",
-                                        proc_sources, proc_rate, i["min"].toUInt(), i["max"].toUInt());
+                                        proc_sources, proc_rate, ResourceType::Mana, i["min"].toUInt(), i["max"].toUInt());
         }
         else if (proc_name == "NIGHTFALL") {
             Buff* buff = new Nightfall(pchar);

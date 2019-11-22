@@ -7,32 +7,34 @@
 #include "Random.h"
 #include "StatisticsResource.h"
 
-ResourceGainProc::ResourceGainProc(Character* pchar,
+ResourceGainProc::ResourceGainProc(Character* pchar_,
                                    const QString& proc_name,
-                                   const QString& icon,
-                                   const QVector<ProcInfo::Source>& proc_sources,
+                                   const QString& icon_,
+                                   const QVector<ProcInfo::Source>& proc_sources_,
                                    const double proc_rate,
-                                   const unsigned min_drain,
-                                   const unsigned max_drain) :
-    Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
-    drain_roll(new Random(min_drain, max_drain)),
-    statistics_resource(nullptr)
+                                   const ResourceType gain_resource_type,
+                                   const unsigned min_gain,
+                                   const unsigned max_gain) :
+    Proc(proc_name, icon_, proc_rate, 0, QVector<Proc*>(), proc_sources_, pchar_),
+    gain_roll(new Random(min_gain, max_gain)),
+    statistics_resource(nullptr),
+    gain_resource_type(gain_resource_type)
 {}
 
 ResourceGainProc::~ResourceGainProc() {
-    delete drain_roll;
+    delete gain_roll;
 }
 
 void ResourceGainProc::proc_effect() {
-    unsigned mana_gain = drain_roll->get_roll();
+    const unsigned resource_gain = gain_roll->get_roll();
 
-    unsigned mana_before = pchar->get_resource_level(ResourceType::Mana);
-    pchar->gain_mana(mana_gain);
+    const unsigned resource_before = pchar->get_resource_level(gain_resource_type);
+    pchar->gain_resource(gain_resource_type, resource_gain);
 
-    unsigned delta = pchar->get_resource_level(ResourceType::Mana) - mana_before;
+    const unsigned delta = pchar->get_resource_level(gain_resource_type) - resource_before;
 
     if (delta > 0)
-        statistics_resource->add_resource_gain(ResourceType::Mana, delta);
+        statistics_resource->add_resource_gain(gain_resource_type, delta);
 }
 
 void ResourceGainProc::prepare_set_of_combat_iterations_spell_specific() {
