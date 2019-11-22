@@ -17,11 +17,11 @@
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
 #include "MageSpells.h"
-#include "ManaDrainProc.h"
 #include "MultiShot.h"
 #include "Pet.h"
 #include "RapidFire.h"
 #include "RapidFireBuff.h"
+#include "ResourceGainProc.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SetBonusFileReader.h"
@@ -111,11 +111,11 @@ void SetBonusControl::equip_item(const int item_id) {
         switch (num_pieces) {
         case 6:
             if (!active_procs.contains("BEASTSTALKER_DRAIN"))
-                active_procs["BEASTSTALKER_DRAIN"] = new ManaDrainProc(pchar,
-                                                                       "Beaststalker 6 set",
-                                                                       "Assets/items/Inv_belt_28.png",
-                                                                       {ProcInfo::RangedAutoShot},
-                                                                       0.04, 200, 200);
+                active_procs["BEASTSTALKER_DRAIN"] = new ResourceGainProc(pchar,
+                                                                          "Beaststalker 6 set",
+                                                                          "Assets/items/Inv_belt_28.png",
+                                                                          {ProcInfo::RangedAutoShot},
+                                                                          0.04, 200, 200);
             active_procs["BEASTSTALKER_DRAIN"]->enable_proc();
             break;
         }
@@ -124,11 +124,11 @@ void SetBonusControl::equip_item(const int item_id) {
         switch (num_pieces) {
         case 4:
             if (!active_procs.contains("BEASTMASTER_DRAIN"))
-                active_procs["BEASTMASTER_DRAIN"] = new ManaDrainProc(pchar,
-                                                                      "Beastmaster 4 set",
-                                                                      "Assets/items/Inv_belt_28.png",
-                                                                      {ProcInfo::RangedAutoShot},
-                                                                      0.04, 200, 200);
+                active_procs["BEASTMASTER_DRAIN"] = new ResourceGainProc(pchar,
+                                                                         "Beastmaster 4 set",
+                                                                         "Assets/items/Inv_belt_28.png",
+                                                                         {ProcInfo::RangedAutoShot},
+                                                                         0.04, 200, 200);
             active_procs["BEASTMASTER_DRAIN"]->enable_proc();
             break;
         }

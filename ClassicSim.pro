@@ -17,6 +17,7 @@ SOURCES += main.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
     Class/Common/Buffs/SuppressCastBuff.cpp \
     Class/Common/Buffs/ZandalarianHeroCharm.cpp \
+    Class/Common/Procs/ResourceGainProc.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
@@ -463,7 +464,6 @@ SOURCES += main.cpp \
     Resource/Focus.cpp \
     Resource/RegeneratingResource.cpp \
     Class/Common/Spells/ResourceTick.cpp \
-    Class/Common/Procs/ManaDrainProc.cpp \
     Class/Hunter/Spells/BestialWrath.cpp \
     Class/Hunter/Buffs/BestialWrathBuff.cpp \
     Class/Hunter/Buffs/FrenzyBuff.cpp \
@@ -494,6 +494,7 @@ HEADERS += \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
     Class/Common/Buffs/SuppressCastBuff.h \
     Class/Common/Buffs/ZandalarianHeroCharm.h \
+    Class/Common/Procs/ResourceGainProc.h \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
@@ -955,7 +956,6 @@ HEADERS += \
     Resource/Focus.h \
     Resource/RegeneratingResource.h \
     Class/Common/Spells/ResourceTick.h \
-    Class/Common/Procs/ManaDrainProc.h \
     Class/Hunter/Spells/BestialWrath.h \
     Class/Hunter/Buffs/BestialWrathBuff.h \
     Class/Hunter/Buffs/FrenzyBuff.h \

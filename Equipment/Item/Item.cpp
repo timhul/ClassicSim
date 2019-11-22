@@ -26,9 +26,9 @@
 #include "InstantSpellProc.h"
 #include "ItemModificationRequirer.h"
 #include "JomGabbar.h"
-#include "ManaDrainProc.h"
 #include "Nightfall.h"
 #include "NoEffectSelfBuff.h"
+#include "ResourceGainProc.h"
 #include "SpellRankGroup.h"
 #include "Stats.h"
 #include "Target.h"
@@ -478,8 +478,8 @@ void Item::set_procs(const int eq_slot) {
                 ProcInfo::Source::RangedSpell
             };
 
-            proc = new ManaDrainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png",
-                                     proc_sources, proc_rate, i["min"].toUInt(), i["max"].toUInt());
+            proc = new ResourceGainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png",
+                                        proc_sources, proc_rate, i["min"].toUInt(), i["max"].toUInt());
         }
         else if (proc_name == "NIGHTFALL") {
             Buff* buff = new Nightfall(pchar);
