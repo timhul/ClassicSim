@@ -67,6 +67,20 @@
 		</source>
 	</item>
 
+	<item id="16712" phase="1">
+		<info name="Shadowcraft Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_24.png"/>
+		<stats>
+			<stat type="ARMOR" value="105"/>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPIRIT" value="10"/>
+		</stats>
+		<source>
+			Blackrock Spire. Shadow Hunter Vosh'gajin.
+		</source>
+	</item>
+
 	<item id="13395" phase="1">
 		<info name="Skul's Fingerbone Claws" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_gauntlets_27.png"/>
 		<stats>

@@ -27,6 +27,18 @@
 		</source>
 	</wrist>
 
+	<wrist id="16710" phase="1">
+		<info name="Shadowcraft Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_bracer_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="71"/>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+        Scholomance trash drop.
+		</source>
+	</wrist>
+
 	<wrist id="16825" phase="1">
 		<info name="Nightslayer Bracelets" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_bracer_02.png"/>
 		<class_restriction class="ROGUE"/>
