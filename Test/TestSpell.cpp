@@ -816,12 +816,12 @@ void TestSpell::given_1000_ranged_ap() {
 
 void TestSpell::given_1000_spell_power() {
     pchar->get_stats()->increase_base_spell_damage(1000);
-    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Arcane) == 1000);
-    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) == 1000);
-    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Frost) == 1000);
-    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Holy) == 1000);
-    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Nature) == 1000);
-    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Shadow) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Arcane, ConsumeCharge::No) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Fire, ConsumeCharge::No) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Frost, ConsumeCharge::No) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Holy, ConsumeCharge::No) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Nature, ConsumeCharge::No) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Shadow, ConsumeCharge::No) == 1000);
 }
 
 void TestSpell::given_target_has_0_armor() {
@@ -1028,14 +1028,14 @@ void TestSpell::given_character_has_strength(const int value) {
 }
 
 void TestSpell::given_character_has_spell_damage(const unsigned value, const MagicSchool school) {
-    int delta = static_cast<int>(value) - static_cast<int>(pchar->get_stats()->get_spell_damage(school));
+    int delta = static_cast<int>(value) - static_cast<int>(pchar->get_stats()->get_spell_damage(school, ConsumeCharge::No));
 
     if (delta < 0)
         pchar->get_stats()->increase_base_spell_damage(static_cast<unsigned>(-delta));
     else
         pchar->get_stats()->increase_base_spell_damage(static_cast<unsigned>(delta));
 
-    assert(pchar->get_stats()->get_spell_damage(school) == value);
+    assert(pchar->get_stats()->get_spell_damage(school, ConsumeCharge::No) == value);
 }
 
 void TestSpell::given_engine_priority_at(const double priority) {
