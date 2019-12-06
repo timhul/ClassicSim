@@ -347,7 +347,7 @@
 		</source>
 	</melee_weapon>
 	
-	<melee_weapon id="9" phase="1">
+	<melee_weapon id="13368" phase="1">
 		<info name="Bonescraper" type="DAGGER" slot="1H" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_12.png"/>
 		<dmg_range min="40" max="74" speed="1.4"/>
 		<stats>
