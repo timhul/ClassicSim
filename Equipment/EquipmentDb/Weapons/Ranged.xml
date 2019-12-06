@@ -81,6 +81,17 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18680" phase="1">
+		<info name="Ancient Bone Bow" type="BOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_bow_08.png"/>
+		<dmg_range min="61" max="114" speed="2.8"/>
+		<stats>
+			<stat type="AGILITY" value="11"/>
+		</stats>
+		<source>
+        Drops from various bosses in Scholomance.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18738" phase="1">
 		<info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="82" max="124" speed="3.3"/>
