@@ -230,9 +230,8 @@
 	<item id="19377" phase="3">
 		<info name="Prestor's Talisman of Connivery" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_17.png"/>
 		<stats>
-			<stat type="AGILITY" value="25"/>
+			<stat type="AGILITY" value="30"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
-			<stat type="ATTACK_POWER" value="22"/>
 		</stats>
 		<source>
 			Drops from Nefarian in Blackwing Lair.
