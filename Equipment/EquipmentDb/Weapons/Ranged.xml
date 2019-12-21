@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="13039" phase="1">
+		<info name="Skull Splitting Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="43" item_lvl="48" quality="RARE" boe="yes" icon="Inv_weapon_crossbow_04.png"/>
+		<dmg_range min="52" max="79" speed="2.6"/>
+		<stats>
+			<stat type="STRENGTH" value="3"/>
+			<stat type="ATTACK_POWER" value="14"/>
+		</stats>
+		<source>
+			Random world drop.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="12651" phase="1">
 		<info name="Blackcrow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="77" max="117" speed="3.2"/>
