@@ -16,10 +16,10 @@ private:
     Rogue* rogue;
     StatisticsResource* statistics_resource {nullptr};
     unsigned improved_bs {0};
-    double lethality {1.0};
+    double lethality {0.0};
     double opportunity {1.0};
     QVector<unsigned> imp_bs_ranks {0, 1000, 2000, 3000};
-    QVector<double> lethality_ranks {1.0, 1.06, 1.12, 1.18, 1.24, 1.30};
+    QVector<double> lethality_ranks {0.0, 0.06, 0.12, 0.18, 0.24, 0.30};
     QVector<double> opportunity_ranks {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
     unsigned bonescythe_energy {0};
 

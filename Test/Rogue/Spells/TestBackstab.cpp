@@ -229,9 +229,9 @@ void TestBackstab::test_crit_dmg_1_of_5_lethality() {
 
     when_backstab_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
-    // [1181] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * 2.0 * 1.06
-    then_damage_dealt_is(1181);
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * (base_crit_dmg_modifier + lethality)
+    // [1148] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * (2.0 + 0.06)
+    then_damage_dealt_is(1148);
 }
 
 void TestBackstab::test_crit_dmg_2_of_5_lethality() {
@@ -244,9 +244,9 @@ void TestBackstab::test_crit_dmg_2_of_5_lethality() {
 
     when_backstab_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
-    // [1248] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * 2.0 * 1.12
-    then_damage_dealt_is(1248);
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * (base_crit_dmg_modifier + lethality)
+    // [1181] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * (2.0 + 0.12)
+    then_damage_dealt_is(1181);
 }
 
 void TestBackstab::test_crit_dmg_3_of_5_lethality() {
@@ -259,9 +259,9 @@ void TestBackstab::test_crit_dmg_3_of_5_lethality() {
 
     when_backstab_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
-    // [1315] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * 2.0 * 1.18
-    then_damage_dealt_is(1315);
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * (base_crit_dmg_modifier + lethality)
+    // [1215] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * (2.0 + 0.18)
+    then_damage_dealt_is(1215);
 }
 
 void TestBackstab::test_crit_dmg_4_of_5_lethality() {
@@ -274,9 +274,9 @@ void TestBackstab::test_crit_dmg_4_of_5_lethality() {
 
     when_backstab_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
-    // [1382] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * 2.0 * 1.24
-    then_damage_dealt_is(1382);
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * (base_crit_dmg_modifier + lethality)
+    // [1248] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * (2.0 + 0.24)
+    then_damage_dealt_is(1248);
 }
 
 void TestBackstab::test_crit_dmg_5_of_5_lethality() {
@@ -289,9 +289,9 @@ void TestBackstab::test_crit_dmg_5_of_5_lethality() {
 
     when_backstab_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
-    // [1449] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * 2.0 * 1.30
-    then_damage_dealt_is(1449);
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * (base_crit_dmg_modifier + lethality)
+    // [1281] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * (2.0 + 0.30)
+    then_damage_dealt_is(1281);
 }
 
 void TestBackstab::test_hit_dmg_1_of_5_opportunity() {
@@ -370,9 +370,9 @@ void TestBackstab::test_crit_dmg_both_5_of_5_lethality_and_opportunity() {
 
     when_backstab_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * opportunity * lethality
-    // [1738] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * 2.0 * 1.20 * 1.30
-    then_damage_dealt_is(1738);
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * (base_crit_dmg_modifier + lethality) * opportunity
+    // [1538] = ((100 + 1.7 * 1000 / 14) * 1.5 + 225) * (2.0 + 0.30) * 1.20
+    then_damage_dealt_is(1538);
 }
 
 void TestBackstab::when_backstab_is_performed() {

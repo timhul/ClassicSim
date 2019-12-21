@@ -183,9 +183,9 @@ void TestHemorrhage::test_crit_dmg_1_of_5_lethality() {
 
     when_hemorrhage_is_performed();
 
-    // [Damage] = (base_dmg + non_normalized_wpn_speed * AP / 14) * crit_dmg_modifier * lethality
-    // [606] = (100 + 2.6 * 1000 / 14) * 2.0 * 1.06
-    then_damage_dealt_is(606);
+    // [Damage] = (base_dmg + non_normalized_wpn_speed * AP / 14) * (base_crit_dmg_modifier + lethality)
+    // [589] = (100 + 2.6 * 1000 / 14) * (2.0 + 0.06)
+    then_damage_dealt_is(589);
 }
 
 void TestHemorrhage::test_crit_dmg_2_of_5_lethality() {
@@ -199,9 +199,9 @@ void TestHemorrhage::test_crit_dmg_2_of_5_lethality() {
 
     when_hemorrhage_is_performed();
 
-    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * crit_dmg_modifier * lethality
-    // [640] = (100 + 2.6 * 1000 / 14) * 2.0 * 1.12
-    then_damage_dealt_is(640);
+    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * (base_crit_dmg_modifier + lethality)
+    // [606] = (100 + 2.6 * 1000 / 14) * (2.0 + 0.12)
+    then_damage_dealt_is(606);
 }
 
 void TestHemorrhage::test_crit_dmg_3_of_5_lethality() {
@@ -215,9 +215,9 @@ void TestHemorrhage::test_crit_dmg_3_of_5_lethality() {
 
     when_hemorrhage_is_performed();
 
-    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * crit_dmg_modifier * lethality
-    // [674] = (100 + 2.6 * 1000 / 14) * 2.0 * 1.18
-    then_damage_dealt_is(674);
+    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * (base_crit_dmg_modifier + lethality)
+    // [623] = (100 + 2.6 * 1000 / 14) * (2.0 + 0.18)
+    then_damage_dealt_is(623);
 }
 
 void TestHemorrhage::test_crit_dmg_4_of_5_lethality() {
@@ -231,9 +231,9 @@ void TestHemorrhage::test_crit_dmg_4_of_5_lethality() {
 
     when_hemorrhage_is_performed();
 
-    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * crit_dmg_modifier * lethality
-    // [709] = (100 + 2.6 * 1000 / 14) * 2.0 * 1.24
-    then_damage_dealt_is(709);
+    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * (base_crit_dmg_modifier + lethality)
+    // [640] = (100 + 2.6 * 1000 / 14) * (2.0 + 0.24)
+    then_damage_dealt_is(640);
 }
 
 void TestHemorrhage::test_crit_dmg_5_of_5_lethality() {
@@ -247,9 +247,9 @@ void TestHemorrhage::test_crit_dmg_5_of_5_lethality() {
 
     when_hemorrhage_is_performed();
 
-    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * crit_dmg_modifier * lethality
-    // [743] = (100 + 2.6 * 1000 / 14) * 2.0 * 1.30
-    then_damage_dealt_is(743);
+    // [Damage] = ((base_dmg + non_normalized_wpn_speed * AP / 14)) * (base_crit_dmg_modifier + lethality)
+    // [657] = (100 + 2.6 * 1000 / 14) * (2.0 + 0.30)
+    then_damage_dealt_is(657);
 }
 
 void TestHemorrhage::when_hemorrhage_is_performed() {

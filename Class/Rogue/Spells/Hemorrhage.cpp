@@ -15,7 +15,7 @@ Hemorrhage::Hemorrhage(Rogue* rogue) :
                    }),
     SetBonusRequirer({"Bonescythe Armor"}),
     rogue(rogue),
-    lethality_ranks({1.0, 1.06, 1.12, 1.18, 1.24, 1.30})
+    lethality_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
 {
     this->enabled = false;
 }
@@ -53,7 +53,7 @@ void Hemorrhage::spell_effect() {
     double damage_dealt = damage_after_modifiers(rogue->get_random_non_normalized_mh_dmg());
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt *= rogue->get_stats()->get_melee_ability_crit_dmg_mod() * lethality;
+        damage_dealt *= (rogue->get_stats()->get_melee_ability_crit_dmg_mod() + lethality);
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 

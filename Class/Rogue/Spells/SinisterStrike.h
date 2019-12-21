@@ -16,7 +16,7 @@ private:
     Rogue* rogue;
     StatisticsResource* statistics_resource {nullptr};
     double aggression {1.0};
-    double lethality {1.0};
+    double lethality {0.0};
     const QVector<unsigned> imp_ss_ranks;
     const QVector<double> aggression_ranks;
     const QVector<double> lethality_ranks;

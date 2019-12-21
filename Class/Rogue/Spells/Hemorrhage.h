@@ -15,7 +15,7 @@ public:
 private:
     Rogue* rogue;
     StatisticsResource* statistics_resource {nullptr};
-    double lethality {1.0};
+    double lethality {0.0};
     const QVector<double> lethality_ranks;
     unsigned bonescythe_energy {0};
 

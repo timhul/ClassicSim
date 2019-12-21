@@ -21,7 +21,7 @@ SinisterStrike::SinisterStrike(Rogue* rogue) :
     rogue(rogue),
     imp_ss_ranks({45, 42, 40}),
     aggression_ranks({1.0, 1.02, 1.04, 1.06}),
-    lethality_ranks({1.0, 1.06, 1.12, 1.18, 1.24, 1.30})
+    lethality_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
 {}
 
 SinisterStrike::~SinisterStrike() {
@@ -58,7 +58,7 @@ void SinisterStrike::spell_effect() {
     double damage_dealt = damage_after_modifiers(base_dmg * aggression);
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * rogue->get_stats()->get_melee_ability_crit_dmg_mod() * lethality);
+        damage_dealt = round(damage_dealt * (rogue->get_stats()->get_melee_ability_crit_dmg_mod() + lethality));
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 
