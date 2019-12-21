@@ -115,7 +115,7 @@
 		<bonus value="4" item_stat="ATTACK_POWER" stat_value="40">
 		(4) Set: +40 Attack Power.
 		</bonus>
-		<bonus value="6" item_stat="AGILITY" stat_value="30">
+		<bonus value="6">
 		(6) Set: Chance on melee attack to restore 35 energy.
 		</bonus>
 		<bonus value="8">
