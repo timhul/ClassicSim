@@ -8,6 +8,7 @@
 
 	<file path="Rotations/Rogue/Combat.xml"/>
 	<file path="Rotations/Rogue/CombatDagger.xml"/>
+	<file path="Rotations/Rogue/SealFateDagger.xml"/>
 	<file path="Rotations/Rogue/Hemorrhage.xml"/>
 
 	<file path="Rotations/Hunter/Marksmanship.xml"/>
