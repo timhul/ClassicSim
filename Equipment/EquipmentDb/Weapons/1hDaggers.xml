@@ -142,6 +142,21 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="19324" phase="2">
+		<info name="The Lobotomizer" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_sword_29.png"/>
+		<dmg_range min="59" max="111" speed="1.8"/>
+		<proc>
+			<!-- TODO: Find actual proc rate -->
+			<spell name="PHYSICAL_ATTACK" min="200" max="300" instant="yes" rate="0.01" internal_cd="0" spell_dmg_coefficient="0.0" proc_weapon_side="true"/>
+		</proc>
+		<source>
+			Purchased from Alterac Valley faction upon reaching Exalted.
+		</source>
+		<special_equip_effect>
+			Chance on hit: Wounds the target for 200 to 300 damage and lowers Intellect of target by 25 for 30 sec.
+		</special_equip_effect>
+	</melee_weapon>
+
 	<melee_weapon id="19347" phase="3">
 		<info name="Claw of Chromaggus" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_28.png"/>
 		<dmg_range min="37" max="90" speed="1.5"/>
