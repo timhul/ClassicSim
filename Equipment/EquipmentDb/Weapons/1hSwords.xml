@@ -44,8 +44,7 @@
 		<info name="Argent Avenger" type="SWORD" slot="1H" unique="no" req_lvl="55" item_lvl="62" quality="RARE" boe="no" icon="Inv_sword_05.png"/>
 		<dmg_range min="71" max="108" speed="2.2"/>
 		<proc>
-			<spell name="GENERIC_STAT_BUFF" type="ATTACK_POWER_UNDEAD" amount="200" instant="yes" rate="0.041666677" duration="10" internal_cd="0"/>
-			<source proc_melee_weapon_side="true"/>
+			<spell name="GENERIC_STAT_BUFF" type="ATTACK_POWER_UNDEAD" amount="200" instant="yes" rate="0.041666677" duration="10" internal_cd="0" proc_melee_weapon_side="true"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Increases Attack Power against Undead by 200 for 10 sec.
@@ -98,8 +97,7 @@
 		<info name="Lord General's Sword" type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="no" icon="Inv_sword_25.png"/>
 		<dmg_range min="67" max="125" speed="2.6"/>
 		<proc>
-			<spell name="GENERIC_STAT_BUFF" type="ATTACK_POWER" amount="50" instant="yes" rate="0.08" duration="30" internal_cd="0"/>
-			<source proc_melee_weapon_side="true"/>
+			<spell name="GENERIC_STAT_BUFF" type="ATTACK_POWER" amount="50" instant="yes" rate="0.08" duration="30" internal_cd="0" proc_melee_weapon_side="true"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Increases attack power by 50 for 30 sec.

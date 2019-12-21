@@ -122,8 +122,7 @@
 		<info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
 		<dmg_range min="94" max="175" speed="2.8"/>
 		<proc>
-			<spell name="GENERIC_STAT_BUFF" type="ATTACK_SPEED" amount="20" instant="yes" rate="0.07" duration="10" internal_cd="0"/>
-			<source proc_melee_weapon_side="true"/>
+			<spell name="GENERIC_STAT_BUFF" type="ATTACK_SPEED" amount="20" instant="yes" rate="0.07" duration="10" internal_cd="0" proc_melee_weapon_side="true"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Increases your attack speed by 20% for 10 sec.

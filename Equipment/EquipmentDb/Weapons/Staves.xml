@@ -456,8 +456,7 @@
 			<stat type="SPELL_DAMAGE" value="56"/>
 		</stats>
 		<proc>
-			<spell name="GENERIC_STAT_BUFF" type="SPELL_PENETRATION" amount="50" instant="yes" rate="0.05" duration="8" internal_cd="0"/>
-			<source proc_magic_hit="true"/>
+			<spell name="GENERIC_STAT_BUFF" type="SPELL_PENETRATION" amount="50" instant="yes" rate="0.05" duration="8" internal_cd="0" proc_magic_hit="true"/>
 		</proc>
 		<source>
 		Quest reward. Requires expensive materials and boss drop from Temple of Ahn'Qiraj (AQ40).
