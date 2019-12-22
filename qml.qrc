@@ -991,5 +991,6 @@
         <file>QML/Assets/items/Inv_weapon_shortblade_04.png</file>
         <file>QML/Assets/items/Inv_axe_11.png</file>
         <file>QML/Assets/items/Inv_sword_29.png</file>
+        <file>QML/Assets/items/Inv_staff_21.png</file>
     </qresource>
 </RCC>
