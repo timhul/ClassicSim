@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="18715" phase="1">
+		<info name="Lok'delar, Stave of the Ancient Keepers" type="STAFF" slot="2H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_staff_21.png"/>
+		<dmg_range min="187" max="282" speed="3.2"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER_DEMON" value="45"/>
+		</stats>
+		<source>
+        Quest reward. Quest chain starts with drop from Majordomo Executus in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="873" phase="1">
 		<info name="Staff of Jordan" type="STAFF" slot="2H" unique="no" req_lvl="35" item_lvl="40" quality="EPIC" boe="yes" icon="Inv_staff_13.png"/>
 		<dmg_range min="119" max="180" speed="3.7"/>
