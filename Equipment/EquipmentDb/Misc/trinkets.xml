@@ -176,7 +176,7 @@
 	</item>
 	
 	<item id="18465" phase="2">
-		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="54" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_09.png"/>
+		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="54" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
 			<stat type="FIRE_RESISTANCE" value="10"/>
