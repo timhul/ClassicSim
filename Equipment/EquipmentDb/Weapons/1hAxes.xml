@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="811" phase="1">
+		<info name="Axe of the Deep Woods" type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>
+		<dmg_range min="78" max="146" speed="2.7"/>
+		<proc>
+			<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.045" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Blasts a target for 90 to 127 Nature damage.
+		</special_equip_effect>
+		<source>
+			World drop.
+		</source>
+	</melee_weapon>
+	
 	<melee_weapon id="871" phase="1">
 		<info name="Flurry Axe" type="AXE" slot="1H" unique="no" req_lvl="42" item_lvl="47" quality="EPIC" boe="yes" icon="Inv_axe_17.png"/>
 		<dmg_range min="37" max="69" speed="1.5"/>
@@ -26,34 +40,6 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="811" phase="1">
-		<info name="Axe of the Deep Woods" type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>
-		<dmg_range min="78" max="146" speed="2.7"/>
-		<proc>
-			<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.045" internal_cd="0" spell_dmg_coefficient="0.0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Blasts a target for 90 to 127 Nature damage.
-		</special_equip_effect>
-		<source>
-			World drop.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="13286" phase="1">
-		<info name="Rivenspike" type="AXE" slot="1H" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_pick_05.png"/>
-		<dmg_range min="77" max="144" speed="2.9"/>
-		<proc>
-			<spell name="ARMOR_PENETRATION" value="200" max_stacks="3" duration="30" rate="0.04" internal_cd="0"/>
-		</proc>
-		<special_equip_effect>
-			Chance on hit: Puncture's target's armor lowering it by 200. Can be applied up to 3 times.
-		</special_equip_effect>
-		<source>
-			Drops from Spirestone Butcher in Lower Blackrock Spire (LBRS).
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="12621" phase="1">
 		<info name="Demonfork" type="AXE" slot="MH" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_halberd_11.png"/>
 		<dmg_range min="76" max="142" speed="2.8"/>
@@ -65,6 +51,20 @@
 		</special_equip_effect>
 		<source>
 			Drops from Bannok Grimaxe in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+	
+	<melee_weapon id="13286" phase="1">
+		<info name="Rivenspike" type="AXE" slot="1H" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_pick_05.png"/>
+		<dmg_range min="77" max="144" speed="2.9"/>
+		<proc>
+			<spell name="ARMOR_PENETRATION" value="200" max_stacks="3" duration="30" rate="0.04" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
+			Chance on hit: Puncture's target's armor lowering it by 200. Can be applied up to 3 times.
+		</special_equip_effect>
+		<source>
+			Drops from Spirestone Butcher in Lower Blackrock Spire (LBRS).
 		</source>
 	</melee_weapon>
 
@@ -94,19 +94,18 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="18828" phase="2">
-		<info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
-		<dmg_range min="138" max="207" speed="2.9"/>
+	<melee_weapon id="18737" phase="1">
+		<info name="Bone Slicing Hatchet" type="AXE" slot="1H" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_axe_11.png"/>
+		<dmg_range min="48" max="90" speed="1.7"/>
 		<stats>
-			<stat type="ATTACK_POWER" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="STAMINA" value="7"/>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STAMINA" value="5"/>
 		</stats>
 		<source>
-			May be purchased upon reaching High Warlord (rank 14). Horde only.
+			Drops from Maleki the Pallid in Stratholme
 		</source>
 	</melee_weapon>
-
+	
 	<melee_weapon id="18827" phase="2">
 		<info name="Grand Marshal's Handaxe" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_24.png"/>
 		<dmg_range min="138" max="207" speed="2.9"/>
@@ -117,6 +116,19 @@
 		</stats>
 		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+	
+	<melee_weapon id="18828" phase="2">
+		<info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
 		</source>
 	</melee_weapon>
 
@@ -156,18 +168,6 @@
 		</source>
 	</melee_weapon>
 
-		<melee_weapon id="19921" phase="4">
-		<info name="Zulian Hacker" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
-		<dmg_range min="71" max="134" speed="2.4"/>
-		<stats>
-			<stat type="AXE_SKILL" value="2"/>
-			<!-- <stat type="RANDOM_AFFIX" value="0"/> -->
-		</stats>
-		<source>
-			Random drop from trash in Zul'Gurub.
-		</source>
-	</melee_weapon>
-
 	<melee_weapon id="19852" phase="4">
 		<info name="Ancient Hakkari Manslayer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
 		<dmg_range min="69" max="130" speed="2.0"/>
@@ -181,7 +181,36 @@
 			Drops from Hakkar the Soulflayer in Zul'Gurub.
 		</source>
 	</melee_weapon>
+	
+	<melee_weapon id="19921" phase="4">
+		<info name="Zulian Hacker" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
+		<dmg_range min="71" max="134" speed="2.4"/>
+		<stats>
+			<stat type="AXE_SKILL" value="2"/>
+			<!-- <stat type="RANDOM_AFFIX" value="0"/> -->
+		</stats>
+		<source>
+			Random drop from trash in Zul'Gurub.
+		</source>
+	</melee_weapon>
 
+	<melee_weapon id="21242" phase="5">
+		<info name="Blessed Qiraji War Axe" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_axe_26.png"/>
+		<dmg_range min="110" max="205" speed="2.6"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="14"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="INTELLECT" value="10"/>
+		</stats>
+		<source>
+			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
+		<flavour_text>
+			The weapon is infused and reinforced with Elementium.
+		</flavour_text>
+	</melee_weapon>
+	
 	<melee_weapon id="21392" phase="5">
 		<info name="Sickle of Unyielding Strength" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -209,23 +238,6 @@
 		<source>
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
 		</source>
-	</melee_weapon>
-
-	<melee_weapon id="21242" phase="5">
-		<info name="Blessed Qiraji War Axe" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_axe_26.png"/>
-		<dmg_range min="110" max="205" speed="2.6"/>
-		<stats>
-			<stat type="ATTACK_POWER" value="14"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="STAMINA" value="9"/>
-			<stat type="INTELLECT" value="10"/>
-		</stats>
-		<source>
-			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-		</source>
-		<flavour_text>
-			The weapon is infused and reinforced with Elementium.
-		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="22816" phase="6">
