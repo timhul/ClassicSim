@@ -37,11 +37,12 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
+    // Warrior base stats
+    cstats->increase_strength(100);
     cstats->increase_agility(60);
+    cstats->increase_stamina(90);
     cstats->increase_intellect(10);
     cstats->increase_spirit(25);
-    cstats->increase_stamina(90);
-    cstats->increase_strength(100);
     cstats->increase_melee_ap(160);
     cstats->increase_melee_base_crit(200);
 
@@ -68,26 +69,6 @@ Warrior::~Warrior() {
     delete cstats;
     delete warr_spells;
     delete rage;
-}
-
-unsigned Warrior::get_strength_modifier() const {
-    return 3;
-}
-
-unsigned Warrior::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Warrior::get_stamina_modifier() const {
-    return 2;
-}
-
-unsigned Warrior::get_intellect_modifier() const {
-    return 0;
-}
-
-unsigned Warrior::get_spirit_modifier() const {
-    return 0;
 }
 
 double Warrior::get_agi_needed_for_one_percent_phys_crit() const {

@@ -25,11 +25,12 @@ Paladin::Paladin(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settin
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(20);
-    cstats->increase_strength(15);
-    cstats->increase_stamina(30);
-    cstats->increase_intellect(100);
-    cstats->increase_spirit(105);
+    // Paladin base stats
+    cstats->increase_strength(85);
+    cstats->increase_agility(45);
+    cstats->increase_stamina(80);
+    cstats->increase_intellect(50);
+    cstats->increase_spirit(55);
     cstats->increase_melee_ap(160);
 
     this->paladin_spells = new PaladinSpells(this);
@@ -55,26 +56,6 @@ Paladin::~Paladin()
     delete paladin_spells;
     delete mana;
     delete vengeance;
-}
-
-unsigned Paladin::get_strength_modifier() const {
-    return 2;
-}
-
-unsigned Paladin::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Paladin::get_stamina_modifier() const {
-    return 2;
-}
-
-unsigned Paladin::get_intellect_modifier() const {
-    return 0;
-}
-
-unsigned Paladin::get_spirit_modifier() const {
-    return 1;
 }
 
 double Paladin::get_mp5_from_spirit() const {

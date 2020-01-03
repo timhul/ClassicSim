@@ -26,10 +26,11 @@ Shaman::Shaman(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(30);
-    cstats->increase_strength(70);
+    // Shaman base stats
+    cstats->increase_strength(65);
+    cstats->increase_agility(35);
     cstats->increase_stamina(75);
-    cstats->increase_intellect(65);
+    cstats->increase_intellect(70);
     cstats->increase_spirit(80);
     cstats->increase_melee_ap(160);
 
@@ -55,26 +56,6 @@ Shaman::~Shaman()
     delete cstats;
     delete shaman_spells;
     delete mana;
-}
-
-unsigned Shaman::get_strength_modifier() const {
-    return 1;
-}
-
-unsigned Shaman::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Shaman::get_stamina_modifier() const {
-    return 1;
-}
-
-unsigned Shaman::get_intellect_modifier() const {
-    return 1;
-}
-
-unsigned Shaman::get_spirit_modifier() const {
-    return 2;
 }
 
 double Shaman::get_mp5_from_spirit() const {

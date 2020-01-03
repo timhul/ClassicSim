@@ -219,6 +219,7 @@ GUIControl::~GUIControl() {
 void GUIControl::set_character(Character* pchar) {
     sim_settings->use_ruleset(Ruleset::Standard, current_char);
     current_char = pchar;
+    current_char->set_special_statistics();
     raid_control = raid_controls[current_char->class_name];
     item_type_filter_model->set_character(current_char);
     item_model->set_character(current_char);

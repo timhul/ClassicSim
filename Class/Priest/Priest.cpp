@@ -21,8 +21,9 @@ Priest::Priest(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(20);
+    // Priest base stats
     cstats->increase_strength(15);
+    cstats->increase_agility(20);
     cstats->increase_stamina(30);
     cstats->increase_intellect(100);
     cstats->increase_spirit(105);
@@ -46,26 +47,6 @@ Priest::~Priest()
     delete cstats;
     delete priest_spells;
     delete mana;
-}
-
-unsigned Priest::get_strength_modifier() const {
-    return 0;
-}
-
-unsigned Priest::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Priest::get_stamina_modifier() const {
-    return 0;
-}
-
-unsigned Priest::get_intellect_modifier() const {
-    return 2;
-}
-
-unsigned Priest::get_spirit_modifier() const {
-    return 3;
 }
 
 double Priest::get_mp5_from_spirit() const {

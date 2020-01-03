@@ -59,14 +59,11 @@ public:
     void set_race(Race* race);
     bool race_available(Race*) const;
 
+    void set_special_statistics();
+
     virtual int get_highest_possible_armor_type() const = 0;
     virtual QVector<int> get_weapon_proficiencies_for_slot(const int) const = 0;
 
-    virtual unsigned get_strength_modifier() const = 0;
-    virtual unsigned get_agility_modifier() const = 0;
-    virtual unsigned get_stamina_modifier() const = 0;
-    virtual unsigned get_intellect_modifier() const = 0;
-    virtual unsigned get_spirit_modifier() const = 0;
     virtual double get_agi_needed_for_one_percent_phys_crit() const = 0;
     virtual double get_int_needed_for_one_percent_spell_crit() const = 0;
     virtual unsigned get_melee_ap_per_strength() const = 0;
@@ -193,4 +190,11 @@ protected:
 
     virtual void reset_resource();
     virtual void reset_class_specific() = 0;
+
+private:
+    // Special statistics cases
+    bool is_orc_warlock = false;
+    uint intellect_offset = 0;
+    uint spirit_offset = 0;
+
 };

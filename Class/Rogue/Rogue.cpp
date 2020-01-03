@@ -38,9 +38,10 @@ Rogue::Rogue(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_,
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(110);
+    // Rogue base stats
     cstats->increase_strength(60);
-    cstats->increase_stamina(60);
+    cstats->increase_agility(110);
+    cstats->increase_stamina(55);
     cstats->increase_intellect(15);
     cstats->increase_spirit(30);
     cstats->increase_melee_ap(100);
@@ -79,26 +80,6 @@ Rogue::~Rogue()
     delete ruthlessness;
     delete seal_fate;
     delete sword_spec;
-}
-
-unsigned Rogue::get_strength_modifier() const {
-    return 1;
-}
-
-unsigned Rogue::get_agility_modifier() const {
-    return 3;
-}
-
-unsigned Rogue::get_stamina_modifier() const {
-    return 1;
-}
-
-unsigned Rogue::get_intellect_modifier() const {
-    return 0;
-}
-
-unsigned Rogue::get_spirit_modifier() const {
-    return 0;
 }
 
 double Rogue::get_agi_needed_for_one_percent_phys_crit() const {

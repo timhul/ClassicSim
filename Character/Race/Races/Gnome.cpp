@@ -22,7 +22,7 @@ unsigned Gnome::get_base_stamina() const {
 }
 
 unsigned Gnome::get_base_intellect() const {
-    return 23;
+    return 25;
 }
 
 unsigned Gnome::get_base_spirit() const {
