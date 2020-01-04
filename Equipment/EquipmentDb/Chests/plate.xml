@@ -148,6 +148,20 @@
 		</source>
 	</item>
 
+	<item id="21814" phase="5">
+		<info name="Breastplate of Annihilation" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
+		<stats>
+			<stat type="ARMOR" value="824"/>
+			<stat type="STRENGTH" value="37"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from The Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>	
+
 	<item id="21331" phase="5">
 		<info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
 		<class_restriction class="WARRIOR"/>
