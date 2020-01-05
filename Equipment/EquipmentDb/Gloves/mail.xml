@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="13255" phase="1">
+		<info name="Trueaim Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_gauntlets_30.png"/>
+		<stats>
+			<stat type="ARMOR" value="218"/>
+			<stat type="BOW_SKILL" value="8"/>
+			<stat type="CROSSBOW_SKILL" value="8"/>
+			<stat type="GUN_SKILL" value="8"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Shadow Hunter Vosh'gajin in Blackrock Spire (LBRS).
+		</source>
+	</item>
+
 	<item id="14551" phase="1">
 		<info name="Edgemaster's Handguards" type="MAIL" slot="GLOVES" unique="no" req_lvl="44" item_lvl="49" quality="EPIC" boe="yes" icon="Inv_gauntlets_30.png"/>
 		<stats>

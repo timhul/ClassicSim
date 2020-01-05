@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="18737" phase="1">
+		<info name="Bone Slicing Hatchet" type="AXE" slot="1H" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_axe_11.png"/>
+		<dmg_range min="48" max="90" speed="1.7"/>
+		<stats>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STAMINA" value="5"/>
+		</stats>
+		<source>
+			Drops from Maleki the Pallid in Stratholme Undead.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="871" phase="1">
 		<info name="Flurry Axe" type="AXE" slot="1H" unique="no" req_lvl="42" item_lvl="47" quality="EPIC" boe="yes" icon="Inv_axe_17.png"/>
 		<dmg_range min="37" max="69" speed="1.5"/>
