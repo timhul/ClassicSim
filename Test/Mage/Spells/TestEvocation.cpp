@@ -53,7 +53,7 @@ void TestEvocation::test_mana_regen_increase() {
     assert(17 == static_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
 
     when_evocation_is_performed();
-    assert(283 == static_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
+    assert(280 == static_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
 
     when_running_queued_events_until(8.01);
     // 18 due to rounded tick causing a remainder

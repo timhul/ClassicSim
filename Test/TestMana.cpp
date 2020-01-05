@@ -59,19 +59,19 @@ void TestMana::test_mana_gain_when_tick_is_outside_5sr() {
 
     unsigned gain_from_tick = pchar->get_resource_level(ResourceType::Mana) - mana_before_tick;
     // [Mana gain] = floor((base_mp5 + mp5_from_spirit) / 5 * 2) + remainder
-    // 11 = floor((15 + (74 / 5)) / 5 * 2) + 0.0
-    assert(pchar->get_stats()->get_spirit() == 74);
+    // 11 = floor((15 + (73 / 5)) / 5 * 2) + 0.0
+    assert(pchar->get_stats()->get_spirit() == 73);
     assert(gain_from_tick == 11);
 
-    // Remainder should be 0.92:
-    // 0.92 = floor((15 + (74 / 5)) / 5 * 2)) - (15 + (74 / 5)) / 5 * 2)
+    // Remainder should be 0.8:
+    // 0.8 = floor((15 + (73 / 5)) / 5 * 2)) - (15 + (73 / 5)) / 5 * 2)
 
     mana_before_tick = pchar->get_resource_level(ResourceType::Mana);
     then_next_event_is(EventType::PlayerAction, "6.100");
     then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
     gain_from_tick = pchar->get_resource_level(ResourceType::Mana) - mana_before_tick;
 
-    // [12] = floor((15 + (74 / 5) + 0.92) / 5 * 2) + 0.0
+    // [12] = floor((15 + (73 / 5) + 0.8) / 5 * 2) + 0.0
     assert(gain_from_tick == 12);
 }
 
