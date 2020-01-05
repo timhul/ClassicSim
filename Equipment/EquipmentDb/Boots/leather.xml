@@ -51,6 +51,18 @@
 		</source>
 	</item>
 
+	<item id="14641" phase="1">
+		<info name="Cadaverous Walkers" type="LEATHER" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="118"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="ATTACK_POWER" value="24"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
+
 	<item id="12553" phase="1">
 		<info name="Swiftwalker Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
 		<stats>
@@ -185,18 +197,6 @@
 		</stats>
 		<source>
 		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
-
-	<item id="14641" phase="5">
-		<info name="Cadaverous Walkers" type="LEATHER" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
-		<stats>
-			<stat type="ARMOR" value="118"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="ATTACK_POWER" value="24"/>
-		</stats>
-		<source>
-		Drops from multiple bosses in Scholomance.
 		</source>
 	</item>
 
