@@ -64,7 +64,7 @@
 		</source>
 	</wrist>
 
-	<wrist id="19578" phase="4">
+	<wrist id="19578" phase="3">
 		<info name="Berserker Bracers" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="323"/>
