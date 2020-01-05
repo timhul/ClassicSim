@@ -165,6 +165,7 @@ public:
     Q_PROPERTY(QString trinket2Icon READ get_trinket2_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString projectileIcon READ get_projectile_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString relicIcon READ get_relic_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString quiverIcon READ get_quiver_icon NOTIFY equipmentChanged)
 
     Q_INVOKABLE QVariantList getTooltip(const QString& slot_string);
 
@@ -398,6 +399,7 @@ private:
     QString get_trinket2_icon() const;
     QString get_projectile_icon() const;
     QString get_relic_icon() const;
+    QString get_quiver_icon() const;
 
     QString get_initial_upper_case_rest_lower_case(const QString&) const;
     void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);

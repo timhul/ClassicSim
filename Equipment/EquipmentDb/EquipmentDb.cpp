@@ -7,6 +7,7 @@
 
 #include "ItemFileReader.h"
 #include "Projectile.h"
+#include "Quiver.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
@@ -35,6 +36,7 @@ EquipmentDb::EquipmentDb(QObject* parent):
         &trinkets,
         &projectiles,
         &relics,
+        &quivers
     };
 }
 
@@ -188,6 +190,16 @@ Projectile* EquipmentDb::get_projectile(const int item_id) const {
     return nullptr;
 }
 
+Quiver *EquipmentDb::get_quiver(const int item_id) const
+{
+    for (const auto & current_phase_quiver : current_phase_quivers) {
+        if (item_id == current_phase_quiver->item_id)
+            return new Quiver(static_cast<Quiver*>(current_phase_quiver));
+    }
+
+    return nullptr;
+}
+
 const QVector<Item*> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:
@@ -224,6 +236,8 @@ const QVector<Item*> & EquipmentDb::get_slot_items(const int slot) const {
         return current_phase_projectiles;
     case ItemSlots::RELIC:
         return current_phase_relics;
+    case ItemSlots::QUIVER:
+        return current_phase_quivers;
     }
 
     return current_phase_amulets;
@@ -255,6 +269,7 @@ void EquipmentDb::set_content_phase(const Content::Phase phase) {
     set_phase_for_slot(trinkets, current_phase_trinkets);
     set_phase_for_slot(projectiles, current_phase_projectiles);
     set_phase_for_slot(relics, current_phase_relics);
+    set_phase_for_slot(quivers, current_phase_quivers);
 }
 
 void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &phase_slot_items) {
@@ -340,6 +355,7 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, projectiles, ItemSlots::PROJECTILE);
     take_items_of_slot_from_given_items(items, relics, ItemSlots::RELIC);
     take_items_of_slot_from_given_items(items, oh_slot_items, ItemSlots::CASTER_OFFHAND);
+    take_items_of_slot_from_given_items(items, quivers, ItemSlots::QUIVER);
 
     for (const auto & item : items) {
         qDebug() << "Failed to classify slot for" << item->name;

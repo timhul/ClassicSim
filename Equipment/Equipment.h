@@ -9,6 +9,7 @@ class Character;
 class EquipmentDb;
 class Item;
 class Projectile;
+class Quiver;
 class SetBonusControl;
 class Stats;
 class Weapon;
@@ -44,6 +45,7 @@ public:
     Item* get_caster_offhand() const;
     Item* get_relic() const;
     Projectile* get_projectile() const;
+    Quiver* get_quiver() const;
 
     void set_mainhand(const int item_id);
     void set_offhand(const int item_id);
@@ -65,6 +67,7 @@ public:
     void set_caster_offhand(const int item_id);
     void set_relic(const int item_id);
     void set_projectile(const int item_id);
+    void set_quiver(const int idem_id);
 
     void clear_mainhand();
     void clear_offhand();
@@ -86,6 +89,7 @@ public:
     void clear_caster_offhand();
     void clear_relic();
     void clear_projectile();
+    void clear_quiver();
 
     void reequip_items();
     void clear_items_not_available_for_faction();
@@ -100,6 +104,9 @@ public:
 
     void equip(Projectile*& current, Projectile* next, const int eq_slot);
     void unequip(Projectile*& current, const int eq_slot);
+
+    void equip(Quiver*& current, Quiver* next, const int eq_slot);
+    void unequip(Quiver*& current, const int eq_slot);
 
     void druid_cat_form_switch_to_claws();
     void druid_switch_to_normal_weapon();
@@ -129,6 +136,7 @@ private:
     Item* caster_offhand;
     Item* relic;
     Projectile* projectile;
+    Quiver* quiver;
 
     Weapon* druid_form_mh_storage {nullptr};
     Weapon* druid_form_oh_storage {nullptr};

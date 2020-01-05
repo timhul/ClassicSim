@@ -993,5 +993,10 @@
         <file>QML/Assets/items/Inv_sword_29.png</file>
         <file>QML/Assets/items/Inv_staff_21.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_29.png</file>
+        <file>QML/Assets/items/Inv_misc_quiver_03.png</file>
+        <file>QML/Assets/items/Inv_misc_ammo_bullet_01.png</file>
+        <file>QML/Assets/items/Inv_misc_bag_09_black.png</file>
+        <file>QML/Assets/items/Inv_misc_quiver_06.png</file>
+        <file>QML/Assets/items/Inv_misc_quiver_07.png</file>
     </qresource>
 </RCC>

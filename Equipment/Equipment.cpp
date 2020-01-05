@@ -9,6 +9,7 @@
 #include "Hunter.h"
 #include "Item.h"
 #include "Projectile.h"
+#include "Quiver.h"
 #include "SetBonusControl.h"
 #include "Stats.h"
 #include "Utils/Check.h"
@@ -47,6 +48,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
             NO_EQUIPPED_ITEM,
             NO_EQUIPPED_ITEM,
             NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM,
         };
     }
     check((stats_from_equipped_gear.size() == item_setups.size()), "Different size vectors");
@@ -54,6 +56,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     item_enchants = {{}, {}, {}};
     for (auto & setup : item_enchants) {
         setup = {
+            EnchantName::NoEnchant,
             EnchantName::NoEnchant,
             EnchantName::NoEnchant,
             EnchantName::NoEnchant,
@@ -105,6 +108,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     caster_offhand = nullptr;
     relic = nullptr;
     projectile = nullptr;
+    quiver = nullptr;
 }
 
 Equipment::~Equipment() {
@@ -314,6 +318,11 @@ Item* Equipment::get_relic() const {
 
 Projectile* Equipment::get_projectile() const {
     return projectile;
+}
+
+Quiver *Equipment::get_quiver() const
+{
+    return quiver;
 }
 
 void Equipment::set_mainhand(const int item_id) {
@@ -587,6 +596,18 @@ void Equipment::set_projectile(const int item_id) {
     equip(projectile, item, EquipmentSlot::PROJECTILE);
 }
 
+void Equipment::set_quiver(const int item_id)
+{
+    Quiver* item = db->get_quiver(item_id);
+
+    if (item == nullptr)
+        return;
+
+    check((item->get_item_slot() == ItemSlots::QUIVER), QString("'%1' has incorrect slot").arg(item->name).toStdString());
+    pchar->increase_ranged_attack_speed(item->get_stats()->get_ranged_attack_speed_percent());
+    equip(quiver, item, EquipmentSlot::QUIVER);
+}
+
 void Equipment::clear_mainhand() {
     unequip(mainhand, EquipmentSlot::MAINHAND);
 }
@@ -665,6 +686,11 @@ void Equipment::clear_relic() {
 
 void Equipment::clear_projectile() {
     unequip(projectile, EquipmentSlot::PROJECTILE);
+}
+
+void Equipment::clear_quiver()
+{
+    unequip(quiver, EquipmentSlot::QUIVER);
 }
 
 void Equipment::reequip_items() {
@@ -787,6 +813,12 @@ void Equipment::reequip_items() {
         clear_projectile();
         set_projectile(item_id);
     }
+
+    item_id = get_stored_item_id_for_slot(EquipmentSlot::QUIVER);
+    if (item_id != NO_EQUIPPED_ITEM) {
+        clear_quiver();
+        set_quiver(item_id);
+    }
 }
 
 void Equipment::clear_items_not_available_for_faction() {
@@ -851,6 +883,9 @@ void Equipment::clear_items_not_available_for_faction() {
 
     if (get_projectile() && !get_projectile()->available_for_faction(faction))
         clear_projectile();
+
+    if (get_quiver() && !get_quiver()->available_for_faction(faction))
+        clear_quiver();
 }
 
 SetBonusControl* Equipment::get_set_bonus_control() const {
@@ -937,6 +972,28 @@ void Equipment::unequip(Projectile*& item, const int eq_slot) {
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
     item = nullptr;
+}
+
+void Equipment::equip(Quiver *&current, Quiver *next, const int eq_slot)
+{
+    check((next != nullptr), "next nullptr");
+
+    unequip(current, eq_slot);
+    current = next;
+    current->apply_equip_effect(pchar, eq_slot);
+    stats_from_equipped_gear[setup_index]->add(current->get_stats());
+    item_setups[setup_index][eq_slot] = current->item_id;
+}
+
+void Equipment::unequip(Quiver *&current, const int eq_slot)
+{
+    if (current == nullptr)
+        return;
+
+    stats_from_equipped_gear[setup_index]->remove(current->get_stats());
+    item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
+    delete current;
+    current = nullptr;
 }
 
 void Equipment::druid_cat_form_switch_to_claws() {
@@ -1034,4 +1091,7 @@ void Equipment::clear_item_id_if_equipped_in_any_slot(const int item_id) {
 
     if (get_projectile() && get_projectile()->item_id == item_id)
         clear_projectile();
+
+    if (get_quiver() && get_quiver()->item_id == item_id)
+        clear_quiver();
 }

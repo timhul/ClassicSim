@@ -37,9 +37,6 @@ Hunter::Hunter(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     cstats->increase_spirit(50);
     cstats->increase_ranged_ap(160);
 
-    // TODO: Remove hardcoded quiver bonus.
-    cstats->increase_ranged_attack_speed(15);
-
     this->hunter_spells = new HunterSpells(this);
     this->spells = hunter_spells;
 

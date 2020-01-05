@@ -52,6 +52,7 @@
 #include "Priest.h"
 #include "ProcBreakdownModel.h"
 #include "Projectile.h"
+#include "Quiver.h"
 #include "Race.h"
 #include "RaidControl.h"
 #include "ResourceBreakdownModel.h"
@@ -1194,10 +1195,19 @@ QString GUIControl::get_relic_icon() const {
     return "";
 }
 
+QString GUIControl::get_quiver_icon() const {
+    if (current_char->get_equipment()->get_quiver() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_quiver()->get_value("icon");
+    return "";
+}
+
 void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
     if (slot == -1 || (slot == ItemSlots::PROJECTILE && current_char->class_name != "Hunter"))
+        return;
+
+    if (slot == ItemSlots::QUIVER && current_char->class_name != "Hunter")
         return;
 
     item_type_filter_model->set_item_slot(slot);
@@ -1253,6 +1263,8 @@ bool GUIControl::hasItemEquipped(const QString& slot_string) const {
         return current_char->get_equipment()->get_trinket2() != nullptr;
     if (slot_string == "RELIC")
         return current_char->get_equipment()->get_relic() != nullptr;
+    if (slot_string == "QUIVER")
+        return current_char->get_equipment()->get_quiver() != nullptr;
 
     return false;
 }
@@ -1473,8 +1485,13 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
         current_char->get_equipment()->set_ranged(item_id);
 
         Projectile* projectile = current_char->get_equipment()->get_projectile();
+        Quiver *quiver = current_char->get_equipment()->get_quiver();
+
         if (projectile && !projectile->valid_for_weapon(current_char->get_equipment()->get_ranged()))
             current_char->get_equipment()->clear_projectile();
+
+        if (quiver && !quiver->valid_for_weapon(current_char->get_equipment()->get_ranged()))
+            current_char->get_equipment()->clear_quiver();
     }
     if (slot_string == "HEAD")
         current_char->get_equipment()->set_head(item_id);
@@ -1508,11 +1525,26 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
         current_char->get_equipment()->set_projectile(item_id);
 
         Projectile* projectile = current_char->get_equipment()->get_projectile();
+
         if (projectile && !projectile->valid_for_weapon(current_char->get_equipment()->get_ranged()))
             current_char->get_equipment()->clear_ranged();
+
+        if (projectile && !projectile->valid_for_quiver(current_char->get_equipment()->get_quiver()))
+            current_char->get_equipment()->clear_quiver();
     }
     if (slot_string == "RELIC")
         current_char->get_equipment()->set_relic(item_id);
+    if (slot_string == "QUIVER") {
+        current_char->get_equipment()->set_quiver(item_id);
+
+        Quiver *quiver = current_char->get_equipment()->get_quiver();
+
+        if (quiver && !quiver->valid_for_weapon(current_char->get_equipment()->get_ranged()))
+            current_char->get_equipment()->clear_ranged();
+
+        if (quiver && !quiver->valid_for_projectile(current_char->get_equipment()->get_projectile()))
+            current_char->get_equipment()->clear_projectile();
+    }
 
     equipmentChanged();
     statsChanged();
@@ -1558,6 +1590,8 @@ void GUIControl::clearSlot(const QString& slot_string) {
         current_char->get_equipment()->clear_projectile();
     if (slot_string == "RELIC")
         current_char->get_equipment()->clear_relic();
+    if (slot_string == "QUIVER")
+        current_char->get_equipment()->clear_quiver();
 
     equipmentChanged();
     statsChanged();
@@ -1630,6 +1664,8 @@ QVariantList GUIControl::getTooltip(const QString& slot_string) {
         item = current_char->get_equipment()->get_projectile();
     if (slot_string == "RELIC")
         item = current_char->get_equipment()->get_relic();
+    if (slot_string == "QUIVER")
+        item = current_char->get_equipment()->get_quiver();
 
     if (item == nullptr)
         return QVariantList();

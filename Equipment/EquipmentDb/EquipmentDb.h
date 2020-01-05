@@ -11,6 +11,7 @@
 
 class Item;
 class Projectile;
+class Quiver;
 class Weapon;
 
 class EquipmentDb: public QObject {
@@ -36,6 +37,7 @@ public:
     Item* get_caster_offhand(const int item_id) const;
     Item* get_relic(const int item_id) const;
     Projectile* get_projectile(const int item_id) const;
+    Quiver* get_quiver(const int item_id) const;
 
     void set_content_phase(const Content::Phase current_phase);
 
@@ -109,6 +111,9 @@ private:
 
     QVector<Item*> relics;
     QVector<Item*> current_phase_relics;
+
+    QVector<Item*> quivers;
+    QVector<Item*> current_phase_quivers;
 
     QVector<QVector<Item*>*> all_slots_items;
 

@@ -128,6 +128,9 @@ public:
     void increase_ranged_crit(const unsigned value);
     void decrease_ranged_crit(const unsigned value);
 
+    unsigned get_ranged_attack_speed_percent() const;
+    void increase_ranged_attack_speed(const unsigned value);
+
     unsigned get_spell_hit_chance(const MagicSchool school) const;
     void increase_spell_hit(const unsigned value);
     void decrease_spell_hit(const unsigned value);
@@ -190,17 +193,20 @@ public:
     void decrease_spell_penetration(const MagicSchool school, const unsigned decrease);
 
 private:
+    // Base stats
     unsigned strength {0};
     unsigned agility {0};
     unsigned stamina {0};
     unsigned intellect {0};
     unsigned spirit {0};
 
+    // Defensive stats
     int armor {0};
     int defense {0};
     double dodge_chance {0.0};
     double parry_chance {0.0};
 
+    // Resistances
     int arcane_res {0};
     int fire_res {0};
     int frost_res {0};
@@ -208,6 +214,7 @@ private:
     int nature_res {0};
     int shadow_res {0};
 
+    // Weapons skills
     unsigned axe_skill {0};
     unsigned dagger_skill {0};
     unsigned fist_skill {0};
@@ -226,6 +233,8 @@ private:
     unsigned melee_crit {0};
     unsigned ranged_hit {0};
     unsigned ranged_crit {0};
+    QVector<unsigned> ranged_attack_speed_buffs;
+    double ranged_attack_speed {1.0};
     unsigned spell_hit {0};
     unsigned spell_crit {0};
     unsigned attack_speed {0};

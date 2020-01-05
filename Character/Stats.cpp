@@ -65,6 +65,7 @@ void Stats::add(const Stats* rhs) {
     increase_ranged_hit(rhs->get_ranged_hit_chance());
     increase_ranged_crit(rhs->get_ranged_crit_chance());
     increase_attack_speed(rhs->get_attack_speed());
+    increase_ranged_attack_speed(rhs->get_ranged_attack_speed_percent());
 
     increase_spell_hit(MagicSchool::Arcane, rhs->get_spell_hit_chance(MagicSchool::Arcane));
     increase_spell_hit(MagicSchool::Fire, rhs->get_spell_hit_chance(MagicSchool::Fire));
@@ -605,6 +606,22 @@ void Stats::increase_ranged_crit(const unsigned value) {
 void Stats::decrease_ranged_crit(const unsigned value) {
     check((ranged_crit >= value), "Underflow ranged crit decrease");
     ranged_crit -= value;
+}
+
+unsigned Stats::get_ranged_attack_speed_percent() const
+{
+    return static_cast<unsigned>(100 * ranged_attack_speed) - 100;
+}
+
+void Stats::increase_ranged_attack_speed(const unsigned value)
+{
+    ranged_attack_speed_buffs.push_back(value);
+
+    ranged_attack_speed = 1.0;
+    for (auto effect : ranged_attack_speed_buffs) {
+        double coefficient = 1.0 + double(effect) / 100;
+        ranged_attack_speed *= coefficient;
+    }
 }
 
 void Stats::increase_spell_hit(const unsigned value) {

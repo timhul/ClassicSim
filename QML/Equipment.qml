@@ -421,8 +421,8 @@ Rectangle {
                 height: 34
                 width: 34
 
-                x: 307
-                y: 400
+                x: 255
+                y: 398
                 state: eqRect.state
                 slotString: "PROJECTILE"
                 iconSource: equipment.projectileIcon
@@ -654,8 +654,8 @@ Rectangle {
                 height: 46
                 width: 46*3 + 12
 
-                x: 138
-                y: 395
+                x: 85
+                y: 393
 
                 spacing: 6
 
@@ -734,6 +734,32 @@ Rectangle {
                             bottom: parent.top
                             left: parent.right
                         }
+                    }
+                }
+
+            }
+
+            EquipmentSlotBox {
+                id: quiverSlot
+
+                x: 302
+                y: 393
+                state: eqRect.state
+                slotString: "QUIVER"
+                iconSource: equipment.quiverIcon
+
+                onSelectItem: eqRect.state = "QUIVER"
+
+                onShowTooltip: quiverTooltip.visible = quiverTooltip.slotEquipped
+                onHideTooltip: quiverTooltip.visible = false
+
+                EquipmentTooltip {
+                    id: quiverTooltip
+                    slotString: parent.slotString
+
+                    anchors {
+                        bottom: parent.top
+                        left: parent.right
                     }
                 }
             }
