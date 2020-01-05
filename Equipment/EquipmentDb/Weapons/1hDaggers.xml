@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="19346" phase="3">
+		<info name="Dragonfang Blade" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_29.png"/>
+		<dmg_range min="69" max="130" speed="1.8"/>
+		<stats>
+			<stat type="AGILITY" value="16"/>
+			<stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="12783" phase="1">
 		<info name="Heartseeker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_17.png"/>
 		<dmg_range min="49" max="92" speed="1.7"/>
