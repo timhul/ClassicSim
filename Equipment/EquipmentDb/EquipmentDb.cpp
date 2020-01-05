@@ -57,6 +57,9 @@ void EquipmentDb::delete_items(QVector<Item *>* list) {
 }
 
 void EquipmentDb::add_item_id(Item* item) {
+    if (item_id_to_item.contains(item->item_id))
+        qDebug() << "Warning:" << item->name << "overwrites" << item_id_to_item[item->item_id]->name;
+
     item_id_to_item[item->item_id] = item;
 }
 

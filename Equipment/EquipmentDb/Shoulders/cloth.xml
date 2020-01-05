@@ -499,19 +499,6 @@
 		</source>
 	</item>
 
-	<item id="19370" phase="3">
-		<info name="Mantle of the Blackwing Cabal" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
-		<stats>
-			<stat type="ARMOR" value="84"/>
-			<stat type="INTELLECT" value="16"/>
-			<stat type="STAMINA" value="12"/>
-			<stat type="SPELL_DAMAGE" value="34"/>
-		</stats>
-		<source>
-		Drops from Razorgore the Untamed in Blackwing Lair.
-		</source>
-	</item>
-
 	<item id="16917" phase="3">
 		<info name="Netherwind Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_32.png"/>
 		<class_restriction class="MAGE"/>

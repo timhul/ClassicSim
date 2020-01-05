@@ -200,7 +200,7 @@
 		</source>
 	</item>
 
-	<item id="12930" phase="3">
+	<item id="21565" phase="3">
 		<info name="Rune of Perfection" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="40" item_lvl="45" quality="RARE" boe="no" icon="Inv_misc_rune_05.png"/>
 		<class_restriction class="PRIEST"/>
 		<class_restriction class="SHAMAN"/>

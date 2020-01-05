@@ -113,13 +113,13 @@
 		</source>
 	</item>
 
-	<item id="23244" phase="2">
+	<item id="23314" phase="2">
 		<info name="Lieutenant Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
 			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
 			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="24"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
@@ -133,8 +133,8 @@
 		<class_restriction class="WARRIOR"/>
 		<stats>
 			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
 			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="24"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
@@ -165,7 +165,6 @@
 			<stat type="STAMINA" value="24"/>
 			<stat type="STRENGTH" value="21"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 			May be purchased upon reaching Field Marshal (rank 13). Alliance only.
@@ -201,64 +200,6 @@
 		</stats>
 		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Field Marshal (rank 13).
-		</source>
-	</item>
-
-	<item id="16478" phase="2">
-		<info name="Field Marshal's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="719"/>
-			<stat type="STAMINA" value="34"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and Alterac Valley marks. Requires Field Marshal (rank 13).
-		</source>
-	</item>
-
-	<item id="16542" phase="2">
-		<info name="Warlord's Plate Headpiece" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="719"/>
-			<stat type="STAMINA" value="34"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			Purchased with Honor Points and Alterac Valley marks. Requires Warlord (rank 13).
-		</source>
-	</item>
-
-	<item id="23314" phase="2">
-		<info name="Lieutenant's Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			May be purchased upon reaching Lieutenant Commander (rank 10). Alliance only.
-		</source>
-	</item>
-
-	<item id="23244" phase="2">
-		<info name="Champion's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STAMINA" value="24"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-			May be purchased upon reaching Champion (rank 10). Horde only.
 		</source>
 	</item>
 
