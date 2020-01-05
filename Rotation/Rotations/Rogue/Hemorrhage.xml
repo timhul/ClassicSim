@@ -4,10 +4,6 @@
 	A rotation for Hemorrhage rogues.
 	</description>
 
-	<prerequisites>
-		<talent name="Hemorrhage"/>
-	</prerequisites>
-
 	<cast_if name="Slice and Dice">
 		buff_duration "Slice and Dice" less 3
 	</cast_if>
