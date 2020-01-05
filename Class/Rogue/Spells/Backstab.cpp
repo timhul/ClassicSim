@@ -68,7 +68,7 @@ void Backstab::spell_effect() {
         rogue->gain_energy(bonescythe_energy);
         statistics_resource->add_resource_gain(ResourceType::Energy, bonescythe_energy);
 
-        if (rogue->get_seal_fate()->is_enabled())
+        if (rogue->get_seal_fate()->is_enabled() && rogue->get_seal_fate()->check_proc_success())
             rogue->get_seal_fate()->perform();
     }
     else if (result == PhysicalAttackResult::HIT) {

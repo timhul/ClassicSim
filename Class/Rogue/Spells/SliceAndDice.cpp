@@ -45,12 +45,13 @@ void SliceAndDice::spell_effect() {
 
     if (rogue->get_relentless_strikes()->is_enabled()) {
         rogue->get_relentless_strikes()->set_current_combo_points(rogue->get_combo_points());
-        rogue->get_relentless_strikes()->perform();
+        if (rogue->get_relentless_strikes()->check_proc_success())
+            rogue->get_relentless_strikes()->perform();
     }
 
     rogue->spend_combo_points();
 
-    if (rogue->get_ruthlessness()->is_enabled())
+    if (rogue->get_ruthlessness()->is_enabled() && rogue->get_ruthlessness()->check_proc_success())
         rogue->get_ruthlessness()->perform();
 }
 
