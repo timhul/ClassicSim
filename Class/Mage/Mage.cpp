@@ -9,6 +9,8 @@
 #include "Equipment.h"
 #include "Fire.h"
 #include "Frost.h"
+#include "Gnome.h"
+#include "Human.h"
 #include "MageEnchants.h"
 #include "MageSpells.h"
 #include "Mana.h"
@@ -27,8 +29,9 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Rai
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
+    // Mage base stats
+    cstats->increase_strength(10);
     cstats->increase_agility(15);
-    cstats->increase_strength(5);
     cstats->increase_stamina(25);
     cstats->increase_intellect(105);
     cstats->increase_spirit(100);
@@ -55,26 +58,6 @@ Mage::~Mage()
     delete cstats;
     delete mage_spells;
     delete mana;
-}
-
-unsigned Mage::get_strength_modifier() const {
-    return 0;
-}
-
-unsigned Mage::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Mage::get_stamina_modifier() const {
-    return 0;
-}
-
-unsigned Mage::get_intellect_modifier() const {
-    return 3;
-}
-
-unsigned Mage::get_spirit_modifier() const {
-    return 2;
 }
 
 double Mage::get_mp5_from_spirit() const {

@@ -84,6 +84,8 @@ void Character::set_race(Race* race) {
     spells->deactivate_racials();
     this->race = race;
     spells->activate_racials();
+
+    set_special_statistics();
 }
 
 void Character::change_target_creature_type(const QString& creature_type) {
@@ -520,4 +522,53 @@ void Character::prepare_set_of_combat_iterations() {
     spells->prepare_set_of_combat_iterations();
     enabled_buffs->prepare_set_of_combat_iterations();
     enabled_procs->prepare_set_of_combat_iterations();
+}
+
+void Character::set_special_statistics()
+{
+    // Reset special statistics cases
+    if (is_orc_warlock) cstats->increase_stamina(1);
+    cstats->decrease_intellect(intellect_offset);
+    cstats->decrease_spirit(spirit_offset);
+    is_orc_warlock = false;
+    intellect_offset = 0;
+    spirit_offset = 0;
+
+    // Gnome special case
+    if (race->get_race_int() == Races::Gnome) {
+        if (class_name == "Mage") {
+            intellect_offset = 3;
+            cstats->increase_intellect(intellect_offset);
+        }
+        else if (class_name == "Warlock") {
+            intellect_offset = 4;
+            cstats->increase_intellect(intellect_offset);
+        }
+    }
+
+    // Human special case
+    if (race->get_race_int() == Races::Human) {
+        if (class_name == "Mage") {
+            spirit_offset = 4;
+            cstats->increase_spirit(spirit_offset);
+        }
+        else if (class_name == "Paladin") {
+            spirit_offset = 1;
+            cstats->increase_spirit(spirit_offset);
+        }
+        else if (class_name == "Priest") {
+            spirit_offset = 4;
+            cstats->increase_spirit(spirit_offset);
+        }
+        else if (class_name == "Warlock") {
+            spirit_offset = 3;
+            cstats->increase_spirit(spirit_offset);
+        }
+    }
+
+    // Orc warlock special case
+    if (race->get_race_int() == Races::Orc && class_name == "Warlock") {
+        is_orc_warlock = true;
+        cstats->decrease_stamina(1);
+    }
 }

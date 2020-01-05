@@ -36,8 +36,9 @@ Druid::Druid(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_,
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(40);
+    // Druid base stats
     cstats->increase_strength(45);
+    cstats->increase_agility(40);
     cstats->increase_stamina(50);
     cstats->increase_intellect(80);
     cstats->increase_spirit(90);
@@ -66,26 +67,6 @@ Druid::~Druid()
     delete energy;
     delete rage;
     delete druid_spells;
-}
-
-unsigned Druid::get_strength_modifier() const {
-    return 1;
-}
-
-unsigned Druid::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Druid::get_stamina_modifier() const {
-    return 0;
-}
-
-unsigned Druid::get_intellect_modifier() const {
-    return 2;
-}
-
-unsigned Druid::get_spirit_modifier() const {
-    return 2;
 }
 
 double Druid::get_mp5_from_spirit() const {

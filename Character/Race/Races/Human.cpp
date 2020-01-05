@@ -26,7 +26,7 @@ unsigned Human::get_base_intellect() const {
 }
 
 unsigned Human::get_base_spirit() const {
-    return 20;
+    return 22;
 }
 
 double Human::get_int_multiplier() const {

@@ -29,8 +29,9 @@ Hunter::Hunter(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(100);
+    // Hunter base stats
     cstats->increase_strength(35);
+    cstats->increase_agility(105);
     cstats->increase_stamina(70);
     cstats->increase_intellect(45);
     cstats->increase_spirit(50);
@@ -65,26 +66,6 @@ Hunter::~Hunter()
     delete cstats;
     delete hunter_spells;
     delete mana;
-}
-
-unsigned Hunter::get_strength_modifier() const {
-    return 0;
-}
-
-unsigned Hunter::get_agility_modifier() const {
-    return 3;
-}
-
-unsigned Hunter::get_stamina_modifier() const {
-    return 1;
-}
-
-unsigned Hunter::get_intellect_modifier() const {
-    return 0;
-}
-
-unsigned Hunter::get_spirit_modifier() const {
-    return 1;
 }
 
 double Hunter::get_mp5_from_spirit() const {

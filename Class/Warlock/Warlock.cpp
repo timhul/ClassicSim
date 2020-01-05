@@ -20,11 +20,12 @@ Warlock::Warlock(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settin
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
+    // Warlock base stats
     cstats->increase_agility(30);
     cstats->increase_strength(25);
     cstats->increase_stamina(45);
-    cstats->increase_intellect(95);
-    cstats->increase_spirit(100);
+    cstats->increase_intellect(90);
+    cstats->increase_spirit(95);
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = warlock_spells;
@@ -45,26 +46,6 @@ Warlock::~Warlock()
     delete cstats;
     delete warlock_spells;
     delete mana;
-}
-
-unsigned Warlock::get_strength_modifier() const {
-    return 0;
-}
-
-unsigned Warlock::get_agility_modifier() const {
-    return 0;
-}
-
-unsigned Warlock::get_stamina_modifier() const {
-    return 1;
-}
-
-unsigned Warlock::get_intellect_modifier() const {
-    return 2;
-}
-
-unsigned Warlock::get_spirit_modifier() const {
-    return 2;
 }
 
 double Warlock::get_mp5_from_spirit() const {

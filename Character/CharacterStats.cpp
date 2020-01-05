@@ -19,12 +19,6 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) :
     this->aura_effects = new Stats();
     this->base_stats = new Stats();
 
-    increase_strength(pchar->get_strength_modifier());
-    increase_agility(pchar->get_agility_modifier());
-    increase_stamina(pchar->get_stamina_modifier());
-    increase_intellect(pchar->get_intellect_modifier());
-    increase_spirit(pchar->get_spirit_modifier());
-
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0);
