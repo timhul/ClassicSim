@@ -27,10 +27,10 @@ public:
     StatisticsProc* get_proc_statistics(const QString& name, const QString& icon);
     StatisticsRotationExecutor* get_executor_statistics(const QString& name);
     StatisticsEngine* get_engine_statistics();
-    int get_total_personal_damage_dealt() const;
+    long long get_total_personal_damage_dealt() const;
     RaidMemberResult* get_personal_result() const;
     double get_raid_dps() const;
-    int get_total_damage_for_spell(const QString& name) const;
+    long long get_total_damage_for_spell(const QString& name) const;
     void add_player_result(RaidMemberResult* result);
 
     void prepare_statistics();

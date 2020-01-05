@@ -525,7 +525,7 @@ int StatisticsSpell::get_crits_including_partial_resists() const {
     return get_attempts({Outcome::Crit, Outcome::PartialResistCrit25, Outcome::PartialResistCrit50, Outcome::PartialResistCrit75});
 }
 
-int StatisticsSpell::get_dmg(const Outcome outcome) const {
+long long StatisticsSpell::get_dmg(const Outcome outcome) const {
     if (!damage.contains(outcome))
         return 0;
 
@@ -546,35 +546,35 @@ int StatisticsSpell::get_max_dmg(const Outcome outcome) const {
     return max_damage[outcome];
 }
 
-int StatisticsSpell::get_partial_resist25_dmg() const {
+long long StatisticsSpell::get_partial_resist25_dmg() const {
     return get_dmg(Outcome::PartialResist25);
 }
 
-int StatisticsSpell::get_partial_resist50_dmg() const {
+long long StatisticsSpell::get_partial_resist50_dmg() const {
     return get_dmg(Outcome::PartialResist50);
 }
 
-int StatisticsSpell::get_partial_resist75_dmg() const {
+long long StatisticsSpell::get_partial_resist75_dmg() const {
     return get_dmg(Outcome::PartialResist75);
 }
 
-int StatisticsSpell::get_partial_block_dmg() const {
+long long StatisticsSpell::get_partial_block_dmg() const {
     return get_dmg(Outcome::PartialBlock);
 }
 
-int StatisticsSpell::get_partial_block_crit_dmg() const {
+long long StatisticsSpell::get_partial_block_crit_dmg() const {
     return get_dmg(Outcome::PartialBlockCrit);
 }
 
-int StatisticsSpell::get_glancing_dmg() const {
+long long StatisticsSpell::get_glancing_dmg() const {
     return get_dmg(Outcome::Glancing);
 }
 
-int StatisticsSpell::get_hit_dmg() const  {
+long long StatisticsSpell::get_hit_dmg() const  {
     return get_dmg(Outcome::Hit);
 }
 
-int StatisticsSpell::get_crit_dmg() const  {
+long long StatisticsSpell::get_crit_dmg() const  {
     return get_dmg(Outcome::Crit);
 }
 
@@ -648,8 +648,8 @@ int StatisticsSpell::get_num_dmg_columns() const {
     return columns;
 }
 
-int StatisticsSpell::get_total_dmg_dealt() const {
-    int sum = 0;
+long long StatisticsSpell::get_total_dmg_dealt() const {
+    long long sum = 0;
 
     for (const auto & outcome : possible_success_outcomes) {
         sum += get_dmg(outcome);

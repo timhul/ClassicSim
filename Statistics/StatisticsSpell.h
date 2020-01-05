@@ -117,15 +117,15 @@ public:
     int get_crits() const;
     int get_crits_including_partial_resists() const;
 
-    int get_partial_resist25_dmg() const;
-    int get_partial_resist50_dmg() const;
-    int get_partial_resist75_dmg() const;
-    int get_partial_block_dmg() const;
-    int get_partial_block_crit_dmg() const;
+    long long get_partial_resist25_dmg() const;
+    long long get_partial_resist50_dmg() const;
+    long long get_partial_resist75_dmg() const;
+    long long get_partial_block_dmg() const;
+    long long get_partial_block_crit_dmg() const;
 
-    int get_glancing_dmg() const;
-    int get_hit_dmg() const;
-    int get_crit_dmg() const;
+    long long get_glancing_dmg() const;
+    long long get_hit_dmg() const;
+    long long get_crit_dmg() const;
 
     int get_min_glancing_dmg() const;
     int get_max_glancing_dmg() const;
@@ -147,7 +147,7 @@ public:
     int get_num_attempt_columns() const;
     int get_num_dmg_columns() const;
 
-    int get_total_dmg_dealt() const;
+    long long get_total_dmg_dealt() const;
     int get_total_attempts_made() const;
 
     double get_percentage_of_damage_dealt() const;
@@ -172,7 +172,7 @@ private:
 
     int get_attempts(const Outcome outcome) const;
     int get_attempts(const QSet<Outcome>& outcomes) const;
-    int get_dmg(const Outcome) const;
+    long long get_dmg(const Outcome) const;
     int get_min_dmg(const Outcome) const;
     int get_max_dmg(const Outcome) const;
     void increment(const Outcome);
@@ -184,7 +184,7 @@ private:
     QSet<Outcome> possible_success_outcomes;
 
     QMap<Outcome, int> attempts;
-    QMap<Outcome, int> damage;
+    QMap<Outcome, long long> damage;
     QMap<Outcome, int> min_damage;
     QMap<Outcome, int> max_damage;
 };
