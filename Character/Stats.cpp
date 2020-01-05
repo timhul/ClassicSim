@@ -123,13 +123,13 @@ void Stats::add(const Stats* rhs) {
     increase_hp5(rhs->get_hp5());
     increase_base_spell_damage(rhs->get_base_spell_damage());
 
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Arcane), MagicSchool::Arcane);
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Fire), MagicSchool::Fire);
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Frost), MagicSchool::Frost);
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Holy), MagicSchool::Holy);
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Nature), MagicSchool::Nature);
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Physical), MagicSchool::Physical);
-    increase_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Shadow), MagicSchool::Shadow);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Arcane], MagicSchool::Arcane);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Fire], MagicSchool::Fire);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Frost], MagicSchool::Frost);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Holy], MagicSchool::Holy);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Nature], MagicSchool::Nature);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Physical], MagicSchool::Physical);
+    increase_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Shadow], MagicSchool::Shadow);
 }
 
 void Stats::remove(const Stats* rhs) {
@@ -214,13 +214,13 @@ void Stats::remove(const Stats* rhs) {
     decrease_hp5(rhs->get_hp5());
     decrease_base_spell_damage(rhs->get_base_spell_damage());
 
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Arcane), MagicSchool::Arcane);
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Fire), MagicSchool::Fire);
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Frost), MagicSchool::Frost);
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Holy), MagicSchool::Holy);
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Nature), MagicSchool::Nature);
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Physical), MagicSchool::Physical);
-    decrease_spell_damage_vs_school(rhs->get_spell_damage(MagicSchool::Shadow), MagicSchool::Shadow);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Arcane], MagicSchool::Arcane);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Fire], MagicSchool::Fire);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Frost], MagicSchool::Frost);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Holy], MagicSchool::Holy);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Nature], MagicSchool::Nature);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Physical], MagicSchool::Physical);
+    decrease_spell_damage_vs_school(rhs->magic_school_damage_bonus[MagicSchool::Shadow], MagicSchool::Shadow);
 }
 
 int Stats::get_armor() const {

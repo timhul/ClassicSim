@@ -41,6 +41,7 @@ void TestStats::test_values_after_initialization() {
 
 void TestStats::test_values_after_add_and_remove_from_another_stats_element() {
     auto stats_copy = new Stats();
+    stats_copy->increase_base_spell_damage(1);
     stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Arcane);
     stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Fire);
     stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Frost);
@@ -50,13 +51,13 @@ void TestStats::test_values_after_add_and_remove_from_another_stats_element() {
     stats_copy->increase_spell_damage_vs_school(1, MagicSchool::Shadow);
 
     stats->add(stats_copy);
-    assert(stats->get_spell_damage(MagicSchool::Arcane) == 1);
-    assert(stats->get_spell_damage(MagicSchool::Fire) == 1);
-    assert(stats->get_spell_damage(MagicSchool::Frost) == 1);
-    assert(stats->get_spell_damage(MagicSchool::Holy) == 1);
-    assert(stats->get_spell_damage(MagicSchool::Physical) == 1);
-    assert(stats->get_spell_damage(MagicSchool::Nature) == 1);
-    assert(stats->get_spell_damage(MagicSchool::Shadow) == 1);
+    assert(stats->get_spell_damage(MagicSchool::Arcane) == 2);
+    assert(stats->get_spell_damage(MagicSchool::Fire) == 2);
+    assert(stats->get_spell_damage(MagicSchool::Frost) == 2);
+    assert(stats->get_spell_damage(MagicSchool::Holy) == 2);
+    assert(stats->get_spell_damage(MagicSchool::Physical) == 2);
+    assert(stats->get_spell_damage(MagicSchool::Nature) == 2);
+    assert(stats->get_spell_damage(MagicSchool::Shadow) == 2);
 
     stats->remove(stats_copy);
     assert(stats->get_spell_damage(MagicSchool::Arcane) == 0);
