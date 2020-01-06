@@ -604,7 +604,6 @@ void Equipment::set_quiver(const int item_id)
         return;
 
     check((item->get_item_slot() == ItemSlots::QUIVER), QString("'%1' has incorrect slot").arg(item->name).toStdString());
-    pchar->increase_ranged_attack_speed(item->get_stats()->get_ranged_attack_speed_percent());
     equip(quiver, item, EquipmentSlot::QUIVER);
 }
 
@@ -981,6 +980,7 @@ void Equipment::equip(Quiver *&current, Quiver *next, const int eq_slot)
     unequip(current, eq_slot);
     current = next;
     current->apply_equip_effect(pchar, eq_slot);
+    pchar->increase_ranged_attack_speed(current->get_stats()->get_ranged_attack_speed_percent());
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->item_id;
 }
@@ -990,6 +990,7 @@ void Equipment::unequip(Quiver *&current, const int eq_slot)
     if (current == nullptr)
         return;
 
+    pchar->decrease_ranged_attack_speed(current->get_stats()->get_ranged_attack_speed_percent());
     stats_from_equipped_gear[setup_index]->remove(current->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete current;
