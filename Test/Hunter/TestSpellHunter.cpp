@@ -27,9 +27,6 @@ void TestSpellHunter::set_up(const bool prepare_combat_iterations) {
     pchar = hunter;
     given_in_ranged_attack_mode();
 
-    // TODO: This will fail when the hardcoded quiver bonus is removed.
-    hunter->get_stats()->decrease_ranged_attack_speed(15);
-
     if (prepare_combat_iterations) {
         raid_control->prepare_set_of_combat_iterations();
         pchar->prepare_set_of_combat_iterations();

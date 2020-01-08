@@ -66,7 +66,7 @@ RectangleBorders {
         RectangleBorders {
             anchors.bottom: parent.bottom
             height: sortBoxHeight
-            width: 60
+            width: 90
 
             onRectangleClicked: itemModel.selectSort(ItemSort.ByItemType)
             onRectangleRightClicked: itemModel.selectSort(ItemSort.ByItemType)
@@ -76,6 +76,18 @@ RectangleBorders {
 
             TextSmall {
                 text: "Type"
+            }
+        }
+
+        RectangleBorders {
+            anchors.bottom: parent.bottom
+            height: sortBoxHeight
+            width: 402
+
+            rectColor: root.darkDarkGray
+
+            TextSmall {
+                text: "Source"
             }
         }
     }

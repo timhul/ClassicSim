@@ -2,6 +2,7 @@
 
 #include <utility>
 
+#include "Quiver.h"
 #include "Weapon.h"
 
 Projectile::Projectile(QString name, int item_id, Content::Phase phase, int type, double dps,
@@ -25,6 +26,11 @@ double Projectile::get_projectile_dps() const {
     return dps;
 }
 
+int Projectile::get_projectile_type() const
+{
+    return projectile_type;
+}
+
 bool Projectile::valid_for_weapon(Weapon* weapon) const {
     if (weapon == nullptr)
         return true;
@@ -35,6 +41,21 @@ bool Projectile::valid_for_weapon(Weapon* weapon) const {
         return projectile_type == ProjectileTypes::ARROW ? true : false;
     case WeaponTypes::GUN:
         return projectile_type == ProjectileTypes::BULLET ? true : false;
+    default:
+        return false;
+    }
+}
+
+bool Projectile::valid_for_quiver(Quiver *quiver) const
+{
+    if (quiver == nullptr)
+        return true;
+
+    switch (quiver->get_quiver_type()) {
+    case QuiverTypes::QUIVER:
+        return projectile_type == ProjectileTypes::ARROW;
+    case QuiverTypes::AMMO_POUCH:
+        return projectile_type == ProjectileTypes::BULLET;
     default:
         return false;
     }

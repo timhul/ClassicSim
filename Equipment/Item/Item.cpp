@@ -900,6 +900,11 @@ void Item::set_stat(const QString& key, const QString& value) {
         base_tooltip_stats.append(QString("+%1 Shadow Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceShadow, value.toUInt());
     }
+    else if (key == "RANGED_ATTACK_SPEED") {
+        this->stats->increase_ranged_attack_speed(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases ranged attack speed by %1%.").arg(value));
+        this->item_stat_values.insert(ItemStats::RangedAttackSpeedPercent, value.toUInt());
+    }
     else
         unsupported_stat(key);
 }
@@ -982,6 +987,8 @@ int get_slot_int(const QString& slot_string) {
         return ItemSlots::RELIC;
     if (slot_string == "PROJECTILE")
         return ItemSlots::PROJECTILE;
+    if (slot_string == "QUIVER")
+        return ItemSlots::QUIVER;
 
     return -1;
 }
@@ -1035,6 +1042,10 @@ int Item::get_type_int(const QString& type_string) {
         return ArmorTypes::MAIL;
     if (type_string == "PLATE")
         return ArmorTypes::PLATE;
+    if (type_string == "QUIVER")
+        return QuiverTypes::QUIVER;
+    if (type_string == "AMMO_POUCH")
+        return QuiverTypes::AMMO_POUCH;
 
     return -1;
 }

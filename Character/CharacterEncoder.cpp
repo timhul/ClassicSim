@@ -8,6 +8,7 @@
 #include "Equipment.h"
 #include "Item.h"
 #include "Projectile.h"
+#include "Quiver.h"
 #include "Race.h"
 #include "Rotation.h"
 #include "SimSettings.h"
@@ -53,6 +54,7 @@ QString CharacterEncoder::get_current_setup_string() {
     add_item("TRINKET2", pchar->get_equipment()->get_trinket2());
     add_item("PROJECTILE", pchar->get_equipment()->get_projectile());
     add_item("RELIC", pchar->get_equipment()->get_relic());
+    add_item("QUIVER", pchar->get_equipment()->get_quiver());
 
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup = pchar->get_talents()->get_current_talent_setup();
     add_vector(setup);

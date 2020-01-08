@@ -5,6 +5,7 @@
 #include "Item.h"
 
 class Weapon;
+class Quiver;
 
 class Projectile: public Item {
 public:
@@ -16,7 +17,9 @@ public:
     Projectile(const Projectile* projectile);
 
     double get_projectile_dps() const;
+    int get_projectile_type() const;
     bool valid_for_weapon(Weapon* weapon) const;
+    bool valid_for_quiver(Quiver* quiver) const;
 
 private:
     int projectile_type;

@@ -16,6 +16,7 @@ Rectangle {
     signal raidSetupClicked()
 
     width: 150
+    z: 10
 
     state: "TALENTS"
     color: "transparent"
@@ -197,7 +198,6 @@ Rectangle {
                 }
             }
         }
-
 
         GradientSelectedButton {
             id: statisticsRect

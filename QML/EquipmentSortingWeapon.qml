@@ -98,7 +98,7 @@ RectangleBorders {
         RectangleBorders {
             anchors.bottom: parent.bottom
             height: sortBoxHeight
-            width: 60
+            width: 80
 
             onRectangleClicked: weaponModel.selectSort(WeaponSort.ByItemType)
             onRectangleRightClicked: weaponModel.selectSort(WeaponSort.ByItemType)
@@ -108,6 +108,18 @@ RectangleBorders {
 
             TextSmall {
                 text: "Type"
+            }
+        }
+
+        RectangleBorders {
+            anchors.bottom: parent.bottom
+            height: sortBoxHeight
+            width: 397
+
+            rectColor: root.darkDarkGray
+
+            TextSmall {
+                text: "Source"
             }
         }
     }

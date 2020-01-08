@@ -97,6 +97,7 @@ SOURCES += main.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
     Class/Shaman/TalentTrees/RestorationShaman.cpp \
     Equipment/Item/ItemStatsEnum.cpp \
+    Equipment/Item/Quiver.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
@@ -573,6 +574,7 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    Equipment/Item/Quiver.h \
     Event/Events/SpellCallback.h \
     GUI/Models/DamageMetersModel.h \
     GUI/TemplateCharacters.h \

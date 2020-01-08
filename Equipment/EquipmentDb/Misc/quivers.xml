@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<item id="18714" phase="1">
+		<info name="Ancient Sinew Wrapped Lamina" type="QUIVER" slot="QUIVER" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_quiver_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="15"/>
+		</stats>
+		<source>
+			Quest reward.
+		</source>
+	</item>
+	
+	<item id="19319" phase="1">
+		<info name="Harpy Hide Quiver" type="QUIVER" slot="QUIVER" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_quiver_06.png"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="15"/>
+		</stats>
+		<source>
+			AV vendors.
+		</source>
+	</item>
+
+	<item id="19320" phase="1">
+		<info name="Gnoll Skin Bandolier" type="AMMO_POUCH" slot="QUIVER" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_ammo_bullet_01.png"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="15"/>
+		</stats>
+		<source>
+			AV vendors.
+		</source>
+	</item>
+	
+	<item id="2662" phase="1">
+		<info name="Ribbly's Quiver" type="QUIVER" slot="QUIVER" unique="yes" req_lvl="50" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_misc_quiver_06.png"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="14"/>
+		</stats>
+		<source>
+			Drops from Ribbly Screwspigot in Blackrock Depths.
+		</source>
+	</item>
+	
+	<item id="2663" phase="1">
+		<info name="Ribbly's Bandolier" type="AMMO_POUCH" slot="QUIVER" unique="yes" req_lvl="50" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_misc_ammo_bullet_01.png"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="14"/>
+		</stats>
+		<source>
+			Drops from Ribbly Screwspigot in Blackrock Depths.
+		</source>
+	</item>
+	
+	<item id="8217" phase="1">
+		<info name="Quickdraw Quiver" type="QUIVER" slot="QUIVER" unique="no" req_lvl="40" item_lvl="45" quality="UNCOMMON" boe="yes" icon="Inv_misc_quiver_07.png"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="13"/>
+		</stats>
+		<source>
+			Crafted by leatherworkers.
+		</source>
+	</item>
+	
+	<item id="8218" phase="1">
+		<info name="Thick Leather Ammo Pouch" type="AMMO_POUCH" slot="QUIVER" unique="no" req_lvl="40" item_lvl="45" quality="UNCOMMON" boe="yes" icon="Inv_misc_bag_09_black.png"/>
+		<stats>
+			<stat type="RANGED_ATTACK_SPEED" value="13"/>
+		</stats>
+		<source>
+			Crafted by leatherworkers.
+		</source>
+	</item>
+</items>

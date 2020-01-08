@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 RectangleBorders {
-    width: 850
+    width: 1025
     height: 45
 
     signal entryClicked();
@@ -125,7 +125,7 @@ RectangleBorders {
             id: textType
             text: entryType
 
-            width: 60
+            width: 80
             height: parent.height
 
             font {
@@ -143,7 +143,7 @@ RectangleBorders {
             id: textSource
             text: entrySource
 
-            width: 300
+            width: 400
             height: parent.height
             wrapMode: Text.WordWrap
 
@@ -155,7 +155,7 @@ RectangleBorders {
             color: "white"
 
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignLeft
+            horizontalAlignment: Text.AlignHCenter
         }
     }
 }
