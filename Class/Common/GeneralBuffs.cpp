@@ -245,6 +245,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
         ExternalBuffName::SongflowerSerenade,
         ExternalBuffName::SpiritOfZandalar,
         ExternalBuffName::SaygesDarkFortuneOfDamage,
+        ExternalBuffName::WarchiefsBlessing,
     };
 
     QVector<ExternalBuffName> all_blessings = {
@@ -277,6 +278,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
         ExternalBuffName::SongflowerSerenade,
         ExternalBuffName::SpiritOfZandalar,
         ExternalBuffName::SaygesDarkFortuneOfDamage,
+        ExternalBuffName::WarchiefsBlessing,
     };
 
     if (class_name == "Warrior") {
@@ -317,6 +319,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
                     ExternalBuffName::SongflowerSerenade,
                     ExternalBuffName::SpiritOfZandalar,
                     ExternalBuffName::SaygesDarkFortuneOfDamage,
+                    ExternalBuffName::WarchiefsBlessing,
         };
 
     return {};

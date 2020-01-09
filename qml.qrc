@@ -998,5 +998,6 @@
         <file>QML/Assets/items/Inv_misc_bag_09_black.png</file>
         <file>QML/Assets/items/Inv_misc_quiver_06.png</file>
         <file>QML/Assets/items/Inv_misc_quiver_07.png</file>
+        <file>QML/Assets/spell/Spell_arcane_teleportorgrimmar.png</file>
     </qresource>
 </RCC>

@@ -203,6 +203,10 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::BlessedSunfruit:
         pchar->get_stats()->increase_strength(10);
         break;
+    case ExternalBuffName::WarchiefsBlessing:
+        pchar->get_stats()->increase_melee_attack_speed(15);
+        pchar->get_stats()->increase_mp5(10);
+        break;
     }
 }
 
@@ -366,6 +370,10 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::BlessedSunfruit:
         pchar->get_stats()->decrease_strength(10);
+        break;
+    case ExternalBuffName::WarchiefsBlessing:
+        pchar->get_stats()->decrease_melee_attack_speed(15);
+        pchar->get_stats()->decrease_mp5(10);
         break;
     }
 }
@@ -544,6 +552,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Blessed Sunfruit", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_food_41.png",
                                 "+10 Strength");
+    case ExternalBuffName::WarchiefsBlessing:
+        return new ExternalBuff(pchar, "Warchief's Blessing", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_arcane_teleportorgrimmar.png",
+                                "+300 hitpoints, 15% melee haste, +10 mp5");
     }
 
     return nullptr;
