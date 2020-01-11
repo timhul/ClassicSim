@@ -21,9 +21,9 @@ public:
 
     Equipment* get_equipment() const;
 
-    static void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
-    static void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
-    static void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
+    static void add_multiplicative_effect(QVector<int>& effects, const int add_value, double& modifier);
+    static void remove_multiplicative_effect(QVector<int>& effects, const int remove_value, double& modifier);
+    static void recalculate_multiplicative_effects(const QVector<int>& effects, double& modifier);
 
     unsigned get_mh_wpn_skill() const;
     unsigned get_oh_wpn_skill() const;

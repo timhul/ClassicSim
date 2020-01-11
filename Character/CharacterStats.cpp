@@ -1218,19 +1218,19 @@ void CharacterStats::increase_crit_penalty(const unsigned value) {
     crit_penalty += value;
 }
 
-void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
+void CharacterStats::add_multiplicative_effect(QVector<int>& effects, const int add_value, double &modifier) {
     effects.append(add_value);
 
     recalculate_multiplicative_effects(effects, modifier);
 }
 
-void CharacterStats::remove_multiplicative_effect(QVector<int>& effects, int remove_value, double &modifier) {
+void CharacterStats::remove_multiplicative_effect(QVector<int>& effects, const int remove_value, double &modifier) {
     check(effects.removeOne(remove_value), "Failed to remove multiplicative effect");
 
     recalculate_multiplicative_effects(effects, modifier);
 }
 
-void CharacterStats::recalculate_multiplicative_effects(QVector<int>& effects, double& modifier) {
+void CharacterStats::recalculate_multiplicative_effects(const QVector<int> &effects, double& modifier) {
     modifier = 1.0;
     for (int effect : effects) {
         double coefficient = 1.0 + double(effect) / 100;
