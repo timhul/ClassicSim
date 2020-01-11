@@ -2,6 +2,8 @@
 
 #include "TestSpellRogue.h"
 
+class Hemorrhage;
+
 class TestHemorrhage: public TestSpellRogue {
 public:
     TestHemorrhage(EquipmentDb *equipment_db);

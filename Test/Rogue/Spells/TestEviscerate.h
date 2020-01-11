@@ -2,6 +2,8 @@
 
 #include "TestSpellRogue.h"
 
+class Eviscerate;
+
 class TestEviscerate: public TestSpellRogue {
 public:
     TestEviscerate(EquipmentDb *equipment_db);

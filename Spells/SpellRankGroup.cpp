@@ -1,5 +1,6 @@
 #include "SpellRankGroup.h"
 
+#include "SetBonusRequirer.h"
 #include "Spell.h"
 #include "Utils/Check.h"
 

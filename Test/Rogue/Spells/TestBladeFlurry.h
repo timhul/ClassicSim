@@ -2,6 +2,8 @@
 
 #include "TestSpellRogue.h"
 
+class BladeFlurry;
+
 class TestBladeFlurry: public TestSpellRogue {
 public:
     TestBladeFlurry(EquipmentDb *equipment_db);

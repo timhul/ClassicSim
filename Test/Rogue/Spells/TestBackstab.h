@@ -2,6 +2,8 @@
 
 #include "TestSpellRogue.h"
 
+class Backstab;
+
 class TestBackstab: public TestSpellRogue {
 public:
     TestBackstab(EquipmentDb *equipment_db);

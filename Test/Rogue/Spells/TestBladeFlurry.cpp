@@ -9,6 +9,7 @@
 #include "Event.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
+#include "SpellRankGroup.h"
 #include "Talent.h"
 #include "WarriorSpells.h"
 
@@ -32,8 +33,8 @@ void TestBladeFlurry::test_all() {
     tear_down();
 }
 
-BladeFlurry *TestBladeFlurry::blade_flurry() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_blade_flurry();
+BladeFlurry* TestBladeFlurry::blade_flurry() const {
+    return static_cast<BladeFlurry*>(rogue->get_spells()->get_spell_rank_group_by_name("Blade Flurry")->get_max_available_spell_rank());
 }
 
 void TestBladeFlurry::test_name_correct() {

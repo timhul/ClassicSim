@@ -5,6 +5,7 @@
 #include "Backstab.h"
 #include "Equipment.h"
 #include "Event.h"
+#include "SpellRankGroup.h"
 
 TestBackstab::TestBackstab(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Backstab")
@@ -79,7 +80,7 @@ void TestBackstab::test_all() {
 }
 
 Backstab* TestBackstab::backstab() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_backstab();
+    return static_cast<Backstab*>(rogue->get_spells()->get_spell_rank_group_by_name("Backstab")->get_max_available_spell_rank());
 }
 
 void TestBackstab::test_name_correct() {

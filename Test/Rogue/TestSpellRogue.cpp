@@ -12,6 +12,7 @@
 #include "RogueSpells.h"
 #include "SimSettings.h"
 #include "Spell.h"
+#include "SpellRankGroup.h"
 #include "Subtlety.h"
 #include "Talent.h"
 
@@ -41,10 +42,10 @@ void TestSpellRogue::given_rogue_is_on_gcd() {
     if (pchar->get_equipment()->get_mainhand() == nullptr)
         given_a_mainhand_weapon_with_100_min_max_dmg();
 
-    given_rogue_is_on_gcd(static_cast<RogueSpells*>(pchar->get_spells())->get_backstab());
+    given_rogue_is_on_gcd(rogue->get_spells()->get_spell_rank_group_by_name("Backstab")->get_max_available_spell_rank());
 }
 
-void TestSpellRogue::given_rogue_is_on_gcd(Spell *spell) {
+void TestSpellRogue::given_rogue_is_on_gcd(Spell* spell) {
     unsigned energy_before = rogue->get_resource_level(ResourceType::Energy);
     rogue->gain_energy(100 - energy_before);
 

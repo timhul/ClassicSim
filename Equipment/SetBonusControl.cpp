@@ -87,22 +87,18 @@ void SetBonusControl::equip_item(const int item_id) {
     }
     else if (set_name == "Deathdealer's Embrace") {
         switch (num_pieces) {
-        case 5: {
-            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
-            spells->get_eviscerate()->activate_set_bonus(set_name, num_pieces);
+        case 5:
+            activate_spell_rank_group("Eviscerate", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
-        case 4: {
-            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
-            spells->get_backstab()->activate_set_bonus(set_name, num_pieces);
-            spells->get_hemorrhage()->activate_set_bonus(set_name, num_pieces);
-            spells->get_sinister_strike()->activate_set_bonus(set_name, num_pieces);
+        case 4:
+            activate_spell_rank_group("Backstab", set_name, num_pieces);
+            activate_spell_rank_group("Hemorrhage", set_name, num_pieces);
+            activate_spell_rank_group("Sinister Strike", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Zanzil's Concentration") {
@@ -249,8 +245,7 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
-            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
-            spells->get_slice_and_dice()->activate_set_bonus(set_name, num_pieces);
+            activate_spell_rank_group("Slice and Dice", set_name, num_pieces);
             break;
         }
     }
@@ -292,22 +287,18 @@ void SetBonusControl::unequip_item(const int item_id) {
     }
     else if (set_name == "Deathdealer's Embrace") {
         switch (num_pieces) {
-        case 5: {
-            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
-            spells->get_eviscerate()->deactivate_set_bonus(set_name, num_pieces);
+        case 5:
+            deactivate_spell_rank_group("Eviscerate", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
-        case 4: {
-            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
-            spells->get_backstab()->deactivate_set_bonus(set_name, num_pieces);
-            spells->get_hemorrhage()->deactivate_set_bonus(set_name, num_pieces);
-            spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
+        case 4:
+            deactivate_spell_rank_group("Backstab", set_name, num_pieces);
+            deactivate_spell_rank_group("Hemorrhage", set_name, num_pieces);
+            deactivate_spell_rank_group("Sinister Strike", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Zanzil's Concentration") {
@@ -441,8 +432,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
-            auto spells = static_cast<RogueSpells*>(pchar->get_spells());
-            spells->get_slice_and_dice()->deactivate_set_bonus(set_name, num_pieces);
+            deactivate_spell_rank_group("Slice And Dice", set_name, num_pieces);
             break;
         }
     }

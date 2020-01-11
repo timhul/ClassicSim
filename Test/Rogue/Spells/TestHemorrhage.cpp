@@ -6,6 +6,7 @@
 #include "Event.h"
 #include "Hemorrhage.h"
 #include "RogueSpells.h"
+#include "SpellRankGroup.h"
 #include "Subtlety.h"
 #include "Talent.h"
 
@@ -58,7 +59,7 @@ void TestHemorrhage::test_all() {
 }
 
 Hemorrhage* TestHemorrhage::hemo() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_hemorrhage();
+    return static_cast<Hemorrhage*>(rogue->get_spells()->get_spell_rank_group_by_name("Hemorrhage")->get_max_available_spell_rank());
 }
 
 void TestHemorrhage::test_name_correct() {

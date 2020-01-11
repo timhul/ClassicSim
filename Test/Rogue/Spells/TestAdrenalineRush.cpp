@@ -9,6 +9,7 @@
 #include "Event.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
+#include "SpellRankGroup.h"
 #include "Talent.h"
 #include "WarriorSpells.h"
 
@@ -32,8 +33,8 @@ void TestAdrenalineRush::test_all() {
     tear_down();
 }
 
-AdrenalineRush *TestAdrenalineRush::adrenaline_rush() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_adrenaline_rush();
+AdrenalineRush* TestAdrenalineRush::adrenaline_rush() const {
+    return static_cast<AdrenalineRush*>(rogue->get_spells()->get_spell_rank_group_by_name("Adrenaline Rush")->get_max_available_spell_rank());
 }
 
 void TestAdrenalineRush::test_name_correct() {

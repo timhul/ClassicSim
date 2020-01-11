@@ -6,6 +6,7 @@
 #include "Event.h"
 #include "RogueSpells.h"
 #include "SliceAndDice.h"
+#include "SpellRankGroup.h"
 
 TestSliceAndDice::TestSliceAndDice(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Slice and Dice")
@@ -56,7 +57,7 @@ void TestSliceAndDice::test_all() {
 }
 
 SliceAndDice* TestSliceAndDice::slice_and_dice() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_slice_and_dice();
+    return static_cast<SliceAndDice*>(rogue->get_spells()->get_spell_rank_group_by_name("Slice and Dice")->get_max_available_spell_rank());
 }
 
 void TestSliceAndDice::test_name_correct() {

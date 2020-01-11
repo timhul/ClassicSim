@@ -2,6 +2,8 @@
 
 #include "TestSpellRogue.h"
 
+class SliceAndDice;
+
 class TestSliceAndDice: public TestSpellRogue {
 public:
     TestSliceAndDice(EquipmentDb *equipment_db);

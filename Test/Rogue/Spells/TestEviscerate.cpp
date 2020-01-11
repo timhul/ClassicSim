@@ -6,6 +6,7 @@
 #include "Event.h"
 #include "Eviscerate.h"
 #include "Item.h"
+#include "SpellRankGroup.h"
 #include "Talent.h"
 
 TestEviscerate::TestEviscerate(EquipmentDb *equipment_db) :
@@ -121,7 +122,7 @@ void TestEviscerate::test_all() {
 }
 
 Eviscerate* TestEviscerate::eviscerate() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_eviscerate();
+    return static_cast<Eviscerate*>(rogue->get_spells()->get_spell_rank_group_by_name("Eviscerate")->get_max_available_spell_rank());
 }
 
 void TestEviscerate::test_name_correct() {

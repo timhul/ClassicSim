@@ -6,6 +6,7 @@
 #include "Event.h"
 #include "RogueSpells.h"
 #include "SinisterStrike.h"
+#include "SpellRankGroup.h"
 #include "Talent.h"
 
 TestSinisterStrike::TestSinisterStrike(EquipmentDb *equipment_db) :
@@ -65,7 +66,7 @@ void TestSinisterStrike::test_all() {
 }
 
 SinisterStrike *TestSinisterStrike::sinister_strike() const {
-    return static_cast<RogueSpells*>(rogue->get_spells())->get_sinister_strike();
+    return static_cast<SinisterStrike*>(rogue->get_spells()->get_spell_rank_group_by_name("Sinister Strike")->get_max_available_spell_rank());
 }
 
 void TestSinisterStrike::test_name_correct() {
