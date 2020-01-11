@@ -64,7 +64,6 @@ void Stats::add(const Stats* rhs) {
     increase_melee_aura_crit(rhs->get_melee_crit_chance());
     increase_ranged_hit(rhs->get_ranged_hit_chance());
     increase_ranged_crit(rhs->get_ranged_crit_chance());
-    increase_attack_speed(rhs->get_attack_speed());
     increase_ranged_attack_speed(rhs->get_ranged_attack_speed_percent());
 
     increase_spell_hit(MagicSchool::Arcane, rhs->get_spell_hit_chance(MagicSchool::Arcane));
@@ -156,7 +155,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_aura_crit(rhs->get_melee_crit_chance());
     decrease_ranged_hit(rhs->get_ranged_hit_chance());
     decrease_ranged_crit(rhs->get_ranged_crit_chance());
-    decrease_attack_speed(rhs->get_attack_speed());
+    decrease_ranged_attack_speed(rhs->get_ranged_attack_speed_percent());
 
     decrease_spell_hit(MagicSchool::Arcane, rhs->get_spell_hit_chance(MagicSchool::Arcane));
     decrease_spell_hit(MagicSchool::Fire, rhs->get_spell_hit_chance(MagicSchool::Fire));
@@ -241,11 +240,11 @@ unsigned Stats::get_stamina() const {
 }
 
 unsigned Stats::get_intellect() const {
-    return static_cast<unsigned>(round(intellect * int_multiplier));
+    return intellect;
 }
 
 unsigned Stats::get_spirit() const {
-    return static_cast<unsigned>(round(spirit * spi_multiplier));
+    return spirit;
 }
 
 void Stats::increase_strength(const unsigned increase) {
@@ -548,30 +547,6 @@ unsigned Stats::get_spell_crit_chance(MagicSchool school) const {
     return spell_crit + magic_school_crit_bonus[school];
 }
 
-unsigned Stats::get_attack_speed() const {
-    return attack_speed;
-}
-
-void Stats::set_str_multiplier(const double value) {
-    str_multiplier = value;
-}
-
-void Stats::set_agi_multiplier(const double value) {
-    agi_multiplier = value;
-}
-
-void Stats::set_stam_multiplier(const double value) {
-    stam_multiplier = value;
-}
-
-void Stats::set_spi_multiplier(const double value) {
-    spi_multiplier = value;
-}
-
-void Stats::set_int_multiplier(const double value) {
-    int_multiplier = value;
-}
-
 void Stats::increase_melee_aura_crit(const unsigned value) {
     melee_crit += value;
 }
@@ -608,20 +583,18 @@ void Stats::decrease_ranged_crit(const unsigned value) {
     ranged_crit -= value;
 }
 
-unsigned Stats::get_ranged_attack_speed_percent() const
-{
-    return static_cast<unsigned>(100 * ranged_attack_speed) - 100;
+unsigned Stats::get_ranged_attack_speed_percent() const {
+    return ranged_attack_speed;
 }
 
-void Stats::increase_ranged_attack_speed(const unsigned value)
-{
-    ranged_attack_speed_buffs.push_back(value);
+void Stats::increase_ranged_attack_speed(const unsigned value) {
+    check((ranged_attack_speed == 0 || value == 0), "Cannot increase non-zero ranged attack speed");
+    ranged_attack_speed += value;
+}
 
-    ranged_attack_speed = 1.0;
-    for (auto effect : ranged_attack_speed_buffs) {
-        double coefficient = 1.0 + double(effect) / 100;
-        ranged_attack_speed *= coefficient;
-    }
+void Stats::decrease_ranged_attack_speed(const unsigned value) {
+    check((ranged_attack_speed >= value), "Underflow decrease ranged attack speed");
+    ranged_attack_speed -= value;
 }
 
 void Stats::increase_spell_hit(const unsigned value) {
@@ -659,14 +632,6 @@ void Stats::decrease_spell_crit(const MagicSchool school, const unsigned value) 
     check((magic_school_crit_bonus[school] >= value), "Underflow spell school crit decrease");
 
     magic_school_crit_bonus[school] -= value;
-}
-
-void Stats::increase_attack_speed(const unsigned value) {
-    attack_speed += value;
-}
-
-void Stats::decrease_attack_speed(const unsigned value) {
-    attack_speed -= value;
 }
 
 void Stats::increase_melee_ap_against_type(const Target::CreatureType type, const unsigned increase) {

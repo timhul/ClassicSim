@@ -130,6 +130,7 @@ public:
 
     unsigned get_ranged_attack_speed_percent() const;
     void increase_ranged_attack_speed(const unsigned value);
+    void decrease_ranged_attack_speed(const unsigned value);
 
     unsigned get_spell_hit_chance(const MagicSchool school) const;
     void increase_spell_hit(const unsigned value);
@@ -143,18 +144,8 @@ public:
     void increase_spell_crit(const MagicSchool school, const unsigned value);
     void decrease_spell_crit(const MagicSchool school, const unsigned value);
 
-    unsigned get_attack_speed() const;
-    void increase_attack_speed(const unsigned value);
-    void decrease_attack_speed(const unsigned value);
-
     double get_mh_wpn_speed() const;
     double get_oh_wpn_speed() const;
-
-    void set_str_multiplier(const double value);
-    void set_agi_multiplier(const double value);
-    void set_stam_multiplier(const double value);
-    void set_spi_multiplier(const double value);
-    void set_int_multiplier(const double value);
 
     void increase_melee_ap_against_type(const Target::CreatureType type, const unsigned value);
     void decrease_melee_ap_against_type(const Target::CreatureType type, const unsigned value);
@@ -233,11 +224,9 @@ private:
     unsigned melee_crit {0};
     unsigned ranged_hit {0};
     unsigned ranged_crit {0};
-    QVector<unsigned> ranged_attack_speed_buffs;
-    double ranged_attack_speed {1.0};
+    unsigned ranged_attack_speed {0};
     unsigned spell_hit {0};
     unsigned spell_crit {0};
-    unsigned attack_speed {0};
     unsigned flat_weapon_damage {0};
 
     unsigned mp5 {0};
@@ -251,10 +240,4 @@ private:
     QMap<MagicSchool, unsigned> magic_school_hit_bonus;
     QMap<MagicSchool, unsigned> magic_school_crit_bonus;
     QMap<MagicSchool, unsigned> magic_school_spell_penetration_bonus;
-
-    double str_multiplier {1.0};
-    double agi_multiplier {1.0};
-    double stam_multiplier {1.0};
-    double spi_multiplier {1.0};
-    double int_multiplier {1.0};
 };
