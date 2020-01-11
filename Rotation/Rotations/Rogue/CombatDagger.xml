@@ -4,6 +4,10 @@
     A rotation for Combat Dagger rogues.
     </description>
 
+    <cast_if name="Thistle Tea">
+        resource "Energy" less 20
+    </cast_if>
+
     <cast_if name="Slice and Dice">
         buff_duration "Slice and Dice" less 3
     </cast_if>

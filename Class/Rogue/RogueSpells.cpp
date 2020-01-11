@@ -12,6 +12,7 @@
 #include "Rogue.h"
 #include "SinisterStrike.h"
 #include "SliceAndDice.h"
+#include "ThistleTea.h"
 
 RogueSpells::RogueSpells(Rogue* rogue) :
     CharacterSpells(rogue),
@@ -39,9 +40,8 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     add_spell_group({oh_attack});
     add_spell_group({sinister_strike});
     add_spell_group({slice_and_dice});
+    add_spell_group({new ThistleTea(rogue)});
 }
-
-RogueSpells::~RogueSpells() = default;
 
 void RogueSpells::oh_auto_attack(const int iteration) {
     if (!oh_attack->attack_is_valid(iteration))
