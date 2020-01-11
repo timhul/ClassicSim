@@ -144,18 +144,17 @@ void SetBonusControl::equip_item(const int item_id) {
     }
     else if (set_name == "Giantstalker Armor") {
         switch (num_pieces) {
-        case 8: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+        case 8:
+            activate_spell_rank_group("Multi-Shot", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Dragonstalker Armor") {
         switch (num_pieces) {
         case 3: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->activate_set_bonus(set_name, num_pieces);
+            // TODO: The set bonus is only applied to the max rank of Aspect of the Hawk.
+            auto aspect = static_cast<AspectOfTheHawk*>(pchar->get_spells()->get_spell_rank_group_by_name("Aspect of the Hawk")->get_max_available_spell_rank());
+            aspect->get_aspect_of_the_hawk_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         case 8: {
@@ -167,18 +166,16 @@ void SetBonusControl::equip_item(const int item_id) {
     }
     else if (set_name == "Striker's Garb") {
         switch (num_pieces) {
-        case 5: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_rapid_fire()->activate_set_bonus(set_name, num_pieces);
+        case 5:
+            activate_spell_rank_group("Rapid Fire", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Cryptstalker Armor") {
         switch (num_pieces) {
         case 2: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_rapid_fire()->get_rapid_fire_buff()->activate_set_bonus(set_name, num_pieces);
+            auto rapid_fire = static_cast<RapidFire*>(pchar->get_spells()->get_spell_rank_group_by_name("Rapid Fire")->get_max_available_spell_rank());
+            rapid_fire->get_rapid_fire_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         case 4:
@@ -186,19 +183,15 @@ void SetBonusControl::equip_item(const int item_id) {
             pchar->get_stats()->increase_ranged_ap(50);
             static_cast<Hunter*>(pchar)->get_pet()->increase_attack_power(50);
             break;
-        case 6: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_aimed_shot()->activate_set_bonus(set_name, num_pieces);
-            spells->get_auto_shot()->activate_set_bonus(set_name, num_pieces);
-            spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+        case 6:
+            activate_spell_rank_group("Aimed Shot", set_name, num_pieces);
+            activate_spell_rank_group("Auto Shot", set_name, num_pieces);
+            activate_spell_rank_group("Multi-Shot", set_name, num_pieces);
             break;
-        }
-        case 8: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_aimed_shot()->activate_set_bonus(set_name, num_pieces);
-            spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+        case 8:
+            activate_spell_rank_group("Aimed Shot", set_name, num_pieces);
+            activate_spell_rank_group("Multi-Shot", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Netherwind Regalia") {
@@ -332,18 +325,17 @@ void SetBonusControl::unequip_item(const int item_id) {
     }
     else if (set_name == "Giantstalker Armor") {
         switch (num_pieces) {
-        case 8: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+        case 8:
+            deactivate_spell_rank_group("Multi-Shot", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Dragonstalker Armor") {
         switch (num_pieces) {
         case 3: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->deactivate_set_bonus(set_name, num_pieces);
+            // TODO: The set bonus is only applied to the max rank of Aspect of the Hawk.
+            auto aspect = static_cast<AspectOfTheHawk*>(pchar->get_spells()->get_spell_rank_group_by_name("Aspect of the Hawk")->get_max_available_spell_rank());
+            aspect->get_aspect_of_the_hawk_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         case 8: {
@@ -355,18 +347,16 @@ void SetBonusControl::unequip_item(const int item_id) {
     }
     else if (set_name == "Striker's Garb") {
         switch (num_pieces) {
-        case 5: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_rapid_fire()->deactivate_set_bonus(set_name, num_pieces);
+        case 5:
+            deactivate_spell_rank_group("Rapid Fire", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Cryptstalker Armor") {
         switch (num_pieces) {
         case 2: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_rapid_fire()->get_rapid_fire_buff()->deactivate_set_bonus(set_name, num_pieces);
+            auto rapid_fire = static_cast<RapidFire*>(pchar->get_spells()->get_spell_rank_group_by_name("Rapid Fire")->get_max_available_spell_rank());
+            rapid_fire->get_rapid_fire_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         case 4:
@@ -374,19 +364,15 @@ void SetBonusControl::unequip_item(const int item_id) {
             pchar->get_stats()->decrease_ranged_ap(50);
             static_cast<Hunter*>(pchar)->get_pet()->decrease_attack_power(50);
             break;
-        case 6: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
-            spells->get_auto_shot()->deactivate_set_bonus(set_name, num_pieces);
-            spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+        case 6:
+            deactivate_spell_rank_group("Aimed Shot", set_name, num_pieces);
+            deactivate_spell_rank_group("Auto Shot", set_name, num_pieces);
+            deactivate_spell_rank_group("Multi-Shot", set_name, num_pieces);
             break;
-        }
-        case 8: {
-            auto spells = static_cast<HunterSpells*>(pchar->get_spells());
-            spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
-            spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+        case 8:
+            deactivate_spell_rank_group("Aimed Shot", set_name, num_pieces);
+            deactivate_spell_rank_group("Multi-Shot", set_name, num_pieces);
             break;
-        }
         }
     }
     else if (set_name == "Netherwind Regalia") {

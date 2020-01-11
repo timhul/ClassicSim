@@ -12,6 +12,7 @@
 #include "MultiShot.h"
 #include "RaidControl.h"
 #include "Spell.h"
+#include "SpellRankGroup.h"
 #include "Survival.h"
 #include "Talent.h"
 
@@ -38,6 +39,10 @@ void TestSpellHunter::tear_down() {
     tear_down_general();
 }
 
+MultiShot* TestSpellHunter::multi_shot() const {
+    return static_cast<MultiShot*>(hunter->get_spells()->get_spell_rank_group_by_name("Multi-Shot")->get_max_available_spell_rank());
+}
+
 void TestSpellHunter::given_hunter_has_mana(const unsigned mana) {
     if (hunter->get_resource_level(ResourceType::Mana) > 0)
         hunter->lose_mana(hunter->get_resource_level(ResourceType::Mana));
@@ -58,7 +63,7 @@ void TestSpellHunter::given_hunter_is_on_gcd() {
     if (pchar->get_equipment()->get_ranged() == nullptr)
         given_a_ranged_weapon_with_100_min_max_dmg();
 
-    static_cast<HunterSpells*>(hunter->get_spells())->get_multi_shot()->perform();
+    multi_shot()->perform();
 
     int resource_delta = static_cast<int>(hunter->get_resource_level(ResourceType::Mana)) - static_cast<int>(resource_before);
 

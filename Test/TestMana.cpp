@@ -79,7 +79,7 @@ void TestMana::spend_mana() {
     given_a_guaranteed_ranged_white_hit();
     unsigned mana_before = pchar->get_resource_level(ResourceType::Mana);
     given_a_ranged_weapon_with_100_min_max_dmg();
-    static_cast<HunterSpells*>(hunter->get_spells())->get_multi_shot()->perform();
+    multi_shot()->perform();
     assert(mana_before - pchar->get_resource_level(ResourceType::Mana) == 230);
 }
 

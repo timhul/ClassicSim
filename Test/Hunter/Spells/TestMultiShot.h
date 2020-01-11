@@ -11,8 +11,6 @@ public:
     void test_all();
 
 private:
-    MultiShot* multi_shot() const;
-
     void test_name_correct() override;
     void test_spell_cooldown() override;
     void test_whether_spell_causes_global_cooldown() override;

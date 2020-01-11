@@ -105,11 +105,6 @@ void TestMultiShot::test_all() {
     tear_down();
 }
 
-MultiShot* TestMultiShot::multi_shot() const {
-    auto spells = static_cast<HunterSpells*>(hunter->get_spells());
-    return spells->get_multi_shot();
-}
-
 void TestMultiShot::test_name_correct() {
     assert(multi_shot()->get_name() == "Multi-Shot");
 }

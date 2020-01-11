@@ -4,6 +4,8 @@
 #include "HunterSpells.h"
 #include "TestSpellDamage.h"
 
+class MultiShot;
+
 class TestSpellHunter: public TestSpellDamage {
 public:
     TestSpellHunter(EquipmentDb* equipment_db, QString spell_under_test);
@@ -13,6 +15,8 @@ protected:
 
     void set_up(const bool prepare_combat_iterations = true) override;
     void tear_down() override;
+
+    MultiShot* multi_shot() const;
 
     void given_hunter_is_on_gcd();
     void given_beast_mastery_talent_rank(const QString& talent_name, const unsigned num);

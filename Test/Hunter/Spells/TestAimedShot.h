@@ -13,7 +13,6 @@ public:
 
 private:
     AimedShot* aimed_shot() const;
-    MultiShot* multi_shot() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;

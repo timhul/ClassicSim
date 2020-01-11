@@ -8,6 +8,7 @@
 #include "Event.h"
 #include "Marksmanship.h"
 #include "MultiShot.h"
+#include "SpellRankGroup.h"
 #include "Talent.h"
 
 TestAimedShot::TestAimedShot(EquipmentDb *equipment_db) :
@@ -111,13 +112,7 @@ void TestAimedShot::test_all() {
 }
 
 AimedShot* TestAimedShot::aimed_shot() const {
-    auto spells = static_cast<HunterSpells*>(hunter->get_spells());
-    return spells->get_aimed_shot();
-}
-
-MultiShot* TestAimedShot::multi_shot() const {
-    auto spells = static_cast<HunterSpells*>(hunter->get_spells());
-    return spells->get_multi_shot();
+    return static_cast<AimedShot*>(hunter->get_spells()->get_spell_rank_group_by_name("Aimed Shot")->get_max_available_spell_rank());
 }
 
 void TestAimedShot::test_name_correct() {
