@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <rotation class="Druid" name="Starfire" attack_mode="magic">
-	<description>
-	Starfire spam.
-	</description>
+    <description>
+    Starfire spam.
+    </description>
 
-	<precombat_actions>
-		<spell name="Moonkin Form"/>
-	</precombat_actions>
+    <precombat_actions>
+        <spell name="Moonkin Form"/>
+    </precombat_actions>
 
-	<cast_if name="Talisman of Ephemeral Power"/>
-	<cast_if name="Zandalarian Hero Charm"/>
-	<cast_if name="The Restrained Essence of Sapphiron"/>
-	<cast_if name="Eye of Moam"/>
-	<cast_if name="Draconic Infused Emblem"/>
-	<cast_if name="Mar'li's Eye"/>
-	<cast_if name="Burst of Knowledge"/>
+    <cast_if name="Talisman of Ephemeral Power"/>
+    <cast_if name="Zandalarian Hero Charm"/>
+    <cast_if name="The Restrained Essence of Sapphiron"/>
+    <cast_if name="Eye of Moam"/>
+    <cast_if name="Draconic Infused Emblem"/>
+    <cast_if name="Mar'li's Eye"/>
+    <cast_if name="Burst of Knowledge"/>
 
-	<cast_if name="Mana Potion"/>
-	<cast_if name="Demonic Rune"/>
-	<cast_if name="Night Dragon's Breath"/>
+    <cast_if name="Mana Potion"/>
+    <cast_if name="Demonic Rune"/>
+    <cast_if name="Night Dragon's Breath"/>
 
-	<cast_if name="Starfire"/>
+    <cast_if name="Starfire"/>
 </rotation>

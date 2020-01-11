@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <paths>
-	<file path="Rotations/Warrior/DWFury.xml"/>
-	<file path="Rotations/Warrior/DWFuryConservative.xml"/>
-	<file path="Rotations/Warrior/DWFuryHSFocus.xml"/>
-	<file path="Rotations/Warrior/2hFury.xml"/>
-	<file path="Rotations/Warrior/Arms.xml"/>
+    <file path="Rotations/Warrior/DWFury.xml"/>
+    <file path="Rotations/Warrior/DWFuryConservative.xml"/>
+    <file path="Rotations/Warrior/DWFuryHSFocus.xml"/>
+    <file path="Rotations/Warrior/2hFury.xml"/>
+    <file path="Rotations/Warrior/Arms.xml"/>
 
-	<file path="Rotations/Rogue/Combat.xml"/>
-	<file path="Rotations/Rogue/CombatDagger.xml"/>
-	<file path="Rotations/Rogue/SealFateDagger.xml"/>
-	<file path="Rotations/Rogue/Hemorrhage.xml"/>
+    <file path="Rotations/Rogue/Combat.xml"/>
+    <file path="Rotations/Rogue/CombatDagger.xml"/>
+    <file path="Rotations/Rogue/SealFateDagger.xml"/>
+    <file path="Rotations/Rogue/Hemorrhage.xml"/>
 
-	<file path="Rotations/Hunter/Marksmanship.xml"/>
+    <file path="Rotations/Hunter/Marksmanship.xml"/>
 
-	<file path="Rotations/Paladin/SealOfCommand.xml"/>
-	<file path="Rotations/Paladin/SealOfTheCrusader.xml"/>
+    <file path="Rotations/Paladin/SealOfCommand.xml"/>
+    <file path="Rotations/Paladin/SealOfTheCrusader.xml"/>
 
-	<file path="Rotations/Shaman/Elemental.xml"/>
-	<file path="Rotations/Shaman/Stormstrike.xml"/>
+    <file path="Rotations/Shaman/Elemental.xml"/>
+    <file path="Rotations/Shaman/Stormstrike.xml"/>
 
-	<file path="Rotations/Mage/Fire.xml"/>
-	<file path="Rotations/Mage/Frost.xml"/>
-	<file path="Rotations/Mage/Arcane.xml"/>
+    <file path="Rotations/Mage/Fire.xml"/>
+    <file path="Rotations/Mage/Frost.xml"/>
+    <file path="Rotations/Mage/Arcane.xml"/>
 
-	<file path="Rotations/Druid/FeralPowershifting.xml"/>
-	<file path="Rotations/Druid/Starfire.xml"/>
+    <file path="Rotations/Druid/FeralPowershifting.xml"/>
+    <file path="Rotations/Druid/Starfire.xml"/>
 </paths>

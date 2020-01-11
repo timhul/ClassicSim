@@ -1,124 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <rotation class="Warrior" name="Mortal Strike" attack_mode="melee">
-	<description>
-	A rotation for warriors with Mortal Strike.
-	</description>
+    <description>
+    A rotation for warriors with Mortal Strike.
+    </description>
 
-	<precombat_actions>
-		<spell name="Bloodrage"/>
-		<spell name="Battle Shout"/>
-		<spell name="Berserker Stance"/>
-	</precombat_actions>
+    <precombat_actions>
+        <spell name="Bloodrage"/>
+        <spell name="Battle Shout"/>
+        <spell name="Berserker Stance"/>
+    </precombat_actions>
 
-	<cast_if name="Battle Shout">
-		buff_duration "Battle Shout" less 5
-		or variable "time_remaining_execute" less 10
-		and variable "time_remaining_execute" greater 0
-		and buff_duration "Battle Shout" less 45
-	</cast_if>
+    <cast_if name="Battle Shout">
+        buff_duration "Battle Shout" less 5
+        or variable "time_remaining_execute" less 10
+        and variable "time_remaining_execute" greater 0
+        and buff_duration "Battle Shout" less 45
+    </cast_if>
 
-	<cast_if name="Manual Crowd Pummeler"/>
+    <cast_if name="Manual Crowd Pummeler"/>
 
-	<cast_if name="Kiss of the Spider">
-		 variable "time_remaining_execute" greater 120
-		 or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Kiss of the Spider">
+         variable "time_remaining_execute" greater 120
+         or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Jom Gabbar">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Jom Gabbar">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Badge of the Swarmguard">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Badge of the Swarmguard">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Slayer's Crest">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Slayer's Crest">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Earthstrike">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Earthstrike">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Zandalarian Hero Medallion">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Zandalarian Hero Medallion">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Diamond Flask">
-		variable "time_remaining_execute" less 0
-		or variable "time_remaining_encounter" less 65
-	</cast_if>
+    <cast_if name="Diamond Flask">
+        variable "time_remaining_execute" less 0
+        or variable "time_remaining_encounter" less 65
+    </cast_if>
 
-	<cast_if name="Cloudkeeper Legplates">
-		variable "time_remaining_execute" less 0
-		or variable "time_remaining_encounter" less 65
-	</cast_if>
+    <cast_if name="Cloudkeeper Legplates">
+        variable "time_remaining_execute" less 0
+        or variable "time_remaining_encounter" less 65
+    </cast_if>
 
-	<cast_if name="Recklessness">
-		variable "time_remaining_execute" less 0
-		or variable "time_remaining_encounter" less 20
-	</cast_if>
+    <cast_if name="Recklessness">
+        variable "time_remaining_execute" less 0
+        or variable "time_remaining_encounter" less 20
+    </cast_if>
 
-	<cast_if name="Blood Fury">
-		variable "time_remaining_execute" less 0
-		and resource "Rage" less 50
-		or variable "time_remaining_execute" greater 120
-	</cast_if>
+    <cast_if name="Blood Fury">
+        variable "time_remaining_execute" less 0
+        and resource "Rage" less 50
+        or variable "time_remaining_execute" greater 120
+    </cast_if>
 
-	<cast_if name="Berserking">
-		variable "time_remaining_execute" less 0
-		and resource "Rage" less 50
-		or variable "time_remaining_execute" greater 180
-	</cast_if>
+    <cast_if name="Berserking">
+        variable "time_remaining_execute" less 0
+        and resource "Rage" less 50
+        or variable "time_remaining_execute" greater 180
+    </cast_if>
 
-	<cast_if name="Overpower"/>
+    <cast_if name="Overpower"/>
 
-	<cast_if name="Mortal Strike">
-		variable "time_remaining_execute" greater 0
-	</cast_if>
+    <cast_if name="Mortal Strike">
+        variable "time_remaining_execute" greater 0
+    </cast_if>
 
-	<cast_if name="Execute"/>
+    <cast_if name="Execute"/>
 
-	<cast_if name="Whirlwind">
-		spell "Mortal Strike" greater 1.5
-	</cast_if>
+    <cast_if name="Whirlwind">
+        spell "Mortal Strike" greater 1.5
+    </cast_if>
 
-	<!-- Special heroic strike usage: attempt to dump rage when Overpower is up. -->
-	<cast_if name="Heroic Strike">
-		variable "time_remaining_execute" greater 3
-		and resource "Rage" greater 30
-		and buff_duration "Overpower" greater 3
-		and buff_duration "Battle Stance" is false
-		and spell "Mainhand Attack" less 1.5
-	</cast_if>
+    <!-- Special heroic strike usage: attempt to dump rage when Overpower is up. -->
+    <cast_if name="Heroic Strike">
+        variable "time_remaining_execute" greater 3
+        and resource "Rage" greater 30
+        and buff_duration "Overpower" greater 3
+        and buff_duration "Battle Stance" is false
+        and spell "Mainhand Attack" less 1.5
+    </cast_if>
 
-	<cast_if name="Heroic Strike">
-		resource "Rage" greater 65
-	</cast_if>
+    <cast_if name="Heroic Strike">
+        resource "Rage" greater 65
+    </cast_if>
 
-	<!-- Switch to Battle Stance -->
-	<cast_if name="Battle Stance">
-		variable "time_remaining_execute" greater 5
-		and buff_duration "Overpower" greater 2
-		and spell "Mortal Strike" greater 3
-		and resource "Rage" less 50
-	</cast_if>
+    <!-- Switch to Battle Stance -->
+    <cast_if name="Battle Stance">
+        variable "time_remaining_execute" greater 5
+        and buff_duration "Overpower" greater 2
+        and spell "Mortal Strike" greater 3
+        and resource "Rage" less 50
+    </cast_if>
 
-	<cast_if name="Berserker Stance">
-		variable "time_remaining_execute" less 0
-		or buff_duration "Overpower" is false
-	</cast_if>
+    <cast_if name="Berserker Stance">
+        variable "time_remaining_execute" less 0
+        or buff_duration "Overpower" is false
+    </cast_if>
 
-	<!-- Switch to dagger set before Execute (if user specified one) -->
-	<!-- <cast_if name="Execute Dagger Switch">
-		variable "time_remaining_execute" less 3
-		and variable "execute_dagger_switch" is false
+    <!-- Switch to dagger set before Execute (if user specified one) -->
+    <!-- <cast_if name="Execute Dagger Switch">
+        variable "time_remaining_execute" less 3
+        and variable "execute_dagger_switch" is false
 
-		let "execute_dagger_switch" = true
-	</cast_if> -->
+        let "execute_dagger_switch" = true
+    </cast_if> -->
 </rotation>

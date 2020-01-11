@@ -1,84 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <rotation class="Hunter" name="Aimed/Multi-Shot" attack_mode="ranged">
-	<description>
-	A rotation for Markmanship hunters that cycles Aimed Shot and Multi-Shot close to the auto shot timer.
-	</description>
+    <description>
+    A rotation for Markmanship hunters that cycles Aimed Shot and Multi-Shot close to the auto shot timer.
+    </description>
 
-	<precombat_actions>
-		<spell name="Aspect of the Hawk"/>
-		<spell name="Hunter's Mark"/>
-		<precast_spell name="Aimed Shot"/>
-	</precombat_actions>
+    <precombat_actions>
+        <spell name="Aspect of the Hawk"/>
+        <spell name="Hunter's Mark"/>
+        <precast_spell name="Aimed Shot"/>
+    </precombat_actions>
 
-	<cast_if name="Rapid Fire">
-		variable "time_remaining_encounter" greater 300
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Rapid Fire">
+        variable "time_remaining_encounter" greater 300
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Kiss of the Spider">
-		 variable "time_remaining_execute" greater 120
-		 or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Kiss of the Spider">
+         variable "time_remaining_execute" greater 120
+         or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Jom Gabbar">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Jom Gabbar">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Badge of the Swarmguard">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Badge of the Swarmguard">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Slayer's Crest">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Slayer's Crest">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Earthstrike">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Earthstrike">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Devilsaur Eye">
-		 variable "time_remaining_execute" greater 120
-		 or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Devilsaur Eye">
+         variable "time_remaining_execute" greater 120
+         or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Zandalarian Hero Medallion">
-		variable "time_remaining_execute" greater 120
-		or variable "time_remaining_execute" less 0
-	</cast_if>
+    <cast_if name="Zandalarian Hero Medallion">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
 
-	<cast_if name="Blood Fury">
-		variable "time_remaining_execute" less 0
-		or variable "time_remaining_execute" greater 120
-	</cast_if>
+    <cast_if name="Blood Fury">
+        variable "time_remaining_execute" less 0
+        or variable "time_remaining_execute" greater 120
+    </cast_if>
 
-	<cast_if name="Berserking">
-		variable "time_remaining_execute" less 0
-		or variable "time_remaining_execute" greater 180
-	</cast_if>
+    <cast_if name="Berserking">
+        variable "time_remaining_execute" less 0
+        or variable "time_remaining_execute" greater 180
+    </cast_if>
 
-	<cast_if name="Bestial Wrath"/>
+    <cast_if name="Bestial Wrath"/>
 
-	<cast_if name="Aimed Shot">
-		variable "time_since_auto_shot" less 0.3
-	</cast_if>
+    <cast_if name="Aimed Shot">
+        variable "time_since_auto_shot" less 0.3
+    </cast_if>
 
-	<cast_if name="Multi-Shot">
-		variable "time_since_auto_shot" less 0.3
-	</cast_if>
+    <cast_if name="Multi-Shot">
+        variable "time_since_auto_shot" less 0.3
+    </cast_if>
 
-	<cast_if name="Hunter's Mark">
-		buff_duration "Hunter's Mark" less 10
-	</cast_if>
+    <cast_if name="Hunter's Mark">
+        buff_duration "Hunter's Mark" less 10
+    </cast_if>
 
-	<cast_if name="Aspect of the Hawk">
-		buff_duration "Aspect of the Hawk" less 10
-	</cast_if>
+    <cast_if name="Aspect of the Hawk">
+        buff_duration "Aspect of the Hawk" less 10
+    </cast_if>
 
-	<cast_if name="Mana Potion"/>
-	<cast_if name="Demonic Rune"/>
-	<cast_if name="Night Dragon's Breath"/>
+    <cast_if name="Mana Potion"/>
+    <cast_if name="Demonic Rune"/>
+    <cast_if name="Night Dragon's Breath"/>
 </rotation>

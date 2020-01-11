@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <rotation class="Paladin" name="Seal of Command" attack_mode="melee">
-	<description>
-	A rotation using Seal of Command as the main seal.
-	</description>
+    <description>
+    A rotation using Seal of Command as the main seal.
+    </description>
 
-	<precombat_actions>
-		<spell name="Sanctity Aura"/>
-		<spell name="Seal of the Crusader"/>
-	</precombat_actions>
+    <precombat_actions>
+        <spell name="Sanctity Aura"/>
+        <spell name="Seal of the Crusader"/>
+    </precombat_actions>
 
-	<cast_if name="Judgement">
-		buff_duration "Judgement of the Crusader" less 3
-		and buff_duration "Seal of the Crusader" greater 0
-	</cast_if>
+    <cast_if name="Judgement">
+        buff_duration "Judgement of the Crusader" less 3
+        and buff_duration "Seal of the Crusader" greater 0
+    </cast_if>
 
-	<cast_if name="Seal of Command">
-		buff_duration "Judgement of the Crusader" greater 3
-		and buff_duration "Seal of Command" less 3
-	</cast_if>
+    <cast_if name="Seal of Command">
+        buff_duration "Judgement of the Crusader" greater 3
+        and buff_duration "Seal of Command" less 3
+    </cast_if>
 
-	<cast_if name="Seal of the Crusader">
-		buff_duration "Judgement of the Crusader" less 3
-	</cast_if>
+    <cast_if name="Seal of the Crusader">
+        buff_duration "Judgement of the Crusader" less 3
+    </cast_if>
 
-	<cast_if name="Consecration">
-		buff_duration "Vengeance" greater 0
-	</cast_if>
+    <cast_if name="Consecration">
+        buff_duration "Vengeance" greater 0
+    </cast_if>
 
-	<cast_if name="Consecration" rank="1"/>
+    <cast_if name="Consecration" rank="1"/>
 
-	<cast_if name="Manual Crowd Pummeler"/>
-	<cast_if name="Scrolls of Blinding Light"/>
-	<cast_if name="Kiss of the Spider"/>
-	<cast_if name="Jom Gabbar"/>
-	<cast_if name="Badge of the Swarmguard"/>
-	<cast_if name="Slayer's Crest"/>
-	<cast_if name="Earthstrike"/>
-	<cast_if name="Zandalarian Hero Medallion"/>
-	<cast_if name="Diamond Flask"/>
-	<cast_if name="Cloudkeeper Legplates"/>
+    <cast_if name="Manual Crowd Pummeler"/>
+    <cast_if name="Scrolls of Blinding Light"/>
+    <cast_if name="Kiss of the Spider"/>
+    <cast_if name="Jom Gabbar"/>
+    <cast_if name="Badge of the Swarmguard"/>
+    <cast_if name="Slayer's Crest"/>
+    <cast_if name="Earthstrike"/>
+    <cast_if name="Zandalarian Hero Medallion"/>
+    <cast_if name="Diamond Flask"/>
+    <cast_if name="Cloudkeeper Legplates"/>
 
-	<cast_if name="Mana Potion"/>
-	<cast_if name="Demonic Rune"/>
-	<cast_if name="Night Dragon's Breath"/>
+    <cast_if name="Mana Potion"/>
+    <cast_if name="Demonic Rune"/>
+    <cast_if name="Night Dragon's Breath"/>
 </rotation>
