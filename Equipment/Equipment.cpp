@@ -320,8 +320,7 @@ Projectile* Equipment::get_projectile() const {
     return projectile;
 }
 
-Quiver *Equipment::get_quiver() const
-{
+Quiver* Equipment::get_quiver() const {
     return quiver;
 }
 
@@ -384,6 +383,12 @@ void Equipment::set_ranged(const int item_id) {
 
     if (weapon  == nullptr)
         return;
+
+    if (projectile && !projectile->valid_for_weapon(weapon))
+        clear_projectile();
+
+    if (quiver && !quiver->valid_for_weapon(weapon))
+        clear_quiver();
 
     check((weapon->get_item_slot() == ItemSlots::RANGED), QString("'%1' has incorrect slot").arg(weapon->name).toStdString());
     check((get_relic() == nullptr), "Relic is equipped while equipping a ranged weapon");
@@ -592,16 +597,27 @@ void Equipment::set_projectile(const int item_id) {
     if (item == nullptr)
         return;
 
+    if (ranged && !item->valid_for_weapon(ranged))
+        clear_ranged();
+
+    if (quiver && !item->valid_for_quiver(quiver))
+        clear_quiver();
+
     check((item->get_item_slot() == ItemSlots::PROJECTILE), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(projectile, item, EquipmentSlot::PROJECTILE);
 }
 
-void Equipment::set_quiver(const int item_id)
-{
+void Equipment::set_quiver(const int item_id) {
     Quiver* item = db->get_quiver(item_id);
 
     if (item == nullptr)
         return;
+
+    if (ranged && !item->valid_for_weapon(ranged))
+        clear_ranged();
+
+    if (projectile && !item->valid_for_projectile(projectile))
+        clear_projectile();
 
     check((item->get_item_slot() == ItemSlots::QUIVER), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(quiver, item, EquipmentSlot::QUIVER);

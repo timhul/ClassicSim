@@ -13,4 +13,6 @@ public:
 
 private:
     void test_values_after_initialization() override;
+
+    void test_quiver_attack_speed_bonus_application();
 };
