@@ -36,12 +36,6 @@ Interested in how certain mechanics are currently implemented? Check
 See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
 upcoming releases.
 
-# Next release
-
-Upcoming features and bug fixes that are merged but not yet built and made available as a release:
-
-None (available release is up to date with the latest on master).
-
 # Q&A
 
 Q: When is class X or specialization Y supported?
@@ -51,8 +45,8 @@ classes/specs are planned to be supported.
 
 Q: What is the proc chance of Ironfoe or other procs?
 
-A: Ironfoe has at the time of writing a 4.0% proc chance. Most procs uses proc rates from private servers, but you can
-change the 'rate' attribute in the .xml files. Try a 100% proc rate Ironfoe!
+A: You can find proc rates by either running the sim and checking the proc statistics or look
+directly in the equipment .xml file, which will include a \<proc\> element that specifies the rate.
 
 Q: How is this or that mechanic implemented?
 
