@@ -90,9 +90,9 @@ void TestHunter::test_quiver_attack_speed_bonus_application() {
     assert(hunter->get_equipment()->get_quiver()->name == "Gnoll Skin Bandolier");
     assert(hunter->get_equipment()->get_ranged() == nullptr);
 
-    // Check quiver removed when xbow is placed
-    //hunter->get_equipment()->set_ranged(19361);
-    //assert(hunter->get_equipment()->get_quiver() == nullptr);
+    // Check ammo pouch removed when xbow is placed
+    hunter->get_equipment()->set_ranged(19361);
+    assert(hunter->get_equipment()->get_quiver() == nullptr);
 
     delete race;
     delete hunter;
