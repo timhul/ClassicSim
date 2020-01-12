@@ -57,6 +57,15 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="2100" phase="1">
+		<info name="Precisely Calibrated Boomstick" type="GUN" slot="RANGED" unique="no" req_lvl="43" item_lvl="48" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_06.png"/>
+		<dmg_range min="38" max="45" speed="1.50"/>
+		<stat type="AGILITY" value="14"/>
+		<source>
+        World drop.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17072" phase="1">
 		<info name="Blastershot Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
 		<dmg_range min="73" max="136" speed="2.6"/>
