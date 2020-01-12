@@ -15,6 +15,7 @@
 #include "Hunter.h"
 #include "HunterSpells.h"
 #include "InstantPoison.h"
+#include "InstantSpellProc.h"
 #include "ItemNamespace.h"
 #include "MageSpells.h"
 #include "MultiShot.h"
@@ -242,6 +243,28 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Stormshroud Armor") {
+        switch (num_pieces) {
+        case 2:
+            if (!active_procs.contains("STORMSHROUD_2P_GAIN"))
+                active_procs["STORMSHROUD_2P_GAIN"] = new InstantSpellProc(pchar,
+                                                                        "Stormshroud 2 set",
+                                                                        "Assets/items/Inv_shoulder_05.png",
+                                                                        {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
+                                                                        0.05, MagicSchool::Nature, 15, 25, 0.0, ConsumeCharge::No);
+            active_procs["STORMSHROUD_2P_GAIN"]->enable_proc();
+            break;
+        case 3:
+            if (!active_procs.contains("STORMSHROUD_3P_GAIN"))
+                active_procs["STORMSHROUD_3P_GAIN"] = new ResourceGainProc(pchar,
+                                                                        "Stormshroud 3 set",
+                                                                        "Assets/items/Inv_shoulder_05.png",
+                                                                        {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
+                                                                        0.02, ResourceType::Energy, 30, 30);
+            active_procs["STORMSHROUD_3P_GAIN"]->enable_proc();
+            break;
+        }
+    }
 }
 
 void SetBonusControl::unequip_item(const int item_id) {
@@ -419,6 +442,16 @@ void SetBonusControl::unequip_item(const int item_id) {
         switch (num_pieces) {
         case 3:
             deactivate_spell_rank_group("Slice And Dice", set_name, num_pieces);
+            break;
+        }
+    }
+    else if (set_name == "Stormshroud Armor") {
+        switch (num_pieces) {
+        case 2:
+            active_procs["STORMSHROUD_2P_GAIN"]->disable_proc();
+            break;
+        case 3:
+            active_procs["STORMSHROUD_3P_GAIN"]->disable_proc();
             break;
         }
     }

@@ -993,4 +993,22 @@
 		(8) Set: Your damage spells have a chance to displace you, causing the next spell cast to generate no threat.
 		</bonus>
 	</set>
+	
+	<set name="Stormshroud Armor">
+		<item_id value="15056"/>
+		<item_id value="15057"/>
+		<item_id value="15058"/>
+		<item_id value="21278"/>
+	
+		<bonus value="2">
+			(2) Set : 5% chance of dealing 15 to 25 Nature damage on a successful melee attack.
+		</bonus>
+		<bonus value="3">
+			(3) Set : 2% chance on melee attack of restoring 30 energy.
+		</bonus>
+		<bonus value="4" item_stat="ATTACK_POWER" stat_value="14">
+			(4) Set : +14 Attack Power.
+		</bonus>
+	</set>
+	
 </sets>

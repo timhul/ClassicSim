@@ -252,4 +252,16 @@
 			Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+	
+	<item id="21278" phase="1">
+		<info name="Stormshroud Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_gauntlets_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="109"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Crafted by Leatherworkers.
+		</source>
+	</item>
 </items>
