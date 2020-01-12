@@ -48,7 +48,7 @@ private:
     SimOption::Name option;
     int combat_iterations;
     int combat_length;
-    int damage_dealt_previous_iterations;
+    long long damage_dealt_previous_iterations;
     const bool ignore_non_buff_statistics;
 
     StatisticsEngine* engine_statistics {nullptr};
