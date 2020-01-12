@@ -160,6 +160,7 @@ void Equipment::unequip_all() {
     clear_caster_offhand();
     clear_relic();
     clear_projectile();
+    clear_quiver();
 }
 
 int Equipment::get_stored_item_id_for_slot(const int equipment_slot) const {
@@ -703,8 +704,7 @@ void Equipment::clear_projectile() {
     unequip(projectile, EquipmentSlot::PROJECTILE);
 }
 
-void Equipment::clear_quiver()
-{
+void Equipment::clear_quiver() {
     unequip(quiver, EquipmentSlot::QUIVER);
 }
 
