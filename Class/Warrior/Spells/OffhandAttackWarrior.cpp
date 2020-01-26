@@ -43,17 +43,17 @@ void OffhandAttackWarrior::calculate_damage() {
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         spells->get_overpower_buff()->apply_buff();
-        gain_rage(warr->get_avg_oh_damage() * offhand_penalty);
+        gain_rage(damage_after_modifiers(warr->get_avg_oh_damage() * offhand_penalty));
         return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
-        gain_rage(warr->get_avg_oh_damage() * offhand_penalty);
+        gain_rage(damage_after_modifiers(warr->get_avg_oh_damage() * offhand_penalty));
         return;
     }
     if (result == PhysicalAttackResult::BLOCK || result == PhysicalAttackResult::BLOCK_CRITICAL) {
         increment_full_block();
-        gain_rage(warr->get_avg_oh_damage() * offhand_penalty);
+        gain_rage(damage_after_modifiers(warr->get_avg_oh_damage() * offhand_penalty));
         return;
     }
 
