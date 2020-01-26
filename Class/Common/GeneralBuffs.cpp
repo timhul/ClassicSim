@@ -40,12 +40,12 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
 
     buffs.append(new EssenceOfTheRed(pchar));
 
-    mutex_buff_groups.append({"Flask of Supreme Power", "Flask of Distilled Wisdom"});
-    mutex_buff_groups.append({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili", "Blessed Sunfruit"});
-    mutex_buff_groups.append({"Juju Power", "Elixir of Giants"});
-    mutex_buff_groups.append({"Juju Might", "Winterfall Firewater"});
-    mutex_buff_groups.append({"R.O.I.D.S", "Ground Scorpok Assay"});
-    mutex_buff_groups.append({"Elixir of the Mongoose", "Elixir of Greater Agility"});
+    mutex_buff_groups.append(QSet<QString>({"Flask of Supreme Power", "Flask of Distilled Wisdom"}));
+    mutex_buff_groups.append(QSet<QString>({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili", "Blessed Sunfruit"}));
+    mutex_buff_groups.append(QSet<QString>({"Juju Power", "Elixir of Giants"}));
+    mutex_buff_groups.append(QSet<QString>({"Juju Might", "Winterfall Firewater"}));
+    mutex_buff_groups.append(QSet<QString>({"R.O.I.D.S", "Ground Scorpok Assay"}));
+    mutex_buff_groups.append(QSet<QString>({"Elixir of the Mongoose", "Elixir of Greater Agility"}));
 }
 
 GeneralBuffs::~GeneralBuffs() {
