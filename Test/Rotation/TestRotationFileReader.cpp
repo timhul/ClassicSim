@@ -189,7 +189,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
         "Slayer's Crest",
         "Earthstrike",
         "Zandalarian Hero Medallion",
-        "Diamond Flask",
+        "Sanctified Orb",
         "Cloudkeeper Legplates",
         "Mana Potion",
         "Demonic Rune",

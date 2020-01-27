@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     Class/Common/Buffs/NoEffectSelfBuff.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
+    Class/Common/Buffs/SanctifiedOrb.cpp \
     Class/Common/Buffs/SuppressCastBuff.cpp \
     Class/Common/Buffs/ZandalarianHeroCharm.cpp \
     Class/Common/Procs/ResourceGainProc.cpp \
@@ -494,6 +495,7 @@ SOURCES += main.cpp \
 HEADERS += \
     Class/Common/Buffs/NoEffectSelfBuff.h \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
+    Class/Common/Buffs/SanctifiedOrb.h \
     Class/Common/Buffs/SuppressCastBuff.h \
     Class/Common/Buffs/ZandalarianHeroCharm.h \
     Class/Common/Procs/ResourceGainProc.h \
