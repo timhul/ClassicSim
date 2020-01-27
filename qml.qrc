@@ -1001,5 +1001,6 @@
         <file>QML/Assets/spell/Spell_arcane_teleportorgrimmar.png</file>
         <file>QML/Assets/misc/Inv_drink_milk_05.png</file>
         <file>QML/Assets/items/Inv_gauntlets_05.png</file>
+        <file>QML/Assets/items/Inv_misc_ticket_tarot_maelstrom_01.png</file>
     </qresource>
 </RCC>
