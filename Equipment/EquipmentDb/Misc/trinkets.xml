@@ -270,10 +270,24 @@
 		</source>
 	</item>
 
-	<item id="20130" phase="4">
+	<item id="19289" phase="3">
+		<info name="Darkmoon Card: Maelstrom" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_ticket_tarot_maelstrom_01.png"/>
+		<proc>
+			<spell name="NATURE_ATTACK" min="200" max="300" instant="yes" rate="0.02" internal_cd="0" spell_dmg_coefficient="0.0"/>
+		</proc>
+		<special_equip_effect>
+			Equip: Chance to strike your melee target with lightning for 200 to 300 Nature damage.
+		</special_equip_effect>
+		<source>
+			Reward from Darkmoon Elementals Deck.
+		</source>
+	</item>
+
+	<item id="20130" phase="3">
 		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
 		<mutex item_id="20251"/>
 		<mutex item_id="20517"/>
+		<class_restriction class="WARRIOR"/>
 		<stats/>
 		<uses>
 			<use name="GENERIC_STAT_BUFF" type="STRENGTH" value="75" duration="60" cooldown="360"/>
@@ -289,7 +303,7 @@
 		</flavour_text>
 	</item>
 
-	<item id="19991" phase="1">
+	<item id="19991" phase="3">
 		<info name="Devilsaur Eye" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
 		<mutex item_id="19992"/>
 		<mutex item_id="20083"/>
@@ -305,6 +319,22 @@
 		<special_equip_effect>
 			Use: Increases your attack power by 150 and your chance to hit by 2%. Effect lasts for 20 sec. (cooldown 2 min)
 		</special_equip_effect>
+	</item>
+
+	<item id="20512" phase="3">
+		<info name="Sanctified Orb" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_gem_pearl_04.png"/>
+		<mutex item_id="20504"/>
+		<mutex item_id="20505"/>
+		<class_restriction class="PALADIN"/>
+		<uses>
+            <use name="SANCTIFIED_ORB"/>
+		</uses>
+		<special_equip_effect>
+			Use: Increases your critical strike chance with spells and melee attacks by 3%.  Lasts 25 sec. (3 Min Cooldown)
+		</special_equip_effect>
+		<source>
+			Quest reward. Requires Sunken Temple.
+		</source>
 	</item>
 
 	<item id="19930" phase="4">

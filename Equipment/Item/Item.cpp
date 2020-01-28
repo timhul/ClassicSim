@@ -29,6 +29,7 @@
 #include "Nightfall.h"
 #include "NoEffectSelfBuff.h"
 #include "ResourceGainProc.h"
+#include "SanctifiedOrb.h"
 #include "SpellRankGroup.h"
 #include "Stats.h"
 #include "Target.h"
@@ -332,6 +333,10 @@ void Item::set_uses() {
         else if (use_name == "DEVILSAUR_EYE") {
             Buff* buff = new DevilsaurEye(pchar);
             spell = new UseTrinket(pchar, name, icon, 120, buff);
+        }
+        else if (use_name == "SANCTIFIED_ORB") {
+            Buff* buff = new SanctifiedOrb(pchar);
+            spell = new UseTrinket(pchar, name, icon, 180, buff);
         }
         else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);
