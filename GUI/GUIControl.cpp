@@ -55,6 +55,8 @@
 #include "Quiver.h"
 #include "Race.h"
 #include "RaidControl.h"
+#include "RandomAffixes.h"
+#include "RandomAffixModel.h"
 #include "ResourceBreakdownModel.h"
 #include "Rogue.h"
 #include "Rotation.h"
@@ -84,6 +86,7 @@
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
     equipment_db(new EquipmentDb()),
+    random_affixes_db(new RandomAffixes()),
     character_encoder(new CharacterEncoder()),
     character_decoder(new CharacterDecoder()),
     sim_settings(new SimSettings()),
@@ -107,10 +110,11 @@ GUIControl::GUIControl(QObject* parent) :
     gloves_enchants(new EnchantModel(EquipmentSlot::GLOVES, EnchantModel::Permanent)),
     chest_enchants(new EnchantModel(EquipmentSlot::CHEST, EnchantModel::Permanent)),
     boots_enchants(new EnchantModel(EquipmentSlot::BOOTS, EnchantModel::Permanent)),
+    random_affixes(new RandomAffixModel(-1)),
     sim_in_progress(false),
     active_window("TALENTS")
 {
-    thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
+    thread_pool = new SimulationThreadPool(equipment_db, random_affixes_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
     QObject::connect(thread_pool, SIGNAL(update_progress(double)), this, SLOT(update_progress(double)));
 
@@ -133,6 +137,8 @@ GUIControl::GUIControl(QObject* parent) :
     resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
     rotation_executor_list_model = new RotationExecutorListModel(number_cruncher);
     scale_result_model = new ScaleResultModel(number_cruncher);
+    random_affixes->set_equipment_db(equipment_db);
+    random_affixes->set_random_affixes_db(random_affixes_db);
 
     for (int i = 0; i < 8; ++i) {
         raid_setup.append(QVector<QVariantMap>{});
@@ -176,6 +182,7 @@ GUIControl::~GUIControl() {
         delete race;
 
     delete equipment_db;
+    delete random_affixes_db;
     delete item_model;
     delete item_type_filter_model;
     delete active_stat_filter_model;
@@ -706,6 +713,16 @@ void GUIControl::selectRangeOfFiltersFromPrevious(const int filter) {
     this->item_model->update_items();
     this->weapon_model->update_items();
     Q_EMIT filtersUpdated();
+}
+
+RandomAffixModel *GUIControl::get_random_affix_model() const
+{
+    return this->random_affixes;
+}
+
+void GUIControl::setRandomAffixesModelId(const int item_id)
+{
+    random_affixes->set_id(item_id);
 }
 
 BuffModel* GUIControl::get_buff_model() const {
@@ -1471,42 +1488,45 @@ EnchantModel* GUIControl::get_boots_enchant_model() const {
     return this->boots_enchants;
 }
 
-void GUIControl::setSlot(const QString& slot_string, const int item_id) {
+void GUIControl::setSlot(const QString& slot_string, const int item_id, const uint affix_id) {
+
+    RandomAffix* affix = random_affixes_db->get_affix(affix_id);
+
     if (slot_string == "MAINHAND") {
-        current_char->get_equipment()->set_mainhand(item_id);
+        current_char->get_equipment()->set_mainhand(item_id, affix);
         mh_enchants->update_enchants();
         mh_temporary_enchants->update_enchants();
     }
     if (slot_string == "OFFHAND") {
-        current_char->get_equipment()->set_offhand(item_id);
+        current_char->get_equipment()->set_offhand(item_id, affix);
         oh_temporary_enchants->update_enchants();
     }
     if (slot_string == "RANGED")
-        current_char->get_equipment()->set_ranged(item_id);
+        current_char->get_equipment()->set_ranged(item_id, affix);
     if (slot_string == "HEAD")
-        current_char->get_equipment()->set_head(item_id);
+        current_char->get_equipment()->set_head(item_id, affix);
     if (slot_string == "NECK")
-        current_char->get_equipment()->set_neck(item_id);
+        current_char->get_equipment()->set_neck(item_id, affix);
     if (slot_string == "SHOULDERS")
-        current_char->get_equipment()->set_shoulders(item_id);
+        current_char->get_equipment()->set_shoulders(item_id, affix);
     if (slot_string == "BACK")
-        current_char->get_equipment()->set_back(item_id);
+        current_char->get_equipment()->set_back(item_id, affix);
     if (slot_string == "CHEST")
-        current_char->get_equipment()->set_chest(item_id);
+        current_char->get_equipment()->set_chest(item_id, affix);
     if (slot_string == "WRIST")
-        current_char->get_equipment()->set_wrist(item_id);
+        current_char->get_equipment()->set_wrist(item_id, affix);
     if (slot_string == "GLOVES")
-        current_char->get_equipment()->set_gloves(item_id);
+        current_char->get_equipment()->set_gloves(item_id, affix);
     if (slot_string == "BELT")
-        current_char->get_equipment()->set_belt(item_id);
+        current_char->get_equipment()->set_belt(item_id, affix);
     if (slot_string == "LEGS")
-        current_char->get_equipment()->set_legs(item_id);
+        current_char->get_equipment()->set_legs(item_id, affix);
     if (slot_string == "BOOTS")
-        current_char->get_equipment()->set_boots(item_id);
+        current_char->get_equipment()->set_boots(item_id, affix);
     if (slot_string == "RING1")
-        current_char->get_equipment()->set_ring1(item_id);
+        current_char->get_equipment()->set_ring1(item_id, affix);
     if (slot_string == "RING2")
-        current_char->get_equipment()->set_ring2(item_id);
+        current_char->get_equipment()->set_ring2(item_id, affix);
     if (slot_string == "TRINKET1")
         current_char->get_equipment()->set_trinket1(item_id);
     if (slot_string == "TRINKET2")
@@ -1833,7 +1853,7 @@ Character* GUIControl::load_character(const QString& class_name) {
 
             CharacterDecoder decoder;
             decoder.initialize(reader.readElementText().trimmed());
-            CharacterLoader loader(equipment_db, sim_settings, raid_control, decoder);
+            CharacterLoader loader(equipment_db, random_affixes_db, sim_settings, raid_control, decoder);
 
             pchar->get_stats()->get_equipment()->change_setup(i);
             pchar->get_talents()->set_current_index(i);

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<random_affixes>
+
+	<random_affix id="1819" phase="1">
+		<info name="of Arcane Wrath" />
+		<stats>
+			<stat type="SPELL_DAMAGE_ARCANE" value="30"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1820" phase="1">
+		<info name="of Arcane Wrath" />
+		<stats>
+			<stat type="SPELL_DAMAGE_ARCANE" value="31"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1623" phase="1">
+		<info name="of Defense" />
+		<stats>
+			<stat type="DEFENSE" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1624" phase="1">
+		<info name="of Defense" />
+		<stats>
+			<stat type="DEFENSE" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="415" phase="1">
+		<info name="of Spirit" />
+		<stats>
+			<stat type="SPIRIT" value="21"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="416" phase="1">
+		<info name="of Spirit" />
+		<stats>
+			<stat type="SPIRIT" value="22"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1218" phase="1">
+		<info name="of the Bear" />
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="STRENGTH" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1220" phase="1">
+		<info name="of the Bear" />
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="STRENGTH" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1219" phase="1">
+		<info name="of the Bear" />
+		<stats>
+			<stat type="STAMINA" value="15"/>
+			<stat type="STRENGTH" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="878" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="880" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="879" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="455" phase="1">
+		<info name="of the Falcon" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="INTELLECT" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="457" phase="1">
+		<info name="of the Falcon" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="INTELLECT" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="456" phase="1">
+		<info name="of the Falcon" />
+		<stats>
+			<stat type="AGILITY" value="15"/>
+			<stat type="INTELLECT" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="963" phase="1">
+		<info name="of the Gorilla" />
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STRENGTH" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="965" phase="1">
+		<info name="of the Gorilla" />
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STRENGTH" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="623" phase="1">
+		<info name="of the Monkey" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="625" phase="1">
+		<info name="of the Monkey" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="624" phase="1">
+		<info name="of the Monkey" />
+		<stats>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="793" phase="1">
+		<info name="of the Owl" />
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPIRIT" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="795" phase="1">
+		<info name="of the Owl" />
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPIRIT" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="794" phase="1">
+		<info name="of the Owl" />
+		<stats>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPIRIT" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="708" phase="1">
+		<info name="of the Tiger" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STRENGTH" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="710" phase="1">
+		<info name="of the Tiger" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STRENGTH" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="709" phase="1">
+		<info name="of the Tiger" />
+		<stats>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STRENGTH" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1048" phase="1">
+		<info name="of the Whale" />
+		<stats>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1050" phase="1">
+		<info name="of the Whale" />
+		<stats>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="STAMINA" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1049" phase="1">
+		<info name="of the Whale" />
+		<stats>
+			<stat type="SPIRIT" value="15"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="538" phase="1">
+		<info name="of Fire Resistance" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="SPIRIT" value="14"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="540" phase="1">
+		<info name="of Fire Resistance" />
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="SPIRIT" value="15"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1416" phase="1">
+		<info name="of Fire Resistance" />
+		<stats>
+			<stat type="FIRE_RESISTANCE" value="18"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1508" phase="1">
+		<info name="of Nature Resistance" />
+		<stats>
+			<stat type="NATURE_RESISTANCE" value="18"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1324" phase="1">
+		<info name="of Arcane Resistance" />
+		<stats>
+			<stat type="ARCANE_RESISTANCE" value="18"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1370" phase="1">
+		<info name="of Frost Resistance" />
+		<stats>
+			<stat type="FROST_RESISTANCE" value="18"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1462" phase="1">
+		<info name="of Shadow Resistance" />
+		<stats>
+			<stat type="SHADOW_RESISTANCE" value="18"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1557" phase="1">
+		<info name="of Power" />
+		<stats>
+			<stat type="ATTACK_POWER" value="22"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="187" phase="1">
+		<info name="of Stamina" />
+		<stats>
+			<stat type="STAMINA" value="11"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="192" phase="1">
+		<info name="of Strength" />
+		<stats>
+			<stat type="STRENGTH" value="11"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="1197" phase="1">
+		<info name="of the Bear" />
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="STRENGTH" value="7"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="602" phase="1">
+		<info name="of the Monkey" />
+		<stats>
+			<stat type="AGILITY" value="7"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+	</random_affix>
+	
+	<random_affix id="687" phase="1">
+		<info name="of the Tiger" />
+		<stats>
+			<stat type="AGILITY" value="7"/>
+			<stat type="STRENGTH" value="7"/>
+		</stats>
+	</random_affix>
+
+</random_affixes>

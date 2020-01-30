@@ -9,9 +9,10 @@
 #include "SimulationRunner.h"
 #include "Utils/Check.h"
 
-SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
+SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, RandomAffixes *random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
     equipment_db(equipment_db),
+    random_affixes(random_affixes),
     random(new Random(0, std::numeric_limits<unsigned>::max())),
     sim_settings(sim_settings),
     scaler(scaler),
@@ -88,7 +89,7 @@ void SimulationThreadPool::remove_threads(const int num_to_remove) {
 }
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
-    auto runner = new SimulationRunner(thread_id, equipment_db, sim_settings, scaler);
+    auto runner = new SimulationRunner(thread_id, equipment_db, random_affixes, sim_settings, scaler);
     auto thread = new QThread(runner);
 
     connect(this, SIGNAL(start_simulation(uint,QVector<QString>,bool,int)), runner, SLOT(run_sim(uint,QVector<QString>,bool,int)));

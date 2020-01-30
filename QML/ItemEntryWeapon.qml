@@ -4,7 +4,7 @@ RectangleBorders {
     width: 1025
     height: 45
 
-    signal entryClicked();
+    signal entryClicked(int mouseX, int mouseY);
 
     property int itemid
     property string entryName
@@ -17,12 +17,22 @@ RectangleBorders {
     property string entryReq
     property string entryItemlvl
     property string entryIcon
+    property bool entryRandomAffix
 
     rectColorHighlighted: "#232323"
 
-    onRectangleClicked: {
-        console.log("Clicked", entryName)
-        entryClicked();
+    MouseArea {
+
+        id: itemEntryMouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+
+        onClicked: {
+            var globalPosition = itemEntryMouseArea.mapToGlobal(mouse.x, mouse.y)
+
+            console.log("Clicked", entryName)
+            entryClicked(mouse.x, mouse.y);
+        }
     }
 
     Row {
@@ -50,7 +60,7 @@ RectangleBorders {
 
         Text {
             id: textName
-            text: entryName
+            text: entryRandomAffix ? entryName + " <Random enchantment>" : entryName
 
             width: 300
             height: parent.height

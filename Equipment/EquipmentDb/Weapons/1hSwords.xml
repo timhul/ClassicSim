@@ -778,4 +778,21 @@
 			Drops from Kel'Thuzad in Naxxramas.
 		</source>
 	</melee_weapon>
+	
+	<melee_weapon id="15219" phase="1">
+		<info name="Dimensional Blade" type="SWORD" slot="1H" unique="yes" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="yes" icon="Inv_sword_23.png"/>
+		<dmg_range min="39" max="73" speed="1.6"/>
+		<random_affixes>
+			<affix id="1557"/>
+			<affix id="187"/>
+			<affix id="192"/>
+			<affix id="1197"/>
+			<affix id="602"/>
+			<affix id="687"/>
+		</random_affixes>
+		<source>
+			World drop.
+		</source>
+	</melee_weapon>
+	
 </weapons>

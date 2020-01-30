@@ -200,6 +200,14 @@ Quiver *EquipmentDb::get_quiver(const int item_id) const
     return nullptr;
 }
 
+Item *EquipmentDb::get_item(const int item_id) const
+{
+    if (item_id_to_item.contains(item_id))
+        return item_id_to_item[item_id];
+
+    return nullptr;
+}
+
 const QVector<Item*> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:

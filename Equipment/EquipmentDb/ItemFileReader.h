@@ -15,6 +15,7 @@ public:
 protected:
     void item_file_handler(QXmlStreamReader &reader, QVector<Item*>& items);
 
+    // Element readers
     void info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString>& item);
     void class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString>& item);
     void stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>>& stats);
@@ -22,6 +23,7 @@ protected:
     void use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& uses);
     void modifies_element_reader(QXmlStreamReader &reader, QVector<QString>& spell_modifications);
     void mutex_element_reader(const QXmlStreamAttributes &attrs, QSet<int>& mutex_item_ids);
+    void random_affixes_element_reader(QXmlStreamReader &reader, QVector<int> &random_affixes);
 
     void add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item);
     void add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item);
@@ -33,7 +35,8 @@ protected:
                      QVector<QMap<QString, QString>>& uses,
                      QVector<QString>& spell_modifications,
                      QVector<QString>& special_equip_effects,
-                     QSet<int>& mutex_item_ids);
+                     QSet<int>& mutex_item_ids,
+                     QVector<int> random_affixes);
 
     void extract_info(QMap<QString, QString>& item, QMap<QString, QString>& info);
     void extract_stats(QMap<QString, QString>& item, QMap<QString, QString>& stats);

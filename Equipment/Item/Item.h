@@ -16,6 +16,7 @@
 class Character;
 class Enchant;
 class Proc;
+class RandomAffix;
 class Spell;
 class Stats;
 
@@ -32,7 +33,8 @@ public:
          QVector<QMap<QString, QString>> use = {},
          QVector<QString> item_modifications = {},
          QVector<QString> special_equip_effects = {},
-         QSet<int> mutex_item_ids = {}
+         QSet<int> mutex_item_ids = {},
+         QVector<int> random_affixes = {}
             );
     Item(const Item* item);
     virtual ~Item();
@@ -65,10 +67,18 @@ public:
     EnchantName::Name get_enchant_enum_value() const;
     Enchant* get_enchant() const;
 
+    // Random affixes
+    bool can_have_random_affix() const;
+    bool has_random_affix() const;
+    RandomAffix* get_random_affix() const;
+    QVector<int> get_possible_random_affixes() const;
+    void set_random_affix(RandomAffix* affix);
+
     bool available_for_faction(AvailableFactions::Name faction) const;
     bool available_for_class(const QString& class_name) const;
 
-    const QString name;
+    const QString base_name;
+    QString name;
     const int item_id;
 
 protected:
@@ -92,6 +102,10 @@ protected:
     QMap<ItemStats, unsigned> item_stat_values;
     Stats* stats;
     Enchant* enchant;
+
+    // Random affixes
+    RandomAffix* random_affix;
+    QVector<int> possible_random_affixes;
 
     void set_uses();
     void set_procs(const int eq_slot);

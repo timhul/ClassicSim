@@ -10,14 +10,16 @@
 #include "Item.h"
 #include "Projectile.h"
 #include "Quiver.h"
+#include "RandomAffixes.h"
 #include "SetBonusControl.h"
 #include "Stats.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
 Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
-    db(equipment_db),
     pchar(pchar),
+    db(equipment_db),
+    random_affixes(new RandomAffixes()),
     set_bonuses(new SetBonusControl(equipment_db, pchar)),
     stats_from_equipped_gear({nullptr, nullptr, nullptr})
 {
@@ -325,11 +327,14 @@ Quiver* Equipment::get_quiver() const {
     return quiver;
 }
 
-void Equipment::set_mainhand(const int item_id) {
+void Equipment::set_mainhand(const int item_id, RandomAffix *random_affix) {
     Weapon* weapon = db->get_melee_weapon(item_id);
 
     if (weapon == nullptr)
         return;
+
+    if (random_affix)
+        weapon->set_random_affix(random_affix);
 
     QSet<int> accepted_weapon_slots = {WeaponSlots::MAINHAND,
                                        WeaponSlots::ONEHAND,
@@ -353,11 +358,14 @@ void Equipment::set_mainhand(const int item_id) {
     equip(mainhand, weapon, EquipmentSlot::MAINHAND);
 }
 
-void Equipment::set_offhand(const int item_id) {
+void Equipment::set_offhand(const int item_id, RandomAffix *random_affix) {
     Weapon* weapon = db->get_melee_weapon(item_id);
 
     if (weapon == nullptr)
         return;
+
+    if (random_affix)
+        weapon->set_random_affix(random_affix);
 
     QSet<int> accepted_weapon_slots = {WeaponSlots::ONEHAND,
                                        WeaponSlots::OFFHAND};
@@ -379,11 +387,14 @@ void Equipment::set_offhand(const int item_id) {
     equip(offhand, weapon, EquipmentSlot::OFFHAND);
 }
 
-void Equipment::set_ranged(const int item_id) {
+void Equipment::set_ranged(const int item_id, RandomAffix *random_affix) {
     Weapon* weapon = db->get_ranged(item_id);
 
     if (weapon  == nullptr)
         return;
+
+    if (random_affix)
+        weapon->set_random_affix(random_affix);
 
     if (projectile && !projectile->valid_for_weapon(weapon))
         clear_projectile();
@@ -396,111 +407,144 @@ void Equipment::set_ranged(const int item_id) {
     equip(ranged, weapon, EquipmentSlot::RANGED);
 }
 
-void Equipment::set_head(const int item_id) {
+void Equipment::set_head(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_head(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::HEAD), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(head, item, EquipmentSlot::HEAD);
 }
 
-void Equipment::set_neck(const int item_id) {
+void Equipment::set_neck(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_neck(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::NECK), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(neck, item, EquipmentSlot::NECK);
 }
 
-void Equipment::set_shoulders(const int item_id) {
+void Equipment::set_shoulders(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_shoulders(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::SHOULDERS), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(shoulders, item, EquipmentSlot::SHOULDERS);
 }
 
-void Equipment::set_back(const int item_id) {
+void Equipment::set_back(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_back(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::BACK), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(back, item, EquipmentSlot::BACK);
 }
 
-void Equipment::set_chest(const int item_id) {
+void Equipment::set_chest(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_chest(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::CHEST), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(chest, item, EquipmentSlot::CHEST);
 }
 
-void Equipment::set_wrist(const int item_id) {
+void Equipment::set_wrist(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_wrist(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::WRIST), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(wrist, item, EquipmentSlot::WRIST);
 }
 
-void Equipment::set_gloves(const int item_id) {
+void Equipment::set_gloves(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_gloves(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::GLOVES), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(gloves, item, EquipmentSlot::GLOVES);
 }
 
-void Equipment::set_belt(const int item_id) {
+void Equipment::set_belt(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_belt(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::BELT), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(belt, item, EquipmentSlot::BELT);
 }
 
-void Equipment::set_legs(const int item_id) {
+void Equipment::set_legs(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_legs(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::LEGS), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(legs, item, EquipmentSlot::LEGS);
 }
 
-void Equipment::set_boots(const int item_id) {
+void Equipment::set_boots(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_boots(item_id);
 
     if (item == nullptr)
         return;
 
+    if (random_affix)
+        item->set_random_affix(random_affix);
+
     check((item->get_item_slot() == ItemSlots::BOOTS), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(boots, item, EquipmentSlot::BOOTS);
 }
 
-void Equipment::set_ring1(const int item_id) {
+void Equipment::set_ring1(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_ring(item_id);
 
     if (item == nullptr)
         return;
+
+    if (random_affix)
+        item->set_random_affix(random_affix);
 
     check((item->get_item_slot() == ItemSlots::RING), QString("'%1' has incorrect slot").arg(item->name).toStdString());
 
@@ -515,11 +559,14 @@ void Equipment::set_ring1(const int item_id) {
     equip(ring1, item, EquipmentSlot::RING1);
 }
 
-void Equipment::set_ring2(const int item_id) {
+void Equipment::set_ring2(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_ring(item_id);
 
     if (item == nullptr)
         return;
+
+    if (random_affix)
+        item->set_random_affix(random_affix);
 
     check((item->get_item_slot() == ItemSlots::RING), QString("'%1' has incorrect slot").arg(item->name).toStdString());
 
@@ -572,11 +619,14 @@ void Equipment::set_trinket2(const int item_id) {
     equip(trinket2, item, EquipmentSlot::TRINKET2);
 }
 
-void Equipment::set_caster_offhand(const int item_id) {
+void Equipment::set_caster_offhand(const int item_id, RandomAffix *random_affix) {
     Item* item = db->get_caster_offhand(item_id);
 
     if (item == nullptr)
         return;
+
+    if (random_affix)
+        item->set_random_affix(random_affix);
 
     check((item->get_item_slot() == ItemSlots::CASTER_OFFHAND), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(caster_offhand, item, EquipmentSlot::RANGED);

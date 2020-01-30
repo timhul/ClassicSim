@@ -24,6 +24,7 @@
 #include "Priest.h"
 #include "Race.h"
 #include "RaidControl.h"
+#include "RandomAffixes.h"
 #include "Rogue.h"
 #include "Rotation.h"
 #include "RotationFileReader.h"
@@ -37,12 +38,13 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-CharacterLoader::CharacterLoader(EquipmentDb* equipment_db,
+CharacterLoader::CharacterLoader(EquipmentDb* equipment_db, RandomAffixes *random_affixes,
                                  SimSettings* sim_settings,
                                  RaidControl* raid_control,
                                  CharacterDecoder& decoder) :
     race(nullptr),
     equipment_db(equipment_db),
+    random_affixes(random_affixes),
     sim_settings(sim_settings),
     target(raid_control->get_target()),
     raid_control(raid_control),
@@ -127,65 +129,141 @@ void CharacterLoader::setup_race(CharacterDecoder& decoder) {
 
 void CharacterLoader::equip_gear(CharacterDecoder& decoder, Character* pchar) {
     bool key_converted;
+    bool affix_converted;
     int item = decoder.get_value("MAINHAND").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_mainhand(item);
+    unsigned affix = decoder.get_value("MH_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_mainhand(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_mainhand(item);
+    }
 
     item = decoder.get_value("OFFHAND").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_offhand(item);
+    affix = decoder.get_value("OH_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_offhand(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_offhand(item);
+    }
 
     item = decoder.get_value("RANGED").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_ranged(item);
+    affix = decoder.get_value("RANGED_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_ranged(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_ranged(item);
+    }
 
     item = decoder.get_value("HEAD").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_head(item);
+    affix = decoder.get_value("HEAD_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_head(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_head(item);
+    }
 
     item = decoder.get_value("NECK").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_neck(item);
+    affix = decoder.get_value("NECK_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_neck(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_neck(item);
+    }
 
     item = decoder.get_value("SHOULDERS").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_shoulders(item);
+    affix = decoder.get_value("SHOULDERS_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_shoulders(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_shoulders(item);
+    }
 
     item = decoder.get_value("BACK").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_back(item);
+    affix = decoder.get_value("BACK_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_back(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_back(item);
+    }
 
     item = decoder.get_value("CHEST").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_chest(item);
+    affix = decoder.get_value("CHEST_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_chest(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_chest(item);
+    }
 
     item = decoder.get_value("WRIST").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_wrist(item);
+    affix = decoder.get_value("WRIST_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_wrist(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_wrist(item);
+    }
 
     item = decoder.get_value("GLOVES").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_gloves(item);
+    affix = decoder.get_value("GLOVES_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_gloves(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_gloves(item);
+    }
 
     item = decoder.get_value("BELT").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_belt(item);
+    affix = decoder.get_value("BELT_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_belt(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_belt(item);
+    }
 
     item = decoder.get_value("LEGS").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_legs(item);
+    affix = decoder.get_value("LEGS_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_legs(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_legs(item);
+    }
 
     item = decoder.get_value("BOOTS").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_boots(item);
+    affix = decoder.get_value("BOOTS_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_boots(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_boots(item);
+    }
 
     item = decoder.get_value("RING1").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_ring1(item);
+    affix = decoder.get_value("RING1_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_ring1(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_ring1(item);
+    }
 
     item = decoder.get_value("RING2").toInt(&key_converted);
-    if (key_converted)
-        pchar->get_equipment()->set_ring2(item);
+    affix = decoder.get_value("RING2_AFFIX").toUInt(&affix_converted);
+    if (key_converted) {
+        if (affix_converted)
+            pchar->get_equipment()->set_ring2(item, random_affixes->get_affix(affix));
+        else
+            pchar->get_equipment()->set_ring2(item);
+    }
 
     item = decoder.get_value("TRINKET1").toInt(&key_converted);
     if (key_converted)

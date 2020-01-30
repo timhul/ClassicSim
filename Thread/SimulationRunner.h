@@ -13,6 +13,7 @@ class EquipmentDb;
 class Faction;
 class NumberCruncher;
 class Race;
+class RandomAffixes;
 class RaidControl;
 class Rotation;
 class SimSettings;
@@ -22,6 +23,7 @@ class SimulationRunner: public QObject {
 public:
     SimulationRunner(unsigned thread_id,
                      EquipmentDb* equipment_db,
+                     RandomAffixes* random_affixes,
                      SimSettings* sim_settings,
                      NumberCruncher* scaler,
                      QObject* parent = nullptr);
@@ -40,6 +42,7 @@ signals:
 private:
     QVector<Character*> raid;
     EquipmentDb* equipment_db;
+    RandomAffixes* random_affixes;
     QVector<Race*> races;
     SimSettings* global_sim_settings;
     SimSettings* local_sim_settings;

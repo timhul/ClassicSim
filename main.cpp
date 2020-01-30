@@ -21,6 +21,7 @@
 #include "MeleeDamageBreakdownModel.h"
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
+#include "RandomAffixModel.h"
 #include "RotationConditionsModel.h"
 #include "RotationExecutorBreakdownModel.h"
 #include "RotationExecutorListModel.h"
@@ -83,6 +84,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("glovesEnchantModel", gui_control->get_gloves_enchant_model());
     context->setContextProperty("chestEnchantModel", gui_control->get_chest_enchant_model());
     context->setContextProperty("bootsEnchantModel", gui_control->get_boots_enchant_model());
+    context->setContextProperty("randomAffixModel", gui_control->get_random_affix_model());
 
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
     qmlRegisterType<BuffBreakdownSorting>("BuffBreakdownSorting", 1, 0, "BuffBreakdownSorting");
