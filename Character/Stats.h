@@ -6,6 +6,7 @@ class Stats {
 public:
     Stats();
 
+    void add(const QString& key, const QString& value);
     void add(const Stats*);
     void remove(const Stats*);
 
@@ -183,6 +184,9 @@ public:
     void increase_spell_penetration(const MagicSchool school, const unsigned increase);
     void decrease_spell_penetration(const MagicSchool school, const unsigned decrease);
 
+    QStringList get_base_tooltip() const;
+    QStringList get_equip_effects_tooltip() const;
+
 private:
     // Base stats
     unsigned strength {0};
@@ -240,4 +244,7 @@ private:
     QMap<MagicSchool, unsigned> magic_school_hit_bonus;
     QMap<MagicSchool, unsigned> magic_school_crit_bonus;
     QMap<MagicSchool, unsigned> magic_school_spell_penetration_bonus;
+
+    QStringList base_tooltip;
+    QStringList equip_effects_tooltip;
 };

@@ -96,8 +96,37 @@ Rectangle {
                             entryItemlvl: _itemlvl
                             entryQuality: _quality
                             entryIcon: _icon
+                            entryRandomAffix: _randomaffix
 
-                            onEntryClicked: equipment.setSlot(eqRect.state, itemid)
+                            onEntryClicked: {
+                                if (entryRandomAffix) {
+                                    equipment.setRandomAffixesModelId(itemid)
+
+                                    var pos = mapToItem(itemListView, 0, 0)
+                                    randomWeaponPopup.x = mouseX
+                                    randomWeaponPopup.y = mouseY
+                                    randomWeaponPopup.open()
+                                }
+                                else {
+                                    equipment.setSlot(eqRect.state, itemid)
+                                }
+                            }
+
+                            Popup {
+                                id: randomWeaponPopup
+                                padding: 1
+                                width: 300
+                                contentHeight: weaponRandomAffixesList.contentHeight
+
+                                RandomAffixesList {
+                                    id: weaponRandomAffixesList
+
+                                    onEntryClicked: {
+                                        randomWeaponPopup.close()
+                                        equipment.setSlot(eqRect.state, itemid, affixId)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -107,7 +136,10 @@ Rectangle {
                     visible: !scrollWeapon.visible
                     ScrollBar.vertical.policy: ScrollBar.AlwaysOn
 
+                    clip: true
+
                     ListView {
+                        id: itemListView
                         model: itemModel
                         boundsBehavior: Flickable.StopAtBounds
 
@@ -123,8 +155,37 @@ Rectangle {
                             entryItemlvl: _itemlvl
                             entryQuality: _quality
                             entryIcon: _icon
+                            entryRandomAffix: _randomaffix
 
-                            onEntryClicked: equipment.setSlot(eqRect.state, itemid)
+                            onEntryClicked: {
+                                if (entryRandomAffix) {
+                                    equipment.setRandomAffixesModelId(itemid)
+
+                                    var pos = mapToItem(itemListView, 0, 0)
+                                    randomEquipmentPopup.x = mouseX
+                                    randomEquipmentPopup.y = mouseY
+                                    randomEquipmentPopup.open()
+                                }
+                                else {
+                                    equipment.setSlot(eqRect.state, itemid)
+                                }
+                            }
+
+                            Popup {
+                                id: randomEquipmentPopup
+                                padding: 1
+                                width: 300
+                                contentHeight: equipmentRandomAffixesList.contentHeight
+
+                                RandomAffixesList {
+                                    id: equipmentRandomAffixesList
+
+                                    onEntryClicked: {
+                                        randomEquipmentPopup.close()
+                                        equipment.setSlot(eqRect.state, itemid, affixId)
+                                    }
+                                }
+                            }
                         }
                     }
                 }

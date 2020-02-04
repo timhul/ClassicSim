@@ -14,9 +14,10 @@
 #include "SimControl.h"
 #include "SimSettings.h"
 
-SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
+SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, RandomAffixes *random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
     equipment_db(equipment_db),
+    random_affixes(random_affixes),
     global_sim_settings(sim_settings),
     local_sim_settings(nullptr),
     scaler(scaler),
@@ -50,7 +51,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     for (const auto & setup_string: this->setup_strings) {
         CharacterDecoder decoder_pchar;
         decoder_pchar.initialize(setup_string);
-        CharacterLoader loader(equipment_db, local_sim_settings, raid_control, decoder_pchar);
+        CharacterLoader loader(equipment_db, random_affixes, local_sim_settings, raid_control, decoder_pchar);
         raid.append(loader.initialize_new());
 
         if (!loader.successful())

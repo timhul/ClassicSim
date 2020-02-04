@@ -37,7 +37,8 @@ public:
         ReqLvlRole,
         ItemLvlRole,
         QualityRole,
-        IconRole
+        IconRole,
+        RandomAffixRole
     };
 
     ItemModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);

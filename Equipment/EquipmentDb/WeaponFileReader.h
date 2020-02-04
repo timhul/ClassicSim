@@ -14,6 +14,6 @@ private:
                        QVector<QMap<QString, QString>>& procs,
                        QVector<QMap<QString, QString>>& uses,
                        QVector<QString>& special_equip_effects,
-                       QSet<int>& mutex_item_ids);
+                       QSet<int>& mutex_item_ids, QVector<int>& random_affixes);
     int get_weapon_type(const QString& type);
 };

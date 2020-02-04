@@ -172,6 +172,8 @@ QVariant ItemModel::data(const QModelIndex & index, int role) const {
         return item->get_value("quality");
     if (role == IconRole)
         return item->get_value("icon");
+    if (role == RandomAffixRole)
+        return item->can_have_random_affix();
 
     return QVariant();
 }
@@ -187,5 +189,6 @@ QHash<int, QByteArray> ItemModel::roleNames() const {
     roles[ItemLvlRole] = "_itemlvl";
     roles[QualityRole] = "_quality";
     roles[IconRole] = "_icon";
+    roles[RandomAffixRole] = "_randomaffix";
     return roles;
 }

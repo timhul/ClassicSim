@@ -43,7 +43,8 @@ public:
         ReqLvlRole,
         ItemLvlRole,
         QualityRole,
-        IconRole
+        IconRole,
+        RandomAffixRole
     };
 
     WeaponModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);

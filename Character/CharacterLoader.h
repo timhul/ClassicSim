@@ -8,13 +8,14 @@ class Character;
 class CharacterDecoder;
 class EquipmentDb;
 class Race;
+class RandomAffixes;
 class RaidControl;
 class SimSettings;
 class Target;
 
 class CharacterLoader {
 public:
-    CharacterLoader(EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, CharacterDecoder &decoder);
+    CharacterLoader(EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, RaidControl* raid_control, CharacterDecoder &decoder);
     ~CharacterLoader();
 
     Character* initialize_new();
@@ -28,6 +29,7 @@ public:
 private:
     Race* race;
     EquipmentDb* equipment_db;
+    RandomAffixes* random_affixes;
     SimSettings* sim_settings;
     Target* target;
     RaidControl* raid_control;

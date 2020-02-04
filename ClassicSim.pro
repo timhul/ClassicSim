@@ -99,13 +99,16 @@ SOURCES += main.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
     Class/Shaman/TalentTrees/RestorationShaman.cpp \
     Equipment/Item/ItemStatsEnum.cpp \
+    Equipment/Item/RandomAffix.cpp \
     Equipment/Item/Quiver.cpp \
+    Equipment/RandomAffixes.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
     Event/Events/SpellCallback.cpp \
     GUI/Models/DamageMetersModel.cpp \
+    GUI/Models/RandomAffixModel.cpp \
     GUI/TemplateCharacters.cpp \
     Phases/ContentPhase.cpp \
     Phases/PhaseRequirer.cpp \
@@ -578,9 +581,12 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    Equipment/Item/RandomAffix.h \
     Equipment/Item/Quiver.h \
+    Equipment/RandomAffixes.h \
     Event/Events/SpellCallback.h \
     GUI/Models/DamageMetersModel.h \
+    GUI/Models/RandomAffixModel.h \
     GUI/TemplateCharacters.h \
     Phases/ContentPhase.h \
     Phases/PhaseRequirer.h \

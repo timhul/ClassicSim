@@ -204,6 +204,8 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
         return weapon->get_value("quality");
     if (role == IconRole)
         return weapon->get_value("icon");
+    if (role == RandomAffixRole)
+        return weapon->can_have_random_affix();
 
     return QVariant();
 }
@@ -221,5 +223,6 @@ QHash<int, QByteArray> WeaponModel::roleNames() const {
     roles[ItemLvlRole] = "_itemlvl";
     roles[QualityRole] = "_quality";
     roles[IconRole] = "_icon";
+    roles[RandomAffixRole] = "_randomaffix";
     return roles;
 }

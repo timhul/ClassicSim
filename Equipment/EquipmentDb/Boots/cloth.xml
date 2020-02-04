@@ -451,4 +451,23 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+	
+	<item id="18295" phase="2">
+		<info name="Phasing Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_boots_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="54"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="STAMINA" value="6"/>
+		</stats>
+		<random_affixes>
+			<affix id="1416"/>
+			<affix id="1508"/>
+			<affix id="1324"/>
+			<affix id="1370"/>
+			<affix id="1462"/>
+		</random_affixes>
+		<source>
+			Drops from Phase Lasher in Dire Maul.
+		</source>
+	</item>
 </items>

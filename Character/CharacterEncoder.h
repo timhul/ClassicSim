@@ -26,4 +26,5 @@ private:
     void key_val_list(const QString& key, const QString& value);
 
     void add_enchants();
+    void add_affixes();
 };

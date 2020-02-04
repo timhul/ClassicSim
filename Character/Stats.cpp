@@ -41,6 +41,254 @@ Stats::Stats() {
     this->magic_school_damage_bonus[MagicSchool::Shadow] = 0;
 }
 
+void Stats::add(const QString& key, const QString& value) {
+    if (key == "STRENGTH") {
+        this->increase_strength(value.toUInt());
+        this->base_tooltip.append(QString("+%1 Strength").arg(value));
+    }
+    else if (key == "AGILITY") {
+        this->increase_agility(value.toUInt());
+        this->base_tooltip.append(QString("+%1 Agility").arg(value));
+    }
+    else if (key == "STAMINA") {
+        this->increase_stamina(value.toUInt());
+        this->base_tooltip.append(QString("+%1 Stamina").arg(value));
+    }
+    else if (key == "INTELLECT") {
+        this->increase_intellect(value.toUInt());
+        this->base_tooltip.append(QString("+%1 Intellect").arg(value));
+    }
+    else if (key == "SPIRIT") {
+        this->increase_spirit(value.toUInt());
+        this->base_tooltip.append(QString("+%1 Spirit").arg(value));
+    }
+    else if (key == "CRIT_CHANCE") {
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->increase_melee_aura_crit(attack_table_value);
+        this->increase_ranged_crit(attack_table_value);
+        this->equip_effects_tooltip.append(QString("Equip: Improves your chance to get a critical strike by %1%.").arg(display_value));
+    }
+    else if (key == "HIT_CHANCE") {
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->increase_melee_hit(attack_table_value);
+        this->increase_ranged_hit(attack_table_value);
+        this->equip_effects_tooltip.append(QString("Equip: Improves your chance to hit by %1%.").arg(display_value));
+    }
+    else if (key == "ATTACK_POWER") {
+        this->increase_base_melee_ap(value.toUInt());
+        this->increase_base_ranged_ap(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power.").arg(value));
+    }
+    else if (key == "RANGED_ATTACK_POWER") {
+        this->increase_base_ranged_ap(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Ranged Attack Power.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_BEAST") {
+        this->increase_melee_ap_against_type(Target::CreatureType::Beast, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power when fighting Beasts.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_DEMON") {
+        this->increase_melee_ap_against_type(Target::CreatureType::Demon, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power when fighting Demons.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_DRAGONKIN") {
+        this->increase_melee_ap_against_type(Target::CreatureType::Dragonkin, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power when fighting Dragonkin.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_UNDEAD") {
+        this->increase_melee_ap_against_type(Target::CreatureType::Undead, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power when fighting Undead.").arg(value));
+    }
+    else if (key == "WEAPON_DAMAGE") {
+        this->increase_flat_weapon_damage(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Weapon Damage.").arg(value));
+    }
+    else if (key == "AXE_SKILL") {
+        this->increase_axe_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Axes +%1.").arg(value));
+    }
+    else if (key == "DAGGER_SKILL") {
+        this->increase_dagger_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Daggers +%1.").arg(value));
+    }
+    else if (key == "MACE_SKILL") {
+        this->increase_mace_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Swords +%1.").arg(value));
+    }
+    else if (key == "SWORD_SKILL") {
+        this->increase_sword_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Sword +%1.").arg(value));
+    }
+    else if (key == "TWOHAND_AXE_SKILL") {
+        this->increase_twohand_axe_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Two-handed Axes +%1.").arg(value));
+    }
+    else if (key == "TWOHAND_MACE_SKILL") {
+        this->increase_twohand_mace_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Two-handed Maces +%1.").arg(value));
+    }
+    else if (key == "TWOHAND_SWORD_SKILL") {
+        this->increase_twohand_sword_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Two-handed Swords +%1.").arg(value));
+    }
+    else if (key == "BOW_SKILL") {
+        this->increase_bow_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Bows +%1.").arg(value));
+    }
+    else if (key == "CROSSBOW_SKILL") {
+        this->increase_crossbow_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Crossbows +%1.").arg(value));
+    }
+    else if (key == "GUN_SKILL") {
+        this->increase_gun_skill(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Guns +%1.").arg(value));
+    }
+    else if (key == "MANA_PER_5") {
+        this->increase_mp5(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Restores %1 mana per 5 sec.").arg(value));
+    }
+    else if (key == "HEALTH_PER_5") {
+        this->increase_hp5(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Restores %1 health per 5 sec.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE") {
+        this->increase_base_spell_damage(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage and healing done by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_ARCANE") {
+        this->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Arcane);
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done by Arcane spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_FIRE") {
+        this->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Fire);
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done by Fire spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_FROST") {
+        this->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Frost);
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done by Frost spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_HOLY") {
+        this->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Holy);
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done by Holy spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_NATURE") {
+        this->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Nature);
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done by Nature spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_SHADOW") {
+        this->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Shadow);
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done by Shadow spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_BEAST") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Beast, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Beasts by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_DEMON") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Demon, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Demons by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_DRAGONKIN") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Dragonkin, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Dragonkin by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_ELEMENTAL") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Elemental, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Elementals by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_GIANT") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Giant, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Giants by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_HUMANOID") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Humanoid, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Humanoids by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_MECHANICAL") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Mechanical, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Mechanicals by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_DAMAGE_UNDEAD") {
+        this->increase_spell_damage_against_type(Target::CreatureType::Undead, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases damage done to Undead by magical spells and effects by up to %1.").arg(value));
+    }
+    else if (key == "SPELL_CRIT_CHANCE") {
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->increase_spell_crit(attack_table_value);
+        this->equip_effects_tooltip.append(QString("Equip: Improves your chance to get a critical strike with spells by %1%.").arg(display_value));
+    }
+    else if (key == "SPELL_HIT_CHANCE") {
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->increase_spell_hit(attack_table_value);
+        this->equip_effects_tooltip.append(QString("Equip: Improves your chance to hit with spells by %1%.").arg(display_value));
+    }
+    else if (key == "SPELL_PENETRATION") {
+        this->increase_spell_penetration(MagicSchool::Arcane, value.toUInt());
+        this->increase_spell_penetration(MagicSchool::Fire, value.toUInt());
+        this->increase_spell_penetration(MagicSchool::Frost, value.toUInt());
+        this->increase_spell_penetration(MagicSchool::Holy, value.toUInt());
+        this->increase_spell_penetration(MagicSchool::Nature, value.toUInt());
+        this->increase_spell_penetration(MagicSchool::Shadow, value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Decreases the magical resistances of your spell targets by %1.").arg(value));
+    }
+    else if (key == "ARMOR") {
+        this->increase_armor(value.toInt());
+        this->base_tooltip.append(QString("%1 Armor").arg(value));
+    }
+    else if (key == "DEFENSE") {
+        this->increase_defense(value.toInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increased Defense +%1.").arg(value));
+    }
+    else if (key == "DODGE_CHANCE") {
+        this->increase_dodge(value.toDouble());
+        this->equip_effects_tooltip.append(QString("Equip: Increases your chance to dodge an attack by %1%.").arg(value));
+    }
+    else if (key == "PARRY_CHANCE") {
+        this->increase_parry(value.toDouble());
+        this->equip_effects_tooltip.append(QString("Equip: Increases your chance to parry an attack by %1%.").arg(value));
+    }
+    else if (key == "ALL_RESISTANCE") {
+        this->increase_arcane_resistance(value.toInt());
+        this->increase_fire_resistance(value.toInt());
+        this->increase_frost_resistance(value.toInt());
+        this->increase_holy_resistance(value.toInt());
+        this->increase_nature_resistance(value.toInt());
+        this->increase_shadow_resistance(value.toInt());
+        this->equip_effects_tooltip.append(QString("+%1 All Resistances.").arg(value));
+    }
+    else if (key == "ARCANE_RESISTANCE") {
+        this->increase_arcane_resistance(value.toInt());
+        this->base_tooltip.append(QString("+%1 Arcane Resistance").arg(value));
+    }
+    else if (key == "FIRE_RESISTANCE") {
+        this->increase_fire_resistance(value.toInt());
+        this->base_tooltip.append(QString("+%1 Fire Resistance").arg(value));
+    }
+    else if (key == "FROST_RESISTANCE") {
+        this->increase_frost_resistance(value.toInt());
+        this->base_tooltip.append(QString("+%1 Frost Resistance").arg(value));
+    }
+    else if (key == "HOLY_RESISTANCE") {
+        this->increase_holy_resistance(value.toInt());
+        this->base_tooltip.append(QString("+%1 Holy Resistance").arg(value));
+    }
+    else if (key == "NATURE_RESISTANCE") {
+        this->increase_nature_resistance(value.toInt());
+        this->base_tooltip.append(QString("+%1 Nature Resistance").arg(value));
+    }
+    else if (key == "SHADOW_RESISTANCE") {
+        this->increase_shadow_resistance(value.toInt());
+        this->base_tooltip.append(QString("+%1 Shadow Resistance").arg(value));
+    }
+    else if (key == "RANGED_ATTACK_SPEED") {
+        this->increase_ranged_attack_speed(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: Increases ranged attack speed by %1%.").arg(value));
+    }
+}
+
 void Stats::add(const Stats* rhs) {
     increase_strength(rhs->get_strength());
     increase_agility(rhs->get_agility());
@@ -747,4 +995,14 @@ void Stats::increase_spell_penetration(const MagicSchool school, const unsigned 
 void Stats::decrease_spell_penetration(const MagicSchool school, const unsigned decrease) {
     check((decrease <= magic_school_spell_penetration_bonus[school]), "Underflow decrease spell penetration bonus");
     magic_school_spell_penetration_bonus[school] -= decrease;
+}
+
+QStringList Stats::get_equip_effects_tooltip() const
+{
+    return this->equip_effects_tooltip;
+}
+
+QStringList Stats::get_base_tooltip() const
+{
+    return this->base_tooltip;
 }

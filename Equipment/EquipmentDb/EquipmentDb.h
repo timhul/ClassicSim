@@ -39,6 +39,8 @@ public:
     Projectile* get_projectile(const int item_id) const;
     Quiver* get_quiver(const int item_id) const;
 
+    Item* get_item(const int item_id) const;
+
     void set_content_phase(const Content::Phase current_phase);
 
     const QVector<Item*>& get_slot_items(const int slot) const;

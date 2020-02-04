@@ -264,4 +264,46 @@
 		Crafted by Leatherworkers.
 		</source>
 	</item>
+	
+	<item id="13258" phase="6">
+		<info name="Slaghide Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_22.png"/>
+		<stats>
+			<stat type="ARMOR" value="207"/>
+		</stats>
+		<random_affixes>
+			<affix id="1819"/>
+			<affix id="1820"/>
+			<affix id="1623"/>
+			<affix id="1624"/>
+			<affix id="415"/>
+			<affix id="416"/>
+			<affix id="1218"/>
+			<affix id="1219"/>
+			<affix id="1220"/>
+			<affix id="878"/>
+			<affix id="879"/>
+			<affix id="880"/>
+			<affix id="455"/>
+			<affix id="456"/>
+			<affix id="457"/>
+			<affix id="963"/>
+			<affix id="965"/>
+			<affix id="623"/>
+			<affix id="624"/>
+			<affix id="625"/>
+			<affix id="793"/>
+			<affix id="794"/>
+			<affix id="795"/>
+			<affix id="708"/>
+			<affix id="709"/>
+			<affix id="710"/>
+			<affix id="1048"/>
+			<affix id="1049"/>
+			<affix id="1050"/>
+		</random_affixes>
+		<source>
+			Drops from Urok Doomhowl in Blackrock Spire.
+		</source>
+	</item>
+	
 </items>

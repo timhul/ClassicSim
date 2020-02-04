@@ -993,6 +993,7 @@
         <file>QML/Assets/items/Inv_sword_29.png</file>
         <file>QML/Assets/items/Inv_staff_21.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_29.png</file>
+        <file>QML/Assets/items/Inv_boots_06.png</file>
         <file>QML/Assets/items/Inv_misc_quiver_03.png</file>
         <file>QML/Assets/items/Inv_misc_ammo_bullet_01.png</file>
         <file>QML/Assets/items/Inv_misc_bag_09_black.png</file>
@@ -1000,8 +1001,11 @@
         <file>QML/Assets/items/Inv_misc_quiver_07.png</file>
         <file>QML/Assets/spell/Spell_arcane_teleportorgrimmar.png</file>
         <file>QML/Assets/misc/Inv_drink_milk_05.png</file>
+        <file>QML/RandomAffixesList.qml</file>
+        <file>QML/RandomAffixDelegate.qml</file>
         <file>QML/Assets/items/Inv_gauntlets_05.png</file>
         <file>QML/Assets/items/Inv_misc_ticket_tarot_maelstrom_01.png</file>
         <file>QML/Assets/items/Inv_misc_gem_pearl_04.png</file>
+        <file>QML/Assets/items/Inv_sword_23.png</file>
     </qresource>
 </RCC>

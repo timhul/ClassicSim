@@ -10,6 +10,8 @@ class EquipmentDb;
 class Item;
 class Projectile;
 class Quiver;
+class RandomAffix;
+class RandomAffixes;
 class SetBonusControl;
 class Stats;
 class Weapon;
@@ -47,24 +49,24 @@ public:
     Projectile* get_projectile() const;
     Quiver* get_quiver() const;
 
-    void set_mainhand(const int item_id);
-    void set_offhand(const int item_id);
-    void set_ranged(const int item_id);
-    void set_head(const int item_id);
-    void set_neck(const int item_id);
-    void set_shoulders(const int item_id);
-    void set_back(const int item_id);
-    void set_chest(const int item_id);
-    void set_wrist(const int item_id);
-    void set_gloves(const int item_id);
-    void set_belt(const int item_id);
-    void set_legs(const int item_id);
-    void set_boots(const int item_id);
-    void set_ring1(const int item_id);
-    void set_ring2(const int item_id);
+    void set_mainhand(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_offhand(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_ranged(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_head(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_neck(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_shoulders(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_back(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_chest(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_wrist(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_gloves(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_belt(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_legs(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_boots(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_ring1(const int item_id, RandomAffix *random_affix = nullptr);
+    void set_ring2(const int item_id, RandomAffix *random_affix = nullptr);
     void set_trinket1(const int item_id);
     void set_trinket2(const int item_id);
-    void set_caster_offhand(const int item_id);
+    void set_caster_offhand(const int item_id, RandomAffix *random_affix = nullptr);
     void set_relic(const int item_id);
     void set_projectile(const int item_id);
     void set_quiver(const int idem_id);
@@ -113,9 +115,14 @@ public:
 
 private:
     int setup_index;
-    EquipmentDb* db;
     Character* pchar;
+
+    // Databases
+    EquipmentDb* db;
+    RandomAffixes* random_affixes;
     SetBonusControl* set_bonuses;
+
+    // Equipments
     Weapon* mainhand;
     Weapon* offhand;
     Weapon* ranged;

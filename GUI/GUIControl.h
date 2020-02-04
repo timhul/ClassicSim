@@ -33,6 +33,8 @@ class NumberCruncher;
 class ProcBreakdownModel;
 class Race;
 class RaidControl;
+class RandomAffixes;
+class RandomAffixModel;
 class ResourceBreakdownModel;
 class RotationExecutorBreakdownModel;
 class RotationExecutorListModel;
@@ -170,7 +172,7 @@ public:
     Q_INVOKABLE QVariantList getTooltip(const QString& slot_string);
 
     Q_INVOKABLE void selectSlot(const QString& slot_string);
-    Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id);
+    Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id, const uint affix_id = 0);
     Q_INVOKABLE void clearSlot(const QString& slot_string);
 
     Q_INVOKABLE void setEquipmentSetup(const int equipment_index);
@@ -210,6 +212,11 @@ public:
     Q_INVOKABLE void clearFiltersAndSelectSingle(const int filter);
     Q_INVOKABLE void selectRangeOfFiltersFromPrevious(const int filter);
     /* End of ItemModel */
+
+    /* Random affixes model */
+    RandomAffixModel* get_random_affix_model() const;
+    Q_INVOKABLE void setRandomAffixesModelId(const int item_id);
+    /* End of Random affixes model */
 
     /* Buffs and debuffs */
     BuffModel* get_buff_model() const;
@@ -427,6 +434,7 @@ private:
     void activate_gui_setting(const QStringRef &name, const QString& value);
 
     EquipmentDb* equipment_db;
+    RandomAffixes* random_affixes_db;
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
     SimulationThreadPool* thread_pool;
@@ -473,6 +481,7 @@ private:
     EnchantModel* gloves_enchants;
     EnchantModel* chest_enchants;
     EnchantModel* boots_enchants;
+    RandomAffixModel* random_affixes;
     double last_personal_sim_result {0.0};
     double last_raid_sim_result {0.0};
     double last_engine_handled_events_per_second {0.0};
