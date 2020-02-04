@@ -100,7 +100,7 @@ void WeaponFileReader::create_weapon(QVector<Item*>& items,
                                      QVector<QMap<QString, QString>>& procs,
                                      QVector<QMap<QString, QString>>& uses,
                                      QVector<QString>& special_equip_effects,
-                                     QSet<int>& mutex_item_ids, QVector<int> random_affixes) {
+                                     QSet<int>& mutex_item_ids, QVector<int>& random_affixes) {
     bool missing_attrs = false;
     QVector<QString> mandatory_attrs_for_wpn = {"min", "max", "speed"};
 

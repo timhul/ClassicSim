@@ -715,13 +715,11 @@ void GUIControl::selectRangeOfFiltersFromPrevious(const int filter) {
     Q_EMIT filtersUpdated();
 }
 
-RandomAffixModel *GUIControl::get_random_affix_model() const
-{
+RandomAffixModel *GUIControl::get_random_affix_model() const {
     return this->random_affixes;
 }
 
-void GUIControl::setRandomAffixesModelId(const int item_id)
-{
+void GUIControl::setRandomAffixesModelId(const int item_id) {
     random_affixes->set_id(item_id);
 }
 

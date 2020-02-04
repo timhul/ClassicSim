@@ -12,16 +12,16 @@ class RandomAffix : public PhaseRequirer
 {
 public:
     RandomAffix(unsigned id, Content::Phase required_phase, const QString& name, Stats* stats, const QStringList &stats_list, const QMap<ItemStats, unsigned> &affix_stat_values);
-    unsigned get_id() const;
-    QString get_name() const;
+    ~RandomAffix();
     QString to_string() const;
     Stats* get_stats() const;
     QStringList get_stats_list() const;
     QMap<ItemStats, unsigned> get_affix_stat_values() const;
 
+    const unsigned id;
+    const QString name;
+
 private:
-    unsigned id;
-    QString name;
     Stats* stats;
     QStringList stats_list;
     QMap<ItemStats, unsigned> affix_stat_values;

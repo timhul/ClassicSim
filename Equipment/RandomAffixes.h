@@ -12,6 +12,7 @@ class RandomAffixes
 {
 public:
     RandomAffixes();
+    ~RandomAffixes();
     bool read_random_affixes(const QString& xml_file_path);
     RandomAffix * get_affix(unsigned id) const;
 
@@ -20,6 +21,6 @@ private:
     void add_stat_to_map(const QString &type, const QString &value, QMap<ItemStats, unsigned> &map);
 
 private:
-    QMap<unsigned, RandomAffix*> random_affixes_databse;
+    QMap<unsigned, RandomAffix*> random_affixes_db;
 };
 

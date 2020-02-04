@@ -6,13 +6,16 @@
 #include "RandomAffix.h"
 #include "Stats.h"
 
-RandomAffixes::RandomAffixes()
-{
+RandomAffixes::RandomAffixes() {
     read_random_affixes("random_affixes.xml");
 }
 
-bool RandomAffixes::read_random_affixes(const QString& xml_file_path)
-{
+RandomAffixes::~RandomAffixes() {
+    qDeleteAll(random_affixes_db);
+    random_affixes_db.clear();
+}
+
+bool RandomAffixes::read_random_affixes(const QString& xml_file_path) {
     QFile file(xml_file_path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file" << xml_file_path << ":" << file.errorString();
@@ -33,18 +36,11 @@ bool RandomAffixes::read_random_affixes(const QString& xml_file_path)
     return true;
 }
 
-RandomAffix * RandomAffixes::get_affix(unsigned id) const
-{
-    for (auto affix : random_affixes_databse)
-    {
-        if (affix->get_id() == id) return affix;
-    }
-
-    return nullptr;
+RandomAffix * RandomAffixes::get_affix(unsigned id) const {
+    return random_affixes_db.contains(id) ? random_affixes_db[id] : nullptr;
 }
 
-bool RandomAffixes::random_affixes_file_handler(QXmlStreamReader &reader)
-{
+bool RandomAffixes::random_affixes_file_handler(QXmlStreamReader &reader) {
     // Iterate on random affixes elements
     while (reader.readNextStartElement()) {
         if (!reader.attributes().hasAttribute("id")) {
@@ -73,7 +69,7 @@ bool RandomAffixes::random_affixes_file_handler(QXmlStreamReader &reader)
         auto affix_stats = new Stats();
 
         // Duplicate checking
-        if (random_affixes_databse.contains(affix_id)) {
+        if (random_affixes_db.contains(affix_id)) {
             qDebug() << QStringLiteral("Duplicate affixes with id : %1").arg(affix_id);
             continue;
         }
@@ -114,14 +110,13 @@ bool RandomAffixes::random_affixes_file_handler(QXmlStreamReader &reader)
 
         // Add current affix to databse
         auto affix = new RandomAffix(affix_id, affix_phase, affix_name, affix_stats, stats_list, affix_stat_values);
-        random_affixes_databse[affix_id] = affix;
+        random_affixes_db[affix_id] = affix;
     }
 
     return true;
 }
 
-void RandomAffixes::add_stat_to_map(const QString &type, const QString &value, QMap<ItemStats, unsigned> &map)
-{
+void RandomAffixes::add_stat_to_map(const QString &type, const QString &value, QMap<ItemStats, unsigned> &map) {
     if (type == "STRENGTH") {
         map.insert(ItemStats::Strength, value.toUInt());
     }

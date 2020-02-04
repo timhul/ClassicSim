@@ -36,7 +36,7 @@ protected:
                      QVector<QString>& spell_modifications,
                      QVector<QString>& special_equip_effects,
                      QSet<int>& mutex_item_ids,
-                     QVector<int> random_affixes);
+                     QVector<int>& random_affixes);
 
     void extract_info(QMap<QString, QString>& item, QMap<QString, QString>& info);
     void extract_stats(QMap<QString, QString>& item, QMap<QString, QString>& stats);

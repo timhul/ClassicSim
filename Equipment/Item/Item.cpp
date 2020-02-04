@@ -306,31 +306,26 @@ Enchant* Item::get_enchant() const {
     return this->enchant;
 }
 
-bool Item::can_have_random_affix() const
-{
+bool Item::can_have_random_affix() const {
     return !possible_random_affixes.empty();
 }
 
-bool Item::has_random_affix() const
-{
+bool Item::has_random_affix() const {
     return this->random_affix != nullptr;
 }
 
-RandomAffix *Item::get_random_affix() const
-{
+RandomAffix *Item::get_random_affix() const {
     return this->random_affix;
 }
 
-QVector<int> Item::get_possible_random_affixes() const
-{
+QVector<int> Item::get_possible_random_affixes() const {
     if (this->possible_random_affixes.empty()) return QVector<int>();
 
     return this->possible_random_affixes;
 }
 
-void Item::set_random_affix(RandomAffix *affix)
-{
-    if (!possible_random_affixes.contains(static_cast<int>(affix->get_id()))) {
+void Item::set_random_affix(RandomAffix *affix) {
+    if (!possible_random_affixes.contains(static_cast<int>(affix->id))) {
         qDebug() << "Unable to set random affix" << affix << "to item" << item_id;
         return;
     }
@@ -352,7 +347,7 @@ void Item::set_random_affix(RandomAffix *affix)
         this->item_stat_values.insert(iter.key(), iter.value());
     }
 
-    name = base_name + ' ' + affix->get_name();
+    name = base_name + ' ' + affix->name;
     random_affix = affix;
 }
 

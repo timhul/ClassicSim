@@ -11,32 +11,22 @@ RandomAffix::RandomAffix(unsigned id, Content::Phase required_phase, const QStri
     affix_stat_values(affix_stat_values)
 {}
 
-unsigned RandomAffix::get_id() const
-{
-    return id;
+RandomAffix::~RandomAffix() {
+    delete stats;
 }
 
-QString RandomAffix::get_name() const
-{
-    return name;
-}
-
-QString RandomAffix::to_string() const
-{
+QString RandomAffix::to_string() const {
     return QStringLiteral("%1 (%2)").arg(name).arg(stats_list.join(","));
 }
 
-Stats *RandomAffix::get_stats() const
-{
+Stats *RandomAffix::get_stats() const {
     return this->stats;
 }
 
-QStringList RandomAffix::get_stats_list() const
-{
+QStringList RandomAffix::get_stats_list() const {
     return this->stats_list;
 }
 
-QMap<ItemStats, unsigned> RandomAffix::get_affix_stat_values() const
-{
+QMap<ItemStats, unsigned> RandomAffix::get_affix_stat_values() const {
     return this->affix_stat_values;
 }

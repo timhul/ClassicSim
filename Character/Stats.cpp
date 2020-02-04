@@ -41,8 +41,7 @@ Stats::Stats() {
     this->magic_school_damage_bonus[MagicSchool::Shadow] = 0;
 }
 
-void Stats::add(const QString& key, const QString& value)
-{
+void Stats::add(const QString& key, const QString& value) {
     if (key == "STRENGTH") {
         this->increase_strength(value.toUInt());
         this->base_tooltip.append(QString("+%1 Strength").arg(value));

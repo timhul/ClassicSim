@@ -190,8 +190,7 @@ Projectile* EquipmentDb::get_projectile(const int item_id) const {
     return nullptr;
 }
 
-Quiver *EquipmentDb::get_quiver(const int item_id) const
-{
+Quiver *EquipmentDb::get_quiver(const int item_id) const {
     for (const auto & current_phase_quiver : current_phase_quivers) {
         if (item_id == current_phase_quiver->item_id)
             return new Quiver(static_cast<Quiver*>(current_phase_quiver));
@@ -200,8 +199,7 @@ Quiver *EquipmentDb::get_quiver(const int item_id) const
     return nullptr;
 }
 
-Item *EquipmentDb::get_item(const int item_id) const
-{
+Item *EquipmentDb::get_item(const int item_id) const {
     if (item_id_to_item.contains(item_id))
         return item_id_to_item[item_id];
 

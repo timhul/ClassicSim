@@ -780,7 +780,7 @@
 	</melee_weapon>
 	
 	<melee_weapon id="15219" phase="1">
-		<info name="Dimensional Blade" type="SWORD" slot="1H" unique="yes" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="yes" icon="Inv_sword_23.png"/>
+		<info name="Dimensional Blade" type="SWORD" slot="1H" unique="no" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="yes" icon="Inv_sword_23.png"/>
 		<dmg_range min="39" max="73" speed="1.6"/>
 		<random_affixes>
 			<affix id="1557"/>

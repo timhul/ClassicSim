@@ -187,12 +187,11 @@ void CharacterEncoder::add_enchants() {
         key_val("RANGED_ENCHANT", QString::number(item->get_enchant_enum_value()));
 }
 
-void CharacterEncoder::add_affixes()
-{
+void CharacterEncoder::add_affixes() {
     Weapon* wpn = pchar->get_equipment()->get_mainhand();
     if (wpn != nullptr) {
         if (wpn->get_random_affix())
-            key_val("MH_AFFIX", QString::number(wpn->get_random_affix()->get_id()));
+            key_val("MH_AFFIX", QString::number(wpn->get_random_affix()->id));
         else
             key_val("MH_AFFIX", QString());
     }
@@ -200,7 +199,7 @@ void CharacterEncoder::add_affixes()
     wpn = pchar->get_equipment()->get_offhand();
     if (wpn != nullptr) {
         if (wpn->get_random_affix())
-            key_val("OH_AFFIX", QString::number(wpn->get_random_affix()->get_id()));
+            key_val("OH_AFFIX", QString::number(wpn->get_random_affix()->id));
         else
             key_val("OH_AFFIX", QString());
     }
@@ -208,7 +207,7 @@ void CharacterEncoder::add_affixes()
     Item* item = pchar->get_equipment()->get_head();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("HEAD_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("HEAD_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("HEAD_AFFIX", QString());
     }
@@ -216,7 +215,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_neck();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("NECK_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("NECK_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("NECK_AFFIX", QString());
     }
@@ -224,7 +223,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_shoulders();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("SHOULDERS_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("SHOULDERS_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("SHOULDERS_AFFIX", QString());
     }
@@ -232,7 +231,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_back();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("BACK_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("BACK_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("BACK_AFFIX", QString());
     }
@@ -240,7 +239,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_chest();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("CHEST_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("CHEST_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("CHEST_AFFIX", QString());
     }
@@ -248,7 +247,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_wrist();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("WRIST_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("WRIST_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("WRIST_AFFIX", QString());
     }
@@ -256,7 +255,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_gloves();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("GLOVES_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("GLOVES_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("GLOVES_AFFIX", QString());
     }
@@ -264,7 +263,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_belt();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("BELT_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("BELT_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("BELT_AFFIX", QString());
     }
@@ -272,7 +271,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_legs();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("LEGS_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("LEGS_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("LEGS_AFFIX", QString());
     }
@@ -280,7 +279,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_boots();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("BOOTS_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("BOOTS_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("BOOTS_AFFIX", QString());
     }
@@ -288,7 +287,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_ranged();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("RANGED_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("RANGED_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("RANGED_AFFIX", QString());
     }
@@ -296,7 +295,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_ring1();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("RING1_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("RING1_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("RING1_AFFIX", QString());
     }
@@ -304,7 +303,7 @@ void CharacterEncoder::add_affixes()
     item = pchar->get_equipment()->get_ring2();
     if (item != nullptr) {
         if (item->get_random_affix())
-            key_val("RING2_AFFIX", QString::number(item->get_random_affix()->get_id()));
+            key_val("RING2_AFFIX", QString::number(item->get_random_affix()->id));
         else
             key_val("RING2_AFFIX", QString());
     }

@@ -210,8 +210,7 @@ void ItemFileReader::mutex_element_reader(const QXmlStreamAttributes& attrs, QSe
     mutex_item_ids.insert(attrs.value("item_id").toInt());
 }
 
-void ItemFileReader::random_affixes_element_reader(QXmlStreamReader &reader, QVector<int> &random_affixes)
-{
+void ItemFileReader::random_affixes_element_reader(QXmlStreamReader &reader, QVector<int> &random_affixes) {
     while (reader.readNextStartElement()) {
         QXmlStreamAttributes attrs = reader.attributes();
         if (reader.name() == "affix") {
@@ -243,7 +242,7 @@ void ItemFileReader::create_item(QVector<Item*>& items,
                                  QVector<QMap<QString, QString>>& uses,
                                  QVector<QString>& spell_modifications,
                                  QVector<QString>& special_equip_effects,
-                                 QSet<int>& mutex_item_ids, QVector<int> random_affixes) {
+                                 QSet<int>& mutex_item_ids, QVector<int>& random_affixes) {
     QVector<QString> mandatory_attrs = {"id", "phase", "name", "classification", "type",
                                         "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
