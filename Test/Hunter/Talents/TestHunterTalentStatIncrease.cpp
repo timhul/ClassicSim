@@ -151,8 +151,8 @@ void TestHunterTalentStatIncrease::test_trueshot_aura() {
     unsigned ranged_ap_initial = pchar->get_stats()->get_ranged_ap();
 
     assert(talent->increment_rank());
-    assert(melee_ap_initial + 50 == pchar->get_stats()->get_melee_ap());
-    assert(ranged_ap_initial + 50 == pchar->get_stats()->get_ranged_ap());
+    assert(melee_ap_initial + 100 == pchar->get_stats()->get_melee_ap());
+    assert(ranged_ap_initial + 100 == pchar->get_stats()->get_ranged_ap());
 
     assert(talent->decrement_rank());
     assert(melee_ap_initial == pchar->get_stats()->get_melee_ap());

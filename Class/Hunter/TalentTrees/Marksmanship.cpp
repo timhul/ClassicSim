@@ -139,9 +139,9 @@ void Marksmanship::add_ranged_weapon_specialization(QMap<QString, Talent*>& tale
 
 void Marksmanship::add_trueshot_aura(QMap<QString, Talent*>& talent_tier) {
     auto talent = new TalentStatIncrease(hunter, this, "Trueshot Aura", "7ML", "Assets/ability/Ability_trueshot.png",
-                                         1, "Increases the attack power of party members within 45 yards by 50. Lasts 30 min.",
+                                         1, "Increases the attack power of party members within 45 yards by 100. Lasts 30 min.",
                                          QVector<QPair<unsigned, unsigned>>(),
-                                         QVector<QPair<TalentStat, unsigned>>{{TalentStat::AttackPower, 50}});
+                                         QVector<QPair<TalentStat, unsigned>>{{TalentStat::AttackPower, 100}});
 
     add_talent_to_tier(talent_tier, talent);
 }
