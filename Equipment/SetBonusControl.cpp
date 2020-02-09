@@ -65,7 +65,7 @@ void SetBonusControl::equip_item(const int item_id) {
                                                                         "Shadowcraft 6 set",
                                                                         "Assets/items/Inv_helmet_41.png",
                                                                         {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
-                                                                        0.01, ResourceType::Energy, 35, 35);
+                                                                        0.035, ResourceType::Energy, 35, 35);
             active_procs["SHADOWCRAFT_GAIN"]->enable_proc();
             break;
         }
