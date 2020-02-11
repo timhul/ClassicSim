@@ -47,6 +47,7 @@ public:
         ZandalarSignetOfMight,
         ZandalarSignetOfMojo,
         MightOfTheScourge,
+        EnchantChestStats,
         EnchantChestGreaterStats,
         EnchantBootsMinorSpeed,
         EnchantBootsGreaterAgility,
@@ -139,6 +140,8 @@ public:
             return "Zandalar Signet of Mojo";
         case EnchantName::MightOfTheScourge:
             return "Might of the Scourge";
+        case EnchantName::EnchantChestStats:
+            return "Stats";
         case EnchantName::EnchantChestGreaterStats:
             return "Greater Stats";
         case EnchantName::EnchantBootsMinorSpeed:
@@ -250,6 +253,8 @@ public:
             return "+18 Spell Damage/Healing";
         case EnchantName::MightOfTheScourge:
             return "+1% Crit and\n+26 Attack Power";
+        case EnchantName::EnchantChestStats:
+            return "+3 Attributes";
         case EnchantName::EnchantChestGreaterStats:
             return "+4 Attributes";
         case EnchantName::EnchantBootsMinorSpeed:

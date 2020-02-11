@@ -51,7 +51,8 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
         };
     case EquipmentSlot::CHEST:
         return {
-            EnchantName::Name::EnchantChestGreaterStats
+            EnchantName::Name::EnchantChestStats,
+            EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
         return {

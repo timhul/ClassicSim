@@ -77,7 +77,8 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
         };
     case EquipmentSlot::CHEST:
         return {
-            EnchantName::Name::EnchantChestGreaterStats
+            EnchantName::Name::EnchantChestStats,
+            EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
         return {

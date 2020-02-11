@@ -47,7 +47,8 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
         };
     case EquipmentSlot::CHEST:
         return {
-            EnchantName::Name::EnchantChestGreaterStats
+            EnchantName::Name::EnchantChestStats,
+            EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
         return {

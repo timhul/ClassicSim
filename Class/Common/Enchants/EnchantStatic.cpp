@@ -124,6 +124,13 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->get_stats()->increase_ranged_ap(26);
         pchar->get_stats()->increase_melee_aura_crit(100);
         break;
+    case EnchantName::EnchantChestStats:
+        pchar->get_stats()->increase_agility(3);
+        pchar->get_stats()->increase_intellect(3);
+        pchar->get_stats()->increase_spirit(3);
+        pchar->get_stats()->increase_stamina(3);
+        pchar->get_stats()->increase_strength(3);
+        break;
     case EnchantName::EnchantChestGreaterStats:
         pchar->get_stats()->increase_agility(4);
         pchar->get_stats()->increase_intellect(4);
@@ -297,6 +304,13 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_melee_ap(26);
         pchar->get_stats()->decrease_ranged_ap(26);
         pchar->get_stats()->decrease_melee_aura_crit(100);
+        break;
+    case EnchantName::EnchantChestStats:
+        pchar->get_stats()->decrease_agility(3);
+        pchar->get_stats()->decrease_intellect(3);
+        pchar->get_stats()->decrease_spirit(3);
+        pchar->get_stats()->decrease_stamina(3);
+        pchar->get_stats()->decrease_strength(3);
         break;
     case EnchantName::EnchantChestGreaterStats:
         pchar->get_stats()->decrease_agility(4);
