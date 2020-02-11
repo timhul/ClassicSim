@@ -16,6 +16,7 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
             EnchantName::Name::EnchantWeaponStrength,
             EnchantName::Name::SuperiorStriking,
             EnchantName::Name::EnchantWeaponSpellPower,
+            EnchantName::Name::EnchantWeaponAgility,
         };
 
         if (has_2hand()) {
@@ -25,8 +26,6 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
                                 EnchantName::Name::IronCounterweight,
                             });
         }
-        else
-           enchants.append(EnchantName::Name::EnchantWeaponAgility);
 
         return enchants;
     }

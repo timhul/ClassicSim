@@ -14,6 +14,7 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
         QVector<EnchantName::Name> enchants {
             EnchantName::Name::EnchantWeaponStrength,
             EnchantName::Name::EnchantWeaponSpellPower,
+            EnchantName::Name::EnchantWeaponAgility,
         };
 
         if (has_2hand()) {
@@ -22,8 +23,6 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
                                 EnchantName::Name::IronCounterweight,
                             });
         }
-        else
-           enchants.append(EnchantName::Name::EnchantWeaponAgility);
 
         return enchants;
     }

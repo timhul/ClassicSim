@@ -16,6 +16,7 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
             EnchantName::Name::EnchantWeaponStrength,
             EnchantName::Name::SuperiorStriking,
             EnchantName::Name::EnchantWeaponSpellPower,
+            EnchantName::Name::EnchantWeaponAgility,
         };
 
         if (has_2hand()) {
@@ -25,8 +26,6 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
                                 EnchantName::Name::IronCounterweight,
                             });
         }
-        else
-           enchants.append(EnchantName::Name::EnchantWeaponAgility);
 
         return enchants;
     }

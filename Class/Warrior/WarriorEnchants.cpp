@@ -17,7 +17,8 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
             EnchantName::Name::Crusader,
             EnchantName::Name::FieryWeapon,
             EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking
+            EnchantName::Name::SuperiorStriking,
+            EnchantName::Name::EnchantWeaponAgility
         };
 
         if (has_2hand()) {
@@ -27,8 +28,6 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
                                 EnchantName::Name::IronCounterweight,
                             });
         }
-        else
-           enchants.append(EnchantName::Name::EnchantWeaponAgility);
 
         return enchants;
     }
