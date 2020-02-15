@@ -1657,72 +1657,12 @@ QVariantList GUIControl::getTooltip(const QString& slot_string) {
     if (slot_string == "QUIVER")
         item = current_char->get_equipment()->get_quiver();
 
-    if (item == nullptr)
-        return QVariantList();
+    return get_tooltip_from_item(item);
+}
 
-    QString boe_string = item->get_value("boe") == "yes" ? "Binds when equipped" :
-                                                           "Binds when picked up";
-    QString unique = item->get_value("unique") == "yes" ? "Unique" :
-                                                          "";
-
-    QString slot = item->get_value("slot");
-    QString dmg_range = "";
-    QString weapon_speed = "";
-    QString dps = "";
-
-    if (slot == "1H")
-        set_weapon_tooltip(item, slot, "One-hand", dmg_range, weapon_speed, dps);
-    else if (slot == "MH")
-        set_weapon_tooltip(item, slot, "Main Hand", dmg_range, weapon_speed, dps);
-    else if (slot == "OH")
-        set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
-    else if (slot == "2H")
-        set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
-    else if (slot == "RANGED") {
-        const QSet<QString> ranged_weapon_classes = {"Hunter", "Warrior", "Rogue", "Mage", "Warlock", "Priest"};
-        if (ranged_weapon_classes.contains(current_char->class_name))
-            set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
-    }
-    else if (slot == "PROJECTILE")
-        set_projectile_tooltip(item, slot, dps);
-    else if (slot == "RING")
-        slot = "Finger";
-    else if (slot == "GLOVES")
-        slot = "Hands";
-    else if (slot == "BELT")
-        slot = "Waist";
-    else if (slot == "BOOTS")
-        slot = "Feet";
-    else if (slot == "SHOULDERS")
-        slot = "Shoulder";
-    else
-        slot = get_initial_upper_case_rest_lower_case(slot);
-
-    QString class_restriction = "";
-    set_class_restriction_tooltip(item, class_restriction);
-
-    QString lvl_req = QString("Requires level %1").arg(item->get_value("req_lvl"));
-
-    QVariantList tooltip_info = {
-        QVariant(item->name),
-        QVariant(item->get_value("quality")),
-        QVariant(boe_string),
-        QVariant(unique),
-        QVariant(slot),
-        QVariant(get_initial_upper_case_rest_lower_case(item->get_value("type"))),
-        QVariant(dmg_range),
-        QVariant(weapon_speed),
-        QVariant(dps),
-        QVariant(item->get_base_stat_tooltip()),
-        QVariant(class_restriction),
-        QVariant(lvl_req),
-        QVariant(item->get_equip_effect_tooltip()),
-        QVariant(item->get_value("flavour_text"))
-    };
-
-    set_set_bonus_tooltip(item, tooltip_info);
-
-    return tooltip_info;
+QVariantList GUIControl::getTooltip(const int item_id) {
+    Item* item = this->equipment_db->get_item(item_id);
+    return get_tooltip_from_item(item);
 }
 
 void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QString& dmg_range, QString& wpn_speed, QString& dps) {
@@ -2012,4 +1952,73 @@ void GUIControl::activate_gui_setting(const QStringRef& name, const QString& val
         sim_settings->set_num_threads(value.toInt());
     else if (name == "sim_option")
         sim_settings->add_sim_option(static_cast<SimOption::Name>(value.toInt()));
+}
+
+QVariantList GUIControl::get_tooltip_from_item(Item* item) {
+    if (item == nullptr)
+        return QVariantList();
+
+    QString boe_string = item->get_value("boe") == "yes" ? "Binds when equipped" :
+                                                           "Binds when picked up";
+    QString unique = item->get_value("unique") == "yes" ? "Unique" :
+                                                          "";
+
+    QString slot = item->get_value("slot");
+    QString dmg_range = "";
+    QString weapon_speed = "";
+    QString dps = "";
+
+    if (slot == "1H")
+        set_weapon_tooltip(item, slot, "One-hand", dmg_range, weapon_speed, dps);
+    else if (slot == "MH")
+        set_weapon_tooltip(item, slot, "Main Hand", dmg_range, weapon_speed, dps);
+    else if (slot == "OH")
+        set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
+    else if (slot == "2H")
+        set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
+    else if (slot == "RANGED") {
+        const QSet<QString> ranged_weapon_classes = {"Hunter", "Warrior", "Rogue", "Mage", "Warlock", "Priest"};
+        if (ranged_weapon_classes.contains(current_char->class_name))
+            set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
+    }
+    else if (slot == "PROJECTILE")
+        set_projectile_tooltip(item, slot, dps);
+    else if (slot == "RING")
+        slot = "Finger";
+    else if (slot == "GLOVES")
+        slot = "Hands";
+    else if (slot == "BELT")
+        slot = "Waist";
+    else if (slot == "BOOTS")
+        slot = "Feet";
+    else if (slot == "SHOULDERS")
+        slot = "Shoulder";
+    else
+        slot = get_initial_upper_case_rest_lower_case(slot);
+
+    QString class_restriction = "";
+    set_class_restriction_tooltip(item, class_restriction);
+
+    QString lvl_req = QString("Requires level %1").arg(item->get_value("req_lvl"));
+
+    QVariantList tooltip_info = {
+        QVariant(item->name),
+        QVariant(item->get_value("quality")),
+        QVariant(boe_string),
+        QVariant(unique),
+        QVariant(slot),
+        QVariant(get_initial_upper_case_rest_lower_case(item->get_value("type"))),
+        QVariant(dmg_range),
+        QVariant(weapon_speed),
+        QVariant(dps),
+        QVariant(item->get_base_stat_tooltip()),
+        QVariant(class_restriction),
+        QVariant(lvl_req),
+        QVariant(item->get_equip_effect_tooltip()),
+        QVariant(item->get_value("flavour_text"))
+    };
+
+    set_set_bonus_tooltip(item, tooltip_info);
+
+    return tooltip_info;
 }

@@ -5,6 +5,9 @@ RectangleBorders {
     height: 45
 
     signal entryClicked(int mouseX, int mouseY);
+    signal showTooltip();
+    signal updateTooltip(int itemId, int mouseX, int mouseY);
+    signal hideTooltip();
 
     property int itemid
     property string entryName
@@ -32,6 +35,18 @@ RectangleBorders {
 
             console.log("Clicked", entryName)
             entryClicked(mouse.x, mouse.y);
+        }
+
+        onEntered: {
+            showTooltip();
+        }
+
+        onExited: {
+            hideTooltip();
+        }
+
+        onPositionChanged: {
+            updateTooltip(itemid, mouseX, mouseY);
         }
     }
 
