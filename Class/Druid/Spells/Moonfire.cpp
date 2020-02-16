@@ -12,6 +12,8 @@
 #include "SimSettings.h"
 #include "Utils/Check.h"
 
+#include <cmath>
+
 Moonfire::Moonfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
     SpellPeriodic("Moonfire", "Assets/spell/Spell_nature_starfall.png", pchar, nullptr,
                   RestrictedByGcd::Yes, ResourceType::Mana, 3.0, 0, spell_rank),

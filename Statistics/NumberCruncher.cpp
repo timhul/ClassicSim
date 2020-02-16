@@ -9,6 +9,8 @@
 #include "StatisticsSpell.h"
 #include "Utils/Check.h"
 
+#include <cmath>
+
 NumberCruncher::~NumberCruncher() {
     reset();
 }

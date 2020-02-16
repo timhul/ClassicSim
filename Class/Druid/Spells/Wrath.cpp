@@ -11,6 +11,8 @@
 #include "SimSettings.h"
 #include "Utils/Check.h"
 
+#include <cmath>
+
 Wrath::Wrath(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
     Spell("Wrath", "Assets/items/Spell_nature_abolishmagic.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 2000),

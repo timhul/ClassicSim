@@ -22,6 +22,8 @@
 #include "WarriorSpells.h"
 #include "Weapon.h"
 
+#include <cmath>
+
 Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
     Character("Warrior", "#C79C6E", race, sim_settings, raid_control, party, member) {
     available_races.append("Dwarf");

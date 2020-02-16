@@ -14,6 +14,8 @@
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
+#include <cmath>
+
 Frostbolt::Frostbolt(Mage* pchar, MageSpells* mage_spells, Proc* winters_chill, const int spell_rank) :
     Spell("Frostbolt", "Assets/spell/Spell_frost_frostbolt02.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3000),

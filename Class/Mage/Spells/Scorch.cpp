@@ -12,6 +12,8 @@
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
+#include <cmath>
+
 Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank) :
     Spell("Scorch", "Assets/spell/Spell_fire_soulburn.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 1500),
