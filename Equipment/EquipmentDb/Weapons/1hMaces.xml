@@ -172,17 +172,17 @@
 	</melee_weapon>
 
 	<melee_weapon id="19170" phase="3">
-		<info name="Ebon Hand" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
-		<dmg_range min="83" max="153" speed="2.3"/>
+		<info name="Ebon Hand" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
+		<dmg_range min="90" max="168" speed="2.5"/>
 		<stats>
 			<stat type="STAMINA" value="9"/>
 			<stat type="FIRE_RESISTANCE" value="7"/>
 		</stats>
 		<proc>
-			<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.038333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="SHADOW_ATTACK" min="125" max="275" instant="yes" rate="0.038333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
-			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage.
+			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 275 Shadow damage.
 		</special_equip_effect>
 		<source>
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
