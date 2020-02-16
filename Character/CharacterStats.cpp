@@ -770,6 +770,10 @@ double CharacterStats::get_total_physical_damage_mod() const {
     return total_phys_dmg_mod * dmg_bonus_from_wpn_type * dmg_bonus_from_monster_type;
 }
 
+double CharacterStats::get_total_threat_mod() const {
+    return total_threat_mod;
+}
+
 double CharacterStats::get_melee_attack_speed_mod() const {
     return melee_attack_speed_mod;
 }
@@ -942,6 +946,14 @@ void CharacterStats::increase_total_phys_dmg_mod(const int increase) {
 
 void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
     remove_multiplicative_effect(phys_dmg_buffs, decrease, total_phys_dmg_mod);
+}
+
+void CharacterStats::increase_total_threat_mod(const int increase) {
+    add_multiplicative_effect(phys_dmg_buffs, increase, total_threat_mod);
+}
+
+void CharacterStats::decrease_total_threat_mod(const int decrease) {
+    remove_multiplicative_effect(phys_dmg_buffs, decrease, total_threat_mod);
 }
 
 void CharacterStats::add_phys_damage_taken_mod(const int mod) {
