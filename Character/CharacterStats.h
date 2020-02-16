@@ -174,6 +174,10 @@ public:
     void increase_total_phys_dmg_mod(const int mod);
     void decrease_total_phys_dmg_mod(const int mod);
 
+    double get_total_threat_mod() const;
+    void increase_total_threat_mod(const int mod);
+    void decrease_total_threat_mod(const int mod);
+
     double get_physical_damage_taken_mod() const;
     void add_phys_damage_taken_mod(const int mod);
     void remove_phys_damage_taken_mod(const int mod);
@@ -241,6 +245,7 @@ private:
     QVector<int> ranged_attack_speed_buffs;
     QVector<int> casting_speed_buffs;
     QVector<int> phys_dmg_buffs;
+    QVector<int> threat_buffs;
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;
     QVector<int> ap_total_multipliers;
@@ -279,6 +284,7 @@ private:
     double ranged_attack_speed_mod {1.0};
     double casting_speed_mod {1.0};
     double total_phys_dmg_mod {1.0};
+    double total_threat_mod {1.0};
     double physical_damage_taken_mod {1.0};
     double spell_damage_taken_mod {1.0};
     double total_ap_mod {1.0};
