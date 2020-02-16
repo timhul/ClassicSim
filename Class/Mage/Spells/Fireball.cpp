@@ -1,5 +1,7 @@
 #include "Fireball.h"
 
+#include <cmath>
+
 #include "Buff.h"
 #include "CharacterSpells.h"
 #include "ClassStatistics.h"
