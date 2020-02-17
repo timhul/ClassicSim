@@ -949,11 +949,11 @@ void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
 }
 
 void CharacterStats::increase_total_threat_mod(const int increase) {
-    add_multiplicative_effect(phys_dmg_buffs, increase, total_threat_mod);
+    add_multiplicative_effect(threat_buffs, increase, total_threat_mod);
 }
 
 void CharacterStats::decrease_total_threat_mod(const int decrease) {
-    remove_multiplicative_effect(phys_dmg_buffs, decrease, total_threat_mod);
+    remove_multiplicative_effect(threat_buffs, decrease, total_threat_mod);
 }
 
 void CharacterStats::add_phys_damage_taken_mod(const int mod) {
