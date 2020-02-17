@@ -294,6 +294,7 @@ SOURCES += main.cpp \
     Class/Warrior/Spells/BattleStance.cpp \
     Class/Warrior/Spells/BerserkerStance.cpp \
     Class/Warrior/Buffs/BerserkerStanceBuff.cpp \
+    Class/Warrior/Buffs/BattleStanceBuff.cpp \
     Test/Warrior/Spells/TestBerserkerStance.cpp \
     Character/Race/Racials/BloodFury.cpp \
     Character/Race/Racials/BloodFuryBuff.cpp \
@@ -782,6 +783,7 @@ HEADERS += \
     Test/Warrior/Spells/TestRecklessness.h \
     Class/Warrior/Spells/BattleStance.h \
     Class/Warrior/Spells/BerserkerStance.h \
+    Class/Warrior/Buffs/BattleStanceBuff.h \
     Class/Warrior/Buffs/BerserkerStanceBuff.h \
     Test/Warrior/Spells/TestBerserkerStance.h \
     Character/Race/Racials/BloodFury.h \

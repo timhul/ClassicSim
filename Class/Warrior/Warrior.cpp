@@ -175,6 +175,9 @@ void Warrior::new_stance_effect() {
     case WarriorStances::Defensive:
         warr_spells->get_defensive_stance_buff()->apply_buff();
         break;
+    case WarriorStances::Battle:
+        warr_spells->get_battle_stance_buff()->apply_buff();
+        break;
     }
 
     if (this->rage->current > stance_rage_remainder)
@@ -207,6 +210,9 @@ void Warrior::switch_to_berserker_stance() {
     case WarriorStances::Defensive:
         warr_spells->get_defensive_stance_buff()->cancel_buff();
         break;
+    case WarriorStances::Battle:
+        warr_spells->get_battle_stance_buff()->cancel_buff();
+        break;
     }
 
     this->stance = WarriorStances::Berserker;
@@ -217,6 +223,9 @@ void Warrior::switch_to_defensive_stance() {
     switch (this->stance) {
     case WarriorStances::Berserker:
         warr_spells->get_berserker_stance_buff()->cancel_buff();
+        break;
+    case WarriorStances::Battle:
+        warr_spells->get_battle_stance_buff()->cancel_buff();
         break;
     }
 
