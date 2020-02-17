@@ -32,6 +32,7 @@
 #include "Rend.h"
 #include "Slam.h"
 #include "SpellRankGroup.h"
+#include "SunderArmor.h"
 #include "SwordSpecialization.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
@@ -57,6 +58,7 @@ WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(
     this->recklessness = new Recklessness(warrior, this);
     this->rend = new Rend(warrior, this);
     this->slam = new Slam(warrior, this);
+    this->sunder_armor = new SunderArmor(warrior, this);
     this->warr_mh_attack = new MainhandAttackWarrior(warrior, this);
     this->warr_oh_attack = new OffhandAttackWarrior(warrior, this);
     this->whirlwind = new Whirlwind(warrior, this);
@@ -107,6 +109,7 @@ WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(
     add_spell_group({recklessness});
     add_spell_group({rend});
     add_spell_group({slam});
+    add_spell_group({sunder_armor});
     add_spell_group({whirlwind});
     add_spell_group({warr_mh_attack});
     add_spell_group({warr_oh_attack});
@@ -225,6 +228,10 @@ Whirlwind* WarriorSpells::get_whirlwind() const {
 
 Slam* WarriorSpells::get_slam() const {
     return this->slam;
+}
+
+SunderArmor* WarriorSpells::get_sunder_armor() const {
+    return this->sunder_armor;
 }
 
 Rend* WarriorSpells::get_rend() const {

@@ -27,6 +27,7 @@ class Recklessness;
 class RecklessnessBuff;
 class Rend;
 class Slam;
+class SunderArmor;
 class SwordSpecialization;
 class UnbridledWrath;
 class Warrior;
@@ -56,6 +57,7 @@ public:
     Recklessness* get_recklessness() const;
     Rend* get_rend() const;
     Slam* get_slam() const;
+    SunderArmor* get_sunder_armor() const;
     Whirlwind* get_whirlwind() const;
 
     Buff* get_battle_stance_buff() const;
@@ -93,6 +95,7 @@ private:
     Recklessness* recklessness;
     Rend* rend;
     Slam* slam;
+    SunderArmor* sunder_armor;
     Whirlwind* whirlwind;
 
     BerserkerStanceBuff* berserker_stance_buff;
