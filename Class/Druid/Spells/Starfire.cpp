@@ -1,5 +1,7 @@
 #include "Starfire.h"
 
+#include <cmath>
+
 #include "Buff.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"

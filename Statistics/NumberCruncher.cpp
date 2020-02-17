@@ -1,5 +1,7 @@
 #include "NumberCruncher.h"
 
+#include <cmath>
+
 #include "ClassStatistics.h"
 #include "StatisticsBuff.h"
 #include "StatisticsEngine.h"

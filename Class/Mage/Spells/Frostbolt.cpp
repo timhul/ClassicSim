@@ -1,5 +1,7 @@
 #include "Frostbolt.h"
 
+#include <cmath>
+
 #include "Buff.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
