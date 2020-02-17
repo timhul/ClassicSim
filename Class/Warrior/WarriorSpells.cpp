@@ -4,6 +4,7 @@
 #include "BattleShout.h"
 #include "BattleShoutBuff.h"
 #include "BattleStance.h"
+#include "BattleStanceBuff.h"
 #include "BerserkerRage.h"
 #include "BerserkerStance.h"
 #include "BerserkerStanceBuff.h"
@@ -112,7 +113,7 @@ WarriorSpells::WarriorSpells(Warrior* warrior) :
     add_spell_group({warr_mh_attack});
     add_spell_group({warr_oh_attack});
 
-    this->battle_stance_buff = new NoEffectSelfBuff(warrior, BuffDuration::PERMANENT, "Battle Stance");
+    this->battle_stance_buff = new BattleStanceBuff(warrior);
     this->berserker_stance_buff = new BerserkerStanceBuff(warrior);
     this->defensive_stance_buff = new DefensiveStanceBuff(warrior);
     this->flurry = new Flurry(warrior);
@@ -259,6 +260,10 @@ Buff* WarriorSpells::get_flurry() const {
 
 Buff* WarriorSpells::get_berserker_stance_buff() const {
     return this->berserker_stance_buff;
+}
+
+Buff* WarriorSpells::get_battle_stance_buff() const {
+    return this->battle_stance_buff;
 }
 
 Buff* WarriorSpells::get_defensive_stance_buff() const {
