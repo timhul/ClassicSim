@@ -79,6 +79,7 @@ Rectangle {
                     ScrollBar.vertical.policy: ScrollBar.AlwaysOn
 
                     ListView {
+                        id: weaponListView
                         model: weaponModel
                         boundsBehavior: Flickable.StopAtBounds
 
@@ -101,8 +102,6 @@ Rectangle {
                             onEntryClicked: {
                                 if (entryRandomAffix) {
                                     equipment.setRandomAffixesModelId(itemid)
-
-                                    var pos = mapToItem(itemListView, 0, 0)
                                     randomWeaponPopup.x = mouseX
                                     randomWeaponPopup.y = mouseY
                                     randomWeaponPopup.open()
@@ -110,6 +109,22 @@ Rectangle {
                                 else {
                                     equipment.setSlot(eqRect.state, itemid)
                                 }
+                            }
+
+                            onShowTooltip: {
+                                weaponTooltip.itemId = itemid
+                                weaponTooltip.updateTooltip()
+                                weaponTooltip.visible = true;
+                            }
+
+                            onUpdateTooltip: {
+                                var pos = mapToItem(weaponListView, mouseX, mouseY)
+                                weaponTooltip.x = pos.x > weaponListView.width / 2 ? pos.x - 12 - weaponTooltip.width : pos.x + 12
+                                weaponTooltip.y = pos.y > weaponListView.height / 2 ? pos.y - weaponTooltip.getTooltipHeight() : pos.y
+                            }
+
+                            onHideTooltip: {
+                                weaponTooltip.visible = false;
                             }
 
                             Popup {
@@ -127,6 +142,11 @@ Rectangle {
                                     }
                                 }
                             }
+                        }
+
+                        EquipmentTooltip {
+                            id: weaponTooltip
+                            useId: true
                         }
                     }
                 }
@@ -160,8 +180,6 @@ Rectangle {
                             onEntryClicked: {
                                 if (entryRandomAffix) {
                                     equipment.setRandomAffixesModelId(itemid)
-
-                                    var pos = mapToItem(itemListView, 0, 0)
                                     randomEquipmentPopup.x = mouseX
                                     randomEquipmentPopup.y = mouseY
                                     randomEquipmentPopup.open()
@@ -169,6 +187,22 @@ Rectangle {
                                 else {
                                     equipment.setSlot(eqRect.state, itemid)
                                 }
+                            }
+
+                            onShowTooltip: {
+                                itemTooltip.itemId = itemid
+                                itemTooltip.updateTooltip()
+                                itemTooltip.visible = true;
+                            }
+
+                            onUpdateTooltip: {
+                                var pos = mapToItem(itemListView, mouseX, mouseY)
+                                itemTooltip.x = pos.x > itemListView.width / 2 ? pos.x - 12 - itemTooltip.width : pos.x + 12
+                                itemTooltip.y = pos.y > itemListView.height / 2 ? pos.y - itemTooltip.getTooltipHeight() : pos.y
+                            }
+
+                            onHideTooltip: {
+                                itemTooltip.visible = false;
                             }
 
                             Popup {
@@ -186,6 +220,11 @@ Rectangle {
                                     }
                                 }
                             }
+                        }
+
+                        EquipmentTooltip {
+                            id: itemTooltip
+                            useId: true
                         }
                     }
                 }

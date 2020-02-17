@@ -2,6 +2,9 @@ import QtQuick 2.0
 
 RectangleBorders {
     property string slotString
+    property int itemId
+    property bool useId: false
+
     property bool showDurabilityInTooltip: hasDurability()
     property bool showTypeInTooltip: showDurabilityInTooltip
     property bool slotEquipped: false
@@ -31,7 +34,7 @@ RectangleBorders {
     }
 
     function updateTooltip() {
-        var tooltipInfo = equipment.getTooltip(slotString)
+        var tooltipInfo = useId ? equipment.getTooltip(itemId) : equipment.getTooltip(slotString)
         if (tooltipInfo.length === 0) {
             slotEquipped = false;
             return;

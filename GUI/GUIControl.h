@@ -170,6 +170,7 @@ public:
     Q_PROPERTY(QString quiverIcon READ get_quiver_icon NOTIFY equipmentChanged)
 
     Q_INVOKABLE QVariantList getTooltip(const QString& slot_string);
+    Q_INVOKABLE QVariantList getTooltip(const int item_id);
 
     Q_INVOKABLE void selectSlot(const QString& slot_string);
     Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id, const uint affix_id = 0);
@@ -432,6 +433,8 @@ private:
     void save_gui_settings();
     void load_gui_settings();
     void activate_gui_setting(const QStringRef &name, const QString& value);
+
+    QVariantList get_tooltip_from_item(Item* item);
 
     EquipmentDb* equipment_db;
     RandomAffixes* random_affixes_db;
