@@ -18,7 +18,7 @@ public:
         ByMaxUptime,
         ByAvgUptime
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class BuffBreakdownModel : public QAbstractListModel {

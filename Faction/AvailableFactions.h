@@ -13,5 +13,5 @@ public:
         Horde
     };
 
-    Q_ENUMS(Name)
+    Q_ENUM(Name)
 };

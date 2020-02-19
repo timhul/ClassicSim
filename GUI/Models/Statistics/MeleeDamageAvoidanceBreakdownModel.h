@@ -34,7 +34,7 @@ public:
         ByNumPartial75,
         ByPartial75Percent,
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class MeleeDamageAvoidanceBreakdownModel : public QAbstractListModel {

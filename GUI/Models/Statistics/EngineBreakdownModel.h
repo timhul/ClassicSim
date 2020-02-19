@@ -18,7 +18,7 @@ public:
         ByTotal,
         ByHandledPerMin,
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class EngineBreakdownModel : public QAbstractListModel {

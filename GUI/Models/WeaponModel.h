@@ -26,7 +26,7 @@ public:
         ByPhase,
         ByItemType
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class WeaponModel : public QAbstractListModel {

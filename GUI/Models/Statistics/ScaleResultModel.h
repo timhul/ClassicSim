@@ -19,7 +19,7 @@ public:
         ByStandardDeviation,
         ByConfidenceInterval
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class ScaleResultModel : public QAbstractListModel {

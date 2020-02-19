@@ -28,5 +28,5 @@ public:
         ScaleSpellPenetration,
     };
 
-    Q_ENUMS(Name)
+    Q_ENUM(Name)
 };

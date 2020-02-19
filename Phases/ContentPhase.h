@@ -17,7 +17,7 @@ public:
         Naxxramas,
     };
 
-    Q_ENUMS(Phase)
+    Q_ENUM(Phase)
 
     static QString get_description_for_phase(const Content::Phase phase);
     static QString get_shortname_for_phase(const Content::Phase phase);
