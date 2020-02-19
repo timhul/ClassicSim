@@ -4,6 +4,7 @@
 
 class AngerManagement;
 class BattleStance;
+class BattleStanceBuff;
 class BerserkerRage;
 class BerserkerStance;
 class BerserkerStanceBuff;
@@ -57,6 +58,7 @@ public:
     Slam* get_slam() const;
     Whirlwind* get_whirlwind() const;
 
+    Buff* get_battle_stance_buff() const;
     Buff* get_berserker_stance_buff() const;
     Buff* get_overpower_buff() const;
     Buff* get_defensive_stance_buff() const;
@@ -94,7 +96,7 @@ private:
     Whirlwind* whirlwind;
 
     BerserkerStanceBuff* berserker_stance_buff;
-    Buff* battle_stance_buff;
+    BattleStanceBuff* battle_stance_buff;
     Buff* overpower_buff;
     DefensiveStanceBuff* defensive_stance_buff;
     Buff* hs_buff;
