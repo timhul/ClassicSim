@@ -19,7 +19,7 @@ ProcBreakdownModel::~ProcBreakdownModel() {
 }
 
 void ProcBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<ProcBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -39,7 +39,7 @@ void ProcBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void ProcBreakdownModel::select_new_method(const ProcBreakdownSorting::Methods new_method) {
@@ -54,7 +54,7 @@ void ProcBreakdownModel::select_new_method(const ProcBreakdownSorting::Methods n
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int ProcBreakdownModel::get_current_sorting_method() const {
@@ -76,9 +76,9 @@ void ProcBreakdownModel::update_statistics() {
     statistics_source->merge_proc_stats(proc_stats);
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(proc_stats.begin(), proc_stats.end(), avg_proc_rate);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int ProcBreakdownModel::rowCount(const QModelIndex& parent) const {

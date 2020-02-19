@@ -32,7 +32,7 @@ void BuffModel::toggle_single_buff(const QString& name) {
         break;
     }
 
-    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+    emit dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void BuffModel::clear_buffs_and_select_single_buff(const QString& name) {
@@ -51,7 +51,7 @@ void BuffModel::clear_buffs_and_select_single_buff(const QString& name) {
             general_buffs->toggle_external_buff(buffs[i]->name);
     }
 
-    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+    emit dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void BuffModel::select_range_of_buffs(const QString& name) {
@@ -87,7 +87,7 @@ void BuffModel::select_range_of_buffs(const QString& name) {
     }
 
     last_toggled = target_index;
-    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+    emit dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void BuffModel::update_buffs() {

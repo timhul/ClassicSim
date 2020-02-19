@@ -19,14 +19,14 @@ SimScaleModel::SimScaleModel(SimSettings* sim_settings, QObject* parent) : QAbst
 void SimScaleModel::toggleOption(const int option) {
     auto option_cast = static_cast<SimOption::Name>(option);
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     if (sim_settings->option_active(option_cast))
         sim_settings->remove_sim_option(option_cast);
     else
         sim_settings->add_sim_option(option_cast);
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int SimScaleModel::rowCount(const QModelIndex& parent) const {

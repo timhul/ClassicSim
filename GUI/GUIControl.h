@@ -326,7 +326,7 @@ public:
     Q_INVOKABLE int getContentPhase() const;
     /* End of GUI initialization */
 
-Q_SIGNALS:
+signals:
     void classChanged();
     void raceChanged();
     void factionChanged();

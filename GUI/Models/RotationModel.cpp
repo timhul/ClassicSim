@@ -56,11 +56,11 @@ bool RotationModel::set_information_index(const int index) {
     if (index < 0 || index >= rowCount())
         return false;
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     information_index = index;
     rotations[pchar->class_name][information_index]->link_spells(pchar);
     rotation_conditions_model->set_rotation(rotations[pchar->class_name][information_index]);
-    layoutChanged();
+    emit layoutChanged();
     return true;
 }
 

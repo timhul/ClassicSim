@@ -19,7 +19,7 @@ EngineBreakdownModel::~EngineBreakdownModel() {
 }
 
 void EngineBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<EngineBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -35,7 +35,7 @@ void EngineBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void EngineBreakdownModel::select_new_method(const EngineBreakdownSorting::Methods new_method) {
@@ -50,7 +50,7 @@ void EngineBreakdownModel::select_new_method(const EngineBreakdownSorting::Metho
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int EngineBreakdownModel::get_current_sorting_method() const {
@@ -77,9 +77,9 @@ void EngineBreakdownModel::update_statistics() {
 
     time_in_combat = static_cast<unsigned>(statistics_source->time_in_combat);
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(event_statistics.begin(), event_statistics.end(), total);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 double EngineBreakdownModel::events_handled_per_second() const {

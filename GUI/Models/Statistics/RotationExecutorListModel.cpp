@@ -47,9 +47,9 @@ void RotationExecutorListModel::update_statistics() {
     if (executor_outcomes.empty())
         return executor_breakdown_model->update_statistics();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(executor_outcomes[executor_index].begin(), executor_outcomes[executor_index].end(), value);
-    layoutChanged();
+    emit layoutChanged();
 
     executor_breakdown_model->update_statistics();
 }

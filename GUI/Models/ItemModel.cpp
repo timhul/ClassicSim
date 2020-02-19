@@ -63,7 +63,7 @@ void ItemModel::setSlot(const int slot) {
 }
 
 void ItemModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<ItemSorting::Methods>(method);
     switch (sorting_method) {
@@ -85,7 +85,7 @@ void ItemModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
@@ -103,7 +103,7 @@ void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
         ++it;
     }
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 void ItemModel::update_items() {
@@ -134,9 +134,9 @@ void ItemModel::update_items() {
     }
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(items.begin(), items.end(), ilvl);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int ItemModel::rowCount(const QModelIndex& parent) const {

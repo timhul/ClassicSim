@@ -29,7 +29,7 @@ MeleeDamageBreakdownModel::~MeleeDamageBreakdownModel() {
 }
 
 void MeleeDamageBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<MeleeDamageBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -108,7 +108,7 @@ void MeleeDamageBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void MeleeDamageBreakdownModel::select_new_method(const MeleeDamageBreakdownSorting::Methods new_method) {
@@ -123,7 +123,7 @@ void MeleeDamageBreakdownModel::select_new_method(const MeleeDamageBreakdownSort
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int MeleeDamageBreakdownModel::get_current_sorting_method() const {
@@ -156,9 +156,9 @@ void MeleeDamageBreakdownModel::update_statistics() {
 
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(spell_stats.begin(), spell_stats.end(), total_damage);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int MeleeDamageBreakdownModel::rowCount(const QModelIndex& parent) const {

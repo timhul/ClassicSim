@@ -29,10 +29,10 @@ void DamageMetersModel::update_statistics() {
     player_results = statistics_source->player_results.toList();
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(player_results.begin(), player_results.end(), max_dps);
     this->max_recorded_dps = player_results[0]->dps;
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int DamageMetersModel::rowCount(const QModelIndex& parent) const {

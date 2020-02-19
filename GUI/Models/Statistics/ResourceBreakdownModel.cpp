@@ -20,7 +20,7 @@ ResourceBreakdownModel::~ResourceBreakdownModel() {
 }
 
 void ResourceBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<ResourceBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -43,7 +43,7 @@ void ResourceBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void ResourceBreakdownModel::select_new_method(const ResourceBreakdownSorting::Methods new_method) {
@@ -58,7 +58,7 @@ void ResourceBreakdownModel::select_new_method(const ResourceBreakdownSorting::M
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int ResourceBreakdownModel::get_current_sorting_method() const {
@@ -94,14 +94,14 @@ void ResourceBreakdownModel::update_statistics() {
             ++it;
     }
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     if (resource_gains[ResourceType::Rage] > 0.01)
         std::sort(resource_stats.begin(), resource_stats.end(), rage_gain);
     else if (resource_gains[ResourceType::Mana] > 0.01)
         std::sort(resource_stats.begin(), resource_stats.end(), mana_gain);
     else if (resource_gains[ResourceType::Energy] > 0.01)
         std::sort(resource_stats.begin(), resource_stats.end(), energy_gain);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int ResourceBreakdownModel::rowCount(const QModelIndex& parent) const {

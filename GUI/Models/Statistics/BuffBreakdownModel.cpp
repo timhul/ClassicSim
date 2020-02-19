@@ -19,7 +19,7 @@ BuffBreakdownModel::~BuffBreakdownModel() {
 }
 
 void BuffBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<BuffBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -42,7 +42,7 @@ void BuffBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void BuffBreakdownModel::select_new_method(const BuffBreakdownSorting::Methods new_method) {
@@ -57,7 +57,7 @@ void BuffBreakdownModel::select_new_method(const BuffBreakdownSorting::Methods n
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int BuffBreakdownModel::get_current_sorting_method() const {
@@ -79,9 +79,9 @@ void BuffBreakdownModel::update_statistics() {
     add_statistics();
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(buff_stats.begin(), buff_stats.end(), avg_uptime);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void BuffBreakdownModel::add_statistics() {

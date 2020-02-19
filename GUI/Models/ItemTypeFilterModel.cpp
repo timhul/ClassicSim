@@ -95,7 +95,7 @@ void ItemTypeFilterModel::select_range_of_filters(const int filter) {
 }
 
 void ItemTypeFilterModel::clear_filters_and_select_single_filter(const int filter) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
         if (item_type_filters[equipment_slot][i].item_type == filter) {
             item_type_filters[equipment_slot][i].active = false;
@@ -104,13 +104,13 @@ void ItemTypeFilterModel::clear_filters_and_select_single_filter(const int filte
             item_type_filters[equipment_slot][i].active = true;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void ItemTypeFilterModel::set_item_slot(const int item_slot) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     this->equipment_slot = item_slot;
-    layoutChanged();
+    emit layoutChanged();
     last_toggled = -1;
 }
 

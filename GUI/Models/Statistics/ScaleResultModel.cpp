@@ -39,7 +39,7 @@ ScaleResultModel::~ScaleResultModel() {
 }
 
 void ScaleResultModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<ScaleResultSorting::Methods>(method);
     switch (sorting_method) {
@@ -65,7 +65,7 @@ void ScaleResultModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void ScaleResultModel::select_new_method(const ScaleResultSorting::Methods new_method) {
@@ -80,7 +80,7 @@ void ScaleResultModel::select_new_method(const ScaleResultSorting::Methods new_m
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int ScaleResultModel::get_current_sorting_method() const {
@@ -102,9 +102,9 @@ void ScaleResultModel::update_statistics() {
     statistics_source->calculate_stat_weights(scale_results);
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(scale_results.begin(), scale_results.end(), absolute_value);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int ScaleResultModel::rowCount(const QModelIndex& parent) const {
