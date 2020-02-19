@@ -35,7 +35,7 @@ MeleeDamageAvoidanceBreakdownModel::~MeleeDamageAvoidanceBreakdownModel() {
 }
 
 void MeleeDamageAvoidanceBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<MeleeDamageAvoidanceBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -122,7 +122,7 @@ void MeleeDamageAvoidanceBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void MeleeDamageAvoidanceBreakdownModel::select_new_method(const MeleeDamageAvoidanceBreakdownSorting::Methods new_method) {
@@ -137,7 +137,7 @@ void MeleeDamageAvoidanceBreakdownModel::select_new_method(const MeleeDamageAvoi
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int MeleeDamageAvoidanceBreakdownModel::get_current_sorting_method() const {
@@ -170,9 +170,9 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
 
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(spell_stats.begin(), spell_stats.end(), total_attempts);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int MeleeDamageAvoidanceBreakdownModel::rowCount(const QModelIndex& parent) const {

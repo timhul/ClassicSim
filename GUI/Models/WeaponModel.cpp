@@ -87,7 +87,7 @@ int WeaponModel::get_current_sorting_method() const {
 }
 
 void WeaponModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<WeaponSorting::Methods>(method);
     switch (sorting_method) {
@@ -117,7 +117,7 @@ void WeaponModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
@@ -135,7 +135,7 @@ void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
         ++it;
     }
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 void WeaponModel::update_items() {
@@ -166,9 +166,9 @@ void WeaponModel::update_items() {
     }
     endInsertRows();
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(weapons.begin(), weapons.end(), ilvl);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int WeaponModel::rowCount(const QModelIndex&) const {

@@ -117,7 +117,7 @@ void SimulationThreadPool::thread_finished() {
     if (running_threads > 0)
         return;
 
-    threads_finished();
+    emit threads_finished();
 }
 
 void SimulationThreadPool::increase_iterations_completed(int iterations) {

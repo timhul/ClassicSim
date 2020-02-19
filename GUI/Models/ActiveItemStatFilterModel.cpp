@@ -94,9 +94,9 @@ void ActiveItemStatFilterModel::removeFilter(const int item_stat_flag_int) {
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_int);
     for (int i = 0; i < active_item_stat_filters.size(); ++i) {
         if (active_item_stat_filters[i]->item_stat_flag == item_stat_flag) {
-            layoutAboutToBeChanged();
+            emit layoutAboutToBeChanged();
             active_item_stat_filters.removeAt(i);
-            layoutChanged();
+            emit layoutChanged();
             update_affected_models();
             return;
         }
@@ -104,13 +104,13 @@ void ActiveItemStatFilterModel::removeFilter(const int item_stat_flag_int) {
 }
 
 void ActiveItemStatFilterModel::clearFilters() {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     for (const auto& filter : active_item_stat_filters) {
         delete filter;
     }
 
     active_item_stat_filters.clear();
-    layoutChanged();
+    emit layoutChanged();
 
     update_affected_models();
 }
@@ -122,9 +122,9 @@ void ActiveItemStatFilterModel::changeComparator(const unsigned item_stat_flag_u
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
     for (const auto& active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
-            layoutAboutToBeChanged();
+            emit layoutAboutToBeChanged();
             active_item_stat_filter->comparator = comparator;
-            layoutChanged();
+            emit layoutChanged();
             update_affected_models();
             return;
         }
@@ -135,9 +135,9 @@ void ActiveItemStatFilterModel::changeCompareValue(const unsigned item_stat_flag
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
     for (const auto& active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
-            layoutAboutToBeChanged();
+            emit layoutAboutToBeChanged();
             active_item_stat_filter->cmp_value = cmp_value;
-            layoutChanged();
+            emit layoutChanged();
             update_affected_models();
             return;
         }

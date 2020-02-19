@@ -256,15 +256,15 @@ void GUIControl::set_character(Character* pchar) {
 
     raid_setup[0][0] = QVariantMap {{"text", "You"}, {"color", current_char->class_color}, {"selected", true}};
 
-    raceChanged();
-    classChanged();
-    statsChanged();
-    rotationChanged();
-    equipmentChanged();
-    enchantChanged();
-    factionChanged();
-    partyMembersUpdated();
-    talentsUpdated();
+    emit raceChanged();
+    emit classChanged();
+    emit statsChanged();
+    emit rotationChanged();
+    emit equipmentChanged();
+    emit enchantChanged();
+    emit factionChanged();
+    emit partyMembersUpdated();
+    emit talentsUpdated();
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -293,8 +293,8 @@ void GUIControl::selectRace(const QString& race_name) {
     }
 
     current_char->set_race(races[race_name]);
-    raceChanged();
-    statsChanged();
+    emit raceChanged();
+    emit statsChanged();
 }
 
 void GUIControl::selectFaction(const int faction) {
@@ -328,12 +328,12 @@ void GUIControl::selectFaction(const int faction) {
     item_model->update_items();
     weapon_model->update_items();
 
-    raceChanged();
-    statsChanged();
-    factionChanged();
-    enchantChanged();
-    equipmentChanged();
-    talentsUpdated();
+    emit raceChanged();
+    emit statsChanged();
+    emit factionChanged();
+    emit enchantChanged();
+    emit equipmentChanged();
+    emit talentsUpdated();
 }
 
 bool GUIControl::raceAvailable(const QString& race_name) {
@@ -360,8 +360,8 @@ void GUIControl::reset_race(Character* pchar) {
         }
     }
 
-    raceChanged();
-    statsChanged();
+    emit raceChanged();
+    emit statsChanged();
 }
 
 QString GUIControl::get_creature_type() const {
@@ -372,8 +372,8 @@ void GUIControl::setCreatureType(const QString& creature_type) {
     for (const auto& pchar : chars)
         pchar->change_target_creature_type(creature_type);
 
-    creatureTypeChanged();
-    statsChanged();
+    emit creatureTypeChanged();
+    emit statsChanged();
 }
 
 int GUIControl::get_target_armor() const {
@@ -388,7 +388,7 @@ void GUIControl::setTargetBaseArmor(const int armor) {
     for (const auto& pchar : chars)
         pchar->get_target()->set_base_armor(armor);
 
-    targetUpdated();
+    emit targetUpdated();
 }
 
 QString GUIControl::getLeftBackgroundImage() const {
@@ -468,14 +468,14 @@ QString GUIControl::getMaxRank(const QString& tree_position, const QString& tale
 
 void GUIControl::incrementRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->increment_rank(tree_position, talent_position);
-    Q_EMIT talentsUpdated();
-    Q_EMIT statsChanged();
+    emit talentsUpdated();
+    emit statsChanged();
 }
 
 void GUIControl::decrementRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->decrement_rank(tree_position, talent_position);
-    Q_EMIT talentsUpdated();
-    Q_EMIT statsChanged();
+    emit talentsUpdated();
+    emit statsChanged();
 }
 
 QString GUIControl::getRequirements(const QString& tree_position, const QString& talent_position) const {
@@ -508,26 +508,26 @@ QString GUIControl::getTalentName(const QString& tree_position, const QString& t
 
 void GUIControl::maxRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->increase_to_max_rank(tree_position, talent_position);
-    Q_EMIT talentsUpdated();
-    Q_EMIT statsChanged();
+    emit talentsUpdated();
+    emit statsChanged();
 }
 
 void GUIControl::minRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->decrease_to_min_rank(tree_position, talent_position);
-    Q_EMIT talentsUpdated();
-    Q_EMIT statsChanged();
+    emit talentsUpdated();
+    emit statsChanged();
 }
 
 void GUIControl::clearTree(const QString& tree_position) {
     current_char->get_talents()->clear_tree(tree_position);
-    Q_EMIT talentsUpdated();
-    Q_EMIT statsChanged();
+    emit talentsUpdated();
+    emit statsChanged();
 }
 
 void GUIControl::setTalentSetup(const int talent_index) {
     current_char->get_talents()->set_current_index(talent_index);
-    Q_EMIT talentsUpdated();
-    Q_EMIT statsChanged();
+    emit talentsUpdated();
+    emit statsChanged();
 }
 
 int GUIControl::get_left_talent_tree_points() const {
@@ -562,7 +562,7 @@ QString GUIControl::get_attack_mode_as_string() const {
 void GUIControl::selectDisplayStat(const QString& attack_mode) {
     stats_type_to_display = attack_mode;
 
-    Q_EMIT displayStatsTypeChanged();
+    emit displayStatsTypeChanged();
 }
 
 int GUIControl::get_talent_points_remaining() const {
@@ -696,21 +696,21 @@ void GUIControl::toggleSingleFilter(const int filter) {
     this->item_type_filter_model->toggle_single_filter(filter);
     this->item_model->update_items();
     this->weapon_model->update_items();
-    Q_EMIT filtersUpdated();
+    emit filtersUpdated();
 }
 
 void GUIControl::clearFiltersAndSelectSingle(const int filter) {
     this->item_type_filter_model->clear_filters_and_select_single_filter(filter);
     this->item_model->update_items();
     this->weapon_model->update_items();
-    Q_EMIT filtersUpdated();
+    emit filtersUpdated();
 }
 
 void GUIControl::selectRangeOfFiltersFromPrevious(const int filter) {
     this->item_type_filter_model->select_range_of_filters(filter);
     this->item_model->update_items();
     this->weapon_model->update_items();
-    Q_EMIT filtersUpdated();
+    emit filtersUpdated();
 }
 
 RandomAffixModel* GUIControl::get_random_affix_model() const {
@@ -731,17 +731,17 @@ DebuffModel* GUIControl::get_debuff_model() const {
 
 void GUIControl::toggleSingleBuff(const QString& buff) {
     buff_model->toggle_single_buff(buff);
-    Q_EMIT statsChanged();
+    emit statsChanged();
 }
 
 void GUIControl::clearBuffsAndSelectSingleBuff(const QString& buff) {
     buff_model->clear_buffs_and_select_single_buff(buff);
-    Q_EMIT statsChanged();
+    emit statsChanged();
 }
 
 void GUIControl::selectRangeOfBuffs(const QString& buff) {
     buff_model->select_range_of_buffs(buff);
-    Q_EMIT statsChanged();
+    emit statsChanged();
 }
 
 bool GUIControl::buffActive(const QString& buff) const {
@@ -751,19 +751,19 @@ bool GUIControl::buffActive(const QString& buff) const {
 void GUIControl::toggleSingleDebuff(const QString& debuff) {
     debuff_model->toggle_single_debuff(debuff);
 
-    targetUpdated();
+    emit targetUpdated();
 }
 
 void GUIControl::clearDebuffsAndSelectSingleDebuff(const QString& debuff) {
     debuff_model->clear_debuffs_and_select_single_debuff(debuff);
 
-    targetUpdated();
+    emit targetUpdated();
 }
 
 void GUIControl::selectRangeOfDebuffs(const QString& debuff) {
     debuff_model->select_range_of_debuffs(debuff);
 
-    targetUpdated();
+    emit targetUpdated();
 }
 
 bool GUIControl::debuffActive(const QString& debuff) const {
@@ -774,7 +774,7 @@ void GUIControl::setBuffSetup(const int buff_index) {
     current_char->get_enabled_buffs()->get_general_buffs()->change_setup(buff_index);
     buff_model->update_buffs();
     debuff_model->update_debuffs();
-    Q_EMIT statsChanged();
+    emit statsChanged();
 }
 
 BuffBreakdownModel* GUIControl::get_buff_breakdown_model() const {
@@ -823,14 +823,14 @@ RotationModel* GUIControl::get_rotation_model() const {
 
 void GUIControl::selectRotation() {
     rotation_model->select_rotation();
-    rotationChanged();
+    emit rotationChanged();
 }
 
 void GUIControl::selectInformationRotation(const int index) {
     if (!rotation_model->set_information_index(index))
         return;
 
-    informationRotationChanged();
+    emit informationRotationChanged();
 }
 
 void GUIControl::resetDefaultSettings() {
@@ -909,7 +909,7 @@ void GUIControl::runQuickSim() {
 
     thread_pool->run_sim(setup_strings, false, sim_settings->get_combat_iterations_quick_sim(), 1);
 
-    simProgressChanged();
+    emit simProgressChanged();
 }
 
 void GUIControl::runFullSim() {
@@ -935,7 +935,7 @@ void GUIControl::runFullSim() {
     const int num_stat_weights = 1 + sim_settings->get_active_options().size();
     thread_pool->run_sim(setup_strings, true, sim_settings->get_combat_iterations_full_sim(), num_stat_weights);
 
-    simProgressChanged();
+    emit simProgressChanged();
 }
 
 void GUIControl::compile_thread_results() {
@@ -956,9 +956,9 @@ void GUIControl::compile_thread_results() {
     number_cruncher->reset();
     sim_in_progress = false;
     sim_percent_completed = 0.0;
-    simProgressChanged();
-    combatProgressChanged();
-    statisticsReady();
+    emit simProgressChanged();
+    emit combatProgressChanged();
+    emit statisticsReady();
 }
 
 QString GUIControl::get_handled_events_per_second() const {
@@ -1015,17 +1015,17 @@ int GUIControl::get_max_threads() const {
 
 void GUIControl::setCombatIterationsFullSim(const int iterations) {
     sim_settings->set_combat_iterations_full_sim(iterations);
-    combatIterationsChanged();
+    emit combatIterationsChanged();
 }
 
 void GUIControl::setCombatIterationsQuickSim(const int iterations) {
     sim_settings->set_combat_iterations_quick_sim(iterations);
-    combatIterationsChanged();
+    emit combatIterationsChanged();
 }
 
 void GUIControl::setCombatLength(const int length) {
     sim_settings->set_combat_length(length);
-    combatLengthChanged();
+    emit combatLengthChanged();
 }
 
 void GUIControl::setNumThreads(const int threads) {
@@ -1035,12 +1035,12 @@ void GUIControl::setNumThreads(const int threads) {
     sim_settings->set_num_threads(threads);
     thread_pool->scale_number_of_threads();
 
-    numThreadsChanged();
+    emit numThreadsChanged();
 }
 
 void GUIControl::selectRuleset(const int ruleset) {
     sim_settings->use_ruleset(static_cast<Ruleset>(ruleset), current_char);
-    statsChanged();
+    emit statsChanged();
 }
 
 SimScaleModel* GUIControl::get_sim_scale_model() const {
@@ -1058,7 +1058,7 @@ bool GUIControl::get_sim_in_progress() const {
 void GUIControl::selectPartyMember(const int party, const int member) {
     current_party = party;
     current_member = member;
-    selectedPartyMemberChanged();
+    emit selectedPartyMemberChanged();
 }
 
 void GUIControl::clearPartyMember(const int party, const int member) {
@@ -1066,7 +1066,7 @@ void GUIControl::clearPartyMember(const int party, const int member) {
         return;
 
     raid_setup[party - 1][member - 1].clear();
-    partyMembersUpdated();
+    emit partyMembersUpdated();
 }
 
 QVariantMap GUIControl::partyMemberInfo(const int party, const int member) {
@@ -1084,7 +1084,7 @@ void GUIControl::selectTemplateCharacter(QString template_char) {
 
     raid_setup[current_party - 1][current_member - 1] = QVariantMap {{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
 
-    partyMembersUpdated();
+    emit partyMembersUpdated();
 }
 
 DamageMetersModel* GUIControl::get_damage_meters_model() {
@@ -1233,7 +1233,7 @@ void GUIControl::selectSlot(const QString& slot_string) {
         break;
     }
 
-    Q_EMIT equipmentSlotSelected();
+    emit equipmentSlotSelected();
 }
 
 bool GUIControl::hasItemEquipped(const QString& slot_string) const {
@@ -1382,8 +1382,8 @@ void GUIControl::applyEnchant(const QString& slot_string, const int enchant_name
     if (slot_string == "BOOTS")
         current_char->get_equipment()->get_boots()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
 
-    enchantChanged();
-    statsChanged();
+    emit enchantChanged();
+    emit statsChanged();
 }
 
 void GUIControl::applyTemporaryEnchant(const QString& slot_string, const int enchant_name) {
@@ -1394,8 +1394,8 @@ void GUIControl::applyTemporaryEnchant(const QString& slot_string, const int enc
         current_char->get_equipment()->get_offhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char,
                                                                               EnchantSlot::OFFHAND);
 
-    enchantChanged();
-    statsChanged();
+    emit enchantChanged();
+    emit statsChanged();
 }
 
 void GUIControl::clearEnchant(const QString& slot_string) {
@@ -1422,8 +1422,8 @@ void GUIControl::clearEnchant(const QString& slot_string) {
     if (slot_string == "BOOTS")
         current_char->get_equipment()->get_boots()->clear_enchant();
 
-    enchantChanged();
-    statsChanged();
+    emit enchantChanged();
+    emit statsChanged();
 }
 
 void GUIControl::clearTemporaryEnchant(const QString& slot_string) {
@@ -1432,8 +1432,8 @@ void GUIControl::clearTemporaryEnchant(const QString& slot_string) {
     if (slot_string == "OFFHAND")
         current_char->get_equipment()->get_offhand()->clear_temporary_enchant();
 
-    enchantChanged();
-    statsChanged();
+    emit enchantChanged();
+    emit statsChanged();
 }
 
 EnchantModel* GUIControl::get_mh_enchant_model() const {
@@ -1533,9 +1533,9 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id, const ui
     if (slot_string == "QUIVER")
         current_char->get_equipment()->set_quiver(item_id);
 
-    equipmentChanged();
-    statsChanged();
-    enchantChanged();
+    emit equipmentChanged();
+    emit statsChanged();
+    emit enchantChanged();
 }
 
 void GUIControl::clearSlot(const QString& slot_string) {
@@ -1580,16 +1580,16 @@ void GUIControl::clearSlot(const QString& slot_string) {
     if (slot_string == "QUIVER")
         current_char->get_equipment()->clear_quiver();
 
-    equipmentChanged();
-    statsChanged();
-    enchantChanged();
+    emit equipmentChanged();
+    emit statsChanged();
+    emit enchantChanged();
 }
 
 void GUIControl::setEquipmentSetup(const int equipment_index) {
     current_char->get_stats()->get_equipment()->change_setup(equipment_index);
-    equipmentChanged();
-    statsChanged();
-    enchantChanged();
+    emit equipmentChanged();
+    emit statsChanged();
+    emit enchantChanged();
 }
 
 void GUIControl::setPhase(const int phase_int) {
@@ -1601,9 +1601,9 @@ void GUIControl::setPhase(const int phase_int) {
     debuff_model->set_phase(phase);
 
     current_char->get_stats()->get_equipment()->reequip_items();
-    equipmentChanged();
-    statsChanged();
-    enchantChanged();
+    emit equipmentChanged();
+    emit statsChanged();
+    emit enchantChanged();
 }
 
 QString GUIControl::getDescriptionForPhase(const int phase) {
@@ -1771,7 +1771,7 @@ int GUIControl::getContentPhase() const {
 
 void GUIControl::update_progress(double percent) {
     this->sim_percent_completed = percent;
-    combatProgressChanged();
+    emit combatProgressChanged();
 }
 
 Character* GUIControl::load_character(const QString& class_name) {

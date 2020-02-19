@@ -32,7 +32,7 @@ void DebuffModel::toggle_single_debuff(const QString& name) {
         break;
     }
 
-    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+    emit dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void DebuffModel::clear_debuffs_and_select_single_debuff(const QString& name) {
@@ -51,7 +51,7 @@ void DebuffModel::clear_debuffs_and_select_single_debuff(const QString& name) {
             general_buffs->toggle_external_debuff(name);
     }
 
-    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+    emit dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void DebuffModel::select_range_of_debuffs(const QString& name) {
@@ -87,7 +87,7 @@ void DebuffModel::select_range_of_debuffs(const QString& name) {
     }
 
     last_toggled = target_index;
-    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+    emit dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void DebuffModel::update_debuffs() {

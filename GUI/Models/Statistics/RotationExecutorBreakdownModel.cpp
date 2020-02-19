@@ -13,7 +13,7 @@ RotationExecutorBreakdownModel::RotationExecutorBreakdownModel(RotationExecutorL
 }
 
 void RotationExecutorBreakdownModel::selectSort(const int method) {
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     auto sorting_method = static_cast<RotationExecutorBreakdownSorting::Methods>(method);
     switch (sorting_method) {
@@ -28,7 +28,7 @@ void RotationExecutorBreakdownModel::selectSort(const int method) {
         break;
     }
 
-    layoutChanged();
+    emit layoutChanged();
 }
 
 void RotationExecutorBreakdownModel::set_index(const int index) {
@@ -48,7 +48,7 @@ void RotationExecutorBreakdownModel::select_new_method(const RotationExecutorBre
 
     sorting_methods[current_sorting_method] = next_sort_direction;
 
-    Q_EMIT sortingMethodChanged();
+    emit sortingMethodChanged();
 }
 
 int RotationExecutorBreakdownModel::get_current_sorting_method() const {
@@ -62,9 +62,9 @@ void RotationExecutorBreakdownModel::update_statistics() {
     if (data_source->executor_outcomes.empty())
         return;
 
-    layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
     std::sort(data_source->executor_outcomes[executor_index].begin(), data_source->executor_outcomes[executor_index].end(), value);
-    layoutChanged();
+    emit layoutChanged();
 }
 
 int RotationExecutorBreakdownModel::rowCount(const QModelIndex& parent) const {
