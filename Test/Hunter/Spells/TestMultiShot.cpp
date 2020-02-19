@@ -5,9 +5,7 @@
 #include "Equipment.h"
 #include "MultiShot.h"
 
-TestMultiShot::TestMultiShot(EquipmentDb *equipment_db) :
-    TestSpellHunter(equipment_db, "Multi-Shot")
-{}
+TestMultiShot::TestMultiShot(EquipmentDb* equipment_db) : TestSpellHunter(equipment_db, "Multi-Shot") {}
 
 void TestMultiShot::test_all() {
     run_mandatory_tests();

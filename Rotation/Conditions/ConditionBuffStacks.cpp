@@ -4,10 +4,7 @@
 #include "Utils/Check.h"
 
 ConditionBuffStacks::ConditionBuffStacks(Buff* buff, const Comparator comparator, const int cmp_value) :
-    Condition(comparator),
-    buff(buff),
-    cmp_value(cmp_value)
-{}
+    Condition(comparator), buff(buff), cmp_value(cmp_value) {}
 
 bool ConditionBuffStacks::condition_fulfilled() const {
     switch (comparator) {

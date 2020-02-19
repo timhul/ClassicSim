@@ -18,12 +18,7 @@ ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const BuiltinVariables builtin,
                                                    const Comparator comparator,
                                                    const double cmp_value) :
-    Condition(comparator),
-    pchar(pchar),
-    engine(pchar->get_engine()),
-    builtin(builtin),
-    rhs_value(cmp_value)
-{}
+    Condition(comparator), pchar(pchar), engine(pchar->get_engine()), builtin(builtin), rhs_value(cmp_value) {}
 
 bool ConditionVariableBuiltin::condition_fulfilled() const {
     switch (builtin) {
@@ -44,7 +39,7 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
         return cmp_values(remaining_execute_time);
     }
     case BuiltinVariables::SwingTimer: {
-        auto mh_attack =  pchar->get_spells()->get_mh_attack();
+        auto mh_attack = pchar->get_spells()->get_mh_attack();
         double delta = pchar->get_engine()->get_current_priority() - std::max(mh_attack->get_last_used(), 0.0);
         return cmp_values(delta);
     }

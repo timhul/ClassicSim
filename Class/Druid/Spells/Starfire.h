@@ -1,16 +1,16 @@
 #pragma once
 
+#include <QVector>
+
 #include "CastingTimeRequirer.h"
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Druid;
 class DruidSpells;
 class Random;
 
-class Starfire: public Spell, public CastingTimeRequirer, public TalentRequirer {
+class Starfire : public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Starfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank);
     ~Starfire() override;

@@ -12,8 +12,7 @@ SimSettings::SimSettings() :
     combat_iterations_full_sim(10000),
     num_threads(QThread::idealThreadCount()),
     execute_threshold(0.2),
-    ruleset_control(new RulesetControl())
-{}
+    ruleset_control(new RulesetControl()) {}
 
 SimSettings::~SimSettings() {
     delete ruleset_control;

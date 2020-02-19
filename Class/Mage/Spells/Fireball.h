@@ -1,10 +1,10 @@
 #pragma once
 
+#include <QVector>
+
 #include "CastingTimeRequirer.h"
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class FireballInstant;
@@ -12,7 +12,7 @@ class Mage;
 class MageSpells;
 class StatisticsResource;
 
-class Fireball: public Spell, public CastingTimeRequirer, public TalentRequirer {
+class Fireball : public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank);
     ~Fireball() override;

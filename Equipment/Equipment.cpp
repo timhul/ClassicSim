@@ -16,73 +16,41 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
+Equipment::Equipment(EquipmentDb* equipment_db, Character* pchar) :
     pchar(pchar),
     db(equipment_db),
     random_affixes(new RandomAffixes()),
     set_bonuses(new SetBonusControl(equipment_db, pchar)),
-    stats_from_equipped_gear({nullptr, nullptr, nullptr})
-{
+    stats_from_equipped_gear({nullptr, nullptr, nullptr}) {
     setup_index = 0;
 
-    for (auto & i : stats_from_equipped_gear) {
+    for (auto& i : stats_from_equipped_gear) {
         i = new Stats();
     }
 
     item_setups = {{}, {}, {}};
-    for (auto & setup : item_setups) {
+    for (auto& setup : item_setups) {
         setup = {
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM,
         };
     }
     check((stats_from_equipped_gear.size() == item_setups.size()), "Different size vectors");
 
     item_enchants = {{}, {}, {}};
-    for (auto & setup : item_enchants) {
+    for (auto& setup : item_enchants) {
         setup = {
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
+            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
+            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
+            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
+            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
         };
     }
     check((stats_from_equipped_gear.size() == item_enchants.size()), "Different size vectors");
 
     item_temp_enchants = {{}, {}, {}};
-    for (auto & setup : item_temp_enchants) {
+    for (auto& setup : item_temp_enchants) {
         setup = {
             EnchantName::NoEnchant,
             EnchantName::NoEnchant,
@@ -116,7 +84,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
 Equipment::~Equipment() {
     unequip_all();
 
-    for (const auto & i : stats_from_equipped_gear) {
+    for (const auto& i : stats_from_equipped_gear) {
         delete i;
     }
 
@@ -327,7 +295,7 @@ Quiver* Equipment::get_quiver() const {
     return quiver;
 }
 
-void Equipment::set_mainhand(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_mainhand(const int item_id, RandomAffix* random_affix) {
     Weapon* weapon = db->get_melee_weapon(item_id);
 
     if (weapon == nullptr)
@@ -336,9 +304,7 @@ void Equipment::set_mainhand(const int item_id, RandomAffix *random_affix) {
     if (random_affix)
         weapon->set_random_affix(random_affix);
 
-    QSet<int> accepted_weapon_slots = {WeaponSlots::MAINHAND,
-                                       WeaponSlots::ONEHAND,
-                                       WeaponSlots::TWOHAND};
+    QSet<int> accepted_weapon_slots = {WeaponSlots::MAINHAND, WeaponSlots::ONEHAND, WeaponSlots::TWOHAND};
 
     if (!accepted_weapon_slots.contains(weapon->get_weapon_slot())) {
         delete weapon;
@@ -358,7 +324,7 @@ void Equipment::set_mainhand(const int item_id, RandomAffix *random_affix) {
     equip(mainhand, weapon, EquipmentSlot::MAINHAND);
 }
 
-void Equipment::set_offhand(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_offhand(const int item_id, RandomAffix* random_affix) {
     Weapon* weapon = db->get_melee_weapon(item_id);
 
     if (weapon == nullptr)
@@ -367,8 +333,7 @@ void Equipment::set_offhand(const int item_id, RandomAffix *random_affix) {
     if (random_affix)
         weapon->set_random_affix(random_affix);
 
-    QSet<int> accepted_weapon_slots = {WeaponSlots::ONEHAND,
-                                       WeaponSlots::OFFHAND};
+    QSet<int> accepted_weapon_slots = {WeaponSlots::ONEHAND, WeaponSlots::OFFHAND};
 
     if (!accepted_weapon_slots.contains(weapon->get_weapon_slot())) {
         delete weapon;
@@ -387,10 +352,10 @@ void Equipment::set_offhand(const int item_id, RandomAffix *random_affix) {
     equip(offhand, weapon, EquipmentSlot::OFFHAND);
 }
 
-void Equipment::set_ranged(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_ranged(const int item_id, RandomAffix* random_affix) {
     Weapon* weapon = db->get_ranged(item_id);
 
-    if (weapon  == nullptr)
+    if (weapon == nullptr)
         return;
 
     if (random_affix)
@@ -407,7 +372,7 @@ void Equipment::set_ranged(const int item_id, RandomAffix *random_affix) {
     equip(ranged, weapon, EquipmentSlot::RANGED);
 }
 
-void Equipment::set_head(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_head(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_head(item_id);
 
     if (item == nullptr)
@@ -420,7 +385,7 @@ void Equipment::set_head(const int item_id, RandomAffix *random_affix) {
     equip(head, item, EquipmentSlot::HEAD);
 }
 
-void Equipment::set_neck(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_neck(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_neck(item_id);
 
     if (item == nullptr)
@@ -433,7 +398,7 @@ void Equipment::set_neck(const int item_id, RandomAffix *random_affix) {
     equip(neck, item, EquipmentSlot::NECK);
 }
 
-void Equipment::set_shoulders(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_shoulders(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_shoulders(item_id);
 
     if (item == nullptr)
@@ -446,7 +411,7 @@ void Equipment::set_shoulders(const int item_id, RandomAffix *random_affix) {
     equip(shoulders, item, EquipmentSlot::SHOULDERS);
 }
 
-void Equipment::set_back(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_back(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_back(item_id);
 
     if (item == nullptr)
@@ -459,7 +424,7 @@ void Equipment::set_back(const int item_id, RandomAffix *random_affix) {
     equip(back, item, EquipmentSlot::BACK);
 }
 
-void Equipment::set_chest(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_chest(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_chest(item_id);
 
     if (item == nullptr)
@@ -472,7 +437,7 @@ void Equipment::set_chest(const int item_id, RandomAffix *random_affix) {
     equip(chest, item, EquipmentSlot::CHEST);
 }
 
-void Equipment::set_wrist(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_wrist(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_wrist(item_id);
 
     if (item == nullptr)
@@ -485,7 +450,7 @@ void Equipment::set_wrist(const int item_id, RandomAffix *random_affix) {
     equip(wrist, item, EquipmentSlot::WRIST);
 }
 
-void Equipment::set_gloves(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_gloves(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_gloves(item_id);
 
     if (item == nullptr)
@@ -498,7 +463,7 @@ void Equipment::set_gloves(const int item_id, RandomAffix *random_affix) {
     equip(gloves, item, EquipmentSlot::GLOVES);
 }
 
-void Equipment::set_belt(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_belt(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_belt(item_id);
 
     if (item == nullptr)
@@ -511,7 +476,7 @@ void Equipment::set_belt(const int item_id, RandomAffix *random_affix) {
     equip(belt, item, EquipmentSlot::BELT);
 }
 
-void Equipment::set_legs(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_legs(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_legs(item_id);
 
     if (item == nullptr)
@@ -524,7 +489,7 @@ void Equipment::set_legs(const int item_id, RandomAffix *random_affix) {
     equip(legs, item, EquipmentSlot::LEGS);
 }
 
-void Equipment::set_boots(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_boots(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_boots(item_id);
 
     if (item == nullptr)
@@ -537,7 +502,7 @@ void Equipment::set_boots(const int item_id, RandomAffix *random_affix) {
     equip(boots, item, EquipmentSlot::BOOTS);
 }
 
-void Equipment::set_ring1(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_ring1(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_ring(item_id);
 
     if (item == nullptr)
@@ -559,7 +524,7 @@ void Equipment::set_ring1(const int item_id, RandomAffix *random_affix) {
     equip(ring1, item, EquipmentSlot::RING1);
 }
 
-void Equipment::set_ring2(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_ring2(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_ring(item_id);
 
     if (item == nullptr)
@@ -619,7 +584,7 @@ void Equipment::set_trinket2(const int item_id) {
     equip(trinket2, item, EquipmentSlot::TRINKET2);
 }
 
-void Equipment::set_caster_offhand(const int item_id, RandomAffix *random_affix) {
+void Equipment::set_caster_offhand(const int item_id, RandomAffix* random_affix) {
     Item* item = db->get_caster_offhand(item_id);
 
     if (item == nullptr)
@@ -960,8 +925,7 @@ SetBonusControl* Equipment::get_set_bonus_control() const {
 void Equipment::equip(Item*& current, Item* next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
-    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() :
-                                                             EnchantName::NoEnchant;
+    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() : EnchantName::NoEnchant;
 
     unequip(current, eq_slot);
     current = next;
@@ -984,13 +948,11 @@ void Equipment::unequip(Item*& item, const int eq_slot) {
     item = nullptr;
 }
 
-void Equipment::equip(Weapon*& current, Weapon *next, const int eq_slot) {
+void Equipment::equip(Weapon*& current, Weapon* next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
-    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() :
-                                                             EnchantName::NoEnchant;
-    EnchantName::Name current_temp_enchant = current != nullptr ? current->get_temporary_enchant_enum_value() :
-                                                                  EnchantName::NoEnchant;
+    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() : EnchantName::NoEnchant;
+    EnchantName::Name current_temp_enchant = current != nullptr ? current->get_temporary_enchant_enum_value() : EnchantName::NoEnchant;
 
     unequip(current, eq_slot);
 
@@ -1003,8 +965,7 @@ void Equipment::equip(Weapon*& current, Weapon *next, const int eq_slot) {
     if (pchar->get_enchants()->enchant_valid(current_enchant, current->get_weapon_slot()))
         current->apply_enchant(current_enchant, pchar, current->get_weapon_slot());
 
-    int enchant_slot = eq_slot == EquipmentSlot::MAINHAND ? EnchantSlot::MAINHAND :
-                                                            EnchantSlot::OFFHAND;
+    int enchant_slot = eq_slot == EquipmentSlot::MAINHAND ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
     if (pchar->get_enchants()->temp_enchant_valid(current_temp_enchant, current->get_weapon_slot(), eq_slot))
         current->apply_temporary_enchant(current_temp_enchant, pchar, enchant_slot);
 }
@@ -1039,8 +1000,7 @@ void Equipment::unequip(Projectile*& item, const int eq_slot) {
     item = nullptr;
 }
 
-void Equipment::equip(Quiver *&current, Quiver *next, const int eq_slot)
-{
+void Equipment::equip(Quiver*& current, Quiver* next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
     unequip(current, eq_slot);
@@ -1051,8 +1011,7 @@ void Equipment::equip(Quiver *&current, Quiver *next, const int eq_slot)
     item_setups[setup_index][eq_slot] = current->item_id;
 }
 
-void Equipment::unequip(Quiver *&current, const int eq_slot)
-{
+void Equipment::unequip(Quiver*& current, const int eq_slot) {
     if (current == nullptr)
         return;
 

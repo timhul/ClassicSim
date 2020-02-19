@@ -1,15 +1,15 @@
 #pragma once
 
-#include "Talent.h"
-
-#include <QVector>
 #include <QSet>
+#include <QVector>
+
+#include "Talent.h"
 
 class TalentTree;
 
-class TwoHandedWeaponSpecialization: public Talent {
+class TwoHandedWeaponSpecialization : public Talent {
 public:
-    TwoHandedWeaponSpecialization(Character *pchar, TalentTree* tree);
+    TwoHandedWeaponSpecialization(Character* pchar, TalentTree* tree);
     ~TwoHandedWeaponSpecialization() override;
 
 private:

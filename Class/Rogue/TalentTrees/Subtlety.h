@@ -5,7 +5,7 @@
 class Rogue;
 class RogueSpells;
 
-class Subtlety: public TalentTree {
+class Subtlety : public TalentTree {
 public:
     Subtlety(Rogue* pchar);
 

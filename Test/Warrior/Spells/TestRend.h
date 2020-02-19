@@ -5,9 +5,9 @@
 class Rend;
 class Spell;
 
-class TestRend: public TestSpellWarrior {
+class TestRend : public TestSpellWarrior {
 public:
-    TestRend(EquipmentDb *equipment_db);
+    TestRend(EquipmentDb* equipment_db);
 
     void test_all();
 

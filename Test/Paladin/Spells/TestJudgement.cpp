@@ -5,7 +5,6 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
-#include "Equipment.h"
 #include "Item.h"
 #include "Judgement.h"
 #include "Paladin.h"
@@ -17,9 +16,7 @@
 #include "Talent.h"
 #include "Vengeance.h"
 
-TestJudgement::TestJudgement(EquipmentDb *equipment_db) :
-    TestSpellPaladin(equipment_db, "Judgement")
-{}
+TestJudgement::TestJudgement(EquipmentDb* equipment_db) : TestSpellPaladin(equipment_db, "Judgement") {}
 
 void TestJudgement::test_all() {
     run_mandatory_tests();

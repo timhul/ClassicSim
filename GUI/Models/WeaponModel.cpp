@@ -11,14 +11,13 @@
 WeaponModel::WeaponModel(EquipmentDb* db,
                          ItemTypeFilterModel* item_type_filter_model,
                          ActiveItemStatFilterModel* item_stat_filter_model,
-                         QObject *parent) :
+                         QObject* parent) :
     QAbstractListModel(parent),
     slot(ItemSlots::MAINHAND),
     pchar(nullptr),
     db(db),
     item_type_filter_model(item_type_filter_model),
-    item_stat_filter_model(item_stat_filter_model)
-{
+    item_stat_filter_model(item_stat_filter_model) {
     this->current_sorting_method = WeaponSorting::Methods::ByIlvl;
 
     this->sorting_methods.insert(WeaponSorting::Methods::ByIlvl, true);
@@ -149,7 +148,7 @@ void WeaponModel::update_items() {
     QVector<Item*> wpns = db->get_slot_items(slot);
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    for (const auto & wpn : wpns) {
+    for (const auto& wpn : wpns) {
         if (!wpn->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
             continue;
 
@@ -172,11 +171,11 @@ void WeaponModel::update_items() {
     layoutChanged();
 }
 
-int WeaponModel::rowCount(const QModelIndex &) const {
+int WeaponModel::rowCount(const QModelIndex&) const {
     return weapons.count();
 }
 
-QVariant WeaponModel::data(const QModelIndex & index, int role) const {
+QVariant WeaponModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= weapons.count())
         return QVariant();
 
@@ -187,9 +186,9 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
     if (role == NameRole)
         return weapon->name;
     if (role == SpeedRole)
-        return QString::number(weapon->get_base_weapon_speed(), 'f', 1 );
+        return QString::number(weapon->get_base_weapon_speed(), 'f', 1);
     if (role == DpsRole)
-        return QString::number(weapon->get_wpn_dps(), 'f', 1 );
+        return QString::number(weapon->get_wpn_dps(), 'f', 1);
     if (role == PhaseRole)
         return Content::get_shortname_for_phase(weapon->phase);
     if (role == SourceRole)

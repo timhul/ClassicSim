@@ -4,9 +4,9 @@
 
 class Warrior;
 
-class Protection: public TalentTree {
+class Protection : public TalentTree {
 public:
-    Protection(Warrior *pchar);
+    Protection(Warrior* pchar);
 
 private:
     Warrior* warrior;

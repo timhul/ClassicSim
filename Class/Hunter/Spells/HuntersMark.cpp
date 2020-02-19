@@ -14,11 +14,10 @@ HuntersMark::HuntersMark(Character* pchar, HuntersMarkBuff* hunters_mark) :
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           60),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Hunter's Mark", 5, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Hunter's Mark", 5, DisabledAtZero::No)}),
     hunters_mark(hunters_mark),
     imp_hunters_mark_ranks({1.0, 1.03, 1.06, 1.09, 1.12, 1.15}),
-    base_ranged_ap_bonus(110)
-{
+    base_ranged_ap_bonus(110) {
     hunters_mark_bonus = base_ranged_ap_bonus;
 }
 
@@ -44,4 +43,3 @@ void HuntersMark::decrease_talent_rank_effect(const QString& talent_name, const 
     if (talent_name == "Improved Hunter's Mark")
         hunters_mark_bonus = static_cast<unsigned>(round(static_cast<double>(base_ranged_ap_bonus) * imp_hunters_mark_ranks[curr]));
 }
-

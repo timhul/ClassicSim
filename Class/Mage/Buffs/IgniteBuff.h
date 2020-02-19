@@ -1,12 +1,12 @@
 #pragma once
 
-#include "SharedDebuff.h"
-
 #include <QVector>
+
+#include "SharedDebuff.h"
 
 class Character;
 
-class IgniteBuff: public SharedDebuff {
+class IgniteBuff : public SharedDebuff {
 public:
     IgniteBuff(Character* pchar);
 

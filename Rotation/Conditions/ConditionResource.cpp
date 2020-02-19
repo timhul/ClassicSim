@@ -5,11 +5,7 @@
 #include "Utils/CompareDouble.h"
 
 ConditionResource::ConditionResource(Character* pchar, const Comparator comparator_, const ResourceType resource_type, const double cmp_value) :
-    Condition(comparator_),
-    pchar(pchar),
-    resource_type(resource_type),
-    cmp_value(cmp_value)
-{}
+    Condition(comparator_), pchar(pchar), resource_type(resource_type), cmp_value(cmp_value) {}
 
 bool ConditionResource::condition_fulfilled() const {
     const unsigned resource = pchar->get_resource_level(resource_type);

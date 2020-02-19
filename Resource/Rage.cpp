@@ -2,8 +2,7 @@
 
 #include "Utils/Check.h"
 
-Rage::Rage()
-{
+Rage::Rage() {
     this->current = 0;
     this->max = 100;
 }

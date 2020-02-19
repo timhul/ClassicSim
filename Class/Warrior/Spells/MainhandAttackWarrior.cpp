@@ -13,11 +13,7 @@
 #include "WarriorSpells.h"
 #include "Weapon.h"
 
-MainhandAttackWarrior::MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells) :
-    MainhandAttack(pchar),
-    warr(pchar),
-    spells(spells)
-{}
+MainhandAttackWarrior::MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells) : MainhandAttack(pchar), warr(pchar), spells(spells) {}
 
 void MainhandAttackWarrior::extra_attack() {
     spells->mh_auto_attack(iteration);

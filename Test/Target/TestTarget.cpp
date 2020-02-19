@@ -5,9 +5,7 @@
 #include "Mechanics.h"
 #include "Target.h"
 
-TestTarget::TestTarget() :
-    TestObject(nullptr)
-{}
+TestTarget::TestTarget() : TestObject(nullptr) {}
 
 void TestTarget::test_all() {
     qDebug() << "TestTarget";

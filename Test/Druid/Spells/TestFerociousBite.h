@@ -2,9 +2,9 @@
 
 #include "TestSpellDruid.h"
 
-class TestFerociousBite: public TestSpellDruid {
+class TestFerociousBite : public TestSpellDruid {
 public:
-    TestFerociousBite(EquipmentDb *equipment_db);
+    TestFerociousBite(EquipmentDb* equipment_db);
 
     void test_all();
 

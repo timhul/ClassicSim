@@ -1,14 +1,14 @@
 #pragma once
 
-#include "SharedDebuff.h"
-#include "ItemModificationRequirer.h"
-#include "TalentRequirer.h"
-
 #include <QVector>
+
+#include "ItemModificationRequirer.h"
+#include "SharedDebuff.h"
+#include "TalentRequirer.h"
 
 class Paladin;
 
-class JudgementOfTheCrusader: public SharedDebuff, public TalentRequirer, public ItemModificationRequirer {
+class JudgementOfTheCrusader : public SharedDebuff, public TalentRequirer, public ItemModificationRequirer {
 public:
     JudgementOfTheCrusader(Paladin* pchar);
 

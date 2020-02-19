@@ -7,9 +7,7 @@
 #include "SimSettings.h"
 #include "Warrior.h"
 
-TestFury::TestFury(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "MID")
-{}
+TestFury::TestFury(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "MID") {}
 
 void TestFury::set_up() {
     race = new Orc();

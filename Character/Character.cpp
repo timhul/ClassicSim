@@ -24,7 +24,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(QString class_name, QString class_color, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
+Character::Character(
+    QString class_name, QString class_color, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
     instance_id(raid_control->next_instance_id()),
     class_name(std::move(class_name)),
     class_color(std::move(class_color)),
@@ -38,8 +39,7 @@ Character::Character(QString class_name, QString class_color, Race* race, SimSet
     next_trinket_cd(-1),
     party(party),
     party_member(member),
-    ruleset(Ruleset::Standard)
-{
+    ruleset(Ruleset::Standard) {
     this->roll = new CombatRoll(this);
     this->enabled_procs = new EnabledProcs(this, faction);
     this->enabled_buffs = new EnabledBuffs(this, faction);
@@ -49,8 +49,7 @@ Character::Character(QString class_name, QString class_color, Race* race, SimSet
         QPair<int, int> location = raid_control->auto_assign_character_to_group(this);
         this->party = location.first;
         this->party_member = location.second;
-    }
-    else
+    } else
         raid_control->assign_character_to_place(this, party, member);
 
     this->player_name = (party == 0 && member == 0) ? "You" : QString("P%1M%2").arg(party + 1).arg(party_member + 1);
@@ -265,16 +264,12 @@ double Character::get_random_normalized_mh_dmg() {
 
 double Character::get_random_non_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    return get_non_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_weapon_damage_bonus(),
-                                  cstats->get_melee_ap(),
-                                  mh->get_base_weapon_speed());
+    return get_non_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_weapon_damage_bonus(), cstats->get_melee_ap(), mh->get_base_weapon_speed());
 }
 
 double Character::get_random_non_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
-    return get_non_normalized_dmg(oh->get_random_dmg() + cstats->get_oh_weapon_damage_bonus(),
-                                  cstats->get_melee_ap(),
-                                  oh->get_base_weapon_speed());
+    return get_non_normalized_dmg(oh->get_random_dmg() + cstats->get_oh_weapon_damage_bonus(), cstats->get_melee_ap(), oh->get_base_weapon_speed());
 }
 
 double Character::get_random_normalized_ranged_dmg() {
@@ -284,8 +279,7 @@ double Character::get_random_normalized_ranged_dmg() {
 
 double Character::get_random_non_normalized_ranged_dmg() {
     Weapon* ranged = cstats->get_equipment()->get_ranged();
-    return get_non_normalized_dmg(ranged->get_random_dmg() + cstats->get_ranged_weapon_damage_bonus(),
-                                  cstats->get_ranged_ap(),
+    return get_non_normalized_dmg(ranged->get_random_dmg() + cstats->get_ranged_weapon_damage_bonus(), cstats->get_ranged_ap(),
                                   ranged->get_base_weapon_speed());
 }
 
@@ -446,49 +440,27 @@ void Character::lose_resource(const ResourceType resource_type, const unsigned v
     }
 }
 
-void Character::gain_mana(const unsigned) {
+void Character::gain_mana(const unsigned) {}
 
-}
+void Character::lose_mana(const unsigned) {}
 
-void Character::lose_mana(const unsigned) {
+void Character::gain_rage(const unsigned) {}
 
-}
+void Character::lose_rage(const unsigned) {}
 
-void Character::gain_rage(const unsigned) {
+void Character::gain_energy(const unsigned) {}
 
-}
+void Character::lose_energy(const unsigned) {}
 
-void Character::lose_rage(const unsigned) {
+void Character::gain_focus(const unsigned) {}
 
-}
+void Character::increase_base_mana(const unsigned) {}
 
-void Character::gain_energy(const unsigned) {
+void Character::decrease_base_mana(const unsigned) {}
 
-}
+void Character::increase_mp5_within_5sr_modifier(const double) {}
 
-void Character::lose_energy(const unsigned) {
-
-}
-
-void Character::gain_focus(const unsigned) {
-
-}
-
-void Character::increase_base_mana(const unsigned) {
-
-}
-
-void Character::decrease_base_mana(const unsigned) {
-
-}
-
-void Character::increase_mp5_within_5sr_modifier(const double) {
-
-}
-
-void Character::decrease_mp5_within_5sr_modifier(const double) {
-
-}
+void Character::decrease_mp5_within_5sr_modifier(const double) {}
 
 double Character::get_mp5_from_spirit() const {
     check(false, "Not implemented");
@@ -524,10 +496,10 @@ void Character::prepare_set_of_combat_iterations() {
     enabled_procs->prepare_set_of_combat_iterations();
 }
 
-void Character::set_special_statistics()
-{
+void Character::set_special_statistics() {
     // Reset special statistics cases
-    if (is_orc_warlock) cstats->increase_stamina(1);
+    if (is_orc_warlock)
+        cstats->increase_stamina(1);
     cstats->decrease_intellect(intellect_offset);
     cstats->decrease_spirit(spirit_offset);
     is_orc_warlock = false;
@@ -539,8 +511,7 @@ void Character::set_special_statistics()
         if (class_name == "Mage") {
             intellect_offset = 3;
             cstats->increase_intellect(intellect_offset);
-        }
-        else if (class_name == "Warlock") {
+        } else if (class_name == "Warlock") {
             intellect_offset = 4;
             cstats->increase_intellect(intellect_offset);
         }
@@ -551,16 +522,13 @@ void Character::set_special_statistics()
         if (class_name == "Mage") {
             spirit_offset = 4;
             cstats->increase_spirit(spirit_offset);
-        }
-        else if (class_name == "Paladin") {
+        } else if (class_name == "Paladin") {
             spirit_offset = 1;
             cstats->increase_spirit(spirit_offset);
-        }
-        else if (class_name == "Priest") {
+        } else if (class_name == "Priest") {
             spirit_offset = 4;
             cstats->increase_spirit(spirit_offset);
-        }
-        else if (class_name == "Warlock") {
+        } else if (class_name == "Warlock") {
             spirit_offset = 3;
             cstats->increase_spirit(spirit_offset);
         }

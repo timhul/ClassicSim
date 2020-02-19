@@ -21,12 +21,10 @@ void CharacterDecoder::initialize(const QString& setup_string) {
                 continue;
             }
             parse_list(entries[i]);
-        }
-        else if (key_val.size() != 2) {
+        } else if (key_val.size() != 2) {
             qDebug() << "Malformed element" << key_val;
             continue;
-        }
-        else
+        } else
             setup_map.insert(key_val[0], key_val[1]);
     }
 }
@@ -68,7 +66,7 @@ QPair<QString, QString> CharacterDecoder::get_key_val(const QString& key_val_str
     return QPair<QString, QString>(key_val[0], key_val[1]);
 }
 
-QVector<QPair<QString, QString> > CharacterDecoder::get_key_val_pairs(const QString& key) {
+QVector<QPair<QString, QString>> CharacterDecoder::get_key_val_pairs(const QString& key) {
     return setup_lists.take(key);
 }
 

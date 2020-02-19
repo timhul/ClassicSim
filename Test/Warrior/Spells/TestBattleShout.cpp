@@ -8,9 +8,7 @@
 #include "SpellRankGroup.h"
 #include "Warrior.h"
 
-TestBattleShout::TestBattleShout(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Battle Shout")
-{}
+TestBattleShout::TestBattleShout(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Battle Shout") {}
 
 void TestBattleShout::test_all() {
     run_mandatory_tests();
@@ -36,9 +34,7 @@ void TestBattleShout::test_spell_cooldown() {
     assert(QString::number(battle_shout()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestBattleShout::test_stance_cooldown() {
-
-}
+void TestBattleShout::test_stance_cooldown() {}
 
 void TestBattleShout::test_resource_cost() {
     given_warrior_has_rage(9);

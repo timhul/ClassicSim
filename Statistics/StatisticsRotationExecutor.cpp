@@ -3,27 +3,18 @@
 #include "Spell.h"
 
 bool description(ExecutorOutcome* lhs, ExecutorOutcome* rhs) {
-    return StatisticsRotationExecutor::get_description_for_status(lhs->spell_status) >
-            StatisticsRotationExecutor::get_description_for_status(rhs->spell_status);
+    return StatisticsRotationExecutor::get_description_for_status(lhs->spell_status)
+           > StatisticsRotationExecutor::get_description_for_status(rhs->spell_status);
 }
 
 bool value(ExecutorOutcome* lhs, ExecutorOutcome* rhs) {
     return lhs->value > rhs->value;
 }
 
-ExecutorOutcome::ExecutorOutcome(const QString& name,
-                                 ExecutorResult result,
-                                 unsigned value,
-                                 SpellStatus spell_status) :
-    name(name),
-    result(result),
-    value(value),
-    spell_status(spell_status)
-{}
+ExecutorOutcome::ExecutorOutcome(const QString& name, ExecutorResult result, unsigned value, SpellStatus spell_status) :
+    name(name), result(result), value(value), spell_status(spell_status) {}
 
-StatisticsRotationExecutor::StatisticsRotationExecutor(const QString& executor_name) :
-    executor_name(executor_name)
-{}
+StatisticsRotationExecutor::StatisticsRotationExecutor(const QString& executor_name) : executor_name(executor_name) {}
 
 QString StatisticsRotationExecutor::get_name() const {
     return this->executor_name;

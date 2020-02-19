@@ -8,9 +8,7 @@
 #include "SliceAndDice.h"
 #include "SpellRankGroup.h"
 
-TestSliceAndDice::TestSliceAndDice(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Slice and Dice")
-{}
+TestSliceAndDice::TestSliceAndDice(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Slice and Dice") {}
 
 void TestSliceAndDice::test_all() {
     run_mandatory_tests();

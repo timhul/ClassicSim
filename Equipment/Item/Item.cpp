@@ -1,8 +1,9 @@
 #include "Item.h"
 
 #include <cmath>
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "ArmorPenetrationBuff.h"
 #include "ArmorPenetrationProc.h"
@@ -49,7 +50,7 @@ Item::Item(QString name,
            QVector<QString> _spell_modifications,
            QVector<QString> _special_equip_effects,
            QSet<int> _mutex_item_ids,
-           QVector<int> _random_affixes):
+           QVector<int> _random_affixes) :
     PhaseRequirer(phase),
     base_name(name),
     name(name),
@@ -68,15 +69,13 @@ Item::Item(QString name,
     random_affix(nullptr),
     possible_random_affixes(std::move(_random_affixes)),
     slot(-1),
-    item_type(-1)
-{
+    item_type(-1) {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
     set_class_restrictions(info);
     set_faction();
     this->icon = QString("Assets/items/%1").arg(info["icon"]);
-
 }
 
 Item::Item(const Item* item) :
@@ -95,8 +94,7 @@ Item::Item(const Item* item) :
     stats(new Stats()),
     enchant(nullptr),
     random_affix(nullptr),
-    possible_random_affixes(item->possible_random_affixes)
-{
+    possible_random_affixes(item->possible_random_affixes) {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
@@ -133,10 +131,8 @@ void Item::set_faction() {
     if (faction != "") {
         if (faction != "ALLIANCE" && faction != "HORDE")
             qDebug() << name << "has incorrect faction value" << faction;
-        valid_faction = faction == "ALLIANCE" ? AvailableFactions::Alliance :
-                                                AvailableFactions::Horde;
-    }
-    else
+        valid_faction = faction == "ALLIANCE" ? AvailableFactions::Alliance : AvailableFactions::Horde;
+    } else
         valid_faction = AvailableFactions::Neutral;
 }
 
@@ -186,12 +182,12 @@ void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
 }
 
 void Item::remove_equip_effect() {
-    for (const auto & spell : use_spells) {
+    for (const auto& spell : use_spells) {
         spell->disable();
         delete spell;
     }
 
-    for (const auto & proc : active_procs) {
+    for (const auto& proc : active_procs) {
         proc->disable_proc();
         delete proc;
     }
@@ -201,17 +197,17 @@ void Item::remove_equip_effect() {
 }
 
 void Item::enable_proc_effects() {
-    for (const auto & proc : active_procs)
+    for (const auto& proc : active_procs)
         proc->enable_proc();
 }
 
 void Item::disable_proc_effects() {
-    for (const auto & proc : active_procs)
+    for (const auto& proc : active_procs)
         proc->disable_proc();
 }
 
 void Item::call_item_modifications(const bool activate) const {
-    for (const auto & name : item_modifications) {
+    for (const auto& name : item_modifications) {
         call_modifications_by_specific_name(name, activate);
         call_spell_modifications(name, activate);
         call_buff_modifications(name, activate);
@@ -234,7 +230,7 @@ void Item::call_spell_modifications(const QString& spell_name, const bool activa
     if (spell_group == nullptr)
         return;
 
-    for (auto & spell : spell_group->spell_group) {
+    for (auto& spell : spell_group->spell_group) {
         auto spell_modded_by_item = dynamic_cast<ItemModificationRequirer*>(spell);
         if (spell_modded_by_item == nullptr)
             return;
@@ -262,7 +258,7 @@ void Item::call_buff_modifications(const QString& buff_name, const bool activate
 }
 
 void Item::clear_mutex_ids() {
-    for (const auto & item_id : mutex_item_ids)
+    for (const auto& item_id : mutex_item_ids)
         pchar->get_equipment()->clear_item_id_if_equipped_in_any_slot(item_id);
 }
 
@@ -314,17 +310,18 @@ bool Item::has_random_affix() const {
     return this->random_affix != nullptr;
 }
 
-RandomAffix *Item::get_random_affix() const {
+RandomAffix* Item::get_random_affix() const {
     return this->random_affix;
 }
 
 QVector<int> Item::get_possible_random_affixes() const {
-    if (this->possible_random_affixes.empty()) return QVector<int>();
+    if (this->possible_random_affixes.empty())
+        return QVector<int>();
 
     return this->possible_random_affixes;
 }
 
-void Item::set_random_affix(RandomAffix *affix) {
+void Item::set_random_affix(RandomAffix* affix) {
     if (!possible_random_affixes.contains(static_cast<int>(affix->id))) {
         qDebug() << "Unable to set random affix" << affix << "to item" << item_id;
         return;
@@ -334,10 +331,10 @@ void Item::set_random_affix(RandomAffix *affix) {
         this->stats->remove(this->random_affix->get_stats());
 
     this->stats->add(affix->get_stats());
-    for (const auto &stat : affix->get_stats()->get_base_tooltip()) {
+    for (const auto& stat : affix->get_stats()->get_base_tooltip()) {
         base_tooltip_stats.append(stat);
     }
-    for (const auto &stat : affix->get_stats()->get_equip_effects_tooltip()) {
+    for (const auto& stat : affix->get_stats()->get_equip_effects_tooltip()) {
         equip_effects_tooltip_stats.append(stat);
     }
 
@@ -352,8 +349,7 @@ void Item::set_random_affix(RandomAffix *affix) {
 }
 
 bool Item::available_for_faction(AvailableFactions::Name faction) const {
-    return valid_faction == AvailableFactions::Neutral ? true :
-                                                         valid_faction == faction;
+    return valid_faction == AvailableFactions::Neutral ? true : valid_faction == faction;
 }
 
 bool Item::available_for_class(const QString& class_name) const {
@@ -361,7 +357,7 @@ bool Item::available_for_class(const QString& class_name) const {
 }
 
 void Item::set_uses() {
-    for (const auto & use : use_map) {
+    for (const auto& use : use_map) {
         QString use_name = use["name"];
         Spell* spell = nullptr;
 
@@ -378,24 +374,19 @@ void Item::set_uses() {
                 spell = new UseTrinket(pchar, name, icon, cooldown, buff);
             else
                 spell = new UseItem(pchar, name, icon, cooldown, buff);
-        }
-        else if (use_name == "EYE_OF_MOAM") {
+        } else if (use_name == "EYE_OF_MOAM") {
             Buff* buff = new GenericStatBuff(pchar, name, icon, 30, {{ItemStats::SpellDamage, 50}, {ItemStats::SpellPenetration, 100}});
             spell = new UseTrinket(pchar, name, icon, 180, buff);
-        }
-        else if (use_name == "DEVILSAUR_EYE") {
+        } else if (use_name == "DEVILSAUR_EYE") {
             Buff* buff = new DevilsaurEye(pchar);
             spell = new UseTrinket(pchar, name, icon, 120, buff);
-        }
-        else if (use_name == "SANCTIFIED_ORB") {
+        } else if (use_name == "SANCTIFIED_ORB") {
             Buff* buff = new SanctifiedOrb(pchar);
             spell = new UseTrinket(pchar, name, icon, 180, buff);
-        }
-        else if (use_name == "JOM_GABBAR") {
+        } else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);
             spell = new UseTrinket(pchar, buff->name, buff->icon, 120, buff, nullptr);
-        }
-        else if (use_name == "ZANDALARIAN_HERO_MEDALLION") {
+        } else if (use_name == "ZANDALARIAN_HERO_MEDALLION") {
             QVector<ProcInfo::Source> proc_sources;
             proc_sources.append(ProcInfo::Source::MainhandSwing);
             proc_sources.append(ProcInfo::Source::MainhandSpell);
@@ -405,14 +396,12 @@ void Item::set_uses() {
             Buff* buff = new FlatWeaponDamageBuff(pchar, name, icon, 20, 20, AffectedWeaponSide::All, 2);
             Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
             spell = new UseTrinket(pchar, name, icon, 120, buff, proc);
-        }
-        else if (use_name == "ZANDALARIAN_HERO_CHARM") {
+        } else if (use_name == "ZANDALARIAN_HERO_CHARM") {
             const QVector<ProcInfo::Source> proc_sources {ProcInfo::Source::MagicSpell};
             Buff* buff = new ZandalarianHeroCharm(pchar);
             Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
             spell = new UseTrinket(pchar, name, icon, 120, buff, proc);
-        }
-        else if (use_name == "BADGE_OF_THE_SWARMGUARD") {
+        } else if (use_name == "BADGE_OF_THE_SWARMGUARD") {
             double proc_rate = use["value"].toDouble();
             QVector<ProcInfo::Source> proc_sources;
             proc_sources.append(ProcInfo::Source::MainhandSwing);
@@ -431,12 +420,12 @@ void Item::set_uses() {
             use_spells.append(spell);
     }
 
-    for (const auto & use: use_spells)
+    for (const auto& use : use_spells)
         use->enable();
 }
 
 void Item::set_procs(const int eq_slot) {
-    for (const auto & i : procs_map) {
+    for (const auto& i : procs_map) {
         const QString proc_name = i["name"];
         const QString instant = i["instant"].toLower();
         const int amount = QString(i["amount"]).toInt();
@@ -456,13 +445,8 @@ void Item::set_procs(const int eq_slot) {
             continue;
         }
 
-        auto direct_spell_damage_procs = QSet<QString>({"PHYSICAL_ATTACK",
-                                                        "ARCANE_ATTACK",
-                                                        "FIRE_ATTACK",
-                                                        "FROST_ATTACK",
-                                                        "NATURE_ATTACK",
-                                                        "SHADOW_ATTACK",
-                                                        "HOLY_ATTACK"});
+        auto direct_spell_damage_procs = QSet<QString>(
+            {"PHYSICAL_ATTACK", "ARCANE_ATTACK", "FIRE_ATTACK", "FROST_ATTACK", "NATURE_ATTACK", "SHADOW_ATTACK", "HOLY_ATTACK"});
         QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
 
@@ -470,36 +454,18 @@ void Item::set_procs(const int eq_slot) {
             add_default_proc_sources(proc_sources, eq_slot);
 
             if (instant == "yes") {
-                proc = new ExtraAttackInstantProc(pchar,
-                                                  name,
-                                                  icon,
-                                                  proc_sources,
-                                                  proc_rate,
-                                                  amount);
+                proc = new ExtraAttackInstantProc(pchar, name, icon, proc_sources, proc_rate, amount);
+            } else {
+                proc = new ExtraAttackOnNextSwingProc(pchar, name, icon, proc_sources, proc_rate, amount);
             }
-            else {
-                proc = new ExtraAttackOnNextSwingProc(pchar,
-                                                      name,
-                                                      icon,
-                                                      proc_sources,
-                                                      proc_rate,
-                                                      amount);
-            }
-        }
-        else if (proc_name == "ARMOR_PENETRATION") {
+        } else if (proc_name == "ARMOR_PENETRATION") {
             add_default_proc_sources(proc_sources, eq_slot);
 
             int reduction = i["value"].toInt();
             int max_stacks = i["max_stacks"].toInt();
             int duration = i["duration"].toInt();
 
-            proc = new ArmorPenetrationProc(pchar,
-                                            get_weapon_side_name(eq_slot),
-                                            icon, proc_sources,
-                                            proc_rate,
-                                            reduction,
-                                            max_stacks,
-                                            duration,
+            proc = new ArmorPenetrationProc(pchar, get_weapon_side_name(eq_slot), icon, proc_sources, proc_rate, reduction, max_stacks, duration,
                                             REFRESH_EXTENDS_DURATION);
         }
 
@@ -510,15 +476,8 @@ void Item::set_procs(const int eq_slot) {
             const unsigned max = i["max"].toUInt();
             const double coefficient = i["spell_dmg_coefficient"].toDouble();
 
-            proc = new InstantSpellProc(pchar,
-                                        get_weapon_side_name(eq_slot),
-                                        icon,
-                                        proc_sources,
-                                        proc_rate,
-                                        get_magic_school(proc_name),
-                                        min, max,
-                                        coefficient,
-                                        ConsumeCharge::No);
+            proc = new InstantSpellProc(pchar, get_weapon_side_name(eq_slot), icon, proc_sources, proc_rate, get_magic_school(proc_name), min, max,
+                                        coefficient, ConsumeCharge::No);
         }
 
         else if (proc_name == "FELSTRIKER_PROC") {
@@ -528,37 +487,25 @@ void Item::set_procs(const int eq_slot) {
         }
 
         else if (proc_name == "BLACK_GRASP_OF_THE_DESTROYER") {
-            proc_sources = {
-                ProcInfo::Source::MainhandSwing,
-                ProcInfo::Source::MainhandSpell,
-                ProcInfo::Source::OffhandSwing,
-                ProcInfo::Source::RangedAutoShot,
-                ProcInfo::Source::RangedSpell
-            };
+            proc_sources = {ProcInfo::Source::MainhandSwing, ProcInfo::Source::MainhandSpell, ProcInfo::Source::OffhandSwing,
+                            ProcInfo::Source::RangedAutoShot, ProcInfo::Source::RangedSpell};
 
-            proc = new ResourceGainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png",
-                                        proc_sources, proc_rate, ResourceType::Mana, i["min"].toUInt(), i["max"].toUInt());
-        }
-        else if (proc_name == "NIGHTFALL") {
+            proc = new ResourceGainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png", proc_sources, proc_rate,
+                                        ResourceType::Mana, i["min"].toUInt(), i["max"].toUInt());
+        } else if (proc_name == "NIGHTFALL") {
             Buff* buff = new Nightfall(pchar);
-            proc = new GenericBuffProc(pchar,"Nightfall", "Assets/items/Inv_axe_12.png",
-                                       QVector<ProcInfo::Source>{ProcInfo::MainhandSpell, ProcInfo::MainhandSwing},
-                                       proc_rate, EnabledAtStart::Yes, MaintainBuffEnabled::No, buff);
-        }
-        else if (proc_name == "GENERIC_STAT_BUFF") {
+            proc = new GenericBuffProc(pchar, "Nightfall", "Assets/items/Inv_axe_12.png",
+                                       QVector<ProcInfo::Source> {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing}, proc_rate, EnabledAtStart::Yes,
+                                       MaintainBuffEnabled::No, buff);
+        } else if (proc_name == "GENERIC_STAT_BUFF") {
             add_proc_sources_from_map(proc_sources, i, eq_slot);
-            Buff* buff = new GenericStatBuff(pchar, name, icon,
-                                             i["duration"].toInt(),
+            Buff* buff = new GenericStatBuff(pchar, name, icon, i["duration"].toInt(),
                                              {{get_item_stats_from_string(i["type"]), static_cast<unsigned>(amount)}});
             proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, EnabledAtStart::Yes, MaintainBuffEnabled::Yes, buff);
-        }
-        else if (proc_name == "INSTANT_FIREBALL") {
+        } else if (proc_name == "INSTANT_FIREBALL") {
             add_default_proc_sources(proc_sources, eq_slot);
-            Spell* spell = new FireballInstant(pchar, QString(" (%1)").arg(name),
-                                               i["min"].toUInt(), i["max"].toUInt(),
-                                               i["dmg_over_duration"].toUInt(),
-                                               i["duration"].toInt(),
-                                               0, 0, 0.0, 0.0, 1);
+            Spell* spell = new FireballInstant(pchar, QString(" (%1)").arg(name), i["min"].toUInt(), i["max"].toUInt(),
+                                               i["dmg_over_duration"].toUInt(), i["duration"].toInt(), 0, 0, 0.0, 0.0, 1);
             proc = new GenericSpellProc(pchar, name, icon, proc_sources, proc_rate, spell);
         }
 
@@ -644,7 +591,7 @@ MagicSchool Item::get_magic_school(const QString& name) {
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {
-    for (const auto & stat : stats)
+    for (const auto& stat : stats)
         set_stat(stat.first, stat.second);
 }
 
@@ -657,243 +604,188 @@ const Stats* Item::get_stats() const {
 }
 
 void Item::set_stat(const QString& key, const QString& value) {
-
     this->stats->add(key, value);
 
     if (key == "STRENGTH") {
         base_tooltip_stats.append(QString("+%1 Strength").arg(value));
         this->item_stat_values.insert(ItemStats::Strength, value.toUInt());
-    }
-    else if (key == "AGILITY") {
+    } else if (key == "AGILITY") {
         base_tooltip_stats.append(QString("+%1 Agility").arg(value));
         this->item_stat_values.insert(ItemStats::Agility, value.toUInt());
-    }
-    else if (key == "STAMINA") {
+    } else if (key == "STAMINA") {
         base_tooltip_stats.append(QString("+%1 Stamina").arg(value));
         this->item_stat_values.insert(ItemStats::Stamina, value.toUInt());
-    }
-    else if (key == "INTELLECT") {
+    } else if (key == "INTELLECT") {
         base_tooltip_stats.append(QString("+%1 Intellect").arg(value));
         this->item_stat_values.insert(ItemStats::Intellect, value.toUInt());
-    }
-    else if (key == "SPIRIT") {
+    } else if (key == "SPIRIT") {
         base_tooltip_stats.append(QString("+%1 Spirit").arg(value));
         this->item_stat_values.insert(ItemStats::Spirit, value.toUInt());
-    }
-    else if (key == "CRIT_CHANCE") {
+    } else if (key == "CRIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         QString number = QString::number(display_value);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike by %1%.").arg(number));
         this->item_stat_values.insert(ItemStats::CritChance, display_value);
-    }
-    else if (key == "HIT_CHANCE") {
+    } else if (key == "HIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         QString number = QString::number(display_value);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit by %1%.").arg(number));
         this->item_stat_values.insert(ItemStats::HitChance, display_value);
-    }
-    else if (key == "ATTACK_POWER") {
+    } else if (key == "ATTACK_POWER") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power.").arg(value));
         this->item_stat_values.insert(ItemStats::AttackPower, value.toUInt());
-    }
-    else if (key == "RANGED_ATTACK_POWER") {
+    } else if (key == "RANGED_ATTACK_POWER") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Ranged Attack Power.").arg(value));
         this->item_stat_values.insert(ItemStats::RangedAttackPower, value.toUInt());
-    }
-    else if (key == "ATTACK_POWER_BEAST") {
+    } else if (key == "ATTACK_POWER_BEAST") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Beasts.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusBeast, value.toUInt());
-    }
-    else if (key == "ATTACK_POWER_DEMON") {
+    } else if (key == "ATTACK_POWER_DEMON") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Demons.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusDemon, value.toUInt());
-    }
-    else if (key == "ATTACK_POWER_DRAGONKIN") {
+    } else if (key == "ATTACK_POWER_DRAGONKIN") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Dragonkin.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusDragonkin, value.toUInt());
-    }
-    else if (key == "ATTACK_POWER_UNDEAD") {
+    } else if (key == "ATTACK_POWER_UNDEAD") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Undead.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusUndead, value.toUInt());
-    }
-    else if (key == "WEAPON_DAMAGE") {
+    } else if (key == "WEAPON_DAMAGE") {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Weapon Damage.").arg(value));
         this->item_stat_values.insert(ItemStats::FlatWeaponDamage, value.toUInt());
-    }
-    else if (key == "AXE_SKILL") {
+    } else if (key == "AXE_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Axes +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillAxe, value.toUInt());
-    }
-    else if (key == "DAGGER_SKILL") {
+    } else if (key == "DAGGER_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Daggers +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillDagger, value.toUInt());
-    }
-    else if (key == "MACE_SKILL") {
+    } else if (key == "MACE_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Maces +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillMace, value.toUInt());
-    }
-    else if (key == "SWORD_SKILL") {
+    } else if (key == "SWORD_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Swords +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
-    }
-    else if (key == "TWOHAND_AXE_SKILL") {
+    } else if (key == "TWOHAND_AXE_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Axes +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::Skill2hAxe, value.toUInt());
-    }
-    else if (key == "TWOHAND_MACE_SKILL") {
+    } else if (key == "TWOHAND_MACE_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Maces +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::Skill2hMace, value.toUInt());
-    }
-    else if (key == "TWOHAND_SWORD_SKILL") {
+    } else if (key == "TWOHAND_SWORD_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Swords +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::Skill2hSword, value.toUInt());
-    }
-    else if (key == "BOW_SKILL") {
+    } else if (key == "BOW_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Bows +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillBow, value.toUInt());
-    }
-    else if (key == "CROSSBOW_SKILL") {
+    } else if (key == "CROSSBOW_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Crossbows +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillCrossbow, value.toUInt());
-    }
-    else if (key == "GUN_SKILL") {
+    } else if (key == "GUN_SKILL") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Guns +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillGun, value.toUInt());
-    }
-    else if (key == "MANA_PER_5") {
+    } else if (key == "MANA_PER_5") {
         equip_effects_tooltip_stats.append(QString("Equip: Restores %1 mana per 5 sec.").arg(value));
         this->item_stat_values.insert(ItemStats::ManaPer5, value.toUInt());
-    }
-    else if (key == "HEALTH_PER_5") {
+    } else if (key == "HEALTH_PER_5") {
         equip_effects_tooltip_stats.append(QString("Equip: Restores %1 health per 5 sec.").arg(value));
         this->item_stat_values.insert(ItemStats::HealthPer5, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE") {
+    } else if (key == "SPELL_DAMAGE") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage and healing done by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamage, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_ARCANE") {
+    } else if (key == "SPELL_DAMAGE_ARCANE") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Arcane spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageArcane, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_FIRE") {
+    } else if (key == "SPELL_DAMAGE_FIRE") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Fire spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageFire, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_FROST") {
+    } else if (key == "SPELL_DAMAGE_FROST") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Frost spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageFrost, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_HOLY") {
+    } else if (key == "SPELL_DAMAGE_HOLY") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Holy spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageHoly, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_NATURE") {
+    } else if (key == "SPELL_DAMAGE_NATURE") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Nature spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageNature, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_SHADOW") {
+    } else if (key == "SPELL_DAMAGE_SHADOW") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Shadow spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageShadow, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_BEAST") {
+    } else if (key == "SPELL_DAMAGE_BEAST") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Beasts by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusBeast, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_DEMON") {
+    } else if (key == "SPELL_DAMAGE_DEMON") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Demons by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusDemon, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_DRAGONKIN") {
+    } else if (key == "SPELL_DAMAGE_DRAGONKIN") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Dragonkin by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusDragonkin, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_ELEMENTAL") {
-        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Elementals by magical spells and effects by up to %1.").arg(value));
+    } else if (key == "SPELL_DAMAGE_ELEMENTAL") {
+        equip_effects_tooltip_stats.append(
+            QString("Equip: Increases damage done to Elementals by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusElemental, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_GIANT") {
+    } else if (key == "SPELL_DAMAGE_GIANT") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Giants by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusGiant, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_HUMANOID") {
+    } else if (key == "SPELL_DAMAGE_HUMANOID") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Humanoids by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusHumanoid, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_MECHANICAL") {
-        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Mechanicals by magical spells and effects by up to %1.").arg(value));
+    } else if (key == "SPELL_DAMAGE_MECHANICAL") {
+        equip_effects_tooltip_stats.append(
+            QString("Equip: Increases damage done to Mechanicals by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusMechanical, value.toUInt());
-    }
-    else if (key == "SPELL_DAMAGE_UNDEAD") {
+    } else if (key == "SPELL_DAMAGE_UNDEAD") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Undead by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageVersusUndead, value.toUInt());
-    }
-    else if (key == "SPELL_CRIT_CHANCE") {
+    } else if (key == "SPELL_CRIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike with spells by %1%.").arg(display_value));
         this->item_stat_values.insert(ItemStats::SpellCrit, display_value);
-    }
-    else if (key == "SPELL_HIT_CHANCE") {
+    } else if (key == "SPELL_HIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit with spells by %1%.").arg(display_value));
         this->item_stat_values.insert(ItemStats::SpellHit, display_value);
-    }
-    else if (key == "SPELL_PENETRATION") {
+    } else if (key == "SPELL_PENETRATION") {
         QString number = QString::number(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Decreases the magical resistances of your spell targets by %1.").arg(number));
         this->item_stat_values.insert(ItemStats::SpellPenetration, value.toUInt());
-    }
-    else if (key == "ARMOR") {
+    } else if (key == "ARMOR") {
         base_tooltip_stats.append(QString("%1 Armor").arg(value));
         this->item_stat_values.insert(ItemStats::Armor, value.toUInt());
-    }
-    else if (key == "DEFENSE") {
+    } else if (key == "DEFENSE") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Defense +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::Defense, value.toUInt());
-    }
-    else if (key == "DODGE_CHANCE") {
+    } else if (key == "DODGE_CHANCE") {
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to dodge an attack by %1%.").arg(number));
         this->item_stat_values.insert(ItemStats::DodgeChance, static_cast<unsigned>(value.toDouble() * 100));
-    }
-    else if (key == "PARRY_CHANCE") {
+    } else if (key == "PARRY_CHANCE") {
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to parry an attack by %1%.").arg(number));
         this->item_stat_values.insert(ItemStats::ParryChance, static_cast<unsigned>(value.toDouble() * 100));
-    }
-    else if (key == "ALL_RESISTANCE") {
+    } else if (key == "ALL_RESISTANCE") {
         equip_effects_tooltip_stats.append(QString("+%1 All Resistances.").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceAll, value.toUInt());
-    }
-    else if (key == "ARCANE_RESISTANCE") {
+    } else if (key == "ARCANE_RESISTANCE") {
         base_tooltip_stats.append(QString("+%1 Arcane Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceArcane, value.toUInt());
-    }
-    else if (key == "FIRE_RESISTANCE") {
+    } else if (key == "FIRE_RESISTANCE") {
         base_tooltip_stats.append(QString("+%1 Fire Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceFire, value.toUInt());
-    }
-    else if (key == "FROST_RESISTANCE") {
+    } else if (key == "FROST_RESISTANCE") {
         base_tooltip_stats.append(QString("+%1 Frost Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceFrost, value.toUInt());
-    }
-    else if (key == "HOLY_RESISTANCE") {
+    } else if (key == "HOLY_RESISTANCE") {
         base_tooltip_stats.append(QString("+%1 Holy Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceHoly, value.toUInt());
-    }
-    else if (key == "NATURE_RESISTANCE") {
+    } else if (key == "NATURE_RESISTANCE") {
         base_tooltip_stats.append(QString("+%1 Nature Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceNature, value.toUInt());
-    }
-    else if (key == "SHADOW_RESISTANCE") {
+    } else if (key == "SHADOW_RESISTANCE") {
         base_tooltip_stats.append(QString("+%1 Shadow Resistance").arg(value));
         this->item_stat_values.insert(ItemStats::ResistanceShadow, value.toUInt());
-    }
-    else if (key == "RANGED_ATTACK_SPEED") {
+    } else if (key == "RANGED_ATTACK_SPEED") {
         equip_effects_tooltip_stats.append(QString("Equip: Increases ranged attack speed by %1%.").arg(value));
         this->item_stat_values.insert(ItemStats::RangedAttackSpeedPercent, value.toUInt());
-    }
-    else
+    } else
         unsupported_stat(key);
 }
 
@@ -910,8 +802,7 @@ QString Item::get_base_stat_tooltip() const {
 
 QString Item::get_equip_effect_tooltip() const {
     if (!equip_effects_tooltip_stats.empty() && !special_equip_effects.empty())
-        return QStringList {get_tooltip(equip_effects_tooltip_stats),
-                            get_tooltip(special_equip_effects)}.join("\n");
+        return QStringList {get_tooltip(equip_effects_tooltip_stats), get_tooltip(special_equip_effects)}.join("\n");
 
     if (!equip_effects_tooltip_stats.empty())
         return get_tooltip(equip_effects_tooltip_stats);
@@ -921,7 +812,7 @@ QString Item::get_equip_effect_tooltip() const {
 
 QString Item::get_tooltip(const QVector<QString>& tt_strings) const {
     QString tooltip = "";
-    for (const auto & tt_string : tt_strings) {
+    for (const auto& tt_string : tt_strings) {
         if (tooltip != "")
             tooltip += "\n";
         tooltip += tt_string;

@@ -4,9 +4,8 @@
 #include "Stats.h"
 #include "Target.h"
 
-WintersChill::WintersChill(Character* pchar):
-    SharedDebuff(pchar, "Winter's Chill", "Assets/spell/Spell_frost_chillingblast.png", Priority::Mid, 15, 0)
-{
+WintersChill::WintersChill(Character* pchar) :
+    SharedDebuff(pchar, "Winter's Chill", "Assets/spell/Spell_frost_chillingblast.png", Priority::Mid, 15, 0) {
     max_stacks = 5;
 }
 

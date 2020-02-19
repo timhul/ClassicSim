@@ -12,10 +12,7 @@
 #include "Weapon.h"
 
 TestTwoHandedWeaponSpecialization::TestTwoHandedWeaponSpecialization(EquipmentDb* equipment_db) :
-    TestSpell(equipment_db, "Two-hand Specialization"),
-    warrior(nullptr),
-    talent(nullptr)
-{}
+    TestSpell(equipment_db, "Two-hand Specialization"), warrior(nullptr), talent(nullptr) {}
 
 void TestTwoHandedWeaponSpecialization::set_up() {
     race = new Orc();

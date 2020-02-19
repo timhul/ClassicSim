@@ -12,11 +12,17 @@
 #include "Utils/Check.h"
 
 TigersFury::TigersFury(Druid* pchar, DruidSpells* druid_spells, TigersFuryBuff* buff, const int spell_rank) :
-    Spell("Tiger's Fury", "Assets/ability/Ability_mount_jungletiger.png", pchar, new CooldownControl(pchar, 1.0), RestrictedByGcd::Yes, ResourceType::Energy, 30, spell_rank),
+    Spell("Tiger's Fury",
+          "Assets/ability/Ability_mount_jungletiger.png",
+          pchar,
+          new CooldownControl(pchar, 1.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          30,
+          spell_rank),
     druid(pchar),
     druid_spells(druid_spells),
-    buff(buff)
-{
+    buff(buff) {
     switch (spell_rank) {
     case 1:
         bonus_damage = 10;

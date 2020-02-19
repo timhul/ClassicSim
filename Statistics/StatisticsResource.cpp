@@ -19,10 +19,7 @@ bool energy_gain(StatisticsResource* lhs, StatisticsResource* rhs) {
 }
 
 StatisticsResource::StatisticsResource(QString name, QString icon, const int time_in_combat) :
-    name(std::move(name)),
-    icon(std::move(icon)),
-    time_in_combat(time_in_combat)
-{}
+    name(std::move(name)), icon(std::move(icon)), time_in_combat(time_in_combat) {}
 
 void StatisticsResource::reset() {
     resource_gain.clear();
@@ -44,15 +41,15 @@ void StatisticsResource::add_resource_gain(const ResourceType resource, const un
 }
 
 double StatisticsResource::get_mana_gain_per_5() const {
-   return static_cast<double>(resource_gain[ResourceType::Mana]) / time_in_combat * 5;
+    return static_cast<double>(resource_gain[ResourceType::Mana]) / time_in_combat * 5;
 }
 
 double StatisticsResource::get_rage_gain_per_5() const {
-   return static_cast<double>(resource_gain[ResourceType::Rage]) / time_in_combat * 5;
+    return static_cast<double>(resource_gain[ResourceType::Rage]) / time_in_combat * 5;
 }
 
 double StatisticsResource::get_energy_gain_per_5() const {
-   return static_cast<double>(resource_gain[ResourceType::Energy]) / time_in_combat * 5;
+    return static_cast<double>(resource_gain[ResourceType::Energy]) / time_in_combat * 5;
 }
 
 void StatisticsResource::add(const StatisticsResource* other) {

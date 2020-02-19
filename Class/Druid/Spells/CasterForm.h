@@ -5,7 +5,7 @@
 class Buff;
 class Druid;
 
-class CasterForm: public Spell {
+class CasterForm : public Spell {
 public:
     CasterForm(Druid* druid);
     ~CasterForm() override;

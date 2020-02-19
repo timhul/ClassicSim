@@ -5,10 +5,8 @@
 
 #include "Character.h"
 
-TestSpellDamage::TestSpellDamage(EquipmentDb* equipment_db, QString spell_under_test):
-    TestSpell(equipment_db, std::move(spell_under_test)),
-    has_run_mandatory_tests(false)
-{}
+TestSpellDamage::TestSpellDamage(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpell(equipment_db, std::move(spell_under_test)), has_run_mandatory_tests(false) {}
 
 TestSpellDamage::~TestSpellDamage() {
     assert(has_run_mandatory_tests);
@@ -45,9 +43,7 @@ void TestSpellDamage::run_mandatory_tests(const bool prepare_combat_iterations) 
     run_class_specific_tests();
 }
 
-void TestSpellDamage::run_class_specific_tests() {
-
-}
+void TestSpellDamage::run_class_specific_tests() {}
 
 void TestSpellDamage::then_character_has_resource(Character* pchar, const ResourceType resource_type, const unsigned resource_level) {
     if (resource_level != pchar->get_resource_level(resource_type))

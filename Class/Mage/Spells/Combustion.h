@@ -6,7 +6,7 @@
 class Buff;
 class Mage;
 
-class Combustion: public Spell, public TalentRequirer {
+class Combustion : public Spell, public TalentRequirer {
 public:
     Combustion(Mage* pchar);
     ~Combustion() override;

@@ -11,7 +11,7 @@ bool avg_uptime(StatisticsBuff* lhs, StatisticsBuff* rhs);
 
 class StatisticsBuff {
 public:
-    StatisticsBuff(QString  name, QString  icon, const bool debuff);
+    StatisticsBuff(QString name, QString icon, const bool debuff);
 
     void reset();
 

@@ -1,17 +1,15 @@
 #include "RotationExecutor.h"
 
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "Condition.h"
 #include "Spell.h"
 #include "StatisticsRotationExecutor.h"
 #include "Utils/Check.h"
 
-RotationExecutor::RotationExecutor(QString name, const int spell_rank) :
-    spell_name(std::move(name)),
-    spell_rank(spell_rank)
-{
+RotationExecutor::RotationExecutor(QString name, const int spell_rank) : spell_name(std::move(name)), spell_rank(spell_rank) {
     spell_status_statistics.insert(SpellStatus::Available, 0);
     spell_status_statistics.insert(SpellStatus::BuffInactive, 0);
     spell_status_statistics.insert(SpellStatus::CastInProgress, 0);
@@ -31,13 +29,13 @@ RotationExecutor::RotationExecutor(QString name, const int spell_rank) :
 }
 
 RotationExecutor::~RotationExecutor() {
-    for (const auto & condition_group : condition_groups) {
-        for (const auto & j : condition_group) {
+    for (const auto& condition_group : condition_groups) {
+        for (const auto& j : condition_group) {
             delete j;
         }
     }
 
-    for (const auto & sentence : sentences) {
+    for (const auto& sentence : sentences) {
         delete sentence;
     }
 
@@ -86,7 +84,7 @@ QString RotationExecutor::get_spell_name() const {
 QString RotationExecutor::get_conditions_string() const {
     QStringList condition_descriptions;
     for (int i = 0; i < condition_groups.size(); ++i) {
-        for (const auto & condition : condition_groups[i])
+        for (const auto& condition : condition_groups[i])
             condition_descriptions << condition->condition_description();
 
         if (i + 1 < condition_groups.size())
@@ -117,7 +115,7 @@ void RotationExecutor::prepare_set_of_combat_iterations(StatisticsRotationExecut
     no_condition_group_fulfilled = 0;
     successful_casts = 0;
 
-    for (auto & status : spell_status_statistics)
+    for (auto& status : spell_status_statistics)
         status = 0;
 }
 

@@ -12,18 +12,24 @@
 #include "Utils/Check.h"
 
 LightningBolt::LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spell_rank) :
-    Spell("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    CastingTimeRequirer(pchar, SuppressibleCast::Yes,  2500),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Tidal Mastery", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Call of Thunder", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Concussion", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Convection", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Lightning Mastery", 5, DisabledAtZero::No),
-                   }),
+    Spell("Lightning Bolt",
+          "Assets/spell/Spell_nature_lightning.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0,
+          spell_rank),
+    CastingTimeRequirer(pchar, SuppressibleCast::Yes, 2500),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Tidal Mastery", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Call of Thunder", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Concussion", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Convection", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Lightning Mastery", 5, DisabledAtZero::No),
+    }),
     ItemModificationRequirer({23199}),
-    spells(spells)
-{
+    spells(spells) {
     switch (spell_rank) {
     case 1:
         base_damage_min = 13;
@@ -128,7 +134,8 @@ void LightningBolt::complete_cast_effect() {
 
     pchar->get_spells()->start_attack();
 
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Nature) + tidal_mastery_mod + call_of_thunder_mod);
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Nature)
+                                                                                 + tidal_mastery_mod + call_of_thunder_mod);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Nature);
 
     if (hit_roll == MagicAttackResult::MISS)
@@ -138,16 +145,19 @@ void LightningBolt::complete_cast_effect() {
 
     spells->roll_clearcasting();
 
-    const unsigned damage_dealt = random->get_roll() + static_cast<unsigned>(round((pchar->get_stats()->get_spell_damage(MagicSchool::Nature) + totem_of_the_storm_bonus) * spell_dmg_coefficient));
+    const unsigned damage_dealt = random->get_roll()
+                                  + static_cast<unsigned>(round((pchar->get_stats()->get_spell_damage(MagicSchool::Nature) + totem_of_the_storm_bonus)
+                                                                * spell_dmg_coefficient));
 
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
-    const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature);
+    const double damage_mod = pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(MagicSchool::Nature);
-        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * concussion_mod)), get_resource_cost(), 0, resist_roll);
-    }
-    else {
+        add_spell_crit_dmg(static_cast<int>(
+                               round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * concussion_mod)),
+                           get_resource_cost(), 0, resist_roll);
+    } else {
         pchar->spell_hit_effect(MagicSchool::Nature);
         add_spell_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod * concussion_mod)), get_resource_cost(), 0, resist_roll);
     }

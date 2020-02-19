@@ -9,9 +9,7 @@
 #include "MultiShot.h"
 #include "Orc.h"
 
-TestMana::TestMana(EquipmentDb* equipment_db) :
-    TestSpellHunter(equipment_db, "Mana")
-{}
+TestMana::TestMana(EquipmentDb* equipment_db) : TestSpellHunter(equipment_db, "Mana") {}
 
 void TestMana::test_all() {
     run_mandatory_tests();
@@ -83,20 +81,14 @@ void TestMana::spend_mana() {
     assert(mana_before - pchar->get_resource_level(ResourceType::Mana) == 230);
 }
 
-void TestMana::test_name_correct() {
-}
+void TestMana::test_name_correct() {}
 
-void TestMana::test_spell_cooldown() {
-}
+void TestMana::test_spell_cooldown() {}
 
-void TestMana::test_how_spell_observes_global_cooldown() {
-}
+void TestMana::test_how_spell_observes_global_cooldown() {}
 
-void TestMana::test_resource_cost() {
-}
+void TestMana::test_resource_cost() {}
 
-void TestMana::test_is_ready_conditions() {
-}
+void TestMana::test_is_ready_conditions() {}
 
-void TestMana::test_whether_spell_causes_global_cooldown() {
-}
+void TestMana::test_whether_spell_causes_global_cooldown() {}

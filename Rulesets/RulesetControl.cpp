@@ -12,9 +12,7 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-RulesetControl::RulesetControl() :
-    active_ruleset(Ruleset::Standard)
-{}
+RulesetControl::RulesetControl() : active_ruleset(Ruleset::Standard) {}
 
 Ruleset RulesetControl::get_active_ruleset() const {
     return this->active_ruleset;

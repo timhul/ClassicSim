@@ -15,5 +15,5 @@ public:
     void clear();
 
 private:
-     std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
+    std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
 };

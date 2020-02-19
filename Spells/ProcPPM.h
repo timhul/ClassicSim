@@ -3,7 +3,7 @@
 #include "Proc.h"
 #include "ProcInfo.h"
 
-class ProcPPM: public Proc {
+class ProcPPM : public Proc {
 public:
     ProcPPM(const QString& name,
             const QString& icon,

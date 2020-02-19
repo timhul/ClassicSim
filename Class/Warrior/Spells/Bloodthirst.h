@@ -6,7 +6,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Bloodthirst: public Spell, public TalentRequirer {
+class Bloodthirst : public Spell, public TalentRequirer {
 public:
     Bloodthirst(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control);
 

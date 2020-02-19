@@ -4,7 +4,8 @@
 
 class TestUtils {
 public:
-    enum Weapons {
+    enum Weapons
+    {
         Test100Dmg = 1000000,
         Test100DmgDagger,
         Test3Speed,

@@ -9,11 +9,10 @@
 
 Overpower::Overpower(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control) :
     Spell("Overpower", "Assets/items/Inv_sword_05.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Rage, 5),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    talent_ranks({0, 2500, 5000})
-{}
+    talent_ranks({0, 2500, 5000}) {}
 
 SpellStatus Overpower::is_ready_spell_specific() const {
     if (warr->in_defensive_stance())
@@ -28,12 +27,7 @@ SpellStatus Overpower::is_ready_spell_specific() const {
 
 void Overpower::spell_effect() {
     unsigned total_crit = pchar->get_stats()->get_mh_crit_chance() + crit_mod;
-    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(),
-                                                      total_crit,
-                                                      false,
-                                                      false,
-                                                      false,
-                                                      true);
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), total_crit, false, false, false, true);
 
     spells->get_overpower_buff()->cancel_buff();
     cooldown->add_gcd_event();
@@ -51,8 +45,7 @@ void Overpower::spell_effect() {
         damage_dealt *= warr->get_stats()->get_melee_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }

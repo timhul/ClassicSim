@@ -2,7 +2,7 @@
 
 #include "TestTalentTree.h"
 
-class TestHolyPaladin: public TestTalentTree {
+class TestHolyPaladin : public TestTalentTree {
 public:
     TestHolyPaladin(EquipmentDb* equipment_db);
 

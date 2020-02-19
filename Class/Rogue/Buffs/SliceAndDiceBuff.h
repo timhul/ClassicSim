@@ -1,10 +1,10 @@
 #pragma once
 
-#include "SelfBuff.h"
-
 #include <QVector>
 
-class SliceAndDiceBuff: public SelfBuff {
+#include "SelfBuff.h"
+
+class SliceAndDiceBuff : public SelfBuff {
 public:
     SliceAndDiceBuff(Character* pchar);
 

@@ -9,9 +9,7 @@
 #include "SealFate.h"
 #include "Talent.h"
 
-TestSealFate::TestSealFate(EquipmentDb* equipment_db) :
-    TestProcRogue(equipment_db, "Seal Fate")
-{}
+TestSealFate::TestSealFate(EquipmentDb* equipment_db) : TestProcRogue(equipment_db, "Seal Fate") {}
 
 void TestSealFate::test_all() {
     set_up();

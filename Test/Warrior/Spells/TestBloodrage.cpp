@@ -7,9 +7,7 @@
 #include "Event.h"
 #include "Queue.h"
 
-TestBloodrage::TestBloodrage(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Bloodrage")
-{}
+TestBloodrage::TestBloodrage(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Bloodrage") {}
 
 void TestBloodrage::test_all() {
     run_mandatory_tests();

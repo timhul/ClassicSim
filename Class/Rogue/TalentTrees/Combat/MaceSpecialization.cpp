@@ -4,9 +4,8 @@
 #include "CharacterStats.h"
 #include "ItemNamespace.h"
 
-MaceSpecialization::MaceSpecialization(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Mace Specialization", "5LL", "Assets/items/Inv_mace_01.png", 5)
-{
+MaceSpecialization::MaceSpecialization(Character* pchar, TalentTree* tree) :
+    Talent(pchar, tree, "Mace Specialization", "5LL", "Assets/items/Inv_mace_01.png", 5) {
     QString base_str = "Increases your skill with Maces by %1, and gives you a %2% chance to stun your target for 3 sec with a mace.";
     rank_descriptions.insert(0, base_str.arg(1).arg(1));
     rank_descriptions.insert(1, base_str.arg(1).arg(1));

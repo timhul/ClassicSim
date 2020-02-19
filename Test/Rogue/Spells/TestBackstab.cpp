@@ -7,9 +7,7 @@
 #include "Event.h"
 #include "SpellRankGroup.h"
 
-TestBackstab::TestBackstab(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Backstab")
-{}
+TestBackstab::TestBackstab(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Backstab") {}
 
 void TestBackstab::test_all() {
     run_mandatory_tests();

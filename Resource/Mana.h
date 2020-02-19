@@ -1,12 +1,12 @@
 #pragma once
 
-#include "RegeneratingResource.h"
-
 #include <QVector>
+
+#include "RegeneratingResource.h"
 
 class Character;
 
-class Mana: public RegeneratingResource {
+class Mana : public RegeneratingResource {
 public:
     Mana(Character*);
 

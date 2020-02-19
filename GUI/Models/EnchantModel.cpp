@@ -4,14 +4,10 @@
 #include "CharacterEnchants.h"
 #include "ItemNamespace.h"
 
-EnchantModel::EnchantModel(const int equipment_slot, const bool permanent, QObject *parent) :
-    QAbstractListModel(parent),
-    pchar(nullptr),
-    equipment_slot(equipment_slot),
-    permanent(permanent)
-{}
+EnchantModel::EnchantModel(const int equipment_slot, const bool permanent, QObject* parent) :
+    QAbstractListModel(parent), pchar(nullptr), equipment_slot(equipment_slot), permanent(permanent) {}
 
-int EnchantModel::rowCount(const QModelIndex & parent) const {
+int EnchantModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return enchants.count();
 }
@@ -29,7 +25,7 @@ void EnchantModel::update_enchants() {
     endResetModel();
 }
 
-QVariant EnchantModel::data(const QModelIndex & index, int role) const {
+QVariant EnchantModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= enchants.count())
         return QVariant();
 

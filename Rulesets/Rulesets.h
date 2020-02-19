@@ -1,6 +1,7 @@
 #pragma once
 
-enum Ruleset {
+enum Ruleset
+{
     Standard = 0,
     Vaelastrasz,
     Loatheb

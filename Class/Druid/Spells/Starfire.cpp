@@ -14,17 +14,23 @@
 #include "Utils/Check.h"
 
 Starfire::Starfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
-    Spell("Starfire", "Assets/spell/Spell_arcane_starfire.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Starfire",
+          "Assets/spell/Spell_arcane_starfire.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0,
+          spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3500),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Starfire", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Vengeance", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Moonglow", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
-                   }),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Improved Starfire", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Vengeance", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Moonglow", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
+    }),
     druid_spells(druid_spells),
-    base_casting_time_ms(casting_time_ms)
-{
+    base_casting_time_ms(casting_time_ms) {
     switch (spell_rank) {
     case 1:
         base_resource_cost = 95;
@@ -121,8 +127,7 @@ void Starfire::complete_cast_effect() {
         const double spell_crit_dmg_mod = 1 + (pchar->get_stats()->get_spell_crit_dmg_mod() - 1) * vengeance_crit_damage_bonus;
         damage_dealt = round(damage_dealt * spell_crit_dmg_mod);
         add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
-    }
-    else {
+    } else {
         pchar->spell_hit_effect(MagicSchool::Arcane);
         damage_dealt = round(damage_dealt);
         add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);

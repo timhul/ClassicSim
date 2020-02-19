@@ -4,7 +4,7 @@
 
 class Character;
 
-class CombustionBuff: public SelfBuff {
+class CombustionBuff : public SelfBuff {
 public:
     CombustionBuff(Character* pchar);
 

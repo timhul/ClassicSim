@@ -7,7 +7,7 @@ class Buff;
 class Warrior;
 class WarriorSpells;
 
-class HeroicStrike: public Spell, public TalentRequirer {
+class HeroicStrike : public Spell, public TalentRequirer {
 public:
     HeroicStrike(Warrior* warrior, WarriorSpells* spells, Buff* hs_buff, const int spell_rank);
     ~HeroicStrike() override;

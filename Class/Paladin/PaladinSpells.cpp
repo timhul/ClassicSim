@@ -14,19 +14,16 @@
 #include "SealOfTheCrusader.h"
 #include "Utils/Check.h"
 
-PaladinSpells::PaladinSpells(Paladin* paladin) :
-    CharacterSpells(paladin),
-    paladin(paladin)
-{
+PaladinSpells::PaladinSpells(Paladin* paladin) : CharacterSpells(paladin), paladin(paladin) {
     this->mh_attack = new MainhandAttackPaladin(paladin, this);
 
     add_spell_group({
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 1),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 2),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 3),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 4),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 5),
-                    });
+        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 1),
+        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 2),
+        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 3),
+        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 4),
+        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 5),
+    });
     add_spell_group({new Judgement(paladin, this, new_cooldown_control("Judgement", 10.0))});
     add_spell_group({mh_attack});
     add_spell_group({new SealOfCommand(paladin, this)});

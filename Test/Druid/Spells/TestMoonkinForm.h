@@ -2,9 +2,9 @@
 
 #include "TestSpellDruid.h"
 
-class TestMoonkinForm: public TestSpellDruid {
+class TestMoonkinForm : public TestSpellDruid {
 public:
-    TestMoonkinForm(EquipmentDb *equipment_db);
+    TestMoonkinForm(EquipmentDb* equipment_db);
 
     void test_all();
 

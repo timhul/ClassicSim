@@ -6,7 +6,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Execute: public Spell, public TalentRequirer {
+class Execute : public Spell, public TalentRequirer {
 public:
     Execute(Warrior* pchar, WarriorSpells* spells);
     ~Execute() override;

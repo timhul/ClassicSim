@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class DaggerSpecialization: public Talent {
+class DaggerSpecialization : public Talent {
 public:
-    DaggerSpecialization(Character *pchar, TalentTree* tree);
+    DaggerSpecialization(Character* pchar, TalentTree* tree);
     ~DaggerSpecialization() override;
 
 private:

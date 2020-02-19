@@ -6,7 +6,7 @@ class Buff;
 class Random;
 class PeriodicDamageSpell;
 
-class FireballInstant: public Spell {
+class FireballInstant : public Spell {
 public:
     FireballInstant(Character* pchar_,
                     const QString& name_,

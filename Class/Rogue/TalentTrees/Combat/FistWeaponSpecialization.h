@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class FistWeaponSpecialization: public Talent {
+class FistWeaponSpecialization : public Talent {
 public:
-    FistWeaponSpecialization(Character *pchar, TalentTree* tree);
+    FistWeaponSpecialization(Character* pchar, TalentTree* tree);
     ~FistWeaponSpecialization() override;
 
 private:

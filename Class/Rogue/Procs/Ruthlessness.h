@@ -5,7 +5,7 @@
 
 class Rogue;
 
-class Ruthlessness: public Proc, public TalentRequirer {
+class Ruthlessness : public Proc, public TalentRequirer {
 public:
     Ruthlessness(Rogue* rogue);
 

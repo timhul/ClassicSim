@@ -4,14 +4,11 @@
 
 #include "Utils/Check.h"
 
-CharacterTalents::CharacterTalents() :
-    current_index(0),
-    talent_points_remaining(QVector<int>{51, 51, 51})
-{}
+CharacterTalents::CharacterTalents() : current_index(0), talent_points_remaining(QVector<int> {51, 51, 51}) {}
 
 CharacterTalents::~CharacterTalents() {
-    for (const auto & talent_tree : talent_trees) {
-        for (const auto & i : talent_tree)
+    for (const auto& talent_tree : talent_trees) {
+        for (const auto& i : talent_tree)
             delete i;
     }
 }
@@ -315,16 +312,16 @@ void CharacterTalents::set_current_index(const int index) {
     if (index < 0 || index >= talent_trees.size())
         return;
 
-    for (const auto & tree : talent_trees[current_index])
-            tree->remove_rank_effects();
+    for (const auto& tree : talent_trees[current_index])
+        tree->remove_rank_effects();
 
     current_index = index;
 
-    for (const auto & tree : talent_trees[current_index])
-            tree->apply_rank_effects();
+    for (const auto& tree : talent_trees[current_index])
+        tree->apply_rank_effects();
 }
 
-void CharacterTalents::add_talent_tree(TalentTree* left_tree, TalentTree* mid_tree, TalentTree *right_tree) {
+void CharacterTalents::add_talent_tree(TalentTree* left_tree, TalentTree* mid_tree, TalentTree* right_tree) {
     QMap<QString, TalentTree*> map;
     map.insert("LEFT", left_tree);
     map.insert("MID", mid_tree);

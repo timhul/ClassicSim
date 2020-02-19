@@ -7,9 +7,7 @@
 #include "Shaman.h"
 #include "Stormstrike.h"
 
-TestStormstrike::TestStormstrike(EquipmentDb *equipment_db) :
-    TestSpellShaman(equipment_db, "Stormstrike")
-{}
+TestStormstrike::TestStormstrike(EquipmentDb* equipment_db) : TestSpellShaman(equipment_db, "Stormstrike") {}
 
 void TestStormstrike::test_all() {
     run_mandatory_tests(false);
@@ -53,9 +51,7 @@ void TestStormstrike::test_whether_spell_causes_global_cooldown() {
     assert(!shaman->action_ready());
 }
 
-void TestStormstrike::test_how_spell_observes_global_cooldown() {
-
-}
+void TestStormstrike::test_how_spell_observes_global_cooldown() {}
 
 void TestStormstrike::test_is_ready_conditions() {
     assert(stormstrike()->get_spell_status() == SpellStatus::NotEnabled);

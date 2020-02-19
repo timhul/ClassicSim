@@ -9,7 +9,7 @@ class SealOfCommand;
 class SealOfTheCrusader;
 class Spell;
 
-class TestSpellPaladin: public TestSpellDamage {
+class TestSpellPaladin : public TestSpellDamage {
 public:
     TestSpellPaladin(EquipmentDb* equipment_db, QString spell_under_test);
 

@@ -34,7 +34,8 @@ enum class MagicSchool : int;
 
 class Character {
 public:
-    Character(QString class_name, QString class_color, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member);
+    Character(
+        QString class_name, QString class_color, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member);
     virtual ~Character();
 
     CharacterEnchants* get_enchants() const;
@@ -196,5 +197,4 @@ private:
     bool is_orc_warlock = false;
     uint intellect_offset = 0;
     uint spirit_offset = 0;
-
 };

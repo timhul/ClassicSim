@@ -6,7 +6,7 @@
 class DeathWishBuff;
 class Warrior;
 
-class DeathWish: public Spell, public TalentRequirer {
+class DeathWish : public Spell, public TalentRequirer {
 public:
     DeathWish(Warrior* warrior);
     ~DeathWish() override;

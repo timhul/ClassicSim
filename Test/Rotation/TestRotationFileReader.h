@@ -1,11 +1,10 @@
 #pragma once
 
-#include "TestObject.h"
-
 #include <QVector>
 
 #include "ConditionVariableBuiltin.h"
 #include "Resource.h"
+#include "TestObject.h"
 
 class ConditionBuffDuration;
 class ConditionResource;
@@ -39,13 +38,16 @@ private:
     RaidControl* raid_control {nullptr};
     QVector<Rotation*> rotations;
 
-    void verify_executor_names(Rotation *rotation, QVector<RotationExecutor*> &executors, QVector<QString> &executor_names);
-    void verify_resource_condition(ConditionResource* condition, const double cmp_value,
-                                   const Comparator comparator, const ResourceType resource_type);
-    void verify_buff_condition(ConditionBuffDuration* condition, const QString& name,
-                               const double cmp_value, const Comparator comparator);
-    void verify_builtin_condition(ConditionVariableBuiltin* condition, const BuiltinVariables builtin,
-                                  const double cmp_value, const Comparator comparator);
+    void verify_executor_names(Rotation* rotation, QVector<RotationExecutor*>& executors, QVector<QString>& executor_names);
+    void verify_resource_condition(ConditionResource* condition,
+                                   const double cmp_value,
+                                   const Comparator comparator,
+                                   const ResourceType resource_type);
+    void verify_buff_condition(ConditionBuffDuration* condition, const QString& name, const double cmp_value, const Comparator comparator);
+    void verify_builtin_condition(ConditionVariableBuiltin* condition,
+                                  const BuiltinVariables builtin,
+                                  const double cmp_value,
+                                  const Comparator comparator);
 
     Rotation* get_rotation(const QString& name) const;
 

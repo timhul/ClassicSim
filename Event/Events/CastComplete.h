@@ -4,7 +4,7 @@
 
 class CastingTimeRequirer;
 
-class CastComplete: public Event {
+class CastComplete : public Event {
 public:
     CastComplete(CastingTimeRequirer* cast, const double timestamp);
 

@@ -4,7 +4,7 @@
 
 class SpellPeriodic;
 
-class DotTick: public Event {
+class DotTick : public Event {
 public:
     DotTick(SpellPeriodic* spell, const double timestamp, const int application_id);
 

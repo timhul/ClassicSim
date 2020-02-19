@@ -12,9 +12,8 @@ BestialWrath::BestialWrath(Character* pchar, const QString& pet_name) :
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           206),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Bestial Wrath", 1, DisabledAtZero::Yes)}),
-    bestial_wrath_buff(new BestialWrathBuff(pchar, pet_name))
-{
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Bestial Wrath", 1, DisabledAtZero::Yes)}),
+    bestial_wrath_buff(new BestialWrathBuff(pchar, pet_name)) {
     enabled = false;
 }
 
@@ -39,4 +38,3 @@ void BestialWrath::increase_talent_rank_effect(const QString&, const int) {
 void BestialWrath::decrease_talent_rank_effect(const QString&, const int) {
     bestial_wrath_buff->disable_buff();
 }
-

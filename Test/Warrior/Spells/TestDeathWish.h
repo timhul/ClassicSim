@@ -4,9 +4,9 @@
 
 class DeathWish;
 
-class TestDeathWish: public TestSpellWarrior {
+class TestDeathWish : public TestSpellWarrior {
 public:
-    TestDeathWish(EquipmentDb *equipment_db);
+    TestDeathWish(EquipmentDb* equipment_db);
 
     void test_all();
 

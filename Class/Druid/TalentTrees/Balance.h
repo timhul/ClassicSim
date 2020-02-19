@@ -5,7 +5,7 @@
 class Druid;
 class DruidSpells;
 
-class Balance: public TalentTree {
+class Balance : public TalentTree {
 public:
     Balance(Druid* druid);
 

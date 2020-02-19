@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class HolyStrength: public SelfBuff {
+class HolyStrength : public SelfBuff {
 public:
     HolyStrength(Character* pchar, const QString& weapon_side);
 

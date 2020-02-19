@@ -9,9 +9,7 @@
 #include "Recklessness.h"
 #include "Whirlwind.h"
 
-TestRecklessness::TestRecklessness(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Recklessness")
-{}
+TestRecklessness::TestRecklessness(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Recklessness") {}
 
 void TestRecklessness::test_all() {
     run_mandatory_tests();

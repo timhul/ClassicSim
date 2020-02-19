@@ -7,7 +7,7 @@ class StatisticsResource;
 class Warrior;
 class WarriorSpells;
 
-class AngerManagement: public PeriodicResourceGainSpell, public TalentRequirer {
+class AngerManagement : public PeriodicResourceGainSpell, public TalentRequirer {
 public:
     AngerManagement(Warrior* warrior, WarriorSpells* warrior_spells);
 

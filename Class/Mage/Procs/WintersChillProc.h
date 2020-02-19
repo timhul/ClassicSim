@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "Proc.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Mage;
 class SharedDebuff;
 
-class WintersChillProc: public Proc, public TalentRequirer {
+class WintersChillProc : public Proc, public TalentRequirer {
 public:
     WintersChillProc(Mage* pchar, SharedDebuff* winters_chill);
 

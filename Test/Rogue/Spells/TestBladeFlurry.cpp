@@ -13,9 +13,7 @@
 #include "Talent.h"
 #include "WarriorSpells.h"
 
-TestBladeFlurry::TestBladeFlurry(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Blade Flurry")
-{}
+TestBladeFlurry::TestBladeFlurry(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Blade Flurry") {}
 
 void TestBladeFlurry::test_all() {
     run_mandatory_tests(false);
@@ -62,9 +60,7 @@ void TestBladeFlurry::test_how_spell_observes_global_cooldown() {
     assert(blade_flurry()->get_spell_status() == SpellStatus::OnGCD);
 }
 
-void TestBladeFlurry::test_is_ready_conditions() {
-
-}
+void TestBladeFlurry::test_is_ready_conditions() {}
 
 void TestBladeFlurry::test_resource_cost() {
     given_1_of_1_blade_flurry();

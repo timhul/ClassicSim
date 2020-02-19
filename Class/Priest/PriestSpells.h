@@ -4,9 +4,9 @@
 
 class Priest;
 
-class PriestSpells: public CharacterSpells {
+class PriestSpells : public CharacterSpells {
 public:
-    PriestSpells(Priest *priest);
+    PriestSpells(Priest* priest);
     ~PriestSpells() override;
 
 private:

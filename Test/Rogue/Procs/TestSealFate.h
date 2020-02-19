@@ -4,9 +4,9 @@
 
 class SealFate;
 
-class TestSealFate: public TestProcRogue {
+class TestSealFate : public TestProcRogue {
 public:
-    TestSealFate(EquipmentDb *equipment_db);
+    TestSealFate(EquipmentDb* equipment_db);
 
     void test_all();
 

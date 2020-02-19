@@ -17,9 +17,7 @@
 #include "Talent.h"
 #include "Whirlwind.h"
 
-TestRend::TestRend(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Rend")
-{}
+TestRend::TestRend(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Rend") {}
 
 void TestRend::test_all() {
     run_mandatory_tests();
@@ -202,8 +200,7 @@ void TestRend::test_dodge_applies_overpower_buff() {
     then_overpower_is_active();
 }
 
-void TestRend::given_0_of_3_improved_rend() {
-}
+void TestRend::given_0_of_3_improved_rend() {}
 
 void TestRend::given_1_of_3_improved_rend() {
     given_arms_talent_with_rank("Improved Rend", 1);

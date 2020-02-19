@@ -9,12 +9,12 @@ class RulesetControl {
 public:
     RulesetControl();
 
-    void use_ruleset(Ruleset, Character*, SimSettings *sim_settings);
+    void use_ruleset(Ruleset, Character*, SimSettings* sim_settings);
     Ruleset get_active_ruleset() const;
 
 private:
     Ruleset active_ruleset;
 
-    void use_vaelastrasz_ruleset(Character*, SimSettings *sim_settings);
+    void use_vaelastrasz_ruleset(Character*, SimSettings* sim_settings);
     void remove_vaelastrasz_ruleset(Character*, SimSettings* sim_settings);
 };

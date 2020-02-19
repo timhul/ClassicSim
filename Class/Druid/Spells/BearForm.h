@@ -6,7 +6,7 @@
 class Buff;
 class Druid;
 
-class BearForm: public Spell, public TalentRequirer {
+class BearForm : public Spell, public TalentRequirer {
 public:
     BearForm(Druid* druid);
     ~BearForm() override;

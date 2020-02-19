@@ -9,12 +9,17 @@
 #include "StormstrikeBuff.h"
 
 Stormstrike::Stormstrike(Shaman* pchar, ShamanSpells* spells, StormstrikeBuff* buff) :
-    Spell("Stormstrike", "Assets/spell/Spell_holy_sealofmight.png", pchar, new CooldownControl(pchar, 12.0), RestrictedByGcd::Yes, ResourceType::Mana, 319),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Stormstrike", 1, DisabledAtZero::Yes)}),
+    Spell("Stormstrike",
+          "Assets/spell/Spell_holy_sealofmight.png",
+          pchar,
+          new CooldownControl(pchar, 12.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          319),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Stormstrike", 1, DisabledAtZero::Yes)}),
     shaman(pchar),
     spells(spells),
-    stormstrike_buff(buff)
-{
+    stormstrike_buff(buff) {
     this->enabled = false;
 }
 
@@ -50,8 +55,7 @@ void Stormstrike::spell_effect() {
         damage_dealt *= shaman->get_stats()->get_melee_ability_crit_dmg_mod();
         shaman->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), get_resource_cost(), pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         shaman->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), get_resource_cost(), pchar->global_cooldown());
     }
@@ -60,10 +64,6 @@ void Stormstrike::spell_effect() {
     stormstrike_buff->apply_buff();
 }
 
-void Stormstrike::increase_talent_rank_effect(const QString&, const int) {
+void Stormstrike::increase_talent_rank_effect(const QString&, const int) {}
 
-}
-
-void Stormstrike::decrease_talent_rank_effect(const QString&, const int) {
-
-}
+void Stormstrike::decrease_talent_rank_effect(const QString&, const int) {}

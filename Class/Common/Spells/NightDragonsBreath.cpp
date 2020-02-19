@@ -7,9 +7,14 @@
 #include "StatisticsResource.h"
 
 NightDragonsBreath::NightDragonsBreath(Character* pchar) :
-    Spell("Night Dragon's Breath", "Assets/misc/Inv_misc_food_45.png", pchar, new CooldownControl(pchar, 120.0), RestrictedByGcd::No, ResourceType::Mana, 0),
-    random(new Random(min, max))
-{}
+    Spell("Night Dragon's Breath",
+          "Assets/misc/Inv_misc_food_45.png",
+          pchar,
+          new CooldownControl(pchar, 120.0),
+          RestrictedByGcd::No,
+          ResourceType::Mana,
+          0),
+    random(new Random(min, max)) {}
 
 NightDragonsBreath::~NightDragonsBreath() {
     delete random;

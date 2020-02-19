@@ -5,7 +5,7 @@
 class TalentTree;
 class Warrior;
 
-class AxeSpecialization: public Talent {
+class AxeSpecialization : public Talent {
 public:
     AxeSpecialization(Warrior* warrior, TalentTree* tree);
     ~AxeSpecialization() override = default;

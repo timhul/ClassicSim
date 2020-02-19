@@ -5,11 +5,8 @@
 #include "SortDirection.h"
 #include "StatisticsRotationExecutor.h"
 
-RotationExecutorListModel::RotationExecutorListModel(NumberCruncher* statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      executor_breakdown_model(new RotationExecutorBreakdownModel(this)),
-      statistics_source(statistics_source)
-{}
+RotationExecutorListModel::RotationExecutorListModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), executor_breakdown_model(new RotationExecutorBreakdownModel(this)), statistics_source(statistics_source) {}
 
 RotationExecutorListModel::~RotationExecutorListModel() {
     delete executor_breakdown_model;
@@ -28,8 +25,8 @@ void RotationExecutorListModel::selectExecutor(const int executor_index) {
 }
 
 void RotationExecutorListModel::delete_list() {
-    for (const auto & list : executor_outcomes)
-        for (const auto & outcome : list)
+    for (const auto& list : executor_outcomes)
+        for (const auto& outcome : list)
             delete outcome;
 
     executor_outcomes.clear();
@@ -57,12 +54,12 @@ void RotationExecutorListModel::update_statistics() {
     executor_breakdown_model->update_statistics();
 }
 
-int RotationExecutorListModel::rowCount(const QModelIndex & parent) const {
+int RotationExecutorListModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return executor_outcomes.count();
 }
 
-QVariant RotationExecutorListModel::data(const QModelIndex & index, int role) const {
+QVariant RotationExecutorListModel::data(const QModelIndex& index, int role) const {
     if (executor_outcomes.size() <= executor_index || index.row() < 0)
         return QVariant();
 

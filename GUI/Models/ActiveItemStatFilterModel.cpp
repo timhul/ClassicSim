@@ -7,10 +7,10 @@
 #include "Utils/Check.h"
 #include "WeaponModel.h"
 
-bool ItemStatFilter::item_passes_filter(const Item *item) const {
+bool ItemStatFilter::item_passes_filter(const Item* item) const {
     unsigned item_stat_value = item->get_stat_value_via_flag(this->item_stat_flag);
 
-    switch(comparator) {
+    switch (comparator) {
     case StatComparator::Less:
         return item_stat_value < cmp_value;
     case StatComparator::LEQ:
@@ -45,21 +45,19 @@ QString ItemStatFilter::get_comparator_string() const {
     }
 }
 
-ActiveItemStatFilterModel::ActiveItemStatFilterModel(QObject *parent)
-    : QAbstractListModel(parent)
-{
+ActiveItemStatFilterModel::ActiveItemStatFilterModel(QObject* parent) : QAbstractListModel(parent) {
     this->item_model = nullptr;
     this->weapon_model = nullptr;
 }
 
 ActiveItemStatFilterModel::~ActiveItemStatFilterModel() {
-    for (const auto & filter : active_item_stat_filters) {
+    for (const auto& filter : active_item_stat_filters) {
         delete filter;
     }
 }
 
 bool ActiveItemStatFilterModel::item_passes_active_stat_filters(const Item* item) const {
-    for (const auto & filter : active_item_stat_filters) {
+    for (const auto& filter : active_item_stat_filters) {
         if (!filter->item_passes_filter(item))
             return false;
     }
@@ -72,16 +70,16 @@ void ActiveItemStatFilterModel::update_affected_models() {
     this->weapon_model->update_items();
 }
 
-void ActiveItemStatFilterModel::set_item_model(ItemModel *item_model) {
+void ActiveItemStatFilterModel::set_item_model(ItemModel* item_model) {
     this->item_model = item_model;
 }
 
-void ActiveItemStatFilterModel::set_weapon_model(WeaponModel *weapon_model) {
+void ActiveItemStatFilterModel::set_weapon_model(WeaponModel* weapon_model) {
     this->weapon_model = weapon_model;
 }
 
 void ActiveItemStatFilterModel::add_filter(const ItemStats item_stat_flag, const QString& description) {
-    for (const auto & filter : active_item_stat_filters) {
+    for (const auto& filter : active_item_stat_filters) {
         if (filter->item_stat_flag == item_stat_flag)
             return;
     }
@@ -107,7 +105,7 @@ void ActiveItemStatFilterModel::removeFilter(const int item_stat_flag_int) {
 
 void ActiveItemStatFilterModel::clearFilters() {
     layoutAboutToBeChanged();
-    for (const auto & filter : active_item_stat_filters) {
+    for (const auto& filter : active_item_stat_filters) {
         delete filter;
     }
 
@@ -122,7 +120,7 @@ void ActiveItemStatFilterModel::changeComparator(const unsigned item_stat_flag_u
         return;
 
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
-    for (const auto & active_item_stat_filter : active_item_stat_filters) {
+    for (const auto& active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
             active_item_stat_filter->comparator = comparator;
@@ -135,7 +133,7 @@ void ActiveItemStatFilterModel::changeComparator(const unsigned item_stat_flag_u
 
 void ActiveItemStatFilterModel::changeCompareValue(const unsigned item_stat_flag_unsigned, const unsigned cmp_value) {
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
-    for (const auto & active_item_stat_filter : active_item_stat_filters) {
+    for (const auto& active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
             active_item_stat_filter->cmp_value = cmp_value;
@@ -146,12 +144,12 @@ void ActiveItemStatFilterModel::changeCompareValue(const unsigned item_stat_flag
     }
 }
 
-int ActiveItemStatFilterModel::rowCount(const QModelIndex & parent) const {
+int ActiveItemStatFilterModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return active_item_stat_filters.count();
 }
 
-QVariant ActiveItemStatFilterModel::data(const QModelIndex & index, int role) const {
+QVariant ActiveItemStatFilterModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= active_item_stat_filters.count())
         return QVariant();
 

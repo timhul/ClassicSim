@@ -8,7 +8,7 @@
 class Random;
 class Druid;
 
-class FerociousBite: public Spell, public TalentRequirer {
+class FerociousBite : public Spell, public TalentRequirer {
 public:
     FerociousBite(Druid* druid, const int spell_rank);
     ~FerociousBite() override;

@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "ItemModificationRequirer.h"
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
 
-#include <QVector>
-
 class Paladin;
 
-class SealOfTheCrusaderBuff: public SelfBuff, public TalentRequirer, public ItemModificationRequirer {
+class SealOfTheCrusaderBuff : public SelfBuff, public TalentRequirer, public ItemModificationRequirer {
 public:
     SealOfTheCrusaderBuff(Paladin* paladin);
     ~SealOfTheCrusaderBuff() override = default;

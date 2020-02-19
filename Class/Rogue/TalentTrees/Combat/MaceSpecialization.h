@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class MaceSpecialization: public Talent {
+class MaceSpecialization : public Talent {
 public:
-    MaceSpecialization(Character *pchar, TalentTree* tree);
+    MaceSpecialization(Character* pchar, TalentTree* tree);
     ~MaceSpecialization() override;
 
 private:

@@ -48,8 +48,7 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Rai
     initialize_talents();
 }
 
-Mage::~Mage()
-{
+Mage::~Mage() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -168,6 +167,4 @@ QVector<int> Mage::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Mage::reset_class_specific() {
-
-}
+void Mage::reset_class_specific() {}

@@ -2,10 +2,7 @@
 
 #include "Utils/Check.h"
 
-Focus::Focus(Character* pchar) :
-    RegeneratingResource(pchar),
-    focus_gain(20)
-{
+Focus::Focus(Character* pchar) : RegeneratingResource(pchar), focus_gain(20) {
     reset_resource();
 }
 
@@ -25,13 +22,9 @@ double Focus::get_tick_rate() const {
     return 2.0;
 }
 
-void Focus::reset_effect() {
+void Focus::reset_effect() {}
 
-}
-
-void Focus::lose_resource_effect() {
-
-}
+void Focus::lose_resource_effect() {}
 
 void Focus::increase_focus_gain() {
     focus_gain += 2;

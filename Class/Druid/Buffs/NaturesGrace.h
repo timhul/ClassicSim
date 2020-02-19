@@ -3,7 +3,7 @@
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
 
-class NaturesGrace: public SelfBuff, public TalentRequirer {
+class NaturesGrace : public SelfBuff, public TalentRequirer {
 public:
     NaturesGrace(Character* pchar);
 

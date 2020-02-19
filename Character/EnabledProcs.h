@@ -15,7 +15,7 @@ class Faction;
 namespace ProcStatus {
     static const int INACTIVE = -1;
     static const int INITIAL_ID = 0;
-}
+} // namespace ProcStatus
 
 class EnabledProcs {
 public:

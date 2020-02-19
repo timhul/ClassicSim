@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class WeaponExpertise: public Talent {
+class WeaponExpertise : public Talent {
 public:
-    WeaponExpertise(Character *pchar, TalentTree* tree);
+    WeaponExpertise(Character* pchar, TalentTree* tree);
     ~WeaponExpertise() override;
 
 private:

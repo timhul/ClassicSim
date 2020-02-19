@@ -7,7 +7,7 @@ class Mana;
 class PaladinSpells;
 class Vengeance;
 
-class Paladin: public Character {
+class Paladin : public Character {
 public:
     Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Paladin() override;

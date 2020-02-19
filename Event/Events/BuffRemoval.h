@@ -4,7 +4,7 @@
 
 class Buff;
 
-class BuffRemoval: public Event {
+class BuffRemoval : public Event {
 public:
     BuffRemoval(Buff* buff, const double timestamp, const int iteration);
 

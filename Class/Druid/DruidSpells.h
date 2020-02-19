@@ -12,7 +12,7 @@ class MoonkinForm;
 class Proc;
 class TigersFuryBuff;
 
-class DruidSpells: public CharacterSpells {
+class DruidSpells : public CharacterSpells {
 public:
     DruidSpells(Druid* druid);
     ~DruidSpells() override;

@@ -33,9 +33,7 @@
 #include "Weapon.h"
 
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
-    equipment_db(equipment_db),
-    spell_under_test(std::move(spell_under_test))
-{}
+    equipment_db(equipment_db), spell_under_test(std::move(spell_under_test)) {}
 
 void TestSpell::set_up_general() {
     race = new Orc();
@@ -540,7 +538,8 @@ void TestSpell::create_100_dmg_1h() {
     if (equipment_db->get_melee_weapon(TestUtils::Test100Dmg) != nullptr)
         return;
 
-    Weapon* wpn = new Weapon("Test 100 dmg", TestUtils::Test100Dmg, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.6);
+    Weapon* wpn = new Weapon("Test 100 dmg", TestUtils::Test100Dmg, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100,
+                             2.6);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -548,7 +547,8 @@ void TestSpell::create_100_dmg_dagger() {
     if (equipment_db->get_melee_weapon(TestUtils::Test100DmgDagger) != nullptr)
         return;
 
-    Weapon* wpn = new Weapon("Test 100 dmg Dagger", TestUtils::Test100DmgDagger, Content::Phase::MoltenCore, WeaponTypes::DAGGER, WeaponSlots::ONEHAND, 100, 100, 2.0);
+    Weapon* wpn = new Weapon("Test 100 dmg Dagger", TestUtils::Test100DmgDagger, Content::Phase::MoltenCore, WeaponTypes::DAGGER,
+                             WeaponSlots::ONEHAND, 100, 100, 2.0);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -556,7 +556,8 @@ void TestSpell::create_100_dmg_2h() {
     if (equipment_db->get_melee_weapon(TestUtils::Test100Dmg2h) != nullptr)
         return;
 
-    Weapon* wpn = new Weapon("Test 100 dmg 2h", TestUtils::Test100Dmg2h, Content::Phase::MoltenCore, WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND, 100, 100, 3.5);
+    Weapon* wpn = new Weapon("Test 100 dmg 2h", TestUtils::Test100Dmg2h, Content::Phase::MoltenCore, WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND,
+                             100, 100, 3.5);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -565,7 +566,8 @@ void TestSpell::create_100_dmg_ranged() {
         return;
 
     QMap<QString, QString> info = {{"slot", "RANGED"}};
-    Weapon* wpn = new Weapon("Test 100 dmg Ranged", TestUtils::Test100DmgRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED, 100, 100, 2.6, info);
+    Weapon* wpn = new Weapon("Test 100 dmg Ranged", TestUtils::Test100DmgRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED,
+                             100, 100, 2.6, info);
     equipment_db->add_ranged(wpn);
 }
 
@@ -574,7 +576,8 @@ void TestSpell::create_3_speed_ranged() {
         return;
 
     QMap<QString, QString> info = {{"slot", "RANGED"}};
-    Weapon* wpn = new Weapon("Test 3 Speed Ranged", TestUtils::Test3SpeedRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED, 100, 100, 3.0, info);
+    Weapon* wpn = new Weapon("Test 3 Speed Ranged", TestUtils::Test3SpeedRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED,
+                             100, 100, 3.0, info);
     equipment_db->add_ranged(wpn);
 }
 
@@ -583,7 +586,8 @@ void TestSpell::create_2_speed_ranged() {
         return;
 
     QMap<QString, QString> info = {{"slot", "RANGED"}};
-    Weapon* wpn = new Weapon("Test 2 Speed Ranged", TestUtils::Test2SpeedRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED, 100, 100, 2.0, info);
+    Weapon* wpn = new Weapon("Test 2 Speed Ranged", TestUtils::Test2SpeedRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED,
+                             100, 100, 2.0, info);
     equipment_db->add_ranged(wpn);
 }
 
@@ -591,7 +595,8 @@ void TestSpell::create_3_speed() {
     if (equipment_db->get_melee_weapon(TestUtils::Test3Speed) != nullptr)
         return;
 
-    Weapon* wpn = new Weapon("Test 3 Speed", TestUtils::Test3Speed, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 3.0);
+    Weapon* wpn = new Weapon("Test 3 Speed", TestUtils::Test3Speed, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100,
+                             3.0);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -599,7 +604,8 @@ void TestSpell::create_2_speed() {
     if (equipment_db->get_melee_weapon(TestUtils::Test2Speed) != nullptr)
         return;
 
-    Weapon* wpn = new Weapon("Test 2 Speed", TestUtils::Test2Speed, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.0);
+    Weapon* wpn = new Weapon("Test 2 Speed", TestUtils::Test2Speed, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100,
+                             2.0);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -1008,11 +1014,12 @@ void TestSpell::given_talent_rank(const TalentTree& talent_tree, const QString& 
     assert(talent->get_name() == talent_name);
 
     for (unsigned i = 0; i < num; ++i)
-        check(talent->increment_rank(), QString("Failed to increment %1 to rank %2, does it have parent talents?").arg(talent_name).arg(i + 1).toStdString());
+        check(talent->increment_rank(),
+              QString("Failed to increment %1 to rank %2, does it have parent talents?").arg(talent_name).arg(i + 1).toStdString());
 }
 
 void TestSpell::given_talent_ranks(const TalentTree& talent_tree, const QVector<QPair<QString, unsigned>>& talent_ranks) {
-    for (const auto & talent : talent_ranks)
+    for (const auto& talent : talent_ranks)
         given_talent_rank(talent_tree, talent.first, talent.second);
 }
 
@@ -1061,9 +1068,8 @@ void TestSpell::given_event_is_ignored(const EventType event) {
 void TestSpell::when_running_queued_events_until(const double priority) {
     while (pchar->get_engine()->get_current_priority() < priority) {
         if (pchar->get_engine()->get_queue()->empty()) {
-            qDebug() << spell_under_test << "Attempted to run queued events until"
-                     << QString::number(priority, 'f', 3)
-                     << "but ran out of events at" << pchar->get_engine()->get_current_priority();
+            qDebug() << spell_under_test << "Attempted to run queued events until" << QString::number(priority, 'f', 3) << "but ran out of events at"
+                     << pchar->get_engine()->get_current_priority();
             assert(false);
         }
         Event* event = pchar->get_engine()->get_queue()->get_next();
@@ -1081,8 +1087,8 @@ void TestSpell::when_running_queued_events_until(const double priority) {
 
 void TestSpell::then_damage_dealt_is(const int damage) {
     if (damage != pchar->get_statistics()->get_total_personal_damage_dealt())
-        qDebug() << spell_under_test << "then_damage_dealt_is() assertion failed, expected"
-                 << damage << "got" << pchar->get_statistics()->get_total_personal_damage_dealt();
+        qDebug() << spell_under_test << "then_damage_dealt_is() assertion failed, expected" << damage << "got"
+                 << pchar->get_statistics()->get_total_personal_damage_dealt();
     assert(pchar->get_statistics()->get_total_personal_damage_dealt() == damage);
 }
 
@@ -1091,8 +1097,8 @@ void TestSpell::then_damage_dealt_is_in_range(const int min, const int max) {
     const int damage_dealt = pchar->get_statistics()->get_total_personal_damage_dealt();
 
     if (damage_dealt < min || damage_dealt > max)
-        qDebug() << spell_under_test << "then_damage_dealt_is_in_range() assertion failed, expected range"
-                 << min << "-" << max << "but got" << damage_dealt;
+        qDebug() << spell_under_test << "then_damage_dealt_is_in_range() assertion failed, expected range" << min << "-" << max << "but got"
+                 << damage_dealt;
     assert(damage_dealt >= min && damage_dealt <= max);
 }
 
@@ -1124,14 +1130,14 @@ void TestSpell::then_next_event_is(const EventType event_type, const QString& pr
     }
 
     if (event->event_type != event_type) {
-        qDebug() << spell_under_test << "Expected event" << Event::get_name_for_event_type(event_type) << priority << "but got" << Event::get_name_for_event(event)
-                 << "at priority" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
+        qDebug() << spell_under_test << "Expected event" << Event::get_name_for_event_type(event_type) << priority << "but got"
+                 << Event::get_name_for_event(event) << "at priority" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
         assert(false);
     }
 
     if (QString::number(event->priority, 'f', 3) != priority) {
-        qDebug() << spell_under_test << "During event" << Event::get_name_for_event(event) << "expected" << priority
-                 << "but got" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
+        qDebug() << spell_under_test << "During event" << Event::get_name_for_event(event) << "expected" << priority << "but got"
+                 << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
         assert(false);
     }
 

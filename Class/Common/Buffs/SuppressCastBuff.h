@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class SuppressCastBuff: public SelfBuff {
+class SuppressCastBuff : public SelfBuff {
 public:
     SuppressCastBuff(Character* pchar, const QString& name, const QString& icon, const int duration, const int charges);
 

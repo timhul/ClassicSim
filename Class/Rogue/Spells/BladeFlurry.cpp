@@ -5,11 +5,16 @@
 #include "Rogue.h"
 
 BladeFlurry::BladeFlurry(Rogue* rogue) :
-    Spell("Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", rogue, new CooldownControl(rogue, 120.0), RestrictedByGcd::Yes, ResourceType::Energy, 0),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Blade Flurry", 1, DisabledAtZero::Yes)}),
+    Spell("Blade Flurry",
+          "Assets/ability/Ability_warrior_punishingblow.png",
+          rogue,
+          new CooldownControl(rogue, 120.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          0),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Blade Flurry", 1, DisabledAtZero::Yes)}),
     rogue(rogue),
-    bf_buff(new BladeFlurryBuff(rogue))
-{
+    bf_buff(new BladeFlurryBuff(rogue)) {
     this->enabled = false;
 }
 

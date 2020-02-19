@@ -8,9 +8,7 @@
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
 
-TestWhirlwind::TestWhirlwind(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Whirlwind")
-{}
+TestWhirlwind::TestWhirlwind(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Whirlwind") {}
 
 void TestWhirlwind::test_all() {
     run_mandatory_tests();
@@ -72,9 +70,7 @@ void TestWhirlwind::test_how_spell_observes_global_cooldown() {
     assert(whirlwind()->get_spell_status() == SpellStatus::OnGCD);
 }
 
-void TestWhirlwind::test_is_ready_conditions() {
-
-}
+void TestWhirlwind::test_is_ready_conditions() {}
 
 void TestWhirlwind::test_stance_cooldown() {
     given_warrior_has_rage(100);

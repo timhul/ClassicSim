@@ -10,18 +10,18 @@ class Character;
 class ExternalBuff;
 class GeneralBuffs;
 
-class BuffModel : public QAbstractListModel
-{
+class BuffModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum BuffRoles {
+    enum BuffRoles
+    {
         NameRole = Qt::UserRole + 1,
         IconRole,
         DescriptionRole,
         ActiveRole
     };
 
-    BuffModel(const Content::Phase phase, QObject *parent = nullptr);
+    BuffModel(const Content::Phase phase, QObject* parent = nullptr);
 
     void set_character(Character* pchar);
     void set_phase(const Content::Phase phase);
@@ -30,8 +30,8 @@ public:
     void select_range_of_buffs(const QString& name);
     void update_buffs();
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 private:
     Character* pchar;

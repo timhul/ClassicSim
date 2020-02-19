@@ -2,9 +2,9 @@
 
 #include "TestSpellWarrior.h"
 
-class TestRecklessness: public TestSpellWarrior {
+class TestRecklessness : public TestSpellWarrior {
 public:
-    TestRecklessness(EquipmentDb *equipment_db);
+    TestRecklessness(EquipmentDb* equipment_db);
 
     void test_all();
 

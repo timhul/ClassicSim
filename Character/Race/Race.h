@@ -11,7 +11,7 @@ namespace Races {
     static const int Tauren = 5;
     static const int Troll = 6;
     static const int Undead = 7;
-}
+} // namespace Races
 
 class Race {
 public:

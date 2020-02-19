@@ -7,9 +7,7 @@
 #include "Shaman.h"
 #include "SimSettings.h"
 
-TestEnhancement::TestEnhancement(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "MID")
-{}
+TestEnhancement::TestEnhancement(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "MID") {}
 
 void TestEnhancement::set_up() {
     race = new Orc();

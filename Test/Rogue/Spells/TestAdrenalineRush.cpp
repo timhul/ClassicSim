@@ -13,9 +13,7 @@
 #include "Talent.h"
 #include "WarriorSpells.h"
 
-TestAdrenalineRush::TestAdrenalineRush(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Adrenaline Rush")
-{}
+TestAdrenalineRush::TestAdrenalineRush(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Adrenaline Rush") {}
 
 void TestAdrenalineRush::test_all() {
     run_mandatory_tests(false);
@@ -61,9 +59,7 @@ void TestAdrenalineRush::test_how_spell_observes_global_cooldown() {
     assert(adrenaline_rush()->get_spell_status() == SpellStatus::OnGCD);
 }
 
-void TestAdrenalineRush::test_is_ready_conditions() {
-
-}
+void TestAdrenalineRush::test_is_ready_conditions() {}
 
 void TestAdrenalineRush::test_resource_cost() {
     given_1_of_1_adrenaline_rush();

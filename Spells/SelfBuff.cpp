@@ -5,9 +5,8 @@
 #include "EnabledBuffs.h"
 #include "Utils/Check.h"
 
-SelfBuff::SelfBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
-    Buff(pchar, name, icon, duration, base_charges)
-{}
+SelfBuff::SelfBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
+    Buff(pchar, name, icon, duration, base_charges) {}
 
 void SelfBuff::enable_buff() {
     check(!enabled, QString("Tried to enable an already enabled SelfBuff '%1'").arg(name).toStdString());

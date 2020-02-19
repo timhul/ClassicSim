@@ -5,11 +5,10 @@
 class Shaman;
 class ShamanSpells;
 
-class Elemental: public TalentTree {
+class Elemental : public TalentTree {
 public:
     Elemental(Shaman* shaman);
     ~Elemental() override = default;
-
 
 private:
     Shaman* shaman;

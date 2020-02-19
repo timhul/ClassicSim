@@ -6,7 +6,7 @@
 class Buff;
 class Mage;
 
-class ArcanePower: public Spell, public TalentRequirer {
+class ArcanePower : public Spell, public TalentRequirer {
 public:
     ArcanePower(Mage* pchar);
     ~ArcanePower() override;

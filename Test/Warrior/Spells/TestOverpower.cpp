@@ -7,9 +7,7 @@
 #include "Event.h"
 #include "Overpower.h"
 
-TestOverpower::TestOverpower(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Overpower")
-{}
+TestOverpower::TestOverpower(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Overpower") {}
 
 void TestOverpower::test_all() {
     run_mandatory_tests();
@@ -78,7 +76,6 @@ void TestOverpower::test_how_spell_observes_global_cooldown() {
 
     assert(overpower()->get_spell_status() == SpellStatus::OnGCD);
 }
-
 
 void TestOverpower::test_resource_cost() {
     given_a_guaranteed_melee_ability_hit();

@@ -6,12 +6,7 @@ class Random;
 
 class MeleeSpecialTable {
 public:
-    MeleeSpecialTable(Random* _rand,
-                      const unsigned wpn_skill,
-                      const unsigned miss_range,
-                      const double dodge,
-                      const double parry,
-                      const double block);
+    MeleeSpecialTable(Random* _rand, const unsigned wpn_skill, const unsigned miss_range, const double dodge, const double parry, const double block);
 
     int get_outcome(const unsigned roll,
                     const unsigned crit_chance,

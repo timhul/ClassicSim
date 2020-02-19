@@ -19,9 +19,7 @@
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
 
-TestFlurryWarrior::TestFlurryWarrior(EquipmentDb* equipment_db) :
-    TestBuffWarrior(equipment_db, "FlurryWarrior")
-{}
+TestFlurryWarrior::TestFlurryWarrior(EquipmentDb* equipment_db) : TestBuffWarrior(equipment_db, "FlurryWarrior") {}
 
 void TestFlurryWarrior::test_all() {
     set_up();
@@ -134,7 +132,7 @@ void TestFlurryWarrior::test_all() {
 }
 
 void TestFlurryWarrior::test_name_correct() {
-    assert(spells->get_flurry()->name== "Flurry");
+    assert(spells->get_flurry()->name == "Flurry");
 }
 
 void TestFlurryWarrior::test_has_15_second_duration() {
@@ -393,7 +391,8 @@ void TestFlurryWarrior::test_critical_heroic_strike_applies_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    static_cast<HeroicStrike*>(warrior->get_spells()->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank())->calculate_damage();
+    static_cast<HeroicStrike*>(warrior->get_spells()->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank())
+        ->calculate_damage();
 
     then_flurry_is_active();
 }
@@ -464,7 +463,8 @@ void TestFlurryWarrior::test_regular_hit_heroic_strike_does_not_apply_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    static_cast<HeroicStrike*>(warrior->get_spells()->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank())->calculate_damage();
+    static_cast<HeroicStrike*>(warrior->get_spells()->get_spell_rank_group_by_name("Heroic Strike")->get_max_available_spell_rank())
+        ->calculate_damage();
 
     then_flurry_is_not_active();
 }

@@ -38,10 +38,8 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-CharacterLoader::CharacterLoader(EquipmentDb* equipment_db, RandomAffixes *random_affixes,
-                                 SimSettings* sim_settings,
-                                 RaidControl* raid_control,
-                                 CharacterDecoder& decoder) :
+CharacterLoader::CharacterLoader(
+    EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, RaidControl* raid_control, CharacterDecoder& decoder) :
     race(nullptr),
     equipment_db(equipment_db),
     random_affixes(random_affixes),
@@ -49,8 +47,7 @@ CharacterLoader::CharacterLoader(EquipmentDb* equipment_db, RandomAffixes *rando
     target(raid_control->get_target()),
     raid_control(raid_control),
     decoder(decoder),
-    success(false)
-{}
+    success(false) {}
 
 CharacterLoader::~CharacterLoader() {
     delete race;
@@ -286,16 +283,16 @@ void CharacterLoader::equip_gear(CharacterDecoder& decoder, Character* pchar) {
         pchar->get_equipment()->set_quiver(item);
 }
 
-void CharacterLoader::invest_talent_points(CharacterDecoder &decoder, Character* pchar) {
+void CharacterLoader::invest_talent_points(CharacterDecoder& decoder, Character* pchar) {
     add_points_to_talent_tree(decoder, "LEFT", pchar);
     add_points_to_talent_tree(decoder, "MID", pchar);
     add_points_to_talent_tree(decoder, "RIGHT", pchar);
 }
 
-void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position, Character* pchar) {
+void CharacterLoader::add_points_to_talent_tree(CharacterDecoder& decoder, const QString& tree_position, Character* pchar) {
     QVector<QPair<QString, QString>> invested_talents = decoder.get_key_val_pairs(tree_position);
 
-    for (const auto & invested_talent : invested_talents) {
+    for (const auto& invested_talent : invested_talents) {
         for (int points = 0; points < invested_talent.second.toInt(); ++points) {
             pchar->get_talents()->increment_rank(tree_position, invested_talent.first);
         }
@@ -305,7 +302,7 @@ void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const
 void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character* pchar) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
 
-    for (const auto & buff : buffs) {
+    for (const auto& buff : buffs) {
         pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff.first);
     }
 }
@@ -313,7 +310,7 @@ void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character*
 void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Character* pchar) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("DEBUFFS");
 
-    for (const auto & buff : buffs) {
+    for (const auto& buff : buffs) {
         pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(buff.first);
     }
 }
@@ -321,12 +318,14 @@ void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Characte
 void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
         pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, WeaponSlots::MAINHAND);
-        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, EnchantSlot::MAINHAND);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar,
+                                                                        EnchantSlot::MAINHAND);
     }
 
     if (pchar->get_equipment()->get_offhand() != nullptr) {
         pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT")), pchar, WeaponSlots::OFFHAND);
-        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar, EnchantSlot::OFFHAND);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar,
+                                                                       EnchantSlot::OFFHAND);
     }
 
     if (pchar->get_equipment()->get_ranged() != nullptr)
@@ -373,7 +372,7 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pcha
 
     QString rotation_name = decoder.get_value("ROTATION");
 
-    for (const auto & rotation : new_rotations) {
+    for (const auto& rotation : new_rotations) {
         if (rotation == nullptr)
             continue;
 
@@ -395,23 +394,32 @@ Character* CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
     Character* pchar = nullptr;
 
     if (pchar_string == "Druid")
-        pchar = new Druid(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Druid(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                          decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Hunter")
-        pchar = new Hunter(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Hunter(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                           decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Mage")
-        pchar = new Mage(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Mage(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                         decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Paladin")
-        pchar = new Paladin(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Paladin(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                            decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Priest")
-        pchar = new Priest(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Priest(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                           decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Rogue")
-        pchar = new Rogue(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Rogue(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                          decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Shaman")
-        pchar = new Shaman(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Shaman(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                           decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Warlock")
-        pchar = new Warlock(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Warlock(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                            decoder.get_value("PARTY_MEMBER").toInt());
     else if (pchar_string == "Warrior")
-        pchar = new Warrior(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(), decoder.get_value("PARTY_MEMBER").toInt());
+        pchar = new Warrior(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
+                            decoder.get_value("PARTY_MEMBER").toInt());
 
     if (pchar == nullptr)
         delete race;

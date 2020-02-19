@@ -2,7 +2,7 @@
 
 #include "Buff.h"
 
-class SelfBuff: public Buff {
+class SelfBuff : public Buff {
 public:
     SelfBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
 

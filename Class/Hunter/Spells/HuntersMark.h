@@ -6,9 +6,9 @@
 class Buff;
 class HuntersMarkBuff;
 
-class HuntersMark: public Spell, public TalentRequirer {
+class HuntersMark : public Spell, public TalentRequirer {
 public:
-    HuntersMark(Character *pchar, HuntersMarkBuff* hunters_mark);
+    HuntersMark(Character* pchar, HuntersMarkBuff* hunters_mark);
     ~HuntersMark() override;
 
 private:

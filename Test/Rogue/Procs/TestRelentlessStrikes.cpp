@@ -9,9 +9,7 @@
 #include "Rogue.h"
 #include "Talent.h"
 
-TestRelentlessStrikes::TestRelentlessStrikes(EquipmentDb* equipment_db) :
-    TestProcRogue(equipment_db, "Relentless Strikes")
-{}
+TestRelentlessStrikes::TestRelentlessStrikes(EquipmentDb* equipment_db) : TestProcRogue(equipment_db, "Relentless Strikes") {}
 
 void TestRelentlessStrikes::test_all() {
     set_up();

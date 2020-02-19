@@ -1,21 +1,21 @@
 
 #include "AvailableItemStatFilterModel.h"
+
 #include "ActiveItemStatFilterModel.h"
+#include "Character.h"
+#include "EquipmentDb.h"
 #include "Item.h"
 #include "ItemModel.h"
 #include "WeaponModel.h"
-#include "EquipmentDb.h"
-#include "Character.h"
 
-AvailableItemStatFilterModel::AvailableItemStatFilterModel(ActiveItemStatFilterModel* active_stat_model, QObject *parent)
-    : QAbstractListModel(parent)
-{
+AvailableItemStatFilterModel::AvailableItemStatFilterModel(ActiveItemStatFilterModel* active_stat_model, QObject* parent) :
+    QAbstractListModel(parent) {
     this->active_stat_model = active_stat_model;
     add_available_stat_filters();
 }
 
 AvailableItemStatFilterModel::~AvailableItemStatFilterModel() {
-    for (const auto & filter : available_item_stat_filters) {
+    for (const auto& filter : available_item_stat_filters) {
         delete filter;
     }
 
@@ -30,12 +30,12 @@ void AvailableItemStatFilterModel::addStatFilter(int index) {
     this->active_stat_model->add_filter(stat_filter->item_stat_flag, stat_filter->description);
 }
 
-int AvailableItemStatFilterModel::rowCount(const QModelIndex & parent) const {
+int AvailableItemStatFilterModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return available_item_stat_filters.count();
 }
 
-QVariant AvailableItemStatFilterModel::data(const QModelIndex & index, int role) const {
+QVariant AvailableItemStatFilterModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= available_item_stat_filters.count())
         return QVariant();
 

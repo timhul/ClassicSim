@@ -2,7 +2,7 @@
 
 #include "SharedDebuff.h"
 
-class ExposeWeaknessBuff: public SharedDebuff {
+class ExposeWeaknessBuff : public SharedDebuff {
 public:
     ExposeWeaknessBuff(Character* pchar);
 

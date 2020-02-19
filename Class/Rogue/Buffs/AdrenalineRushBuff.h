@@ -4,7 +4,7 @@
 
 class Rogue;
 
-class AdrenalineRushBuff: public SelfBuff {
+class AdrenalineRushBuff : public SelfBuff {
 public:
     AdrenalineRushBuff(Rogue* rogue);
     ~AdrenalineRushBuff() override;

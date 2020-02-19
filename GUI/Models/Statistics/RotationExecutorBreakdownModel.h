@@ -7,13 +7,14 @@ class ExecutorOutcome;
 class NumberCruncher;
 class RotationExecutorListModel;
 class StatisticsRotationExecutor;
-enum class EventType: int;
-enum class SortDirection: int;
+enum class EventType : int;
+enum class SortDirection : int;
 
 class RotationExecutorBreakdownSorting : public QObject {
     Q_OBJECT
 public:
-    enum Methods {
+    enum Methods
+    {
         ByExecutor = Qt::UserRole + 1,
         BySpellStatus,
         ByValue,
@@ -21,25 +22,25 @@ public:
     Q_ENUMS(Methods)
 };
 
-class RotationExecutorBreakdownModel : public QAbstractListModel
-{
+class RotationExecutorBreakdownModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    RotationExecutorBreakdownModel(RotationExecutorListModel* data_source, QObject *parent = nullptr);
+    RotationExecutorBreakdownModel(RotationExecutorListModel* data_source, QObject* parent = nullptr);
 
     Q_INVOKABLE void selectSort(const int method);
 
     void set_index(const int index);
     void update_statistics();
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
     Q_PROPERTY(int currentSortingMethod READ get_current_sorting_method NOTIFY sortingMethodChanged)
     Q_SIGNAL void sortingMethodChanged();
 
 protected:
     QHash<int, QByteArray> roleNames() const;
+
 private:
     RotationExecutorListModel* data_source;
     int executor_index {0};

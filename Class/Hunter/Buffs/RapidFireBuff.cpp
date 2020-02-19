@@ -4,10 +4,8 @@
 #include "Hunter.h"
 #include "Utils/Check.h"
 
-RapidFireBuff::RapidFireBuff(Character* pchar):
-    SelfBuff(pchar, "Rapid Fire", "Assets/ability/Ability_hunter_runningshot.png", 15, 0),
-    SetBonusRequirer({"Cryptstalker Armor"})
-{}
+RapidFireBuff::RapidFireBuff(Character* pchar) :
+    SelfBuff(pchar, "Rapid Fire", "Assets/ability/Ability_hunter_runningshot.png", 15, 0), SetBonusRequirer({"Cryptstalker Armor"}) {}
 
 void RapidFireBuff::buff_effect_when_applied() {
     pchar->get_stats()->increase_ranged_attack_speed(40);

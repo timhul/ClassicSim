@@ -3,10 +3,8 @@
 #include "CharacterStats.h"
 #include "Warrior.h"
 
-BerserkerStanceBuff::BerserkerStanceBuff(Warrior* warrior):
-    SelfBuff(warrior, "Berserker Stance", NO_ICON, BuffDuration::PERMANENT, 1),
-    warrior(warrior)
-{
+BerserkerStanceBuff::BerserkerStanceBuff(Warrior* warrior) :
+    SelfBuff(warrior, "Berserker Stance", NO_ICON, BuffDuration::PERMANENT, 1), warrior(warrior) {
     this->hidden = true;
 }
 

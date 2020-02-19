@@ -8,7 +8,7 @@ class Buff;
 class Druid;
 class StatisticsResource;
 
-class CatForm: public Spell, public TalentRequirer, public ItemModificationRequirer {
+class CatForm : public Spell, public TalentRequirer, public ItemModificationRequirer {
 public:
     CatForm(Druid* druid, Buff* cat_form);
     ~CatForm() override;

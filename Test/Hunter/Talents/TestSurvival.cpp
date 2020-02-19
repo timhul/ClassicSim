@@ -7,9 +7,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 
-TestSurvival::TestSurvival(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "RIGHT")
-{}
+TestSurvival::TestSurvival(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "RIGHT") {}
 
 void TestSurvival::set_up() {
     race = new Orc();

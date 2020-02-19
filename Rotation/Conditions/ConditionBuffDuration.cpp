@@ -4,10 +4,7 @@
 #include "Utils/Check.h"
 
 ConditionBuffDuration::ConditionBuffDuration(Buff* buff, const Comparator comparator, const double cmp_value) :
-    Condition(comparator),
-    buff(buff),
-    cmp_value(cmp_value)
-{}
+    Condition(comparator), buff(buff), cmp_value(cmp_value) {}
 
 bool ConditionBuffDuration::condition_fulfilled() const {
     switch (comparator) {

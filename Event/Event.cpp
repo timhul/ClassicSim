@@ -1,6 +1,6 @@
 #include "Event.h"
 
-bool Compare::operator() (Event*& l, Event*& r) {
+bool Compare::operator()(Event*& l, Event*& r) {
     return *l > *r;
 }
 
@@ -20,10 +20,7 @@ bool operator>=(const Event& l, const Event& r) {
     return !(r < l);
 }
 
-Event::Event(EventType event_type, const double priority):
-    event_type(event_type),
-    priority(priority)
-{}
+Event::Event(EventType event_type, const double priority) : event_type(event_type), priority(priority) {}
 
 QString Event::get_name_for_event_type(const EventType event_type) {
     switch (event_type) {

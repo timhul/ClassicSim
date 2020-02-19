@@ -118,17 +118,13 @@ int Warrior::get_highest_possible_armor_type() const {
 QVector<int> Warrior::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::POLEARM,
-                             WeaponTypes::STAFF, WeaponTypes::TWOHAND_AXE,
-                             WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD});
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::POLEARM,
+                             WeaponTypes::STAFF, WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD});
     case EquipmentSlot::OFFHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND,
-                             WeaponTypes::SHIELD});
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::SWORD,
+                             WeaponTypes::CASTER_OFFHAND, WeaponTypes::SHIELD});
     case EquipmentSlot::RANGED:
-        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
-                             WeaponTypes::THROWN});
+        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN, WeaponTypes::THROWN});
     default:
         check(false, "Warrior::get_weapon_proficiencies_for_slot reached end of switch");
         return QVector<int>();

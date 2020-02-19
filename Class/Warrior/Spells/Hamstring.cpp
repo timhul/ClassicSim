@@ -12,8 +12,7 @@ Hamstring::Hamstring(Warrior* pchar, WarriorSpells* spells) :
     Spell("Hamstring", "Assets/ability/Ability_shockwave.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
     ItemModificationRequirer({16484, 16548, 22868, 23286}),
     warr(pchar),
-    spells(spells)
-{}
+    spells(spells) {}
 
 Hamstring::~Hamstring() {
     delete cooldown;
@@ -49,8 +48,7 @@ void Hamstring::spell_effect() {
         damage_dealt *= warr->get_stats()->get_melee_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }

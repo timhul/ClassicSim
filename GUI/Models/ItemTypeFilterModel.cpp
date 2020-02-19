@@ -7,20 +7,16 @@
 #include "Item.h"
 #include "Utils/Check.h"
 
-ItemTypeFilterModel::ItemTypeFilterModel(QObject *parent)
-    : QAbstractListModel(parent),
-      pchar(nullptr),
-      last_toggled(-1)
-{
+ItemTypeFilterModel::ItemTypeFilterModel(QObject* parent) : QAbstractListModel(parent), pchar(nullptr), last_toggled(-1) {
     check((EquipmentSlot::MAINHAND == 0), "Update EquipmentSlot::MAINHAND value");
     check((EquipmentSlot::PROJECTILE == 17), "Update EquipmentSlot::AMMO value");
     for (int i = 0; i < EquipmentSlot::QUIVER + 1; ++i)
         item_type_filters.append(QList<ItemTypeFilter>());
 }
 
-void ItemTypeFilterModel::set_character(Character *pchar) {
+void ItemTypeFilterModel::set_character(Character* pchar) {
     beginResetModel();
-    for (auto & list : item_type_filters)
+    for (auto& list : item_type_filters)
         list.clear();
     endResetModel();
 
@@ -39,7 +35,7 @@ bool ItemTypeFilterModel::get_item_type_valid(const int item_type) const {
     if (item_type_filters[equipment_slot].empty())
         return true;
 
-    for (const auto & i : item_type_filters[equipment_slot]) {
+    for (const auto& i : item_type_filters[equipment_slot]) {
         if (i.item_type == item_type)
             return true;
     }
@@ -48,7 +44,7 @@ bool ItemTypeFilterModel::get_item_type_valid(const int item_type) const {
 }
 
 bool ItemTypeFilterModel::get_filter_active(const int item_type) const {
-    for (const auto & i : item_type_filters[equipment_slot]) {
+    for (const auto& i : item_type_filters[equipment_slot]) {
         if (i.item_type == item_type) {
             return i.active;
         }
@@ -90,8 +86,7 @@ void ItemTypeFilterModel::select_range_of_filters(const int filter) {
     if (target_index > last_toggled) {
         for (int i = last_toggled; i <= target_index; ++i)
             item_type_filters[equipment_slot][i].active = false;
-    }
-    else {
+    } else {
         for (int i = last_toggled; i >= target_index; --i)
             item_type_filters[equipment_slot][i].active = false;
     }
@@ -105,8 +100,7 @@ void ItemTypeFilterModel::clear_filters_and_select_single_filter(const int filte
         if (item_type_filters[equipment_slot][i].item_type == filter) {
             item_type_filters[equipment_slot][i].active = false;
             last_toggled = i;
-        }
-        else
+        } else
             item_type_filters[equipment_slot][i].active = true;
     }
 
@@ -233,12 +227,12 @@ void ItemTypeFilterModel::add_weapon_item_type_filters() {
     endInsertRows();
 }
 
-int ItemTypeFilterModel::rowCount(const QModelIndex & parent) const {
+int ItemTypeFilterModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return item_type_filters[equipment_slot].count();
 }
 
-QVariant ItemTypeFilterModel::data(const QModelIndex & index, int role) const {
+QVariant ItemTypeFilterModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= item_type_filters[equipment_slot].count())
         return QVariant();
 

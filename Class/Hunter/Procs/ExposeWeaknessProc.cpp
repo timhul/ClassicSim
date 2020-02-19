@@ -5,19 +5,20 @@
 #include "Utils/Check.h"
 
 ExposeWeaknessProc::ExposeWeaknessProc(Character* pchar, ExposeWeaknessBuff* expose_weakness_buff) :
-    Proc("Expose Weakness", "Assets/ability/Ability_hunter_snipershot.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Expose Weakness",
+         "Assets/ability/Ability_hunter_snipershot.png",
+         0.0,
+         0,
+         QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::RangedAutoShot, ProcInfo::Source::RangedSpell}),
          pchar),
     SetBonusRequirer({"Dragonstalker Armor"}),
-    expose_weakness_buff(expose_weakness_buff)
-{
+    expose_weakness_buff(expose_weakness_buff) {
     this->enabled = false;
     proc_range = 1600;
 }
 
-ExposeWeaknessProc::~ExposeWeaknessProc() {
-
-}
+ExposeWeaknessProc::~ExposeWeaknessProc() {}
 
 void ExposeWeaknessProc::proc_effect() {
     expose_weakness_buff->apply_buff();

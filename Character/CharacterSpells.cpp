@@ -32,8 +32,7 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     cast_is_in_progress(false),
     id_of_cast_in_progress(0),
     attack_mode(AttackMode::MeleeAttack),
-    attack_mode_active(false)
-{
+    attack_mode_active(false) {
     blood_fury = new BloodFury(pchar);
     demonic_rune = new DemonicRune(pchar);
     mana_potion = new ManaPotion(pchar);
@@ -47,13 +46,13 @@ CharacterSpells::CharacterSpells(Character* pchar) :
 }
 
 CharacterSpells::~CharacterSpells() {
-    for (const auto & spell : spells)
+    for (const auto& spell : spells)
         delete spell;
 
-    for (const auto & cc : cooldown_controls)
+    for (const auto& cc : cooldown_controls)
         delete cc;
 
-    for (const auto & spell_group : spell_rank_groups)
+    for (const auto& spell_group : spell_rank_groups)
         delete spell_group;
 
     delete dragonbreath_chili;
@@ -165,18 +164,18 @@ void CharacterSpells::remove_start_of_combat_spell(Spell* spell) {
 }
 
 void CharacterSpells::run_start_of_combat_spells() {
-    for (const auto & spell : start_of_combat_spells)
+    for (const auto& spell : start_of_combat_spells)
         spell->perform_start_of_combat();
 }
 
 void CharacterSpells::add_spell_group(const QVector<Spell*> spell_group, const bool relink) {
     check(!spell_group.empty(), "Cannot add empty spell group");
     check(!spell_rank_groups.contains(spell_group[0]->get_name()),
-            QString("%1 has already been added as a spell group").arg(spell_group[0]->get_name()).toStdString());
+          QString("%1 has already been added as a spell group").arg(spell_group[0]->get_name()).toStdString());
 
     spell_rank_groups[spell_group[0]->get_name()] = new SpellRankGroup(spell_group[0]->get_name(), spell_group);
 
-    for (auto & spell : spell_group)
+    for (auto& spell : spell_group)
         add_spell(spell, relink);
 }
 
@@ -204,7 +203,7 @@ void CharacterSpells::reset() {
     id_of_cast_in_progress = 0;
     attack_mode_active = false;
 
-    for (const auto & spell : spells)
+    for (const auto& spell : spells)
         spell->reset();
 }
 
@@ -232,9 +231,7 @@ void CharacterSpells::start_melee_attack() {
     }
 }
 
-void CharacterSpells::start_pet_attack() {
-
-}
+void CharacterSpells::start_pet_attack() {}
 
 void CharacterSpells::stop_attack() {
     attack_mode_active = false;
@@ -318,16 +315,14 @@ CooldownControl* CharacterSpells::new_cooldown_control(const QString& spell_name
     return new_cc;
 }
 
-void CharacterSpells::prepare_set_of_combat_iterations_class_specific() {
-
-}
+void CharacterSpells::prepare_set_of_combat_iterations_class_specific() {}
 
 void CharacterSpells::prepare_set_of_combat_iterations() {
     cast_is_in_progress = false;
     id_of_cast_in_progress = 0;
     attack_mode_active = false;
 
-    for (const auto & spell : spells)
+    for (const auto& spell : spells)
         spell->prepare_set_of_combat_iterations();
 
     if (rotation)

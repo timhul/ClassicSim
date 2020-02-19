@@ -23,8 +23,7 @@ public:
            QMap<unsigned, QString> rank_descriptions = {},
            QVector<SpellRankGroup*> affected_spells = {},
            QVector<Buff*> affected_buffs = {},
-           QVector<Proc*> affected_procs = {}
-           );
+           QVector<Proc*> affected_procs = {});
 
     Talent(Character* pchar,
            TalentTree* tree,
@@ -35,8 +34,8 @@ public:
            const QString& rank_description,
            const QVector<QPair<unsigned, unsigned>>& format_values);
 
-    Talent(Character *pchar,
-           TalentTree *tree,
+    Talent(Character* pchar,
+           TalentTree* tree,
            const QString& name,
            const QString& position,
            const QString& icon,
@@ -110,5 +109,4 @@ protected:
     virtual void remove_rank_effect();
 
 private:
-
 };

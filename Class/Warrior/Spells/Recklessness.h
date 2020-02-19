@@ -5,7 +5,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Recklessness: public Spell {
+class Recklessness : public Spell {
 public:
     Recklessness(Warrior* warrior, WarriorSpells* spells);
     ~Recklessness() override;

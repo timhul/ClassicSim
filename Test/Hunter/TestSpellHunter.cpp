@@ -1,8 +1,9 @@
 #include "TestSpellHunter.h"
 
 #include <cassert>
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "BeastMastery.h"
 #include "CharacterStats.h"
@@ -16,10 +17,8 @@
 #include "Survival.h"
 #include "Talent.h"
 
-TestSpellHunter::TestSpellHunter(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    hunter(nullptr)
-{}
+TestSpellHunter::TestSpellHunter(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpellDamage(equipment_db, std::move(spell_under_test)), hunter(nullptr) {}
 
 void TestSpellHunter::set_up(const bool prepare_combat_iterations) {
     set_up_general();

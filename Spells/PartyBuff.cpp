@@ -6,9 +6,7 @@
 #include "Utils/Check.h"
 
 PartyBuff::PartyBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
-    Buff(pchar, name, icon, duration, base_charges),
-    party(pchar->get_party())
-{
+    Buff(pchar, name, icon, duration, base_charges), party(pchar->get_party()) {
     this->affected = Affected::Party;
 }
 

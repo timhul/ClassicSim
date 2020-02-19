@@ -12,18 +12,11 @@
 #include "Weapon.h"
 
 AutoShot::AutoShot(Hunter* pchar) :
-    Spell("Auto Shot",
-          "",
-          pchar,
-          new CooldownControl(pchar, 1.0),
-          RestrictedByGcd::No,
-          ResourceType::Mana,
-          0),
+    Spell("Auto Shot", "", pchar, new CooldownControl(pchar, 1.0), RestrictedByGcd::No, ResourceType::Mana, 0),
     SetBonusRequirer({"Cryptstalker Armor"}),
     hunter(pchar),
     next_expected_use(0),
-    iteration(0)
-{}
+    iteration(0) {}
 
 AutoShot::~AutoShot() {
     delete cooldown;
@@ -76,9 +69,9 @@ void AutoShot::update_next_expected_use(const double haste_change) {
         return;
 
     if (haste_change < 0)
-        remainder_after_haste_change *=  (1 + (-1) * haste_change);
+        remainder_after_haste_change *= (1 + (-1) * haste_change);
     else
-        remainder_after_haste_change /=  (1 + haste_change);
+        remainder_after_haste_change /= (1 + haste_change);
     next_expected_use = curr_time + remainder_after_haste_change;
 }
 

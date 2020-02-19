@@ -8,5 +8,5 @@ public:
 
     void set_state(uint64_t);
     uint64_t next();
-    uint64_t state[2]{};
+    uint64_t state[2] {};
 };

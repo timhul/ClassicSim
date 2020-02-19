@@ -3,7 +3,7 @@
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
 
-class DeathWishBuff: public SelfBuff {
+class DeathWishBuff : public SelfBuff {
 public:
     DeathWishBuff(Character* pchar);
     ~DeathWishBuff() override;

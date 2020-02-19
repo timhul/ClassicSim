@@ -1,6 +1,7 @@
 #pragma once
 
-enum class SortDirection : int {
+enum class SortDirection : int
+{
     Forward,
     Reverse
 };

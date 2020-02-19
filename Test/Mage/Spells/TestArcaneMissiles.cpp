@@ -5,9 +5,7 @@
 #include "ArcaneMissiles.h"
 #include "Mage.h"
 
-TestArcaneMissiles::TestArcaneMissiles(EquipmentDb* equipment_db) :
-    TestSpellMage(equipment_db, "Arcane Missiles")
-{}
+TestArcaneMissiles::TestArcaneMissiles(EquipmentDb* equipment_db) : TestSpellMage(equipment_db, "Arcane Missiles") {}
 
 void TestArcaneMissiles::test_all() {
     run_mandatory_tests();
@@ -41,9 +39,7 @@ void TestArcaneMissiles::test_whether_spell_causes_global_cooldown() {
     assert(!mage->action_ready());
 }
 
-void TestArcaneMissiles::test_how_spell_observes_global_cooldown() {
-
-}
+void TestArcaneMissiles::test_how_spell_observes_global_cooldown() {}
 
 void TestArcaneMissiles::test_is_ready_conditions() {
     assert(arcane_missiles()->get_spell_status() == SpellStatus::Available);

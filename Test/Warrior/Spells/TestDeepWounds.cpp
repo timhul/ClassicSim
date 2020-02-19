@@ -17,9 +17,7 @@
 #include "Talent.h"
 #include "Whirlwind.h"
 
-TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Deep Wounds")
-{}
+TestDeepWounds::TestDeepWounds(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Deep Wounds") {}
 
 void TestDeepWounds::test_all() {
     const bool prepare_combat_iterations = false;

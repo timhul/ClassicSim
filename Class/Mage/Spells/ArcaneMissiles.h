@@ -5,7 +5,7 @@
 
 class MageSpells;
 
-class ArcaneMissiles: public SpellPeriodic, public CastingTimeRequirer {
+class ArcaneMissiles : public SpellPeriodic, public CastingTimeRequirer {
 public:
     ArcaneMissiles(Character* pchar, MageSpells* spells, const int spell_rank);
     ~ArcaneMissiles() override;

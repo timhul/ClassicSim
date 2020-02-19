@@ -6,7 +6,7 @@ class StatisticsResource;
 class Warrior;
 class WarriorSpells;
 
-class MainhandAttackWarrior: public MainhandAttack {
+class MainhandAttackWarrior : public MainhandAttack {
 public:
     MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
 

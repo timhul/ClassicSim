@@ -2,14 +2,15 @@
 
 #include "SelfBuff.h"
 
-enum AffectedWeaponSide {
+enum AffectedWeaponSide
+{
     Mainhand = 0,
     Offhand,
     Ranged,
     All
 };
 
-class FlatWeaponDamageBuff: public SelfBuff {
+class FlatWeaponDamageBuff : public SelfBuff {
 public:
     FlatWeaponDamageBuff(Character* pchar,
                          const QString& name,

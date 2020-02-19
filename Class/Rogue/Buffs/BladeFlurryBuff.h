@@ -4,7 +4,7 @@
 
 class Rogue;
 
-class BladeFlurryBuff: public SelfBuff {
+class BladeFlurryBuff : public SelfBuff {
 public:
     BladeFlurryBuff(Rogue* rogue);
     ~BladeFlurryBuff() override;

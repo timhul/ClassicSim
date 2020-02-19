@@ -1,15 +1,15 @@
 #pragma once
 
+#include <QVector>
+
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Druid;
 class DruidSpells;
 class Proc;
 
-class Shred: public Spell, public TalentRequirer {
+class Shred : public Spell, public TalentRequirer {
 public:
     Shred(Druid* pchar, DruidSpells* druid_spells, Proc* blood_frenzy, const int spell_rank);
     ~Shred() override;

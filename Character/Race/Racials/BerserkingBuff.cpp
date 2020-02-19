@@ -4,11 +4,8 @@
 #include "CharacterStats.h"
 #include "Random.h"
 
-BerserkingBuff::BerserkingBuff(Character* pchar):
-    SelfBuff(pchar, "Berserking", "Assets/races/Racial_troll_berserk.png", 10, 0),
-    random(new Random(0, 30)),
-    curr_buff(0)
-{}
+BerserkingBuff::BerserkingBuff(Character* pchar) :
+    SelfBuff(pchar, "Berserking", "Assets/races/Racial_troll_berserk.png", 10, 0), random(new Random(0, 30)), curr_buff(0) {}
 
 BerserkingBuff::~BerserkingBuff() {
     delete random;

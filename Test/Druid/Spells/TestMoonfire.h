@@ -2,9 +2,9 @@
 
 #include "TestSpellDruid.h"
 
-class TestMoonfire: public TestSpellDruid {
+class TestMoonfire : public TestSpellDruid {
 public:
-    TestMoonfire(EquipmentDb *equipment_db);
+    TestMoonfire(EquipmentDb* equipment_db);
 
     void test_all();
 

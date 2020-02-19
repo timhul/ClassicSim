@@ -5,9 +5,7 @@
 #include "Event.h"
 #include "MortalStrike.h"
 
-TestMortalStrike::TestMortalStrike(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Mortal Strike")
-{}
+TestMortalStrike::TestMortalStrike(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Mortal Strike") {}
 
 void TestMortalStrike::test_all() {
     run_mandatory_tests();

@@ -4,9 +4,9 @@
 
 class UnbridledWrath;
 
-class TestUnbridledWrath: public TestProcWarrior {
+class TestUnbridledWrath : public TestProcWarrior {
 public:
-    TestUnbridledWrath(EquipmentDb *equipment_db);
+    TestUnbridledWrath(EquipmentDb* equipment_db);
 
     void test_all();
 

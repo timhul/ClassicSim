@@ -2,14 +2,13 @@
 
 #include "Stats.h"
 
-RandomAffix::RandomAffix(unsigned id, Content::Phase required_phase, const QString& name, Stats* stats, const QStringList &stats_list, const QMap<ItemStats, unsigned> &affix_stat_values) :
-    PhaseRequirer(required_phase),
-    id(id),
-    name(name),
-    stats(std::move(stats)),
-    stats_list(stats_list),
-    affix_stat_values(affix_stat_values)
-{}
+RandomAffix::RandomAffix(unsigned id,
+                         Content::Phase required_phase,
+                         const QString& name,
+                         Stats* stats,
+                         const QStringList& stats_list,
+                         const QMap<ItemStats, unsigned>& affix_stat_values) :
+    PhaseRequirer(required_phase), id(id), name(name), stats(std::move(stats)), stats_list(stats_list), affix_stat_values(affix_stat_values) {}
 
 RandomAffix::~RandomAffix() {
     delete stats;
@@ -19,7 +18,7 @@ QString RandomAffix::to_string() const {
     return QStringLiteral("%1 (%2)").arg(name).arg(stats_list.join(","));
 }
 
-Stats *RandomAffix::get_stats() const {
+Stats* RandomAffix::get_stats() const {
     return this->stats;
 }
 

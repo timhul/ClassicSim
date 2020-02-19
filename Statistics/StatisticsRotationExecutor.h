@@ -3,9 +3,10 @@
 #include <QMap>
 
 class StatisticsRotationExecutor;
-enum class SpellStatus: int;
+enum class SpellStatus : int;
 
-enum class ExecutorResult: int {
+enum class ExecutorResult : int
+{
     SpellStatusFail,
     ConditionGroupFail,
     Success,
@@ -13,10 +14,7 @@ enum class ExecutorResult: int {
 
 class ExecutorOutcome {
 public:
-    ExecutorOutcome(const QString& name,
-                    ExecutorResult result,
-                    unsigned value,
-                    SpellStatus spell_status);
+    ExecutorOutcome(const QString& name, ExecutorResult result, unsigned value, SpellStatus spell_status);
 
     const QString name;
     const ExecutorResult result;

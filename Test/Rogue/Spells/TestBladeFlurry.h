@@ -4,9 +4,9 @@
 
 class BladeFlurry;
 
-class TestBladeFlurry: public TestSpellRogue {
+class TestBladeFlurry : public TestSpellRogue {
 public:
-    TestBladeFlurry(EquipmentDb *equipment_db);
+    TestBladeFlurry(EquipmentDb* equipment_db);
 
     void test_all();
 

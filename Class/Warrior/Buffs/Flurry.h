@@ -1,11 +1,11 @@
 #pragma once
 
+#include <QVector>
+
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
 
-#include <QVector>
-
-class Flurry: public SelfBuff, public TalentRequirer {
+class Flurry : public SelfBuff, public TalentRequirer {
 public:
     Flurry(Character* pchar);
 

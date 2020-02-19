@@ -32,7 +32,7 @@ class UnbridledWrath;
 class Warrior;
 class Whirlwind;
 
-class WarriorSpells: public CharacterSpells {
+class WarriorSpells : public CharacterSpells {
 public:
     WarriorSpells(Warrior* warrior);
     ~WarriorSpells() override;

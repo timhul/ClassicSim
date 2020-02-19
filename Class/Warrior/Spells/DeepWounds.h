@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "SpellPeriodic.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Warrior;
 
-class DeepWounds: public SpellPeriodic, public TalentRequirer {
+class DeepWounds : public SpellPeriodic, public TalentRequirer {
 public:
     DeepWounds(Warrior* warrior);
     ~DeepWounds() override;

@@ -3,9 +3,7 @@
 #include "Paladin.h"
 #include "Utils/Check.h"
 
-PaladinEnchants::PaladinEnchants(Paladin* paladin) :
-    CharacterEnchants(paladin)
-{}
+PaladinEnchants::PaladinEnchants(Paladin* paladin) : CharacterEnchants(paladin) {}
 
 QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -21,10 +19,10 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
 
         if (has_2hand()) {
             enchants.append({
-                                EnchantName::Name::Enchant2HWeaponAgility,
-                                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
-                                EnchantName::Name::IronCounterweight,
-                            });
+                EnchantName::Name::Enchant2HWeaponAgility,
+                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
+                EnchantName::Name::IronCounterweight,
+            });
         }
 
         return enchants;
@@ -46,21 +44,15 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
             EnchantName::Name::ZandalarSignetOfMojo,
         };
     case EquipmentSlot::BACK:
-        return {
-            EnchantName::Name::EnchantCloakLesserAgility
-        };
+        return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
         return {
             EnchantName::Name::EnchantBracerSuperiorStrength,
             EnchantName::Name::EnchantBracerGreaterIntellect,
         };
     case EquipmentSlot::GLOVES:
-        return {
-            EnchantName::Name::EnchantGlovesSuperiorAgility,
-            EnchantName::Name::EnchantGlovesGreaterAgility,
-            EnchantName::Name::EnchantGlovesMinorHaste,
-            EnchantName::Name::EnchantGlovesGreaterStrength
-        };
+        return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
+                EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestStats,

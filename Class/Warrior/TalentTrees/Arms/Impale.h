@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class Impale: public Talent {
+class Impale : public Talent {
 public:
-    Impale(Character *pchar, TalentTree* tree);
+    Impale(Character* pchar, TalentTree* tree);
     ~Impale() override;
 
 private:

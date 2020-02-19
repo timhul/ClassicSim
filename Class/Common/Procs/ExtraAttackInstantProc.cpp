@@ -11,11 +11,9 @@ ExtraAttackInstantProc::ExtraAttackInstantProc(Character* pchar,
                                                const QString& proc_name,
                                                const QString& icon,
                                                const QVector<ProcInfo::Source>& proc_sources,
-                                               const double proc_rate, const int num_attacks) :
-    Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
-    extra_attack_buff(nullptr),
-    num_attacks(num_attacks)
-{
+                                               const double proc_rate,
+                                               const int num_attacks) :
+    Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar), extra_attack_buff(nullptr), num_attacks(num_attacks) {
     check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
           "No valid proc sources found");
 }

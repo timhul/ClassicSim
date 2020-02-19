@@ -2,7 +2,7 @@
 
 #include "Buff.h"
 
-class SharedDebuff: public Buff {
+class SharedDebuff : public Buff {
 public:
     SharedDebuff(Character* pchar, QString name, QString icon, const Priority priority, const int duration, const int base_charges);
 

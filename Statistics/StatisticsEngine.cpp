@@ -44,7 +44,7 @@ void StatisticsEngine::add(const StatisticsEngine* other) {
     }
 }
 
-QList<QPair<EventType, unsigned> > StatisticsEngine::get_list_of_event_pairs() const {
+QList<QPair<EventType, unsigned>> StatisticsEngine::get_list_of_event_pairs() const {
     QMap<EventType, unsigned>::const_iterator it = event_map.constBegin();
 
     QList<QPair<EventType, unsigned>> event_list;

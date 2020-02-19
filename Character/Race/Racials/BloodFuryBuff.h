@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class BloodFuryBuff: public SelfBuff {
+class BloodFuryBuff : public SelfBuff {
 public:
     BloodFuryBuff(Character* pchar);
 

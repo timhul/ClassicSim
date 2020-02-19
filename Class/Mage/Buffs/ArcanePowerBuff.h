@@ -1,12 +1,12 @@
 #pragma once
 
-#include "SelfBuff.h"
-
 #include <QVector>
+
+#include "SelfBuff.h"
 
 class Character;
 
-class ArcanePowerBuff: public SelfBuff {
+class ArcanePowerBuff : public SelfBuff {
 public:
     ArcanePowerBuff(Character* pchar);
 

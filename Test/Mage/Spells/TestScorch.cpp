@@ -4,12 +4,10 @@
 
 #include "CharacterStats.h"
 #include "Event.h"
-#include "Scorch.h"
 #include "Mage.h"
+#include "Scorch.h"
 
-TestScorch::TestScorch(EquipmentDb* equipment_db) :
-    TestSpellMage(equipment_db, "Scorch")
-{}
+TestScorch::TestScorch(EquipmentDb* equipment_db) : TestSpellMage(equipment_db, "Scorch") {}
 
 void TestScorch::test_all() {
     run_mandatory_tests();
@@ -87,9 +85,7 @@ void TestScorch::test_whether_spell_causes_global_cooldown() {
     assert(!mage->action_ready());
 }
 
-void TestScorch::test_how_spell_observes_global_cooldown() {
-
-}
+void TestScorch::test_how_spell_observes_global_cooldown() {}
 
 void TestScorch::test_is_ready_conditions() {
     assert(scorch()->get_spell_status() == SpellStatus::Available);

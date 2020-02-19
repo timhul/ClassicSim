@@ -1,11 +1,12 @@
 #pragma once
 
+#include <QVersionNumber>
+
 #include "AvailableFactions.h"
 #include "SelfBuff.h"
 
-#include <QVersionNumber>
-
-enum class ExternalBuffName: int {
+enum class ExternalBuffName : int
+{
     Annihilator = 0,
     BattleShout,
     BattleSquawk,
@@ -56,7 +57,7 @@ class ExternalBuff;
 
 ExternalBuff* get_external_buff_by_name(const ExternalBuffName, Character*);
 
-class ExternalBuff: public SelfBuff {
+class ExternalBuff : public SelfBuff {
 public:
     ExternalBuff(Character*,
                  const QString& name,

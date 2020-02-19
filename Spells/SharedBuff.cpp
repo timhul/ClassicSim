@@ -1,13 +1,7 @@
 #include "SharedBuff.h"
 
-SharedBuff::SharedBuff(Character* pchar,
-                       const QString& name,
-                       const QString& icon,
-                       const int duration,
-                       const int base_charges) :
-    SelfBuff(pchar, name, icon, duration, base_charges),
-    reference_counter(0)
-{}
+SharedBuff::SharedBuff(Character* pchar, const QString& name, const QString& icon, const int duration, const int base_charges) :
+    SelfBuff(pchar, name, icon, duration, base_charges), reference_counter(0) {}
 
 bool SharedBuff::unused() const {
     return reference_counter < 1;

@@ -4,7 +4,7 @@
 
 class Proc;
 
-class NoEffectSelfBuff: public SelfBuff {
+class NoEffectSelfBuff : public SelfBuff {
 public:
     NoEffectSelfBuff(Character* pchar,
                      const int duration,

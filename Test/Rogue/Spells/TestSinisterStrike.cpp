@@ -9,9 +9,7 @@
 #include "SpellRankGroup.h"
 #include "Talent.h"
 
-TestSinisterStrike::TestSinisterStrike(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Sinister Strike")
-{}
+TestSinisterStrike::TestSinisterStrike(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Sinister Strike") {}
 
 void TestSinisterStrike::test_all() {
     run_mandatory_tests();
@@ -65,7 +63,7 @@ void TestSinisterStrike::test_all() {
     tear_down();
 }
 
-SinisterStrike *TestSinisterStrike::sinister_strike() const {
+SinisterStrike* TestSinisterStrike::sinister_strike() const {
     return static_cast<SinisterStrike*>(rogue->get_spells()->get_spell_rank_group_by_name("Sinister Strike")->get_max_available_spell_rank());
 }
 
@@ -94,8 +92,7 @@ void TestSinisterStrike::test_how_spell_observes_global_cooldown() {
     assert(sinister_strike()->get_spell_status() == SpellStatus::OnGCD);
 }
 
-void TestSinisterStrike::test_is_ready_conditions() {
-}
+void TestSinisterStrike::test_is_ready_conditions() {}
 
 void TestSinisterStrike::test_resource_cost() {
     given_1h_sword_equipped_in_mainhand(pchar);

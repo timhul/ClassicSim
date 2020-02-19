@@ -7,18 +7,17 @@
 #include "Equipment.h"
 #include "Proc.h"
 
-CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor):
-    SelfBuff(pchar, "Cat Form", "Assets/ability/Ability_druid_catform.png",  BuffDuration::PERMANENT, 0),
+CatFormBuff::CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor) :
+    SelfBuff(pchar, "Cat Form", "Assets/ability/Ability_druid_catform.png", BuffDuration::PERMANENT, 0),
     TalentRequirer({
-                   new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Predatory Strikes", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Heart of the Wild", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Leader of the Pack", 1, DisabledAtZero::No),
-                   }),
+        new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Predatory Strikes", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Heart of the Wild", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Leader of the Pack", 1, DisabledAtZero::No),
+    }),
     druid(pchar),
     leader_of_the_pack(leader_of_the_pack),
-    furor(furor)
-{}
+    furor(furor) {}
 
 void CatFormBuff::buff_effect_when_applied() {
     pchar->get_equipment()->druid_cat_form_switch_to_claws();

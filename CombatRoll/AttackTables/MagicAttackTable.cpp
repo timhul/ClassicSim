@@ -3,21 +3,14 @@
 #include "Mechanics.h"
 #include "Random.h"
 
-MagicAttackTable::MagicAttackTable(const Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res) :
-    mechanics(mechanics),
-    random(random),
-    miss_range(0),
-    full_resist(0),
-    partial_75(0),
-    partial_50(0),
-    partial_25(0)
-{
+MagicAttackTable::MagicAttackTable(
+    const Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res) :
+    mechanics(mechanics), random(random), miss_range(0), full_resist(0), partial_75(0), partial_50(0), partial_25(0) {
     update_miss_chance(clvl, spell_hit);
     update_target_resistance(target_res);
 }
 
-int MagicAttackTable::get_hit_outcome(const unsigned roll, const unsigned crit_chance) const
-{
+int MagicAttackTable::get_hit_outcome(const unsigned roll, const unsigned crit_chance) const {
     if (roll < miss_range)
         return MagicAttackResult::MISS;
 

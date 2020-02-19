@@ -2,7 +2,7 @@
 
 #include "TestTalentTree.h"
 
-class TestProtectionPaladin: public TestTalentTree {
+class TestProtectionPaladin : public TestTalentTree {
 public:
     TestProtectionPaladin(EquipmentDb* equipment_db);
 

@@ -4,13 +4,16 @@
 #include "Rogue.h"
 
 Ruthlessness::Ruthlessness(Rogue* rogue) :
-    Proc("Ruthlessness", "Assets/ability/Ability_druid_disembowel.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Ruthlessness",
+         "Assets/ability/Ability_druid_disembowel.png",
+         0.0,
+         0,
+         QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          rogue),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Ruthlessness", 3, DisabledAtZero::Yes)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Ruthlessness", 3, DisabledAtZero::Yes)}),
     rogue(rogue),
-    talent_ranks({0, 2000, 4000, 6000})
-{
+    talent_ranks({0, 2000, 4000, 6000}) {
     this->enabled = false;
     proc_range = talent_ranks[0];
 }

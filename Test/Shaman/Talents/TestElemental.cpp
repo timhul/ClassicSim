@@ -7,9 +7,7 @@
 #include "Shaman.h"
 #include "SimSettings.h"
 
-TestElemental::TestElemental(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "LEFT")
-{}
+TestElemental::TestElemental(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "LEFT") {}
 
 void TestElemental::set_up() {
     race = new Orc();

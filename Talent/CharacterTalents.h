@@ -43,7 +43,7 @@ public:
     void clear_tree(const QString& tree_position);
     void set_current_index(const int index);
 
-    void add_talent_tree(TalentTree *left_tree, TalentTree* mid_tree, TalentTree *right_tree);
+    void add_talent_tree(TalentTree* left_tree, TalentTree* mid_tree, TalentTree* right_tree);
 
     int get_talent_points_remaining() const;
 

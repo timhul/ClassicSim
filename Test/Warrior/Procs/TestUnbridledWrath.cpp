@@ -10,9 +10,7 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-TestUnbridledWrath::TestUnbridledWrath(EquipmentDb* equipment_db) :
-    TestProcWarrior(equipment_db, "Unbridled Wrath")
-{}
+TestUnbridledWrath::TestUnbridledWrath(EquipmentDb* equipment_db) : TestProcWarrior(equipment_db, "Unbridled Wrath") {}
 
 void TestUnbridledWrath::test_all() {
     set_up();

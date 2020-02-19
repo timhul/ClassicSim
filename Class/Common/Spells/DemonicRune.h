@@ -5,7 +5,7 @@
 class Random;
 class StatisticsResource;
 
-class DemonicRune: public Spell {
+class DemonicRune : public Spell {
 public:
     DemonicRune(Character* pchar);
     ~DemonicRune() override;

@@ -5,9 +5,7 @@
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 
-TestMainhandAttackPaladin::TestMainhandAttackPaladin(EquipmentDb *equipment_db) :
-    TestSpellPaladin(equipment_db, "MainhandAttackPaladin")
-{}
+TestMainhandAttackPaladin::TestMainhandAttackPaladin(EquipmentDb* equipment_db) : TestSpellPaladin(equipment_db, "MainhandAttackPaladin") {}
 
 void TestMainhandAttackPaladin::test_all() {
     run_mandatory_tests();

@@ -5,9 +5,9 @@
 class AimedShot;
 class MultiShot;
 
-class TestAimedShot: public TestSpellHunter {
+class TestAimedShot : public TestSpellHunter {
 public:
-    TestAimedShot(EquipmentDb *equipment_db);
+    TestAimedShot(EquipmentDb* equipment_db);
 
     void test_all();
 

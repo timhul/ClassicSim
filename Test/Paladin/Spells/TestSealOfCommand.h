@@ -4,9 +4,9 @@
 
 class Proc;
 
-class TestSealOfCommand: public TestSpellPaladin {
+class TestSealOfCommand : public TestSpellPaladin {
 public:
-    TestSealOfCommand(EquipmentDb *equipment_db);
+    TestSealOfCommand(EquipmentDb* equipment_db);
 
     void test_all();
 

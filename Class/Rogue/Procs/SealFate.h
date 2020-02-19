@@ -5,7 +5,7 @@
 
 class Rogue;
 
-class SealFate: public Proc, public TalentRequirer {
+class SealFate : public Proc, public TalentRequirer {
 public:
     SealFate(Rogue* rogue);
 

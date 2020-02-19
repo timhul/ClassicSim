@@ -2,7 +2,7 @@
 
 #include "Buff.h"
 
-class UniqueDebuff: public Buff {
+class UniqueDebuff : public Buff {
 public:
     UniqueDebuff(Character* pchar, QString name, QString icon, const Priority priority, const int duration, const int base_charges);
 

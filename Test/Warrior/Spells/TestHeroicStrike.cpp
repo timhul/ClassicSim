@@ -11,9 +11,7 @@
 #include "Talent.h"
 #include "WarriorSpells.h"
 
-TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Heroic Strike")
-{}
+TestHeroicStrike::TestHeroicStrike(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Heroic Strike") {}
 
 void TestHeroicStrike::test_all() {
     run_mandatory_tests();

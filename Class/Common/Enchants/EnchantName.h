@@ -8,7 +8,8 @@ class EnchantName : public QObject {
     Q_OBJECT
 
 public:
-    enum Name {
+    enum Name
+    {
         NoEnchant = -1,
         Crusader,
         FieryWeapon,
@@ -146,11 +147,11 @@ public:
             return "Greater Stats";
         case EnchantName::EnchantBootsMinorSpeed:
             return "Minor Speed";
-        case EnchantName:: EnchantBootsGreaterAgility:
+        case EnchantName::EnchantBootsGreaterAgility:
             return "Greater Agility";
-        case EnchantName:: EnchantBootsSpirit:
+        case EnchantName::EnchantBootsSpirit:
             return "Spirit";
-        case EnchantName:: ElementalSharpeningStone:
+        case EnchantName::ElementalSharpeningStone:
             return "Elemental Sharpening Stone";
         case EnchantName::ConsecratedSharpeningStone:
             return "Consecrated Sharpening Stone";
@@ -259,11 +260,11 @@ public:
             return "+4 Attributes";
         case EnchantName::EnchantBootsMinorSpeed:
             return "Speed Increase";
-        case EnchantName:: EnchantBootsGreaterAgility:
+        case EnchantName::EnchantBootsGreaterAgility:
             return "+7 Agility";
-        case EnchantName:: EnchantBootsSpirit:
+        case EnchantName::EnchantBootsSpirit:
             return "+5 Spirit";
-        case EnchantName:: ElementalSharpeningStone:
+        case EnchantName::ElementalSharpeningStone:
             return "+2% Crit";
         case EnchantName::ConsecratedSharpeningStone:
             return "+100 AP\nvs Undead";

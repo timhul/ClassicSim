@@ -5,7 +5,7 @@
 class Paladin;
 class PaladinSpells;
 
-class Retribution: public TalentTree {
+class Retribution : public TalentTree {
 public:
     Retribution(Paladin* paladin);
     ~Retribution() override = default;

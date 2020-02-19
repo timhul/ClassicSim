@@ -6,7 +6,7 @@
 class StatisticsResource;
 class Warrior;
 
-class Bloodrage: public PeriodicResourceGainSpell, public TalentRequirer {
+class Bloodrage : public PeriodicResourceGainSpell, public TalentRequirer {
 public:
     Bloodrage(Warrior* warrior);
 

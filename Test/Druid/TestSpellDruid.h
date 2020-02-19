@@ -12,7 +12,7 @@ class Starfire;
 class Wrath;
 class FerociousBite;
 
-class TestSpellDruid: public TestSpellDamage {
+class TestSpellDruid : public TestSpellDamage {
 public:
     TestSpellDruid(EquipmentDb* equipment_db, QString spell_under_test);
 

@@ -2,9 +2,9 @@
 
 #include "TestSpellWarrior.h"
 
-class TestWhirlwind: public TestSpellWarrior {
+class TestWhirlwind : public TestSpellWarrior {
 public:
-    TestWhirlwind(EquipmentDb *equipment_db);
+    TestWhirlwind(EquipmentDb* equipment_db);
 
     void test_all();
 

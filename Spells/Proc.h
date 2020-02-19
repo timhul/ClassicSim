@@ -1,21 +1,21 @@
 #pragma once
 
-#include "Spell.h"
 #include "ProcInfo.h"
+#include "Spell.h"
 
 class EnabledProcs;
 class Random;
 class StatisticsProc;
 class StatisticsBuff;
 
-class Proc: public Spell {
+class Proc : public Spell {
 public:
     Proc(const QString& name,
          const QString& icon,
          const double proc_rate,
          const double inner_cooldown,
-         const QVector<Proc *>& linked_procs,
-         QVector<ProcInfo::Source>  proc_sources,
+         const QVector<Proc*>& linked_procs,
+         QVector<ProcInfo::Source> proc_sources,
          Character* pchar);
     ~Proc() override;
 

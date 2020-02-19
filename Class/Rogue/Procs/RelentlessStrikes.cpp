@@ -6,14 +6,17 @@
 #include "StatisticsResource.h"
 
 RelentlessStrikes::RelentlessStrikes(Rogue* rogue) :
-    Proc("Relentless Strikes", "Assets/ability/Ability_warrior_decisivestrike.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Relentless Strikes",
+         "Assets/ability/Ability_warrior_decisivestrike.png",
+         0.0,
+         0,
+         QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          rogue),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Relentless Strikes", 1, DisabledAtZero::Yes)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Relentless Strikes", 1, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),
     rogue(rogue),
-    talent_ranks({0, 2000})
-{
+    talent_ranks({0, 2000}) {
     this->enabled = false;
 
     proc_range = talent_ranks[0];

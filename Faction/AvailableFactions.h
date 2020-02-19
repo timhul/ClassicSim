@@ -6,7 +6,8 @@ class AvailableFactions : public QObject {
     Q_OBJECT
 
 public:
-    enum Name {
+    enum Name
+    {
         Neutral = 0,
         Alliance,
         Horde

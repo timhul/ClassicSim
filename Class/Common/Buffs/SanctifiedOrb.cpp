@@ -3,9 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 
-SanctifiedOrb::SanctifiedOrb(Character* pchar):
-    SelfBuff(pchar, "Sanctified Orb", "Assets/items/Inv_misc_gem_pearl_04.png", 25, 0)
-{}
+SanctifiedOrb::SanctifiedOrb(Character* pchar) : SelfBuff(pchar, "Sanctified Orb", "Assets/items/Inv_misc_gem_pearl_04.png", 25, 0) {}
 
 void SanctifiedOrb::buff_effect_when_applied() {
     pchar->get_stats()->increase_melee_aura_crit(300);

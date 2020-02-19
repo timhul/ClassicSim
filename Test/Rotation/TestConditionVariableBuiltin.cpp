@@ -15,9 +15,7 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-TestConditionVariableBuiltin::TestConditionVariableBuiltin(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestConditionVariableBuiltin::TestConditionVariableBuiltin(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestConditionVariableBuiltin::test_all() {
     qDebug() << "TestConditionVariableBuiltin";
@@ -60,11 +58,10 @@ void TestConditionVariableBuiltin::test_all() {
     tear_down();
 }
 
-void TestConditionVariableBuiltin::test_values_after_initialization() {
-}
+void TestConditionVariableBuiltin::test_values_after_initialization() {}
 
 void TestConditionVariableBuiltin::test_combo_points_less() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Less, 3);
+    ConditionVariableBuiltin condition(rogue, BuiltinVariables::ComboPoints, Comparator::Less, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(condition.condition_fulfilled());
@@ -86,7 +83,7 @@ void TestConditionVariableBuiltin::test_combo_points_less() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_leq() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Leq, 3);
+    ConditionVariableBuiltin condition(rogue, BuiltinVariables::ComboPoints, Comparator::Leq, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(condition.condition_fulfilled());
@@ -108,7 +105,7 @@ void TestConditionVariableBuiltin::test_combo_points_leq() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_equal() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Eq, 3);
+    ConditionVariableBuiltin condition(rogue, BuiltinVariables::ComboPoints, Comparator::Eq, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(!condition.condition_fulfilled());
@@ -130,7 +127,7 @@ void TestConditionVariableBuiltin::test_combo_points_equal() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_geq() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Geq, 3);
+    ConditionVariableBuiltin condition(rogue, BuiltinVariables::ComboPoints, Comparator::Geq, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(!condition.condition_fulfilled());

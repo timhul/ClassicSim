@@ -12,24 +12,27 @@
 #include "Weapon.h"
 
 Eviscerate::Eviscerate(Rogue* rogue) :
-    Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)
-                   }),
+    Spell("Eviscerate",
+          "Assets/ability/Ability_rogue_eviscerate.png",
+          rogue,
+          new CooldownControl(rogue, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          35),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Deathdealer's Embrace"}),
     rogue(rogue),
     evisc_range(new Random(904, 1012)),
     damage_ranges_per_combo_point({
-                                  QPair<unsigned, unsigned>(224, 332),
-                                  QPair<unsigned, unsigned>(394, 502),
-                                  QPair<unsigned, unsigned>(564, 672),
-                                  QPair<unsigned, unsigned>(734, 842),
-                                  QPair<unsigned, unsigned>(904, 1012),
-                              }),
+        QPair<unsigned, unsigned>(224, 332),
+        QPair<unsigned, unsigned>(394, 502),
+        QPair<unsigned, unsigned>(564, 672),
+        QPair<unsigned, unsigned>(734, 842),
+        QPair<unsigned, unsigned>(904, 1012),
+    }),
     aggression_modifiers({1.0, 1.02, 1.04, 1.06}),
-    imp_evisc_modifiers({1.0, 1.05, 1.10, 1.15})
-{}
+    imp_evisc_modifiers({1.0, 1.05, 1.10, 1.15}) {}
 
 Eviscerate::~Eviscerate() {
     delete evisc_range;
@@ -71,8 +74,7 @@ void Eviscerate::spell_effect() {
         damage_dealt = round(damage_dealt * rogue->get_stats()->get_melee_ability_crit_dmg_mod());
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         rogue->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
@@ -93,7 +95,7 @@ void Eviscerate::spell_effect() {
 
 void Eviscerate::set_evisc_range() {
     int index = static_cast<int>(rogue->get_combo_points()) - 1;
-    check((index >= 0 && index <= damage_ranges_per_combo_point.size() -1), "Index out of range");
+    check((index >= 0 && index <= damage_ranges_per_combo_point.size() - 1), "Index out of range");
 
     unsigned min = damage_ranges_per_combo_point[index].first;
     unsigned max = damage_ranges_per_combo_point[index].second;

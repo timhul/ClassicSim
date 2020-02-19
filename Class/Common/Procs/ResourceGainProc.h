@@ -5,7 +5,7 @@
 class Random;
 class StatisticsResource;
 
-class ResourceGainProc: public Proc {
+class ResourceGainProc : public Proc {
 public:
     ResourceGainProc(Character* pchar,
                      const QString& proc_name,

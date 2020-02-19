@@ -6,7 +6,7 @@
 
 class MultiShot;
 
-class TestSpellHunter: public TestSpellDamage {
+class TestSpellHunter : public TestSpellDamage {
 public:
     TestSpellHunter(EquipmentDb* equipment_db, QString spell_under_test);
 

@@ -9,7 +9,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Slam: public Spell, public CastingTimeRequirer, public TalentRequirer {
+class Slam : public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Slam(Warrior* pchar, WarriorSpells* spells);
     ~Slam() override;

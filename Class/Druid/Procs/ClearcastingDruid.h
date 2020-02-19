@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "ProcPPM.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Druid;
 
-class ClearcastingDruid: public ProcPPM, public TalentRequirer {
+class ClearcastingDruid : public ProcPPM, public TalentRequirer {
 public:
     ClearcastingDruid(Druid* pchar);
     ~ClearcastingDruid() override;

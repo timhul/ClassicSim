@@ -7,9 +7,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 
-TestRetribution::TestRetribution(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "RIGHT")
-{}
+TestRetribution::TestRetribution(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "RIGHT") {}
 
 void TestRetribution::set_up() {
     race = new Human();

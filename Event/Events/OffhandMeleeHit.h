@@ -4,7 +4,7 @@
 
 class CharacterSpells;
 
-class OffhandMeleeHit: public Event {
+class OffhandMeleeHit : public Event {
 public:
     OffhandMeleeHit(CharacterSpells* spells, const double timestamp, const int iteration);
 

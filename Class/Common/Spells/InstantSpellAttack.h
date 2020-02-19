@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Spell.h"
 #include "MagicSchools.h"
+#include "Spell.h"
 
 class Random;
 
 enum class ConsumeCharge : bool;
 
-class InstantSpellAttack: public Spell {
+class InstantSpellAttack : public Spell {
 public:
     InstantSpellAttack(Character* pchar,
                        const QString& name,

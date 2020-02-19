@@ -4,9 +4,9 @@
 
 class RelentlessStrikes;
 
-class TestRelentlessStrikes: public TestProcRogue {
+class TestRelentlessStrikes : public TestProcRogue {
 public:
-    TestRelentlessStrikes(EquipmentDb *equipment_db);
+    TestRelentlessStrikes(EquipmentDb* equipment_db);
 
     void test_all();
 

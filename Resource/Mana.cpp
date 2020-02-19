@@ -4,14 +4,11 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
-#include "CharacterStats.h"
 #include "Engine.h"
 #include "Utils/Check.h"
 #include "Utils/CompareDouble.h"
 
-Mana::Mana(Character* pchar) :
-    RegeneratingResource(pchar)
-{}
+Mana::Mana(Character* pchar) : RegeneratingResource(pchar) {}
 
 void Mana::set_base_mana(const unsigned base_mana) {
     this->base_mana = base_mana;

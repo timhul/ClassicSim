@@ -11,9 +11,7 @@
 #include "SealOfTheCrusader.h"
 #include "Weapon.h"
 
-TestSealOfCommand::TestSealOfCommand(EquipmentDb *equipment_db) :
-    TestSpellPaladin(equipment_db, "Seal of Command")
-{}
+TestSealOfCommand::TestSealOfCommand(EquipmentDb* equipment_db) : TestSpellPaladin(equipment_db, "Seal of Command") {}
 
 void TestSealOfCommand::test_all() {
     run_mandatory_tests(false);

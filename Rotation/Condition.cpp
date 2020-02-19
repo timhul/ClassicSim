@@ -11,7 +11,7 @@ QString Sentence::logical_connective_as_string() const {
     }
 }
 
-QString Sentence::condition_type_as_string() const  {
+QString Sentence::condition_type_as_string() const {
     switch (condition_type) {
     case ConditionType::BuffDurationCondition:
         return "BUFF_DURATION";
@@ -69,9 +69,7 @@ void Sentence::dump() const {
     qDebug() << "compared_value" << compared_value;
 }
 
-Condition::Condition(const Comparator comparator):
-    comparator(comparator)
-{}
+Condition::Condition(const Comparator comparator) : comparator(comparator) {}
 
 QString Condition::comparator_as_string() const {
     switch (comparator) {

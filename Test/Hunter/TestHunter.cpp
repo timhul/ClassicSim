@@ -17,9 +17,7 @@
 #include "TestSurvival.h"
 #include "Weapon.h"
 
-TestHunter::TestHunter(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestHunter::TestHunter(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestHunter::test_all() {
     test_values_after_initialization();

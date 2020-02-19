@@ -6,7 +6,7 @@
 
 class TalentTree;
 
-class Deadliness: public Talent {
+class Deadliness : public Talent {
 public:
     Deadliness(Character* pchar, TalentTree* tree);
 

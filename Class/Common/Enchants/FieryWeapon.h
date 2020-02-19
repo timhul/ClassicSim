@@ -4,7 +4,7 @@
 
 class InstantSpellAttack;
 
-class FieryWeapon: public ProcPPM {
+class FieryWeapon : public ProcPPM {
 public:
     FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon);
     ~FieryWeapon() override;

@@ -2,7 +2,7 @@
 
 #include "SharedDebuff.h"
 
-class StormstrikeBuff: public SharedDebuff {
+class StormstrikeBuff : public SharedDebuff {
 public:
     StormstrikeBuff(Character* pchar);
 

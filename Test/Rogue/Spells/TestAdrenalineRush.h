@@ -4,9 +4,9 @@
 
 class AdrenalineRush;
 
-class TestAdrenalineRush: public TestSpellRogue {
+class TestAdrenalineRush : public TestSpellRogue {
 public:
-    TestAdrenalineRush(EquipmentDb *equipment_db);
+    TestAdrenalineRush(EquipmentDb* equipment_db);
 
     void test_all();
 

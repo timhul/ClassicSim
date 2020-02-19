@@ -3,7 +3,8 @@
 #include <QHash>
 #include <QString>
 
-enum class EventType: int {
+enum class EventType : int
+{
     BuffRemoval,
     CastComplete,
     DotTick,
@@ -44,5 +45,5 @@ public:
 
 class Compare {
 public:
-    bool operator() (Event*&, Event*&);
+    bool operator()(Event*&, Event*&);
 };

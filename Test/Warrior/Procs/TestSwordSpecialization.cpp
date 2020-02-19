@@ -12,9 +12,7 @@
 #include "WarriorSpells.h"
 #include "Weapon.h"
 
-TestSwordSpecialization::TestSwordSpecialization(EquipmentDb* equipment_db) :
-    TestProcWarrior(equipment_db, "Sword Specalization")
-{}
+TestSwordSpecialization::TestSwordSpecialization(EquipmentDb* equipment_db) : TestProcWarrior(equipment_db, "Sword Specalization") {}
 
 void TestSwordSpecialization::test_all() {
     set_up();

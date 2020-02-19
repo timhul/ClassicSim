@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QString>
+
 #include "EnchantName.h"
 
 class Enchant {

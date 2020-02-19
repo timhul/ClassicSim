@@ -4,10 +4,8 @@
 #include "SortDirection.h"
 #include "StatisticsBuff.h"
 
-BuffBreakdownModel::BuffBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{
+BuffBreakdownModel::BuffBreakdownModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {
     this->current_sorting_method = BuffBreakdownSorting::Methods::ByAvgUptime;
     this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByAvgUptime, SortDirection::Forward);
     this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByName, SortDirection::Forward);
@@ -16,7 +14,7 @@ BuffBreakdownModel::BuffBreakdownModel(NumberCruncher *statistics_source, QObjec
 }
 
 BuffBreakdownModel::~BuffBreakdownModel() {
-    for (const auto & i : buff_stats)
+    for (const auto& i : buff_stats)
         delete i;
 }
 
@@ -51,11 +49,10 @@ void BuffBreakdownModel::select_new_method(const BuffBreakdownSorting::Methods n
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(buff_stats.begin(), buff_stats.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -71,7 +68,7 @@ void BuffBreakdownModel::update_statistics() {
     if (!buff_stats.empty()) {
         beginResetModel();
 
-        for (const auto & i : buff_stats)
+        for (const auto& i : buff_stats)
             delete i;
 
         buff_stats.clear();
@@ -91,12 +88,12 @@ void BuffBreakdownModel::add_statistics() {
     statistics_source->merge_buff_stats(buff_stats, false);
 }
 
-int BuffBreakdownModel::rowCount(const QModelIndex & parent) const {
+int BuffBreakdownModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return buff_stats.count();
 }
 
-QVariant BuffBreakdownModel::data(const QModelIndex & index, int role) const {
+QVariant BuffBreakdownModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= buff_stats.count())
         return QVariant();
 

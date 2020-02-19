@@ -1,7 +1,7 @@
 #pragma once
 
-#include <QVector>
 #include <QMap>
+#include <QVector>
 
 class Character;
 class Item;
@@ -22,7 +22,7 @@ private:
     QMap<QString, QString> setup_map;
     QMap<QString, QVector<QPair<QString, QString>>> setup_lists;
 
-    void parse_list(QString &string_list);
+    void parse_list(QString& string_list);
 
     QPair<QString, QString> get_key_val(const QString& key_val) const;
 };

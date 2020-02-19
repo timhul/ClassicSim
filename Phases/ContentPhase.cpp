@@ -1,4 +1,5 @@
 #include "ContentPhase.h"
+
 #include "Utils/Check.h"
 
 QString Content::get_description_for_phase(const Content::Phase phase) {

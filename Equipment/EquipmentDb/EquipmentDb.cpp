@@ -1,6 +1,7 @@
 #include "EquipmentDb.h"
 
 #include <cmath>
+
 #include <QDebug>
 #include <QDir>
 #include <QVersionNumber>
@@ -11,33 +12,13 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-EquipmentDb::EquipmentDb(QObject* parent):
-    QObject(parent)
-{
+EquipmentDb::EquipmentDb(QObject* parent) : QObject(parent) {
     read_equipment_files();
     add_druid_cat_form_claws();
     set_content_phase(Content::Phase::Naxxramas);
 
-    all_slots_items = {
-        &mh_slot_items,
-        &oh_slot_items,
-        &ranged_items,
-        &helms,
-        &amulets,
-        &shoulders,
-        &backs,
-        &chests,
-        &wrists,
-        &gloves,
-        &belts,
-        &legs,
-        &boots,
-        &rings,
-        &trinkets,
-        &projectiles,
-        &relics,
-        &quivers
-    };
+    all_slots_items = {&mh_slot_items, &oh_slot_items, &ranged_items, &helms, &amulets, &shoulders, &backs,       &chests, &wrists,
+                       &gloves,        &belts,         &legs,         &boots, &rings,   &trinkets,  &projectiles, &relics, &quivers};
 }
 
 EquipmentDb::~EquipmentDb() {
@@ -47,13 +28,13 @@ EquipmentDb::~EquipmentDb() {
     mh_slot_items.clear();
     oh_slot_items.clear();
 
-    for (const auto & all_slots_item : all_slots_items) {
+    for (const auto& all_slots_item : all_slots_items) {
         delete_items(all_slots_item);
         all_slots_item->clear();
     }
 }
 
-void EquipmentDb::delete_items(QVector<Item *>* list) {
+void EquipmentDb::delete_items(QVector<Item*>* list) {
     for (const auto i : *list)
         delete i;
 }
@@ -70,7 +51,8 @@ void EquipmentDb::add_druid_cat_form_claws() {
         const unsigned min_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(i * 0.85))));
         const unsigned max_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(i * 1.25))));
         const int item_id = 11223300 + i;
-        Weapon* claw = new Weapon(QString("Claw level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND, min_dmg, max_dmg, 1.0);
+        Weapon* claw = new Weapon(QString("Claw level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND,
+                                  min_dmg, max_dmg, 1.0);
         add_melee_weapon(claw);
     }
 }
@@ -94,12 +76,12 @@ void EquipmentDb::add_ring(Item* ring) {
 }
 
 Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
-    for (const auto & current_phase_mh_slot_item : current_phase_mh_slot_items) {
+    for (const auto& current_phase_mh_slot_item : current_phase_mh_slot_items) {
         if (item_id == current_phase_mh_slot_item->item_id)
             return new Weapon(static_cast<Weapon*>(current_phase_mh_slot_item));
     }
 
-    for (const auto & current_phase_oh_slot_item : current_phase_oh_slot_items) {
+    for (const auto& current_phase_oh_slot_item : current_phase_oh_slot_items) {
         if (item_id == current_phase_oh_slot_item->item_id)
             return new Weapon(static_cast<Weapon*>(current_phase_oh_slot_item));
     }
@@ -107,7 +89,7 @@ Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
     return nullptr;
 }
 
-Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) const {
+Item* EquipmentDb::get_item(const QVector<Item*>& item_list, const int item_id) const {
     for (const auto item : item_list) {
         if (item_id == item->item_id)
             return new Item(item);
@@ -117,7 +99,7 @@ Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) 
 }
 
 Weapon* EquipmentDb::get_ranged(const int item_id) const {
-    for (const auto & current_phase_ranged_slot_item : current_phase_ranged_items) {
+    for (const auto& current_phase_ranged_slot_item : current_phase_ranged_items) {
         if (item_id == current_phase_ranged_slot_item->item_id)
             return new Weapon(static_cast<Weapon*>(current_phase_ranged_slot_item));
     }
@@ -182,7 +164,7 @@ Item* EquipmentDb::get_relic(const int item_id) const {
 }
 
 Projectile* EquipmentDb::get_projectile(const int item_id) const {
-    for (const auto & current_phase_projectile : current_phase_projectiles) {
+    for (const auto& current_phase_projectile : current_phase_projectiles) {
         if (item_id == current_phase_projectile->item_id)
             return new Projectile(static_cast<Projectile*>(current_phase_projectile));
     }
@@ -190,8 +172,8 @@ Projectile* EquipmentDb::get_projectile(const int item_id) const {
     return nullptr;
 }
 
-Quiver *EquipmentDb::get_quiver(const int item_id) const {
-    for (const auto & current_phase_quiver : current_phase_quivers) {
+Quiver* EquipmentDb::get_quiver(const int item_id) const {
+    for (const auto& current_phase_quiver : current_phase_quivers) {
         if (item_id == current_phase_quiver->item_id)
             return new Quiver(static_cast<Quiver*>(current_phase_quiver));
     }
@@ -199,14 +181,14 @@ Quiver *EquipmentDb::get_quiver(const int item_id) const {
     return nullptr;
 }
 
-Item *EquipmentDb::get_item(const int item_id) const {
+Item* EquipmentDb::get_item(const int item_id) const {
     if (item_id_to_item.contains(item_id))
         return item_id_to_item[item_id];
 
     return nullptr;
 }
 
-const QVector<Item*> & EquipmentDb::get_slot_items(const int slot) const {
+const QVector<Item*>& EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:
         return current_phase_mh_slot_items;
@@ -278,11 +260,11 @@ void EquipmentDb::set_content_phase(const Content::Phase phase) {
     set_phase_for_slot(quivers, current_phase_quivers);
 }
 
-void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &phase_slot_items) {
+void EquipmentDb::set_phase_for_slot(QVector<Item*>& total_slot_items, QVector<Item*>& phase_slot_items) {
     phase_slot_items.clear();
     QMap<int, Item*> tmp_items;
 
-    for (const auto & item : total_slot_items) {
+    for (const auto& item : total_slot_items) {
         if (item->valid_for_phase(current_phase)) {
             if (tmp_items.contains(item->item_id)) {
                 QString curr_tmp_phase = tmp_items[item->item_id]->get_value("phase");
@@ -295,7 +277,7 @@ void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<I
         }
     }
 
-    for (const auto & item : tmp_items)
+    for (const auto& item : tmp_items)
         phase_slot_items.append(item);
 }
 
@@ -324,14 +306,12 @@ void EquipmentDb::read_equipment_files() {
                     equipment_file_paths.append(attrs.value("path").toString());
 
                 reader.skipCurrentElement();
-            }
-            else {
+            } else {
                 qDebug() << "Skipping element" << reader.readElementText();
                 reader.skipCurrentElement();
             }
         }
-    }
-    else
+    } else
         qDebug() << "Failed to read equipment_paths.xml.";
 
     file.close();
@@ -341,7 +321,7 @@ void EquipmentDb::read_equipment_files() {
 
     QVector<Item*> items;
 
-    for (const auto & equipment_file_path : equipment_file_paths) {
+    for (const auto& equipment_file_path : equipment_file_paths) {
         ItemFileReader().read_items(items, equipment_file_path);
     }
 
@@ -363,13 +343,13 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, oh_slot_items, ItemSlots::CASTER_OFFHAND);
     take_items_of_slot_from_given_items(items, quivers, ItemSlots::QUIVER);
 
-    for (const auto & item : items) {
+    for (const auto& item : items) {
         qDebug() << "Failed to classify slot for" << item->name;
         delete item;
     }
 }
 
-void EquipmentDb::take_weapons_from_given_items(QVector<Item*> &mixed_items) {
+void EquipmentDb::take_weapons_from_given_items(QVector<Item*>& mixed_items) {
     Item* item = nullptr;
     for (int i = 0; i < mixed_items.size(); ++i) {
         switch (mixed_items[i]->get_weapon_slot()) {
@@ -401,7 +381,7 @@ void EquipmentDb::take_weapons_from_given_items(QVector<Item*> &mixed_items) {
     }
 }
 
-void EquipmentDb::take_items_of_slot_from_given_items(QVector<Item*> &mixed_items, QVector<Item*> &sorted, const int slot) {
+void EquipmentDb::take_items_of_slot_from_given_items(QVector<Item*>& mixed_items, QVector<Item*>& sorted, const int slot) {
     Item* item = nullptr;
     for (int i = 0; i < mixed_items.size(); ++i) {
         if (mixed_items[i]->get_item_slot() == slot) {

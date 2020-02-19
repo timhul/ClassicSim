@@ -19,9 +19,7 @@
 #include "TestStarfire.h"
 #include "TestWrath.h"
 
-TestDruid::TestDruid(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestDruid::TestDruid(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestDruid::test_all() {
     test_values_after_initialization();

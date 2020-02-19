@@ -12,14 +12,11 @@
 
 Backstab::Backstab(Rogue* rogue) :
     Spell("Backstab", "Assets/ability/Ability_backstab.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 60),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Opportunity", 5, DisabledAtZero::No)
-                   }),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Opportunity", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Bonescythe Armor"}),
-    rogue(rogue)
-{}
+    rogue(rogue) {}
 
 Backstab::~Backstab() {
     delete cooldown;
@@ -70,8 +67,7 @@ void Backstab::spell_effect() {
 
         if (rogue->get_seal_fate()->is_enabled() && rogue->get_seal_fate()->check_proc_success())
             rogue->get_seal_fate()->perform();
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         rogue->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt * opportunity)), resource_cost, pchar->global_cooldown());
     }

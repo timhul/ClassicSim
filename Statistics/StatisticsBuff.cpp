@@ -36,8 +36,7 @@ StatisticsBuff::StatisticsBuff(QString name, QString icon, const bool debuff) :
     avg_uptime(0),
     counter(0),
     min_uptime_set(false),
-    max_uptime_set(false)
-{}
+    max_uptime_set(false) {}
 
 void StatisticsBuff::reset() {
     counter = 0;

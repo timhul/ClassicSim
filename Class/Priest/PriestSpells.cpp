@@ -4,10 +4,7 @@
 #include "MainhandAttack.h"
 #include "Priest.h"
 
-PriestSpells::PriestSpells(Priest* priest) :
-    CharacterSpells(priest),
-    priest(priest)
-{
+PriestSpells::PriestSpells(Priest* priest) : CharacterSpells(priest), priest(priest) {
     this->berserking = new Berserking(pchar, ResourceType::Mana, 110);
     add_spell_group({berserking});
 

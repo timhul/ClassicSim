@@ -4,7 +4,7 @@
 
 class Rogue;
 
-class RogueEnchants: public CharacterEnchants {
+class RogueEnchants : public CharacterEnchants {
 public:
     RogueEnchants(Rogue* rogue);
 

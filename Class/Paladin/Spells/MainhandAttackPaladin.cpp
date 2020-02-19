@@ -8,10 +8,7 @@
 #include "PaladinSpells.h"
 
 MainhandAttackPaladin::MainhandAttackPaladin(Paladin* paladin, PaladinSpells* paladin_spells) :
-    MainhandAttack(paladin),
-    paladin(paladin),
-    paladin_spells(paladin_spells)
-{}
+    MainhandAttack(paladin), paladin(paladin), paladin_spells(paladin_spells) {}
 
 void MainhandAttackPaladin::apply_seal_of_the_crusader_penalty() {
     this->sotc_penalty = 1 / 1.4;

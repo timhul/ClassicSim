@@ -10,7 +10,7 @@ class ImprovedScorch;
 class Mage;
 class Proc;
 
-class MageSpells: public CharacterSpells {
+class MageSpells : public CharacterSpells {
 public:
     MageSpells(Mage* mage);
     ~MageSpells() override;

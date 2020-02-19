@@ -5,13 +5,14 @@
 
 class NumberCruncher;
 class StatisticsEngine;
-enum class EventType: int;
-enum class SortDirection: int;
+enum class EventType : int;
+enum class SortDirection : int;
 
 class EngineBreakdownSorting : public QObject {
     Q_OBJECT
 public:
-    enum Methods {
+    enum Methods
+    {
         ByEvent = Qt::UserRole + 1,
         ByPercentage,
         ByTotal,
@@ -20,11 +21,10 @@ public:
     Q_ENUMS(Methods)
 };
 
-class EngineBreakdownModel : public QAbstractListModel
-{
+class EngineBreakdownModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    EngineBreakdownModel(NumberCruncher* statistics_source, QObject *parent = nullptr);
+    EngineBreakdownModel(NumberCruncher* statistics_source, QObject* parent = nullptr);
     ~EngineBreakdownModel();
 
     Q_INVOKABLE void selectSort(const int method);
@@ -32,14 +32,15 @@ public:
     void update_statistics();
     double events_handled_per_second() const;
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
     Q_PROPERTY(int currentSortingMethod READ get_current_sorting_method NOTIFY sortingMethodChanged)
     Q_SIGNAL void sortingMethodChanged();
 
 protected:
     QHash<int, QByteArray> roleNames() const;
+
 private:
     NumberCruncher* statistics_source;
     StatisticsEngine* engine_stats;

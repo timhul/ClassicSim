@@ -1,7 +1,8 @@
 #include "SimulationRunner.h"
 
-#include <QVersionNumber>
 #include <utility>
+
+#include <QVersionNumber>
 
 #include "Character.h"
 #include "CharacterDecoder.h"
@@ -14,7 +15,8 @@
 #include "SimControl.h"
 #include "SimSettings.h"
 
-SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, RandomAffixes *random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
+SimulationRunner::SimulationRunner(
+    unsigned thread_id, EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent) :
     QObject(parent),
     equipment_db(equipment_db),
     random_affixes(random_affixes),
@@ -22,8 +24,7 @@ SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db
     local_sim_settings(nullptr),
     scaler(scaler),
     full_sim(false),
-    thread_id(thread_id)
-{}
+    thread_id(thread_id) {}
 
 void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
@@ -48,7 +49,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
 
     Random pchar_seeds(0, std::numeric_limits<unsigned>::max());
 
-    for (const auto & setup_string: this->setup_strings) {
+    for (const auto& setup_string : this->setup_strings) {
         CharacterDecoder decoder_pchar;
         decoder_pchar.initialize(setup_string);
         CharacterLoader loader(equipment_db, random_affixes, local_sim_settings, raid_control, decoder_pchar);
@@ -66,7 +67,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
         raid.last()->get_combat_roll()->set_new_seed(pchar_seeds.get_roll());
     }
 
-    SimControl sim_control (local_sim_settings, scaler);
+    SimControl sim_control(local_sim_settings, scaler);
     QObject::connect(&sim_control, SIGNAL(update_progress(int)), this, SLOT(receive_progress(int)));
 
     if (full_sim)
@@ -74,9 +75,9 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     else
         sim_control.run_quick_sim(raid, raid_control);
 
-    for (const auto & pchar : raid)
+    for (const auto& pchar : raid)
         delete pchar;
-    for (const auto & race : races)
+    for (const auto& race : races)
         delete race;
 
     raid.clear();
@@ -94,9 +95,9 @@ void SimulationRunner::receive_progress(const int iterations_completed) {
 }
 
 void SimulationRunner::exit_thread(QString err) {
-    for (const auto & pchar : raid)
+    for (const auto& pchar : raid)
         delete pchar;
-    for (const auto & race : raid)
+    for (const auto& race : raid)
         delete race;
 
     delete local_sim_settings;

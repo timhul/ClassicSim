@@ -8,7 +8,7 @@ class JudgementOfTheCrusader;
 class Paladin;
 class SealOfTheCrusaderBuff;
 
-class SealOfTheCrusader: public PaladinSeal, public TalentRequirer, public ItemModificationRequirer {
+class SealOfTheCrusader : public PaladinSeal, public TalentRequirer, public ItemModificationRequirer {
 public:
     SealOfTheCrusader(Paladin* pchar, JudgementOfTheCrusader* judge_debuff);
     ~SealOfTheCrusader() override;

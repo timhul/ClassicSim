@@ -4,7 +4,7 @@
 
 class Engine;
 
-class EncounterEnd: public Event {
+class EncounterEnd : public Event {
 public:
     EncounterEnd(Engine* engine, const int combat_length);
 

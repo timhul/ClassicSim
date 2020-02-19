@@ -4,9 +4,9 @@
 
 class Hemorrhage;
 
-class TestHemorrhage: public TestSpellRogue {
+class TestHemorrhage : public TestSpellRogue {
 public:
-    TestHemorrhage(EquipmentDb *equipment_db);
+    TestHemorrhage(EquipmentDb* equipment_db);
 
     void test_all();
 

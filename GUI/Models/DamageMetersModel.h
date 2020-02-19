@@ -7,11 +7,11 @@
 
 class NumberCruncher;
 
-class DamageMetersModel : public QAbstractListModel
-{
+class DamageMetersModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum DamageRoles {
+    enum DamageRoles
+    {
         NameRole = Qt::UserRole + 1,
         DpsRole,
         DpsRatioRole,
@@ -25,8 +25,8 @@ public:
 
     void update_statistics();
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 protected:
     QHash<int, QByteArray> roleNames() const;

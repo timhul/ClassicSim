@@ -2,11 +2,8 @@
 
 #include "Utils/Check.h"
 
-Random::Random(const unsigned min_range, const unsigned max_range):
-    min_range(min_range),
-    modulo(max_range - min_range),
-    xoroshiro(new xoroshiro128plus())
-{}
+Random::Random(const unsigned min_range, const unsigned max_range) :
+    min_range(min_range), modulo(max_range - min_range), xoroshiro(new xoroshiro128plus()) {}
 
 Random::~Random() {
     delete xoroshiro;

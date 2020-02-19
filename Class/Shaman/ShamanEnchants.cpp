@@ -3,9 +3,7 @@
 #include "Shaman.h"
 #include "Utils/Check.h"
 
-ShamanEnchants::ShamanEnchants(Shaman* shaman) :
-    CharacterEnchants(shaman)
-{}
+ShamanEnchants::ShamanEnchants(Shaman* shaman) : CharacterEnchants(shaman) {}
 
 QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -21,10 +19,10 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
 
         if (has_2hand()) {
             enchants.append({
-                                EnchantName::Name::Enchant2HWeaponAgility,
-                                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
-                                EnchantName::Name::IronCounterweight,
-                            });
+                EnchantName::Name::Enchant2HWeaponAgility,
+                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
+                EnchantName::Name::IronCounterweight,
+            });
         }
 
         return enchants;
@@ -34,11 +32,7 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
         return {};
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
-        return {
-            EnchantName::Name::ArcanumOfFocus,
-            EnchantName::Name::ArcanumOfRapidity,
-            EnchantName::Name::LesserArcanumOfVoracityStrength
-        };
+        return {EnchantName::Name::ArcanumOfFocus, EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityStrength};
     case EquipmentSlot::SHOULDERS:
         return {
             EnchantName::Name::MightOfTheScourge,
@@ -46,9 +40,7 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
             EnchantName::Name::ZandalarSignetOfMojo,
         };
     case EquipmentSlot::BACK:
-        return {
-            EnchantName::Name::EnchantCloakLesserAgility
-        };
+        return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
         return {
             EnchantName::Name::EnchantBracerManaRegeneration,
@@ -57,12 +49,8 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
             EnchantName::Name::EnchantBracerGreaterIntellect,
         };
     case EquipmentSlot::GLOVES:
-        return {
-            EnchantName::Name::EnchantGlovesSuperiorAgility,
-            EnchantName::Name::EnchantGlovesGreaterAgility,
-            EnchantName::Name::EnchantGlovesMinorHaste,
-            EnchantName::Name::EnchantGlovesGreaterStrength
-        };
+        return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
+                EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestStats,

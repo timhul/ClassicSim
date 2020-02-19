@@ -5,7 +5,7 @@
 class Hunter;
 class HunterSpells;
 
-class Survival: public TalentTree {
+class Survival : public TalentTree {
 public:
     Survival(Hunter* pchar);
 

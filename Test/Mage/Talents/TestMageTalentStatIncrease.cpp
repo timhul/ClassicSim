@@ -11,9 +11,7 @@
 #include "Mana.h"
 #include "Talent.h"
 
-TestMageTalentStatIncrease::TestMageTalentStatIncrease(EquipmentDb* equipment_db) :
-    TestSpellMage(equipment_db, "MageTalentStatIncrease")
-{}
+TestMageTalentStatIncrease::TestMageTalentStatIncrease(EquipmentDb* equipment_db) : TestSpellMage(equipment_db, "MageTalentStatIncrease") {}
 
 void TestMageTalentStatIncrease::test_all() {
     run_mandatory_tests();
@@ -378,20 +376,14 @@ void TestMageTalentStatIncrease::test_piercing_ice() {
     assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
 }
 
-void TestMageTalentStatIncrease::test_name_correct() {
-}
+void TestMageTalentStatIncrease::test_name_correct() {}
 
-void TestMageTalentStatIncrease::test_spell_cooldown() {
-}
+void TestMageTalentStatIncrease::test_spell_cooldown() {}
 
-void TestMageTalentStatIncrease::test_how_spell_observes_global_cooldown() {
-}
+void TestMageTalentStatIncrease::test_how_spell_observes_global_cooldown() {}
 
-void TestMageTalentStatIncrease::test_resource_cost() {
-}
+void TestMageTalentStatIncrease::test_resource_cost() {}
 
-void TestMageTalentStatIncrease::test_is_ready_conditions() {
-}
+void TestMageTalentStatIncrease::test_is_ready_conditions() {}
 
-void TestMageTalentStatIncrease::test_whether_spell_causes_global_cooldown() {
-}
+void TestMageTalentStatIncrease::test_whether_spell_causes_global_cooldown() {}

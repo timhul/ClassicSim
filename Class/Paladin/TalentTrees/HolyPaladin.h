@@ -5,7 +5,7 @@
 class Paladin;
 class PaladinSpells;
 
-class HolyPaladin: public TalentTree {
+class HolyPaladin : public TalentTree {
 public:
     HolyPaladin(Paladin* paladin);
     ~HolyPaladin() override = default;

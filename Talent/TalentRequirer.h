@@ -10,24 +10,18 @@ class Spell;
 namespace DisabledAtZero {
     static const bool Yes = true;
     static const bool No = false;
-}
-
+} // namespace DisabledAtZero
 
 class TalentRequirerInfo {
 public:
     TalentRequirerInfo(const QString& name, const int max_talent_rank, const bool disabled_at_zero) :
-        name(name),
-        max(max_talent_rank),
-        disabled_at_zero(disabled_at_zero),
-        curr(0)
-    {}
+        name(name), max(max_talent_rank), disabled_at_zero(disabled_at_zero), curr(0) {}
 
     const QString name;
     const int max;
     const bool disabled_at_zero;
     int curr;
 };
-
 
 class TalentRequirer {
 public:

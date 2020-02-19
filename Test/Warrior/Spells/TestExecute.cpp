@@ -13,9 +13,7 @@
 #include "Orc.h"
 #include "Target.h"
 
-TestExecute::TestExecute(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Execute")
-{}
+TestExecute::TestExecute(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Execute") {}
 
 void TestExecute::test_all() {
     run_mandatory_tests();

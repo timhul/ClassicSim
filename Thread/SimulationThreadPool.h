@@ -10,10 +10,11 @@ class SimSettings;
 class NumberCruncher;
 class QThread;
 
-class SimulationThreadPool: public QObject {
+class SimulationThreadPool : public QObject {
     Q_OBJECT
 public:
-    SimulationThreadPool(EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent = nullptr);
+    SimulationThreadPool(
+        EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent = nullptr);
     ~SimulationThreadPool();
 
     void run_sim(const QVector<QString>& setup_string, bool full_sim, int iterations, const int num_options);

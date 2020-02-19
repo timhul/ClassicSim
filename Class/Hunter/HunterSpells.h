@@ -7,9 +7,9 @@ class ExposeWeaknessProc;
 class Hunter;
 class HuntersMark;
 
-class HunterSpells: public CharacterSpells {
+class HunterSpells : public CharacterSpells {
 public:
-    HunterSpells(Hunter *hunter);
+    HunterSpells(Hunter* hunter);
     ~HunterSpells() override;
 
     void start_pet_attack() override;

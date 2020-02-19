@@ -1,19 +1,17 @@
 #pragma once
 
+#include <QVector>
+
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Paladin;
 class PeriodicDamageSpell;
 
-class Consecration: public Spell, public TalentRequirer {
+class Consecration : public Spell, public TalentRequirer {
 public:
-    Consecration(Paladin* pchar,
-                 CooldownControl* cooldown_control,
-                 const int spell_rank);
+    Consecration(Paladin* pchar, CooldownControl* cooldown_control, const int spell_rank);
     ~Consecration() override;
 
     bool is_rank_learned() const override;

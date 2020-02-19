@@ -25,9 +25,7 @@
 #include "TestSliceAndDice.h"
 #include "TestSubtlety.h"
 
-TestRogue::TestRogue(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestRogue::TestRogue(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestRogue::test_all() {
     test_values_after_initialization();

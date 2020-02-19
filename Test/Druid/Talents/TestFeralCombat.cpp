@@ -7,9 +7,7 @@
 #include "SimSettings.h"
 #include "Tauren.h"
 
-TestFeralCombat::TestFeralCombat(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "MID")
-{}
+TestFeralCombat::TestFeralCombat(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "MID") {}
 
 void TestFeralCombat::set_up() {
     race = new Tauren();
@@ -25,9 +23,7 @@ void TestFeralCombat::tear_down() {
     delete raid_control;
 }
 
-void TestFeralCombat::test_spending_talent_points() {
-
-}
+void TestFeralCombat::test_spending_talent_points() {}
 
 void TestFeralCombat::test_clearing_tree_after_filling() {
     spec_feral_combat();

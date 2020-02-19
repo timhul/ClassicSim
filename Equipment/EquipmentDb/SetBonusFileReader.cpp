@@ -27,14 +27,14 @@ void SetBonusFileReader::read_set_bonuses(const QString& path,
     file.close();
 }
 
-void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
+void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader& reader,
                                                 QMap<int, QString>& possible_set_items,
                                                 QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips,
                                                 QMap<QString, QMap<int, QPair<ItemStats, unsigned>>>& set_bonus_effects) {
     while (reader.readNextStartElement()) {
         if (!reader.attributes().hasAttribute("name")) {
             qDebug() << "Missing name attribute for <set> element";
-            for (const auto & attr : reader.attributes())
+            for (const auto& attr : reader.attributes())
                 qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;
@@ -59,8 +59,7 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
 
                 possible_set_items[item_id] = set_name;
                 reader.skipCurrentElement();
-            }
-            else if (reader.name() == "bonus") {
+            } else if (reader.name() == "bonus") {
                 if (!reader.attributes().hasAttribute("value")) {
                     qDebug() << QString("Missing 'value' attribute for <bonus> element in <set> '%1'").arg(set_name);
                     reader.skipCurrentElement();
@@ -80,8 +79,7 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
 
                 QString tooltip = reader.readElementText().simplified();
                 set_bonus_tooltips[set_name].append({num_items, tooltip});
-            }
-            else
+            } else
                 reader.skipCurrentElement();
         }
     }

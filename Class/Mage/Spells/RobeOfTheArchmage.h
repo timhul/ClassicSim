@@ -6,7 +6,7 @@
 class Random;
 class StatisticsResource;
 
-class RobeOfTheArchmage: public Spell, public ItemModificationRequirer {
+class RobeOfTheArchmage : public Spell, public ItemModificationRequirer {
 public:
     RobeOfTheArchmage(Character* pchar);
     ~RobeOfTheArchmage() override;

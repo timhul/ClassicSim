@@ -16,9 +16,7 @@
 #include "TestSealOfCommand.h"
 #include "TestSealOfTheCrusader.h"
 
-TestPaladin::TestPaladin(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestPaladin::TestPaladin(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestPaladin::test_all() {
     test_values_after_initialization();

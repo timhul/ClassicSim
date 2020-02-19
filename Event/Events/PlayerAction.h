@@ -4,7 +4,7 @@
 
 class CharacterSpells;
 
-class PlayerAction: public Event {
+class PlayerAction : public Event {
 public:
     PlayerAction(CharacterSpells* spells, const double timestamp);
 

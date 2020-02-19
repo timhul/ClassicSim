@@ -12,14 +12,20 @@
 #include "Utils/Check.h"
 
 Shred::Shred(Druid* pchar, DruidSpells* druid_spells, Proc* blood_frenzy, const int spell_rank) :
-    Spell("Shred", "Assets/spell/Spell_shadow_vampiricaura.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 60, spell_rank),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Shred", 2, DisabledAtZero::No),
-                   }),
+    Spell("Shred",
+          "Assets/spell/Spell_shadow_vampiricaura.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          60,
+          spell_rank),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Improved Shred", 2, DisabledAtZero::No),
+    }),
     druid(pchar),
     druid_spells(druid_spells),
-    blood_frenzy(blood_frenzy)
-{
+    blood_frenzy(blood_frenzy) {
     switch (spell_rank) {
     case 1:
         bonus_damage = 54;
@@ -89,8 +95,7 @@ void Shred::spell_effect() {
 
         if (blood_frenzy->is_enabled() && blood_frenzy->check_proc_success())
             blood_frenzy->perform();
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         druid->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }

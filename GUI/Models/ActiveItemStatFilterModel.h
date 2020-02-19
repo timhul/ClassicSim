@@ -10,22 +10,18 @@ class Item;
 class ItemModel;
 class WeaponModel;
 
-
 namespace StatComparator {
     static const unsigned Less = 0;
     static const unsigned LEQ = 1;
     static const unsigned Equal = 2;
     static const unsigned Greater = 3;
     static const unsigned GEQ = 4;
-};
+}; // namespace StatComparator
 
-class ItemStatFilter
-{
+class ItemStatFilter {
 public:
-    explicit ItemStatFilter(ItemStats item_stat_flag,
-                            const QString description) :
-        item_stat_flag(item_stat_flag), description(description), comparator(StatComparator::Greater), cmp_value(0)
-    {}
+    explicit ItemStatFilter(ItemStats item_stat_flag, const QString description) :
+        item_stat_flag(item_stat_flag), description(description), comparator(StatComparator::Greater), cmp_value(0) {}
 
     bool item_passes_filter(const Item*) const;
 
@@ -37,19 +33,18 @@ public:
     QString get_comparator_string() const;
 };
 
-
-class ActiveItemStatFilterModel : public QAbstractListModel
-{
+class ActiveItemStatFilterModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum ActiveItemStatFilterRoles {
+    enum ActiveItemStatFilterRoles
+    {
         ItemStatRole = Qt::UserRole + 1,
         DescriptionRole,
         ComparatorRole,
         CompareValueRole
     };
 
-    ActiveItemStatFilterModel(QObject *parent = nullptr);
+    ActiveItemStatFilterModel(QObject* parent = nullptr);
     ~ActiveItemStatFilterModel();
 
     bool item_passes_active_stat_filters(const Item* item) const;
@@ -65,8 +60,8 @@ public:
 
     Q_INVOKABLE
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 protected:
     QHash<int, QByteArray> roleNames() const;

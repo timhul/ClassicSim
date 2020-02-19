@@ -5,9 +5,9 @@
 class Buff;
 class Spell;
 
-class TestFlurryWarrior: public TestBuffWarrior {
+class TestFlurryWarrior : public TestBuffWarrior {
 public:
-    TestFlurryWarrior(EquipmentDb *equipment_db);
+    TestFlurryWarrior(EquipmentDb* equipment_db);
 
     void test_all();
 

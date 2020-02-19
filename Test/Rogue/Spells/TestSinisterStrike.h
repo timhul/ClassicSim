@@ -4,9 +4,9 @@
 
 class SinisterStrike;
 
-class TestSinisterStrike: public TestSpellRogue {
+class TestSinisterStrike : public TestSpellRogue {
 public:
-    TestSinisterStrike(EquipmentDb *equipment_db);
+    TestSinisterStrike(EquipmentDb* equipment_db);
 
     void test_all();
 

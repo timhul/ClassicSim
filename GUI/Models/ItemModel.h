@@ -15,7 +15,8 @@ class ItemTypeFilterModel;
 class ItemSorting : public QObject {
     Q_OBJECT
 public:
-    enum Methods {
+    enum Methods
+    {
         ByIlvl = 0,
         ByName,
         ByPhase,
@@ -24,11 +25,11 @@ public:
     Q_ENUMS(Methods)
 };
 
-class ItemModel : public QAbstractListModel
-{
+class ItemModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum ItemRoles {
+    enum ItemRoles
+    {
         IdRole = Qt::UserRole + 1,
         NameRole,
         PhaseRole,
@@ -41,7 +42,7 @@ public:
         RandomAffixRole
     };
 
-    ItemModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);
+    ItemModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject* parent = nullptr);
 
     void update_items();
     void set_character(Character* pchar);
@@ -50,14 +51,15 @@ public:
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 signals:
     void sortingMethodChanged();
 
 protected:
     QHash<int, QByteArray> roleNames() const;
+
 private:
     int slot;
     Character* pchar;

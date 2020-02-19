@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "Proc.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Mage;
 
-class ClearcastingMage: public Proc, public TalentRequirer {
+class ClearcastingMage : public Proc, public TalentRequirer {
 public:
     ClearcastingMage(Mage* pchar);
     ~ClearcastingMage() override;

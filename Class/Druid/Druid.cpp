@@ -5,8 +5,8 @@
 #include "Balance.h"
 #include "BearForm.h"
 #include "Buff.h"
-#include "CatForm.h"
 #include "CasterForm.h"
+#include "CatForm.h"
 #include "CharacterStats.h"
 #include "CharacterTalents.h"
 #include "DruidEnchants.h"
@@ -56,8 +56,7 @@ Druid::Druid(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_,
     initialize_talents();
 }
 
-Druid::~Druid()
-{
+Druid::~Druid() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -292,9 +291,7 @@ int Druid::get_highest_possible_armor_type() const {
 QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::MACE, WeaponTypes::TWOHAND_MACE,
-                             WeaponTypes::STAFF});
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::TWOHAND_MACE, WeaponTypes::STAFF});
     case EquipmentSlot::OFFHAND:
         return QVector<int>({WeaponTypes::CASTER_OFFHAND});
     case EquipmentSlot::RANGED:

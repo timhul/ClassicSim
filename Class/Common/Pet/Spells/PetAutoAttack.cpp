@@ -8,15 +8,8 @@
 #include "Pet.h"
 
 PetAutoAttack::PetAutoAttack(Character* pchar, Pet* pet, const QString& icon) :
-    Spell(QString("Melee Hit (%1)").arg(pet->get_name()),
-          icon,
-          pchar,
-          new CooldownControl(pchar, 1.0),
-          RestrictedByGcd::No,
-          ResourceType::Focus,
-          0),
-    pet(pet)
-{
+    Spell(QString("Melee Hit (%1)").arg(pet->get_name()), icon, pchar, new CooldownControl(pchar, 1.0), RestrictedByGcd::No, ResourceType::Focus, 0),
+    pet(pet) {
     this->pchar = pchar;
     next_expected_use = 0;
     iteration = 0;
@@ -79,9 +72,9 @@ void PetAutoAttack::update_next_expected_use(const double haste_change) {
         return;
 
     if (haste_change < 0)
-        remainder_after_haste_change *=  (1 + (-1) * haste_change);
+        remainder_after_haste_change *= (1 + (-1) * haste_change);
     else
-        remainder_after_haste_change /=  (1 + haste_change);
+        remainder_after_haste_change /= (1 + haste_change);
     next_expected_use = curr_time + remainder_after_haste_change;
 }
 

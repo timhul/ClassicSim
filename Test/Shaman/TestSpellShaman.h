@@ -8,7 +8,7 @@ class Shaman;
 class Spell;
 class Stormstrike;
 
-class TestSpellShaman: public TestSpellDamage {
+class TestSpellShaman : public TestSpellDamage {
 public:
     TestSpellShaman(EquipmentDb* equipment_db, QString spell_under_test);
 

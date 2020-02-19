@@ -3,11 +3,7 @@
 #include "CharacterSpells.h"
 #include "EnabledBuffs.h"
 
-EncounterStart::EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs):
-    Event(EventType::EncounterStart, 0.0),
-    spells(spells),
-    buffs(buffs)
-{}
+EncounterStart::EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs) : Event(EventType::EncounterStart, 0.0), spells(spells), buffs(buffs) {}
 
 void EncounterStart::act() {
     buffs->apply_start_of_combat_buffs();

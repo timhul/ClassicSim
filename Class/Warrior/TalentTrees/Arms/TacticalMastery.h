@@ -5,7 +5,7 @@
 class TalentTree;
 class Warrior;
 
-class TacticalMastery: public Talent {
+class TacticalMastery : public Talent {
 public:
     TacticalMastery(Warrior* warrior, TalentTree* tree);
 

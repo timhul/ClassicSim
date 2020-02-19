@@ -6,12 +6,8 @@
 #include "RotationConditionsModel.h"
 #include "RotationFileReader.h"
 
-RotationModel::RotationModel(QObject *parent)
-    : QAbstractListModel(parent),
-      pchar(nullptr),
-      information_index(-1),
-      rotation_conditions_model(new RotationConditionsModel())
-{}
+RotationModel::RotationModel(QObject* parent) :
+    QAbstractListModel(parent), pchar(nullptr), information_index(-1), rotation_conditions_model(new RotationConditionsModel()) {}
 
 RotationModel::~RotationModel() {
     delete rotation_conditions_model;
@@ -36,7 +32,7 @@ void RotationModel::addRotations() {
     QVector<Rotation*> new_rotations;
     RotationFileReader::add_rotations(new_rotations);
 
-    for (const auto & rotation : new_rotations) {
+    for (const auto& rotation : new_rotations) {
         if (!rotations.contains(rotation->get_class()))
             rotations.insert(rotation->get_class(), QVector<Rotation*>({}));
 
@@ -86,12 +82,12 @@ RotationConditionsModel* RotationModel::get_rotation_conditions_model() const {
     return this->rotation_conditions_model;
 }
 
-int RotationModel::rowCount(const QModelIndex & parent) const {
+int RotationModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return rotations[pchar->class_name].size();
 }
 
-QVariant RotationModel::data(const QModelIndex & index, int role) const {
+QVariant RotationModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= rowCount())
         return QVariant();
 
@@ -120,8 +116,8 @@ QHash<int, QByteArray> RotationModel::roleNames() const {
 }
 
 void RotationModel::clear_rotations() {
-    for (const auto & class_rotations: rotations)
-        for (const auto & rotation : class_rotations)
+    for (const auto& class_rotations : rotations)
+        for (const auto& rotation : class_rotations)
             delete rotation;
 
     rotations.clear();

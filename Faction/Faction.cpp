@@ -7,10 +7,8 @@ Faction::Faction(Race* race) :
     alliance_races({"Dwarf", "Gnome", "Human", "Night Elf"}),
     horde_races({"Orc", "Tauren", "Troll", "Undead"}),
     alliance_classes({"Druid", "Hunter", "Mage", "Paladin", "Priest", "Rogue", "Warlock", "Warrior"}),
-    horde_classes({"Druid", "Hunter", "Mage", "Priest", "Shaman", "Rogue", "Warlock", "Warrior"})
-{
-    current_faction = alliance_races.contains(race->get_name()) ? AvailableFactions::Alliance :
-                                                                  AvailableFactions::Horde;
+    horde_classes({"Druid", "Hunter", "Mage", "Priest", "Shaman", "Rogue", "Warlock", "Warrior"}) {
+    current_faction = alliance_races.contains(race->get_name()) ? AvailableFactions::Alliance : AvailableFactions::Horde;
 
     check((alliance_races.contains(race->get_name()) || horde_races.contains(race->get_name())),
           QString("Race '%1' missing faction").arg(race->get_name()).toStdString());

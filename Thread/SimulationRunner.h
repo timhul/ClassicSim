@@ -18,7 +18,7 @@ class RaidControl;
 class Rotation;
 class SimSettings;
 
-class SimulationRunner: public QObject {
+class SimulationRunner : public QObject {
     Q_OBJECT
 public:
     SimulationRunner(unsigned thread_id,

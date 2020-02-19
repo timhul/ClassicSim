@@ -3,18 +3,16 @@
 #include "CharacterStats.h"
 #include "ItemNamespace.h"
 #include "Orc.h"
+#include "RaidControl.h"
 #include "Shaman.h"
+#include "SimSettings.h"
 #include "TestElemental.h"
 #include "TestEnhancement.h"
 #include "TestLightningBolt.h"
 #include "TestRestorationShaman.h"
 #include "TestStormstrike.h"
-#include "RaidControl.h"
-#include "SimSettings.h"
 
-TestShaman::TestShaman(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestShaman::TestShaman(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestShaman::test_all() {
     test_values_after_initialization();

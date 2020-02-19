@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Spell.h"
 #include "MainhandAttack.h"
+#include "Spell.h"
 
 class Paladin;
 class PaladinSpells;
 
-class MainhandAttackPaladin: public MainhandAttack {
+class MainhandAttackPaladin : public MainhandAttack {
 public:
     MainhandAttackPaladin(Paladin* pchar, PaladinSpells* paladin_spells);
 

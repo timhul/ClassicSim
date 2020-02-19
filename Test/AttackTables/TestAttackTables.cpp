@@ -15,9 +15,7 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-TestAttackTables::TestAttackTables(EquipmentDb *equipment_db):
-    TestObject(equipment_db)
-{}
+TestAttackTables::TestAttackTables(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestAttackTables::test_all() {
     qDebug() << "TestAttackTables";
@@ -29,8 +27,7 @@ void TestAttackTables::test_all() {
     test_magic_attack_table();
 }
 
-void TestAttackTables::test_values_after_initialization() {
-}
+void TestAttackTables::test_values_after_initialization() {}
 
 void TestAttackTables::test_white_hit_table() {
     auto random = new Random(0, 9999);

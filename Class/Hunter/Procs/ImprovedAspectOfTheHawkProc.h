@@ -6,7 +6,7 @@
 class AspectOfTheHawkBuff;
 class ImprovedAspectOfTheHawkBuff;
 
-class ImprovedAspectOfTheHawkProc: public Proc, public TalentRequirer {
+class ImprovedAspectOfTheHawkProc : public Proc, public TalentRequirer {
 public:
     ImprovedAspectOfTheHawkProc(Character* pchar, AspectOfTheHawkBuff* hawk_buff);
     ~ImprovedAspectOfTheHawkProc() override;

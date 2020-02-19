@@ -7,14 +7,15 @@ class Energy;
 class Mana;
 class Rage;
 
-enum class DruidForm : int {
+enum class DruidForm : int
+{
     Caster,
     Bear,
     Cat,
     Moonkin,
 };
 
-class Druid: public Character {
+class Druid : public Character {
 public:
     Druid(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Druid() override;

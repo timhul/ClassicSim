@@ -16,9 +16,7 @@
 #include "Utils/Check.h"
 #include "Warrior.h"
 
-TestRotationFileReader::TestRotationFileReader() :
-    TestObject(nullptr)
-{}
+TestRotationFileReader::TestRotationFileReader() : TestObject(nullptr) {}
 
 void TestRotationFileReader::test_all() {
     qDebug() << "TestRotationFileReader";
@@ -40,58 +38,44 @@ void TestRotationFileReader::test_all() {
 }
 
 TestRotationFileReader::~TestRotationFileReader() {
-    for (const auto & rotation: rotations)
+    for (const auto& rotation : rotations)
         delete rotation;
 }
 
-void TestRotationFileReader::test_values_after_initialization() {
-
-}
+void TestRotationFileReader::test_values_after_initialization() {}
 
 void TestRotationFileReader::test_warrior_dw_fury() {
     Rotation* rotation = get_rotation("DW Fury High Rage");
 
-    QVector<QString> expected_all_executor_names = {
-        "Berserker Rage",
-        "Battle Shout",
-        "Heroic Strike",
-        "Manual Crowd Pummeler",
-        "Kiss of the Spider",
-        "Jom Gabbar",
-        "Badge of the Swarmguard",
-        "Slayer's Crest",
-        "Earthstrike",
-        "Zandalarian Hero Medallion",
-        "Diamond Flask",
-        "Cloudkeeper Legplates",
-        "Death Wish",
-        "Recklessness",
-        "Blood Fury",
-        "Berserking",
-        "Execute",
-        "Bloodthirst",
-        "Whirlwind",
-        "Overpower",
-        "Hamstring",
-        "Battle Stance",
-        "Berserker Stance"
-    };
+    QVector<QString> expected_all_executor_names = {"Berserker Rage",
+                                                    "Battle Shout",
+                                                    "Heroic Strike",
+                                                    "Manual Crowd Pummeler",
+                                                    "Kiss of the Spider",
+                                                    "Jom Gabbar",
+                                                    "Badge of the Swarmguard",
+                                                    "Slayer's Crest",
+                                                    "Earthstrike",
+                                                    "Zandalarian Hero Medallion",
+                                                    "Diamond Flask",
+                                                    "Cloudkeeper Legplates",
+                                                    "Death Wish",
+                                                    "Recklessness",
+                                                    "Blood Fury",
+                                                    "Berserking",
+                                                    "Execute",
+                                                    "Bloodthirst",
+                                                    "Whirlwind",
+                                                    "Overpower",
+                                                    "Hamstring",
+                                                    "Battle Stance",
+                                                    "Berserker Stance"};
     assert(rotation->all_executors.size() == expected_all_executor_names.size());
     verify_executor_names(rotation, rotation->all_executors, expected_all_executor_names);
 
-    QVector<QString> expected_active_executor_names = {
-        "Berserker Rage",
-        "Battle Shout",
-        "Heroic Strike",
-        "Recklessness",
-        "Blood Fury",
-        "Execute",
-        "Whirlwind",
-        "Overpower",
-        "Hamstring",
-        "Battle Stance",
-        "Berserker Stance"
-    };
+    QVector<QString> expected_active_executor_names = {"Berserker Rage", "Battle Shout",  "Heroic Strike",   "Recklessness",
+                                                       "Blood Fury",     "Execute",       "Whirlwind",       "Overpower",
+                                                       "Hamstring",      "Battle Stance", "Berserker Stance"};
     rotation->link_spells(warrior);
     verify_executor_names(rotation, rotation->active_executors, expected_active_executor_names);
 
@@ -150,24 +134,15 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
     Rotation* rotation = get_rotation("Aimed/Multi-Shot");
 
     QVector<QString> expected_executor_names = {
-        "Rapid Fire",
-        "Kiss of the Spider",
-        "Jom Gabbar",
-        "Badge of the Swarmguard",
-        "Slayer's Crest",
-        "Earthstrike",
-        "Devilsaur Eye",
-        "Zandalarian Hero Medallion",
-        "Blood Fury",
-        "Berserking",
-        "Bestial Wrath",
-        "Aimed Shot",
-        "Multi-Shot",
-        "Hunter's Mark",
-        "Aspect of the Hawk",
-        "Mana Potion",
-        "Demonic Rune",
-        "Night Dragon's Breath",
+        "Rapid Fire",         "Kiss of the Spider",
+        "Jom Gabbar",         "Badge of the Swarmguard",
+        "Slayer's Crest",     "Earthstrike",
+        "Devilsaur Eye",      "Zandalarian Hero Medallion",
+        "Blood Fury",         "Berserking",
+        "Bestial Wrath",      "Aimed Shot",
+        "Multi-Shot",         "Hunter's Mark",
+        "Aspect of the Hawk", "Mana Potion",
+        "Demonic Rune",       "Night Dragon's Breath",
     };
     assert(rotation->all_executors.size() == expected_executor_names.size());
 
@@ -199,34 +174,36 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
     verify_executor_names(rotation, rotation->all_executors, expected_executor_names);
 
     QVector<QString> expected_active_executor_names = {
-        "Judgement",
-        "Seal of the Crusader",
-        "Mana Potion",
-        "Demonic Rune",
-        "Night Dragon's Breath",
+        "Judgement", "Seal of the Crusader", "Mana Potion", "Demonic Rune", "Night Dragon's Breath",
     };
     rotation->link_spells(paladin);
     verify_executor_names(rotation, rotation->active_executors, expected_active_executor_names);
 }
 
-void TestRotationFileReader::verify_resource_condition(ConditionResource* condition, const double cmp_value,
-                                                       const Comparator comparator, const ResourceType resource_type) {
+void TestRotationFileReader::verify_resource_condition(ConditionResource* condition,
+                                                       const double cmp_value,
+                                                       const Comparator comparator,
+                                                       const ResourceType resource_type) {
     assert(condition != nullptr);
     assert(almost_equal(condition->cmp_value, cmp_value));
     assert(condition->comparator == comparator);
     assert(condition->resource_type == resource_type);
 }
 
-void TestRotationFileReader::verify_buff_condition(ConditionBuffDuration* condition, const QString& name,
-                                                   const double cmp_value, const Comparator comparator) {
+void TestRotationFileReader::verify_buff_condition(ConditionBuffDuration* condition,
+                                                   const QString& name,
+                                                   const double cmp_value,
+                                                   const Comparator comparator) {
     assert(condition != nullptr);
     assert(condition->buff->name == name);
     assert(almost_equal(condition->cmp_value, cmp_value));
     assert(condition->comparator == comparator);
 }
 
-void TestRotationFileReader::verify_builtin_condition(ConditionVariableBuiltin* condition, const BuiltinVariables builtin,
-                                                      const double cmp_value, const Comparator comparator) {
+void TestRotationFileReader::verify_builtin_condition(ConditionVariableBuiltin* condition,
+                                                      const BuiltinVariables builtin,
+                                                      const double cmp_value,
+                                                      const Comparator comparator) {
     assert(condition != nullptr);
     assert(condition->builtin == builtin);
     assert(almost_equal(condition->rhs_value, cmp_value));
@@ -234,11 +211,11 @@ void TestRotationFileReader::verify_builtin_condition(ConditionVariableBuiltin* 
 }
 
 void TestRotationFileReader::verify_executor_names(Rotation* rotation, QVector<RotationExecutor*>& executors, QVector<QString>& executor_names) {
-    check((executors.size() == executor_names.size()),
-          QString("Mismatched executor size for '%1' (expected %2, got %3)").arg(
-              rotation->get_name()).arg(
-              executor_names.size()).arg(
-              executors.size()).toStdString());
+    check((executors.size() == executor_names.size()), QString("Mismatched executor size for '%1' (expected %2, got %3)")
+                                                           .arg(rotation->get_name())
+                                                           .arg(executor_names.size())
+                                                           .arg(executors.size())
+                                                           .toStdString());
 
     for (int i = 0; i < executor_names.size(); ++i)
         check((executor_names[i] == executors[i]->get_spell_name()),
@@ -246,7 +223,7 @@ void TestRotationFileReader::verify_executor_names(Rotation* rotation, QVector<R
 }
 
 Rotation* TestRotationFileReader::get_rotation(const QString& name) const {
-    for (const auto & rotation: rotations) {
+    for (const auto& rotation : rotations) {
         if (rotation->get_name() == name)
             return rotation;
     }

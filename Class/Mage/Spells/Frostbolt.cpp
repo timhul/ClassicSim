@@ -17,17 +17,23 @@
 #include "Utils/Check.h"
 
 Frostbolt::Frostbolt(Mage* pchar, MageSpells* mage_spells, Proc* winters_chill, const int spell_rank) :
-    Spell("Frostbolt", "Assets/spell/Spell_frost_frostbolt02.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Frostbolt",
+          "Assets/spell/Spell_frost_frostbolt02.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0,
+          spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3000),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Frostbolt", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Ice Shards", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Frost Channeling", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
-                   }),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Improved Frostbolt", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Ice Shards", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Frost Channeling", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
+    }),
     mage_spells(mage_spells),
-    winters_chill(winters_chill)
-{
+    winters_chill(winters_chill) {
     switch (spell_rank) {
     case 1:
         base_damage_min = 18;
@@ -166,8 +172,7 @@ void Frostbolt::complete_cast_effect() {
         damage_dealt = round(damage_dealt * spell_crit_dmg_mod);
         gain_mana(base_resource_cost * master_of_elements_mana_return);
         add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
-    }
-    else {
+    } else {
         pchar->spell_hit_effect(MagicSchool::Frost);
         damage_dealt = round(damage_dealt);
         add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);

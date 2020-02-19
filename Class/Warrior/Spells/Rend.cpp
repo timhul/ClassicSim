@@ -10,10 +10,15 @@
 #include "WarriorSpells.h"
 
 Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
-    SpellPeriodic("Rend", "Assets/ability/Ability_gouge.png", pchar,
+    SpellPeriodic("Rend",
+                  "Assets/ability/Ability_gouge.png",
+                  pchar,
                   new NoEffectUniqueDebuff(pchar, Priority::Trash, 21, "Rend", "Assets/ability/Ability_gouge.png", Hidden::No),
-                  RestrictedByGcd::Yes, ResourceType::Rage, 3.0, 10),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
+                  RestrictedByGcd::Yes,
+                  ResourceType::Rage,
+                  3.0,
+                  10),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
     damage_remaining(0),
@@ -21,8 +26,7 @@ Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
     period_tick(3.0),
     max_ticks(7),
     num_ticks_left(0),
-    talent_ranks({1.0, 1.15, 1.25, 1.35})
-{
+    talent_ranks({1.0, 1.15, 1.25, 1.35}) {
     enabled = true;
     marker_buff->enable_buff();
     talent_modifier = talent_ranks[0];

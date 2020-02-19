@@ -3,9 +3,8 @@
 #include "Character.h"
 #include "CharacterStats.h"
 
-ZandalarianHeroCharm::ZandalarianHeroCharm(Character* pchar):
-    SelfBuff(pchar, "Zandalarian Hero Charm", "Assets/items/Inv_jewelry_necklace_13.png", 20, 12)
-{}
+ZandalarianHeroCharm::ZandalarianHeroCharm(Character* pchar) :
+    SelfBuff(pchar, "Zandalarian Hero Charm", "Assets/items/Inv_jewelry_necklace_13.png", 20, 12) {}
 
 void ZandalarianHeroCharm::buff_effect_when_applied() {
     spell_damage = max_spell_damage;

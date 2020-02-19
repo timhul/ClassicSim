@@ -1,6 +1,7 @@
 #include "TestCombatRoll.h"
 
 #include <cassert>
+
 #include <QDebug>
 
 #include "CombatRoll.h"
@@ -9,9 +10,7 @@
 #include "SimSettings.h"
 #include "Warrior.h"
 
-TestCombatRoll::TestCombatRoll(EquipmentDb* equipment_db) :
-    equipment_db(equipment_db)
-{}
+TestCombatRoll::TestCombatRoll(EquipmentDb* equipment_db) : equipment_db(equipment_db) {}
 
 void TestCombatRoll::test_all() {
     qDebug() << "TestCombatRoll";

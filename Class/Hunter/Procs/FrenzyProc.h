@@ -6,7 +6,7 @@
 class FrenzyBuff;
 class Pet;
 
-class FrenzyProc: public Proc, public TalentRequirer {
+class FrenzyProc : public Proc, public TalentRequirer {
 public:
     FrenzyProc(Character* pchar, Pet* pet);
     ~FrenzyProc() override;

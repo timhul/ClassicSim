@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Proc.h"
 #include "MagicSchools.h"
+#include "Proc.h"
 
 class InstantSpellAttack;
 
 enum class ConsumeCharge : bool;
 
-class InstantSpellProc: public Proc {
+class InstantSpellProc : public Proc {
 public:
     InstantSpellProc(Character* pchar,
                      const QString& proc_name,

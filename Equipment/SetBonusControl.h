@@ -6,7 +6,7 @@ class Character;
 class EquipmentDb;
 class Proc;
 
-enum class ItemStats: int;
+enum class ItemStats : int;
 
 class SetBonusControl {
 public:

@@ -12,10 +12,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) :
-    pchar(pchar),
-    equipment(new Equipment(equipment_db, pchar))
-{
+CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) : pchar(pchar), equipment(new Equipment(equipment_db, pchar)) {
     this->aura_effects = new Stats();
     this->base_stats = new Stats();
 
@@ -100,38 +97,28 @@ Equipment* CharacterStats::get_equipment() const {
 }
 
 unsigned CharacterStats::get_strength() const {
-    return static_cast<unsigned>(round(strength_mod *
-                                       (base_stats->get_strength() +
-                                        equipment->get_stats()->get_strength() +
-                                        pchar->get_race()->get_base_strength())));
+    return static_cast<unsigned>(
+        round(strength_mod * (base_stats->get_strength() + equipment->get_stats()->get_strength() + pchar->get_race()->get_base_strength())));
 }
 
 unsigned CharacterStats::get_agility() const {
-    return static_cast<unsigned>(round(agility_mod *
-                                       (base_stats->get_agility() +
-                                        equipment->get_stats()->get_agility() +
-                                        pchar->get_race()->get_base_agility())));
+    return static_cast<unsigned>(
+        round(agility_mod * (base_stats->get_agility() + equipment->get_stats()->get_agility() + pchar->get_race()->get_base_agility())));
 }
 
 unsigned CharacterStats::get_stamina() const {
-    return static_cast<unsigned>(round(stamina_mod *
-                                       (base_stats->get_stamina() +
-                                        equipment->get_stats()->get_stamina() +
-                                        pchar->get_race()->get_base_stamina())));
+    return static_cast<unsigned>(
+        round(stamina_mod * (base_stats->get_stamina() + equipment->get_stats()->get_stamina() + pchar->get_race()->get_base_stamina())));
 }
 
 unsigned CharacterStats::get_intellect() const {
-    return static_cast<unsigned>(round(intellect_mod *
-                                       (base_stats->get_intellect() +
-                                        equipment->get_stats()->get_intellect() +
-                                        pchar->get_race()->get_base_intellect())));
+    return static_cast<unsigned>(
+        round(intellect_mod * (base_stats->get_intellect() + equipment->get_stats()->get_intellect() + pchar->get_race()->get_base_intellect())));
 }
 
 unsigned CharacterStats::get_spirit() const {
-    return static_cast<unsigned>(round(spirit_mod *
-                                       (base_stats->get_spirit() +
-                                        equipment->get_stats()->get_spirit() +
-                                        pchar->get_race()->get_base_spirit())));
+    return static_cast<unsigned>(
+        round(spirit_mod * (base_stats->get_spirit() + equipment->get_stats()->get_spirit() + pchar->get_race()->get_base_spirit())));
 }
 
 unsigned CharacterStats::get_melee_hit_chance() const {
@@ -139,14 +126,16 @@ unsigned CharacterStats::get_melee_hit_chance() const {
 }
 
 unsigned CharacterStats::get_mh_crit_chance() const {
-    const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
+    const unsigned crit_from_agi = static_cast<unsigned>(
+        round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
     const unsigned equip_effect = aura_effects->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
 
     unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
+    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(),
+                                                                                                    equip_effect + crit_from_wpn_type);
     const unsigned crit_chance = crit_from_agi + aura_crit + base_stats->get_melee_crit_chance();
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
@@ -156,14 +145,16 @@ unsigned CharacterStats::get_oh_crit_chance() const {
     if (equipment->get_offhand() == nullptr)
         return 0;
 
-    const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
+    const unsigned crit_from_agi = static_cast<unsigned>(
+        round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
     const unsigned equip_effect = aura_effects->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
 
     unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
 
-    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
+    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(),
+                                                                                                    equip_effect + crit_from_wpn_type);
     const unsigned crit_chance = crit_from_agi + aura_crit + base_stats->get_melee_crit_chance();
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
@@ -175,13 +166,15 @@ unsigned CharacterStats::get_ranged_hit_chance() const {
 
 unsigned CharacterStats::get_ranged_crit_chance() const {
     const unsigned equip_effect = base_stats->get_ranged_crit_chance() + equipment->get_stats()->get_ranged_crit_chance();
-    const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
+    const unsigned crit_from_agi = static_cast<unsigned>(
+        round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
     unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
+    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(),
+                                                                                                    equip_effect + crit_from_wpn_type);
     const unsigned crit_chance = crit_from_agi + aura_crit;
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
@@ -302,7 +295,8 @@ unsigned CharacterStats::get_wpn_skill(Weapon* weapon) const {
         skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_sword_skill() + base_stats->get_sword_skill();
         break;
     case WeaponTypes::TWOHAND_SWORD:
-        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_twohand_sword_skill() + base_stats->get_twohand_sword_skill();
+        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_twohand_sword_skill()
+                       + base_stats->get_twohand_sword_skill();
         break;
     case WeaponTypes::MACE:
         skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill() + base_stats->get_mace_skill();
@@ -328,9 +322,9 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     switch (stat_type) {
     case ItemStats::Agility:
         return increase_agility(value);
-     case ItemStats::Intellect:
+    case ItemStats::Intellect:
         return increase_intellect(value);
-     case ItemStats::Spirit:
+    case ItemStats::Spirit:
         return increase_spirit(value);
     case ItemStats::Stamina:
         return increase_stamina(value);
@@ -449,9 +443,9 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     switch (stat_type) {
     case ItemStats::Agility:
         return decrease_agility(value);
-     case ItemStats::Intellect:
+    case ItemStats::Intellect:
         return decrease_intellect(value);
-     case ItemStats::Spirit:
+    case ItemStats::Spirit:
         return decrease_spirit(value);
     case ItemStats::Stamina:
         return decrease_stamina(value);
@@ -604,7 +598,7 @@ bool CharacterStats::casting_time_suppressed() const {
 }
 
 void CharacterStats::suppress_casting_time(Buff* buff) {
-    for (const auto & stored_buff : casting_time_suppression_buffs)
+    for (const auto& stored_buff : casting_time_suppression_buffs)
         check((buff->get_instance_id() != stored_buff->get_instance_id()), "Tried to add the same cast time suppression buff multiple times");
 
     casting_time_suppression_buffs.append(buff);
@@ -887,9 +881,10 @@ void CharacterStats::decrease_spell_hit(const MagicSchool school, const unsigned
 }
 
 unsigned CharacterStats::get_spell_crit_chance(MagicSchool school) const {
-    const unsigned equip_effect = base_stats->get_spell_crit_chance(school)  + equipment->get_stats()->get_spell_crit_chance(school);
+    const unsigned equip_effect = base_stats->get_spell_crit_chance(school) + equipment->get_stats()->get_spell_crit_chance(school);
     const unsigned crit_from_target = pchar->get_target()->get_stats()->get_spell_crit_chance(school);
-    const auto crit_from_int = static_cast<unsigned>(round(static_cast<double>(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit() * 100));
+    const auto crit_from_int = static_cast<unsigned>(
+        round(static_cast<double>(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit() * 100));
 
     const unsigned crit_chance = crit_from_int + equip_effect + crit_from_target;
 
@@ -929,7 +924,7 @@ double CharacterStats::get_ranged_ability_crit_dmg_mod() const {
 }
 
 double CharacterStats::get_spell_crit_dmg_mod() const {
-    return spell_crit_dmg_mod  + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
+    return spell_crit_dmg_mod + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
 void CharacterStats::increase_spell_crit_dmg_mod(const double value) {
@@ -1037,18 +1032,15 @@ void CharacterStats::remove_strength_mod(const int mod) {
 }
 
 double CharacterStats::get_mh_wpn_speed() {
-    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / melee_attack_speed_mod :
-                                   2.0 / melee_attack_speed_mod;
+    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / melee_attack_speed_mod : 2.0 / melee_attack_speed_mod;
 }
 
 double CharacterStats::get_oh_wpn_speed() {
-    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / melee_attack_speed_mod :
-                                  300;
+    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / melee_attack_speed_mod : 300;
 }
 
 double CharacterStats::get_ranged_wpn_speed() {
-    return pchar->has_ranged() ? equipment->get_ranged()->get_base_weapon_speed() / ranged_attack_speed_mod :
-                                 300;
+    return pchar->has_ranged() ? equipment->get_ranged()->get_base_weapon_speed() / ranged_attack_speed_mod : 300;
 }
 
 void CharacterStats::increase_dodge(const double value) {
@@ -1130,9 +1122,8 @@ void CharacterStats::decrease_spell_penetration(const MagicSchool school, const 
 }
 
 double CharacterStats::get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge) const {
-    return magic_school_damage_modifiers[school]
-            * pchar->get_target()->get_magic_school_damage_mod(school, consume_charge)
-            * magic_damage_mods_per_monster_type[pchar->get_target()->get_creature_type()];
+    return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school, consume_charge)
+           * magic_damage_mods_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
 void CharacterStats::increase_magic_school_damage_mod(const unsigned increase) {
@@ -1230,19 +1221,19 @@ void CharacterStats::increase_crit_penalty(const unsigned value) {
     crit_penalty += value;
 }
 
-void CharacterStats::add_multiplicative_effect(QVector<int>& effects, const int add_value, double &modifier) {
+void CharacterStats::add_multiplicative_effect(QVector<int>& effects, const int add_value, double& modifier) {
     effects.append(add_value);
 
     recalculate_multiplicative_effects(effects, modifier);
 }
 
-void CharacterStats::remove_multiplicative_effect(QVector<int>& effects, const int remove_value, double &modifier) {
+void CharacterStats::remove_multiplicative_effect(QVector<int>& effects, const int remove_value, double& modifier) {
     check(effects.removeOne(remove_value), "Failed to remove multiplicative effect");
 
     recalculate_multiplicative_effects(effects, modifier);
 }
 
-void CharacterStats::recalculate_multiplicative_effects(const QVector<int> &effects, double& modifier) {
+void CharacterStats::recalculate_multiplicative_effects(const QVector<int>& effects, double& modifier) {
     modifier = 1.0;
     for (int effect : effects) {
         double coefficient = 1.0 + double(effect) / 100;

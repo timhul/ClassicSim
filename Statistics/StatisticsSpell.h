@@ -1,9 +1,10 @@
 #pragma once
 
-#include <QString>
 #include <QMap>
 #include <QSet>
+#include <QString>
 #include <QVector>
+
 #include <math.h>
 
 class StatisticsSpell;
@@ -13,7 +14,7 @@ bool total_damage(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool total_attempts(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool hit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool num_hits(StatisticsSpell* lhs, StatisticsSpell* rhs);
-bool crit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) ;
+bool crit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool num_crits(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool glance_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool num_glances(StatisticsSpell* lhs, StatisticsSpell* rhs);
@@ -47,7 +48,8 @@ bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
 
 class StatisticsSpell {
 public:
-    enum Outcome {
+    enum Outcome
+    {
         Miss = 0,
         FullResist,
         Dodge,

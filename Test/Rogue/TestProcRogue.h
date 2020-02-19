@@ -1,12 +1,11 @@
 #pragma once
 
-#include "TestProc.h"
 #include "Rogue.h"
+#include "TestProc.h"
 
-class TestProcRogue: public TestProc {
+class TestProcRogue : public TestProc {
 public:
     TestProcRogue(EquipmentDb* equipment_db, QString proc_under_test);
-
 
 protected:
     Rogue* rogue;

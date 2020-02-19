@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Spell.h"
 #include "OffhandAttack.h"
+#include "Spell.h"
 #include "TalentRequirer.h"
 
 class StatisticsResource;
 class Warrior;
 class WarriorSpells;
 
-class OffhandAttackWarrior: public OffhandAttack, public TalentRequirer {
+class OffhandAttackWarrior : public OffhandAttack, public TalentRequirer {
 public:
     OffhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
 

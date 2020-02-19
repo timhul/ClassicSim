@@ -18,9 +18,7 @@
 #include "TestScorch.h"
 #include "Troll.h"
 
-TestMage::TestMage(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestMage::TestMage(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestMage::test_all() {
     test_values_after_initialization();

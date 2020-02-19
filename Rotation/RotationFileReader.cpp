@@ -9,7 +9,7 @@
 #include "Spell.h"
 #include "Utils/Check.h"
 
-void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
+void RotationFileReader::add_rotations(QVector<Rotation*>& rotations) {
     QFile paths_file("rotation_paths.xml");
 
     if (!paths_file.open(QFile::ReadOnly | QFile::Text)) {
@@ -34,14 +34,12 @@ void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
                     equipment_file_paths.append(attrs.value("path").toString());
 
                 paths_reader.skipCurrentElement();
-            }
-            else {
+            } else {
                 qDebug() << "Skipping element" << paths_reader.readElementText();
                 paths_reader.skipCurrentElement();
             }
         }
-    }
-    else
+    } else
         qDebug() << "Failed to read rotation_paths.xml.";
 
     paths_file.close();
@@ -49,7 +47,7 @@ void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
     if (equipment_file_paths.empty())
         qDebug() << "Failed to find rotation files in rotation_paths.xml";
 
-    for (const auto & path : equipment_file_paths) {
+    for (const auto& path : equipment_file_paths) {
         Rotation* rotation = parse_rotation_file(path);
         if (rotation != nullptr)
             rotations.append(rotation);
@@ -84,7 +82,7 @@ Rotation* RotationFileReader::parse_rotation_file(const QString& path) {
     return rotation;
 }
 
-void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotation* rotation) {
+void RotationFileReader::rotation_file_handler(QXmlStreamReader& reader, Rotation* rotation) {
     rotation->set_name(reader.attributes().value("name").toString());
 
     if (!rotation->try_set_attack_mode(reader.attributes().value("attack_mode").toString()))
@@ -122,22 +120,20 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
 
         if (reader.name() == "cast_if") {
             QString name = reader.attributes().value("name").toString();
-            const int spell_rank = reader.attributes().hasAttribute("rank") ? reader.attributes().value("rank").toInt() :
-                                                                              Spell::MAX_RANK;
+            const int spell_rank = reader.attributes().hasAttribute("rank") ? reader.attributes().value("rank").toInt() : Spell::MAX_RANK;
             RotationExecutor* executor = new RotationExecutor(name, spell_rank);
             if (rotation_executor_handler(reader, executor)) {
                 rotation->add_executor(executor);
-            }
-            else
+            } else
                 delete executor;
         }
     }
 }
 
-bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, RotationExecutor* executor) {
+bool RotationFileReader::rotation_executor_handler(QXmlStreamReader& reader, RotationExecutor* executor) {
     QStringList expressions = reader.readElementText().trimmed().split('\n', QString::SkipEmptyParts);
 
-    for (auto &str : expressions)
+    for (auto& str : expressions)
         str = str.trimmed();
 
     if (expressions.empty())
@@ -147,7 +143,7 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
     // [TYPE] "[TYPE_VALUE]" [COMPARE_OPERATION]
     // Split into [TYPE, TYPE_VALUE, COMPARE_OPERATION]
     QStringList quotation_split = expressions.takeFirst().split('"', QString::SkipEmptyParts);
-    for (auto &str : quotation_split)
+    for (auto& str : quotation_split)
         str = str.trimmed();
 
     if (quotation_split.size() < 2) {
@@ -180,7 +176,7 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
 
     for (int i = 0; i < expressions.size(); ++i) {
         quotation_split = expressions[i].split('"', QString::SkipEmptyParts);
-        for (auto &str : quotation_split)
+        for (auto& str : quotation_split)
             str = str.trimmed();
 
         if (quotation_split.size() < 3) {
@@ -231,13 +227,11 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
 }
 
 bool RotationFileReader::add_type(Sentence* sentence, const QString& type_string) {
-    QMap<QString, ConditionType> acceptable_types = {
-        {"spell", ConditionType::SpellCondition},
-        {"buff_duration", ConditionType::BuffDurationCondition},
-        {"buff_stacks", ConditionType::BuffStacksCondition},
-        {"resource", ConditionType::ResourceCondition},
-        {"variable", ConditionType::VariableBuiltinCondition}
-    };
+    QMap<QString, ConditionType> acceptable_types = {{"spell", ConditionType::SpellCondition},
+                                                     {"buff_duration", ConditionType::BuffDurationCondition},
+                                                     {"buff_stacks", ConditionType::BuffStacksCondition},
+                                                     {"resource", ConditionType::ResourceCondition},
+                                                     {"variable", ConditionType::VariableBuiltinCondition}};
 
     if (!acceptable_types.contains(type_string)) {
         qDebug() << "Expected type, got" << type_string;
@@ -256,8 +250,7 @@ bool RotationFileReader::add_logical_connective(Sentence* sentence, const QStrin
         return false;
     }
 
-    sentence->logical_connective = logical_connective == "and" ? LogicalConnective::AND :
-                                                                 LogicalConnective::OR;
+    sentence->logical_connective = logical_connective == "and" ? LogicalConnective::AND : LogicalConnective::OR;
     return true;
 }
 
@@ -271,7 +264,7 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
         return false;
     }
 
-    for (auto &str : cmp_operation_split)
+    for (auto& str : cmp_operation_split)
         str = str.trimmed();
 
     // Sentence e.g. "buff 'Overpower' is false"

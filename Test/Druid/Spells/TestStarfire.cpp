@@ -10,9 +10,7 @@
 #include "Event.h"
 #include "Starfire.h"
 
-TestStarfire::TestStarfire(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Starfire")
-{}
+TestStarfire::TestStarfire(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Starfire") {}
 
 void TestStarfire::test_all() {
     run_mandatory_tests();
@@ -94,9 +92,7 @@ void TestStarfire::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestStarfire::test_how_spell_observes_global_cooldown() {
-
-}
+void TestStarfire::test_how_spell_observes_global_cooldown() {}
 
 void TestStarfire::test_is_ready_conditions() {
     assert(starfire()->get_spell_status() == SpellStatus::Available);

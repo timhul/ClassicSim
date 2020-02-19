@@ -5,9 +5,7 @@
 #include "Bloodthirst.h"
 #include "Event.h"
 
-TestBloodthirst::TestBloodthirst(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Bloodthirst")
-{}
+TestBloodthirst::TestBloodthirst(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Bloodthirst") {}
 
 void TestBloodthirst::test_all() {
     run_mandatory_tests();

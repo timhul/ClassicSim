@@ -1,6 +1,7 @@
 #include "TestSpellRogue.h"
 
 #include <cassert>
+
 #include <QDebug>
 
 #include "Assassination.h"
@@ -16,10 +17,8 @@
 #include "Subtlety.h"
 #include "Talent.h"
 
-TestSpellRogue::TestSpellRogue(EquipmentDb *equipment_db, const QString& spell_under_test) :
-    TestSpellDamage(equipment_db, spell_under_test),
-    rogue(nullptr)
-{}
+TestSpellRogue::TestSpellRogue(EquipmentDb* equipment_db, const QString& spell_under_test) :
+    TestSpellDamage(equipment_db, spell_under_test), rogue(nullptr) {}
 
 void TestSpellRogue::set_up(const bool prepare_combat_iterations) {
     set_up_general();

@@ -17,8 +17,7 @@ ArmorPenetrationProc::ArmorPenetrationProc(Character* pchar,
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
     extend_duration_on_proc(extend_duration_on_proc),
     proc_requirement_buff(nullptr),
-    armor_penetration_buff(new ArmorPenetrationBuff(pchar, proc_name, icon, reduction, max_stacks, duration))
-{
+    armor_penetration_buff(new ArmorPenetrationBuff(pchar, proc_name, icon, reduction, max_stacks, duration)) {
     check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
           "No valid proc sources found");
 

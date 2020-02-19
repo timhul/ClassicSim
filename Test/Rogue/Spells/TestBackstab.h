@@ -4,9 +4,9 @@
 
 class Backstab;
 
-class TestBackstab: public TestSpellRogue {
+class TestBackstab : public TestSpellRogue {
 public:
-    TestBackstab(EquipmentDb *equipment_db);
+    TestBackstab(EquipmentDb* equipment_db);
 
     void test_all();
 

@@ -6,10 +6,15 @@
 #include "WarriorSpells.h"
 
 Recklessness::Recklessness(Warrior* warrior, WarriorSpells* spells) :
-    Spell("Recklessness", "Assets/ability/Ability_criticalstrike.png", warrior, new CooldownControl(warrior, 1800.0), RestrictedByGcd::Yes, ResourceType::Rage, 0),
+    Spell("Recklessness",
+          "Assets/ability/Ability_criticalstrike.png",
+          warrior,
+          new CooldownControl(warrior, 1800.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Rage,
+          0),
     warrior(warrior),
-    spells(spells)
-{}
+    spells(spells) {}
 
 Recklessness::~Recklessness() {
     delete cooldown;

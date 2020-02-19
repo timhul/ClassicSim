@@ -10,19 +10,21 @@
 #include "Pet.h"
 #include "Utils/Check.h"
 
-TalentStatIncrease::TalentStatIncrease(Character* pchar, TalentTree* tree,
-                                       const QString& name, const QString& location,
-                                       const QString& icon, const unsigned max_points,
+TalentStatIncrease::TalentStatIncrease(Character* pchar,
+                                       TalentTree* tree,
+                                       const QString& name,
+                                       const QString& location,
+                                       const QString& icon,
+                                       const unsigned max_points,
                                        const QString& rank_description,
                                        const QVector<QPair<unsigned, unsigned>>& format_values,
                                        QVector<QPair<TalentStat, unsigned>> affected_stats) :
     Talent(pchar, tree, name, location, icon, max_points, rank_description, format_values),
     cstats(pchar->get_stats()),
-    affected_stats(std::move(affected_stats))
-{}
+    affected_stats(std::move(affected_stats)) {}
 
 void TalentStatIncrease::apply_rank_effect() {
-    for (const auto & affected_stat_pair: affected_stats) {
+    for (const auto& affected_stat_pair : affected_stats) {
         TalentStat stat = affected_stat_pair.first;
         unsigned change = affected_stat_pair.second;
         switch (stat) {
@@ -105,28 +107,23 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case TwoHandMeleeDmg: {
-            auto affected_weapon_types = QSet<int>({WeaponTypes::TWOHAND_AXE,
-                                                    WeaponTypes::TWOHAND_MACE,
-                                                    WeaponTypes::TWOHAND_SWORD,
-                                                    WeaponTypes::POLEARM,
-                                                    WeaponTypes::STAFF});
-            for (const auto & weapon_type : affected_weapon_types) {
+            auto affected_weapon_types = QSet<int>(
+                {WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD, WeaponTypes::POLEARM, WeaponTypes::STAFF});
+            for (const auto& weapon_type : affected_weapon_types) {
                 if (curr_points != 1)
-                    pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(curr_points - 1) * static_cast<int>(change));
+                    pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type,
+                                                                                static_cast<int>(curr_points - 1) * static_cast<int>(change));
 
                 pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(change) * static_cast<int>(curr_points));
             }
             continue;
         }
         case OneHandMeleeDmg: {
-            auto affected_weapon_types = QSet<int>({WeaponTypes::AXE,
-                                                    WeaponTypes::DAGGER,
-                                                    WeaponTypes::FIST,
-                                                    WeaponTypes::MACE,
-                                                    WeaponTypes::SWORD});
-            for (const auto & weapon_type : affected_weapon_types) {
+            auto affected_weapon_types = QSet<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::SWORD});
+            for (const auto& weapon_type : affected_weapon_types) {
                 if (curr_points != 1)
-                    pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(curr_points - 1) * static_cast<int>(change));
+                    pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type,
+                                                                                static_cast<int>(curr_points - 1) * static_cast<int>(change));
 
                 pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(change) * static_cast<int>(curr_points));
             }
@@ -202,7 +199,7 @@ void TalentStatIncrease::apply_rank_effect() {
 }
 
 void TalentStatIncrease::remove_rank_effect() {
-    for (const auto & affected_stat_pair: affected_stats) {
+    for (const auto& affected_stat_pair : affected_stats) {
         TalentStat stat = affected_stat_pair.first;
         unsigned change = affected_stat_pair.second;
         switch (stat) {
@@ -282,38 +279,31 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case TwoHandMeleeDmg: {
-            auto affected_weapon_types = QSet<int>({WeaponTypes::TWOHAND_AXE,
-                                                    WeaponTypes::TWOHAND_MACE,
-                                                    WeaponTypes::TWOHAND_SWORD,
-                                                    WeaponTypes::POLEARM,
-                                                    WeaponTypes::STAFF});
+            auto affected_weapon_types = QSet<int>(
+                {WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD, WeaponTypes::POLEARM, WeaponTypes::STAFF});
             int delta = static_cast<int>((curr_points + 1) * change);
-            for (const auto & weapon_type : affected_weapon_types)
+            for (const auto& weapon_type : affected_weapon_types)
                 pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
 
             if (curr_points == 0)
                 continue;
 
-            for (const auto & weapon_type : affected_weapon_types)
-                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) * change));
+            for (const auto& weapon_type : affected_weapon_types)
+                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) *change));
 
             continue;
         }
         case OneHandMeleeDmg: {
-            auto affected_weapon_types = QSet<int>({WeaponTypes::AXE,
-                                                    WeaponTypes::DAGGER,
-                                                    WeaponTypes::FIST,
-                                                    WeaponTypes::MACE,
-                                                    WeaponTypes::SWORD});
+            auto affected_weapon_types = QSet<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::SWORD});
             int delta = static_cast<int>((curr_points + 1) * change);
-            for (const auto & weapon_type : affected_weapon_types)
+            for (const auto& weapon_type : affected_weapon_types)
                 pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
 
             if (curr_points == 0)
                 continue;
 
-            for (const auto & weapon_type : affected_weapon_types)
-                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) * change));
+            for (const auto& weapon_type : affected_weapon_types)
+                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) *change));
 
             continue;
         }
@@ -371,7 +361,7 @@ void TalentStatIncrease::remove_rank_effect() {
             static_cast<Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points + 1) * change);
 
             if (curr_points > 0)
-                static_cast<Mana*>(pchar->get_resource())->increase_max_mana_mod((curr_points) * change);
+                static_cast<Mana*>(pchar->get_resource())->increase_max_mana_mod((curr_points) *change);
             break;
         case SpellCrit:
             pchar->get_stats()->decrease_spell_crit(change);

@@ -3,9 +3,8 @@
 #include "Character.h"
 #include "CharacterStats.h"
 
-FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration):
-    SharedBuff(pchar, "Felstriker", "Assets/items/Inv_weapon_shortblade_25.png", duration, 0)
-{}
+FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration) :
+    SharedBuff(pchar, "Felstriker", "Assets/items/Inv_weapon_shortblade_25.png", duration, 0) {}
 
 void FelstrikerBuff::buff_effect_when_applied() {
     pchar->get_stats()->increase_melee_aura_crit(10000);

@@ -16,8 +16,7 @@ Claw::Claw(Character* pchar, Pet* pet) :
           ResourceType::Focus,
           25),
     pet(pet),
-    dmg_roll(new Random(43, 60))
-{
+    dmg_roll(new Random(43, 60)) {
     this->pchar = pchar;
 }
 

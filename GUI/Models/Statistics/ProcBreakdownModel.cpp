@@ -4,10 +4,8 @@
 #include "SortDirection.h"
 #include "StatisticsProc.h"
 
-ProcBreakdownModel::ProcBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{
+ProcBreakdownModel::ProcBreakdownModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {
     this->current_sorting_method = ProcBreakdownSorting::Methods::ByAvgProcRate;
     this->sorting_methods.insert(ProcBreakdownSorting::Methods::ByAvgProcRate, SortDirection::Forward);
     this->sorting_methods.insert(ProcBreakdownSorting::Methods::ByEffectivePPM, SortDirection::Forward);
@@ -16,7 +14,7 @@ ProcBreakdownModel::ProcBreakdownModel(NumberCruncher *statistics_source, QObjec
 }
 
 ProcBreakdownModel::~ProcBreakdownModel() {
-    for (const auto & i : proc_stats)
+    for (const auto& i : proc_stats)
         delete i;
 }
 
@@ -48,11 +46,10 @@ void ProcBreakdownModel::select_new_method(const ProcBreakdownSorting::Methods n
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(proc_stats.begin(), proc_stats.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -68,7 +65,7 @@ void ProcBreakdownModel::update_statistics() {
     if (!proc_stats.empty()) {
         beginResetModel();
 
-        for (const auto & i : proc_stats)
+        for (const auto& i : proc_stats)
             delete i;
 
         proc_stats.clear();
@@ -84,12 +81,12 @@ void ProcBreakdownModel::update_statistics() {
     layoutChanged();
 }
 
-int ProcBreakdownModel::rowCount(const QModelIndex & parent) const {
+int ProcBreakdownModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return proc_stats.count();
 }
 
-QVariant ProcBreakdownModel::data(const QModelIndex & index, int role) const {
+QVariant ProcBreakdownModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= proc_stats.count())
         return QVariant();
 

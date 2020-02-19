@@ -6,9 +6,7 @@
 #include "CharacterStats.h"
 #include "Event.h"
 
-TestBerserkerStance::TestBerserkerStance(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Berserker Stance")
-{}
+TestBerserkerStance::TestBerserkerStance(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Berserker Stance") {}
 
 void TestBerserkerStance::test_all() {
     run_mandatory_tests();

@@ -1,11 +1,12 @@
 #pragma once
 
 #include <algorithm>
+
 #include <QString>
 #include <QVector>
 
-#include "PhysicalAttackResult.h"
 #include "MagicAttackResult.h"
+#include "PhysicalAttackResult.h"
 #include "Resource.h"
 
 class Character;
@@ -15,12 +16,14 @@ class Engine;
 class CooldownControl;
 class StatisticsSpell;
 
-enum class RestrictedByGcd : bool {
+enum class RestrictedByGcd : bool
+{
     Yes = true,
     No = false,
 };
 
-enum class SpellStatus: int {
+enum class SpellStatus : int
+{
     Available = 0,
     BuffInactive,
     CastInProgress,
@@ -56,7 +59,7 @@ public:
           const int spell_rank = 1);
 
     virtual ~Spell() = default;
-    friend bool operator== (const Spell& lhs, const Spell& rhs);
+    friend bool operator==(const Spell& lhs, const Spell& rhs);
 
     QString get_name() const;
     QString get_icon() const;

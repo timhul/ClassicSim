@@ -1,12 +1,11 @@
 #pragma once
 
-#include "TestUtils.h"
-
 #include <QDebug>
 #include <QSet>
 #include <QString>
 
 #include "MagicSchools.h"
+#include "TestUtils.h"
 
 class Character;
 class CombatRoll;
@@ -27,7 +26,7 @@ static const bool RUN_EVENT = true;
 
 class TestSpell : public TestUtils {
 public:
-    TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
+    TestSpell(EquipmentDb* equipment_db, QString spell_under_test);
     ~TestSpell() = default;
 
     void set_up_general();

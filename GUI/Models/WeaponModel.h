@@ -17,7 +17,8 @@ class Weapon;
 class WeaponSorting : public QObject {
     Q_OBJECT
 public:
-    enum Methods {
+    enum Methods
+    {
         ByIlvl = 0,
         ByName,
         ByDps,
@@ -28,11 +29,11 @@ public:
     Q_ENUMS(Methods)
 };
 
-class WeaponModel : public QAbstractListModel
-{
+class WeaponModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum WeaponRoles {
+    enum WeaponRoles
+    {
         IdRole = Qt::UserRole + 1,
         NameRole,
         SpeedRole,
@@ -47,7 +48,7 @@ public:
         RandomAffixRole
     };
 
-    WeaponModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);
+    WeaponModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject* parent = nullptr);
 
     void set_character(Character* pchar);
     void set_phase(const Content::Phase phase);
@@ -56,8 +57,8 @@ public:
 
     void update_items();
 
-    int rowCount(const QModelIndex & = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
     Q_PROPERTY(int currentSortingMethod READ get_current_sorting_method NOTIFY sortingMethodChanged)
     int get_current_sorting_method() const;
@@ -67,6 +68,7 @@ signals:
 
 protected:
     QHash<int, QByteArray> roleNames() const;
+
 private:
     int slot;
     Character* pchar;

@@ -5,7 +5,7 @@
 class Mage;
 class Mana;
 
-class EvocationBuff: public SelfBuff {
+class EvocationBuff : public SelfBuff {
 public:
     EvocationBuff(Mage* mage);
 

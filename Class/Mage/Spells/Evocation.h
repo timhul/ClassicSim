@@ -6,7 +6,7 @@
 
 class Mage;
 
-class Evocation: public SpellPeriodic, public CastingTimeRequirer, public SetBonusRequirer {
+class Evocation : public SpellPeriodic, public CastingTimeRequirer, public SetBonusRequirer {
 public:
     Evocation(Mage* mage);
     ~Evocation() override;

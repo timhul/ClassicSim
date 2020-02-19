@@ -10,9 +10,7 @@
 #include "Event.h"
 #include "Wrath.h"
 
-TestWrath::TestWrath(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Wrath")
-{}
+TestWrath::TestWrath(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Wrath") {}
 
 void TestWrath::test_all() {
     run_mandatory_tests();
@@ -94,9 +92,7 @@ void TestWrath::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestWrath::test_how_spell_observes_global_cooldown() {
-
-}
+void TestWrath::test_how_spell_observes_global_cooldown() {}
 
 void TestWrath::test_is_ready_conditions() {
     assert(wrath()->get_spell_status() == SpellStatus::Available);

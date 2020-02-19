@@ -24,10 +24,8 @@
 #include "Talent.h"
 #include "Wrath.h"
 
-TestSpellDruid::TestSpellDruid(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    druid(nullptr)
-{}
+TestSpellDruid::TestSpellDruid(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpellDamage(equipment_db, std::move(spell_under_test)), druid(nullptr) {}
 
 void TestSpellDruid::set_up(const bool prepare_combat_iterations) {
     set_up_general();
@@ -46,9 +44,7 @@ void TestSpellDruid::tear_down() {
     tear_down_general();
 }
 
-void TestSpellDruid::run_class_specific_tests() {
-
-}
+void TestSpellDruid::run_class_specific_tests() {}
 
 Wrath* TestSpellDruid::wrath() const {
     return static_cast<Wrath*>(get_max_rank_spell_by_name("Wrath"));
@@ -86,7 +82,7 @@ void TestSpellDruid::given_feral_talent_rank(const QString& talent_name, const u
     given_talent_rank(FeralCombat(druid), talent_name, num);
 }
 
-void TestSpellDruid::given_restoration_talent_rank(const QString&  talent_name, const unsigned num) {
+void TestSpellDruid::given_restoration_talent_rank(const QString& talent_name, const unsigned num) {
     given_talent_rank(RestorationDruid(druid), talent_name, num);
 }
 

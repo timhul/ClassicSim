@@ -10,18 +10,18 @@ class Character;
 class ExternalBuff;
 class GeneralBuffs;
 
-class DebuffModel : public QAbstractListModel
-{
+class DebuffModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum DebuffRoles {
+    enum DebuffRoles
+    {
         NameRole = Qt::UserRole + 1,
         IconRole,
         DescriptionRole,
         ActiveRole
     };
 
-    DebuffModel(const Content::Phase phase, QObject *parent = nullptr);
+    DebuffModel(const Content::Phase phase, QObject* parent = nullptr);
 
     void set_character(Character* pchar);
     void set_phase(const Content::Phase phase);
@@ -30,8 +30,8 @@ public:
     void select_range_of_debuffs(const QString& name);
     void update_debuffs();
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 private:
     Character* pchar;

@@ -6,10 +6,7 @@
 #include "Rogue.h"
 #include "Vigor.h"
 
-TestEnergy::TestEnergy(EquipmentDb* equipment_db) :
-    TestSpell(equipment_db, "Energy"),
-    rogue(nullptr)
-{}
+TestEnergy::TestEnergy(EquipmentDb* equipment_db) : TestSpell(equipment_db, "Energy"), rogue(nullptr) {}
 
 void TestEnergy::set_up() {
     set_up_general();

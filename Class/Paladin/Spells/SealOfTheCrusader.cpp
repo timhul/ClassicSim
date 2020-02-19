@@ -8,18 +8,18 @@
 #include "Utils/Check.h"
 
 SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar, JudgementOfTheCrusader* judge_debuff) :
-    PaladinSeal("Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", pchar,
+    PaladinSeal("Seal of the Crusader",
+                "Assets/spell/Spell_holy_holysmite.png",
+                pchar,
                 RestrictedByGcd::Yes,
-                ResourceType::Mana, 160,
+                ResourceType::Mana,
+                160,
                 new SealOfTheCrusaderBuff(pchar)),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
     ItemModificationRequirer({22401, 23203}),
-    judge_debuff(judge_debuff)
-{}
+    judge_debuff(judge_debuff) {}
 
-SealOfTheCrusader::~SealOfTheCrusader() {
-
-}
+SealOfTheCrusader::~SealOfTheCrusader() {}
 
 void SealOfTheCrusader::refresh_seal() const {
     if (judge_debuff->is_active())

@@ -7,9 +7,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 
-TestProtectionPaladin::TestProtectionPaladin(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "MID")
-{}
+TestProtectionPaladin::TestProtectionPaladin(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "MID") {}
 
 void TestProtectionPaladin::set_up() {
     race = new Human();

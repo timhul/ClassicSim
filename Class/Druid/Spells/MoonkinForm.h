@@ -1,15 +1,15 @@
 #pragma once
 
+#include <QVector>
+
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Druid;
 class MoonkinFormBuff;
 
-class MoonkinForm: public Spell, public TalentRequirer {
+class MoonkinForm : public Spell, public TalentRequirer {
 public:
     MoonkinForm(Druid* druid, MoonkinFormBuff* buff);
     ~MoonkinForm() override;

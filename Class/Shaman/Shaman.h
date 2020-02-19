@@ -5,7 +5,7 @@
 class Mana;
 class ShamanSpells;
 
-class Shaman: public Character {
+class Shaman : public Character {
 public:
     Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Shaman() override;

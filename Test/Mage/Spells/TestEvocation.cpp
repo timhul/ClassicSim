@@ -9,9 +9,7 @@
 #include "Mage.h"
 #include "Mana.h"
 
-TestEvocation::TestEvocation(EquipmentDb* equipment_db) :
-    TestSpellMage(equipment_db, "Evocation")
-{}
+TestEvocation::TestEvocation(EquipmentDb* equipment_db) : TestSpellMage(equipment_db, "Evocation") {}
 
 void TestEvocation::test_all() {
     run_mandatory_tests();
@@ -41,9 +39,7 @@ void TestEvocation::test_whether_spell_causes_global_cooldown() {
     assert(!mage->action_ready());
 }
 
-void TestEvocation::test_how_spell_observes_global_cooldown() {
-
-}
+void TestEvocation::test_how_spell_observes_global_cooldown() {}
 
 void TestEvocation::test_is_ready_conditions() {
     assert(evocation()->get_spell_status() == SpellStatus::Available);

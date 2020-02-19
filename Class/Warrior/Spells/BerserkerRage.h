@@ -6,7 +6,7 @@
 class StatisticsResource;
 class Warrior;
 
-class BerserkerRage: public Spell, public TalentRequirer {
+class BerserkerRage : public Spell, public TalentRequirer {
 public:
     BerserkerRage(Warrior* warrior);
     ~BerserkerRage() override;

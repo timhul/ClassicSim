@@ -8,9 +8,7 @@
 #include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
 
-TestSealOfTheCrusader::TestSealOfTheCrusader(EquipmentDb *equipment_db) :
-    TestSpellPaladin(equipment_db, "Seal of the Crusader")
-{}
+TestSealOfTheCrusader::TestSealOfTheCrusader(EquipmentDb* equipment_db) : TestSpellPaladin(equipment_db, "Seal of the Crusader") {}
 
 void TestSealOfTheCrusader::test_all() {
     run_mandatory_tests();

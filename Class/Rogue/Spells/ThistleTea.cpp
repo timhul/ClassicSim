@@ -6,9 +6,9 @@
 #include "Rogue.h"
 #include "StatisticsResource.h"
 
-ThistleTea::ThistleTea(Rogue *rogue) :
-    Spell("Thistle Tea", "Assets/misc/Inv_drink_milk_05.png", rogue, new CooldownControl(rogue, 300.0), RestrictedByGcd::No, ResourceType::Energy, 0)
-{}
+ThistleTea::ThistleTea(Rogue* rogue) :
+    Spell("Thistle Tea", "Assets/misc/Inv_drink_milk_05.png", rogue, new CooldownControl(rogue, 300.0), RestrictedByGcd::No, ResourceType::Energy, 0) {
+}
 
 ThistleTea::~ThistleTea() {
     delete cooldown;

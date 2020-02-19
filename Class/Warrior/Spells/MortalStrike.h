@@ -6,7 +6,7 @@
 class Warrior;
 class WarriorSpells;
 
-class MortalStrike: public Spell, public TalentRequirer {
+class MortalStrike : public Spell, public TalentRequirer {
 public:
     MortalStrike(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control);
 

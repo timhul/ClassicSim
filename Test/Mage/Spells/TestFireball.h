@@ -2,9 +2,9 @@
 
 #include "TestSpellMage.h"
 
-class TestFireball: public TestSpellMage {
+class TestFireball : public TestSpellMage {
 public:
-    TestFireball(EquipmentDb *equipment_db);
+    TestFireball(EquipmentDb* equipment_db);
 
     void test_all();
 

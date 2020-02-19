@@ -8,9 +8,7 @@
 #include "Rogue.h"
 #include "SimSettings.h"
 
-TestCombat::TestCombat(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "MID")
-{}
+TestCombat::TestCombat(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "MID") {}
 
 void TestCombat::set_up() {
     race = new Orc();

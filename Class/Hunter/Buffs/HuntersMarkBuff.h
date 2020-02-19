@@ -1,10 +1,10 @@
 #pragma once
 
-#include "SharedDebuff.h"
-
 #include <QVector>
 
-class HuntersMarkBuff: public SharedDebuff {
+#include "SharedDebuff.h"
+
+class HuntersMarkBuff : public SharedDebuff {
 public:
     HuntersMarkBuff(Character* pchar);
 
@@ -15,5 +15,4 @@ private:
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
-
 };

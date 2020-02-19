@@ -4,7 +4,7 @@
 
 class Pet;
 
-class BestialWrathBuff: public SelfBuff {
+class BestialWrathBuff : public SelfBuff {
 public:
     BestialWrathBuff(Character* pchar, const QString& pet_name);
 

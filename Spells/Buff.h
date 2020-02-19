@@ -13,21 +13,23 @@ namespace BuffDuration {
 namespace Hidden {
     static const bool Yes = true;
     static const bool No = false;
-}
+} // namespace Hidden
 
 namespace Debuff {
     static const bool Yes = true;
     static const bool No = false;
-}
+} // namespace Debuff
 
-enum class Affected: int {
+enum class Affected : int
+{
     Self,
     Party,
     Raid,
     Target,
 };
 
-enum class Priority: int {
+enum class Priority : int
+{
     Invalid,
     Trash,
     Low,
@@ -79,13 +81,13 @@ protected:
     int current_charges {0};
     int current_stacks {0};
     int max_stacks {1};
-    int iteration{};
-    double applied{};
-    double refreshed{};
-    double expired{};
-    bool active{};
+    int iteration {};
+    double applied {};
+    double refreshed {};
+    double expired {};
+    bool active {};
     bool enabled;
-    double uptime{};
+    double uptime {};
     bool hidden;
     Priority debuff_priority {Priority::Invalid};
     Affected affected {Affected::Self};

@@ -4,7 +4,7 @@
 
 class PeriodicResourceGainSpell;
 
-class EssenceOfTheRed: public SelfBuff {
+class EssenceOfTheRed : public SelfBuff {
 public:
     EssenceOfTheRed(Character* pchar);
     ~EssenceOfTheRed() override;

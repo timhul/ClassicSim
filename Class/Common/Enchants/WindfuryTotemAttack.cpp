@@ -7,10 +7,13 @@
 #include "ProcInfo.h"
 
 WindfuryTotemAttack::WindfuryTotemAttack(Character* pchar) :
-    Proc("Windfury Totem Attack", "Assets/spell/Spell_nature_windfury.png", 0.2, 0, QVector<Proc*>(),
+    Proc("Windfury Totem Attack",
+         "Assets/spell/Spell_nature_windfury.png",
+         0.2,
+         0,
+         QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing}),
-         pchar)
-{}
+         pchar) {}
 
 WindfuryTotemAttack::~WindfuryTotemAttack() = default;
 

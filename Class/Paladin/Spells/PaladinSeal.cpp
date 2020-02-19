@@ -13,9 +13,7 @@ PaladinSeal::PaladinSeal(QString name_,
                          const ResourceType resource_type_,
                          unsigned resource_cost_,
                          Buff* seal) :
-    Spell(name_, icon_, paladin, new CooldownControl(paladin, 0.0), restricted_by_gcd_, resource_type_, resource_cost_),
-    seal(seal)
-{
+    Spell(name_, icon_, paladin, new CooldownControl(paladin, 0.0), restricted_by_gcd_, resource_type_, resource_cost_), seal(seal) {
     seal->enable_buff();
 }
 

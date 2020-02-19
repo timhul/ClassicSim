@@ -10,7 +10,7 @@ class Mage;
 class Scorch;
 class Spell;
 
-class TestSpellMage: public TestSpellDamage {
+class TestSpellMage : public TestSpellDamage {
 public:
     TestSpellMage(EquipmentDb* equipment_db, QString spell_under_test);
 

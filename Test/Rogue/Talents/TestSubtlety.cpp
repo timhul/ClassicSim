@@ -8,9 +8,7 @@
 #include "SimSettings.h"
 #include "Subtlety.h"
 
-TestSubtlety::TestSubtlety(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "RIGHT")
-{}
+TestSubtlety::TestSubtlety(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "RIGHT") {}
 
 void TestSubtlety::set_up() {
     race = new Orc();

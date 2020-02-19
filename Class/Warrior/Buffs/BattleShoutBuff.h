@@ -4,7 +4,7 @@
 
 class Warrior;
 
-class BattleShoutBuff: public PartyBuff {
+class BattleShoutBuff : public PartyBuff {
 public:
     BattleShoutBuff(Warrior* pchar);
 

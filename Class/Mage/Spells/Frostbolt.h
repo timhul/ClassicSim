@@ -1,10 +1,10 @@
 #pragma once
 
+#include <QVector>
+
 #include "CastingTimeRequirer.h"
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Mage;
@@ -12,7 +12,7 @@ class MageSpells;
 class Random;
 class StatisticsResource;
 
-class Frostbolt: public Spell, public CastingTimeRequirer, public TalentRequirer {
+class Frostbolt : public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Frostbolt(Mage* pchar, MageSpells* mage_spells, Proc* winters_chill, const int spell_rank);
     ~Frostbolt() override;

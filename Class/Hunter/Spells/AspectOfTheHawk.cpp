@@ -14,8 +14,7 @@ AspectOfTheHawk::AspectOfTheHawk(Character* pchar) :
           ResourceType::Mana,
           120),
     aspect_of_the_hawk_buff(new AspectOfTheHawkBuff(pchar)),
-    imp_hawk_proc(new ImprovedAspectOfTheHawkProc(pchar, aspect_of_the_hawk_buff))
-{
+    imp_hawk_proc(new ImprovedAspectOfTheHawkProc(pchar, aspect_of_the_hawk_buff)) {
     aspect_of_the_hawk_buff->enable_buff();
 }
 

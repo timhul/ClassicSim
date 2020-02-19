@@ -11,11 +11,14 @@
 #include "Utils/Check.h"
 
 DragonbreathChili::DragonbreathChili(Character* pchar) :
-    Proc("Dragonbreath Chili", "Assets/spell/Spell_fire_incinerate.png", 0.075, 0, {},
+    Proc("Dragonbreath Chili",
+         "Assets/spell/Spell_fire_incinerate.png",
+         0.075,
+         0,
+         {},
          {ProcInfo::MainhandSwing, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
          pchar),
-    damage_roll(new Random(50, 60))
-{
+    damage_roll(new Random(50, 60)) {
     enabled = false;
 }
 
@@ -32,16 +35,17 @@ void DragonbreathChili::proc_effect() {
     if (resist_roll == MagicResistResult::FULL_RESIST)
         return increment_full_resist();
 
-    const unsigned damage_dealt = damage_roll->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_dmg_coefficient));
+    const unsigned damage_dealt = damage_roll->get_roll()
+                                  + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_dmg_coefficient));
 
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
-    const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
+    const double damage_mod = pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(MagicSchool::Fire);
-        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0, resist_roll);
-    }
-    else {
+        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)),
+                           resource_cost, 0, resist_roll);
+    } else {
         pchar->spell_hit_effect(MagicSchool::Fire);
         add_spell_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod)), resource_cost, 0, resist_roll);
     }

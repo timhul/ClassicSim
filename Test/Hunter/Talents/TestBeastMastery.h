@@ -2,7 +2,7 @@
 
 #include "TestTalentTree.h"
 
-class TestBeastMastery: public TestTalentTree {
+class TestBeastMastery : public TestTalentTree {
 public:
     TestBeastMastery(EquipmentDb* equipment_db);
 

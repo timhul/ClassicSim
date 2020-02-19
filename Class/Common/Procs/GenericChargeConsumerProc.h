@@ -4,14 +4,14 @@
 
 class Buff;
 
-class GenericChargeConsumerProc: public Proc {
+class GenericChargeConsumerProc : public Proc {
 public:
     GenericChargeConsumerProc(Character* pchar,
                               const QString& proc_name,
                               const QString& icon,
                               const QVector<ProcInfo::Source>& proc_sources,
                               const double proc_rate,
-                              Buff *buff);
+                              Buff* buff);
 
 private:
     Buff* buff;

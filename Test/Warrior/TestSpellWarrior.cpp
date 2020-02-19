@@ -1,8 +1,9 @@
 #include "TestSpellWarrior.h"
 
 #include <cassert>
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "Arms.h"
 #include "Buff.h"
@@ -20,9 +21,8 @@
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
 
-TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test))
-{}
+TestSpellWarrior::TestSpellWarrior(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpellDamage(equipment_db, std::move(spell_under_test)) {}
 
 void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     should_prepare_combat = prepare_combat_iterations;
@@ -152,7 +152,7 @@ void TestSpellWarrior::given_warrior_is_on_gcd() {
     given_warrior_is_on_gcd(static_cast<WarriorSpells*>(pchar->get_spells())->get_whirlwind());
 }
 
-void TestSpellWarrior::given_warrior_is_on_gcd(Spell *spell) {
+void TestSpellWarrior::given_warrior_is_on_gcd(Spell* spell) {
     unsigned rage_before = warrior->get_resource_level(ResourceType::Rage);
     warrior->gain_rage(100 - rage_before);
 

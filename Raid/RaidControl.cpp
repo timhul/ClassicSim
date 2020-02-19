@@ -10,11 +10,7 @@
 #include "Utils/Check.h"
 
 RaidControl::RaidControl(SimSettings* sim_settings) :
-    raid_statistics(new ClassStatistics(sim_settings, "RAID", "#000000", true)),
-    settings(sim_settings),
-    engine(new Engine()),
-    target(new Target(63))
-{
+    raid_statistics(new ClassStatistics(sim_settings, "RAID", "#000000", true)), settings(sim_settings), engine(new Engine()), target(new Target(63)) {
     for (int i = 0; i < 8; ++i) {
         group_members.append(QVector<Character*>());
         for (int j = 0; j < 5; ++j)
@@ -25,12 +21,12 @@ RaidControl::RaidControl(SimSettings* sim_settings) :
 }
 
 RaidControl::~RaidControl() {
-    for (const auto & party : shared_party_buffs) {
-        for (const auto & buff : party)
+    for (const auto& party : shared_party_buffs) {
+        for (const auto& buff : party)
             delete buff;
     }
 
-    for (const auto & buff : shared_raid_buffs)
+    for (const auto& buff : shared_raid_buffs)
         delete buff;
 
     delete raid_statistics;
@@ -43,7 +39,7 @@ QPair<int, int> RaidControl::auto_assign_character_to_group(Character* pchar) {
         for (int j = 0; j < group_members[i].size(); ++j) {
             if (group_members[i][j] == nullptr) {
                 group_members[i][j] = pchar;
-                return QPair<int, int>{i, j};
+                return QPair<int, int> {i, j};
             }
         }
     }
@@ -61,7 +57,7 @@ void RaidControl::assign_character_to_place(Character* pchar, const int party, c
 void RaidControl::apply_party_buff(PartyBuff* buff, const int party) {
     check((party < group_members.size() && party >= 0), QString("Apply party buff party %1 out of bounds").arg(party).toStdString());
 
-    for (const auto & pchar : group_members[party]) {
+    for (const auto& pchar : group_members[party]) {
         if (pchar != nullptr)
             buff->apply_buff_to(pchar);
     }
@@ -70,7 +66,7 @@ void RaidControl::apply_party_buff(PartyBuff* buff, const int party) {
 void RaidControl::remove_party_buff(PartyBuff* buff, const int party) {
     check((party < group_members.size() && party >= 0), QString("Party %1 out of bounds").arg(party).toStdString());
 
-    for (const auto & pchar : group_members[party]) {
+    for (const auto& pchar : group_members[party]) {
         if (pchar != nullptr)
             buff->remove_buff_from(pchar);
     }
@@ -81,7 +77,8 @@ int RaidControl::next_instance_id() {
 }
 
 void RaidControl::register_shared_party_buff(Buff* buff, const int party) {
-    check(!shared_party_buffs[party].contains(buff->name), QString("Tried to register already registered party buff %1").arg(buff->name).toStdString());
+    check(!shared_party_buffs[party].contains(buff->name),
+          QString("Tried to register already registered party buff %1").arg(buff->name).toStdString());
     check(buff->is_enabled(), QString("Tried to register PartyBuff %1 but it is not enabled").arg(buff->name).toStdString());
 
     if (buff->get_instance_id() == InstanceID::INACTIVE)
@@ -115,20 +112,20 @@ Buff* RaidControl::get_shared_raid_buff(const QString& buff_name) const {
 }
 
 void RaidControl::reset() {
-    for (const auto & buff : shared_raid_buffs)
+    for (const auto& buff : shared_raid_buffs)
         buff->reset();
 
-    for (const auto & party_buffs : shared_party_buffs)
-        for (const auto & buff : party_buffs)
+    for (const auto& party_buffs : shared_party_buffs)
+        for (const auto& buff : party_buffs)
             buff->reset();
 }
 
 void RaidControl::prepare_set_of_combat_iterations() {
-    for (const auto & buff : shared_raid_buffs)
+    for (const auto& buff : shared_raid_buffs)
         buff->prepare_set_of_combat_iterations();
 
-    for (const auto & party_buffs : shared_party_buffs)
-        for (const auto & buff : party_buffs)
+    for (const auto& party_buffs : shared_party_buffs)
+        for (const auto& buff : party_buffs)
             buff->prepare_set_of_combat_iterations();
 }
 

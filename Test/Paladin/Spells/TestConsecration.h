@@ -5,9 +5,9 @@
 class MainhandAttackPaladin;
 class Consecration;
 
-class TestConsecration: public TestSpellPaladin {
+class TestConsecration : public TestSpellPaladin {
 public:
-    TestConsecration(EquipmentDb *equipment_db);
+    TestConsecration(EquipmentDb* equipment_db);
 
     void test_all();
 

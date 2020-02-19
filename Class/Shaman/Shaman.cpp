@@ -46,8 +46,7 @@ Shaman::Shaman(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     initialize_talents();
 }
 
-Shaman::~Shaman()
-{
+Shaman::~Shaman() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -139,10 +138,8 @@ int Shaman::get_highest_possible_armor_type() const {
 QVector<int> Shaman::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::MACE, WeaponTypes::POLEARM,
-                             WeaponTypes::STAFF, WeaponTypes::TWOHAND_AXE,
-                             WeaponTypes::TWOHAND_MACE});
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::POLEARM, WeaponTypes::STAFF,
+                             WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_MACE});
     case EquipmentSlot::OFFHAND:
         return QVector<int>({WeaponTypes::CASTER_OFFHAND, WeaponTypes::SHIELD});
     case EquipmentSlot::RANGED:
@@ -153,6 +150,4 @@ QVector<int> Shaman::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Shaman::reset_class_specific() {
-
-}
+void Shaman::reset_class_specific() {}

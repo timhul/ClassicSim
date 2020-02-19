@@ -2,7 +2,7 @@
 
 #include "Resource.h"
 
-class Rage: public Resource {
+class Rage : public Resource {
 public:
     Rage();
 

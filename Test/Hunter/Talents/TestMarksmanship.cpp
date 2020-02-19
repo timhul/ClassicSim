@@ -7,9 +7,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 
-TestMarksmanship::TestMarksmanship(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "MID")
-{}
+TestMarksmanship::TestMarksmanship(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "MID") {}
 
 void TestMarksmanship::set_up() {
     race = new Orc();

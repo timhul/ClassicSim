@@ -7,9 +7,7 @@
 #include "SimSettings.h"
 #include "Tauren.h"
 
-TestBalance::TestBalance(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "LEFT")
-{}
+TestBalance::TestBalance(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "LEFT") {}
 
 void TestBalance::set_up() {
     race = new Tauren();
@@ -25,9 +23,7 @@ void TestBalance::tear_down() {
     delete raid_control;
 }
 
-void TestBalance::test_spending_talent_points() {
-
-}
+void TestBalance::test_spending_talent_points() {}
 
 void TestBalance::test_clearing_tree_after_filling() {
     spec_balance();

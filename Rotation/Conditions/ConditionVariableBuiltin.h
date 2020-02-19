@@ -5,7 +5,8 @@
 class Character;
 class Engine;
 
-enum BuiltinVariables {
+enum BuiltinVariables
+{
     Undefined = -1,
     TargetHealth,
     TimeRemainingEncounter,
@@ -18,10 +19,7 @@ enum BuiltinVariables {
 
 class ConditionVariableBuiltin : public Condition {
 public:
-    ConditionVariableBuiltin(Character* pchar,
-                             const BuiltinVariables builtin,
-                             const Comparator comparator,
-                             const double rhs_value);
+    ConditionVariableBuiltin(Character* pchar, const BuiltinVariables builtin, const Comparator comparator, const double rhs_value);
 
     bool condition_fulfilled() const override;
     QString condition_description() const override;

@@ -6,13 +6,16 @@
 #include "StatisticsResource.h"
 
 Furor::Furor(Druid* druid) :
-    Proc("Furor", "Assets/spell/Spell_holy_blessingofstamina.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Furor",
+         "Assets/spell/Spell_holy_blessingofstamina.png",
+         0.0,
+         0,
+         QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          druid),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Furor", 5, DisabledAtZero::Yes)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Furor", 5, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),
-    druid(druid)
-{
+    druid(druid) {
     this->enabled = false;
 
     proc_range = talent_ranks[0];

@@ -5,31 +5,26 @@
 
 class Character;
 
-
-class ItemTypeFilter
-{
+class ItemTypeFilter {
 public:
-    explicit ItemTypeFilter(const int item_type, const QString name) :
-        item_type(item_type), name(name), active(false)
-    {}
+    explicit ItemTypeFilter(const int item_type, const QString name) : item_type(item_type), name(name), active(false) {}
 
     int item_type;
     QString name;
     bool active;
 };
 
-
-class ItemTypeFilterModel : public QAbstractListModel
-{
+class ItemTypeFilterModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum ItemTypeFilterRoles {
+    enum ItemTypeFilterRoles
+    {
         ItemTypeRole = Qt::UserRole + 1,
         DescriptionRole,
         ActiveRole
     };
 
-    ItemTypeFilterModel(QObject *parent = nullptr);
+    ItemTypeFilterModel(QObject* parent = nullptr);
 
     bool get_item_type_valid(const int item_type) const;
     bool get_filter_active(const int item_type) const;
@@ -40,16 +35,16 @@ public:
 
     void set_character(Character* pchar);
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
     Character* pchar;
-    int equipment_slot{};
+    int equipment_slot {};
     int last_toggled;
     QVector<QList<ItemTypeFilter>> item_type_filters;
 

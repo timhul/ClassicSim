@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class DevilsaurEye: public SelfBuff {
+class DevilsaurEye : public SelfBuff {
 public:
     DevilsaurEye(Character* pchar);
 

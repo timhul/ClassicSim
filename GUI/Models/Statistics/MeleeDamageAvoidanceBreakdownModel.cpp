@@ -4,10 +4,8 @@
 #include "SortDirection.h"
 #include "StatisticsSpell.h"
 
-MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{
+MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {
     this->current_sorting_method = MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts;
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts, SortDirection::Forward);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByName, SortDirection::Forward);
@@ -32,7 +30,7 @@ MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCru
 }
 
 MeleeDamageAvoidanceBreakdownModel::~MeleeDamageAvoidanceBreakdownModel() {
-    for (const auto & i : spell_stats)
+    for (const auto& i : spell_stats)
         delete i;
 }
 
@@ -131,11 +129,10 @@ void MeleeDamageAvoidanceBreakdownModel::select_new_method(const MeleeDamageAvoi
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(spell_stats.begin(), spell_stats.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -151,7 +148,7 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
     if (!spell_stats.empty()) {
         beginResetModel();
 
-        for (const auto & i : spell_stats)
+        for (const auto& i : spell_stats)
             delete i;
 
         spell_stats.clear();
@@ -167,8 +164,7 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
         if ((*it)->get_total_dmg_dealt() == 0) {
             delete *it;
             it = spell_stats.erase(it);
-        }
-        else
+        } else
             ++it;
     }
 
@@ -179,12 +175,12 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
     layoutChanged();
 }
 
-int MeleeDamageAvoidanceBreakdownModel::rowCount(const QModelIndex & parent) const {
+int MeleeDamageAvoidanceBreakdownModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return spell_stats.count();
 }
 
-QVariant MeleeDamageAvoidanceBreakdownModel::data(const QModelIndex & index, int role) const {
+QVariant MeleeDamageAvoidanceBreakdownModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= spell_stats.count())
         return QVariant();
 
@@ -200,47 +196,58 @@ QVariant MeleeDamageAvoidanceBreakdownModel::data(const QModelIndex & index, int
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumHits)
         return spell_stat->get_hits_including_partial_resists();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByHitPercent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_hits_including_partial_resists()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_hits_including_partial_resists()) / spell_stat->get_total_attempts_made() * 100, 'f',
+                            2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumCrits)
         return spell_stat->get_crits_including_partial_resists();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByCritPercent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_crits_including_partial_resists()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_crits_including_partial_resists()) / spell_stat->get_total_attempts_made() * 100, 'f',
+                            2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumGlances)
         return spell_stat->get_glances();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByGlancePercent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_glances()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_glances()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumMisses)
         return spell_stat->get_misses();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByMissPercent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_misses()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_misses()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumDodges)
         return spell_stat->get_dodges();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByDodgePercent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_dodges()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_dodges()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumParries)
         return spell_stat->get_parries();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByParryPercent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_parries()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_parries()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumPartial25)
         return spell_stat->get_partial_resists_25();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByPartial25Percent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_partial_resists_25()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_partial_resists_25()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumPartial50)
         return spell_stat->get_partial_resists_50();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByPartial50Percent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_partial_resists_50()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_partial_resists_50()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumPartial75)
         return spell_stat->get_partial_resists_75();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByPartial75Percent)
-        return QString("%1 %").arg(QString::number(static_cast<double>(spell_stat->get_partial_resists_75()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
+        return QString("%1 %").arg(
+            QString::number(static_cast<double>(spell_stat->get_partial_resists_75()) / spell_stat->get_total_attempts_made() * 100, 'f', 2));
 
     return QVariant();
 }

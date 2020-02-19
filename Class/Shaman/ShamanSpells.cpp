@@ -12,10 +12,7 @@
 #include "StormstrikeBuff.h"
 #include "WindfuryWeapon.h"
 
-ShamanSpells::ShamanSpells(Shaman* shaman) :
-    CharacterSpells(shaman),
-    shaman(shaman)
-{
+ShamanSpells::ShamanSpells(Shaman* shaman) : CharacterSpells(shaman), shaman(shaman) {
     this->berserking = new Berserking(pchar, ResourceType::Mana, 120);
     add_spell_group({berserking});
 
@@ -24,24 +21,24 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     add_spell_group({mh_attack});
 
     add_spell_group({
-                        new LightningBolt(shaman, this, 1),
-                        new LightningBolt(shaman, this, 2),
-                        new LightningBolt(shaman, this, 3),
-                        new LightningBolt(shaman, this, 4),
-                        new LightningBolt(shaman, this, 5),
-                        new LightningBolt(shaman, this, 6),
-                        new LightningBolt(shaman, this, 7),
-                        new LightningBolt(shaman, this, 8),
-                        new LightningBolt(shaman, this, 9),
-                        new LightningBolt(shaman, this, 10),
-                    });
+        new LightningBolt(shaman, this, 1),
+        new LightningBolt(shaman, this, 2),
+        new LightningBolt(shaman, this, 3),
+        new LightningBolt(shaman, this, 4),
+        new LightningBolt(shaman, this, 5),
+        new LightningBolt(shaman, this, 6),
+        new LightningBolt(shaman, this, 7),
+        new LightningBolt(shaman, this, 8),
+        new LightningBolt(shaman, this, 9),
+        new LightningBolt(shaman, this, 10),
+    });
 
     add_spell_group({
-                        new WindfuryWeapon(shaman, 1),
-                        new WindfuryWeapon(shaman, 2),
-                        new WindfuryWeapon(shaman, 3),
-                        new WindfuryWeapon(shaman, 4),
-                    });
+        new WindfuryWeapon(shaman, 1),
+        new WindfuryWeapon(shaman, 2),
+        new WindfuryWeapon(shaman, 3),
+        new WindfuryWeapon(shaman, 4),
+    });
 
     this->flurry = new Flurry(shaman);
     this->clearcasting = new ClearcastingShaman(shaman);

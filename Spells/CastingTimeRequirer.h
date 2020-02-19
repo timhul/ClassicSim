@@ -5,7 +5,8 @@
 class Character;
 class Engine;
 
-enum class SuppressibleCast: bool {
+enum class SuppressibleCast : bool
+{
     Yes,
     No,
 };
@@ -31,5 +32,4 @@ protected:
 
     virtual void reset_effect();
     virtual void complete_cast_effect() = 0;
-
 };

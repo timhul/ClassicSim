@@ -6,7 +6,7 @@ class Buff;
 class Paladin;
 class PaladinSpells;
 
-class PaladinSeal: public Spell {
+class PaladinSeal : public Spell {
 public:
     PaladinSeal(QString name,
                 QString icon,

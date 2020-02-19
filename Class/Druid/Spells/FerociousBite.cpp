@@ -11,65 +11,56 @@
 #include "Weapon.h"
 
 FerociousBite::FerociousBite(Druid* druid, const int spell_rank_) :
-    Spell("Ferocious Bite", "Assets/ability/Ability_druid_ferociousbite.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35, spell_rank_),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Feral Aggression", 5, DisabledAtZero::No),
-                   }),
+    Spell("Ferocious Bite",
+          "Assets/ability/Ability_druid_ferociousbite.png",
+          druid,
+          new CooldownControl(druid, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          35,
+          spell_rank_),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Feral Aggression", 5, DisabledAtZero::No),
+    }),
     druid(druid),
-    instant_dmg(new Random(1, 1))
-{
+    instant_dmg(new Random(1, 1)) {
     switch (spell_rank_) {
     case 1:
         damage_ranges_per_combo_point = {
-            QPair<unsigned, unsigned>(50, 66),
-            QPair<unsigned, unsigned>(86, 102),
-            QPair<unsigned, unsigned>(122, 138),
-            QPair<unsigned, unsigned>(158, 174),
-            QPair<unsigned, unsigned>(194, 210),
+            QPair<unsigned, unsigned>(50, 66),   QPair<unsigned, unsigned>(86, 102),  QPair<unsigned, unsigned>(122, 138),
+            QPair<unsigned, unsigned>(158, 174), QPair<unsigned, unsigned>(194, 210),
         };
         bonus_dmg_per_energy_converted = 1.0;
         level_req = 32;
         break;
     case 2:
         damage_ranges_per_combo_point = {
-            QPair<unsigned, unsigned>(79, 103),
-            QPair<unsigned, unsigned>(138, 162),
-            QPair<unsigned, unsigned>(197, 221),
-            QPair<unsigned, unsigned>(256, 280),
-            QPair<unsigned, unsigned>(315, 339),
+            QPair<unsigned, unsigned>(79, 103),  QPair<unsigned, unsigned>(138, 162), QPair<unsigned, unsigned>(197, 221),
+            QPair<unsigned, unsigned>(256, 280), QPair<unsigned, unsigned>(315, 339),
         };
         bonus_dmg_per_energy_converted = 1.5;
         level_req = 40;
         break;
     case 3:
         damage_ranges_per_combo_point = {
-            QPair<unsigned, unsigned>(122, 162),
-            QPair<unsigned, unsigned>(214, 254),
-            QPair<unsigned, unsigned>(306, 346),
-            QPair<unsigned, unsigned>(398, 438),
-            QPair<unsigned, unsigned>(490, 530),
+            QPair<unsigned, unsigned>(122, 162), QPair<unsigned, unsigned>(214, 254), QPair<unsigned, unsigned>(306, 346),
+            QPair<unsigned, unsigned>(398, 438), QPair<unsigned, unsigned>(490, 530),
         };
         bonus_dmg_per_energy_converted = 2.0;
         level_req = 48;
         break;
     case 4:
         damage_ranges_per_combo_point = {
-            QPair<unsigned, unsigned>(173, 223),
-            QPair<unsigned, unsigned>(301, 351),
-            QPair<unsigned, unsigned>(429, 479),
-            QPair<unsigned, unsigned>(557, 607),
-            QPair<unsigned, unsigned>(685, 735),
+            QPair<unsigned, unsigned>(173, 223), QPair<unsigned, unsigned>(301, 351), QPair<unsigned, unsigned>(429, 479),
+            QPair<unsigned, unsigned>(557, 607), QPair<unsigned, unsigned>(685, 735),
         };
         bonus_dmg_per_energy_converted = 2.5;
         level_req = 56;
         break;
     case 5:
         damage_ranges_per_combo_point = {
-            QPair<unsigned, unsigned>(199, 259),
-            QPair<unsigned, unsigned>(346, 406),
-            QPair<unsigned, unsigned>(493, 553),
-            QPair<unsigned, unsigned>(640, 700),
-            QPair<unsigned, unsigned>(787, 847),
+            QPair<unsigned, unsigned>(199, 259), QPair<unsigned, unsigned>(346, 406), QPair<unsigned, unsigned>(493, 553),
+            QPair<unsigned, unsigned>(640, 700), QPair<unsigned, unsigned>(787, 847),
         };
         bonus_dmg_per_energy_converted = 2.7;
         level_req = 60;
@@ -143,8 +134,7 @@ void FerociousBite::spell_effect() {
         damage_dealt *= round(druid->get_stats()->get_melee_ability_crit_dmg_mod());
         druid->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         druid->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
@@ -155,7 +145,7 @@ void FerociousBite::spell_effect() {
 
 void FerociousBite::set_combo_point_damage_range() {
     const int index = static_cast<int>(druid->get_combo_points()) - 1;
-    check((index >= 0 && index <= damage_ranges_per_combo_point.size() -1), "Index out of range");
+    check((index >= 0 && index <= damage_ranges_per_combo_point.size() - 1), "Index out of range");
 
     const unsigned min = damage_ranges_per_combo_point[index].first;
     const unsigned max = damage_ranges_per_combo_point[index].second;

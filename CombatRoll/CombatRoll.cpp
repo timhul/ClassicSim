@@ -13,13 +13,12 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-CombatRoll::CombatRoll(Character* pchar):
+CombatRoll::CombatRoll(Character* pchar) :
     mechanics(new Mechanics(pchar->get_target())),
     pchar(pchar),
     target(pchar->get_target()),
     random(new Random(0, 9999)),
-    glance_roll(new Random(0, 9999))
-{}
+    glance_roll(new Random(0, 9999)) {}
 
 CombatRoll::~CombatRoll() {
     delete random;
@@ -108,16 +107,11 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
     const double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
-                0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
+                                            0 :
+                                            mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
-    auto table = new MeleeWhiteHitTable(
-                this->random,
-                wpn_skill,
-                miss_chance,
-                mechanics->get_dodge_chance(wpn_skill),
-                mechanics->get_parry_chance(wpn_skill),
-                glancing_blow_chance,
-                mechanics->get_block_chance());
+    auto table = new MeleeWhiteHitTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill),
+                                        mechanics->get_parry_chance(wpn_skill), glancing_blow_chance, mechanics->get_block_chance());
 
     melee_white_tables[wpn_skill] = table;
 
@@ -133,12 +127,8 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const unsigned wpn_skill)
 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
-    auto table = new MeleeSpecialTable(this->random,
-                                        wpn_skill,
-                                        miss_chance,
-                                        mechanics->get_dodge_chance(wpn_skill),
-                                        mechanics->get_parry_chance(wpn_skill),
-                                        mechanics->get_block_chance());
+    auto table = new MeleeSpecialTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill),
+                                       mechanics->get_parry_chance(wpn_skill), mechanics->get_block_chance());
     melee_special_tables[wpn_skill] = table;
 
     return table;
@@ -153,11 +143,7 @@ RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const unsigned wpn_skill
 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
-    auto table = new RangedWhiteHitTable(
-                this->random,
-                wpn_skill,
-                miss_chance,
-                mechanics->get_block_chance());
+    auto table = new RangedWhiteHitTable(this->random, wpn_skill, miss_chance, mechanics->get_block_chance());
 
     ranged_white_tables[wpn_skill] = table;
 
@@ -168,10 +154,8 @@ MagicAttackTable* CombatRoll::get_magic_attack_table(const MagicSchool school) {
     if (magic_attack_tables.contains(school))
         return magic_attack_tables[school];
 
-    auto table = new MagicAttackTable(mechanics, random,
-                                       pchar->get_clvl(),
-                                       pchar->get_stats()->get_spell_hit_chance(school),
-                                       pchar->get_stats()->get_target_resistance(school));
+    auto table = new MagicAttackTable(mechanics, random, pchar->get_clvl(), pchar->get_stats()->get_spell_hit_chance(school),
+                                      pchar->get_stats()->get_target_resistance(school));
     magic_attack_tables[school] = table;
     return table;
 }
@@ -183,16 +167,11 @@ MeleeWhiteHitTable* CombatRoll::get_pet_white_table(const unsigned wpn_skill) {
     unsigned miss_chance = static_cast<unsigned>(round(mechanics->get_2h_white_miss_chance(wpn_skill) * 10000));
 
     double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
-                0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
+                                      0 :
+                                      mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
-    auto table = new MeleeWhiteHitTable(
-                this->random,
-                wpn_skill,
-                miss_chance,
-                mechanics->get_dodge_chance(wpn_skill),
-                mechanics->get_parry_chance(wpn_skill),
-                glancing_blow_chance,
-                mechanics->get_block_chance());
+    auto table = new MeleeWhiteHitTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill),
+                                        mechanics->get_parry_chance(wpn_skill), glancing_blow_chance, mechanics->get_block_chance());
 
     pet_white_tables[wpn_skill] = table;
 
@@ -205,12 +184,8 @@ MeleeSpecialTable* CombatRoll::get_pet_ability_table(const unsigned wpn_skill) {
 
     unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(wpn_skill) * 10000));
 
-    auto table = new MeleeSpecialTable(this->random,
-                                        wpn_skill,
-                                        miss_chance,
-                                        mechanics->get_dodge_chance(wpn_skill),
-                                        mechanics->get_parry_chance(wpn_skill),
-                                        mechanics->get_block_chance());
+    auto table = new MeleeSpecialTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill),
+                                       mechanics->get_parry_chance(wpn_skill), mechanics->get_block_chance());
     pet_special_tables[wpn_skill] = table;
 
     return table;
@@ -241,7 +216,7 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const unsigned wpn_skill) {
 
 void CombatRoll::update_melee_yellow_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
-    for (const auto & table: melee_special_tables) {
+    for (const auto& table : melee_special_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->wpn_skill) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
@@ -251,7 +226,7 @@ void CombatRoll::update_melee_yellow_miss_chance() {
 
 void CombatRoll::update_melee_white_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
-    for (const auto & table: melee_white_tables) {
+    for (const auto& table : melee_white_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(table->wpn_skill) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
@@ -261,7 +236,7 @@ void CombatRoll::update_melee_white_miss_chance() {
 
 void CombatRoll::update_ranged_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_ranged_hit_chance();
-    for (const auto & table: ranged_white_tables) {
+    for (const auto& table : ranged_white_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->wpn_skill) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
@@ -285,22 +260,22 @@ void CombatRoll::update_target_resistance(const MagicSchool school, const unsign
 }
 
 void CombatRoll::drop_tables() {
-    for (const auto & table : melee_white_tables)
+    for (const auto& table : melee_white_tables)
         delete table;
 
-    for (const auto & table: melee_special_tables)
+    for (const auto& table : melee_special_tables)
         delete table;
 
-    for (const auto & table: ranged_white_tables)
+    for (const auto& table : ranged_white_tables)
         delete table;
 
-    for (const auto & table: magic_attack_tables)
+    for (const auto& table : magic_attack_tables)
         delete table;
 
-    for (const auto & table: pet_white_tables)
+    for (const auto& table : pet_white_tables)
         delete table;
 
-    for (const auto & table: pet_special_tables)
+    for (const auto& table : pet_special_tables)
         delete table;
 
     melee_white_tables.clear();
@@ -316,9 +291,7 @@ void CombatRoll::set_new_seed(const unsigned seed) {
 }
 
 unsigned CombatRoll::get_suppressed_crit(const unsigned crit_chance) const {
-    const unsigned crit_suppression_from_target_level = static_cast<unsigned>(
-                round(10000 * mechanics->get_melee_crit_suppression(pchar->get_clvl())));
+    const unsigned crit_suppression_from_target_level = static_cast<unsigned>(round(10000 * mechanics->get_melee_crit_suppression(pchar->get_clvl())));
 
-    return crit_chance < crit_suppression_from_target_level ?
-                0 : crit_chance - crit_suppression_from_target_level;
+    return crit_chance < crit_suppression_from_target_level ? 0 : crit_chance - crit_suppression_from_target_level;
 }

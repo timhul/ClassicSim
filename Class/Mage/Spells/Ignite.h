@@ -1,16 +1,16 @@
 #pragma once
 
+#include <QVector>
+
 #include "SpellPeriodic.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class IgniteBuff;
 class Mage;
 class MageSpells;
 
-class Ignite: public SpellPeriodic, public TalentRequirer {
+class Ignite : public SpellPeriodic, public TalentRequirer {
 public:
     Ignite(Mage* pchar, IgniteBuff* ignite_buff);
 

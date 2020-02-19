@@ -3,7 +3,7 @@
 #include "OffhandAttack.h"
 #include "TalentRequirer.h"
 
-class OffhandAttackRogue: public OffhandAttack, public TalentRequirer {
+class OffhandAttackRogue : public OffhandAttack, public TalentRequirer {
 public:
     OffhandAttackRogue(Character* pchar);
 

@@ -10,9 +10,7 @@
 #include "Event.h"
 #include "Moonfire.h"
 
-TestMoonfire::TestMoonfire(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Moonfire")
-{}
+TestMoonfire::TestMoonfire(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Moonfire") {}
 
 void TestMoonfire::test_all() {
     run_mandatory_tests();
@@ -74,9 +72,7 @@ void TestMoonfire::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestMoonfire::test_how_spell_observes_global_cooldown() {
-
-}
+void TestMoonfire::test_how_spell_observes_global_cooldown() {}
 
 void TestMoonfire::test_is_ready_conditions() {
     assert(moonfire()->get_spell_status() == SpellStatus::Available);

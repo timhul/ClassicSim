@@ -11,12 +11,16 @@
 #include "Weapon.h"
 
 ClearcastingDruid::ClearcastingDruid(Druid* pchar) :
-    ProcPPM("Clearcasting", "Assets/spell/Spell_shadow_manaburn.png", EnchantSlot::MAINHAND, 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>{ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing},
-         pchar),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Omen of Clarity", 1, DisabledAtZero::Yes)}),
-    buff(new NoEffectSelfBuff(pchar, 600, name, icon, Hidden::No, 1))
-{
+    ProcPPM("Clearcasting",
+            "Assets/spell/Spell_shadow_manaburn.png",
+            EnchantSlot::MAINHAND,
+            0.0,
+            0,
+            QVector<Proc*>(),
+            QVector<ProcInfo::Source> {ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing},
+            pchar),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Omen of Clarity", 1, DisabledAtZero::Yes)}),
+    buff(new NoEffectSelfBuff(pchar, 600, name, icon, Hidden::No, 1)) {
     this->enabled = false;
 }
 

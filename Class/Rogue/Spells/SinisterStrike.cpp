@@ -11,18 +11,21 @@
 #include "Weapon.h"
 
 SinisterStrike::SinisterStrike(Rogue* rogue) :
-    Spell("Sinister Strike", "Assets/spell/Spell_shadow_ritualofsacrifice.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 45),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No),
-                   new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)
-                   }),
+    Spell("Sinister Strike",
+          "Assets/spell/Spell_shadow_ritualofsacrifice.png",
+          rogue,
+          new CooldownControl(rogue, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          45),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Bonescythe Armor"}),
     rogue(rogue),
     imp_ss_ranks({45, 42, 40}),
     aggression_ranks({1.0, 1.02, 1.04, 1.06}),
-    lethality_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
-{}
+    lethality_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30}) {}
 
 SinisterStrike::~SinisterStrike() {
     delete cooldown;
@@ -69,8 +72,7 @@ void SinisterStrike::spell_effect() {
             rogue->get_seal_fate()->set_current_proc_source(ProcInfo::Source::MainhandSpell);
             rogue->get_seal_fate()->perform();
         }
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         rogue->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }

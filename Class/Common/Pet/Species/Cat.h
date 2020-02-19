@@ -5,7 +5,7 @@
 class Claw;
 class Hunter;
 
-class Cat: public HunterPet {
+class Cat : public HunterPet {
 public:
     Cat(Hunter* pchar);
 

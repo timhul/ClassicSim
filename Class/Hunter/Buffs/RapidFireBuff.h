@@ -3,7 +3,7 @@
 #include "SelfBuff.h"
 #include "SetBonusRequirer.h"
 
-class RapidFireBuff: public SelfBuff, public SetBonusRequirer {
+class RapidFireBuff : public SelfBuff, public SetBonusRequirer {
 public:
     RapidFireBuff(Character* pchar);
 

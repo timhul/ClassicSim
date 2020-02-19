@@ -1,6 +1,7 @@
 #pragma once
 
-enum AttackMode {
+enum AttackMode
+{
     MeleeAttack = 0,
     RangedAttack,
     MagicAttack

@@ -5,8 +5,7 @@
 
 #include "BuffBreakdownModel.h"
 
-class DebuffBreakdownModel : public BuffBreakdownModel
-{
+class DebuffBreakdownModel : public BuffBreakdownModel {
     Q_OBJECT
 public:
     DebuffBreakdownModel(NumberCruncher* statistics_source);

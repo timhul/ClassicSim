@@ -10,8 +10,7 @@ class Ruthlessness;
 class SealFate;
 class SwordSpecialization;
 
-
-class Rogue: public Character {
+class Rogue : public Character {
 public:
     Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Rogue() override;

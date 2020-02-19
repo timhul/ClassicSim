@@ -5,7 +5,7 @@
 class Warrior;
 class WarriorSpells;
 
-class TestProcWarrior: public TestProc {
+class TestProcWarrior : public TestProc {
 public:
     TestProcWarrior(EquipmentDb* equipment_db, QString proc_under_test);
 

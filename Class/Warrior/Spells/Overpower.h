@@ -6,7 +6,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Overpower: public Spell, public TalentRequirer {
+class Overpower : public Spell, public TalentRequirer {
 public:
     Overpower(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control);
 

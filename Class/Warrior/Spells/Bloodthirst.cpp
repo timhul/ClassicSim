@@ -9,10 +9,9 @@
 
 Bloodthirst::Bloodthirst(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control) :
     Spell("Bloodthirst", "Assets/spell/Spell_nature_bloodlust.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Rage, 30),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Bloodthirst", 1, DisabledAtZero::Yes)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Bloodthirst", 1, DisabledAtZero::Yes)}),
     warr(pchar),
-    spells(spells)
-{
+    spells(spells) {
     this->enabled = false;
 }
 
@@ -47,8 +46,7 @@ void Bloodthirst::spell_effect() {
         damage_dealt *= warr->get_stats()->get_melee_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
@@ -61,8 +59,6 @@ SpellStatus Bloodthirst::is_ready_spell_specific() const {
     return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
-void Bloodthirst::increase_talent_rank_effect(const QString&, const int) {
-}
+void Bloodthirst::increase_talent_rank_effect(const QString&, const int) {}
 
-void Bloodthirst::decrease_talent_rank_effect(const QString&, const int) {
-}
+void Bloodthirst::decrease_talent_rank_effect(const QString&, const int) {}

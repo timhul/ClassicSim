@@ -1,11 +1,12 @@
 #include "GUIControl.h"
 
+#include <utility>
+
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include <utility>
 
 #include "ActiveItemStatFilterModel.h"
 #include "AvailableItemStatFilterModel.h"
@@ -55,8 +56,8 @@
 #include "Quiver.h"
 #include "Race.h"
 #include "RaidControl.h"
-#include "RandomAffixes.h"
 #include "RandomAffixModel.h"
+#include "RandomAffixes.h"
 #include "ResourceBreakdownModel.h"
 #include "Rogue.h"
 #include "Rotation.h"
@@ -112,8 +113,7 @@ GUIControl::GUIControl(QObject* parent) :
     boots_enchants(new EnchantModel(EquipmentSlot::BOOTS, EnchantModel::Permanent)),
     random_affixes(new RandomAffixModel(-1)),
     sim_in_progress(false),
-    active_window("TALENTS")
-{
+    active_window("TALENTS") {
     thread_pool = new SimulationThreadPool(equipment_db, random_affixes_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
     QObject::connect(thread_pool, SIGNAL(update_progress(double)), this, SLOT(update_progress(double)));
@@ -141,7 +141,7 @@ GUIControl::GUIControl(QObject* parent) :
     random_affixes->set_random_affixes_db(random_affixes_db);
 
     for (int i = 0; i < 8; ++i) {
-        raid_setup.append(QVector<QVariantMap>{});
+        raid_setup.append(QVector<QVariantMap> {});
         for (int j = 0; j < 5; ++j)
             raid_setup[i].append(QVariantMap());
     }
@@ -169,16 +169,16 @@ GUIControl::GUIControl(QObject* parent) :
 }
 
 GUIControl::~GUIControl() {
-    for (const auto & pchar : chars)
+    for (const auto& pchar : chars)
         delete pchar;
 
-    for (const auto & race : races)
+    for (const auto& race : races)
         delete race;
 
-    for (const auto & rc : raid_controls)
+    for (const auto& rc : raid_controls)
         delete rc;
 
-    for (const auto & race : raid_member_races)
+    for (const auto& race : raid_member_races)
         delete race;
 
     delete equipment_db;
@@ -254,7 +254,7 @@ void GUIControl::set_character(Character* pchar) {
 
     selectDisplayStat(get_attack_mode_as_string());
 
-    raid_setup[0][0] = QVariantMap{{"text", "You"}, {"color", current_char->class_color}, {"selected", true}};
+    raid_setup[0][0] = QVariantMap {{"text", "You"}, {"color", current_char->class_color}, {"selected", true}};
 
     raceChanged();
     classChanged();
@@ -309,8 +309,7 @@ void GUIControl::selectFaction(const int faction) {
             current_char->switch_faction();
 
         reset_race(current_char);
-    }
-    else {
+    } else {
         current_char->switch_faction();
         reset_race(current_char);
     }
@@ -349,7 +348,7 @@ bool GUIControl::raceAvailable(const QString& race_name) {
 void GUIControl::reset_race(Character* pchar) {
     const QVector<QString>& available_races = this->current_char->get_faction()->get_faction_races();
 
-    for (const auto & available_race : available_races) {
+    for (const auto& available_race : available_races) {
         if (!races.contains(available_race)) {
             qDebug() << QString("Race %1 not valid!").arg(available_race);
             continue;
@@ -370,7 +369,7 @@ QString GUIControl::get_creature_type() const {
 }
 
 void GUIControl::setCreatureType(const QString& creature_type) {
-    for (const auto & pchar : chars)
+    for (const auto& pchar : chars)
         pchar->change_target_creature_type(creature_type);
 
     creatureTypeChanged();
@@ -386,7 +385,7 @@ int GUIControl::get_target_base_armor() const {
 }
 
 void GUIControl::setTargetBaseArmor(const int armor) {
-    for (const auto & pchar : chars)
+    for (const auto& pchar : chars)
         pchar->get_target()->set_base_armor(armor);
 
     targetUpdated();
@@ -616,8 +615,7 @@ QString GUIControl::get_melee_crit_chance() const {
 
     if (oh_crit > 0 && mh_crit != oh_crit) {
         QString format = "%1% / %2";
-        return format.arg(QString::number(static_cast<double>(mh_crit) / 100, 'f', 2),
-                          QString::number(static_cast<double>(oh_crit) / 100, 'f', 2));
+        return format.arg(QString::number(static_cast<double>(mh_crit) / 100, 'f', 2), QString::number(static_cast<double>(oh_crit) / 100, 'f', 2));
     }
 
     return QString::number(static_cast<double>(mh_crit) / 100, 'f', 2);
@@ -715,7 +713,7 @@ void GUIControl::selectRangeOfFiltersFromPrevious(const int filter) {
     Q_EMIT filtersUpdated();
 }
 
-RandomAffixModel *GUIControl::get_random_affix_model() const {
+RandomAffixModel* GUIControl::get_random_affix_model() const {
     return this->random_affixes;
 }
 
@@ -885,17 +883,16 @@ void GUIControl::update_displayed_raid_dps_value(const double new_dps_value) {
 
 void GUIControl::calculate_displayed_dps_value() {
     // Note: intended for local testing to build confidence in thread results
-    update_displayed_dps_value(double(current_char->get_statistics()->get_total_personal_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
+    update_displayed_dps_value(double(current_char->get_statistics()->get_total_personal_damage_dealt())
+                               / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
 }
 
 void GUIControl::runQuickSim() {
     if (sim_in_progress)
         return;
-    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack &&
-            current_char->get_equipment()->get_mainhand() == nullptr)
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack && current_char->get_equipment()->get_mainhand() == nullptr)
         return;
-    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack &&
-            current_char->get_equipment()->get_ranged() == nullptr)
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack && current_char->get_equipment()->get_ranged() == nullptr)
         return;
 
     sim_in_progress = true;
@@ -903,8 +900,8 @@ void GUIControl::runQuickSim() {
     QVector<QString> setup_strings;
     raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
 
-    for (const auto & party : raid_setup) {
-        for (const auto & party_member : party) {
+    for (const auto& party : raid_setup) {
+        for (const auto& party_member : party) {
             if (party_member.contains("setup_string"))
                 setup_strings.append(party_member["setup_string"].toString());
         }
@@ -918,11 +915,9 @@ void GUIControl::runQuickSim() {
 void GUIControl::runFullSim() {
     if (sim_in_progress)
         return;
-    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack &&
-            current_char->get_equipment()->get_mainhand() == nullptr)
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack && current_char->get_equipment()->get_mainhand() == nullptr)
         return;
-    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack &&
-            current_char->get_equipment()->get_ranged() == nullptr)
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack && current_char->get_equipment()->get_ranged() == nullptr)
         return;
 
     sim_in_progress = true;
@@ -930,8 +925,8 @@ void GUIControl::runFullSim() {
     QVector<QString> setup_strings;
     raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
 
-    for (const auto & party : raid_setup) {
-        for (const auto & party_member : party) {
+    for (const auto& party : raid_setup) {
+        for (const auto& party_member : party) {
             if (party_member.contains("setup_string"))
                 setup_strings.append(party_member["setup_string"].toString());
         }
@@ -1087,7 +1082,7 @@ void GUIControl::selectTemplateCharacter(QString template_char) {
     const QString color = chars[info.class_name]->class_color;
     const QString setup_string = info.setup_string.arg(static_cast<int>(sim_settings->get_phase())).arg(current_party - 1).arg(current_member - 1);
 
-    raid_setup[current_party - 1][current_member - 1] = QVariantMap{{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
+    raid_setup[current_party - 1][current_member - 1] = QVariantMap {{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
 
     partyMembersUpdated();
 }
@@ -1364,7 +1359,8 @@ QString GUIControl::getTemporaryEnchantEffect(const QString& slot_string) const 
 
 void GUIControl::applyEnchant(const QString& slot_string, const int enchant_name) {
     if (slot_string == "MAINHAND")
-        current_char->get_equipment()->get_mainhand()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char, WeaponSlots::MAINHAND);
+        current_char->get_equipment()->get_mainhand()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char,
+                                                                     WeaponSlots::MAINHAND);
     if (slot_string == "OFFHAND")
         current_char->get_equipment()->get_offhand()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char, WeaponSlots::OFFHAND);
     if (slot_string == "RANGED")
@@ -1392,9 +1388,11 @@ void GUIControl::applyEnchant(const QString& slot_string, const int enchant_name
 
 void GUIControl::applyTemporaryEnchant(const QString& slot_string, const int enchant_name) {
     if (slot_string == "MAINHAND")
-        current_char->get_equipment()->get_mainhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char, EnchantSlot::MAINHAND);
+        current_char->get_equipment()->get_mainhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char,
+                                                                               EnchantSlot::MAINHAND);
     if (slot_string == "OFFHAND")
-        current_char->get_equipment()->get_offhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char, EnchantSlot::OFFHAND);
+        current_char->get_equipment()->get_offhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char,
+                                                                              EnchantSlot::OFFHAND);
 
     enchantChanged();
     statsChanged();
@@ -1487,7 +1485,6 @@ EnchantModel* GUIControl::get_boots_enchant_model() const {
 }
 
 void GUIControl::setSlot(const QString& slot_string, const int item_id, const uint affix_id) {
-
     RandomAffix* affix = random_affixes_db->get_affix(affix_id);
 
     if (slot_string == "MAINHAND") {
@@ -1680,7 +1677,7 @@ void GUIControl::set_projectile_tooltip(Item* item, QString& slot, QString& dps)
     dps = QString("Adds %1 damage per second").arg(QString::number(projectile->get_projectile_dps(), 'f', 1));
 }
 
-void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction) {
+void GUIControl::set_class_restriction_tooltip(Item*& item, QString& restriction) {
     QVector<QString> restrictions;
 
     if (item->get_value("RESTRICTED_TO_WARRIOR") != "")
@@ -1705,7 +1702,7 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
     if (restrictions.empty())
         return;
 
-    for (const auto & i : restrictions) {
+    for (const auto& i : restrictions) {
         if (restriction == "")
             restriction = "Classes: ";
         else
@@ -1731,14 +1728,14 @@ void GUIControl::set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const 
     tooltip.append(QString("%1 (%2/%3)").arg(set_name).arg(num_equipped_set_items).arg(item_names_in_set.size()));
 
     tooltip.append(item_names_in_set.size());
-    for (const auto & item_name : item_names_in_set) {
+    for (const auto& item_name : item_names_in_set) {
         QString font_color = item_name.second ? "#ffd100" : "#727171";
         tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color, item_name.first));
     }
 
     QVector<QPair<QString, bool>> set_bonus_tooltips = set_bonuses->get_set_bonus_tooltips(item_id);
     tooltip.append(set_bonus_tooltips.size());
-    for (const auto & bonus_tooltip : set_bonus_tooltips) {
+    for (const auto& bonus_tooltip : set_bonus_tooltips) {
         QString font_color = bonus_tooltip.second ? "#1eff00" : "#727171";
         tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color, bonus_tooltip.first));
     }
@@ -1838,7 +1835,7 @@ Character* GUIControl::get_new_character(const QString& class_name) {
 void GUIControl::save_settings() {
     save_gui_settings();
 
-    for (auto & pchar : chars) {
+    for (auto& pchar : chars) {
         if (!supported_classes.contains(pchar->class_name))
             continue;
 
@@ -1896,7 +1893,7 @@ void GUIControl::save_gui_settings() {
         stream.writeTextElement("threads", QString("%1").arg(sim_settings->get_num_threads_current()));
 
         QSet<SimOption::Name> options = sim_settings->get_active_options();
-        for (const auto & option : options)
+        for (const auto& option : options)
             stream.writeTextElement("sim_option", QString("%1").arg(option));
 
         stream.writeEndElement();
@@ -1923,8 +1920,7 @@ void GUIControl::load_gui_settings() {
 
     if (!current_char->get_faction()->get_faction_races().contains(current_char->get_race()->get_name())) {
         QString name = current_char->get_race()->get_name();
-        selectFaction(current_char->get_faction()->is_alliance() ? AvailableFactions::Name::Horde :
-                                                                   AvailableFactions::Name::Alliance);
+        selectFaction(current_char->get_faction()->is_alliance() ? AvailableFactions::Name::Horde : AvailableFactions::Name::Alliance);
         selectRace(name);
     }
 }
@@ -1958,10 +1954,8 @@ QVariantList GUIControl::get_tooltip_from_item(Item* item) {
     if (item == nullptr)
         return QVariantList();
 
-    QString boe_string = item->get_value("boe") == "yes" ? "Binds when equipped" :
-                                                           "Binds when picked up";
-    QString unique = item->get_value("unique") == "yes" ? "Unique" :
-                                                          "";
+    QString boe_string = item->get_value("boe") == "yes" ? "Binds when equipped" : "Binds when picked up";
+    QString unique = item->get_value("unique") == "yes" ? "Unique" : "";
 
     QString slot = item->get_value("slot");
     QString dmg_range = "";
@@ -1980,8 +1974,7 @@ QVariantList GUIControl::get_tooltip_from_item(Item* item) {
         const QSet<QString> ranged_weapon_classes = {"Hunter", "Warrior", "Rogue", "Mage", "Warlock", "Priest"};
         if (ranged_weapon_classes.contains(current_char->class_name))
             set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
-    }
-    else if (slot == "PROJECTILE")
+    } else if (slot == "PROJECTILE")
         set_projectile_tooltip(item, slot, dps);
     else if (slot == "RING")
         slot = "Finger";
@@ -2001,22 +1994,20 @@ QVariantList GUIControl::get_tooltip_from_item(Item* item) {
 
     QString lvl_req = QString("Requires level %1").arg(item->get_value("req_lvl"));
 
-    QVariantList tooltip_info = {
-        QVariant(item->name),
-        QVariant(item->get_value("quality")),
-        QVariant(boe_string),
-        QVariant(unique),
-        QVariant(slot),
-        QVariant(get_initial_upper_case_rest_lower_case(item->get_value("type"))),
-        QVariant(dmg_range),
-        QVariant(weapon_speed),
-        QVariant(dps),
-        QVariant(item->get_base_stat_tooltip()),
-        QVariant(class_restriction),
-        QVariant(lvl_req),
-        QVariant(item->get_equip_effect_tooltip()),
-        QVariant(item->get_value("flavour_text"))
-    };
+    QVariantList tooltip_info = {QVariant(item->name),
+                                 QVariant(item->get_value("quality")),
+                                 QVariant(boe_string),
+                                 QVariant(unique),
+                                 QVariant(slot),
+                                 QVariant(get_initial_upper_case_rest_lower_case(item->get_value("type"))),
+                                 QVariant(dmg_range),
+                                 QVariant(weapon_speed),
+                                 QVariant(dps),
+                                 QVariant(item->get_base_stat_tooltip()),
+                                 QVariant(class_restriction),
+                                 QVariant(lvl_req),
+                                 QVariant(item->get_equip_effect_tooltip()),
+                                 QVariant(item->get_value("flavour_text"))};
 
     set_set_bonus_tooltip(item, tooltip_info);
 

@@ -9,10 +9,9 @@
 
 MortalStrike::MortalStrike(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control) :
     Spell("Mortal Strike", "Assets/ability/Ability_warrior_savageblow.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Rage, 30),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Mortal Strike", 1, DisabledAtZero::Yes)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Mortal Strike", 1, DisabledAtZero::Yes)}),
     warr(pchar),
-    spells(spells)
-{
+    spells(spells) {
     this->enabled = false;
 }
 
@@ -47,8 +46,7 @@ void MortalStrike::spell_effect() {
         damage_dealt *= warr->get_stats()->get_melee_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
@@ -58,8 +56,6 @@ SpellStatus MortalStrike::is_ready_spell_specific() const {
     return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
-void MortalStrike::increase_talent_rank_effect(const QString&, const int) {
-}
+void MortalStrike::increase_talent_rank_effect(const QString&, const int) {}
 
-void MortalStrike::decrease_talent_rank_effect(const QString&, const int) {
-}
+void MortalStrike::decrease_talent_rank_effect(const QString&, const int) {}

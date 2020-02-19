@@ -8,13 +8,18 @@
 #include "NoEffectSelfBuff.h"
 
 MoonkinForm::MoonkinForm(Druid* druid, MoonkinFormBuff* buff) :
-    Spell("Moonkin Form", "Assets/spell/Spell_nature_forceofnature.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
-    TalentRequirer({new TalentRequirerInfo("Moonkin Form", 1, DisabledAtZero::Yes),
-                    new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
+    Spell("Moonkin Form",
+          "Assets/spell/Spell_nature_forceofnature.png",
+          druid,
+          new CooldownControl(druid, 0.0),
+          RestrictedByGcd::No,
+          ResourceType::Mana,
+          100),
+    TalentRequirer(
+        {new TalentRequirerInfo("Moonkin Form", 1, DisabledAtZero::Yes), new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
     druid(druid),
     buff(buff),
-    base_resource_cost(resource_cost)
-{
+    base_resource_cost(resource_cost) {
     enabled = false;
 }
 

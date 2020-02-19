@@ -5,7 +5,7 @@
 class Hunter;
 class HunterSpells;
 
-class BeastMastery: public TalentTree {
+class BeastMastery : public TalentTree {
 public:
     BeastMastery(Hunter* hunter);
 

@@ -3,9 +3,7 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-Mechanics::Mechanics(Target* target):
-    target(target)
-{}
+Mechanics::Mechanics(Target* target) : target(target) {}
 
 double Mechanics::get_yellow_miss_chance(const unsigned wpn_skill) const {
     return get_2h_white_miss_chance(wpn_skill);
@@ -166,12 +164,8 @@ double Mechanics::get_full_resist_chance(const unsigned t_resistance) {
     return 0.25;
 }
 
-double Mechanics::get_linear_increase_in_range(const unsigned x_min,
-                                               const double y_min,
-                                               const unsigned x_max,
-                                               const double y_max,
-                                               const unsigned x_curr)
-{
+double Mechanics::get_linear_increase_in_range(
+    const unsigned x_min, const double y_min, const unsigned x_max, const double y_max, const unsigned x_curr) {
     check((x_curr >= x_min), "x_curr < x_min");
     check((x_curr <= x_max), "x_curr > x_max");
 

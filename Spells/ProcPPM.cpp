@@ -16,10 +16,7 @@ ProcPPM::ProcPPM(const QString& name,
                  const QVector<Proc*>& linked_procs,
                  const QVector<ProcInfo::Source>& proc_sources,
                  Character* pchar) :
-    Proc(name, icon, 0.0, inner_cooldown, linked_procs, proc_sources, pchar),
-    proc_rate_base(ppm * 100 / 60),
-    weapon(wpn)
-{
+    Proc(name, icon, 0.0, inner_cooldown, linked_procs, proc_sources, pchar), proc_rate_base(ppm * 100 / 60), weapon(wpn) {
     check((weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND), "Tried setting ProcPPM on non MH/OH");
 }
 

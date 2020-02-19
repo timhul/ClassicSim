@@ -1,6 +1,7 @@
 #pragma once
 
-enum class ResourceType : int {
+enum class ResourceType : int
+{
     Mana,
     Rage,
     Energy,

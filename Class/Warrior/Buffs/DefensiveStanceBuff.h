@@ -4,7 +4,7 @@
 
 class Warrior;
 
-class DefensiveStanceBuff: public SelfBuff {
+class DefensiveStanceBuff : public SelfBuff {
 public:
     DefensiveStanceBuff(Warrior* warrior);
 

@@ -4,7 +4,7 @@
 
 class Warrior;
 
-class WarriorEnchants: public CharacterEnchants {
+class WarriorEnchants : public CharacterEnchants {
 public:
     WarriorEnchants(Warrior* warrior);
 

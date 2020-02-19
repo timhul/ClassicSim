@@ -4,7 +4,7 @@
 
 class Buff;
 
-class SpellPeriodic: public Spell {
+class SpellPeriodic : public Spell {
 public:
     SpellPeriodic(const QString& name,
                   const QString& icon,

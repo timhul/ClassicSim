@@ -10,12 +10,8 @@ FlatWeaponDamageBuff::FlatWeaponDamageBuff(Character* pchar,
                                            const int duration,
                                            const int base_charges,
                                            const AffectedWeaponSide wpn_side,
-                                           const unsigned bonus):
-    SelfBuff(pchar, name, icon, duration, base_charges),
-    wpn_side(wpn_side),
-    bonus(bonus),
-    active_bonus(0)
-{}
+                                           const unsigned bonus) :
+    SelfBuff(pchar, name, icon, duration, base_charges), wpn_side(wpn_side), bonus(bonus), active_bonus(0) {}
 
 void FlatWeaponDamageBuff::buff_effect_when_applied() {
     active_bonus = base_charges == 0 ? bonus : bonus * static_cast<unsigned>(base_charges);

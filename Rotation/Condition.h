@@ -2,7 +2,8 @@
 
 #include <QString>
 
-enum class Comparator: int {
+enum class Comparator : int
+{
     Less,
     Leq,
     Eq,
@@ -12,12 +13,14 @@ enum class Comparator: int {
     True,
 };
 
-enum class CompareValueType: int {
+enum class CompareValueType : int
+{
     Boolean,
     Float,
 };
 
-enum class ConditionType: int {
+enum class ConditionType : int
+{
     BuffDurationCondition,
     BuffStacksCondition,
     SpellCondition,
@@ -25,12 +28,14 @@ enum class ConditionType: int {
     VariableBuiltinCondition,
 };
 
-enum class LogicalConnective: bool {
+enum class LogicalConnective : bool
+{
     AND,
     OR,
 };
 
-enum class BuffCompareType: int {
+enum class BuffCompareType : int
+{
     Duration,
     Charges,
 };

@@ -22,6 +22,7 @@ AlignConsecutiveDeclarations: false
 AlignEscapedNewlines: DontAlign
 AlignOperands:   true
 AlignTrailingComments: true
+AllowAllConstructorInitializersOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
@@ -31,16 +32,16 @@ AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: true
-BinPackArguments: false
+BinPackArguments: true
 BinPackParameters: false
 BraceWrapping:
-  AfterClass:      true
+  AfterClass:      false
   AfterControlStatement: false
-  AfterEnum:       false
+  AfterEnum:       true
   AfterFunction:   false
   AfterNamespace:  false
   AfterObjCDeclaration: false
-  AfterStruct:     true
+  AfterStruct:     false
   AfterUnion:      false
   BeforeCatch:     false
   BeforeElse:      false
@@ -51,19 +52,19 @@ BraceWrapping:
 BreakBeforeBinaryOperators: All
 BreakBeforeBraces: Custom
 BreakBeforeInheritanceComma: false
-BreakBeforeTernaryOperators: true
+BreakBeforeTernaryOperators: false
 BreakConstructorInitializersBeforeComma: false
-BreakConstructorInitializers: BeforeComma
+BreakConstructorInitializers: AfterColon
 BreakAfterJavaFieldAnnotations: false
 BreakStringLiterals: true
-ColumnLimit:    200
+ColumnLimit:    150
 CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: false
-ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
-DerivePointerAlignment: true
+DerivePointerAlignment: false
 DisableFormat:   false
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
@@ -75,14 +76,11 @@ ForEachMacros:
 IncludeBlocks: Regroup
 IncludeCategories:
   - Regex:           '^<Q.*'
-    Priority:        200
-    SortPriority:    200
-  - Regex:           '^<[^.]*>$'
     Priority:        300
-    SortPriority:    300
+  - Regex:           '^<[^.]*>$'
+    Priority:        200
   - Regex:           '^<.*>$'
     Priority:        400
-    SortPriority:    400
 IncludeIsMainRegex: '(Test)?$'
 IndentCaseLabels: false
 IndentWidth:     4
@@ -94,7 +92,7 @@ KeepEmptyLinesAtTheStartOfBlocks: false
 MacroBlockBegin: ""
 MacroBlockEnd:   ""
 MaxEmptyLinesToKeep: 1
-NamespaceIndentation: None
+NamespaceIndentation: All
 ObjCBlockIndentWidth: 4
 ObjCSpaceAfterProperty: false
 ObjCSpaceBeforeProtocolList: true
@@ -110,9 +108,14 @@ ReflowComments:  false
 SortIncludes:    true
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: false
 SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles:  false

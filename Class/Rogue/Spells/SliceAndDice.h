@@ -7,7 +7,7 @@
 class Rogue;
 class SliceAndDiceBuff;
 
-class SliceAndDice: public Spell, public TalentRequirer, public SetBonusRequirer {
+class SliceAndDice : public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     SliceAndDice(Rogue* rogue);
     ~SliceAndDice() override;

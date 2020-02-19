@@ -37,8 +37,7 @@ Warlock::Warlock(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settin
     warlock_spells->activate_racials();
 }
 
-Warlock::~Warlock()
-{
+Warlock::~Warlock() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -76,9 +75,7 @@ double Warlock::global_cooldown() const {
     return 1.5;
 }
 
-void Warlock::initialize_talents() {
-
-}
+void Warlock::initialize_talents() {}
 
 unsigned Warlock::get_resource_level(const ResourceType) const {
     return mana->current;
@@ -123,6 +120,4 @@ QVector<int> Warlock::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Warlock::reset_class_specific() {
-
-}
+void Warlock::reset_class_specific() {}

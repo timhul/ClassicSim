@@ -7,7 +7,7 @@
 
 class Rogue;
 
-class Backstab: public Spell, public TalentRequirer, public SetBonusRequirer {
+class Backstab : public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     Backstab(Rogue* rogue);
     ~Backstab() override;

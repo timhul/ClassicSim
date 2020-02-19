@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMap>
+
 #include <math.h>
 #include <stdlib.h>
 

@@ -4,7 +4,7 @@
 
 class Paladin;
 
-class SanctityAuraBuff: public PartyBuff {
+class SanctityAuraBuff : public PartyBuff {
 public:
     SanctityAuraBuff(Paladin* paladin);
     ~SanctityAuraBuff() override = default;

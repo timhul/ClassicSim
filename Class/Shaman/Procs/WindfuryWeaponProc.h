@@ -5,7 +5,7 @@
 
 class Shaman;
 
-class WindfuryWeaponProc: public Proc, public TalentRequirer {
+class WindfuryWeaponProc : public Proc, public TalentRequirer {
 public:
     WindfuryWeaponProc(Shaman* pchar, const int spell_rank);
 

@@ -6,39 +6,27 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-WarriorEnchants::WarriorEnchants(Warrior* warrior) :
-    CharacterEnchants(warrior)
-{}
+WarriorEnchants::WarriorEnchants(Warrior* warrior) : CharacterEnchants(warrior) {}
 
 QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
-        QVector<EnchantName::Name> enchants {
-            EnchantName::Name::Crusader,
-            EnchantName::Name::FieryWeapon,
-            EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking,
-            EnchantName::Name::EnchantWeaponAgility
-        };
+        QVector<EnchantName::Name> enchants {EnchantName::Name::Crusader, EnchantName::Name::FieryWeapon, EnchantName::Name::EnchantWeaponStrength,
+                                             EnchantName::Name::SuperiorStriking, EnchantName::Name::EnchantWeaponAgility};
 
         if (has_2hand()) {
             enchants.append({
-                                EnchantName::Name::Enchant2HWeaponAgility,
-                                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
-                                EnchantName::Name::IronCounterweight,
-                            });
+                EnchantName::Name::Enchant2HWeaponAgility,
+                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
+                EnchantName::Name::IronCounterweight,
+            });
         }
 
         return enchants;
     }
     case EquipmentSlot::OFFHAND: {
-        return {
-            EnchantName::Name::Crusader,
-            EnchantName::Name::FieryWeapon,
-            EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking,
-            EnchantName::Name::EnchantWeaponAgility
-        };
+        return {EnchantName::Name::Crusader, EnchantName::Name::FieryWeapon, EnchantName::Name::EnchantWeaponStrength,
+                EnchantName::Name::SuperiorStriking, EnchantName::Name::EnchantWeaponAgility};
     }
     case EquipmentSlot::RANGED:
         return {};
@@ -50,35 +38,21 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
             EnchantName::Name::LesserArcanumOfVoracityStrength,
         };
     case EquipmentSlot::SHOULDERS:
-        return {
-            EnchantName::Name::MightOfTheScourge,
-            EnchantName::Name::ZandalarSignetOfMight
-        };
+        return {EnchantName::Name::MightOfTheScourge, EnchantName::Name::ZandalarSignetOfMight};
     case EquipmentSlot::BACK:
-        return {
-            EnchantName::Name::EnchantCloakLesserAgility
-        };
+        return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
-        return {
-            EnchantName::Name::EnchantBracerSuperiorStrength
-        };
+        return {EnchantName::Name::EnchantBracerSuperiorStrength};
     case EquipmentSlot::GLOVES:
-        return {
-            EnchantName::Name::EnchantGlovesSuperiorAgility,
-            EnchantName::Name::EnchantGlovesGreaterAgility,
-            EnchantName::Name::EnchantGlovesMinorHaste,
-            EnchantName::Name::EnchantGlovesGreaterStrength
-        };
+        return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
+                EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestStats,
             EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
-        return {
-            EnchantName::Name::EnchantBootsMinorSpeed,
-            EnchantName::Name::EnchantBootsGreaterAgility
-        };
+        return {EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility};
     }
 
     check(false, "WarriorEnchants::get_available_enchants reached end of switch");

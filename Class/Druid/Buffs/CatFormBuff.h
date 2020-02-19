@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Druid;
 
-class CatFormBuff: public SelfBuff, public TalentRequirer {
+class CatFormBuff : public SelfBuff, public TalentRequirer {
 public:
     CatFormBuff(Druid* pchar, Buff* leader_of_the_pack, Proc* furor);
 

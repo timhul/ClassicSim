@@ -9,9 +9,9 @@ namespace WarriorStances {
     static const int Battle = 0;
     static const int Defensive = 1;
     static const int Berserker = 2;
-}
+} // namespace WarriorStances
 
-class Warrior: public Character {
+class Warrior : public Character {
 public:
     Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Warrior() override;
@@ -54,7 +54,7 @@ private:
     int stance;
     unsigned stance_rage_remainder;
     double next_stance_cd;
-    double rage_conversion_value{};
+    double rage_conversion_value {};
     Rage* rage;
     WarriorSpells* warr_spells;
 

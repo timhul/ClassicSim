@@ -1,9 +1,10 @@
 #pragma once
 
-#include "TestUtils.h"
+#include <cassert>
 
 #include <QDebug>
-#include <cassert>
+
+#include "TestUtils.h"
 
 class EquipmentDb;
 

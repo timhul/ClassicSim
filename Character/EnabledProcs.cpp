@@ -7,14 +7,9 @@
 #include "Utils/Check.h"
 
 EnabledProcs::EnabledProcs(Character* pchar, Faction* faction) :
-    pchar(pchar),
-    faction(faction),
-    general_procs(new GeneralProcs(pchar, faction)),
-    next_instance_id(ProcStatus::INITIAL_ID)
-{}
+    pchar(pchar), faction(faction), general_procs(new GeneralProcs(pchar, faction)), next_instance_id(ProcStatus::INITIAL_ID) {}
 
-EnabledProcs::~EnabledProcs()
-{
+EnabledProcs::~EnabledProcs() {
     delete general_procs;
 }
 
@@ -27,7 +22,7 @@ void EnabledProcs::run_proc_check(ProcInfo::Source source) {
 
     ++procs_in_progress;
 
-    for (const auto & proc : enabled_procs) {
+    for (const auto& proc : enabled_procs) {
         if (!proc->procs_from_source(source))
             continue;
         if (procced_instance_ids.contains(proc->get_instance_id()))
@@ -68,12 +63,12 @@ void EnabledProcs::remove_proc_effect(const int instance_id) {
 }
 
 void EnabledProcs::clear_all() {
-    for (const auto & proc : enabled_procs)
+    for (const auto& proc : enabled_procs)
         proc->disable_proc();
 }
 
 void EnabledProcs::reset() {
-    for (const auto & proc : enabled_procs)
+    for (const auto& proc : enabled_procs)
         proc->reset();
 
     procced_instance_ids.clear();
@@ -84,12 +79,12 @@ void EnabledProcs::switch_faction() {
 }
 
 void EnabledProcs::prepare_set_of_combat_iterations() {
-    for (const auto & proc : enabled_procs)
+    for (const auto& proc : enabled_procs)
         proc->prepare_set_of_combat_iterations();
 }
 
 bool EnabledProcs::proc_enabled(Proc* proc) const {
-    for (const auto & enabled_proc : enabled_procs)
+    for (const auto& enabled_proc : enabled_procs)
         if (enabled_proc->get_instance_id() == proc->get_instance_id())
             return true;
 

@@ -5,10 +5,7 @@
 #include "ResourceTick.h"
 #include "Utils/Check.h"
 
-RegeneratingResource::RegeneratingResource(Character* pchar) :
-    pchar(pchar),
-    resource_per_tick(0)
-{
+RegeneratingResource::RegeneratingResource(Character* pchar) : pchar(pchar), resource_per_tick(0) {
     this->resource_tick = new ResourceTick(pchar, this);
     this->resource_tick->enable();
 }

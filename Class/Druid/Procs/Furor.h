@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "Proc.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Druid;
 class StatisticsResource;
 
-class Furor: public Proc, public TalentRequirer {
+class Furor : public Proc, public TalentRequirer {
 public:
     Furor(Druid* druid);
 

@@ -4,9 +4,9 @@
 
 class Eviscerate;
 
-class TestEviscerate: public TestSpellRogue {
+class TestEviscerate : public TestSpellRogue {
 public:
-    TestEviscerate(EquipmentDb *equipment_db);
+    TestEviscerate(EquipmentDb* equipment_db);
 
     void test_all();
 

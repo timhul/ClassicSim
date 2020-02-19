@@ -8,13 +8,15 @@
 #include "Utils/Check.h"
 
 SealOfCommandProc::SealOfCommandProc(Character* pchar, SealOfCommand* seal) :
-    ProcPPM("Seal of Command (MH)", "Assets/ability/Ability_warrior_innerrage.png", EnchantSlot::MAINHAND,
-            7.0, 0, QVector<Proc*>(),
-            QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
-                                       ProcInfo::Source::RangedSpell}),
+    ProcPPM("Seal of Command (MH)",
+            "Assets/ability/Ability_warrior_innerrage.png",
+            EnchantSlot::MAINHAND,
+            7.0,
+            0,
+            QVector<Proc*>(),
+            QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing, ProcInfo::Source::RangedSpell}),
             pchar),
-    seal(seal)
-{
+    seal(seal) {
     this->enabled = false;
 }
 

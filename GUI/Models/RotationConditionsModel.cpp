@@ -1,13 +1,12 @@
 #include "RotationConditionsModel.h"
 
+#include <QDebug>
+
 #include "Rotation.h"
 #include "RotationExecutor.h"
 #include "RotationFileReader.h"
 #include "Spell.h"
-#include <QDebug>
-RotationConditionsModel::RotationConditionsModel(QObject *parent)
-    : QAbstractListModel(parent)
-{}
+RotationConditionsModel::RotationConditionsModel(QObject* parent) : QAbstractListModel(parent) {}
 
 void RotationConditionsModel::set_rotation(Rotation* rotation) {
     beginResetModel();
@@ -15,7 +14,7 @@ void RotationConditionsModel::set_rotation(Rotation* rotation) {
     endResetModel();
 }
 
-int RotationConditionsModel::rowCount(const QModelIndex & parent) const {
+int RotationConditionsModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     if (!rotation)
         return 0;
@@ -23,7 +22,7 @@ int RotationConditionsModel::rowCount(const QModelIndex & parent) const {
     return rotation->all_executors.size();
 }
 
-QVariant RotationConditionsModel::data(const QModelIndex & index, int role) const {
+QVariant RotationConditionsModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= rowCount())
         return QVariant();
 

@@ -1,6 +1,7 @@
 #include "TestMechanics.h"
 
 #include <cassert>
+
 #include <QDebug>
 
 #include "Mechanics.h"
@@ -67,7 +68,7 @@ void TestMechanics::test_glancing_blow_rate() {
 
     assert(almost_equal(6.3, mechanics->get_glancing_blow_chance(1)));
 
-    assert(almost_equal(0.4,  mechanics->get_glancing_blow_chance(60)));
+    assert(almost_equal(0.4, mechanics->get_glancing_blow_chance(60)));
 
     target->set_lvl(62);
     assert(almost_equal(0.3, mechanics->get_glancing_blow_chance(60)));

@@ -2,7 +2,7 @@
 
 #include "Spell.h"
 
-class MainhandAttack: public Spell {
+class MainhandAttack : public Spell {
 public:
     MainhandAttack(Character* pchar);
     ~MainhandAttack() override;

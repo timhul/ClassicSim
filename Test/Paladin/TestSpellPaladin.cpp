@@ -1,8 +1,9 @@
 #include "TestSpellPaladin.h"
 
 #include <cassert>
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "Buff.h"
 #include "CharacterStats.h"
@@ -18,14 +19,11 @@
 #include "Retribution.h"
 #include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
-#include "SealOfTheCrusader.h"
 #include "SimSettings.h"
 #include "Spell.h"
 
-TestSpellPaladin::TestSpellPaladin(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    paladin(nullptr)
-{}
+TestSpellPaladin::TestSpellPaladin(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpellDamage(equipment_db, std::move(spell_under_test)), paladin(nullptr) {}
 
 void TestSpellPaladin::set_up(const bool prepare_combat_iterations) {
     set_up_general();
@@ -44,9 +42,7 @@ void TestSpellPaladin::tear_down() {
     tear_down_general();
 }
 
-void TestSpellPaladin::run_class_specific_tests() {
-
-}
+void TestSpellPaladin::run_class_specific_tests() {}
 
 Judgement* TestSpellPaladin::judgement() const {
     return static_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));

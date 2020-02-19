@@ -5,17 +5,9 @@
 #include "Random.h"
 #include "Utils/Check.h"
 
-MeleeWhiteHitTable::MeleeWhiteHitTable(Random *random,
-                                       const unsigned wpn_skill,
-                                       const unsigned miss,
-                                       const double dodge,
-                                       const double parry,
-                                       const double glancing,
-                                       const double block) :
-    wpn_skill(wpn_skill),
-    random(random),
-    miss_range(miss)
-{
+MeleeWhiteHitTable::MeleeWhiteHitTable(
+    Random* random, const unsigned wpn_skill, const unsigned miss, const double dodge, const double parry, const double glancing, const double block) :
+    wpn_skill(wpn_skill), random(random), miss_range(miss) {
     update_dodge_chance(dodge);
     update_parry_chance(parry);
     update_glancing_chance(glancing);

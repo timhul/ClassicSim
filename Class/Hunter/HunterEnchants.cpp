@@ -4,9 +4,7 @@
 #include "Hunter.h"
 #include "Utils/Check.h"
 
-HunterEnchants::HunterEnchants(Hunter* hunter) :
-    CharacterEnchants(hunter)
-{}
+HunterEnchants::HunterEnchants(Hunter* hunter) : CharacterEnchants(hunter) {}
 
 QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -22,22 +20,17 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
 
         if (has_2hand()) {
             enchants.append({
-                                EnchantName::Name::Enchant2HWeaponAgility,
-                                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
-                                EnchantName::Name::IronCounterweight,
-                            });
+                EnchantName::Name::Enchant2HWeaponAgility,
+                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
+                EnchantName::Name::IronCounterweight,
+            });
         }
 
         return enchants;
     }
     case EquipmentSlot::OFFHAND: {
-        return {
-            EnchantName::Name::Crusader,
-            EnchantName::Name::FieryWeapon,
-            EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking,
-            EnchantName::Name::EnchantWeaponAgility
-        };
+        return {EnchantName::Name::Crusader, EnchantName::Name::FieryWeapon, EnchantName::Name::EnchantWeaponStrength,
+                EnchantName::Name::SuperiorStriking, EnchantName::Name::EnchantWeaponAgility};
     }
     case EquipmentSlot::RANGED:
         return {
@@ -59,9 +52,7 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
             EnchantName::Name::ZandalarSignetOfMojo,
         };
     case EquipmentSlot::BACK:
-        return {
-            EnchantName::Name::EnchantCloakLesserAgility
-        };
+        return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
         return {
             EnchantName::Name::EnchantBracerManaRegeneration,
@@ -69,12 +60,8 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
             EnchantName::Name::EnchantBracerMinorAgility,
         };
     case EquipmentSlot::GLOVES:
-        return {
-            EnchantName::Name::EnchantGlovesSuperiorAgility,
-            EnchantName::Name::EnchantGlovesGreaterAgility,
-            EnchantName::Name::EnchantGlovesMinorHaste,
-            EnchantName::Name::EnchantGlovesGreaterStrength
-        };
+        return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
+                EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestStats,
@@ -96,11 +83,8 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
         QVector<EnchantName::Name> enchants {
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::LesserManaOil,
-            EnchantName::BrilliantManaOil,
-            EnchantName::BrilliantWizardOil,
+            EnchantName::ElementalSharpeningStone, EnchantName::ConsecratedSharpeningStone, EnchantName::LesserManaOil,
+            EnchantName::BrilliantManaOil,         EnchantName::BrilliantWizardOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
@@ -115,11 +99,8 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
     }
     case EquipmentSlot::OFFHAND:
         QVector<EnchantName::Name> enchants {
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::LesserManaOil,
-            EnchantName::BrilliantManaOil,
-            EnchantName::BrilliantWizardOil,
+            EnchantName::ConsecratedSharpeningStone, EnchantName::ElementalSharpeningStone, EnchantName::LesserManaOil,
+            EnchantName::BrilliantManaOil,           EnchantName::BrilliantWizardOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);

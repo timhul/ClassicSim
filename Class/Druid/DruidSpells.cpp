@@ -22,10 +22,7 @@
 #include "TigersFuryBuff.h"
 #include "Wrath.h"
 
-DruidSpells::DruidSpells(Druid* druid) :
-    CharacterSpells(druid),
-    druid(druid)
-{
+DruidSpells::DruidSpells(Druid* druid) : CharacterSpells(druid), druid(druid) {
     this->mh_attack = new MainhandAttackDruid(druid);
     add_spell_group({mh_attack});
 
@@ -35,7 +32,8 @@ DruidSpells::DruidSpells(Druid* druid) :
     this->bear_form = new BearForm(druid);
     add_spell_group({bear_form});
 
-    auto leader_of_the_pack = static_cast<LeaderOfThePack*>(pchar->get_raid_control()->get_shared_party_buff("Leader of the Pack", pchar->get_party()));
+    auto leader_of_the_pack = static_cast<LeaderOfThePack*>(
+        pchar->get_raid_control()->get_shared_party_buff("Leader of the Pack", pchar->get_party()));
     if (leader_of_the_pack == nullptr) {
         leader_of_the_pack = new LeaderOfThePack(druid);
         leader_of_the_pack->enable_buff();
@@ -54,61 +52,61 @@ DruidSpells::DruidSpells(Druid* druid) :
     add_spell_group({moonkin_form});
 
     add_spell_group({
-                        new Wrath(druid, this, 4),
-                        new Wrath(druid, this, 5),
-                        new Wrath(druid, this, 6),
-                        new Wrath(druid, this, 7),
-                        new Wrath(druid, this, 8),
-                    });
+        new Wrath(druid, this, 4),
+        new Wrath(druid, this, 5),
+        new Wrath(druid, this, 6),
+        new Wrath(druid, this, 7),
+        new Wrath(druid, this, 8),
+    });
 
     add_spell_group({
-                        new Moonfire(druid, this, 1),
-                        new Moonfire(druid, this, 2),
-                        new Moonfire(druid, this, 3),
-                        new Moonfire(druid, this, 4),
-                        new Moonfire(druid, this, 5),
-                        new Moonfire(druid, this, 6),
-                        new Moonfire(druid, this, 7),
-                        new Moonfire(druid, this, 8),
-                        new Moonfire(druid, this, 9),
-                        new Moonfire(druid, this, 10),
-                    });
+        new Moonfire(druid, this, 1),
+        new Moonfire(druid, this, 2),
+        new Moonfire(druid, this, 3),
+        new Moonfire(druid, this, 4),
+        new Moonfire(druid, this, 5),
+        new Moonfire(druid, this, 6),
+        new Moonfire(druid, this, 7),
+        new Moonfire(druid, this, 8),
+        new Moonfire(druid, this, 9),
+        new Moonfire(druid, this, 10),
+    });
 
     add_spell_group({
-                        new Starfire(druid, this, 1),
-                        new Starfire(druid, this, 2),
-                        new Starfire(druid, this, 3),
-                        new Starfire(druid, this, 4),
-                        new Starfire(druid, this, 5),
-                        new Starfire(druid, this, 6),
-                        new Starfire(druid, this, 7),
-                    });
+        new Starfire(druid, this, 1),
+        new Starfire(druid, this, 2),
+        new Starfire(druid, this, 3),
+        new Starfire(druid, this, 4),
+        new Starfire(druid, this, 5),
+        new Starfire(druid, this, 6),
+        new Starfire(druid, this, 7),
+    });
 
     this->blood_frenzy = new BloodFrenzy(druid);
     add_spell_group({
-                        new Shred(druid, this, blood_frenzy, 1),
-                        new Shred(druid, this, blood_frenzy, 2),
-                        new Shred(druid, this, blood_frenzy, 3),
-                        new Shred(druid, this, blood_frenzy, 4),
-                        new Shred(druid, this, blood_frenzy, 5),
-                    });
+        new Shred(druid, this, blood_frenzy, 1),
+        new Shred(druid, this, blood_frenzy, 2),
+        new Shred(druid, this, blood_frenzy, 3),
+        new Shred(druid, this, blood_frenzy, 4),
+        new Shred(druid, this, blood_frenzy, 5),
+    });
 
     add_spell_group({
-                        new FerociousBite(druid, 1),
-                        new FerociousBite(druid, 2),
-                        new FerociousBite(druid, 3),
-                        new FerociousBite(druid, 4),
-                        new FerociousBite(druid, 5),
-                    });
+        new FerociousBite(druid, 1),
+        new FerociousBite(druid, 2),
+        new FerociousBite(druid, 3),
+        new FerociousBite(druid, 4),
+        new FerociousBite(druid, 5),
+    });
 
     tigers_fury_buff = new TigersFuryBuff(pchar);
     tigers_fury_buff->enable_buff();
     add_spell_group({
-                        new TigersFury(druid, this, tigers_fury_buff, 1),
-                        new TigersFury(druid, this, tigers_fury_buff, 2),
-                        new TigersFury(druid, this, tigers_fury_buff, 3),
-                        new TigersFury(druid, this, tigers_fury_buff, 4),
-                    });
+        new TigersFury(druid, this, tigers_fury_buff, 1),
+        new TigersFury(druid, this, tigers_fury_buff, 2),
+        new TigersFury(druid, this, tigers_fury_buff, 3),
+        new TigersFury(druid, this, tigers_fury_buff, 4),
+    });
 
     natures_grace = new NaturesGrace(druid);
     omen_of_clarity = new ClearcastingDruid(druid);

@@ -5,21 +5,12 @@
 #include "Random.h"
 #include "Utils/Check.h"
 
-RangedWhiteHitTable::RangedWhiteHitTable(Random *random,
-                                         const unsigned wpn_skill,
-                                         const unsigned miss,
-                                         const double block) :
-    wpn_skill(wpn_skill),
-    random(random),
-    miss_range(miss)
-{
+RangedWhiteHitTable::RangedWhiteHitTable(Random* random, const unsigned wpn_skill, const unsigned miss, const double block) :
+    wpn_skill(wpn_skill), random(random), miss_range(miss) {
     update_block_chance(block);
 }
 
-int RangedWhiteHitTable::get_outcome(const unsigned roll,
-                                     const unsigned crit_chance,
-                                     const bool include_block,
-                                     const bool include_miss) {
+int RangedWhiteHitTable::get_outcome(const unsigned roll, const unsigned crit_chance, const bool include_block, const bool include_miss) {
     check((roll < 10000), "Roll outside range");
 
     unsigned range = 0;

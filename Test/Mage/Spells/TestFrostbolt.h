@@ -2,9 +2,9 @@
 
 #include "TestSpellMage.h"
 
-class TestFrostbolt: public TestSpellMage {
+class TestFrostbolt : public TestSpellMage {
 public:
-    TestFrostbolt(EquipmentDb *equipment_db);
+    TestFrostbolt(EquipmentDb* equipment_db);
 
     void test_all();
 

@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class SanctifiedOrb: public SelfBuff {
+class SanctifiedOrb : public SelfBuff {
 public:
     SanctifiedOrb(Character* pchar);
 

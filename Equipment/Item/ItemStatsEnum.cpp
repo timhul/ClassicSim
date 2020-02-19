@@ -1,6 +1,6 @@
 #include "ItemStatsEnum.h"
 
-ItemStats get_item_stats_from_string(const QString& item_stat)  {
+ItemStats get_item_stats_from_string(const QString& item_stat) {
     if (item_stat == "ATTACK_SPEED")
         return ItemStats::AttackSpeedPercent;
     else if (item_stat == "MELEE_ATTACK_SPEED")

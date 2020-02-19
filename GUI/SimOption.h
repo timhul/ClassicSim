@@ -7,7 +7,8 @@ class SimOption : public QObject {
     Q_OBJECT
 
 public:
-    enum Name {
+    enum Name
+    {
         NoScale = -1,
         ScaleAgility,
         ScaleStrength,

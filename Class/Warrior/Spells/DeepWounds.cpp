@@ -10,13 +10,18 @@
 #include "Warrior.h"
 
 DeepWounds::DeepWounds(Warrior* warrior) :
-    SpellPeriodic("Deep Wounds", "Assets/ability/Ability_backstab.png", warrior,
+    SpellPeriodic("Deep Wounds",
+                  "Assets/ability/Ability_backstab.png",
+                  warrior,
                   new NoEffectUniqueDebuff(warrior, Priority::Trash, 12, "Deep Wounds", "Assets/ability/Ability_backstab.png", Hidden::No),
-                  RestrictedByGcd::No, ResourceType::Rage, 2.0, 0, 1),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
+                  RestrictedByGcd::No,
+                  ResourceType::Rage,
+                  2.0,
+                  0,
+                  1),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warrior(warrior),
-    talent_ranks({0.0, 0.2, 0.4, 0.6})
-{
+    talent_ranks({0.0, 0.2, 0.4, 0.6}) {
     this->enabled = false;
 }
 
@@ -42,7 +47,7 @@ void DeepWounds::tick_effect() {
     damage_dealt += previous_tick_rest;
     previous_tick_rest = damage_dealt - round(damage_dealt);
 
-    for (int & stack : stacks) {
+    for (int& stack : stacks) {
         check((stack > 0), "Deep wounds encountered empty stack");
         --stack;
     }

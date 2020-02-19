@@ -5,11 +5,10 @@
 #include "Character.h"
 #include "Utils/Check.h"
 
-SliceAndDiceBuff::SliceAndDiceBuff(Character* pchar):
+SliceAndDiceBuff::SliceAndDiceBuff(Character* pchar) :
     SelfBuff(pchar, "Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", 9, 0),
     durations({9, 12, 15, 18, 21}),
-    imp_snd_duration_modifiers({1.0, 1.15, 1.30, 1.45})
-{
+    imp_snd_duration_modifiers({1.0, 1.15, 1.30, 1.45}) {
     imp_snd_modifier = imp_snd_duration_modifiers[0];
 }
 

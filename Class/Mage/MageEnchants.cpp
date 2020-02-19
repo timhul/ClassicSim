@@ -3,9 +3,7 @@
 #include "Mage.h"
 #include "Utils/Check.h"
 
-MageEnchants::MageEnchants(Mage* mage) :
-    CharacterEnchants(mage)
-{}
+MageEnchants::MageEnchants(Mage* mage) : CharacterEnchants(mage) {}
 
 QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -14,8 +12,7 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
 
         if (has_2hand()) {
             enchants.append({});
-        }
-        else
+        } else
             enchants.append({});
 
         return enchants;

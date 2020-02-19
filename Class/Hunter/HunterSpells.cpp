@@ -20,10 +20,7 @@
 #include "RangedHit.h"
 #include "RapidFire.h"
 
-HunterSpells::HunterSpells(Hunter* hunter) :
-    CharacterSpells(hunter),
-    hunter(hunter)
-{
+HunterSpells::HunterSpells(Hunter* hunter) : CharacterSpells(hunter), hunter(hunter) {
     this->berserking = new Berserking(pchar, ResourceType::Mana, 130);
     add_spell_group({berserking});
 

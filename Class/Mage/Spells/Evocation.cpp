@@ -7,10 +7,17 @@
 #include "Utils/Check.h"
 
 Evocation::Evocation(Mage* mage) :
-    SpellPeriodic("Evocation", "Assets/spell/Spell_nature_purge.png", mage, new EvocationBuff(mage), RestrictedByGcd::Yes, ResourceType::Mana, 2.0, 0,  1),
+    SpellPeriodic("Evocation",
+                  "Assets/spell/Spell_nature_purge.png",
+                  mage,
+                  new EvocationBuff(mage),
+                  RestrictedByGcd::Yes,
+                  ResourceType::Mana,
+                  2.0,
+                  0,
+                  1),
     CastingTimeRequirer(mage, SuppressibleCast::No, 8000),
-    SetBonusRequirer({"Frostfire Regalia"})
-{
+    SetBonusRequirer({"Frostfire Regalia"}) {
     delete cooldown;
     cooldown = new CooldownControl(mage, 480.0);
     level_req = 20;
@@ -38,17 +45,11 @@ void Evocation::new_application_effect() {
     start_cast();
 }
 
-void Evocation::refresh_effect() {
+void Evocation::refresh_effect() {}
 
-}
+void Evocation::reset_effect() {}
 
-void Evocation::reset_effect() {
-
-}
-
-void Evocation::tick_effect() {
-
-}
+void Evocation::tick_effect() {}
 
 void Evocation::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
     if (set_name == "Frostfire Regalia") {

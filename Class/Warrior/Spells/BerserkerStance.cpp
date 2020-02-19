@@ -4,9 +4,14 @@
 #include "Warrior.h"
 
 BerserkerStance::BerserkerStance(Warrior* warrior) :
-    Spell("Berserker Stance", "Assets/ability/Ability_racial_avatar.png", warrior, new CooldownControl(warrior, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 0),
-    warrior(warrior)
-{}
+    Spell("Berserker Stance",
+          "Assets/ability/Ability_racial_avatar.png",
+          warrior,
+          new CooldownControl(warrior, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Rage,
+          0),
+    warrior(warrior) {}
 
 BerserkerStance::~BerserkerStance() {
     delete cooldown;

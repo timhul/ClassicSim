@@ -8,9 +8,7 @@
 #include "SimSettings.h"
 #include "Warrior.h"
 
-TestArms::TestArms(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "LEFT")
-{}
+TestArms::TestArms(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "LEFT") {}
 
 void TestArms::set_up() {
     race = new Orc();
@@ -64,7 +62,6 @@ void TestArms::test_spending_talent_points() {
     assert(!decrement("Improved Rend"));
     assert(increment("Deep Wounds"));
     assert(!decrement("Improved Rend"));
-
 
     assert(increment("Improved Overpower", 2));
     assert(increment("Impale", 2));

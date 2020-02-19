@@ -3,9 +3,8 @@
 #include "Character.h"
 #include "CharacterStats.h"
 
-CombustionBuff::CombustionBuff(Character* pchar):
-    SelfBuff(pchar, "Combustion", "Assets/spell/Spell_fire_sealoffire.png", BuffDuration::PERMANENT, 3)
-{}
+CombustionBuff::CombustionBuff(Character* pchar) :
+    SelfBuff(pchar, "Combustion", "Assets/spell/Spell_fire_sealoffire.png", BuffDuration::PERMANENT, 3) {}
 
 void CombustionBuff::buff_effect_when_applied() {
     current_increment += increment;

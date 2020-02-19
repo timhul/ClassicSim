@@ -7,9 +7,7 @@
 #include "Shaman.h"
 #include "SimSettings.h"
 
-TestRestorationShaman::TestRestorationShaman(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "RIGHT")
-{}
+TestRestorationShaman::TestRestorationShaman(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "RIGHT") {}
 
 void TestRestorationShaman::set_up() {
     race = new Orc();

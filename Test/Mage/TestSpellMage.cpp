@@ -22,10 +22,8 @@
 #include "Spell.h"
 #include "Talent.h"
 
-TestSpellMage::TestSpellMage(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    mage(nullptr)
-{}
+TestSpellMage::TestSpellMage(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpellDamage(equipment_db, std::move(spell_under_test)), mage(nullptr) {}
 
 void TestSpellMage::set_up(const bool prepare_combat_iterations) {
     set_up_general();
@@ -64,9 +62,7 @@ Evocation* TestSpellMage::evocation() const {
     return static_cast<Evocation*>(get_max_rank_spell_by_name("Evocation"));
 }
 
-void TestSpellMage::run_class_specific_tests() {
-
-}
+void TestSpellMage::run_class_specific_tests() {}
 
 void TestSpellMage::given_fire_talent_rank(const QString& talent_name, const unsigned num) {
     given_talent_rank(Fire(mage), talent_name, num);

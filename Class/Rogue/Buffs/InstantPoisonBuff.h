@@ -4,7 +4,7 @@
 
 class InstantPoison;
 
-class InstantPoisonBuff: public SelfBuff {
+class InstantPoisonBuff : public SelfBuff {
 public:
     InstantPoisonBuff(Character* pchar, InstantPoison* instant_poison_proc, const QString& weapon_side);
 

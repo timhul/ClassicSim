@@ -8,9 +8,7 @@
 #include "DruidSpells.h"
 #include "Shred.h"
 
-TestShred::TestShred(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Shred")
-{}
+TestShred::TestShred(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Shred") {}
 
 void TestShred::test_all() {
     run_mandatory_tests();
@@ -66,9 +64,7 @@ void TestShred::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestShred::test_how_spell_observes_global_cooldown() {
-
-}
+void TestShred::test_how_spell_observes_global_cooldown() {}
 
 void TestShred::test_resource_cost() {
     given_druid_in_cat_form();

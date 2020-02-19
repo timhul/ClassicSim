@@ -1,7 +1,8 @@
 #include "Talent.h"
 
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "Buff.h"
 #include "Character.h"
@@ -18,7 +19,7 @@ Talent::Talent(Character* pchar,
                const QString& icon,
                const unsigned max_points,
                QMap<unsigned, QString> rank_descriptions,
-               QVector<SpellRankGroup *> affected_spells_,
+               QVector<SpellRankGroup*> affected_spells_,
                QVector<Buff*> affected_buffs_,
                QVector<Proc*> affected_procs_) :
     pchar(pchar),
@@ -33,8 +34,7 @@ Talent::Talent(Character* pchar,
     parent(nullptr),
     right_child(nullptr),
     bottom_child(nullptr),
-    rank_descriptions(std::move(rank_descriptions))
-{
+    rank_descriptions(std::move(rank_descriptions)) {
     check((max_points > 0 && max_points <= 5), "Number of talent points not possible");
 }
 
@@ -46,18 +46,16 @@ Talent::Talent(Character* pchar,
                const unsigned max_points,
                const QString& rank_description,
                const QVector<QPair<unsigned, unsigned>>& format_values) :
-    Talent(pchar, tree, name, position, icon, max_points)
-{
+    Talent(pchar, tree, name, position, icon, max_points) {
     if (!format_values.empty()) {
         initialize_rank_descriptions(rank_descriptions, rank_description, max_points, format_values);
-    }
-    else {
+    } else {
         rank_descriptions.insert(0, rank_description);
         rank_descriptions.insert(1, rank_description);
     }
 }
 
-Talent::Talent(Character *pchar,
+Talent::Talent(Character* pchar,
                TalentTree* tree,
                const QString& name,
                const QString& position,
@@ -65,40 +63,38 @@ Talent::Talent(Character *pchar,
                const unsigned max_points,
                const QString& rank_description,
                const QVector<QPair<double, double>>& format_values) :
-    Talent(pchar, tree, name, position, icon, max_points)
-{
+    Talent(pchar, tree, name, position, icon, max_points) {
     if (!format_values.empty()) {
         initialize_rank_descriptions(rank_descriptions, rank_description, max_points, format_values);
-    }
-    else {
+    } else {
         rank_descriptions.insert(0, rank_description);
         rank_descriptions.insert(1, rank_description);
     }
 }
 
 void Talent::apply_rank_effect() {
-    for (auto & spell_group : affected_spells) {
-        for (auto & spell : spell_group->spell_group)
+    for (auto& spell_group : affected_spells) {
+        for (auto& spell : spell_group->spell_group)
             dynamic_cast<TalentRequirer*>(spell)->increase_talent_rank(spell, name);
     }
 
-    for (auto & buff : affected_buffs)
+    for (auto& buff : affected_buffs)
         dynamic_cast<TalentRequirer*>(buff)->increase_talent_rank(buff, name);
 
-    for (auto & proc : affected_procs)
+    for (auto& proc : affected_procs)
         dynamic_cast<TalentRequirer*>(proc)->increase_talent_rank(proc, name);
 }
 
 void Talent::remove_rank_effect() {
-    for (auto & spell_group : affected_spells) {
-        for (auto & spell : spell_group->spell_group)
+    for (auto& spell_group : affected_spells) {
+        for (auto& spell : spell_group->spell_group)
             dynamic_cast<TalentRequirer*>(spell)->decrease_talent_rank(spell, name);
     }
 
-    for (auto & buff : affected_buffs)
+    for (auto& buff : affected_buffs)
         dynamic_cast<TalentRequirer*>(buff)->decrease_talent_rank(buff, name);
 
-    for (auto & proc : affected_procs)
+    for (auto& proc : affected_procs)
         dynamic_cast<TalentRequirer*>(proc)->decrease_talent_rank(proc, name);
 }
 
@@ -183,8 +179,7 @@ QString Talent::get_arrow_identifier(const QString& target_position) const {
             qDebug() << "Talent::get_arrow_identifier unexpected delta" << delta << "for target position" << target_position;
             return "";
         }
-    }
-    else {
+    } else {
         switch (delta) {
         case 0:
             return "RIGHT";
@@ -258,8 +253,7 @@ bool Talent::has_bottom_child() const {
 }
 
 bool Talent::any_child_active() const {
-    return ((right_child != nullptr && right_child->is_active())
-            || (bottom_child != nullptr && bottom_child->is_active()));
+    return ((right_child != nullptr && right_child->is_active()) || (bottom_child != nullptr && bottom_child->is_active()));
 }
 
 Talent* Talent::get_parent() const {
@@ -280,7 +274,7 @@ void Talent::initialize_rank_descriptions(QMap<unsigned, QString>& description_m
                                           const QVector<QPair<unsigned, unsigned>>& format_values) {
     for (unsigned i = 0; i < format_points; ++i) {
         QString format_str = base_str;
-        for (const auto & format_value : format_values) {
+        for (const auto& format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 
@@ -296,7 +290,7 @@ void Talent::initialize_rank_descriptions(QMap<unsigned, QString>& description_m
                                           const QVector<QPair<double, double>>& format_values) {
     for (unsigned i = 0; i < format_points; ++i) {
         QString format_str = base_str;
-        for (const auto & format_value : format_values) {
+        for (const auto& format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 

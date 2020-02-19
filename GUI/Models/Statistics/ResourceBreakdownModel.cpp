@@ -5,10 +5,8 @@
 #include "StatisticsResource.h"
 #include "Utils/CompareDouble.h"
 
-ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{
+ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {
     this->current_sorting_method = ResourceBreakdownSorting::Methods::ByRagePer5;
     this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByRagePer5, SortDirection::Forward);
     this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByName, SortDirection::Forward);
@@ -17,7 +15,7 @@ ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source
 }
 
 ResourceBreakdownModel::~ResourceBreakdownModel() {
-    for (const auto & i : resource_stats)
+    for (const auto& i : resource_stats)
         delete i;
 }
 
@@ -52,11 +50,10 @@ void ResourceBreakdownModel::select_new_method(const ResourceBreakdownSorting::M
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(resource_stats.begin(), resource_stats.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -72,7 +69,7 @@ void ResourceBreakdownModel::update_statistics() {
     if (!resource_stats.empty()) {
         beginResetModel();
 
-        for (const auto & i : resource_stats)
+        for (const auto& i : resource_stats)
             delete i;
 
         resource_stats.clear();
@@ -93,8 +90,7 @@ void ResourceBreakdownModel::update_statistics() {
         if (almost_equal(resource_gains, 0)) {
             delete *it;
             it = resource_stats.erase(it);
-        }
-        else
+        } else
             ++it;
     }
 
@@ -108,12 +104,12 @@ void ResourceBreakdownModel::update_statistics() {
     layoutChanged();
 }
 
-int ResourceBreakdownModel::rowCount(const QModelIndex & parent) const {
+int ResourceBreakdownModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return resource_stats.count();
 }
 
-QVariant ResourceBreakdownModel::data(const QModelIndex & index, int role) const {
+QVariant ResourceBreakdownModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= resource_stats.count())
         return QVariant();
 

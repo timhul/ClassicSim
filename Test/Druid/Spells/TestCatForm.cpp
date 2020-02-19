@@ -13,9 +13,7 @@
 #include "RaidControl.h"
 #include "Weapon.h"
 
-TestCatForm::TestCatForm(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Cat Form")
-{}
+TestCatForm::TestCatForm(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Cat Form") {}
 
 void TestCatForm::test_all() {
     run_mandatory_tests();
@@ -77,9 +75,7 @@ void TestCatForm::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestCatForm::test_how_spell_observes_global_cooldown() {
-
-}
+void TestCatForm::test_how_spell_observes_global_cooldown() {}
 
 void TestCatForm::test_is_ready_conditions() {
     assert(cat_form()->get_spell_status() == SpellStatus::Available);

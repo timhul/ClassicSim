@@ -10,11 +10,10 @@
 
 Judgement::Judgement(Paladin* paladin, PaladinSpells* paladin_spells, CooldownControl* cooldown_control) :
     Spell("Judgement", "Assets/spell/Spell_holy_righteousfury.png", paladin, cooldown_control, RestrictedByGcd::No, ResourceType::Mana, 86),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Improved Judgement", 2, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Improved Judgement", 2, DisabledAtZero::No)}),
     paladin(paladin),
-    paladin_spells(paladin_spells)
-{}
+    paladin_spells(paladin_spells) {}
 
 void Judgement::spell_effect() {
     paladin_spells->get_active_seal()->judge_seal();

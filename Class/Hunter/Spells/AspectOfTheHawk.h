@@ -7,13 +7,13 @@ class Buff;
 class ImprovedAspectOfTheHawkProc;
 class Proc;
 
-class AspectOfTheHawk: public Spell {
+class AspectOfTheHawk : public Spell {
 public:
-    AspectOfTheHawk(Character *pchar);
+    AspectOfTheHawk(Character* pchar);
     ~AspectOfTheHawk() override;
 
     Proc* get_improved_aspect_of_the_hawk_proc() const;
-    AspectOfTheHawkBuff *get_aspect_of_the_hawk_buff() const;
+    AspectOfTheHawkBuff* get_aspect_of_the_hawk_buff() const;
 
 private:
     AspectOfTheHawkBuff* aspect_of_the_hawk_buff;

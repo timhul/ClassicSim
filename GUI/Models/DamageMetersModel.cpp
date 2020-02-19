@@ -6,13 +6,11 @@ bool max_dps(const RaidMemberResult* lhs, const RaidMemberResult* rhs) {
     return lhs->dps > rhs->dps;
 }
 
-DamageMetersModel::DamageMetersModel(NumberCruncher* statistics_source, QObject* parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{}
+DamageMetersModel::DamageMetersModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {}
 
 DamageMetersModel::~DamageMetersModel() {
-    for (const auto & result : player_results)
+    for (const auto& result : player_results)
         delete result;
 }
 
@@ -20,7 +18,7 @@ void DamageMetersModel::update_statistics() {
     if (!player_results.empty()) {
         beginResetModel();
 
-        for (const auto & result : player_results)
+        for (const auto& result : player_results)
             delete result;
 
         player_results.clear();
@@ -37,12 +35,12 @@ void DamageMetersModel::update_statistics() {
     layoutChanged();
 }
 
-int DamageMetersModel::rowCount(const QModelIndex & parent) const {
+int DamageMetersModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return player_results.count();
 }
 
-QVariant DamageMetersModel::data(const QModelIndex & index, int role) const {
+QVariant DamageMetersModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= player_results.count())
         return QVariant();
 

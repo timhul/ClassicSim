@@ -17,10 +17,7 @@
 #include "Rotation.h"
 #include "Spell.h"
 
-SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
-    sim_settings(sim_settings),
-    scaler(scaler)
-{}
+SimControl::SimControl(SimSettings* sim_settings, NumberCruncher* scaler) : sim_settings(sim_settings), scaler(scaler) {}
 
 void SimControl::run_quick_sim(QVector<Character*> raid, RaidControl* raid_control) {
     run_sim(raid, raid_control, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_quick_sim());
@@ -41,7 +38,7 @@ void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_contro
     scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
 
     QSet<SimOption::Name> options = sim_settings->get_active_options();
-    for (const auto & option : options) {
+    for (const auto& option : options) {
         qDebug() << "Running sim with option" << option;
         run_sim_with_option(raid, raid_control, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
 
@@ -55,13 +52,13 @@ void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_contro
 void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, const int combat_length, const int iterations) {
     raid_control->prepare_set_of_combat_iterations();
 
-    for (const auto & pchar : raid) {
+    for (const auto& pchar : raid) {
         pchar->get_combat_roll()->drop_tables();
         pchar->prepare_set_of_combat_iterations();
     }
 
     double start_at = std::numeric_limits<double>::min();
-    for (const auto & pchar : raid) {
+    for (const auto& pchar : raid) {
         const double time_for_precombat = pchar->get_spells()->get_rotation()->get_time_required_to_run_precombat();
         if (time_for_precombat > start_at)
             start_at = time_for_precombat;
@@ -73,14 +70,14 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
 
         std::random_shuffle(raid.begin(), raid.end());
 
-        for (const auto & pchar : raid) {
+        for (const auto& pchar : raid) {
             Rotation* rotation = pchar->get_spells()->get_rotation();
             rotation->run_precombat_actions();
             if (rotation->precast_spell != nullptr && rotation->precast_spell->is_enabled())
                 rotation->precast_spell->perform();
         }
 
-        for (const auto & pchar : raid)
+        for (const auto& pchar : raid)
             raid_control->get_engine()->add_event(new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs()));
 
         raid_control->get_engine()->add_event(new EncounterEnd(raid_control->get_engine(), combat_length));
@@ -89,7 +86,7 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
         raid_control->reset();
         raid_control->get_statistics()->finish_combat_iteration();
 
-        for (const auto & pchar : raid) {
+        for (const auto& pchar : raid) {
             pchar->reset();
             pchar->get_statistics()->finish_combat_iteration();
         }
@@ -103,19 +100,20 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
         }
     }
 
-    for (const auto & pchar : raid)
+    for (const auto& pchar : raid)
         pchar->get_spells()->get_rotation()->finish_set_of_combat_iterations();
 
     raid_control->get_engine()->reset();
 }
 
-void SimControl::run_sim_with_option(QVector<Character*> raid, RaidControl* raid_control, SimOption::Name option, const int combat_length, const int iterations) {
-    for (const auto & pchar : raid)
+void SimControl::run_sim_with_option(
+    QVector<Character*> raid, RaidControl* raid_control, SimOption::Name option, const int combat_length, const int iterations) {
+    for (const auto& pchar : raid)
         add_option(pchar, option);
 
     run_sim(raid, raid_control, combat_length, iterations);
 
-    for (const auto & pchar : raid)
+    for (const auto& pchar : raid)
         remove_option(pchar, option);
 }
 

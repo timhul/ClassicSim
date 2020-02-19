@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class ImprovedAspectOfTheHawkBuff: public SelfBuff {
+class ImprovedAspectOfTheHawkBuff : public SelfBuff {
 public:
     ImprovedAspectOfTheHawkBuff(Character* pchar);
 

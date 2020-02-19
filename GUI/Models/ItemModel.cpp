@@ -4,20 +4,16 @@
 #include "Character.h"
 #include "EquipmentDb.h"
 #include "Faction.h"
-#include "ItemTypeFilterModel.h"
 #include "Item.h"
+#include "ItemTypeFilterModel.h"
 
-ItemModel::ItemModel(EquipmentDb* db,
-                     ItemTypeFilterModel* item_type_filter_model,
-                     ActiveItemStatFilterModel* item_stat_filter_model,
-                     QObject *parent) :
+ItemModel::ItemModel(EquipmentDb* db, ItemTypeFilterModel* item_type_filter_model, ActiveItemStatFilterModel* item_stat_filter_model, QObject* parent) :
     QAbstractListModel(parent),
     slot(ItemSlots::MAINHAND),
     pchar(nullptr),
     db(db),
     item_type_filter_model(item_type_filter_model),
-    item_stat_filter_model(item_stat_filter_model)
-{
+    item_stat_filter_model(item_stat_filter_model) {
     this->current_sorting_method = ItemSorting::Methods::ByIlvl;
 
     this->sorting_methods.insert(ItemSorting::Methods::ByIlvl, true);
@@ -120,7 +116,7 @@ void ItemModel::update_items() {
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    for (const auto & tmp_item : tmp_items) {
+    for (const auto& tmp_item : tmp_items) {
         if (!tmp_item->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
             continue;
 
@@ -143,12 +139,12 @@ void ItemModel::update_items() {
     layoutChanged();
 }
 
-int ItemModel::rowCount(const QModelIndex & parent) const {
+int ItemModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return items.count();
 }
 
-QVariant ItemModel::data(const QModelIndex & index, int role) const {
+QVariant ItemModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= items.count())
         return QVariant();
 

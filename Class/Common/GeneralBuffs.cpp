@@ -8,17 +8,13 @@
 #include "Faction.h"
 #include "Utils/Check.h"
 
-GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
-    pchar(pchar),
-    faction(faction),
-    current_setup(0)
-{
+GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) : pchar(pchar), faction(faction), current_setup(0) {
     QVector<ExternalBuffName> buff_names = get_buff_names_for_class(pchar->class_name);
 
     for (int i = 0; i < 3; ++i) {
         QVector<QPair<bool, ExternalBuff*>> external_buff_setup;
 
-        for (const auto & buff_name : buff_names)
+        for (const auto& buff_name : buff_names)
             external_buff_setup.append({false, get_external_buff_by_name(buff_name, pchar)});
 
         this->external_buffs.append(external_buff_setup);
@@ -49,36 +45,35 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
 }
 
 GeneralBuffs::~GeneralBuffs() {
-    for (const auto & buff : this->buffs) {
+    for (const auto& buff : this->buffs) {
         delete buff;
     }
 
-    for (const auto & external_buff : this->external_buffs) {
-        for (const auto & j : external_buff) {
+    for (const auto& external_buff : this->external_buffs) {
+        for (const auto& j : external_buff) {
             delete j.second;
         }
     }
 
-    for (const auto & external_debuff : this->external_debuffs) {
-        for (const auto & j : external_debuff) {
+    for (const auto& external_debuff : this->external_debuffs) {
+        for (const auto& j : external_debuff) {
             delete j.second;
         }
     }
 }
 
 void GeneralBuffs::switch_faction() {
-    for (const auto & i : external_buffs[current_setup]) {
+    for (const auto& i : external_buffs[current_setup]) {
         if (!i.second->valid_for_faction(pchar->get_faction()->get_faction_as_enum())) {
             if (i.second->is_active())
                 i.second->cancel_buff();
-        }
-        else if (i.first && !i.second->is_active())
+        } else if (i.first && !i.second->is_active())
             i.second->apply_buff();
     }
 }
 
 Buff* GeneralBuffs::get_general_buff_by_name(const QString& buff_name) const {
-    for (const auto & buff : buffs) {
+    for (const auto& buff : buffs) {
         if (buff->name == buff_name)
             return buff;
     }
@@ -88,7 +83,7 @@ Buff* GeneralBuffs::get_general_buff_by_name(const QString& buff_name) const {
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {
     QVector<ExternalBuff*> vec;
-    for (const auto & i : external_buffs[current_setup]) {
+    for (const auto& i : external_buffs[current_setup]) {
         if (i.second->valid_for_faction(pchar->get_faction()->get_faction_as_enum()))
             vec.append(i.second);
     }
@@ -98,14 +93,14 @@ QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
     QVector<ExternalBuff*> vec;
-    for (const auto & i : external_debuffs[current_setup])
+    for (const auto& i : external_debuffs[current_setup])
         vec.append(i.second);
 
     return vec;
 }
 
-void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) {
-    for (auto & i : vec[current_setup]) {
+void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
+    for (auto& i : vec[current_setup]) {
         if (i.second->name != name)
             continue;
 
@@ -113,8 +108,7 @@ void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bo
             i.first = false;
             i.second->cancel_buff();
             check(!i.second->is_active(), "Failed to deactivate buff after cancel");
-        }
-        else {
+        } else {
             i.first = true;
             i.second->apply_buff();
             deactivate_mutex_buffs(name);
@@ -132,8 +126,8 @@ void GeneralBuffs::toggle_external_debuff(const QString& debuff_name) {
     toggle_external(debuff_name, this->external_debuffs);
 }
 
-bool GeneralBuffs::external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) const {
-    for (const auto & i : vec[current_setup]) {
+bool GeneralBuffs::external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) const {
+    for (const auto& i : vec[current_setup]) {
         if (i.second->name == name)
             return i.second->is_active();
     }
@@ -170,25 +164,25 @@ void GeneralBuffs::deactivate_buffs_for_current_setup() {
 }
 
 void GeneralBuffs::activate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
-    for (const auto & i : vec[current_setup]) {
+    for (const auto& i : vec[current_setup]) {
         if (i.first)
             i.second->apply_buff();
     }
 }
 
 void GeneralBuffs::deactivate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
-    for (const auto & i : vec[current_setup]) {
+    for (const auto& i : vec[current_setup]) {
         if (i.second->is_active())
             i.second->cancel_buff();
     }
 }
 
 void GeneralBuffs::deactivate_mutex_buffs(const QString& name) {
-    for (const auto & mutex_group : mutex_buff_groups) {
+    for (const auto& mutex_group : mutex_buff_groups) {
         if (!mutex_group.contains(name))
             continue;
 
-        for (const auto & buff : mutex_group) {
+        for (const auto& buff : mutex_group) {
             if (buff == name)
                 continue;
 
@@ -230,22 +224,14 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
     };
 
     QVector<ExternalBuffName> physical_farmables = {
-        ExternalBuffName::WinterfallFirewater,
-        ExternalBuffName::JujuMight,
-        ExternalBuffName::JujuPower,
-        ExternalBuffName::ScrollOfStrengthIV,
-        ExternalBuffName::ROIDS,
-        ExternalBuffName::GroundScorpokAssay,
+        ExternalBuffName::WinterfallFirewater, ExternalBuffName::JujuMight, ExternalBuffName::JujuPower,
+        ExternalBuffName::ScrollOfStrengthIV,  ExternalBuffName::ROIDS,     ExternalBuffName::GroundScorpokAssay,
         ExternalBuffName::BattleSquawk,
     };
 
     QVector<ExternalBuffName> physical_world_buffs = {
-        ExternalBuffName::FengusFerocity,
-        ExternalBuffName::RallyingCryOfTheDragonslayer,
-        ExternalBuffName::SongflowerSerenade,
-        ExternalBuffName::SpiritOfZandalar,
-        ExternalBuffName::SaygesDarkFortuneOfDamage,
-        ExternalBuffName::WarchiefsBlessing,
+        ExternalBuffName::FengusFerocity,   ExternalBuffName::RallyingCryOfTheDragonslayer, ExternalBuffName::SongflowerSerenade,
+        ExternalBuffName::SpiritOfZandalar, ExternalBuffName::SaygesDarkFortuneOfDamage,    ExternalBuffName::WarchiefsBlessing,
     };
 
     QVector<ExternalBuffName> all_blessings = {
@@ -272,54 +258,54 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
     };
 
     QVector<ExternalBuffName> all_worldbuffs = {
-        ExternalBuffName::SlipkiksSavvy,
-        ExternalBuffName::FengusFerocity,
-        ExternalBuffName::RallyingCryOfTheDragonslayer,
-        ExternalBuffName::SongflowerSerenade,
-        ExternalBuffName::SpiritOfZandalar,
-        ExternalBuffName::SaygesDarkFortuneOfDamage,
+        ExternalBuffName::SlipkiksSavvy,      ExternalBuffName::FengusFerocity,   ExternalBuffName::RallyingCryOfTheDragonslayer,
+        ExternalBuffName::SongflowerSerenade, ExternalBuffName::SpiritOfZandalar, ExternalBuffName::SaygesDarkFortuneOfDamage,
         ExternalBuffName::WarchiefsBlessing,
     };
 
     if (class_name == "Warrior") {
         // Warriors currently double-applies Battle Shout if given as external buff, so temporarily exclude it.
         QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::TrueshotAura};
-        return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+        return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables
+               + physical_world_buffs;
     }
 
     if (class_name == "Rogue") {
         QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout, ExternalBuffName::TrueshotAura};
-        return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+        return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables
+               + physical_world_buffs;
     }
 
     if (class_name == "Hunter") {
         // Hunters currently double-applies Trueshot Aura if given as external buff, so temporarily exclude it.
         QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout};
-        return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + physical_elixirs + physical_farmables + all_worldbuffs;
+        return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + physical_elixirs
+               + physical_farmables + all_worldbuffs;
     }
 
     if (hybrid_magical_class.contains(class_name)) {
         QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout, ExternalBuffName::TrueshotAura};
-        return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + spell_damage_elixirs + physical_elixirs + physical_farmables + all_worldbuffs;
+        return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + spell_damage_elixirs
+               + physical_elixirs + physical_farmables + all_worldbuffs;
     }
 
     if (pure_magical_class.contains(class_name))
         return {
-                    ExternalBuffName::BlessingOfKings,
-                    ExternalBuffName::BlessingOfWisdom,
-                    ExternalBuffName::TotemManaSpring,
-                    ExternalBuffName::MarkOfTheWild,
-                    ExternalBuffName::NightfinSoup,
-                    ExternalBuffName::MagebloodPotion,
-                    ExternalBuffName::GreaterArcaneElixir,
-                    ExternalBuffName::FlaskOfSupremePower,
-                    ExternalBuffName::FlaskOfDistilledWisdom,
-                    ExternalBuffName::SlipkiksSavvy,
-                    ExternalBuffName::RallyingCryOfTheDragonslayer,
-                    ExternalBuffName::SongflowerSerenade,
-                    ExternalBuffName::SpiritOfZandalar,
-                    ExternalBuffName::SaygesDarkFortuneOfDamage,
-                    ExternalBuffName::WarchiefsBlessing,
+            ExternalBuffName::BlessingOfKings,
+            ExternalBuffName::BlessingOfWisdom,
+            ExternalBuffName::TotemManaSpring,
+            ExternalBuffName::MarkOfTheWild,
+            ExternalBuffName::NightfinSoup,
+            ExternalBuffName::MagebloodPotion,
+            ExternalBuffName::GreaterArcaneElixir,
+            ExternalBuffName::FlaskOfSupremePower,
+            ExternalBuffName::FlaskOfDistilledWisdom,
+            ExternalBuffName::SlipkiksSavvy,
+            ExternalBuffName::RallyingCryOfTheDragonslayer,
+            ExternalBuffName::SongflowerSerenade,
+            ExternalBuffName::SpiritOfZandalar,
+            ExternalBuffName::SaygesDarkFortuneOfDamage,
+            ExternalBuffName::WarchiefsBlessing,
         };
 
     return {};

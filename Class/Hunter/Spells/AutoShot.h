@@ -6,7 +6,7 @@
 class Hunter;
 class StatisticsResource;
 
-class AutoShot: public Spell, public SetBonusRequirer {
+class AutoShot : public Spell, public SetBonusRequirer {
 public:
     AutoShot(Hunter* pchar);
     ~AutoShot() override;

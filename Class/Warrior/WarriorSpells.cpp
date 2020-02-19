@@ -37,10 +37,7 @@
 #include "Warrior.h"
 #include "Whirlwind.h"
 
-WarriorSpells::WarriorSpells(Warrior* warrior) :
-    CharacterSpells(warrior),
-    warr(warrior)
-{
+WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(warrior) {
     this->berserking = new Berserking(warrior, ResourceType::Rage, 5);
     add_spell_group({berserking});
 
@@ -70,14 +67,14 @@ WarriorSpells::WarriorSpells(Warrior* warrior) :
         buff->enable_buff();
     }
     add_spell_group({
-                        new BattleShout(warrior, buff, 1),
-                        new BattleShout(warrior, buff, 2),
-                        new BattleShout(warrior, buff, 3),
-                        new BattleShout(warrior, buff, 4),
-                        new BattleShout(warrior, buff, 5),
-                        new BattleShout(warrior, buff, 6),
-                        new BattleShout(warrior, buff, 7),
-                    });
+        new BattleShout(warrior, buff, 1),
+        new BattleShout(warrior, buff, 2),
+        new BattleShout(warrior, buff, 3),
+        new BattleShout(warrior, buff, 4),
+        new BattleShout(warrior, buff, 5),
+        new BattleShout(warrior, buff, 6),
+        new BattleShout(warrior, buff, 7),
+    });
 
     add_spell_group({anger_management});
     add_spell_group({battle_stance});
@@ -90,19 +87,20 @@ WarriorSpells::WarriorSpells(Warrior* warrior) :
     add_spell_group({execute});
     add_spell_group({hamstring});
 
-    this->hs_buff = new NoEffectSelfBuff(warrior, BuffDuration::PERMANENT, "Heroic Strike Queued", "Assets/ability/Ability_rogue_ambush.png", Hidden::No);
+    this->hs_buff = new NoEffectSelfBuff(warrior, BuffDuration::PERMANENT, "Heroic Strike Queued", "Assets/ability/Ability_rogue_ambush.png",
+                                         Hidden::No);
     this->hs_buff->enable_buff();
     add_spell_group({
-                        new HeroicStrike(warrior, this, hs_buff, 1),
-                        new HeroicStrike(warrior, this, hs_buff, 2),
-                        new HeroicStrike(warrior, this, hs_buff, 3),
-                        new HeroicStrike(warrior, this, hs_buff, 4),
-                        new HeroicStrike(warrior, this, hs_buff, 5),
-                        new HeroicStrike(warrior, this, hs_buff, 6),
-                        new HeroicStrike(warrior, this, hs_buff, 7),
-                        new HeroicStrike(warrior, this, hs_buff, 8),
-                        new HeroicStrike(warrior, this, hs_buff, 9),
-                    });
+        new HeroicStrike(warrior, this, hs_buff, 1),
+        new HeroicStrike(warrior, this, hs_buff, 2),
+        new HeroicStrike(warrior, this, hs_buff, 3),
+        new HeroicStrike(warrior, this, hs_buff, 4),
+        new HeroicStrike(warrior, this, hs_buff, 5),
+        new HeroicStrike(warrior, this, hs_buff, 6),
+        new HeroicStrike(warrior, this, hs_buff, 7),
+        new HeroicStrike(warrior, this, hs_buff, 8),
+        new HeroicStrike(warrior, this, hs_buff, 9),
+    });
 
     add_spell_group({overpower});
     add_spell_group({mortal_strike});
@@ -151,8 +149,7 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
 
     if (heroic_strike->is_queued() && heroic_strike->get_spell_status() == SpellStatus::Available) {
         heroic_strike->calculate_damage();
-    }
-    else {
+    } else {
         if (heroic_strike->is_queued())
             heroic_strike->cancel();
 

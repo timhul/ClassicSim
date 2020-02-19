@@ -16,16 +16,20 @@
 #include "Utils/Check.h"
 
 Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
-    Spell("Fireball", "Assets/spell/Spell_fire_flamebolt.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Fireball",
+          "Assets/spell/Spell_fire_flamebolt.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0,
+          spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 3500),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Fireball", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
-                   new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No)
-                   }),
-    mage_spells(mage_spells)
-{
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Fireball", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No)}),
+    mage_spells(mage_spells) {
     switch (spell_rank) {
     case 1:
         base_damage_min = 14;
@@ -144,13 +148,8 @@ Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     this->resource_cost = base_resource_cost;
 
     QString empty_format_string = "";
-    this->damage_spell = new FireballInstant(pchar, empty_format_string,
-                                             base_damage_min, base_damage_max,
-                                             base_dot_damage, base_dot_duration,
-                                             resource_cost, casting_time_ms,
-                                             spell_dmg_coefficient,
-                                             0.0,
-                                             spell_rank);
+    this->damage_spell = new FireballInstant(pchar, empty_format_string, base_damage_min, base_damage_max, base_dot_damage, base_dot_duration,
+                                             resource_cost, casting_time_ms, spell_dmg_coefficient, 0.0, spell_rank);
 }
 
 Fireball::~Fireball() {

@@ -8,7 +8,10 @@
 #include "StatisticsSpell.h"
 #include "Utils/Check.h"
 
-ClassStatistics::ClassStatistics(SimSettings* sim_settings, const QString& player_name, const QString& class_color, const bool ignore_non_buff_statistics) :
+ClassStatistics::ClassStatistics(SimSettings* sim_settings,
+                                 const QString& player_name,
+                                 const QString& class_color,
+                                 const bool ignore_non_buff_statistics) :
     player_name(player_name),
     class_color(class_color),
     sim_settings(sim_settings),
@@ -16,8 +19,7 @@ ClassStatistics::ClassStatistics(SimSettings* sim_settings, const QString& playe
     combat_iterations(0),
     combat_length(0),
     damage_dealt_previous_iterations(0),
-    ignore_non_buff_statistics(ignore_non_buff_statistics)
-{}
+    ignore_non_buff_statistics(ignore_non_buff_statistics) {}
 
 ClassStatistics::~ClassStatistics() {
     delete_objects();
@@ -78,7 +80,7 @@ void ClassStatistics::finish_combat_iteration() {
 long long ClassStatistics::get_total_personal_damage_dealt() const {
     long long sum = 0;
 
-    for (const auto & spell : spell_statistics)
+    for (const auto& spell : spell_statistics)
         sum += spell->get_total_dmg_dealt();
 
     return sum;
@@ -96,7 +98,7 @@ void ClassStatistics::add_player_result(RaidMemberResult* result) {
 
 double ClassStatistics::get_raid_dps() const {
     double sum = 0.0;
-    for (const auto & result : player_results)
+    for (const auto& result : player_results)
         sum += result->dps;
 
     return sum;
@@ -125,19 +127,19 @@ void ClassStatistics::prepare_statistics() {
 }
 
 void ClassStatistics::delete_objects() {
-    for (const auto & i: spell_statistics)
+    for (const auto& i : spell_statistics)
         delete i;
 
-    for (const auto & i : buff_statistics)
+    for (const auto& i : buff_statistics)
         delete i;
 
-    for (const auto & i : resource_statistics)
+    for (const auto& i : resource_statistics)
         delete i;
 
-    for (const auto & i : proc_statistics)
+    for (const auto& i : proc_statistics)
         delete i;
 
-    for (const auto & i: rotation_executor_statistics)
+    for (const auto& i : rotation_executor_statistics)
         delete i;
 
     delete engine_statistics;

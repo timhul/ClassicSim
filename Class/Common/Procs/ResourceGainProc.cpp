@@ -18,8 +18,7 @@ ResourceGainProc::ResourceGainProc(Character* pchar_,
     Proc(proc_name, icon_, proc_rate, 0, QVector<Proc*>(), proc_sources_, pchar_),
     gain_roll(new Random(min_gain, max_gain)),
     statistics_resource(nullptr),
-    gain_resource_type(gain_resource_type)
-{}
+    gain_resource_type(gain_resource_type) {}
 
 ResourceGainProc::~ResourceGainProc() {
     delete gain_roll;

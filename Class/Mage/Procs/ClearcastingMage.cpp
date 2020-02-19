@@ -1,18 +1,21 @@
 #include "ClearcastingMage.h"
 
+#include "Mage.h"
 #include "NoEffectSelfBuff.h"
 #include "ProcInfo.h"
-#include "Mage.h"
 #include "Utils/Check.h"
 
 ClearcastingMage::ClearcastingMage(Mage* pchar) :
-    Proc("Clearcasting", "Assets/spell/Spell_shadow_manaburn.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>{ProcInfo::Source::Manual},
+    Proc("Clearcasting",
+         "Assets/spell/Spell_shadow_manaburn.png",
+         0.0,
+         0,
+         QVector<Proc*>(),
+         QVector<ProcInfo::Source> {ProcInfo::Source::Manual},
          pchar),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Arcane Concentration", 5, DisabledAtZero::Yes)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Arcane Concentration", 5, DisabledAtZero::Yes)}),
     buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, 1)),
-    proc_ranges({0, 200, 400, 600, 800, 1000})
-{
+    proc_ranges({0, 200, 400, 600, 800, 1000}) {
     this->enabled = false;
 }
 

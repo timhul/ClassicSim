@@ -2,7 +2,7 @@
 
 #include "Proc.h"
 
-class WindfuryTotemAttack: public Proc {
+class WindfuryTotemAttack : public Proc {
 public:
     WindfuryTotemAttack(Character* pchar);
     ~WindfuryTotemAttack() override;

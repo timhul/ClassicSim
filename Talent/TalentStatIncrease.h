@@ -2,7 +2,8 @@
 
 #include "Talent.h"
 
-enum TalentStat {
+enum TalentStat
+{
     MeleeHit = 0,
     MeleeCrit,
     MeleeCritDmgBonus,
@@ -51,9 +52,9 @@ enum TalentStat {
 class CharacterStats;
 class TalentTree;
 
-class TalentStatIncrease: public Talent {
+class TalentStatIncrease : public Talent {
 public:
-    TalentStatIncrease(Character *pchar,
+    TalentStatIncrease(Character* pchar,
                        TalentTree* tree,
                        const QString& name,
                        const QString& location,

@@ -4,14 +4,9 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar,
-                                           const QString& name,
-                                           const QString& icon,
-                                           const int reduction,
-                                           const int max_stacks,
-                                           const int duration):
-    SelfBuff(pchar, name, icon, duration, 0)
-{
+ArmorPenetrationBuff::ArmorPenetrationBuff(
+    Character* pchar, const QString& name, const QString& icon, const int reduction, const int max_stacks, const int duration) :
+    SelfBuff(pchar, name, icon, duration, 0) {
     this->current_stacks = 0;
     this->max_stacks = max_stacks;
     this->reduction_per_stack = reduction;

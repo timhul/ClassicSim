@@ -5,9 +5,7 @@
 #include "AutoShot.h"
 #include "Equipment.h"
 
-TestAutoShot::TestAutoShot(EquipmentDb *equipment_db) :
-    TestSpellHunter(equipment_db, "Auto Shot")
-{}
+TestAutoShot::TestAutoShot(EquipmentDb* equipment_db) : TestSpellHunter(equipment_db, "Auto Shot") {}
 
 void TestAutoShot::test_all() {
     run_mandatory_tests();

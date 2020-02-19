@@ -1,23 +1,24 @@
 #include "SimulationThreadPool.h"
 
+#include <climits>
+
 #include <QDebug>
 #include <QThread>
-#include <climits>
 
 #include "Random.h"
 #include "SimSettings.h"
 #include "SimulationRunner.h"
 #include "Utils/Check.h"
 
-SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, RandomAffixes *random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
+SimulationThreadPool::SimulationThreadPool(
+    EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent) :
     QObject(parent),
     equipment_db(equipment_db),
     random_affixes(random_affixes),
     random(new Random(0, std::numeric_limits<unsigned>::max())),
     sim_settings(sim_settings),
     scaler(scaler),
-    running_threads(0)
-{
+    running_threads(0) {
     for (int i = 0; i < sim_settings->get_num_threads_current(); ++i) {
         setup_thread(random->get_roll());
     }
@@ -25,7 +26,7 @@ SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, RandomAffi
 
 SimulationThreadPool::~SimulationThreadPool() {
     delete random;
-    for (const auto & thread_entry : thread_pool)
+    for (const auto& thread_entry : thread_pool)
         delete thread_entry.second;
 }
 
@@ -36,7 +37,7 @@ void SimulationThreadPool::run_sim(const QVector<QString>& setup_string, bool fu
 
     auto iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
-    for (const auto & thread : thread_pool) {
+    for (const auto& thread : thread_pool) {
         if (!active_thread_ids.contains(thread.first))
             continue;
 
@@ -92,8 +93,8 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     auto runner = new SimulationRunner(thread_id, equipment_db, random_affixes, sim_settings, scaler);
     auto thread = new QThread(runner);
 
-    connect(this, SIGNAL(start_simulation(uint,QVector<QString>,bool,int)), runner, SLOT(run_sim(uint,QVector<QString>,bool,int)));
-    connect(runner, SIGNAL(error(QString,QString)), this, SLOT(error_string(QString,QString)));
+    connect(this, SIGNAL(start_simulation(uint, QVector<QString>, bool, int)), runner, SLOT(run_sim(uint, QVector<QString>, bool, int)));
+    connect(runner, SIGNAL(error(QString, QString)), this, SLOT(error_string(QString, QString)));
     connect(runner, SIGNAL(result()), this, SLOT(thread_finished()));
     connect(runner, SIGNAL(update_progress(const int)), this, SLOT(increase_iterations_completed(int)));
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));

@@ -9,9 +9,7 @@
 #include "SimSettings.h"
 #include "Warrior.h"
 
-TestConditionResource::TestConditionResource(EquipmentDb* equipment_db_):
-    TestObject(equipment_db_)
-{}
+TestConditionResource::TestConditionResource(EquipmentDb* equipment_db_) : TestObject(equipment_db_) {}
 
 void TestConditionResource::test_all() {
     qDebug() << "TestConditionResource";
@@ -78,11 +76,10 @@ void TestConditionResource::test_all() {
     tear_down();
 }
 
-void TestConditionResource::test_values_after_initialization() {
-}
+void TestConditionResource::test_values_after_initialization() {}
 
 void TestConditionResource::test_resource_less(Character* pchar, const ResourceType resource_type) {
-    ConditionResource condition (pchar, Comparator::Less, resource_type, 50);
+    ConditionResource condition(pchar, Comparator::Less, resource_type, 50);
 
     given_character_has_resource(pchar, resource_type, 0);
     assert(condition.condition_fulfilled() == true);
@@ -101,7 +98,7 @@ void TestConditionResource::test_resource_less(Character* pchar, const ResourceT
 }
 
 void TestConditionResource::test_resource_leq(Character* pchar, const ResourceType resource_type) {
-    ConditionResource condition (pchar, Comparator::Leq, resource_type, 50);
+    ConditionResource condition(pchar, Comparator::Leq, resource_type, 50);
 
     given_character_has_resource(pchar, resource_type, 0);
     assert(condition.condition_fulfilled() == true);
@@ -120,7 +117,7 @@ void TestConditionResource::test_resource_leq(Character* pchar, const ResourceTy
 }
 
 void TestConditionResource::test_resource_eq(Character* pchar, const ResourceType resource_type) {
-    ConditionResource condition (pchar, Comparator::Eq, resource_type, 50);
+    ConditionResource condition(pchar, Comparator::Eq, resource_type, 50);
 
     given_character_has_resource(pchar, resource_type, 0);
     assert(condition.condition_fulfilled() == false);
@@ -139,7 +136,7 @@ void TestConditionResource::test_resource_eq(Character* pchar, const ResourceTyp
 }
 
 void TestConditionResource::test_resource_geq(Character* pchar, const ResourceType resource_type) {
-    ConditionResource condition (pchar, Comparator::Geq, resource_type, 50);
+    ConditionResource condition(pchar, Comparator::Geq, resource_type, 50);
 
     given_character_has_resource(pchar, resource_type, 0);
     assert(condition.condition_fulfilled() == false);
@@ -158,7 +155,7 @@ void TestConditionResource::test_resource_geq(Character* pchar, const ResourceTy
 }
 
 void TestConditionResource::test_resource_greater(Character* pchar, const ResourceType resource_type) {
-    ConditionResource condition (pchar, Comparator::Greater, resource_type, 50);
+    ConditionResource condition(pchar, Comparator::Greater, resource_type, 50);
 
     given_character_has_resource(pchar, resource_type, 0);
     assert(condition.condition_fulfilled() == false);

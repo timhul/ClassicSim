@@ -6,12 +6,15 @@
 #include "Utils/Check.h"
 
 ClearcastingShaman::ClearcastingShaman(Shaman* pchar) :
-    Proc("Clearcasting", "Assets/spell/Spell_shadow_manaburn.png", 0.1, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>{ProcInfo::Source::Manual},
+    Proc("Clearcasting",
+         "Assets/spell/Spell_shadow_manaburn.png",
+         0.1,
+         0,
+         QVector<Proc*>(),
+         QVector<ProcInfo::Source> {ProcInfo::Source::Manual},
          pchar),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Elemental Focus", 1, DisabledAtZero::Yes)}),
-    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, 1))
-{
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Elemental Focus", 1, DisabledAtZero::Yes)}),
+    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, 1)) {
     this->enabled = false;
 }
 

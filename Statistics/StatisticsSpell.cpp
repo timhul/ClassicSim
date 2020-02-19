@@ -210,7 +210,7 @@ bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_max_dpet() > rhs->get_max_dpet();
 }
 
-StatisticsSpell::StatisticsSpell(QString  name, QString  icon):
+StatisticsSpell::StatisticsSpell(QString name, QString icon) :
     name(std::move(name)),
     icon(std::move(icon)),
     percentage_of_total_damage_done(0.0),
@@ -223,38 +223,13 @@ StatisticsSpell::StatisticsSpell(QString  name, QString  icon):
     max_dpet(std::numeric_limits<double>::min()),
     avg_dpet(0),
     dpet_set(false),
-    possible_attempt_outcomes(QSet<Outcome>({
-                                                Outcome::Miss,
-                                                Outcome::FullResist,
-                                                Outcome::Dodge,
-                                                Outcome::Parry,
-                                                Outcome::FullBlock,
-                                                Outcome::PartialResist25,
-                                                Outcome::PartialResist50,
-                                                Outcome::PartialResist75,
-                                                Outcome::PartialResistCrit25,
-                                                Outcome::PartialResistCrit50,
-                                                Outcome::PartialResistCrit75,
-                                                Outcome::PartialBlock,
-                                                Outcome::PartialBlockCrit,
-                                                Outcome::Glancing,
-                                                Outcome::Hit,
-                                                Outcome::Crit
-                                            })),
-    possible_success_outcomes(QSet<Outcome>({
-                                                Outcome::PartialResist25,
-                                                Outcome::PartialResist50,
-                                                Outcome::PartialResist75,
-                                                Outcome::PartialResistCrit25,
-                                                Outcome::PartialResistCrit50,
-                                                Outcome::PartialResistCrit75,
-                                                Outcome::PartialBlock,
-                                                Outcome::PartialBlockCrit,
-                                                Outcome::Glancing,
-                                                Outcome::Hit,
-                                                Outcome::Crit
-                                            }))
-{}
+    possible_attempt_outcomes(QSet<Outcome>({Outcome::Miss, Outcome::FullResist, Outcome::Dodge, Outcome::Parry, Outcome::FullBlock,
+                                             Outcome::PartialResist25, Outcome::PartialResist50, Outcome::PartialResist75,
+                                             Outcome::PartialResistCrit25, Outcome::PartialResistCrit50, Outcome::PartialResistCrit75,
+                                             Outcome::PartialBlock, Outcome::PartialBlockCrit, Outcome::Glancing, Outcome::Hit, Outcome::Crit})),
+    possible_success_outcomes(QSet<Outcome>({Outcome::PartialResist25, Outcome::PartialResist50, Outcome::PartialResist75,
+                                             Outcome::PartialResistCrit25, Outcome::PartialResistCrit50, Outcome::PartialResistCrit75,
+                                             Outcome::PartialBlock, Outcome::PartialBlockCrit, Outcome::Glancing, Outcome::Hit, Outcome::Crit})) {}
 
 StatisticsSpell::~StatisticsSpell() {
     reset();
@@ -459,7 +434,7 @@ int StatisticsSpell::get_attempts(const Outcome outcome) const {
 int StatisticsSpell::get_attempts(const QSet<Outcome>& outcomes) const {
     int sum = 0;
 
-    for (const auto & outcome : outcomes)
+    for (const auto& outcome : outcomes)
         sum += get_attempts(outcome);
 
     return sum;
@@ -477,11 +452,11 @@ int StatisticsSpell::get_dodges() const {
     return get_attempts(Outcome::Dodge);
 }
 
-int StatisticsSpell::get_parries() const  {
+int StatisticsSpell::get_parries() const {
     return get_attempts(Outcome::Parry);
 }
 
-int StatisticsSpell::get_full_blocks() const  {
+int StatisticsSpell::get_full_blocks() const {
     return get_attempts(Outcome::FullBlock);
 }
 
@@ -501,11 +476,11 @@ int StatisticsSpell::get_partial_blocks() const {
     return get_attempts(Outcome::PartialBlock);
 }
 
-int StatisticsSpell::get_partial_block_crits() const  {
+int StatisticsSpell::get_partial_block_crits() const {
     return get_attempts(Outcome::PartialBlockCrit);
 }
 
-int StatisticsSpell::get_glances() const  {
+int StatisticsSpell::get_glances() const {
     return get_attempts(Outcome::Glancing);
 }
 
@@ -517,7 +492,7 @@ int StatisticsSpell::get_hits_including_partial_resists() const {
     return get_attempts({Outcome::Hit, Outcome::PartialResist25, Outcome::PartialResist50, Outcome::PartialResist75});
 }
 
-int StatisticsSpell::get_crits() const  {
+int StatisticsSpell::get_crits() const {
     return get_attempts(Outcome::Crit);
 }
 
@@ -570,11 +545,11 @@ long long StatisticsSpell::get_glancing_dmg() const {
     return get_dmg(Outcome::Glancing);
 }
 
-long long StatisticsSpell::get_hit_dmg() const  {
+long long StatisticsSpell::get_hit_dmg() const {
     return get_dmg(Outcome::Hit);
 }
 
-long long StatisticsSpell::get_crit_dmg() const  {
+long long StatisticsSpell::get_crit_dmg() const {
     return get_dmg(Outcome::Crit);
 }
 
@@ -629,7 +604,7 @@ double StatisticsSpell::get_max_dpet() const {
 int StatisticsSpell::get_num_attempt_columns() const {
     int columns = 0;
 
-    for (const auto & outcome : possible_attempt_outcomes) {
+    for (const auto& outcome : possible_attempt_outcomes) {
         if (get_attempts(outcome) > 0)
             ++columns;
     }
@@ -640,7 +615,7 @@ int StatisticsSpell::get_num_attempt_columns() const {
 int StatisticsSpell::get_num_dmg_columns() const {
     int columns = 0;
 
-    for (const auto & outcome : possible_success_outcomes) {
+    for (const auto& outcome : possible_success_outcomes) {
         if (get_dmg(outcome) > 0)
             ++columns;
     }
@@ -651,7 +626,7 @@ int StatisticsSpell::get_num_dmg_columns() const {
 long long StatisticsSpell::get_total_dmg_dealt() const {
     long long sum = 0;
 
-    for (const auto & outcome : possible_success_outcomes) {
+    for (const auto& outcome : possible_success_outcomes) {
         sum += get_dmg(outcome);
     }
 
@@ -661,7 +636,7 @@ long long StatisticsSpell::get_total_dmg_dealt() const {
 int StatisticsSpell::get_total_attempts_made() const {
     int sum = 0;
 
-    for (const auto & outcome : possible_attempt_outcomes) {
+    for (const auto& outcome : possible_attempt_outcomes) {
         sum += get_attempts(outcome);
     }
 
@@ -677,7 +652,7 @@ void StatisticsSpell::set_percentage_of_damage_dealt(long long int total_damage_
 }
 
 void StatisticsSpell::add(const StatisticsSpell* other) {
-    for (const auto & outcome : possible_attempt_outcomes) {
+    for (const auto& outcome : possible_attempt_outcomes) {
         if (!other->attempts.contains(outcome))
             continue;
 
@@ -687,7 +662,7 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
         this->attempts[outcome] += other->attempts[outcome];
     }
 
-    for (const auto & outcome : possible_success_outcomes) {
+    for (const auto& outcome : possible_success_outcomes) {
         if (!other->damage.contains(outcome))
             continue;
 
@@ -716,8 +691,8 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
         this->max_dpr = other->max_dpr;
 
     unsigned total_counter = this->damage_dealt_successes + other->damage_dealt_successes;
-    this->avg_dpr = this->avg_dpr * (double(this->damage_dealt_successes) / total_counter) +
-            other->avg_dpr * (double(other->damage_dealt_successes) / total_counter);
+    this->avg_dpr = this->avg_dpr * (double(this->damage_dealt_successes) / total_counter)
+                    + other->avg_dpr * (double(other->damage_dealt_successes) / total_counter);
 
     this->dpr_set = this->dpr_set ? true : other->dpr_set;
 
@@ -727,8 +702,8 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
     if (this->max_dpet < other->max_dpet)
         this->max_dpet = other->max_dpet;
 
-    this->avg_dpet = this->avg_dpet * (double(this->damage_dealt_successes) / total_counter) +
-            other->avg_dpet * (double(other->damage_dealt_successes) / total_counter);
+    this->avg_dpet = this->avg_dpet * (double(this->damage_dealt_successes) / total_counter)
+                     + other->avg_dpet * (double(other->damage_dealt_successes) / total_counter);
 
     this->dpet_set = this->dpet_set ? true : other->dpet_set;
 

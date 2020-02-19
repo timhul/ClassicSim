@@ -4,9 +4,9 @@
 
 class Execute;
 
-class TestExecute: public TestSpellWarrior {
+class TestExecute : public TestSpellWarrior {
 public:
-    TestExecute(EquipmentDb *equipment_db);
+    TestExecute(EquipmentDb* equipment_db);
 
     void test_all();
 

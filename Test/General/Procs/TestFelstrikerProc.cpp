@@ -10,9 +10,7 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-TestFelstrikerProc::TestFelstrikerProc(EquipmentDb* equipment_db) :
-    TestProc(equipment_db, "Felstriker")
-{}
+TestFelstrikerProc::TestFelstrikerProc(EquipmentDb* equipment_db) : TestProc(equipment_db, "Felstriker") {}
 
 void TestFelstrikerProc::test_all() {
     set_up();

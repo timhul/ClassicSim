@@ -15,18 +15,24 @@
 #include "Utils/Check.h"
 
 Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank) :
-    Spell("Scorch", "Assets/spell/Spell_fire_soulburn.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Scorch",
+          "Assets/spell/Spell_fire_soulburn.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0,
+          spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::Yes, 1500),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Scorch", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Incinerate", 2, DisabledAtZero::No),
-                   new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
-                   new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No),
-                   }),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Improved Scorch", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Incinerate", 2, DisabledAtZero::No),
+        new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
+        new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No),
+    }),
     mage_spells(mage_spells),
-    imp_scorch(proc)
-{
+    imp_scorch(proc) {
     switch (spell_rank) {
     case 1:
         base_damage_min = 53;
@@ -102,7 +108,8 @@ void Scorch::complete_cast_effect() {
     if (!mage_spells->clearcasting_active())
         pchar->lose_mana(get_resource_cost());
 
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Fire, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Fire) + incinerate + imp_critical_mass);
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Fire, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Fire) + incinerate
+                                                                               + imp_critical_mass);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Fire);
 
     if (hit_roll == MagicAttackResult::MISS) {
@@ -117,7 +124,8 @@ void Scorch::complete_cast_effect() {
     if (imp_scorch->is_enabled() && imp_scorch->check_proc_success())
         imp_scorch->perform();
 
-    double damage_dealt = instant_dmg->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_dmg_coefficient));
+    double damage_dealt = instant_dmg->get_roll()
+                          + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_dmg_coefficient));
     damage_dealt *= get_partial_resist_dmg_modifier(resist_roll);
     damage_dealt *= pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
 
@@ -127,8 +135,7 @@ void Scorch::complete_cast_effect() {
         mage_spells->inflict_ignite(damage_dealt);
         gain_mana(base_resource_cost * master_of_elements_mana_return);
         add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
-    }
-    else {
+    } else {
         pchar->spell_hit_effect(MagicSchool::Fire);
         damage_dealt = round(damage_dealt);
         add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);

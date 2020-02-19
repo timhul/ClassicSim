@@ -3,9 +3,9 @@
 #include "TestBuff.h"
 #include "Warrior.h"
 
-class TestBuffWarrior: public TestBuff {
+class TestBuffWarrior : public TestBuff {
 public:
-    TestBuffWarrior(EquipmentDb *equipment_db, QString buff_under_test);
+    TestBuffWarrior(EquipmentDb* equipment_db, QString buff_under_test);
 
     void set_up();
     void tear_down();

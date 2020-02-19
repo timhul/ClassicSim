@@ -10,9 +10,7 @@
 #include "Subtlety.h"
 #include "Talent.h"
 
-TestHemorrhage::TestHemorrhage(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Hemorrhage")
-{}
+TestHemorrhage::TestHemorrhage(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Hemorrhage") {}
 
 void TestHemorrhage::test_all() {
     run_mandatory_tests();

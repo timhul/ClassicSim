@@ -2,7 +2,7 @@
 
 #include "TestTalentTree.h"
 
-class TestFrost: public TestTalentTree {
+class TestFrost : public TestTalentTree {
 public:
     TestFrost(EquipmentDb* equipment_db);
 

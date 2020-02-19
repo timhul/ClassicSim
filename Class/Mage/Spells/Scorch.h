@@ -1,10 +1,10 @@
 #pragma once
 
+#include <QVector>
+
 #include "CastingTimeRequirer.h"
 #include "Spell.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Mage;
@@ -12,7 +12,7 @@ class Random;
 class MageSpells;
 class StatisticsResource;
 
-class Scorch: public Spell, public CastingTimeRequirer, public TalentRequirer {
+class Scorch : public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank);
     ~Scorch() override;

@@ -4,9 +4,9 @@
 
 class Warlock;
 
-class WarlockSpells: public CharacterSpells {
+class WarlockSpells : public CharacterSpells {
 public:
-    WarlockSpells(Warlock *warlock);
+    WarlockSpells(Warlock* warlock);
 
 private:
     Warlock* warlock;

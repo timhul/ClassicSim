@@ -2,9 +2,9 @@
 
 #include "Proc.h"
 
-NoEffectSelfBuff::NoEffectSelfBuff(Character* pchar, const int duration, const QString& name, const QString& icon, const bool hidden, const int charges):
-    SelfBuff(pchar, name, icon, duration, charges)
-{
+NoEffectSelfBuff::NoEffectSelfBuff(
+    Character* pchar, const int duration, const QString& name, const QString& icon, const bool hidden, const int charges) :
+    SelfBuff(pchar, name, icon, duration, charges) {
     this->hidden = hidden;
 }
 

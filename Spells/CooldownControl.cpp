@@ -4,12 +4,8 @@
 #include "Engine.h"
 #include "PlayerAction.h"
 
-CooldownControl::CooldownControl(Character* pchar, double cooldown):
-    pchar(pchar),
-    engine(pchar->get_engine()),
-    base(cooldown),
-    last_used(0 - cooldown)
-{}
+CooldownControl::CooldownControl(Character* pchar, double cooldown) :
+    pchar(pchar), engine(pchar->get_engine()), base(cooldown), last_used(0 - cooldown) {}
 
 double CooldownControl::get_next_use() const {
     return last_used + base;

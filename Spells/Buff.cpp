@@ -12,7 +12,7 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
+Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
     name(std::move(name)),
     icon(std::move(icon)),
     pchar(pchar),
@@ -22,8 +22,7 @@ Buff::Buff(Character* pchar, QString name, QString icon, const int duration, con
     enabled(false),
     hidden(false),
     affected(Affected::Self),
-    instance_id(InstanceID::INACTIVE)
-{
+    instance_id(InstanceID::INACTIVE) {
     initialize();
 }
 
@@ -45,8 +44,7 @@ void Buff::apply_buff() {
 
         this->current_stacks = 1;
         this->applied = raid_control->get_engine()->get_current_priority();
-    }
-    else {
+    } else {
         if (current_stacks < max_stacks)
             ++current_stacks;
 
@@ -57,9 +55,7 @@ void Buff::apply_buff() {
     this->refreshed = raid_control->get_engine()->get_current_priority();
     this->active = true;
     if (this->duration != BuffDuration::PERMANENT) {
-        auto new_event = new BuffRemoval(this,
-                                          raid_control->get_engine()->get_current_priority() + duration,
-                                          ++iteration);
+        auto new_event = new BuffRemoval(this, raid_control->get_engine()->get_current_priority() + duration, ++iteration);
         raid_control->get_engine()->add_event(new_event);
     }
 }
@@ -178,18 +174,10 @@ int Buff::get_instance_id() const {
     return this->instance_id;
 }
 
-void Buff::buff_effect_when_refreshed() {
+void Buff::buff_effect_when_refreshed() {}
 
-}
+void Buff::reset_effect() {}
 
-void Buff::reset_effect() {
+void Buff::charge_change_effect() {}
 
-}
-
-void Buff::charge_change_effect() {
-
-}
-
-void Buff::prepare_set_of_combat_iterations_spell_specific() {
-
-}
+void Buff::prepare_set_of_combat_iterations_spell_specific() {}

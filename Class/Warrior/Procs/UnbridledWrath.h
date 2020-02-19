@@ -6,7 +6,7 @@
 class StatisticsResource;
 class Warrior;
 
-class UnbridledWrath: public Proc, public TalentRequirer {
+class UnbridledWrath : public Proc, public TalentRequirer {
 public:
     UnbridledWrath(Warrior* warrior);
 

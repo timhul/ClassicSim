@@ -8,7 +8,7 @@ class Buff;
 const static bool REFRESH_EXTENDS_DURATION = true;
 const static bool REFRESH_DOES_NOT_EXTEND_DURATION = false;
 
-class ArmorPenetrationProc: public Proc {
+class ArmorPenetrationProc : public Proc {
 public:
     ArmorPenetrationProc(Character* pchar,
                          const QString& proc_name,

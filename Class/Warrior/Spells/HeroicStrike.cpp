@@ -11,12 +11,18 @@
 #include "WarriorSpells.h"
 
 HeroicStrike::HeroicStrike(Warrior* warrior, WarriorSpells* spells, Buff* hs_buff, const int rank_spell) :
-    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", warrior, new CooldownControl(warrior, 0.0), RestrictedByGcd::No, ResourceType::Rage, 15, rank_spell),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
+    Spell("Heroic Strike",
+          "Assets/ability/Ability_rogue_ambush.png",
+          warrior,
+          new CooldownControl(warrior, 0.0),
+          RestrictedByGcd::No,
+          ResourceType::Rage,
+          15,
+          rank_spell),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
     warr(warrior),
     spells(spells),
-    hs_buff(hs_buff)
-{
+    hs_buff(hs_buff) {
     switch (spell_rank) {
     case 1:
         additional_dmg = 11;
@@ -114,8 +120,7 @@ void HeroicStrike::calculate_damage() {
     if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), resource_cost, 0);
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
     }

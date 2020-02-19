@@ -5,7 +5,7 @@
 class Rogue;
 class TalentTree;
 
-class Vigor: public Talent {
+class Vigor : public Talent {
 public:
     Vigor(Rogue* rogue, TalentTree* tree);
     ~Vigor() override = default;

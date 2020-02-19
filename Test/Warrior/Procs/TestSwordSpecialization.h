@@ -4,9 +4,9 @@
 
 class SwordSpecialization;
 
-class TestSwordSpecialization: public TestProcWarrior {
+class TestSwordSpecialization : public TestProcWarrior {
 public:
-    TestSwordSpecialization(EquipmentDb *equipment_db);
+    TestSwordSpecialization(EquipmentDb* equipment_db);
 
     void test_all();
 

@@ -6,7 +6,7 @@
 class Character;
 class Weapon;
 
-class SwordSpecialization: public Proc, public TalentRequirer {
+class SwordSpecialization : public Proc, public TalentRequirer {
 public:
     SwordSpecialization(Character* pchar);
     ~SwordSpecialization() override;

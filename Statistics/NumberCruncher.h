@@ -78,7 +78,7 @@ private:
     void merge_resource_entry(const QString& name, const QString& icon, QList<StatisticsResource*>& vec);
 
     void merge_engine_stats(StatisticsEngine* statistics_engine);
-    void merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>> &list);
+    void merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>>& list);
 
     double get_standard_deviation_for_option(SimOption::Name) const;
     double get_confidence_interval_for_option(SimOption::Name, const double) const;
@@ -99,8 +99,7 @@ public:
         absolute_value(absolute_value),
         relative_value(relative_value),
         standard_deviation(standard_deviation),
-        confidence_interval(confidence_interval)
-    {}
+        confidence_interval(confidence_interval) {}
 
     const SimOption::Name option;
     const double min_dps;

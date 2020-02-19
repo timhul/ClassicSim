@@ -5,7 +5,7 @@
 class Character;
 class ResourceTick;
 
-class RegeneratingResource: public Resource {
+class RegeneratingResource : public Resource {
 public:
     RegeneratingResource(Character* pchar);
     ~RegeneratingResource() override;

@@ -5,14 +5,10 @@
 #include "RandomAffix.h"
 #include "RandomAffixes.h"
 
-RandomAffixModel::RandomAffixModel(const int item_id, QObject *parent) :
-    QAbstractListModel(parent),
-    equipment_db(nullptr),
-    random_affixes_db(nullptr),
-    item_id(item_id)
-{}
+RandomAffixModel::RandomAffixModel(const int item_id, QObject* parent) :
+    QAbstractListModel(parent), equipment_db(nullptr), random_affixes_db(nullptr), item_id(item_id) {}
 
-void RandomAffixModel::set_random_affixes_db(RandomAffixes *random_affixes) {
+void RandomAffixModel::set_random_affixes_db(RandomAffixes* random_affixes) {
     this->random_affixes_db = random_affixes;
 }
 
@@ -21,13 +17,14 @@ void RandomAffixModel::set_id(const int item_id) {
     update_affixes();
 }
 
-void RandomAffixModel::set_equipment_db(EquipmentDb *equipment_db) {
+void RandomAffixModel::set_equipment_db(EquipmentDb* equipment_db) {
     this->equipment_db = equipment_db;
     update_affixes();
 }
 
 void RandomAffixModel::update_affixes() {
-    if (!equipment_db || this->item_id < 1) return;
+    if (!equipment_db || this->item_id < 1)
+        return;
 
     beginResetModel();
     random_affixes.clear();
@@ -35,12 +32,12 @@ void RandomAffixModel::update_affixes() {
     endResetModel();
 }
 
-int RandomAffixModel::rowCount(const QModelIndex &parent) const {
+int RandomAffixModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent)
     return random_affixes.count();
 }
 
-QVariant RandomAffixModel::data(const QModelIndex &index, int role) const {
+QVariant RandomAffixModel::data(const QModelIndex& index, int role) const {
     if (!equipment_db || index.row() < 0 || index.row() >= random_affixes.count())
         return QVariant();
 

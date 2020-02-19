@@ -5,7 +5,7 @@
 class HunterSpells;
 class Mana;
 
-class Hunter: public Character {
+class Hunter : public Character {
 public:
     Hunter(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Hunter() override;

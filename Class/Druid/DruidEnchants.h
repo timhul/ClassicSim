@@ -4,7 +4,7 @@
 
 class Druid;
 
-class DruidEnchants: public CharacterEnchants {
+class DruidEnchants : public CharacterEnchants {
 public:
     DruidEnchants(Druid* Druid);
 

@@ -1,10 +1,6 @@
 #include "Energy.h"
 
-Energy::Energy(Character* pchar) :
-    RegeneratingResource(pchar),
-    energy_per_tick(20),
-    max_energy_bonus(0)
-{
+Energy::Energy(Character* pchar) : RegeneratingResource(pchar), energy_per_tick(20), max_energy_bonus(0) {
     reset_resource();
 }
 
@@ -28,9 +24,7 @@ void Energy::reset_effect() {
     energy_per_tick = 20;
 }
 
-void Energy::lose_resource_effect() {
-
-}
+void Energy::lose_resource_effect() {}
 
 void Energy::increase_energy_per_tick() {
     energy_per_tick = 40;

@@ -2,9 +2,9 @@
 
 #include "TestSpellPaladin.h"
 
-class TestSealOfTheCrusader: public TestSpellPaladin {
+class TestSealOfTheCrusader : public TestSpellPaladin {
 public:
-    TestSealOfTheCrusader(EquipmentDb *equipment_db);
+    TestSealOfTheCrusader(EquipmentDb* equipment_db);
 
     void test_all();
 

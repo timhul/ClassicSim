@@ -5,7 +5,7 @@
 class Druid;
 class DruidSpells;
 
-class FeralCombat: public TalentTree {
+class FeralCombat : public TalentTree {
 public:
     FeralCombat(Druid* druid);
 

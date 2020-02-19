@@ -3,7 +3,7 @@
 #include "SelfBuff.h"
 #include "SetBonusRequirer.h"
 
-class AspectOfTheHawkBuff: public SelfBuff, public SetBonusRequirer {
+class AspectOfTheHawkBuff : public SelfBuff, public SetBonusRequirer {
 public:
     AspectOfTheHawkBuff(Character* pchar);
 

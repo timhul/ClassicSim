@@ -12,14 +12,13 @@
 CatForm::CatForm(Druid* druid, Buff* cat_form) :
     Spell("Cat Form", "Assets/ability/Ability_druid_catform.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
     TalentRequirer({
-                   new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
-                   }),
+        new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
+    }),
     ItemModificationRequirer({8345}),
     druid(druid),
     buff(cat_form),
-    base_resource_cost(resource_cost)
-{
+    base_resource_cost(resource_cost) {
     buff->enable_buff();
 }
 

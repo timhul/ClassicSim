@@ -9,9 +9,7 @@
 #include "Warrior.h"
 #include "Weapon.h"
 
-TestCharacterStats::TestCharacterStats(EquipmentDb* equipment_db) :
-    TestObject(equipment_db)
-{}
+TestCharacterStats::TestCharacterStats(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestCharacterStats::set_up() {
     race = new Orc();
@@ -304,8 +302,7 @@ void TestCharacterStats::test_crit_dmg_mod_affected_by_creature_type() {
     assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
 }
 
-void TestCharacterStats::test_melee_and_ranged_attack_speed_modifiers_are_independent()
-{
+void TestCharacterStats::test_melee_and_ranged_attack_speed_modifiers_are_independent() {
     assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
     assert(almost_equal(cstats->get_ranged_attack_speed_mod(), 1.0));
 

@@ -14,15 +14,14 @@ Proc::Proc(const QString& name,
            const QString& icon,
            const double proc_rate,
            const double inner_cooldown,
-           const QVector<Proc *>& linked_procs,
-           QVector<ProcInfo::Source>  proc_sources,
+           const QVector<Proc*>& linked_procs,
+           QVector<ProcInfo::Source> proc_sources,
            Character* pchar) :
     Spell(name, icon, pchar, new CooldownControl(pchar, inner_cooldown), RestrictedByGcd::No, ResourceType::Rage, 0),
     procs(pchar->get_enabled_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),
-    statistics_proc(nullptr)
-{
+    statistics_proc(nullptr) {
     this->proc_range = static_cast<unsigned>(round(proc_rate * 10000));
     this->linked_procs = linked_procs;
 }
@@ -37,7 +36,7 @@ void Proc::spell_effect() {
 
     proc_effect();
 
-    for (const auto & linked_proc : linked_procs)
+    for (const auto& linked_proc : linked_procs)
         linked_proc->spell_effect();
 }
 

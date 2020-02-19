@@ -11,13 +11,17 @@
 #include "Utils/Check.h"
 
 ArcaneMissiles::ArcaneMissiles(Character* pchar, MageSpells* spells, const int spell_rank) :
-    SpellPeriodic("Arcane Missiles", "Assets/spell/Spell_nature_starfall.png", pchar,
+    SpellPeriodic("Arcane Missiles",
+                  "Assets/spell/Spell_nature_starfall.png",
+                  pchar,
                   new NoEffectUniqueDebuff(pchar, Priority::Low, 5),
-                  RestrictedByGcd::Yes, ResourceType::Mana,
-                  1.0, 0, spell_rank),
+                  RestrictedByGcd::Yes,
+                  ResourceType::Mana,
+                  1.0,
+                  0,
+                  spell_rank),
     CastingTimeRequirer(pchar, SuppressibleCast::No, 5000),
-    mage_spells(spells)
-{
+    mage_spells(spells) {
     switch (spell_rank) {
     case 1:
         damage_per_missile = 24;
@@ -121,13 +125,9 @@ void ArcaneMissiles::new_application_effect() {
     start_cast();
 }
 
-void ArcaneMissiles::refresh_effect() {
+void ArcaneMissiles::refresh_effect() {}
 
-}
-
-void ArcaneMissiles::reset_effect() {
-
-}
+void ArcaneMissiles::reset_effect() {}
 
 void ArcaneMissiles::tick_effect() {
     add_next_tick();
@@ -148,8 +148,7 @@ void ArcaneMissiles::tick_effect() {
         pchar->spell_critical_effect(MagicSchool::Arcane);
         damage_dealt = round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod());
         add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
-    }
-    else {
+    } else {
         pchar->spell_hit_effect(MagicSchool::Arcane);
         damage_dealt = round(damage_dealt);
         add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);

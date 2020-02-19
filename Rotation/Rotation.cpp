@@ -1,7 +1,8 @@
 #include "Rotation.h"
 
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "CastingTimeRequirer.h"
 #include "Character.h"
@@ -19,41 +20,34 @@
 #include "SpellRankGroup.h"
 #include "Utils/Check.h"
 
-Rotation::Rotation(QString class_name) :
-    pchar(nullptr),
-    class_name(std::move(class_name)),
-    attack_mode(AttackMode::MeleeAttack)
-{}
+Rotation::Rotation(QString class_name) : pchar(nullptr), class_name(std::move(class_name)), attack_mode(AttackMode::MeleeAttack) {}
 
 Rotation::~Rotation() {
-    for (const auto & executor : all_executors) {
+    for (const auto& executor : all_executors) {
         delete executor;
     }
 }
 
 void Rotation::run_precombat_actions() {
-    QSet<int> acceptable_status {
-        static_cast<int>(SpellStatus::Available),
-        static_cast<int>(SpellStatus::OnCooldown)
-    };
-    for (const auto & spell : precombat_spells) {
+    QSet<int> acceptable_status {static_cast<int>(SpellStatus::Available), static_cast<int>(SpellStatus::OnCooldown)};
+    for (const auto& spell : precombat_spells) {
         if (acceptable_status.contains(static_cast<int>(spell->get_spell_status())))
             spell->perform();
     }
 }
 
 void Rotation::perform_rotation() const {
-    for (const auto & executor : active_executors)
+    for (const auto& executor : active_executors)
         executor->attempt_cast();
 }
 
 void Rotation::prepare_set_of_combat_iterations() {
-    for (const auto & executor : active_executors)
+    for (const auto& executor : active_executors)
         executor->prepare_set_of_combat_iterations(pchar->get_statistics()->get_executor_statistics(executor->get_spell_name()));
 }
 
 void Rotation::finish_set_of_combat_iterations() {
-    for (const auto & executor : active_executors)
+    for (const auto& executor : active_executors)
         executor->finish_set_of_combat_iterations();
 }
 
@@ -62,7 +56,7 @@ void Rotation::link_spells(Character* pchar) {
 
     active_executors.clear();
 
-    for (const auto & executor : all_executors) {
+    for (const auto& executor : all_executors) {
         SpellRankGroup* spell_group = pchar->get_spells()->get_spell_rank_group_by_name(executor->get_spell_name());
 
         if (spell_group == nullptr)
@@ -101,7 +95,7 @@ void Rotation::link_precast_spell() {
 void Rotation::link_precombat_spells() {
     precombat_spells.clear();
 
-    for (const auto & spell_name : precombat_spell_names) {
+    for (const auto& spell_name : precombat_spell_names) {
         SpellRankGroup* spell_group = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
 
         if (spell_group == nullptr)
@@ -117,15 +111,15 @@ void Rotation::link_precombat_spells() {
     }
 }
 
-bool Rotation::add_conditionals(RotationExecutor * executor) {
-    for (const auto & group : executor->condition_groups)
-        for (const auto & condition : group)
+bool Rotation::add_conditionals(RotationExecutor* executor) {
+    for (const auto& group : executor->condition_groups)
+        for (const auto& condition : group)
             delete condition;
     executor->condition_groups.clear();
 
     QVector<Condition*> condition_group_to_add;
 
-    for (const auto & sentence : executor->sentences) {
+    for (const auto& sentence : executor->sentences) {
         Condition* condition = nullptr;
 
         if (sentence->logical_connective == LogicalConnective::OR) {
@@ -141,9 +135,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
                 qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;
             }
-            condition = new ConditionBuffStacks(buff,
-                                                 sentence->mathematical_symbol,
-                                                 sentence->compared_value.toInt());
+            condition = new ConditionBuffStacks(buff, sentence->mathematical_symbol, sentence->compared_value.toInt());
             break;
         }
         case ConditionType::BuffDurationCondition: {
@@ -152,29 +144,22 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
                 qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;
             }
-            condition = new ConditionBuffDuration(buff,
-                                                  sentence->mathematical_symbol,
-                                                  sentence->compared_value.toDouble());
+            condition = new ConditionBuffDuration(buff, sentence->mathematical_symbol, sentence->compared_value.toDouble());
             break;
         }
         case ConditionType::SpellCondition:
             condition = new ConditionSpell(pchar->get_spells()->get_spell_rank_group_by_name(sentence->type_value)->get_max_available_spell_rank(),
-                                           sentence->mathematical_symbol,
-                                           sentence->compared_value.toDouble());
+                                           sentence->mathematical_symbol, sentence->compared_value.toDouble());
             break;
         case ConditionType::ResourceCondition:
-            condition = new ConditionResource(this->pchar,
-                                              sentence->mathematical_symbol,
-                                              get_resource_from_string(sentence->type_value),
+            condition = new ConditionResource(this->pchar, sentence->mathematical_symbol, get_resource_from_string(sentence->type_value),
                                               sentence->compared_value.toDouble());
             break;
         case ConditionType::VariableBuiltinCondition:
             if (ConditionVariableBuiltin::get_builtin_variable(sentence->type_value) == BuiltinVariables::Undefined)
                 break;
-            condition = new ConditionVariableBuiltin(this->pchar,
-                                                     ConditionVariableBuiltin::get_builtin_variable(sentence->type_value),
-                                                     sentence->mathematical_symbol,
-                                                     sentence->compared_value.toDouble());
+            condition = new ConditionVariableBuiltin(this->pchar, ConditionVariableBuiltin::get_builtin_variable(sentence->type_value),
+                                                     sentence->mathematical_symbol, sentence->compared_value.toDouble());
             break;
         }
 
@@ -259,7 +244,7 @@ void Rotation::dump() {
     qDebug() << "name" << name;
     qDebug() << "desc" << description;
     qDebug() << "executors:";
-    for (const auto & executor : all_executors) {
+    for (const auto& executor : all_executors) {
         executor->dump();
     }
 }

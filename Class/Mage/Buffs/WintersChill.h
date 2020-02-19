@@ -4,7 +4,7 @@
 
 class Character;
 
-class WintersChill: public SharedDebuff {
+class WintersChill : public SharedDebuff {
 public:
     WintersChill(Character* pchar);
 

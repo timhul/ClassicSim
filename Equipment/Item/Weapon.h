@@ -5,9 +5,16 @@
 #include "Item.h"
 #include "Random.h"
 
-class Weapon: public Item {
+class Weapon : public Item {
 public:
-    Weapon(QString name, int item_id, Content::Phase phase, int type, int weapon_slot, unsigned min, unsigned max, double speed,
+    Weapon(QString name,
+           int item_id,
+           Content::Phase phase,
+           int type,
+           int weapon_slot,
+           unsigned min,
+           unsigned max,
+           double speed,
            QMap<QString, QString> info = {},
            QVector<QPair<QString, QString>> stats = {},
            QVector<QMap<QString, QString>> procs = {},

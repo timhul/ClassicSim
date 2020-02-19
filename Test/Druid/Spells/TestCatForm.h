@@ -2,9 +2,9 @@
 
 #include "TestSpellDruid.h"
 
-class TestCatForm: public TestSpellDruid {
+class TestCatForm : public TestSpellDruid {
 public:
-    TestCatForm(EquipmentDb *equipment_db);
+    TestCatForm(EquipmentDb* equipment_db);
 
     void test_all();
 

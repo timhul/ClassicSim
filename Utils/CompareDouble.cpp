@@ -1,7 +1,7 @@
 #include "CompareDouble.h"
 
 double delta(double lhs, double rhs) {
-    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
+    return (lhs - rhs) < 0 ? (lhs - rhs) * -1 : (lhs - rhs);
 }
 
 bool almost_equal(double lhs, double rhs) {

@@ -4,12 +4,8 @@
 #include "CharacterStats.h"
 #include "Utils/Check.h"
 
-EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, int enchant_slot) :
-    Enchant(enchant_name),
-    enchant_name(enchant_name),
-    pchar(pchar),
-    enchant_slot(enchant_slot)
-{
+EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, int enchant_slot) :
+    Enchant(enchant_name), enchant_name(enchant_name), pchar(pchar), enchant_slot(enchant_slot) {
     switch (enchant_name) {
     case EnchantName::SuperiorStriking:
         if (enchant_slot == EnchantSlot::MAINHAND)
@@ -140,13 +136,13 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         break;
     case EnchantName::EnchantBootsMinorSpeed:
         break;
-    case EnchantName:: EnchantBootsGreaterAgility:
+    case EnchantName::EnchantBootsGreaterAgility:
         pchar->get_stats()->increase_agility(7);
         break;
-    case EnchantName:: EnchantBootsSpirit:
+    case EnchantName::EnchantBootsSpirit:
         pchar->get_stats()->increase_spirit(5);
         break;
-    case EnchantName:: ElementalSharpeningStone:
+    case EnchantName::ElementalSharpeningStone:
         pchar->get_stats()->increase_melee_aura_crit(200);
         break;
     case EnchantName::ConsecratedSharpeningStone:
@@ -321,13 +317,13 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::EnchantBootsMinorSpeed:
         break;
-    case EnchantName:: EnchantBootsGreaterAgility:
+    case EnchantName::EnchantBootsGreaterAgility:
         pchar->get_stats()->decrease_agility(7);
         break;
-    case EnchantName:: EnchantBootsSpirit:
+    case EnchantName::EnchantBootsSpirit:
         pchar->get_stats()->decrease_spirit(5);
         break;
-    case EnchantName:: ElementalSharpeningStone:
+    case EnchantName::ElementalSharpeningStone:
         pchar->get_stats()->decrease_melee_aura_crit(200);
         break;
     case EnchantName::ConsecratedSharpeningStone:

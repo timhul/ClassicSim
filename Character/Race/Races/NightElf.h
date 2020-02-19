@@ -2,7 +2,7 @@
 
 #include "Race.h"
 
-class NightElf: public Race {
+class NightElf : public Race {
 public:
     int get_race_int() const override;
     QString get_name() const override;

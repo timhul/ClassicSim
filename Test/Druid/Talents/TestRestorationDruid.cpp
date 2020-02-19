@@ -7,9 +7,7 @@
 #include "SimSettings.h"
 #include "Tauren.h"
 
-TestRestorationDruid::TestRestorationDruid(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "RIGHT")
-{}
+TestRestorationDruid::TestRestorationDruid(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "RIGHT") {}
 
 void TestRestorationDruid::set_up() {
     race = new Tauren();
@@ -25,9 +23,7 @@ void TestRestorationDruid::tear_down() {
     delete raid_control;
 }
 
-void TestRestorationDruid::test_spending_talent_points() {
-
-}
+void TestRestorationDruid::test_spending_talent_points() {}
 
 void TestRestorationDruid::test_clearing_tree_after_filling() {
     spec_restoration();

@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Spell.h"
 #include "SetBonusRequirer.h"
+#include "Spell.h"
 
 class RapidFireBuff;
 
-class RapidFire: public Spell, public SetBonusRequirer {
+class RapidFire : public Spell, public SetBonusRequirer {
 public:
-    RapidFire(Character *pchar);
+    RapidFire(Character* pchar);
     ~RapidFire() override;
 
     RapidFireBuff* get_rapid_fire_buff() const;

@@ -5,9 +5,9 @@
 class OffhandAttack;
 class Rogue;
 
-class RogueSpells: public CharacterSpells {
+class RogueSpells : public CharacterSpells {
 public:
-    RogueSpells(Rogue *rogue);
+    RogueSpells(Rogue* rogue);
 
     void oh_auto_attack(const int) override;
     void add_next_oh_attack() override;

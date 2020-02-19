@@ -4,7 +4,8 @@
 
 #include "Utils/Check.h"
 
-enum class ItemStats: int {
+enum class ItemStats : int
+{
     Agility = 0,
     Intellect,
     Spirit,

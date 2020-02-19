@@ -11,9 +11,7 @@
 #include "SpellRankGroup.h"
 #include "Talent.h"
 
-TestAimedShot::TestAimedShot(EquipmentDb *equipment_db) :
-    TestSpellHunter(equipment_db, "Aimed Shot")
-{}
+TestAimedShot::TestAimedShot(EquipmentDb* equipment_db) : TestSpellHunter(equipment_db, "Aimed Shot") {}
 
 void TestAimedShot::test_all() {
     run_mandatory_tests();

@@ -7,9 +7,9 @@ class Buff;
 class BestialWrathBuff;
 class Pet;
 
-class BestialWrath: public Spell, public TalentRequirer {
+class BestialWrath : public Spell, public TalentRequirer {
 public:
-    BestialWrath(Character *pchar, const QString& pet_name);
+    BestialWrath(Character* pchar, const QString& pet_name);
     ~BestialWrath() override;
 
 private:

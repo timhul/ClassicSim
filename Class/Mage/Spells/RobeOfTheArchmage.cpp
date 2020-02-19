@@ -8,10 +8,15 @@
 #include "Utils/Check.h"
 
 RobeOfTheArchmage::RobeOfTheArchmage(Character* pchar) :
-    Spell("Robe of the Archmage", "Assets/items/Inv_chest_cloth_38.png", pchar, new CooldownControl(pchar, 300.0), RestrictedByGcd::No, ResourceType::Mana, 0),
+    Spell("Robe of the Archmage",
+          "Assets/items/Inv_chest_cloth_38.png",
+          pchar,
+          new CooldownControl(pchar, 300.0),
+          RestrictedByGcd::No,
+          ResourceType::Mana,
+          0),
     ItemModificationRequirer({14152}),
-    random(new Random(min, max))
-{
+    random(new Random(min, max)) {
     enabled = false;
 }
 

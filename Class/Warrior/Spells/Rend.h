@@ -1,15 +1,15 @@
 #pragma once
 
+#include <QVector>
+
 #include "SpellPeriodic.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Warrior;
 class WarriorSpells;
 
-class Rend: public SpellPeriodic, public TalentRequirer {
+class Rend : public SpellPeriodic, public TalentRequirer {
 public:
     Rend(Warrior* pchar, WarriorSpells* spells);
     ~Rend() override;

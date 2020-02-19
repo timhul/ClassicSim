@@ -10,22 +10,17 @@ TalentStorage::~TalentStorage() {
 }
 
 TalentTree::TalentTree(QString name_, QString background_) :
-    name(std::move(name_)),
-    background(std::move(background_)),
-    base_url("Assets/"),
-    total_spent_points(0),
-    talents(QMap<QString, TalentStorage*>())
-{
+    name(std::move(name_)), background(std::move(background_)), base_url("Assets/"), total_spent_points(0), talents(QMap<QString, TalentStorage*>()) {
     for (int i = 0; i < 7; ++i) {
         tiers.append(new TalentTier());
     }
 }
 
 TalentTree::~TalentTree() {
-    for (const auto & talent_storage : talents)
+    for (const auto& talent_storage : talents)
         delete talent_storage;
 
-    for (const auto & tier :  tiers) {
+    for (const auto& tier : tiers) {
         delete tier;
     }
 }
@@ -67,7 +62,7 @@ QString TalentTree::get_next_rank_description(const QString& position) const {
 }
 
 void TalentTree::add_talents(const QMap<QString, Talent*>& new_talents) {
-    for (const auto & it : new_talents.toStdMap()) {
+    for (const auto& it : new_talents.toStdMap()) {
         check(!talents.contains(it.first), "Attempted to insert talent twice");
         talents.insert(it.first, new TalentStorage(it.second));
     }
@@ -284,10 +279,10 @@ int TalentTree::get_total_points() const {
 }
 
 void TalentTree::clear_tree() {
-    for (const auto & talent_storage : talents)
+    for (const auto& talent_storage : talents)
         talent_storage->talent->force_clear_rank();
 
-    for (const auto & tier : tiers) {
+    for (const auto& tier : tiers) {
         tier->clear_points();
     }
 
@@ -295,7 +290,7 @@ void TalentTree::clear_tree() {
 }
 
 void TalentTree::remove_rank_effects() {
-    for (const auto & talent_storage : talents) {
+    for (const auto& talent_storage : talents) {
         talent_storage->points_for_setup = talent_storage->talent->get_current_rank();
         for (unsigned i = 0; i < talent_storage->points_for_setup; ++i)
             talent_storage->talent->force_clear_rank();
@@ -303,7 +298,7 @@ void TalentTree::remove_rank_effects() {
 }
 
 void TalentTree::apply_rank_effects() {
-    for (const auto & talent_storage : talents) {
+    for (const auto& talent_storage : talents) {
         for (unsigned i = 0; i < talent_storage->points_for_setup; ++i) {
             talent_storage->talent->increment_rank();
         }
@@ -321,7 +316,7 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
     QVector<QPair<QString, QString>> talent_tree_setup;
 
     for (int tier = 0; tier < 7; ++tier) {
-        for (const auto & suffix : suffixes) {
+        for (const auto& suffix : suffixes) {
             QString position = QString("%1%2").arg(QString::number(tier + 1), suffix);
 
             if (!talents.contains(position) || !talents[position]->talent->is_active())
@@ -360,14 +355,16 @@ void TalentTree::add_talent_to_tier(QMap<QString, Talent*>& talent_tier, Talent*
     talent_tier[talent->get_position()] = talent;
 }
 
-Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const QString& location,
-                                   const QString& icon, const unsigned max_points, const QString& rank_str,
+Talent* TalentTree::get_new_talent(Character* pchar,
+                                   const QString& name,
+                                   const QString& location,
+                                   const QString& icon,
+                                   const unsigned max_points,
+                                   const QString& rank_str,
                                    const QVector<QPair<unsigned, unsigned>>& format_values,
                                    const QVector<SpellRankGroup*>& affected_spells,
                                    const QVector<Buff*>& affected_buffs,
-                                   const QVector<Proc*>& affected_procs
-                                   )
-{
+                                   const QVector<Proc*>& affected_procs) {
     QMap<unsigned, QString> rank_descriptions;
     if (max_points > 1)
         Talent::initialize_rank_descriptions(rank_descriptions, rank_str, max_points, format_values);
@@ -375,18 +372,19 @@ Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const 
         rank_descriptions.insert(0, rank_str);
         rank_descriptions.insert(1, rank_str);
     }
-    return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions,
-                      affected_spells, affected_buffs, affected_procs);
+    return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions, affected_spells, affected_buffs, affected_procs);
 }
 
-Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const QString& location,
-                                   const QString& icon, const unsigned max_points, const QString& rank_str,
+Talent* TalentTree::get_new_talent(Character* pchar,
+                                   const QString& name,
+                                   const QString& location,
+                                   const QString& icon,
+                                   const unsigned max_points,
+                                   const QString& rank_str,
                                    const QVector<QPair<double, double>>& format_values,
                                    const QVector<SpellRankGroup*>& affected_spells,
                                    const QVector<Buff*>& affected_buffs,
-                                   const QVector<Proc*>& affected_procs
-                                   )
-{
+                                   const QVector<Proc*>& affected_procs) {
     QMap<unsigned, QString> rank_descriptions;
     if (max_points > 1)
         Talent::initialize_rank_descriptions(rank_descriptions, rank_str, max_points, format_values);
@@ -394,6 +392,5 @@ Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const 
         rank_descriptions.insert(0, rank_str);
         rank_descriptions.insert(1, rank_str);
     }
-    return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions,
-                      affected_spells, affected_buffs, affected_procs);
+    return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions, affected_spells, affected_buffs, affected_procs);
 }

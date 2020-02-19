@@ -45,8 +45,7 @@ Paladin::Paladin(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settin
     initialize_talents();
 }
 
-Paladin::~Paladin()
-{
+Paladin::~Paladin() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -128,8 +127,7 @@ int Paladin::get_highest_possible_armor_type() const {
 QVector<int> Paladin::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::MACE, WeaponTypes::SWORD,
-                             WeaponTypes::POLEARM, WeaponTypes::TWOHAND_AXE,
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::POLEARM, WeaponTypes::TWOHAND_AXE,
                              WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD});
     case EquipmentSlot::OFFHAND:
         return QVector<int>({WeaponTypes::CASTER_OFFHAND, WeaponTypes::SHIELD});
@@ -141,6 +139,4 @@ QVector<int> Paladin::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Paladin::reset_class_specific() {
-
-}
+void Paladin::reset_class_specific() {}

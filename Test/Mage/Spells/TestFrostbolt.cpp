@@ -7,9 +7,7 @@
 #include "Frostbolt.h"
 #include "Mage.h"
 
-TestFrostbolt::TestFrostbolt(EquipmentDb* equipment_db) :
-    TestSpellMage(equipment_db, "Frostbolt")
-{}
+TestFrostbolt::TestFrostbolt(EquipmentDb* equipment_db) : TestSpellMage(equipment_db, "Frostbolt") {}
 
 void TestFrostbolt::test_all() {
     run_mandatory_tests();
@@ -99,9 +97,7 @@ void TestFrostbolt::test_whether_spell_causes_global_cooldown() {
     assert(!mage->action_ready());
 }
 
-void TestFrostbolt::test_how_spell_observes_global_cooldown() {
-
-}
+void TestFrostbolt::test_how_spell_observes_global_cooldown() {}
 
 void TestFrostbolt::test_is_ready_conditions() {
     assert(frostbolt()->get_spell_status() == SpellStatus::Available);

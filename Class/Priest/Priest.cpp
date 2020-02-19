@@ -38,8 +38,7 @@ Priest::Priest(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     priest_spells->activate_racials();
 }
 
-Priest::~Priest()
-{
+Priest::~Priest() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -77,9 +76,7 @@ double Priest::global_cooldown() const {
     return 1.5;
 }
 
-void Priest::initialize_talents() {
-
-}
+void Priest::initialize_talents() {}
 
 unsigned Priest::get_resource_level(const ResourceType) const {
     return mana->current;
@@ -124,6 +121,4 @@ QVector<int> Priest::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Priest::reset_class_specific() {
-
-}
+void Priest::reset_class_specific() {}

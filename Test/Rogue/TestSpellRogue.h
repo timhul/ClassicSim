@@ -4,7 +4,7 @@
 #include "RogueSpells.h"
 #include "TestSpellDamage.h"
 
-class TestSpellRogue: public TestSpellDamage {
+class TestSpellRogue : public TestSpellDamage {
 public:
     TestSpellRogue(EquipmentDb* equipment_db, const QString& spell_under_test);
 
@@ -17,7 +17,7 @@ public:
 protected:
     Rogue* rogue;
 
-    void given_rogue_is_on_gcd(Spell *spell);
+    void given_rogue_is_on_gcd(Spell* spell);
     void given_rogue_is_on_gcd();
     void given_rogue_in_stealth();
     void given_rogue_not_in_stealth();

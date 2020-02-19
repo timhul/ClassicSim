@@ -1,14 +1,15 @@
 #pragma once
 
+#include <functional>
+
 #include <QMap>
 #include <QVector>
-#include <functional>
 
 class Condition;
 class Sentence;
 class Spell;
 class StatisticsRotationExecutor;
-enum class SpellStatus: int;
+enum class SpellStatus : int;
 
 class RotationExecutor {
 public:
@@ -16,7 +17,7 @@ public:
     ~RotationExecutor();
 
     void add_sentence(Sentence* sentence);
-    void add_condition(const QVector<Condition *>& condition);
+    void add_condition(const QVector<Condition*>& condition);
 
     void attempt_cast();
 

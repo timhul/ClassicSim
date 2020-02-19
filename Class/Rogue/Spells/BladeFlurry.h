@@ -6,7 +6,7 @@
 class BladeFlurryBuff;
 class Rogue;
 
-class BladeFlurry: public Spell, public TalentRequirer {
+class BladeFlurry : public Spell, public TalentRequirer {
 public:
     BladeFlurry(Rogue* rogue);
     ~BladeFlurry() override;

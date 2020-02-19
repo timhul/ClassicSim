@@ -13,10 +13,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-MainhandAttackDruid::MainhandAttackDruid(Druid* pchar) :
-    MainhandAttack(pchar),
-    druid(pchar)
-{}
+MainhandAttackDruid::MainhandAttackDruid(Druid* pchar) : MainhandAttack(pchar), druid(pchar) {}
 
 void MainhandAttackDruid::calculate_damage() {
     const unsigned mh_wpn_skill = get_weapon_skill();

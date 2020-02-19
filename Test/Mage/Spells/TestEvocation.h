@@ -2,9 +2,9 @@
 
 #include "TestSpellMage.h"
 
-class TestEvocation: public TestSpellMage {
+class TestEvocation : public TestSpellMage {
 public:
-    TestEvocation(EquipmentDb *equipment_db);
+    TestEvocation(EquipmentDb* equipment_db);
 
     void test_all();
 

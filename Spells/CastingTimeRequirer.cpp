@@ -12,8 +12,7 @@ CastingTimeRequirer::CastingTimeRequirer(Character* caster, const SuppressibleCa
     engine(caster->get_engine()),
     suppressible_cast(suppressible_cast),
     casting_time_ms(casting_time_ms),
-    cast_id(std::numeric_limits<unsigned>::max())
-{}
+    cast_id(std::numeric_limits<unsigned>::max()) {}
 
 void CastingTimeRequirer::start_cast() {
     cast_id = caster->get_spells()->start_cast();

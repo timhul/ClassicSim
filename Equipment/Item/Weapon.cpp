@@ -9,13 +9,21 @@
 #include "Rogue.h"
 #include "Utils/Check.h"
 
-Weapon::Weapon(QString name, int item_id, Content::Phase phase, int type, int weapon_slot, unsigned min, unsigned max, double speed,
+Weapon::Weapon(QString name,
+               int item_id,
+               Content::Phase phase,
+               int type,
+               int weapon_slot,
+               unsigned min,
+               unsigned max,
+               double speed,
                QMap<QString, QString> info,
                QVector<QPair<QString, QString>> stats,
                QVector<QMap<QString, QString>> procs,
                QVector<QMap<QString, QString>> uses,
                QVector<QString> special_equip_effects,
-               QSet<int> mutex_item_ids, QVector<int> random_affixes):
+               QSet<int> mutex_item_ids,
+               QVector<int> random_affixes) :
     Item(std::move(name),
          item_id,
          phase,
@@ -23,7 +31,7 @@ Weapon::Weapon(QString name, int item_id, Content::Phase phase, int type, int we
          std::move(stats),
          std::move(procs),
          std::move(uses),
-         QVector<QString>{},
+         QVector<QString> {},
          std::move(special_equip_effects),
          std::move(mutex_item_ids),
          std::move(random_affixes)),
@@ -33,13 +41,9 @@ Weapon::Weapon(QString name, int item_id, Content::Phase phase, int type, int we
     min_dmg(min),
     max_dmg(max),
     weapon_speed(speed),
-    temporary_enchant(nullptr)
-{}
+    temporary_enchant(nullptr) {}
 
-Weapon::Weapon(const Weapon* weapon):
-    Item(weapon),
-    temporary_enchant(nullptr)
-{
+Weapon::Weapon(const Weapon* weapon) : Item(weapon), temporary_enchant(nullptr) {
     this->random = new Random(weapon->min_dmg, weapon->max_dmg);
     this->weapon_type = weapon->weapon_type;
     this->weapon_slot = weapon->weapon_slot;
@@ -87,7 +91,7 @@ bool Weapon::has_temporary_enchant() const {
     return temporary_enchant != nullptr;
 }
 
-void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, const int weapon_slot) {
+void Weapon::apply_enchant(EnchantName::Name enchant_name, Character* pchar, const int weapon_slot) {
     if (enchant_name == EnchantName::NoEnchant)
         return;
 
@@ -95,8 +99,7 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, con
 
     QSet<int> melee_weapon_slots = {WeaponSlots::ONEHAND, WeaponSlots::MAINHAND, WeaponSlots::OFFHAND, WeaponSlots::TWOHAND};
     if (melee_weapon_slots.contains(weapon_slot)) {
-        int enchant_slot = weapon_slot == WeaponSlots::OFFHAND ? EnchantSlot::OFFHAND:
-                                                                 EnchantSlot::MAINHAND;
+        int enchant_slot = weapon_slot == WeaponSlots::OFFHAND ? EnchantSlot::OFFHAND : EnchantSlot::MAINHAND;
         switch (enchant_name) {
         case EnchantName::Crusader:
         case EnchantName::FieryWeapon:
@@ -105,16 +108,14 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, con
         default:
             enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         }
-    }
-    else if (weapon_slot == WeaponSlots::RANGED) {
+    } else if (weapon_slot == WeaponSlots::RANGED) {
         enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::RANGED);
-    }
-    else {
+    } else {
         check(false, QString("Tried to apply weapon enchant on unsupported slot %1").arg(weapon_slot).toStdString());
     }
 }
 
-void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar, const int enchant_slot) {
+void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character* pchar, const int enchant_slot) {
     if (enchant_name == EnchantName::NoEnchant)
         return;
 

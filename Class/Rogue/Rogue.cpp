@@ -22,10 +22,7 @@
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
-    Character("Rogue", "#FFF569", race_, sim_settings_, raid_control_, party_, member),
-    combo_points(0),
-    stealthed(false)
-{
+    Character("Rogue", "#FFF569", race_, sim_settings_, raid_control_, party_, member), combo_points(0), stealthed(false) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -64,8 +61,7 @@ Rogue::Rogue(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_,
     initialize_talents();
 }
 
-Rogue::~Rogue()
-{
+Rogue::~Rogue() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
@@ -195,14 +191,11 @@ int Rogue::get_highest_possible_armor_type() const {
 QVector<int> Rogue::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::MACE, WeaponTypes::SWORD});
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::SWORD});
     case EquipmentSlot::OFFHAND:
-        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST,
-                            WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND});
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND});
     case EquipmentSlot::RANGED:
-        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
-                            WeaponTypes::THROWN});
+        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN, WeaponTypes::THROWN});
     default:
         check(false, "Rogue::get_weapon_proficiencies_for_slot reached end of switch");
         return QVector<int>();

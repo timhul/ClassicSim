@@ -14,10 +14,7 @@
 #include "SliceAndDice.h"
 #include "ThistleTea.h"
 
-RogueSpells::RogueSpells(Rogue* rogue) :
-    CharacterSpells(rogue),
-    rogue(rogue)
-{
+RogueSpells::RogueSpells(Rogue* rogue) : CharacterSpells(rogue), rogue(rogue) {
     this->berserking = new Berserking(pchar, ResourceType::Energy, 10);
     add_spell_group({berserking});
 

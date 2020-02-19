@@ -5,9 +5,7 @@
 #include "BloodFury.h"
 #include "CharacterStats.h"
 
-TestBloodFury::TestBloodFury(EquipmentDb* equipment_db) :
-    TestSpellWarrior(equipment_db, "Blood Fury")
-{}
+TestBloodFury::TestBloodFury(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Blood Fury") {}
 
 void TestBloodFury::test_all() {
     run_mandatory_tests();
@@ -33,17 +31,11 @@ void TestBloodFury::test_spell_cooldown() {
     assert(almost_equal(blood_fury()->get_base_cooldown(), 120.0));
 }
 
-void TestBloodFury::test_stance_cooldown() {
+void TestBloodFury::test_stance_cooldown() {}
 
-}
+void TestBloodFury::test_how_spell_observes_global_cooldown() {}
 
-void TestBloodFury::test_how_spell_observes_global_cooldown() {
-
-}
-
-void TestBloodFury::test_whether_spell_causes_global_cooldown() {
-
-}
+void TestBloodFury::test_whether_spell_causes_global_cooldown() {}
 
 void TestBloodFury::test_resource_cost() {
     given_warrior_has_rage(0);
@@ -51,9 +43,7 @@ void TestBloodFury::test_resource_cost() {
     assert(blood_fury()->get_spell_status() == SpellStatus::Available);
 }
 
-void TestBloodFury::test_is_ready_conditions() {
-
-}
+void TestBloodFury::test_is_ready_conditions() {}
 
 void TestBloodFury::test_melee_ap_bonus() {
     given_character_has_strength(1000);

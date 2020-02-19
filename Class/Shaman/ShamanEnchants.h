@@ -4,7 +4,7 @@
 
 class Shaman;
 
-class ShamanEnchants: public CharacterEnchants {
+class ShamanEnchants : public CharacterEnchants {
 public:
     ShamanEnchants(Shaman* shaman);
 

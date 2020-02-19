@@ -4,61 +4,35 @@
 #include "Rogue.h"
 #include "Utils/Check.h"
 
-RogueEnchants::RogueEnchants(Rogue* rogue) :
-    CharacterEnchants(rogue)
-{}
+RogueEnchants::RogueEnchants(Rogue* rogue) : CharacterEnchants(rogue) {}
 
 QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND:
     case EquipmentSlot::OFFHAND:
-        return {
-            EnchantName::Name::Crusader,
-            EnchantName::Name::FieryWeapon,
-            EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking,
-            EnchantName::Name::EnchantWeaponAgility
-        };
+        return {EnchantName::Name::Crusader, EnchantName::Name::FieryWeapon, EnchantName::Name::EnchantWeaponStrength,
+                EnchantName::Name::SuperiorStriking, EnchantName::Name::EnchantWeaponAgility};
     case EquipmentSlot::RANGED:
         return {};
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
-        return {
-            EnchantName::Name::ArcanumOfRapidity,
-            EnchantName::Name::LesserArcanumOfVoracityAgility,
-            EnchantName::Name::DeathsEmbrace
-        };
+        return {EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityAgility, EnchantName::Name::DeathsEmbrace};
     case EquipmentSlot::SHOULDERS:
-        return {
-            EnchantName::Name::MightOfTheScourge,
-            EnchantName::Name::ZandalarSignetOfMight
-        };
+        return {EnchantName::Name::MightOfTheScourge, EnchantName::Name::ZandalarSignetOfMight};
     case EquipmentSlot::BACK:
-        return {
-            EnchantName::Name::EnchantCloakLesserAgility
-        };
+        return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
-        return {
-            EnchantName::Name::EnchantBracerSuperiorStrength,
-            EnchantName::Name::EnchantBracerMinorAgility
-        };
+        return {EnchantName::Name::EnchantBracerSuperiorStrength, EnchantName::Name::EnchantBracerMinorAgility};
     case EquipmentSlot::GLOVES:
-        return {
-            EnchantName::Name::EnchantGlovesSuperiorAgility,
-            EnchantName::Name::EnchantGlovesGreaterAgility,
-            EnchantName::Name::EnchantGlovesMinorHaste,
-            EnchantName::Name::EnchantGlovesGreaterStrength
-        };
+        return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
+                EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestStats,
             EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
-        return {
-            EnchantName::Name::EnchantBootsMinorSpeed,
-            EnchantName::Name::EnchantBootsGreaterAgility
-        };
+        return {EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility};
     }
 
     check(false, "RogueEnchants::get_available_enchants reached end of switch");

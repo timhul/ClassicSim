@@ -14,8 +14,7 @@ RapidFire::RapidFire(Character* pchar) :
           ResourceType::Mana,
           100),
     SetBonusRequirer({"Striker's Garb"}),
-    rapid_fire(new RapidFireBuff(pchar))
-{
+    rapid_fire(new RapidFireBuff(pchar)) {
     rapid_fire->enable_buff();
 }
 
@@ -41,7 +40,7 @@ void RapidFire::activate_set_bonus_effect(const QString& set_name, const int set
     if (set_name == "Striker's Garb") {
         switch (set_bonus) {
         case 5:
-             cooldown->base -= 120.0;
+            cooldown->base -= 120.0;
             break;
         default:
             check(false, "RapidFire:activate_set_bonus_effect reached end of switch");
@@ -53,7 +52,7 @@ void RapidFire::deactivate_set_bonus_effect(const QString& set_name, const int s
     if (set_name == "Striker's Garb") {
         switch (set_bonus) {
         case 5:
-             cooldown->base -= 120.0;
+            cooldown->base -= 120.0;
             break;
         default:
             check(false, "RapidFire::deactivate_set_bonus_effect reached end of switch");

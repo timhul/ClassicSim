@@ -4,9 +4,9 @@
 
 class AutoShot;
 
-class TestAutoShot: public TestSpellHunter {
+class TestAutoShot : public TestSpellHunter {
 public:
-    TestAutoShot(EquipmentDb *equipment_db);
+    TestAutoShot(EquipmentDb* equipment_db);
 
     void test_all();
 

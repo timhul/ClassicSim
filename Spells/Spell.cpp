@@ -35,8 +35,7 @@ Spell::Spell(QString name,
     resource_cost(resource_cost),
     spell_rank(spell_rank),
     instance_id(InstanceID::INACTIVE),
-    enabled(true)
-{}
+    enabled(true) {}
 
 bool operator==(const Spell& lhs, const Spell& rhs) {
     return lhs.get_instance_id() == rhs.get_instance_id();
@@ -72,13 +71,9 @@ SpellStatus Spell::is_ready_spell_specific() const {
     return SpellStatus::Available;
 }
 
-void Spell::enable_spell_effect() {
+void Spell::enable_spell_effect() {}
 
-}
-
-void Spell::disable_spell_effect() {
-
-}
+void Spell::disable_spell_effect() {}
 
 SpellStatus Spell::get_spell_status() const {
     if (!enabled)
@@ -232,14 +227,8 @@ void Spell::decrease_resource_cost_modifier(const int change) {
     CharacterStats::remove_multiplicative_effect(resource_cost_mod_changes, change, resource_cost_mod);
 }
 
-void Spell::prepare_set_of_combat_iterations_spell_specific() {
+void Spell::prepare_set_of_combat_iterations_spell_specific() {}
 
-}
+void Spell::reset_effect() {}
 
-void Spell::reset_effect() {
-
-}
-
-void Spell::perform_start_of_combat() {
-
-}
+void Spell::perform_start_of_combat() {}

@@ -7,12 +7,9 @@
 #include "PeriodicDamageSpell.h"
 #include "Utils/Check.h"
 
-Consecration::Consecration(Paladin* pchar,
-                           CooldownControl* cooldown_control,
-                           const int spell_rank) :
+Consecration::Consecration(Paladin* pchar, CooldownControl* cooldown_control, const int spell_rank) :
     Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)})
-{
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)}) {
     this->enabled = false;
 
     unsigned full_duration_dmg = 0;
@@ -85,9 +82,7 @@ void Consecration::spell_effect() {
         cons_dot_2->perform();
 }
 
-void Consecration::reset_effect() {
-
-}
+void Consecration::reset_effect() {}
 
 void Consecration::increase_talent_rank_effect(const QString&, const int) {
     cons_dot_1->enable();

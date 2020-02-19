@@ -9,23 +9,16 @@
 #include "Utils/Check.h"
 
 MultiShot::MultiShot(Hunter* pchar, CooldownControl* cooldown_control) :
-    Spell("Multi-Shot",
-          "Assets/ability/Ability_upgrademoonglaive.png",
-          pchar,
-          cooldown_control,
-          RestrictedByGcd::Yes,
-          ResourceType::Mana,
-          230),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
+    Spell("Multi-Shot", "Assets/ability/Ability_upgrademoonglaive.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 230),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Giantstalker Armor", "Cryptstalker Armor"}),
     ItemModificationRequirer({16463, 16571, 22862, 23279}),
     hunter(pchar),
     efficiency_ranks({1.0, 0.98, 0.96, 0.94, 0.92, 0.90}),
     mortal_shots_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30}),
-    barrage_ranks({1.0, 1.05, 1.10, 1.15})
-{
+    barrage_ranks({1.0, 1.05, 1.10, 1.15}) {
     resource_base = resource_cost;
 }
 
@@ -46,10 +39,8 @@ void MultiShot::spell_effect() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() +
-                                                 150 +
-                                                 hunter->get_normalized_projectile_dmg_bonus()) *
-            barrage_mod * giantstalker_bonus * pvp_gloves_bonus;
+    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150 + hunter->get_normalized_projectile_dmg_bonus())
+                          * barrage_mod * giantstalker_bonus * pvp_gloves_bonus;
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
@@ -104,8 +95,7 @@ void MultiShot::activate_set_bonus_effect(const QString& set_name, const int set
         default:
             check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
         }
-    }
-    else if (set_name == "Cryptstalker Armor") {
+    } else if (set_name == "Cryptstalker Armor") {
         switch (set_bonus) {
         case 6:
             adrenaline_rush = 50;
@@ -128,8 +118,7 @@ void MultiShot::deactivate_set_bonus_effect(const QString& set_name, const int s
         default:
             check(false, "MultiShot::deactivate_set_bonus_effect reached end of switch");
         }
-    }
-    else if (set_name == "Cryptstalker Armor") {
+    } else if (set_name == "Cryptstalker Armor") {
         switch (set_bonus) {
         case 6:
             adrenaline_rush = 0;

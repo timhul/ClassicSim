@@ -5,7 +5,7 @@
 class Shaman;
 class ShamanSpells;
 
-class Enhancement: public TalentTree {
+class Enhancement : public TalentTree {
 public:
     Enhancement(Shaman* shaman);
     ~Enhancement() override = default;

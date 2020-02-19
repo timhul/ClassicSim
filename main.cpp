@@ -20,8 +20,8 @@
 #include "MeleeDamageAvoidanceBreakdownModel.h"
 #include "MeleeDamageBreakdownModel.h"
 #include "ProcBreakdownModel.h"
-#include "ResourceBreakdownModel.h"
 #include "RandomAffixModel.h"
+#include "ResourceBreakdownModel.h"
 #include "RotationConditionsModel.h"
 #include "RotationExecutorBreakdownModel.h"
 #include "RotationExecutorListModel.h"
@@ -32,8 +32,7 @@
 #include "Test.h"
 #include "WeaponModel.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     Test test;

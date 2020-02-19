@@ -1,15 +1,20 @@
 #include "DeathWish.h"
 
-#include "DeathWishBuff.h"
 #include "CooldownControl.h"
+#include "DeathWishBuff.h"
 #include "Warrior.h"
 
 DeathWish::DeathWish(Warrior* warrior) :
-    Spell("Death Wish", "Assets/spell/Spell_shadow_deathpact.png", warrior, new CooldownControl(warrior, 180.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Death Wish", 1, DisabledAtZero::Yes)}),
+    Spell("Death Wish",
+          "Assets/spell/Spell_shadow_deathpact.png",
+          warrior,
+          new CooldownControl(warrior, 180.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Rage,
+          10),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Death Wish", 1, DisabledAtZero::Yes)}),
     warrior(warrior),
-    death_wish_buff(new DeathWishBuff(warrior))
-{
+    death_wish_buff(new DeathWishBuff(warrior)) {
     this->enabled = false;
 }
 

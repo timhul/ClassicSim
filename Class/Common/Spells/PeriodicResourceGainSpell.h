@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SpellPeriodic.h"
-
 #include <QVector>
+
+#include "SpellPeriodic.h"
 
 class StatisticsResource;
 

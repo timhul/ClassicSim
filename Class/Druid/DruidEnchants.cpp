@@ -1,12 +1,10 @@
 #include "DruidEnchants.h"
 
-#include "Faction.h"
 #include "Druid.h"
+#include "Faction.h"
 #include "Utils/Check.h"
 
-DruidEnchants::DruidEnchants(Druid* Druid) :
-    CharacterEnchants(Druid)
-{}
+DruidEnchants::DruidEnchants(Druid* Druid) : CharacterEnchants(Druid) {}
 
 QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -19,9 +17,9 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
 
         if (has_2hand()) {
             enchants.append({
-                                EnchantName::Name::Enchant2HWeaponAgility,
-                                EnchantName::Name::IronCounterweight,
-                            });
+                EnchantName::Name::Enchant2HWeaponAgility,
+                EnchantName::Name::IronCounterweight,
+            });
         }
 
         return enchants;
@@ -43,9 +41,7 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
             EnchantName::Name::ZandalarSignetOfMojo,
         };
     case EquipmentSlot::BACK:
-        return {
-            EnchantName::Name::EnchantCloakLesserAgility
-        };
+        return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
         return {
             EnchantName::Name::EnchantBracerManaRegeneration,
@@ -54,12 +50,8 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
             EnchantName::Name::EnchantBracerGreaterIntellect,
         };
     case EquipmentSlot::GLOVES:
-        return {
-            EnchantName::Name::EnchantGlovesSuperiorAgility,
-            EnchantName::Name::EnchantGlovesGreaterAgility,
-            EnchantName::Name::EnchantGlovesMinorHaste,
-            EnchantName::Name::EnchantGlovesGreaterStrength
-        };
+        return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
+                EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestStats,
@@ -81,22 +73,16 @@ QVector<EnchantName::Name> DruidEnchants::get_available_temp_enchants(const int 
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
         QVector<EnchantName::Name> enchants {
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::LesserManaOil,
-            EnchantName::BrilliantManaOil,
-            EnchantName::BrilliantWizardOil,
+            EnchantName::ElementalSharpeningStone, EnchantName::ConsecratedSharpeningStone, EnchantName::LesserManaOil,
+            EnchantName::BrilliantManaOil,         EnchantName::BrilliantWizardOil,
         };
 
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
         QVector<EnchantName::Name> enchants {
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::LesserManaOil,
-            EnchantName::BrilliantManaOil,
-            EnchantName::BrilliantWizardOil,
+            EnchantName::ConsecratedSharpeningStone, EnchantName::ElementalSharpeningStone, EnchantName::LesserManaOil,
+            EnchantName::BrilliantManaOil,           EnchantName::BrilliantWizardOil,
         };
 
         return enchants;

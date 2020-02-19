@@ -13,21 +13,13 @@ class Talent;
 
 class TalentTier {
 public:
-    void clear_points() {
-        spent_points = 0;
-    }
+    void clear_points() { spent_points = 0; }
 
-    void increment_point() {
-        spent_points++;
-    }
+    void increment_point() { spent_points++; }
 
-    void decrement_point() {
-        spent_points--;
-    }
+    void decrement_point() { spent_points--; }
 
-    unsigned get_points() const {
-        return spent_points;
-    }
+    unsigned get_points() const { return spent_points; }
 
 private:
     unsigned spent_points {0};
@@ -35,16 +27,13 @@ private:
 
 class TalentStorage {
 public:
-    TalentStorage(Talent* talent) :
-        talent(talent)
-    {}
+    TalentStorage(Talent* talent) : talent(talent) {}
 
     ~TalentStorage();
 
     Talent* talent;
     unsigned points_for_setup {0};
 };
-
 
 class TalentTree {
 public:
@@ -100,7 +89,7 @@ protected:
     QMap<QString, QString> talent_names_to_locations;
     QVector<TalentTier*> tiers;
 
-    void add_talent_to_tier(QMap<QString, Talent *> &talent_tier, Talent* talent);
+    void add_talent_to_tier(QMap<QString, Talent*>& talent_tier, Talent* talent);
     void add_talents(const QMap<QString, Talent*>& new_talents);
     int get_highest_invested_tier() const;
     int get_investment_requirement_for_tier(const int tier) const;
@@ -108,19 +97,25 @@ protected:
 
     TalentTier* get_tier(const int tier) const;
 
-    Talent* get_new_talent(Character* pchar, const QString& name, const QString& location, const QString& icon,
-                           const unsigned max_points, const QString& rank_str,
+    Talent* get_new_talent(Character* pchar,
+                           const QString& name,
+                           const QString& location,
+                           const QString& icon,
+                           const unsigned max_points,
+                           const QString& rank_str,
                            const QVector<QPair<unsigned, unsigned>>& format_values,
-                           const QVector<SpellRankGroup*> &affected_spells = {},
+                           const QVector<SpellRankGroup*>& affected_spells = {},
                            const QVector<Buff*>& affected_buffs = {},
-                           const QVector<Proc*>& affected_procs = {}
-                           );
+                           const QVector<Proc*>& affected_procs = {});
 
-    Talent* get_new_talent(Character* pchar, const QString& name, const QString& location, const QString& icon,
-                           const unsigned max_points, const QString& rank_str,
+    Talent* get_new_talent(Character* pchar,
+                           const QString& name,
+                           const QString& location,
+                           const QString& icon,
+                           const unsigned max_points,
+                           const QString& rank_str,
                            const QVector<QPair<double, double>>& format_values,
-                           const QVector<SpellRankGroup*> &affected_spells = {},
+                           const QVector<SpellRankGroup*>& affected_spells = {},
                            const QVector<Buff*>& affected_buffs = {},
-                           const QVector<Proc*>& affected_procs = {}
-                           );
+                           const QVector<Proc*>& affected_procs = {});
 };

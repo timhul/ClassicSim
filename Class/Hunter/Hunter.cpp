@@ -17,8 +17,7 @@
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
-    Character("Hunter", "#ABD473", race_, sim_settings_, raid_control_, party_, member),
-    projectile_dps(0.0) {
+    Character("Hunter", "#ABD473", race_, sim_settings_, raid_control_, party_, member), projectile_dps(0.0) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");
@@ -51,8 +50,7 @@ Hunter::Hunter(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     hunter_spells->activate_racials();
 }
 
-Hunter::~Hunter()
-{
+Hunter::~Hunter() {
     cstats->get_equipment()->unequip_all();
 
     enabled_buffs->clear_all();
@@ -162,11 +160,15 @@ int Hunter::get_highest_possible_armor_type() const {
 QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
-                             WeaponTypes::SWORD, WeaponTypes::POLEARM, WeaponTypes::STAFF,
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::SWORD, WeaponTypes::POLEARM, WeaponTypes::STAFF,
                              WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_SWORD});
     case EquipmentSlot::OFFHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::SWORD,});
+        return QVector<int>({
+            WeaponTypes::AXE,
+            WeaponTypes::DAGGER,
+            WeaponTypes::FIST,
+            WeaponTypes::SWORD,
+        });
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN});
     default:

@@ -48,7 +48,7 @@ class SimulationThreadPool;
 class Target;
 class WeaponModel;
 
-class GUIControl: public QObject {
+class GUIControl : public QObject {
     Q_OBJECT
 public:
     GUIControl(QObject* parent = nullptr);
@@ -270,61 +270,61 @@ public:
     /* End of Content phase */
 
     /* Rotation */
-     RotationModel* get_rotation_model() const;
-     Q_INVOKABLE void selectRotation();
-     Q_INVOKABLE void selectInformationRotation(const int);
-     Q_PROPERTY(QString rotationName READ get_curr_rotation_name NOTIFY rotationChanged)
-     Q_PROPERTY(QString rotationDescription READ get_curr_rotation_description NOTIFY rotationChanged)
-     Q_PROPERTY(QString rotationInfoName READ get_information_rotation_name NOTIFY informationRotationChanged)
-     Q_PROPERTY(QString rotationInfoDesc READ get_information_rotation_description NOTIFY informationRotationChanged)
+    RotationModel* get_rotation_model() const;
+    Q_INVOKABLE void selectRotation();
+    Q_INVOKABLE void selectInformationRotation(const int);
+    Q_PROPERTY(QString rotationName READ get_curr_rotation_name NOTIFY rotationChanged)
+    Q_PROPERTY(QString rotationDescription READ get_curr_rotation_description NOTIFY rotationChanged)
+    Q_PROPERTY(QString rotationInfoName READ get_information_rotation_name NOTIFY informationRotationChanged)
+    Q_PROPERTY(QString rotationInfoDesc READ get_information_rotation_description NOTIFY informationRotationChanged)
     /* End of Rotation */
 
-     /* SimSettings */
-     Q_INVOKABLE void resetDefaultSettings();
-     Q_PROPERTY(int combatLength READ get_combat_length NOTIFY combatLengthChanged)
-     Q_PROPERTY(int combatIterationsFullSim READ get_combat_iterations_full_sim NOTIFY combatIterationsChanged)
-     Q_PROPERTY(int combatIterationsQuickSim READ get_combat_iterations_quick_sim NOTIFY combatIterationsChanged)
-     Q_PROPERTY(int numThreads READ get_num_threads NOTIFY numThreadsChanged)
-     Q_PROPERTY(int maxThreads READ get_max_threads NOTIFY numThreadsChanged)
-     Q_INVOKABLE void setCombatLength(const int);
-     Q_INVOKABLE void setCombatIterationsFullSim(const int);
-     Q_INVOKABLE void setCombatIterationsQuickSim(const int);
-     Q_INVOKABLE void setNumThreads(const int);
-     Q_SIGNAL void combatLengthChanged();
-     Q_SIGNAL void combatIterationsChanged();
-     Q_SIGNAL void numThreadsChanged();
-     Q_INVOKABLE void selectRuleset(const int);
-     Q_PROPERTY(QString simProgressString READ get_sim_progress_string NOTIFY simProgressChanged)
-     Q_SIGNAL void simProgressChanged();
-     Q_INVOKABLE void runQuickSim();
-     Q_INVOKABLE void runFullSim();
-     Q_SIGNAL void simPersonalResultUpdated(QString value, QString change, bool positive);
-     Q_SIGNAL void simRaidResultUpdated(QString value, QString change, bool positive);
-     SimScaleModel* get_sim_scale_model() const;
-     Q_PROPERTY(int combatProgress READ get_combat_progress NOTIFY combatProgressChanged)
-     Q_PROPERTY(bool simInProgress READ get_sim_in_progress NOTIFY simProgressChanged)
-     int get_combat_progress() const;
-     bool get_sim_in_progress() const;
-     Q_SIGNAL void combatProgressChanged() const;
-     /* End of SimSettings */
+    /* SimSettings */
+    Q_INVOKABLE void resetDefaultSettings();
+    Q_PROPERTY(int combatLength READ get_combat_length NOTIFY combatLengthChanged)
+    Q_PROPERTY(int combatIterationsFullSim READ get_combat_iterations_full_sim NOTIFY combatIterationsChanged)
+    Q_PROPERTY(int combatIterationsQuickSim READ get_combat_iterations_quick_sim NOTIFY combatIterationsChanged)
+    Q_PROPERTY(int numThreads READ get_num_threads NOTIFY numThreadsChanged)
+    Q_PROPERTY(int maxThreads READ get_max_threads NOTIFY numThreadsChanged)
+    Q_INVOKABLE void setCombatLength(const int);
+    Q_INVOKABLE void setCombatIterationsFullSim(const int);
+    Q_INVOKABLE void setCombatIterationsQuickSim(const int);
+    Q_INVOKABLE void setNumThreads(const int);
+    Q_SIGNAL void combatLengthChanged();
+    Q_SIGNAL void combatIterationsChanged();
+    Q_SIGNAL void numThreadsChanged();
+    Q_INVOKABLE void selectRuleset(const int);
+    Q_PROPERTY(QString simProgressString READ get_sim_progress_string NOTIFY simProgressChanged)
+    Q_SIGNAL void simProgressChanged();
+    Q_INVOKABLE void runQuickSim();
+    Q_INVOKABLE void runFullSim();
+    Q_SIGNAL void simPersonalResultUpdated(QString value, QString change, bool positive);
+    Q_SIGNAL void simRaidResultUpdated(QString value, QString change, bool positive);
+    SimScaleModel* get_sim_scale_model() const;
+    Q_PROPERTY(int combatProgress READ get_combat_progress NOTIFY combatProgressChanged)
+    Q_PROPERTY(bool simInProgress READ get_sim_in_progress NOTIFY simProgressChanged)
+    int get_combat_progress() const;
+    bool get_sim_in_progress() const;
+    Q_SIGNAL void combatProgressChanged() const;
+    /* End of SimSettings */
 
-     /* Raid setup */
-     Q_INVOKABLE void selectPartyMember(const int party, const int member);
-     Q_INVOKABLE void clearPartyMember(const int party, const int member);
-     Q_INVOKABLE QVariantMap partyMemberInfo(const int party, const int member);
-     Q_INVOKABLE void selectTemplateCharacter(QString template_char);
-     Q_SIGNAL void partyMembersUpdated();
-     Q_SIGNAL void selectedPartyMemberChanged();
-     DamageMetersModel* get_damage_meters_model();
-     /* End of Raid setup */
+    /* Raid setup */
+    Q_INVOKABLE void selectPartyMember(const int party, const int member);
+    Q_INVOKABLE void clearPartyMember(const int party, const int member);
+    Q_INVOKABLE QVariantMap partyMemberInfo(const int party, const int member);
+    Q_INVOKABLE void selectTemplateCharacter(QString template_char);
+    Q_SIGNAL void partyMembersUpdated();
+    Q_SIGNAL void selectedPartyMemberChanged();
+    DamageMetersModel* get_damage_meters_model();
+    /* End of Raid setup */
 
-     /* GUI initialization */
-     Q_INVOKABLE QString getStartWindow() const;
-     Q_INVOKABLE void changeActiveWindow(const QString& active_window);
-     Q_INVOKABLE int getCurrentRuleset() const;
-     Q_INVOKABLE int getCurrentCreatureType() const;
-     Q_INVOKABLE int getContentPhase() const;
-     /* End of GUI initialization */
+    /* GUI initialization */
+    Q_INVOKABLE QString getStartWindow() const;
+    Q_INVOKABLE void changeActiveWindow(const QString& active_window);
+    Q_INVOKABLE int getCurrentRuleset() const;
+    Q_INVOKABLE int getCurrentCreatureType() const;
+    Q_INVOKABLE int getContentPhase() const;
+    /* End of GUI initialization */
 
 Q_SIGNALS:
     void classChanged();
@@ -353,7 +353,7 @@ private:
     bool get_is_alliance() const;
     bool get_is_horde() const;
 
-    void reset_race(Character *pchar);
+    void reset_race(Character* pchar);
 
     QString get_creature_type() const;
 
@@ -410,9 +410,9 @@ private:
     QString get_quiver_icon() const;
 
     QString get_initial_upper_case_rest_lower_case(const QString&) const;
-    void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);
+    void set_weapon_tooltip(Item*& item, QString& slot, QString type, QString& dmg_range, QString& wpn_speed, QString& dps);
     void set_projectile_tooltip(Item* item, QString& slot, QString& dps);
-    void set_class_restriction_tooltip(Item *&item, QString &restriction);
+    void set_class_restriction_tooltip(Item*& item, QString& restriction);
     void set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const;
     void set_character(Character* pchar);
     void calculate_displayed_dps_value();
@@ -432,7 +432,7 @@ private:
 
     void save_gui_settings();
     void load_gui_settings();
-    void activate_gui_setting(const QStringRef &name, const QString& value);
+    void activate_gui_setting(const QStringRef& name, const QString& value);
 
     QVariantList get_tooltip_from_item(Item* item);
 

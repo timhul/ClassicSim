@@ -1,11 +1,10 @@
 #pragma once
 
 #include "TestSpellDamage.h"
-
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-class TestSpellWarrior: public TestSpellDamage {
+class TestSpellWarrior : public TestSpellDamage {
 public:
     TestSpellWarrior(EquipmentDb* equipment_db, QString spell_under_test);
 
@@ -35,7 +34,7 @@ protected:
     void given_warrior_in_berserker_stance();
     void given_warrior_in_defensive_stance();
 
-    void given_warrior_is_on_gcd(Spell *spell);
+    void given_warrior_is_on_gcd(Spell* spell);
     void given_warrior_is_on_gcd();
     void given_warrior_has_rage(const unsigned);
     void given_arms_talent_with_rank(const QString& name, const unsigned num);

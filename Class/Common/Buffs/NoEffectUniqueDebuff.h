@@ -4,7 +4,7 @@
 
 class Proc;
 
-class NoEffectUniqueDebuff: public UniqueDebuff {
+class NoEffectUniqueDebuff : public UniqueDebuff {
 public:
     NoEffectUniqueDebuff(Character* pchar,
                          const Priority priority,

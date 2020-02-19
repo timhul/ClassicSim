@@ -4,7 +4,7 @@
 
 class Druid;
 
-class LeaderOfThePack: public PartyBuff {
+class LeaderOfThePack : public PartyBuff {
 public:
     LeaderOfThePack(Druid* pchar);
 

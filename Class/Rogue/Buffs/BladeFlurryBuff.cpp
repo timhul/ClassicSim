@@ -3,10 +3,8 @@
 #include "Energy.h"
 #include "Rogue.h"
 
-BladeFlurryBuff::BladeFlurryBuff(Rogue* rogue):
-    SelfBuff(rogue, "Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", 15, 0),
-    rogue(rogue)
-{}
+BladeFlurryBuff::BladeFlurryBuff(Rogue* rogue) :
+    SelfBuff(rogue, "Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", 15, 0), rogue(rogue) {}
 
 BladeFlurryBuff::~BladeFlurryBuff() {
     if (is_enabled())

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "SpellPeriodic.h"
-
 #include <QVector>
 
-enum class MagicSchool: int;
+#include "SpellPeriodic.h"
+
+enum class MagicSchool : int;
 enum class Priority : int;
 
 class PeriodicDamageSpell : public SpellPeriodic {

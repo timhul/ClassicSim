@@ -2,14 +2,9 @@
 
 #include "SelfBuff.h"
 
-class ArmorPenetrationBuff: public SelfBuff {
+class ArmorPenetrationBuff : public SelfBuff {
 public:
-    ArmorPenetrationBuff(Character* pchar,
-                         const QString& name,
-                         const QString& icon,
-                         const int reduction,
-                         const int max_stacks,
-                         const int duration);
+    ArmorPenetrationBuff(Character* pchar, const QString& name, const QString& icon, const int reduction, const int max_stacks, const int duration);
 
 private:
     int current_stacks;

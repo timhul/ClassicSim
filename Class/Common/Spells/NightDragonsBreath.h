@@ -5,7 +5,7 @@
 class Random;
 class StatisticsResource;
 
-class NightDragonsBreath: public Spell {
+class NightDragonsBreath : public Spell {
 public:
     NightDragonsBreath(Character* pchar);
     ~NightDragonsBreath() override;

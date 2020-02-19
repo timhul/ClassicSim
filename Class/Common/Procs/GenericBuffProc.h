@@ -4,17 +4,19 @@
 
 class Buff;
 
-enum class EnabledAtStart: bool {
+enum class EnabledAtStart : bool
+{
     Yes = true,
     No = false,
 };
 
-enum class MaintainBuffEnabled: bool {
+enum class MaintainBuffEnabled : bool
+{
     Yes = true,
     No = false,
 };
 
-class GenericBuffProc: public Proc {
+class GenericBuffProc : public Proc {
 public:
     GenericBuffProc(Character* pchar,
                     const QString& proc_name,

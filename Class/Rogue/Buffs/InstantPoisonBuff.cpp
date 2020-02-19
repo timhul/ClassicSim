@@ -2,10 +2,8 @@
 
 #include "InstantPoison.h"
 
-InstantPoisonBuff::InstantPoisonBuff(Character* pchar, InstantPoison* instant_poison_proc, const QString& weapon_side):
-    SelfBuff(pchar, "Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 1800, 115),
-    instant_poison_proc(instant_poison_proc)
-{
+InstantPoisonBuff::InstantPoisonBuff(Character* pchar, InstantPoison* instant_poison_proc, const QString& weapon_side) :
+    SelfBuff(pchar, "Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 1800, 115), instant_poison_proc(instant_poison_proc) {
     hidden = true;
 }
 

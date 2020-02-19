@@ -7,7 +7,7 @@ class Paladin;
 class Random;
 class SealOfCommandProc;
 
-class SealOfCommand: public PaladinSeal, public TalentRequirer {
+class SealOfCommand : public PaladinSeal, public TalentRequirer {
 public:
     SealOfCommand(Paladin* paladin, PaladinSpells* paladin_spells);
     ~SealOfCommand() override;

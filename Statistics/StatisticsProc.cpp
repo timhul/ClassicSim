@@ -21,10 +21,7 @@ bool num_procs(StatisticsProc* lhs, StatisticsProc* rhs) {
 }
 
 StatisticsProc::StatisticsProc(QString name, QString icon, const int time_in_combat) :
-    name(std::move(name)),
-    icon(std::move(icon)),
-    time_in_combat(time_in_combat)
-{}
+    name(std::move(name)), icon(std::move(icon)), time_in_combat(time_in_combat) {}
 
 void StatisticsProc::reset() {
     attempts = 0;

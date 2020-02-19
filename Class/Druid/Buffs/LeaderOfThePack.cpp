@@ -3,9 +3,8 @@
 #include "CharacterStats.h"
 #include "Druid.h"
 
-LeaderOfThePack::LeaderOfThePack(Druid* pchar):
-    PartyBuff(pchar, "Leader of the Pack", "Assets/spell/Spell_nature_unyeildingstamina.png", BuffDuration::PERMANENT, 0)
-{}
+LeaderOfThePack::LeaderOfThePack(Druid* pchar) :
+    PartyBuff(pchar, "Leader of the Pack", "Assets/spell/Spell_nature_unyeildingstamina.png", BuffDuration::PERMANENT, 0) {}
 
 void LeaderOfThePack::buff_effect_when_applied() {
     pchar->get_stats()->increase_melee_aura_crit(300);

@@ -1,7 +1,8 @@
 #include "Test.h"
 
-#include <QDebug>
 #include <cassert>
+
+#include <QDebug>
 
 #include "Character.h"
 #include "CharacterStats.h"
@@ -58,9 +59,7 @@
 #include "WarriorSpells.h"
 #include "Weapon.h"
 
-Test::Test() :
-    equipment_db(new EquipmentDb())
-{}
+Test::Test() : equipment_db(new EquipmentDb()) {}
 
 Test::~Test() {
     delete equipment_db;

@@ -4,7 +4,7 @@
 
 class Rogue;
 
-class TestEnergy: public TestSpell {
+class TestEnergy : public TestSpell {
 public:
     TestEnergy(EquipmentDb* equipment_db);
 

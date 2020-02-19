@@ -9,12 +9,11 @@
 #include "PaladinSpells.h"
 #include "Utils/Check.h"
 
-SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* paladin):
+SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* paladin) :
     SelfBuff(paladin, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
     ItemModificationRequirer({22401, 23203}),
-    paladin(paladin)
-{}
+    paladin(paladin) {}
 
 void SealOfTheCrusaderBuff::buff_effect_when_applied() {
     pchar->get_stats()->increase_melee_ap(static_cast<unsigned>(round((sotc_ap_base + libram_of_fervor_bonus) * improved_sotc_mod)));

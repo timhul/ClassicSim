@@ -4,9 +4,9 @@
 
 class MainhandAttackPaladin;
 
-class TestMainhandAttackPaladin: public TestSpellPaladin {
+class TestMainhandAttackPaladin : public TestSpellPaladin {
 public:
-    TestMainhandAttackPaladin(EquipmentDb *equipment_db);
+    TestMainhandAttackPaladin(EquipmentDb* equipment_db);
 
     void test_all();
 

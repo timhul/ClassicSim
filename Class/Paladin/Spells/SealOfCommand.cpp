@@ -11,15 +11,17 @@
 #include "Utils/Check.h"
 
 SealOfCommand::SealOfCommand(Paladin* paladin, PaladinSpells* paladin_spells) :
-    PaladinSeal("Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", paladin,
+    PaladinSeal("Seal of Command",
+                "Assets/ability/Ability_warrior_innerrage.png",
+                paladin,
                 RestrictedByGcd::Yes,
-                ResourceType::Mana, 65,
+                ResourceType::Mana,
+                65,
                 new NoEffectSelfBuff(paladin, 30, "Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", Hidden::No)),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal of Command", 1, DisabledAtZero::Yes),
-                                                new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Seal of Command", 1, DisabledAtZero::Yes),
+                                                 new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
     paladin_spells(paladin_spells),
-    proc(new SealOfCommandProc(paladin, this))
-{
+    proc(new SealOfCommandProc(paladin, this)) {
     this->random = new Random(base_min_dmg, base_max_dmg);
     enabled = false;
     seal->disable_buff();
@@ -36,15 +38,13 @@ SealOfCommand::~SealOfCommand() {
     delete random;
 }
 
-void SealOfCommand::refresh_seal() const {
-
-}
+void SealOfCommand::refresh_seal() const {}
 
 Proc* SealOfCommand::get_proc() const {
     return this->proc;
 }
 
-void SealOfCommand::signal_proc_in_progress()  {
+void SealOfCommand::signal_proc_in_progress() {
     check(!proc_in_progress, "SealOfCommand was signalled proc in progress while proc already in progress");
     proc_in_progress = true;
 }
@@ -73,9 +73,9 @@ void SealOfCommand::judge_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->melee_mh_yellow_critical_effect();
-        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), get_resource_cost(), 0, resist_roll);
-    }
-    else {
+        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), get_resource_cost(), 0,
+                           resist_roll);
+    } else {
         pchar->melee_mh_yellow_hit_effect();
         add_spell_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), get_resource_cost(), 0, resist_roll);
     }

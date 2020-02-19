@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class Murder: public Talent {
+class Murder : public Talent {
 public:
-    Murder(Character *pchar, TalentTree* tree);
+    Murder(Character* pchar, TalentTree* tree);
     ~Murder() override;
 
 private:

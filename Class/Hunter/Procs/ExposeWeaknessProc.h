@@ -5,7 +5,7 @@
 
 class ExposeWeaknessBuff;
 
-class ExposeWeaknessProc: public Proc, public SetBonusRequirer {
+class ExposeWeaknessProc : public Proc, public SetBonusRequirer {
 public:
     ExposeWeaknessProc(Character* pchar, ExposeWeaknessBuff* expose_weakness_buff);
     ~ExposeWeaknessProc() override;

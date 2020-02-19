@@ -5,7 +5,7 @@
 class MageSpells;
 class Mana;
 
-class Mage: public Character {
+class Mage : public Character {
 public:
     Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party = -1, const int member = -1);
     ~Mage() override;

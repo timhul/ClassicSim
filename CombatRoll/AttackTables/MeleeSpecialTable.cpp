@@ -5,16 +5,9 @@
 #include "Random.h"
 #include "Utils/Check.h"
 
-MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
-                                     const unsigned wpn_skill,
-                                     const unsigned miss,
-                                     const double dodge,
-                                     const double parry,
-                                     const double block):
-    wpn_skill(wpn_skill),
-    random(_rand),
-    miss_range(miss)
-{
+MeleeSpecialTable::MeleeSpecialTable(
+    Random* _rand, const unsigned wpn_skill, const unsigned miss, const double dodge, const double parry, const double block) :
+    wpn_skill(wpn_skill), random(_rand), miss_range(miss) {
     update_dodge_chance(dodge);
     update_parry_chance(parry);
     update_block_chance(block);

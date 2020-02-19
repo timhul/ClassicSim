@@ -3,11 +3,8 @@
 #include "Spell.h"
 #include "Utils/Check.h"
 
-ConditionSpell::ConditionSpell(Spell *spell, const Comparator comparator, const double cmp_value) :
-    Condition(comparator),
-    spell(spell),
-    cmp_value(cmp_value)
-{}
+ConditionSpell::ConditionSpell(Spell* spell, const Comparator comparator, const double cmp_value) :
+    Condition(comparator), spell(spell), cmp_value(cmp_value) {}
 
 bool ConditionSpell::condition_fulfilled() const {
     double cooldown = spell->get_cooldown_remaining();

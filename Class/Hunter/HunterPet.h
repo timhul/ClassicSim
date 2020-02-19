@@ -7,7 +7,7 @@ class Focus;
 class FrenzyProc;
 class Hunter;
 
-class HunterPet: public Pet, public ItemModificationRequirer {
+class HunterPet : public Pet, public ItemModificationRequirer {
 public:
     HunterPet(Hunter* pchar, const QString& name, double base_attack_speed, double base_dps);
     virtual ~HunterPet() override;

@@ -9,9 +9,7 @@
 #include "SpellRankGroup.h"
 #include "Talent.h"
 
-TestEviscerate::TestEviscerate(EquipmentDb *equipment_db) :
-    TestSpellRogue(equipment_db, "Eviscerate")
-{}
+TestEviscerate::TestEviscerate(EquipmentDb* equipment_db) : TestSpellRogue(equipment_db, "Eviscerate") {}
 
 void TestEviscerate::test_all() {
     run_mandatory_tests();

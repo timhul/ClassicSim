@@ -12,16 +12,18 @@
 #include "WarriorSpells.h"
 
 Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
-          pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes,
+    Spell("Slam",
+          "Assets/ability/Ability_warrior_decisivestrike.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
           ResourceType::Rage,
           15),
     CastingTimeRequirer(pchar, SuppressibleCast::No, 1500),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    talent_ranks({1500, 1400, 1300, 1200, 1100, 1000})
-{
+    talent_ranks({1500, 1400, 1300, 1200, 1100, 1000}) {
     casting_time_ms = talent_ranks[0];
 }
 
@@ -81,8 +83,7 @@ void Slam::complete_cast_effect() {
         damage_dealt *= warr->get_stats()->get_melee_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, double(casting_time_ms) / 1000);
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, double(casting_time_ms) / 1000);
     }

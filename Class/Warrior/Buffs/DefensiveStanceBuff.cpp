@@ -3,10 +3,8 @@
 #include "CharacterStats.h"
 #include "Warrior.h"
 
-DefensiveStanceBuff::DefensiveStanceBuff(Warrior* warrior):
-    SelfBuff(warrior, "Defensive Stance", NO_ICON, BuffDuration::PERMANENT, 1),
-    warrior(warrior)
-{
+DefensiveStanceBuff::DefensiveStanceBuff(Warrior* warrior) :
+    SelfBuff(warrior, "Defensive Stance", NO_ICON, BuffDuration::PERMANENT, 1), warrior(warrior) {
     this->hidden = true;
 }
 

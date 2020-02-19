@@ -8,7 +8,7 @@ class NoEffectSelfBuff;
 class Shaman;
 class WindfuryWeaponProc;
 
-class WindfuryWeapon: public Spell, public TalentRequirer {
+class WindfuryWeapon : public Spell, public TalentRequirer {
 public:
     WindfuryWeapon(Shaman* pchar, const int spell_rank);
     ~WindfuryWeapon() override;

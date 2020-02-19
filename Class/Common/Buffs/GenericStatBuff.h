@@ -1,18 +1,15 @@
 #pragma once
 
-#include "SelfBuff.h"
-
 #include <QVector>
 
-enum class ItemStats: int;
+#include "SelfBuff.h"
 
-class GenericStatBuff: public SelfBuff {
+enum class ItemStats : int;
+
+class GenericStatBuff : public SelfBuff {
 public:
-    GenericStatBuff(Character* pchar,
-                    const QString& name,
-                    const QString& icon,
-                    const int duration,
-                    const QVector<QPair<ItemStats, unsigned>>& stat_type_values);
+    GenericStatBuff(
+        Character* pchar, const QString& name, const QString& icon, const int duration, const QVector<QPair<ItemStats, unsigned>>& stat_type_values);
 
 private:
     const QVector<QPair<ItemStats, unsigned>> stat_type_values;

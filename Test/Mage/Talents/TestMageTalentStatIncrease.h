@@ -2,10 +2,10 @@
 
 #include "TestSpellMage.h"
 
-class TestMageTalentStatIncrease: public TestSpellMage {
+class TestMageTalentStatIncrease : public TestSpellMage {
 public:
 public:
-    TestMageTalentStatIncrease(EquipmentDb *equipment_db);
+    TestMageTalentStatIncrease(EquipmentDb* equipment_db);
 
     void test_all();
 

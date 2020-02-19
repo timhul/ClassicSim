@@ -5,10 +5,7 @@
 #include "Character.h"
 #include "CharacterTalents.h"
 
-TestTalentTree::TestTalentTree(EquipmentDb* equipment_db, QString tree_pos):
-    equipment_db(equipment_db),
-    tree_pos(std::move(tree_pos))
-{}
+TestTalentTree::TestTalentTree(EquipmentDb* equipment_db, QString tree_pos) : equipment_db(equipment_db), tree_pos(std::move(tree_pos)) {}
 
 void TestTalentTree::test_all() {
     run_mandatory_tests();
@@ -30,9 +27,7 @@ void TestTalentTree::run_mandatory_tests() {
     tear_down();
 }
 
-void TestTalentTree::run_extra_tests() {
-
-}
+void TestTalentTree::run_extra_tests() {}
 
 void TestTalentTree::clear_tree() {
     pchar->get_talents()->clear_tree(tree_pos);

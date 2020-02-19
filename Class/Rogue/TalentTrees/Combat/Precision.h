@@ -4,9 +4,9 @@
 
 class TalentTree;
 
-class Precision: public Talent {
+class Precision : public Talent {
 public:
-    Precision(Character *pchar, TalentTree* tree);
+    Precision(Character* pchar, TalentTree* tree);
     ~Precision() override;
 
 private:

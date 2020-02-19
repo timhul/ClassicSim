@@ -5,7 +5,7 @@
 class StatisticsResource;
 class Druid;
 
-class MainhandAttackDruid: public MainhandAttack {
+class MainhandAttackDruid : public MainhandAttack {
 public:
     MainhandAttackDruid(Druid* pchar);
 

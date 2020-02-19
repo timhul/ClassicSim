@@ -4,10 +4,8 @@
 #include "SortDirection.h"
 #include "StatisticsSpell.h"
 
-MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{
+MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {
     this->current_sorting_method = MeleeDamageBreakdownSorting::Methods::ByTotalDamageAbsolute;
     this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByTotalDamageAbsolute, SortDirection::Forward);
     this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByName, SortDirection::Forward);
@@ -26,7 +24,7 @@ MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_
 }
 
 MeleeDamageBreakdownModel::~MeleeDamageBreakdownModel() {
-    for (const auto & i : spell_stats)
+    for (const auto& i : spell_stats)
         delete i;
 }
 
@@ -117,11 +115,10 @@ void MeleeDamageBreakdownModel::select_new_method(const MeleeDamageBreakdownSort
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(spell_stats.begin(), spell_stats.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -137,7 +134,7 @@ void MeleeDamageBreakdownModel::update_statistics() {
     if (!spell_stats.empty()) {
         beginResetModel();
 
-        for (const auto & i : spell_stats)
+        for (const auto& i : spell_stats)
             delete i;
 
         spell_stats.clear();
@@ -153,8 +150,7 @@ void MeleeDamageBreakdownModel::update_statistics() {
         if ((*it)->get_total_dmg_dealt() == 0) {
             delete *it;
             it = spell_stats.erase(it);
-        }
-        else
+        } else
             ++it;
     }
 
@@ -165,12 +161,12 @@ void MeleeDamageBreakdownModel::update_statistics() {
     layoutChanged();
 }
 
-int MeleeDamageBreakdownModel::rowCount(const QModelIndex & parent) const {
+int MeleeDamageBreakdownModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return spell_stats.count();
 }
 
-QVariant MeleeDamageBreakdownModel::data(const QModelIndex & index, int role) const {
+QVariant MeleeDamageBreakdownModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= spell_stats.count())
         return QVariant();
 

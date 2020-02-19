@@ -11,9 +11,7 @@
 #include "Slam.h"
 #include "Talent.h"
 
-TestSlam::TestSlam(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Slam")
-{}
+TestSlam::TestSlam(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Slam") {}
 
 void TestSlam::test_all() {
     run_mandatory_tests();

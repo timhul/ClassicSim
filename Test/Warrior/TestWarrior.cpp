@@ -33,9 +33,7 @@
 #include "TestWhirlwind.h"
 #include "Warrior.h"
 
-TestWarrior::TestWarrior(EquipmentDb* equipment_db):
-    TestObject(equipment_db)
-{}
+TestWarrior::TestWarrior(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
 void TestWarrior::test_all() {
     test_values_after_initialization();

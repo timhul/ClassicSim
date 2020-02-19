@@ -2,9 +2,9 @@
 
 #include "TestSpellShaman.h"
 
-class TestStormstrike: public TestSpellShaman {
+class TestStormstrike : public TestSpellShaman {
 public:
-    TestStormstrike(EquipmentDb *equipment_db);
+    TestStormstrike(EquipmentDb* equipment_db);
 
     void test_all();
 

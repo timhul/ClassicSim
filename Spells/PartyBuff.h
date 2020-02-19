@@ -2,7 +2,7 @@
 
 #include "Buff.h"
 
-class PartyBuff: public Buff {
+class PartyBuff : public Buff {
 public:
     PartyBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
 
@@ -20,4 +20,3 @@ private:
     bool apply_buff_to_target() override final;
     void remove_buff_from_target() override final;
 };
-

@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class ZandalarianHeroCharm: public SelfBuff {
+class ZandalarianHeroCharm : public SelfBuff {
 public:
     ZandalarianHeroCharm(Character* pchar);
 

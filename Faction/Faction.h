@@ -1,12 +1,11 @@
 #pragma once
 
-#include <QVector>
 #include <QString>
+#include <QVector>
 
 #include "AvailableFactions.h"
 
 class Race;
-
 
 class Faction {
 public:

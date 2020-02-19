@@ -4,9 +4,9 @@
 
 class SliceAndDice;
 
-class TestSliceAndDice: public TestSpellRogue {
+class TestSliceAndDice : public TestSpellRogue {
 public:
-    TestSliceAndDice(EquipmentDb *equipment_db);
+    TestSliceAndDice(EquipmentDb* equipment_db);
 
     void test_all();
 

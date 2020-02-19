@@ -5,15 +5,11 @@
 #include "Hunter.h"
 #include "Utils/Check.h"
 
-HunterPet::HunterPet(Hunter* pchar,
-                     const QString& name,
-                     double base_attack_speed,
-                     double base_dps):
+HunterPet::HunterPet(Hunter* pchar, const QString& name, double base_attack_speed, double base_dps) :
     Pet(pchar, name, base_attack_speed, base_dps),
     ItemModificationRequirer({22015, 22061}),
     focus(new class Focus(pchar)),
-    frenzy_proc(new FrenzyProc(pchar, this))
-{
+    frenzy_proc(new FrenzyProc(pchar, this)) {
     resource = focus;
 }
 

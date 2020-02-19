@@ -4,7 +4,7 @@
 
 class Druid;
 
-class MoonkinFormBuff: public PartyBuff {
+class MoonkinFormBuff : public PartyBuff {
 public:
     MoonkinFormBuff(Druid* pchar);
 

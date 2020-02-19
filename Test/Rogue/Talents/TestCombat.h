@@ -2,7 +2,7 @@
 
 #include "TestTalentTree.h"
 
-class TestCombat: public TestTalentTree {
+class TestCombat : public TestTalentTree {
 public:
     TestCombat(EquipmentDb* equipment_db);
 

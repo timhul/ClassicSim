@@ -1,13 +1,13 @@
 #pragma once
 
+#include <QVector>
+
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
 
-#include <QVector>
-
 class Paladin;
 
-class Vengeance: public SelfBuff, public TalentRequirer {
+class Vengeance : public SelfBuff, public TalentRequirer {
 public:
     Vengeance(Paladin* paladin);
     ~Vengeance() override = default;

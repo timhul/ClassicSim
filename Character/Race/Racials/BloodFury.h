@@ -4,7 +4,7 @@
 
 class BloodFuryBuff;
 
-class BloodFury: public Spell {
+class BloodFury : public Spell {
 public:
     BloodFury(Character* pchar);
     ~BloodFury() override;

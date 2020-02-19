@@ -8,32 +8,27 @@
 #include "Stats.h"
 #include "Utils/Check.h"
 
-Target::Target(const unsigned target_lvl):
+Target::Target(const unsigned target_lvl) :
     target_lvl(target_lvl),
     base_armor(Mechanics::get_boss_base_armor()),
     target_type(CreatureType::Dragonkin),
     stats(new Stats()),
-    string_to_creature_type({
-                              {"Beast", CreatureType::Beast},
-                              {"Demon", CreatureType::Demon},
-                              {"Dragonkin", CreatureType::Dragonkin},
-                              {"Elemental", CreatureType::Elemental},
-                              {"Giant", CreatureType::Giant},
-                              {"Humanoid", CreatureType::Humanoid},
-                              {"Mechanical", CreatureType::Mechanical},
-                              {"Undead", CreatureType::Undead}
-                            }),
-    creature_type_strings({
-                              {CreatureType::Beast, "Beast"},
-                              {CreatureType::Demon, "Demon"},
-                              {CreatureType::Dragonkin, "Dragonkin"},
-                              {CreatureType::Elemental, "Elemental"},
-                              {CreatureType::Giant, "Giant"},
-                              {CreatureType::Humanoid, "Humanoid"},
-                              {CreatureType::Mechanical, "Mechanical"},
-                              {CreatureType::Undead, "Undead"}
-                          })
-{
+    string_to_creature_type({{"Beast", CreatureType::Beast},
+                             {"Demon", CreatureType::Demon},
+                             {"Dragonkin", CreatureType::Dragonkin},
+                             {"Elemental", CreatureType::Elemental},
+                             {"Giant", CreatureType::Giant},
+                             {"Humanoid", CreatureType::Humanoid},
+                             {"Mechanical", CreatureType::Mechanical},
+                             {"Undead", CreatureType::Undead}}),
+    creature_type_strings({{CreatureType::Beast, "Beast"},
+                           {CreatureType::Demon, "Demon"},
+                           {CreatureType::Dragonkin, "Dragonkin"},
+                           {CreatureType::Elemental, "Elemental"},
+                           {CreatureType::Giant, "Giant"},
+                           {CreatureType::Humanoid, "Humanoid"},
+                           {CreatureType::Mechanical, "Mechanical"},
+                           {CreatureType::Undead, "Undead"}}) {
     stats->increase_armor(base_armor);
 
     this->magic_school_damage_changes.insert(MagicSchool::Arcane, {});
@@ -131,7 +126,7 @@ double Target::get_magic_school_damage_mod(const MagicSchool school, const Consu
     const double mod = magic_school_damage_modifiers[school];
 
     if (consume_charge == ConsumeCharge::Yes) {
-        for (auto & buff : magic_school_modifier_buffs_with_charges[school])
+        for (auto& buff : magic_school_modifier_buffs_with_charges[school])
             buff->use_charge();
     }
 
@@ -150,7 +145,7 @@ unsigned Target::get_spell_damage(const MagicSchool school, const ConsumeCharge 
     const unsigned bonus = stats->get_spell_damage(school);
 
     if (consume_charge == ConsumeCharge::Yes) {
-        for (auto & buff : damage_bonus_buffs_with_charges_for_all_magic_schools)
+        for (auto& buff : damage_bonus_buffs_with_charges_for_all_magic_schools)
             buff->use_charge();
     }
 
@@ -175,8 +170,7 @@ void Target::set_creature_type(const QString& target) {
 }
 
 bool Target::add_debuff(Buff* debuff, const Priority priority) {
-    check((priority != Priority::Invalid),
-          QString("Debuff %1 has invalid priority %2").arg(debuff->name).toStdString());
+    check((priority != Priority::Invalid), QString("Debuff %1 has invalid priority %2").arg(debuff->name).toStdString());
 
     if (size_debuffs == debuff_limit) {
         if (!remove_oldest_lowest_priority_debuff(static_cast<int>(priority)))
@@ -214,7 +208,7 @@ bool Target::remove_buff_if_exists(QVector<Buff*>& vector, const int instance_id
 }
 
 void Target::remove_debuff(Buff* debuff) {
-    for (auto & priority_buffs: debuffs) {
+    for (auto& priority_buffs : debuffs) {
         if (!remove_buff_if_exists(priority_buffs, debuff->get_instance_id()))
             continue;
 
@@ -224,10 +218,10 @@ void Target::remove_debuff(Buff* debuff) {
 }
 
 void Target::check_clean() {
-    for (const auto & priority_debuffs : debuffs)
+    for (const auto& priority_debuffs : debuffs)
         check(priority_debuffs.empty(), "Target debuffs not properly cleared");
 
-    for (const auto & buffs : magic_school_modifier_buffs_with_charges)
+    for (const auto& buffs : magic_school_modifier_buffs_with_charges)
         check(buffs.empty(), "Magic school modifier buffs not properly cleared");
 
     check(damage_bonus_buffs_with_charges_for_all_magic_schools.empty(), "Damage bonus buffs with charges not properly cleared");

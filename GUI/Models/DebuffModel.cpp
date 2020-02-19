@@ -6,11 +6,7 @@
 #include "Faction.h"
 #include "GeneralBuffs.h"
 
-DebuffModel::DebuffModel(const Content::Phase phase, QObject* parent)
-    : QAbstractListModel(parent),
-      pchar(nullptr),
-      phase(phase)
-{}
+DebuffModel::DebuffModel(const Content::Phase phase, QObject* parent) : QAbstractListModel(parent), pchar(nullptr), phase(phase) {}
 
 void DebuffModel::set_character(Character* pchar) {
     this->last_toggled = -1;
@@ -83,8 +79,7 @@ void DebuffModel::select_range_of_debuffs(const QString& name) {
             if (!general_buffs->debuff_active(buffs[i]->name))
                 general_buffs->toggle_external_debuff(buffs[i]->name);
         }
-    }
-    else {
+    } else {
         for (int i = last_toggled; i >= target_index; --i) {
             if (!general_buffs->debuff_active(buffs[i]->name))
                 general_buffs->toggle_external_debuff(buffs[i]->name);
@@ -110,12 +105,12 @@ void DebuffModel::update_debuffs() {
     }
 }
 
-int DebuffModel::rowCount(const QModelIndex & parent) const {
+int DebuffModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent)
     return external_debuffs.count();
 }
 
-QVariant DebuffModel::data(const QModelIndex & index, int role) const {
+QVariant DebuffModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= external_debuffs.count())
         return QVariant();
 

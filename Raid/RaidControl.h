@@ -16,7 +16,7 @@ class Target;
 namespace InstanceID {
     static const int INACTIVE = -1;
     static const int INITIAL_ID = 0;
-}
+} // namespace InstanceID
 
 class RaidControl {
 public:

@@ -9,15 +9,9 @@
 #include "Utils/Check.h"
 
 Ignite::Ignite(Mage* pchar, IgniteBuff* ignite_buff) :
-    SpellPeriodic("Ignite", "Assets/spell/Spell_fire_incinerate.png", pchar,
-                  ignite_buff,
-                  RestrictedByGcd::No,
-                  ResourceType::Mana,
-                  1.0,
-                  0),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Ignite", 5, DisabledAtZero::Yes)}),
-    ignite_buff(ignite_buff)
-{
+    SpellPeriodic("Ignite", "Assets/spell/Spell_fire_incinerate.png", pchar, ignite_buff, RestrictedByGcd::No, ResourceType::Mana, 1.0, 0),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Ignite", 5, DisabledAtZero::Yes)}),
+    ignite_buff(ignite_buff) {
     enabled = false;
 }
 
@@ -45,9 +39,7 @@ void Ignite::tick_effect() {
     add_next_tick();
 }
 
-void Ignite::reset_effect() {
-
-}
+void Ignite::reset_effect() {}
 
 bool Ignite::is_current_owner() const {
     return pchar->instance_id == ignite_buff->get_current_owner();
@@ -57,13 +49,9 @@ bool Ignite::check_application_success() {
     return true;
 }
 
-void Ignite::new_application_effect() {
+void Ignite::new_application_effect() {}
 
-}
-
-void Ignite::refresh_effect() {
-
-}
+void Ignite::refresh_effect() {}
 
 void Ignite::increase_talent_rank_effect(const QString&, const int curr) {
     ignite_percentage = ignite_ranks[curr];

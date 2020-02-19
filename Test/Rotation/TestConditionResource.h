@@ -13,7 +13,7 @@ class Rogue;
 class SimSettings;
 class Warrior;
 
-enum class ResourceType: int;
+enum class ResourceType : int;
 
 class TestConditionResource : TestObject {
 public:

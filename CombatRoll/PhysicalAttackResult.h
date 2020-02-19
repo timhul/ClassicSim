@@ -9,4 +9,4 @@ namespace PhysicalAttackResult {
     static const int BLOCK_CRITICAL = 5;
     static const int CRITICAL = 6;
     static const int HIT = 7;
-}
+} // namespace PhysicalAttackResult

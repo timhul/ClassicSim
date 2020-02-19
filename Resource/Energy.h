@@ -4,7 +4,7 @@
 
 class Character;
 
-class Energy: public RegeneratingResource {
+class Energy : public RegeneratingResource {
 public:
     Energy(Character*);
 

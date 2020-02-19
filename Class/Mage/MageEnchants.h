@@ -4,7 +4,7 @@
 
 class Mage;
 
-class MageEnchants: public CharacterEnchants {
+class MageEnchants : public CharacterEnchants {
 public:
     MageEnchants(Mage* mage);
 

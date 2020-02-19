@@ -7,7 +7,7 @@
 
 class Rogue;
 
-class SinisterStrike: public Spell, public TalentRequirer, public SetBonusRequirer {
+class SinisterStrike : public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     SinisterStrike(Rogue* rogue);
     ~SinisterStrike() override;

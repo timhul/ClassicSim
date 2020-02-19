@@ -6,7 +6,7 @@ class Hunter;
 class HunterSpells;
 class Talent;
 
-class Marksmanship: public TalentTree {
+class Marksmanship : public TalentTree {
 public:
     Marksmanship(Hunter* pchar);
 

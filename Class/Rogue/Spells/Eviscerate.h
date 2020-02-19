@@ -9,7 +9,7 @@
 class Random;
 class Rogue;
 
-class Eviscerate: public Spell, public TalentRequirer, public SetBonusRequirer {
+class Eviscerate : public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     Eviscerate(Rogue* rogue);
     ~Eviscerate() override;

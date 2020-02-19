@@ -25,10 +25,8 @@ bool confidence_interval(ScaleResult* lhs, ScaleResult* rhs) {
     return lhs->confidence_interval > rhs->confidence_interval;
 }
 
-ScaleResultModel::ScaleResultModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source)
-{
+ScaleResultModel::ScaleResultModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source) {
     this->current_sorting_method = ScaleResultSorting::Methods::ByAbsoluteValue;
     this->sorting_methods.insert(ScaleResultSorting::Methods::ByName, SortDirection::Forward);
     this->sorting_methods.insert(ScaleResultSorting::Methods::ByAbsoluteValue, SortDirection::Forward);
@@ -36,7 +34,7 @@ ScaleResultModel::ScaleResultModel(NumberCruncher *statistics_source, QObject *p
 }
 
 ScaleResultModel::~ScaleResultModel() {
-    for (const auto & i : scale_results)
+    for (const auto& i : scale_results)
         delete i;
 }
 
@@ -74,11 +72,10 @@ void ScaleResultModel::select_new_method(const ScaleResultSorting::Methods new_m
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(scale_results.begin(), scale_results.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -94,7 +91,7 @@ void ScaleResultModel::update_statistics() {
     if (!scale_results.empty()) {
         beginResetModel();
 
-        for (const auto & i : scale_results)
+        for (const auto& i : scale_results)
             delete i;
 
         scale_results.clear();
@@ -110,12 +107,12 @@ void ScaleResultModel::update_statistics() {
     layoutChanged();
 }
 
-int ScaleResultModel::rowCount(const QModelIndex & parent) const {
+int ScaleResultModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return scale_results.count();
 }
 
-QVariant ScaleResultModel::data(const QModelIndex & index, int role) const {
+QVariant ScaleResultModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= scale_results.count())
         return QVariant();
 
@@ -142,7 +139,6 @@ QHash<int, QByteArray> ScaleResultModel::roleNames() const {
     roles[ScaleResultSorting::ByRelativeValue] = "_relvalue";
     roles[ScaleResultSorting::ByStandardDeviation] = "_standarddev";
     roles[ScaleResultSorting::ByConfidenceInterval] = "_confidenceinterval";
-
 
     return roles;
 }

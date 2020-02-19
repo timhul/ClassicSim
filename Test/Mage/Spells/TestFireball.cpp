@@ -7,9 +7,7 @@
 #include "Fireball.h"
 #include "Mage.h"
 
-TestFireball::TestFireball(EquipmentDb* equipment_db) :
-    TestSpellMage(equipment_db, "Fireball")
-{}
+TestFireball::TestFireball(EquipmentDb* equipment_db) : TestSpellMage(equipment_db, "Fireball") {}
 
 void TestFireball::test_all() {
     run_mandatory_tests();
@@ -95,9 +93,7 @@ void TestFireball::test_whether_spell_causes_global_cooldown() {
     assert(!mage->action_ready());
 }
 
-void TestFireball::test_how_spell_observes_global_cooldown() {
-
-}
+void TestFireball::test_how_spell_observes_global_cooldown() {}
 
 void TestFireball::test_is_ready_conditions() {
     assert(fireball()->get_spell_status() == SpellStatus::Available);

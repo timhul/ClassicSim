@@ -4,9 +4,14 @@
 #include "Warrior.h"
 
 BattleStance::BattleStance(Warrior* warrior) :
-    Spell("Battle Stance", "Assets/ability/Ability_warrior_offensivestance.png", warrior, new CooldownControl(warrior, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 0),
-    warrior(warrior)
-{}
+    Spell("Battle Stance",
+          "Assets/ability/Ability_warrior_offensivestance.png",
+          warrior,
+          new CooldownControl(warrior, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Rage,
+          0),
+    warrior(warrior) {}
 
 BattleStance::~BattleStance() {
     delete cooldown;

@@ -11,19 +11,22 @@ class Stats;
 
 enum class Priority : int;
 
-enum class ConsumedWhen : int {
+enum class ConsumedWhen : int
+{
     OnSpellDamageFlat,
     OnSpellDamageMod,
 };
 
-enum class ConsumeCharge : bool {
+enum class ConsumeCharge : bool
+{
     Yes = true,
     No = false,
 };
 
 class Target {
 public:
-    enum CreatureType {
+    enum CreatureType
+    {
         Beast = 0,
         Demon,
         Dragonkin,

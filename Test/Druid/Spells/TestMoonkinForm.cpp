@@ -9,9 +9,7 @@
 #include "MoonkinForm.h"
 #include "RaidControl.h"
 
-TestMoonkinForm::TestMoonkinForm(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Moonkin Form")
-{}
+TestMoonkinForm::TestMoonkinForm(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Moonkin Form") {}
 
 void TestMoonkinForm::test_all() {
     run_mandatory_tests();
@@ -42,9 +40,7 @@ void TestMoonkinForm::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestMoonkinForm::test_how_spell_observes_global_cooldown() {
-
-}
+void TestMoonkinForm::test_how_spell_observes_global_cooldown() {}
 
 void TestMoonkinForm::test_is_ready_conditions() {
     given_balance_talent_rank("Moonkin Form", 1);

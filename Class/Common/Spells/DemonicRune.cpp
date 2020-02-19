@@ -8,8 +8,7 @@
 
 DemonicRune::DemonicRune(Character* pchar) :
     Spell("Demonic Rune", "Assets/misc/Inv_misc_rune_04.png", pchar, new CooldownControl(pchar, 120.0), RestrictedByGcd::No, ResourceType::Mana, 0),
-    random(new Random(min, max))
-{}
+    random(new Random(min, max)) {}
 
 DemonicRune::~DemonicRune() {
     delete random;

@@ -6,9 +6,14 @@
 #include "Race.h"
 
 Berserking::Berserking(Character* pchar_, const ResourceType resource_type_, const unsigned resource_cost_) :
-    Spell("Berserking", "Assets/races/Racial_troll_berserk.png", pchar_, new CooldownControl(pchar_, 180.0), RestrictedByGcd::Yes, resource_type_, resource_cost_),
-    buff(new BerserkingBuff(pchar_))
-{
+    Spell("Berserking",
+          "Assets/races/Racial_troll_berserk.png",
+          pchar_,
+          new CooldownControl(pchar_, 180.0),
+          RestrictedByGcd::Yes,
+          resource_type_,
+          resource_cost_),
+    buff(new BerserkingBuff(pchar_)) {
     this->enabled = false;
 }
 

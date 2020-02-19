@@ -5,11 +5,8 @@
 #include "SortDirection.h"
 #include "StatisticsEngine.h"
 
-EngineBreakdownModel::EngineBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
-    : QAbstractListModel(parent),
-      statistics_source(statistics_source),
-      engine_stats(new StatisticsEngine())
-{
+EngineBreakdownModel::EngineBreakdownModel(NumberCruncher* statistics_source, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source), engine_stats(new StatisticsEngine()) {
     this->current_sorting_method = EngineBreakdownSorting::Methods::ByPercentage;
     this->sorting_methods.insert(EngineBreakdownSorting::Methods::ByEvent, SortDirection::Forward);
     this->sorting_methods.insert(EngineBreakdownSorting::Methods::ByPercentage, SortDirection::Forward);
@@ -45,11 +42,10 @@ void EngineBreakdownModel::select_new_method(const EngineBreakdownSorting::Metho
     if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(event_statistics.begin(), event_statistics.end());
 
-    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
-                SortDirection::Reverse: SortDirection::Forward;
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ? SortDirection::Reverse : SortDirection::Forward;
     current_sorting_method = new_method;
 
-    for (auto & direction : sorting_methods)
+    for (auto& direction : sorting_methods)
         direction = SortDirection::Forward;
 
     sorting_methods[current_sorting_method] = next_sort_direction;
@@ -76,7 +72,7 @@ void EngineBreakdownModel::update_statistics() {
 
     event_statistics = engine_stats->get_list_of_event_pairs();
     total_events = 0;
-    for (const auto & event_pair : event_statistics)
+    for (const auto& event_pair : event_statistics)
         total_events += event_pair.second;
 
     time_in_combat = static_cast<unsigned>(statistics_source->time_in_combat);
@@ -90,12 +86,12 @@ double EngineBreakdownModel::events_handled_per_second() const {
     return static_cast<double>(total_events) / engine_stats->get_elapsed() * 1000;
 }
 
-int EngineBreakdownModel::rowCount(const QModelIndex & parent) const {
+int EngineBreakdownModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return event_statistics.count();
 }
 
-QVariant EngineBreakdownModel::data(const QModelIndex & index, int role) const {
+QVariant EngineBreakdownModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= event_statistics.count())
         return QVariant();
 
@@ -104,7 +100,7 @@ QVariant EngineBreakdownModel::data(const QModelIndex & index, int role) const {
     if (role == EngineBreakdownSorting::ByEvent)
         return Event::get_name_for_event_type(event_to_num_handled.first);
     if (role == EngineBreakdownSorting::ByPercentage)
-        return QString::number(static_cast<double>(event_to_num_handled.second) / total_events  * 100, 'f', 2);
+        return QString::number(static_cast<double>(event_to_num_handled.second) / total_events * 100, 'f', 2);
     if (role == EngineBreakdownSorting::ByTotal)
         return event_to_num_handled.second;
     if (role == EngineBreakdownSorting::ByHandledPerMin)

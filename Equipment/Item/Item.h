@@ -22,7 +22,7 @@ class Stats;
 
 int get_slot_int(const QString& slot_string);
 
-class Item: public PhaseRequirer {
+class Item : public PhaseRequirer {
 public:
     Item(QString name,
          const int item_id,
@@ -34,8 +34,7 @@ public:
          QVector<QString> item_modifications = {},
          QVector<QString> special_equip_effects = {},
          QSet<int> mutex_item_ids = {},
-         QVector<int> random_affixes = {}
-            );
+         QVector<int> random_affixes = {});
     Item(const Item* item);
     virtual ~Item();
 
@@ -56,12 +55,12 @@ public:
 
     const Stats* get_stats() const;
     void set_stat(const QString& key, const QString& value);
-    void set_stats(const QVector<QPair<QString, QString>> &stats);
+    void set_stats(const QVector<QPair<QString, QString>>& stats);
 
     unsigned get_stat_value_via_flag(const ItemStats) const;
 
     bool has_enchant() const;
-    void apply_enchant(EnchantName::Name enchant_name, Character *pchar);
+    void apply_enchant(EnchantName::Name enchant_name, Character* pchar);
     void clear_enchant();
     QString get_enchant_effect() const;
     EnchantName::Name get_enchant_enum_value() const;

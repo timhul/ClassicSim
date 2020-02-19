@@ -11,22 +11,15 @@
 #include "Utils/Check.h"
 
 AimedShot::AimedShot(Hunter* hunter, CooldownControl* cooldown_control) :
-    Spell("Aimed Shot",
-          "Assets/items/Inv_spear_07.png",
-          hunter,
-          cooldown_control,
-          RestrictedByGcd::Yes,
-          ResourceType::Mana,
-          310),
+    Spell("Aimed Shot", "Assets/items/Inv_spear_07.png", hunter, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 310),
     CastingTimeRequirer(hunter, SuppressibleCast::No, 3000),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
-                                                new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
+                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Cryptstalker Armor"}),
     hunter(hunter),
     efficiency_ranks({1.0, 0.98, 0.96, 0.94, 0.92, 0.90}),
-    mortal_shots_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
-{
+    mortal_shots_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30}) {
     this->enabled = false;
     resource_base = resource_cost;
     casting_time_ms = 3000;

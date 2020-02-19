@@ -4,7 +4,7 @@
 
 #include "Projectile.h"
 
-void ProjectileFileReader::file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
+void ProjectileFileReader::file_handler(QXmlStreamReader& reader, QVector<Item*>& items) {
     while (reader.readNextStartElement()) {
         if (reader.name() == "projectile") {
             QString classification = reader.name().toString();
@@ -26,44 +26,39 @@ void ProjectileFileReader::file_handler(QXmlStreamReader &reader, QVector<Item*>
                 if (reader.name() == "info") {
                     info_element_reader(reader.attributes(), item_map);
                     reader.skipCurrentElement();
-                }
-                else if (reader.name() == "dps") {
+                } else if (reader.name() == "dps") {
                     dps_element_reader(reader.attributes(), item_map);
                     reader.skipCurrentElement();
-                }
-                else if (reader.name() == "source") {
+                } else if (reader.name() == "source") {
                     item_map["source"] = reader.readElementText().trimmed();
-                }
-                else if (reader.name() == "mutex") {
+                } else if (reader.name() == "mutex") {
                     mutex_element_reader(reader.attributes(), mutex_item_ids);
                     reader.skipCurrentElement();
-                }
-                else
+                } else
                     reader.skipCurrentElement();
             }
 
             create_projectile(items, item_map, mutex_item_ids);
             item_map.remove("classification");
             warn_remaining_keys(item_map);
-        }
-        else {
+        } else {
             qDebug() << "Skipping element" << reader.name();
             reader.skipCurrentElement();
         }
     }
 }
 
-void ProjectileFileReader::dps_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
+void ProjectileFileReader::dps_element_reader(const QXmlStreamAttributes& attrs, QMap<QString, QString>& item) {
     QVector<QString> mandatory_attrs = {"value"};
 
-    for (const auto & mandatory_attr : mandatory_attrs)
+    for (const auto& mandatory_attr : mandatory_attrs)
         add_mandatory_attr(attrs, mandatory_attr, item);
 }
 
-void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString, QString>& item_map, QSet<int>& mutex_item_ids) {
+void ProjectileFileReader::create_projectile(QVector<Item*>& items, QMap<QString, QString>& item_map, QSet<int>& mutex_item_ids) {
     bool missing_attrs = false;
 
-    for (const auto & attr : {"value"}) {
+    for (const auto& attr : {"value"}) {
         if (!item_map.contains(attr)) {
             qDebug() << "Missing mandatory projectile attribute" << attr;
             missing_attrs = true;
@@ -77,11 +72,11 @@ void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString
     extract_info(item_map, info);
 
     Projectile* projectile = new Projectile(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),
-            get_projectile_type(info["type"]), item_map["value"].toDouble(), info, {}, {}, mutex_item_ids);
+                                            get_projectile_type(info["type"]), item_map["value"].toDouble(), info, {}, {}, mutex_item_ids);
 
     items.append(projectile);
 
-    for (const auto & handled_key : {"value"})
+    for (const auto& handled_key : {"value"})
         item_map.remove(handled_key);
 }
 

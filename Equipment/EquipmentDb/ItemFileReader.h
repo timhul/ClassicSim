@@ -1,32 +1,32 @@
 #pragma once
 
-#include <QObject>
 #include <QFile>
+#include <QObject>
 #include <QXmlStreamReader>
 
 class Item;
 
-class ItemFileReader: public QObject {
+class ItemFileReader : public QObject {
 public:
     ItemFileReader(QObject* parent = nullptr);
 
-    void read_items(QVector<Item *>& items, const QString& path);
+    void read_items(QVector<Item*>& items, const QString& path);
 
 protected:
-    void item_file_handler(QXmlStreamReader &reader, QVector<Item*>& items);
+    void item_file_handler(QXmlStreamReader& reader, QVector<Item*>& items);
 
     // Element readers
-    void info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString>& item);
-    void class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString>& item);
-    void stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>>& stats);
-    void proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& procs);
-    void use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& uses);
-    void modifies_element_reader(QXmlStreamReader &reader, QVector<QString>& spell_modifications);
-    void mutex_element_reader(const QXmlStreamAttributes &attrs, QSet<int>& mutex_item_ids);
-    void random_affixes_element_reader(QXmlStreamReader &reader, QVector<int> &random_affixes);
+    void info_element_reader(const QXmlStreamAttributes& attrs, QMap<QString, QString>& item);
+    void class_restriction_element_reader(const QXmlStreamAttributes& attrs, QMap<QString, QString>& item);
+    void stats_element_reader(QXmlStreamReader& reader, QVector<QPair<QString, QString>>& stats);
+    void proc_element_reader(QXmlStreamReader& reader, QVector<QMap<QString, QString>>& procs);
+    void use_element_reader(QXmlStreamReader& reader, QVector<QMap<QString, QString>>& uses);
+    void modifies_element_reader(QXmlStreamReader& reader, QVector<QString>& spell_modifications);
+    void mutex_element_reader(const QXmlStreamAttributes& attrs, QSet<int>& mutex_item_ids);
+    void random_affixes_element_reader(QXmlStreamReader& reader, QVector<int>& random_affixes);
 
-    void add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item);
-    void add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item);
+    void add_mandatory_attr(const QXmlStreamAttributes& attrs, const QString& attr, QMap<QString, QString>& item);
+    void add_attr(const QXmlStreamAttributes& attrs, const QString& attr, QMap<QString, QString>& item);
 
     void create_item(QVector<Item*>& items,
                      QMap<QString, QString>& item_map,

@@ -7,12 +7,17 @@
 #include "NoEffectSelfBuff.h"
 
 BearForm::BearForm(Druid* druid) :
-    Spell("Bear Form", "Assets/ability/Ability_racial_bearform.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
+    Spell("Bear Form",
+          "Assets/ability/Ability_racial_bearform.png",
+          druid,
+          new CooldownControl(druid, 0.0),
+          RestrictedByGcd::No,
+          ResourceType::Mana,
+          100),
     TalentRequirer({new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
     druid(druid),
     buff(new NoEffectSelfBuff(druid, BuffDuration::PERMANENT, "Bear Form", icon, Hidden::No)),
-    base_resource_cost(resource_cost)
-{
+    base_resource_cost(resource_cost) {
     buff->enable_buff();
 }
 

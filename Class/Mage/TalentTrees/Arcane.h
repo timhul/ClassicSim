@@ -5,7 +5,7 @@
 class Mage;
 class MageSpells;
 
-class Arcane: public TalentTree {
+class Arcane : public TalentTree {
 public:
     Arcane(Mage* mage);
 

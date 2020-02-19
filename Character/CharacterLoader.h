@@ -15,7 +15,8 @@ class Target;
 
 class CharacterLoader {
 public:
-    CharacterLoader(EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, RaidControl* raid_control, CharacterDecoder &decoder);
+    CharacterLoader(
+        EquipmentDb* equipment_db, RandomAffixes* random_affixes, SimSettings* sim_settings, RaidControl* raid_control, CharacterDecoder& decoder);
     ~CharacterLoader();
 
     Character* initialize_new();
@@ -44,7 +45,7 @@ private:
     Character* setup_pchar(CharacterDecoder& decoder);
     void equip_gear(CharacterDecoder& decoder, Character* pchar);
     void invest_talent_points(CharacterDecoder& decoder, Character* pchar);
-    void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position, Character* pchar);
+    void add_points_to_talent_tree(CharacterDecoder& decoder, const QString& tree_position, Character* pchar);
     void apply_external_buffs(CharacterDecoder& decoder, Character* pchar);
     void apply_external_debuffs(CharacterDecoder& decoder, Character* pchar);
     void apply_enchants(CharacterDecoder& decoder, Character* pchar);

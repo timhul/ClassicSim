@@ -7,9 +7,7 @@
 #include "SimSettings.h"
 #include "Troll.h"
 
-TestArcane::TestArcane(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "LEFT")
-{}
+TestArcane::TestArcane(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "LEFT") {}
 
 void TestArcane::set_up() {
     race = new Troll();

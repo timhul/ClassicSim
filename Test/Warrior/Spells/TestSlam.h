@@ -2,9 +2,9 @@
 
 #include "TestSpellWarrior.h"
 
-class TestSlam: public TestSpellWarrior {
+class TestSlam : public TestSpellWarrior {
 public:
-    TestSlam(EquipmentDb *equipment_db);
+    TestSlam(EquipmentDb* equipment_db);
 
     void test_all();
 

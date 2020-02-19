@@ -3,7 +3,7 @@
 #include "Spell.h"
 #include "TalentRequirer.h"
 
-class OffhandAttack: public Spell {
+class OffhandAttack : public Spell {
 public:
     OffhandAttack(Character* pchar);
     ~OffhandAttack() override;

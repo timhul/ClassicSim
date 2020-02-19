@@ -7,9 +7,9 @@ class ClearcastingShaman;
 class Proc;
 class Shaman;
 
-class ShamanSpells: public CharacterSpells {
+class ShamanSpells : public CharacterSpells {
 public:
-    ShamanSpells(Shaman *shaman);
+    ShamanSpells(Shaman* shaman);
     ~ShamanSpells() override;
 
     Buff* get_elemental_devastation() const;

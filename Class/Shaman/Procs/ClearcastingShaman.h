@@ -6,7 +6,7 @@
 class Buff;
 class Shaman;
 
-class ClearcastingShaman: public Proc, public TalentRequirer {
+class ClearcastingShaman : public Proc, public TalentRequirer {
 public:
     ClearcastingShaman(Shaman* pchar);
     ~ClearcastingShaman() override;

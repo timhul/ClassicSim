@@ -2,7 +2,7 @@
 
 #include "SharedBuff.h"
 
-class FelstrikerBuff: public SharedBuff {
+class FelstrikerBuff : public SharedBuff {
 public:
     FelstrikerBuff(Character* pchar, const int duration);
 

@@ -5,7 +5,7 @@
 class CharacterSpells;
 class EnabledBuffs;
 
-class EncounterStart: public Event {
+class EncounterStart : public Event {
 public:
     EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs);
 

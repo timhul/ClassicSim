@@ -17,9 +17,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-CharacterEncoder::CharacterEncoder(Character *pchar):
-    pchar(pchar)
-{}
+CharacterEncoder::CharacterEncoder(Character* pchar) : pchar(pchar) {}
 
 void CharacterEncoder::set_character(Character* pchar) {
     this->pchar = pchar;
@@ -89,7 +87,7 @@ void CharacterEncoder::add_vector_values_only(const QString& name, const QVector
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup;
     QVector<QPair<QString, QString>> key_vals;
 
-    for (const auto & i : vec) {
+    for (const auto& i : vec) {
         key_vals.append(QPair<QString, QString>(i, "N/A"));
     }
 
@@ -99,17 +97,17 @@ void CharacterEncoder::add_vector_values_only(const QString& name, const QVector
     add_vector(setup);
 }
 
-void CharacterEncoder::add_vector(QVector<QPair<QString, QVector<QPair<QString, QString>>>> & vec) {
+void CharacterEncoder::add_vector(QVector<QPair<QString, QVector<QPair<QString, QString>>>>& vec) {
     // Given on the format:
     // List of lists to add { List name [ List of key-value pairs ] }
     if (vec.empty())
         return;
 
-    for (const auto & i : vec) {
+    for (const auto& i : vec) {
         new_element();
 
         pchar_str += i.first + QString(Encoding::LIST_INITIALIZER);
-        for (const auto & j : i.second) {
+        for (const auto& j : i.second) {
             key_val_list(j.first, j.second);
         }
 
@@ -122,9 +120,7 @@ void CharacterEncoder::new_element() {
 }
 
 void CharacterEncoder::new_list_element() {
-    pchar_str += pchar_str.endsWith(QString(Encoding::LIST_INITIALIZER)) ?
-                "" :
-                QString(Encoding::LIST_ELEMENT_SEPARATOR);
+    pchar_str += pchar_str.endsWith(QString(Encoding::LIST_INITIALIZER)) ? "" : QString(Encoding::LIST_ELEMENT_SEPARATOR);
 }
 
 void CharacterEncoder::key_val(const QString& key, const QString& value) {

@@ -6,7 +6,7 @@ class Druid;
 class DruidSpells;
 class TigersFuryBuff;
 
-class TigersFury: public Spell {
+class TigersFury : public Spell {
 public:
     TigersFury(Druid* pchar, DruidSpells* druid_spells, TigersFuryBuff* buff, const int spell_rank);
     ~TigersFury() override;

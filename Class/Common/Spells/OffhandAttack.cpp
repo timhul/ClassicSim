@@ -11,15 +11,8 @@
 #include "Weapon.h"
 
 OffhandAttack::OffhandAttack(Character* pchar) :
-    Spell("Offhand Attack",
-          "Assets/items/Inv_sword_04.png",
-          pchar,
-          new CooldownControl(pchar, 1.0),
-          RestrictedByGcd::No,
-          ResourceType::Rage,
-          0),
-    offhand_penalty(0.5)
-{
+    Spell("Offhand Attack", "Assets/items/Inv_sword_04.png", pchar, new CooldownControl(pchar, 1.0), RestrictedByGcd::No, ResourceType::Rage, 0),
+    offhand_penalty(0.5) {
     this->pchar = pchar;
     next_expected_use = 0;
     iteration = 0;
@@ -85,9 +78,9 @@ void OffhandAttack::update_next_expected_use(const double haste_change) {
         return;
 
     if (haste_change < 0)
-        remainder_after_haste_change *=  (1 + (-1) * haste_change);
+        remainder_after_haste_change *= (1 + (-1) * haste_change);
     else
-        remainder_after_haste_change /=  (1 + haste_change);
+        remainder_after_haste_change /= (1 + haste_change);
 
     next_expected_use = curr_time + remainder_after_haste_change;
 }

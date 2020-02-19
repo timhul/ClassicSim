@@ -4,7 +4,7 @@
 
 class Character;
 
-class Focus: public RegeneratingResource {
+class Focus : public RegeneratingResource {
 public:
     Focus(Character*);
 

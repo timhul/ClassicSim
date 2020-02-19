@@ -2,7 +2,7 @@
 
 #include "TestSpellWarrior.h"
 
-class TestBerserkerStance: public TestSpellWarrior {
+class TestBerserkerStance : public TestSpellWarrior {
 public:
     TestBerserkerStance(EquipmentDb* equipment_db);
 

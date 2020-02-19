@@ -7,7 +7,7 @@ class BattleShoutBuff;
 class Buff;
 class Warrior;
 
-class BattleShout: public Spell, public TalentRequirer {
+class BattleShout : public Spell, public TalentRequirer {
 public:
     BattleShout(Warrior* pchar, BattleShoutBuff* buff, const int spell_rank);
     ~BattleShout() override;

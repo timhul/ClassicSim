@@ -6,10 +6,9 @@
 #include "CharacterStats.h"
 #include "Utils/Check.h"
 
-AspectOfTheHawkBuff::AspectOfTheHawkBuff(Character* pchar):
+AspectOfTheHawkBuff::AspectOfTheHawkBuff(Character* pchar) :
     SelfBuff(pchar, "Aspect of the Hawk", "Assets/spell/Spell_nature_ravenform.png", BuffDuration::PERMANENT, 0),
-    SetBonusRequirer({"Dragonstalker Armor"})
-{}
+    SetBonusRequirer({"Dragonstalker Armor"}) {}
 
 void AspectOfTheHawkBuff::buff_effect_when_applied() {
     pchar->get_stats()->increase_ranged_ap(static_cast<unsigned>(round(120 * dragonstalker_bonus)));

@@ -7,9 +7,7 @@
 #include "SimSettings.h"
 #include "Troll.h"
 
-TestFrost::TestFrost(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "RIGHT")
-{}
+TestFrost::TestFrost(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "RIGHT") {}
 
 void TestFrost::set_up() {
     race = new Troll();

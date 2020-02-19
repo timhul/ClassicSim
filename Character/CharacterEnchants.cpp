@@ -8,9 +8,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-CharacterEnchants::CharacterEnchants(Character* pchar) :
-    pchar(pchar)
-{}
+CharacterEnchants::CharacterEnchants(Character* pchar) : pchar(pchar) {}
 
 bool CharacterEnchants::has_sharp_weapon(const int equipment_slot) const {
     Weapon* wpn = nullptr;

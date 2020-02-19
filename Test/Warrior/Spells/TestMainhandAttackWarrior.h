@@ -4,9 +4,9 @@
 
 class MainhandAttackWarrior;
 
-class TestMainhandAttackWarrior: public TestSpellWarrior {
+class TestMainhandAttackWarrior : public TestSpellWarrior {
 public:
-    TestMainhandAttackWarrior(EquipmentDb *equipment_db);
+    TestMainhandAttackWarrior(EquipmentDb* equipment_db);
 
     void test_all();
 

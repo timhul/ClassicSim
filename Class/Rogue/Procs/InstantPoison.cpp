@@ -15,19 +15,14 @@
 #include "Utils/Check.h"
 
 InstantPoison::InstantPoison(Rogue* rogue, const QString& weapon_side, const int weapon) :
-    Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.2, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>(),
-         rogue),
+    Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.2, 0, QVector<Proc*>(), QVector<ProcInfo::Source>(), rogue),
     Enchant(EnchantName::InstantPoison),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Vile Poisons", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Improved Poisons", 5, DisabledAtZero::No)
-                   }),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Vile Poisons", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Improved Poisons", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Bloodfang Armor"}),
     dmg_roll(new Random(112, 149)),
     rogue(rogue),
-    vile_poisons(1.0)
-{
+    vile_poisons(1.0) {
     this->enabled = false;
     this->instant_poison_buff = new InstantPoisonBuff(rogue, this, weapon_side);
 
@@ -87,9 +82,9 @@ void InstantPoison::proc_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(MagicSchool::Nature);
-        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * vile_poisons)), resource_cost, 0, resist_roll);
-    }
-    else {
+        add_spell_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * vile_poisons)),
+                           resource_cost, 0, resist_roll);
+    } else {
         pchar->spell_hit_effect(MagicSchool::Nature);
         add_spell_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod * vile_poisons)), resource_cost, 0, resist_roll);
     }

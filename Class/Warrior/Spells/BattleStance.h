@@ -4,7 +4,7 @@
 
 class Warrior;
 
-class BattleStance: public Spell {
+class BattleStance : public Spell {
 public:
     BattleStance(Warrior* warrior);
     ~BattleStance() override;

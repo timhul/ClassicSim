@@ -5,11 +5,7 @@
 #include "StatisticsEngine.h"
 #include "Utils/Check.h"
 
-Engine::Engine():
-    queue(new Queue()),
-    timer(new QTime()),
-    current_prio(0)
-{}
+Engine::Engine() : queue(new Queue()), timer(new QTime()), current_prio(0) {}
 
 Engine::~Engine() {
     delete queue;

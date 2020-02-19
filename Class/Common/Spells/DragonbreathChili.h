@@ -5,7 +5,7 @@
 class Random;
 class StatisticsSpell;
 
-class DragonbreathChili: public Proc {
+class DragonbreathChili : public Proc {
 public:
     DragonbreathChili(Character* pchar);
     ~DragonbreathChili() override;

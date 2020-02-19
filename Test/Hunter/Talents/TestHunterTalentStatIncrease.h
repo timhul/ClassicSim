@@ -2,10 +2,10 @@
 
 #include "TestSpellHunter.h"
 
-class TestHunterTalentStatIncrease: public TestSpellHunter {
+class TestHunterTalentStatIncrease : public TestSpellHunter {
 public:
 public:
-    TestHunterTalentStatIncrease(EquipmentDb *equipment_db);
+    TestHunterTalentStatIncrease(EquipmentDb* equipment_db);
 
     void test_all();
 

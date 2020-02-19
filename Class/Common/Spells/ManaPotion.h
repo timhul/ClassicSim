@@ -5,7 +5,7 @@
 class Random;
 class StatisticsResource;
 
-class ManaPotion: public Spell {
+class ManaPotion : public Spell {
 public:
     ManaPotion(Character* pchar);
     ~ManaPotion() override;

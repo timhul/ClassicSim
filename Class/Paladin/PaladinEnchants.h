@@ -4,7 +4,7 @@
 
 class Paladin;
 
-class PaladinEnchants: public CharacterEnchants {
+class PaladinEnchants : public CharacterEnchants {
 public:
     PaladinEnchants(Paladin* paladin);
 

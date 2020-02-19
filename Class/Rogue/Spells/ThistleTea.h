@@ -5,7 +5,7 @@
 class StatisticsResource;
 class Rogue;
 
-class ThistleTea: public Spell {
+class ThistleTea : public Spell {
 public:
     ThistleTea(Rogue* rogue);
     ~ThistleTea() override;

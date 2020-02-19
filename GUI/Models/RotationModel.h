@@ -1,25 +1,25 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QStringList>
 #include <QMap>
+#include <QStringList>
 
 class Character;
 class Rotation;
 class RotationConditionsModel;
 
-class RotationModel : public QAbstractListModel
-{
+class RotationModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum RotationRoles {
+    enum RotationRoles
+    {
         NameRole = Qt::UserRole + 1,
         SelectedRole,
         IndexRole,
         DescriptionRole
     };
 
-    RotationModel(QObject *parent = nullptr);
+    RotationModel(QObject* parent = nullptr);
     ~RotationModel();
 
     void set_character(Character* pchar);
@@ -32,8 +32,8 @@ public:
     QString get_rotation_information_description() const;
     RotationConditionsModel* get_rotation_conditions_model() const;
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
 
 private:
     Character* pchar;

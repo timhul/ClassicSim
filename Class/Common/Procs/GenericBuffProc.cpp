@@ -14,16 +14,14 @@ GenericBuffProc::GenericBuffProc(Character* pchar,
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
     enabled_at_start(enabled_at_start),
     maintain_buff_enabled(maintain_buff_enabled),
-    buff(buff)
-{
+    buff(buff) {
     check(!proc_sources.empty(), "Must specify at least one proc source");
 
     if (enabled_at_start == EnabledAtStart::No) {
         enabled = false;
         if (maintain_buff_enabled == MaintainBuffEnabled::Yes && buff->is_enabled())
             buff->disable_buff();
-    }
-    else if (maintain_buff_enabled == MaintainBuffEnabled::Yes && !buff->is_enabled())
+    } else if (maintain_buff_enabled == MaintainBuffEnabled::Yes && !buff->is_enabled())
         buff->enable_buff();
 }
 

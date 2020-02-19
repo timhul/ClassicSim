@@ -4,7 +4,7 @@
 
 class SealOfCommand;
 
-class SpellCallback: public Event {
+class SpellCallback : public Event {
 public:
     SpellCallback(SealOfCommand* spell, const double timestamp);
 

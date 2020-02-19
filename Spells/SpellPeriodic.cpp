@@ -21,8 +21,7 @@ SpellPeriodic::SpellPeriodic(const QString& name,
                              int spell_rank) :
     Spell(name, icon, pchar, new CooldownControl(pchar, 0.0), restricted_by_gcd, resource_type, resource_cost, spell_rank),
     marker_buff(marker_buff),
-    tick_rate(tick_rate)
-{
+    tick_rate(tick_rate) {
     enabled = false;
 }
 

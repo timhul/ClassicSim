@@ -87,8 +87,8 @@ protected:
     QMap<QString, CooldownControl*> cooldown_controls;
     QMap<QString, SpellRankGroup*> spell_rank_groups;
 
-    MainhandAttack* mh_attack{};
-    OffhandAttack* oh_attack{};
+    MainhandAttack* mh_attack {};
+    OffhandAttack* oh_attack {};
 
     Berserking* berserking {nullptr};
     BloodFury* blood_fury;
@@ -104,5 +104,5 @@ protected:
 
 private:
     void start_melee_attack();
-    void add_spell(Spell* spell, bool relink=true);
+    void add_spell(Spell* spell, bool relink = true);
 };

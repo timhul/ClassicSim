@@ -3,7 +3,7 @@
 #include <QMap>
 
 class StatisticsEngine;
-enum class EventType: int;
+enum class EventType : int;
 
 bool event_type(QPair<EventType, unsigned> lhs, QPair<EventType, unsigned> rhs);
 bool total(QPair<EventType, unsigned> lhs, QPair<EventType, unsigned> rhs);

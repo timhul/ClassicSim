@@ -5,7 +5,7 @@
 class Paladin;
 class SealOfCommand;
 
-class SealOfCommandProc: public ProcPPM {
+class SealOfCommandProc : public ProcPPM {
 public:
     SealOfCommandProc(Character* pchar, SealOfCommand* seal);
 

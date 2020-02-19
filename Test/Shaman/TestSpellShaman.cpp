@@ -1,8 +1,9 @@
 #include "TestSpellShaman.h"
 
 #include <cassert>
-#include <QDebug>
 #include <utility>
+
+#include <QDebug>
 
 #include "Buff.h"
 #include "CharacterStats.h"
@@ -19,10 +20,8 @@
 #include "Spell.h"
 #include "Stormstrike.h"
 
-TestSpellShaman::TestSpellShaman(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    shaman(nullptr)
-{}
+TestSpellShaman::TestSpellShaman(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestSpellDamage(equipment_db, std::move(spell_under_test)), shaman(nullptr) {}
 
 void TestSpellShaman::set_up(const bool prepare_combat_iterations) {
     set_up_general();
@@ -53,9 +52,7 @@ LightningBolt* TestSpellShaman::lightning_bolt() const {
     return static_cast<LightningBolt*>(get_max_rank_spell_by_name("Lightning Bolt"));
 }
 
-void TestSpellShaman::run_class_specific_tests() {
-
-}
+void TestSpellShaman::run_class_specific_tests() {}
 
 /*void TestSpellShaman::given_Shaman_is_on_gcd() {
     given_Shaman_is_on_gcd(seal_of_the_crusader());

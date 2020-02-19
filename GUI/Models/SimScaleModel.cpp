@@ -1,28 +1,16 @@
-#include "NumberCruncher.h"
 #include "SimScaleModel.h"
+
+#include "NumberCruncher.h"
 #include "SimSettings.h"
 
-SimScaleModel::SimScaleModel(SimSettings *sim_settings, QObject *parent)
-    : QAbstractListModel(parent),
-      sim_settings(sim_settings)
-{
+SimScaleModel::SimScaleModel(SimSettings* sim_settings, QObject* parent) : QAbstractListModel(parent), sim_settings(sim_settings) {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     sim_options = {
-        SimOption::Name::ScaleAgility,
-        SimOption::Name::ScaleStrength,
-        SimOption::Name::ScaleHitChance,
-        SimOption::Name::ScaleCritChance,
-        SimOption::Name::ScaleMeleeAP,
-        SimOption::Name::ScaleAxeSkill,
-        SimOption::Name::ScaleDaggerSkill,
-        SimOption::Name::ScaleMaceSkill,
-        SimOption::Name::ScaleSwordSkill,
-        SimOption::Name::ScaleIntellect,
-        SimOption::Name::ScaleSpirit,
-        SimOption::Name::ScaleMp5,
-        SimOption::Name::ScaleSpellDamage,
-        SimOption::Name::ScaleSpellCritChance,
-        SimOption::Name::ScaleSpellHitChance,
+        SimOption::Name::ScaleAgility,          SimOption::Name::ScaleStrength,        SimOption::Name::ScaleHitChance,
+        SimOption::Name::ScaleCritChance,       SimOption::Name::ScaleMeleeAP,         SimOption::Name::ScaleAxeSkill,
+        SimOption::Name::ScaleDaggerSkill,      SimOption::Name::ScaleMaceSkill,       SimOption::Name::ScaleSwordSkill,
+        SimOption::Name::ScaleIntellect,        SimOption::Name::ScaleSpirit,          SimOption::Name::ScaleMp5,
+        SimOption::Name::ScaleSpellDamage,      SimOption::Name::ScaleSpellCritChance, SimOption::Name::ScaleSpellHitChance,
         SimOption::Name::ScaleSpellPenetration,
     };
     endInsertRows();
@@ -41,12 +29,12 @@ void SimScaleModel::toggleOption(const int option) {
     layoutChanged();
 }
 
-int SimScaleModel::rowCount(const QModelIndex & parent) const {
+int SimScaleModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
     return sim_options.count();
 }
 
-QVariant SimScaleModel::data(const QModelIndex & index, int role) const {
+QVariant SimScaleModel::data(const QModelIndex& index, int role) const {
     if (index.row() < 0 || index.row() >= sim_options.count())
         return QVariant();
 

@@ -13,9 +13,7 @@
 #include "SanctityAura.h"
 #include "Talent.h"
 
-TestConsecration::TestConsecration(EquipmentDb *equipment_db) :
-    TestSpellPaladin(equipment_db, "Consecration")
-{}
+TestConsecration::TestConsecration(EquipmentDb* equipment_db) : TestSpellPaladin(equipment_db, "Consecration") {}
 
 void TestConsecration::test_all() {
     run_mandatory_tests(false);

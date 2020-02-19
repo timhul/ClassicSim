@@ -5,7 +5,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Fury: public TalentTree {
+class Fury : public TalentTree {
 public:
     Fury(Warrior* pchar);
 

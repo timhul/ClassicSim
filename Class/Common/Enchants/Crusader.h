@@ -4,7 +4,7 @@
 
 class HolyStrength;
 
-class Crusader: public ProcPPM {
+class Crusader : public ProcPPM {
 public:
     Crusader(Character* pchar, const QString& weapon_identifier, const int weapon);
     ~Crusader() override;

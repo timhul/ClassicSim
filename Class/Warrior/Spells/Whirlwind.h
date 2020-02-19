@@ -4,7 +4,7 @@
 class Warrior;
 class WarriorSpells;
 
-class Whirlwind: public Spell {
+class Whirlwind : public Spell {
 public:
     Whirlwind(Warrior* pchar, WarriorSpells* spells);
     ~Whirlwind() override;

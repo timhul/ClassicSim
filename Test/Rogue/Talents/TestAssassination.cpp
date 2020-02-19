@@ -8,9 +8,7 @@
 #include "Rogue.h"
 #include "SimSettings.h"
 
-TestAssassination::TestAssassination(EquipmentDb* equipment_db):
-    TestTalentTree(equipment_db, "LEFT")
-{}
+TestAssassination::TestAssassination(EquipmentDb* equipment_db) : TestTalentTree(equipment_db, "LEFT") {}
 
 void TestAssassination::set_up() {
     race = new Orc();

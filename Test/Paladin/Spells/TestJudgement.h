@@ -4,9 +4,9 @@
 
 class Judgement;
 
-class TestJudgement: public TestSpellPaladin {
+class TestJudgement : public TestSpellPaladin {
 public:
-    TestJudgement(EquipmentDb *equipment_db);
+    TestJudgement(EquipmentDb* equipment_db);
 
     void test_all();
 

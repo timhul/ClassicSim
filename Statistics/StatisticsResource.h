@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Resource.h"
-
-#include <QString>
 #include <QMap>
+#include <QString>
+
+#include "Resource.h"
 
 class StatisticsResource;
 

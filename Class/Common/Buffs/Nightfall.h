@@ -2,7 +2,7 @@
 
 #include "SharedDebuff.h"
 
-class Nightfall: public SharedDebuff {
+class Nightfall : public SharedDebuff {
 public:
     Nightfall(Character* pchar);
 

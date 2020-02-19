@@ -8,9 +8,7 @@
 #include "Event.h"
 #include "Talent.h"
 
-TestDeathWish::TestDeathWish(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "Death Wish")
-{}
+TestDeathWish::TestDeathWish(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "Death Wish") {}
 
 void TestDeathWish::test_all() {
     run_mandatory_tests(false);

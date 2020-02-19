@@ -1,14 +1,14 @@
 #pragma once
 
+#include <QVector>
+
 #include "Proc.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Mage;
 class SharedDebuff;
 
-class ImprovedScorch: public Proc, public TalentRequirer {
+class ImprovedScorch : public Proc, public TalentRequirer {
 public:
     ImprovedScorch(Mage* pchar, SharedDebuff* fire_vulnerability);
 

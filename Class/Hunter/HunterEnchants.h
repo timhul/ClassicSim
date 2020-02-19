@@ -4,7 +4,7 @@
 
 class Hunter;
 
-class HunterEnchants: public CharacterEnchants {
+class HunterEnchants : public CharacterEnchants {
 public:
     HunterEnchants(Hunter* hunter);
 

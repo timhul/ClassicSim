@@ -9,9 +9,7 @@
 #include "FerociousBite.h"
 #include "Shred.h"
 
-TestFerociousBite::TestFerociousBite(EquipmentDb* equipment_db) :
-    TestSpellDruid(equipment_db, "Ferocious Bite")
-{}
+TestFerociousBite::TestFerociousBite(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Ferocious Bite") {}
 
 void TestFerociousBite::test_all() {
     run_mandatory_tests();

@@ -4,7 +4,7 @@
 
 class Buff;
 
-class PeriodicRefreshBuff: public Event {
+class PeriodicRefreshBuff : public Event {
 public:
     PeriodicRefreshBuff(Buff* buff, const double timestamp);
 

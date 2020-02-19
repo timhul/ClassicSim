@@ -1,15 +1,13 @@
 
 #include "TestProcRogue.h"
 
-#include "Rogue.h"
-#include "Proc.h"
-
 #include <utility>
 
-TestProcRogue::TestProcRogue(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestProc(equipment_db, std::move(spell_under_test)),
-    rogue(nullptr)
-{}
+#include "Proc.h"
+#include "Rogue.h"
+
+TestProcRogue::TestProcRogue(EquipmentDb* equipment_db, QString spell_under_test) :
+    TestProc(equipment_db, std::move(spell_under_test)), rogue(nullptr) {}
 
 void TestProcRogue::set_up() {
     set_up_general();

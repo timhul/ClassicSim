@@ -9,7 +9,7 @@ class ExternalBuff;
 class Faction;
 class SunderArmorBuff;
 
-enum class ExternalBuffName: int;
+enum class ExternalBuffName : int;
 
 class GeneralBuffs {
 public:
@@ -42,7 +42,7 @@ private:
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_debuffs;
     QVector<QSet<QString>> mutex_buff_groups;
 
-    void toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *> > > &vec);
+    void toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff*>>>& vec);
     bool external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) const;
     void deactivate_buffs_for_current_setup();
     void activate_buffs_for_current_setup();

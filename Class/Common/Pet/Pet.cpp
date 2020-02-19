@@ -28,13 +28,12 @@ Pet::Pet(Character* pchar, const QString& name, double attack_speed, double base
     crit_chance(500),
     attack_speed_modifier(1.0),
     damage_modifier(1.0),
-    pet_auto_attack(nullptr)
-{}
+    pet_auto_attack(nullptr) {}
 
 Pet::~Pet() {
     remove_spells();
 
-    for (const auto & spell: spells)
+    for (const auto& spell : spells)
         delete spell;
 
     delete pet_auto_attack;
@@ -62,7 +61,7 @@ void Pet::start_attack() {
 }
 
 void Pet::add_gcd_event() {
-    next_gcd =  pchar->get_engine()->get_current_priority() + global_cooldown;
+    next_gcd = pchar->get_engine()->get_current_priority() + global_cooldown;
     auto new_event = new PetAction(this, next_gcd);
     pchar->get_engine()->add_event(new_event);
 }
@@ -158,9 +157,7 @@ unsigned Pet::get_random_normalized_dmg() {
     return normalized_dmg_roll->get_roll();
 }
 
-void Pet::melee_critical_effect() {
-
-}
+void Pet::melee_critical_effect() {}
 
 void Pet::reset() {
     this->is_attacking = false;
@@ -180,13 +177,13 @@ void Pet::add_next_auto_attack() {
 void Pet::add_spells() {
     pchar->get_spells()->add_spell_group({pet_auto_attack});
 
-    for (const auto & spell : spells)
+    for (const auto& spell : spells)
         pchar->get_spells()->add_spell_group({spell});
 }
 
 void Pet::remove_spells() {
     pchar->get_spells()->remove_spell(pet_auto_attack);
 
-    for (const auto & spell : spells)
+    for (const auto& spell : spells)
         pchar->get_spells()->remove_spell(spell);
 }

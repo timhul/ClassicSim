@@ -5,7 +5,7 @@
 class Rogue;
 class RogueSpells;
 
-class Combat: public TalentTree {
+class Combat : public TalentTree {
 public:
     Combat(Rogue* pchar);
 

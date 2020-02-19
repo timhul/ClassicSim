@@ -8,7 +8,7 @@
 class Random;
 class Rogue;
 
-class InstantPoison: public Proc, public Enchant, public TalentRequirer, public SetBonusRequirer {
+class InstantPoison : public Proc, public Enchant, public TalentRequirer, public SetBonusRequirer {
 public:
     InstantPoison(Rogue* rogue, const QString& weapon_side, const int weapon);
     ~InstantPoison() override;

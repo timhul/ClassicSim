@@ -1,17 +1,17 @@
 #pragma once
 
+#include <QVector>
+
 #include "ItemModificationRequirer.h"
 #include "SpellPeriodic.h"
 #include "TalentRequirer.h"
-
-#include <QVector>
 
 class Buff;
 class Druid;
 class DruidSpells;
 class Random;
 
-class Moonfire: public SpellPeriodic, public TalentRequirer, public ItemModificationRequirer {
+class Moonfire : public SpellPeriodic, public TalentRequirer, public ItemModificationRequirer {
 public:
     Moonfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank);
     ~Moonfire() override;

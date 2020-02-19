@@ -5,9 +5,9 @@
 class Paladin;
 class PaladinSeal;
 
-class PaladinSpells: public CharacterSpells {
+class PaladinSpells : public CharacterSpells {
 public:
-    PaladinSpells(Paladin *paladin);
+    PaladinSpells(Paladin* paladin);
 
     void apply_seal(PaladinSeal* new_seal);
     void judge_seal(PaladinSeal* seal);

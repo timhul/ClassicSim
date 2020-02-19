@@ -15,17 +15,15 @@
 #include "Utils/Check.h"
 
 Moonfire::Moonfire(Druid* pchar, DruidSpells* druid_spells, const int spell_rank) :
-    SpellPeriodic("Moonfire", "Assets/spell/Spell_nature_starfall.png", pchar, nullptr,
-                  RestrictedByGcd::Yes, ResourceType::Mana, 3.0, 0, spell_rank),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Moonfire", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Vengeance", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Moonglow", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
-                   }),
+    SpellPeriodic("Moonfire", "Assets/spell/Spell_nature_starfall.png", pchar, nullptr, RestrictedByGcd::Yes, ResourceType::Mana, 3.0, 0, spell_rank),
+    TalentRequirer(QVector<TalentRequirerInfo*> {
+        new TalentRequirerInfo("Improved Moonfire", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Vengeance", 5, DisabledAtZero::No),
+        new TalentRequirerInfo("Moonglow", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Moonfury", 5, DisabledAtZero::No),
+    }),
     ItemModificationRequirer({23197}),
-    druid_spells(druid_spells)
-{
+    druid_spells(druid_spells) {
     switch (spell_rank) {
     case 1:
         base_resource_cost = 25;
@@ -155,7 +153,8 @@ bool Moonfire::check_application_success() {
         pchar->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
     cooldown->add_gcd_event();
 
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Arcane, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Arcane) + imp_moonfire_crit_bonus);
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Arcane,
+                                                        pchar->get_stats()->get_spell_crit_chance(MagicSchool::Arcane) + imp_moonfire_crit_bonus);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Arcane);
 
     if (hit_roll == MagicAttackResult::MISS) {
@@ -176,8 +175,7 @@ bool Moonfire::check_application_success() {
         const double spell_crit_dmg_mod = 1 + (pchar->get_stats()->get_spell_crit_dmg_mod() - 1) * vengeance_crit_damage_bonus;
         damage_dealt = round(damage_dealt * spell_crit_dmg_mod);
         add_spell_crit_dmg(static_cast<int>(damage_dealt), get_resource_cost() / (duration / tick_rate), 0, resist_roll);
-    }
-    else {
+    } else {
         pchar->spell_hit_effect(MagicSchool::Arcane);
         damage_dealt = round(damage_dealt);
         add_spell_hit_dmg(static_cast<int>(damage_dealt), get_resource_cost(), 0, resist_roll);
@@ -200,7 +198,9 @@ void Moonfire::reset_effect() {
 
 void Moonfire::tick_effect() {
     const double spell_power_bonus = pchar->get_stats()->get_spell_damage(MagicSchool::Arcane) * dot_spell_dmg_coefficient;
-    const double damage_dealt = (full_duration_damage + spell_power_bonus) * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Arcane) / num_ticks + tick_rest;
+    const double damage_dealt = (full_duration_damage + spell_power_bonus) * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Arcane)
+                                    / num_ticks
+                                + tick_rest;
     tick_rest += damage_dealt - round(damage_dealt);
 
     add_hit_dmg(static_cast<int>(round(damage_dealt)), reported_resource_cost, reported_execution_time);
@@ -237,10 +237,6 @@ void Moonfire::decrease_talent_rank_effect(const QString& talent_name, const int
     increase_talent_rank_effect(talent_name, curr);
 }
 
-void Moonfire::activate_item_effect(const int) {
+void Moonfire::activate_item_effect(const int) {}
 
-}
-
-void Moonfire::deactivate_item_effect(const int) {
-
-}
+void Moonfire::deactivate_item_effect(const int) {}

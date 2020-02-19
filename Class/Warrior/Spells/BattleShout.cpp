@@ -10,13 +10,17 @@
 #include "Warrior.h"
 
 BattleShout::BattleShout(Warrior* pchar, BattleShoutBuff* buff, const int spell_rank) :
-    Spell("Battle Shout", "Assets/ability/Ability_warrior_battleshout.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10, spell_rank),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Improved Battle Shout", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Booming Voice", 5, DisabledAtZero::No)
-                   }),
-    buff(buff)
-{
+    Spell("Battle Shout",
+          "Assets/ability/Ability_warrior_battleshout.png",
+          pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Rage,
+          10,
+          spell_rank),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Battle Shout", 5, DisabledAtZero::No),
+                                                 new TalentRequirerInfo("Booming Voice", 5, DisabledAtZero::No)}),
+    buff(buff) {
     switch (spell_rank) {
     case 1:
         base_attack_power = 15;
@@ -92,8 +96,7 @@ void BattleShout::spell_effect() {
 void BattleShout::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Battle Shout") {
         modified_by_talents_attack_power = static_cast<unsigned>(round(base_attack_power * ranks_imp_shout[curr]));
-    }
-    else if (talent_name == "Booming Voice") {
+    } else if (talent_name == "Booming Voice") {
         next_duration = static_cast<int>(round(base_duration * ranks_booming_voice[curr]));
     }
 }
@@ -101,8 +104,7 @@ void BattleShout::increase_talent_rank_effect(const QString& talent_name, const 
 void BattleShout::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Battle Shout") {
         modified_by_talents_attack_power = static_cast<unsigned>(round(base_attack_power * ranks_imp_shout[curr]));
-    }
-    else if (talent_name == "Booming Voice") {
+    } else if (talent_name == "Booming Voice") {
         next_duration = static_cast<int>(round(base_duration * ranks_booming_voice[curr]));
     }
 }

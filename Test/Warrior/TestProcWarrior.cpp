@@ -6,9 +6,7 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-TestProcWarrior::TestProcWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestProc(equipment_db, std::move(spell_under_test))
-{}
+TestProcWarrior::TestProcWarrior(EquipmentDb* equipment_db, QString spell_under_test) : TestProc(equipment_db, std::move(spell_under_test)) {}
 
 void TestProcWarrior::set_up() {
     set_up_general();

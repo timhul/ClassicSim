@@ -2,10 +2,10 @@
 
 #include "TestSpellPaladin.h"
 
-class TestPaladinTalentStatIncrease: public TestSpellPaladin {
+class TestPaladinTalentStatIncrease : public TestSpellPaladin {
 public:
 public:
-    TestPaladinTalentStatIncrease(EquipmentDb *equipment_db);
+    TestPaladinTalentStatIncrease(EquipmentDb* equipment_db);
 
     void test_all();
 

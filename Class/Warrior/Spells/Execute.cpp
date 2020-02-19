@@ -12,19 +12,12 @@
 
 Execute::Execute(Warrior* pchar, WarriorSpells* spells) :
     Spell("Execute", "Assets/items/Inv_sword_48.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 15),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    spell_ranks({
-                QPair<int, int>(125, 3),
-                QPair<int, int>(200, 6),
-                QPair<int, int>(325, 9),
-                QPair<int, int>(450, 12),
-                QPair<int, int>(600, 15)
-                }),
+    spell_ranks({QPair<int, int>(125, 3), QPair<int, int>(200, 6), QPair<int, int>(325, 9), QPair<int, int>(450, 12), QPair<int, int>(600, 15)}),
     talent_ranks({15, 13, 10}),
-    execute_threshold(0.2)
-{
+    execute_threshold(0.2) {
     initial_dmg = 600;
     dmg_per_rage_converted = 15;
 }
@@ -76,8 +69,7 @@ void Execute::spell_effect() {
     if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), rage, pchar->global_cooldown());
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), rage, pchar->global_cooldown());
     }

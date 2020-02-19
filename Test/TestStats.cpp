@@ -2,9 +2,7 @@
 
 #include "Stats.h"
 
-TestStats::TestStats() :
-    TestObject(nullptr)
-{}
+TestStats::TestStats() : TestObject(nullptr) {}
 
 void TestStats::set_up() {
     stats = new Stats();

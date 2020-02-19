@@ -7,9 +7,7 @@
 #include "LightningBolt.h"
 #include "Shaman.h"
 
-TestLightningBolt::TestLightningBolt(EquipmentDb *equipment_db) :
-    TestSpellShaman(equipment_db, "Lightning Bolt")
-{}
+TestLightningBolt::TestLightningBolt(EquipmentDb* equipment_db) : TestSpellShaman(equipment_db, "Lightning Bolt") {}
 
 void TestLightningBolt::test_all() {
     run_mandatory_tests();

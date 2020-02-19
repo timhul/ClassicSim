@@ -4,7 +4,7 @@
 
 class Random;
 
-class BerserkingBuff: public SelfBuff {
+class BerserkingBuff : public SelfBuff {
 public:
     BerserkingBuff(Character* pchar);
     ~BerserkingBuff() override;

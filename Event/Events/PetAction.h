@@ -4,7 +4,7 @@
 
 class Pet;
 
-class PetAction: public Event {
+class PetAction : public Event {
 public:
     PetAction(Pet* pet, const double timestamp);
 

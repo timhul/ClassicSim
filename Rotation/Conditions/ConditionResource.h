@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Condition.h"
-
 #include "Resource.h"
 
 class Character;

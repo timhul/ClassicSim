@@ -9,15 +9,18 @@
 #include "Utils/Check.h"
 
 Hemorrhage::Hemorrhage(Rogue* rogue) :
-    Spell("Hemorrhage", "Assets/spell/Spell_shadow_lifedrain.png", rogue, new CooldownControl(rogue, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
-    TalentRequirer(QVector<TalentRequirerInfo*>{
-                   new TalentRequirerInfo("Hemorrhage", 1, DisabledAtZero::Yes),
-                   new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)
-                   }),
+    Spell("Hemorrhage",
+          "Assets/spell/Spell_shadow_lifedrain.png",
+          rogue,
+          new CooldownControl(rogue, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Energy,
+          35),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Hemorrhage", 1, DisabledAtZero::Yes),
+                                                 new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Bonescythe Armor"}),
     rogue(rogue),
-    lethality_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
-{
+    lethality_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30}) {
     this->enabled = false;
 }
 
@@ -63,8 +66,7 @@ void Hemorrhage::spell_effect() {
 
         if (rogue->get_seal_fate()->is_enabled() && rogue->get_seal_fate()->check_proc_success())
             rogue->get_seal_fate()->perform();
-    }
-    else if (result == PhysicalAttackResult::HIT) {
+    } else if (result == PhysicalAttackResult::HIT) {
         rogue->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }

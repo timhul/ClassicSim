@@ -5,9 +5,9 @@
 class Buff;
 class HeroicStrike;
 
-class TestHeroicStrike: public TestSpellWarrior {
+class TestHeroicStrike : public TestSpellWarrior {
 public:
-    TestHeroicStrike(EquipmentDb *equipment_db);
+    TestHeroicStrike(EquipmentDb* equipment_db);
 
     void test_all();
 

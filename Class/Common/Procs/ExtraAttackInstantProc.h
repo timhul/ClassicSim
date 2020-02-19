@@ -4,7 +4,7 @@
 
 class ExtraAttackOnNextSwingBuff;
 
-class ExtraAttackInstantProc: public Proc {
+class ExtraAttackInstantProc : public Proc {
 public:
     ExtraAttackInstantProc(Character* pchar,
                            const QString& proc_name,

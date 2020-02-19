@@ -10,8 +10,7 @@
 #include "Talent.h"
 
 TestPaladinTalentStatIncrease::TestPaladinTalentStatIncrease(EquipmentDb* equipment_db) :
-    TestSpellPaladin(equipment_db, "PaladinTalentStatIncrease")
-{}
+    TestSpellPaladin(equipment_db, "PaladinTalentStatIncrease") {}
 
 void TestPaladinTalentStatIncrease::test_all() {
     run_mandatory_tests();
@@ -269,20 +268,14 @@ void TestPaladinTalentStatIncrease::test_divine_intellect() {
     assert(pchar->get_stats()->get_intellect() == 100);
 }
 
-void TestPaladinTalentStatIncrease::test_name_correct() {
-}
+void TestPaladinTalentStatIncrease::test_name_correct() {}
 
-void TestPaladinTalentStatIncrease::test_spell_cooldown() {
-}
+void TestPaladinTalentStatIncrease::test_spell_cooldown() {}
 
-void TestPaladinTalentStatIncrease::test_how_spell_observes_global_cooldown() {
-}
+void TestPaladinTalentStatIncrease::test_how_spell_observes_global_cooldown() {}
 
-void TestPaladinTalentStatIncrease::test_resource_cost() {
-}
+void TestPaladinTalentStatIncrease::test_resource_cost() {}
 
-void TestPaladinTalentStatIncrease::test_is_ready_conditions() {
-}
+void TestPaladinTalentStatIncrease::test_is_ready_conditions() {}
 
-void TestPaladinTalentStatIncrease::test_whether_spell_causes_global_cooldown() {
-}
+void TestPaladinTalentStatIncrease::test_whether_spell_causes_global_cooldown() {}

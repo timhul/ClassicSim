@@ -4,7 +4,7 @@
 
 class Pet;
 
-class FrenzyBuff: public SelfBuff {
+class FrenzyBuff : public SelfBuff {
 public:
     FrenzyBuff(Character* pchar, Pet* pet);
 

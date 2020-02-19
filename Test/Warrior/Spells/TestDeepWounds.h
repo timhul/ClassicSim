@@ -4,9 +4,9 @@
 
 class Spell;
 
-class TestDeepWounds: public TestSpellWarrior {
+class TestDeepWounds : public TestSpellWarrior {
 public:
-    TestDeepWounds(EquipmentDb *equipment_db);
+    TestDeepWounds(EquipmentDb* equipment_db);
 
     void test_all();
 

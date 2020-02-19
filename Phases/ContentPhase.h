@@ -1,13 +1,14 @@
 #pragma once
 
-#include <QString>
 #include <QObject>
+#include <QString>
 
 class Content : public QObject {
     Q_OBJECT
 
 public:
-    enum class Phase: int {
+    enum class Phase : int
+    {
         MoltenCore = 1,
         DireMaul,
         BlackwingLair,

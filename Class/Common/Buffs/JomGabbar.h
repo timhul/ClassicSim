@@ -2,7 +2,7 @@
 
 #include "SelfBuff.h"
 
-class JomGabbar: public SelfBuff {
+class JomGabbar : public SelfBuff {
 public:
     JomGabbar(Character* pchar);
 

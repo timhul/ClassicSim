@@ -7,9 +7,7 @@
 #include "OffhandAttackWarrior.h"
 #include "Talent.h"
 
-TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb *equipment_db) :
-    TestSpellWarrior(equipment_db, "OffhandAttackWarrior")
-{}
+TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb* equipment_db) : TestSpellWarrior(equipment_db, "OffhandAttackWarrior") {}
 
 void TestOffhandAttackWarrior::test_all() {
     run_mandatory_tests();

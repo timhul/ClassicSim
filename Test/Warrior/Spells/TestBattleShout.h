@@ -4,7 +4,7 @@
 
 class BattleShout;
 
-class TestBattleShout: public TestSpellWarrior {
+class TestBattleShout : public TestSpellWarrior {
 public:
     TestBattleShout(EquipmentDb* equipment_db);
 

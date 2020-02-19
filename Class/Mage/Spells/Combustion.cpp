@@ -5,10 +5,16 @@
 #include "Mage.h"
 
 Combustion::Combustion(Mage* pchar) :
-    Spell("Combustion", "Assets/spell/Spell_fire_sealoffire.png", pchar, new CooldownControl(pchar, 180.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, 0),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Combustion", 1, DisabledAtZero::Yes)}),
-    buff(new CombustionBuff(pchar))
-{
+    Spell("Combustion",
+          "Assets/spell/Spell_fire_sealoffire.png",
+          pchar,
+          new CooldownControl(pchar, 180.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0,
+          0),
+    TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Combustion", 1, DisabledAtZero::Yes)}),
+    buff(new CombustionBuff(pchar)) {
     enabled = false;
 }
 
