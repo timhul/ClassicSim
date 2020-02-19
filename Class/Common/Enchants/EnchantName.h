@@ -64,7 +64,7 @@ public:
         DenseWeightstone,
     };
 
-    Q_ENUMS(Name)
+    Q_ENUM(Name)
 
     static QString get_name(Name enchant) {
         switch (enchant) {

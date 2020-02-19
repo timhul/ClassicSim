@@ -22,7 +22,7 @@ public:
         ByPhase,
         ByItemType
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class ItemModel : public QAbstractListModel {

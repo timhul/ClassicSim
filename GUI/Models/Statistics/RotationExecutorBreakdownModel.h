@@ -19,7 +19,7 @@ public:
         BySpellStatus,
         ByValue,
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class RotationExecutorBreakdownModel : public QAbstractListModel {

@@ -18,7 +18,7 @@ public:
         Index,
         Selected,
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class RotationExecutorListModel : public QAbstractListModel {

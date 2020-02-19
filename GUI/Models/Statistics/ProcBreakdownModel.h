@@ -18,7 +18,7 @@ public:
         ByEffectivePPM,
         ByNumProcs,
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class ProcBreakdownModel : public QAbstractListModel {

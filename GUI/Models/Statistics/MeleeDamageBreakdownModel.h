@@ -32,7 +32,7 @@ public:
         ByAvgDPET,
         ByMaxDPET,
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class MeleeDamageBreakdownModel : public QAbstractListModel {

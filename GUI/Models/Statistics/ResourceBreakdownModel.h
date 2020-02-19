@@ -18,7 +18,7 @@ public:
         ByRagePer5,
         ByEnergyPer5
     };
-    Q_ENUMS(Methods)
+    Q_ENUM(Methods)
 };
 
 class ResourceBreakdownModel : public QAbstractListModel {
