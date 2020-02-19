@@ -1,5 +1,7 @@
 #include "Warrior.h"
 
+#include <cmath>
+
 #include "Arms.h"
 #include "Buff.h"
 #include "CharacterStats.h"
