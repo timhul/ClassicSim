@@ -323,6 +323,7 @@ SOURCES += main.cpp \
     Class/Warrior/Spells/MortalStrike.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
     Class/Warrior/Spells/Slam.cpp \
+    Class/Warrior/Spells/SunderArmor.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
     Talent/TalentRequirer.cpp \
@@ -815,6 +816,7 @@ HEADERS += \
     Class/Warrior/Spells/MortalStrike.h \
     Test/Warrior/Spells/TestMortalStrike.h \
     Class/Warrior/Spells/Slam.h \
+    Class/Warrior/Spells/SunderArmor.h \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
     Talent/TalentRequirer.h \
