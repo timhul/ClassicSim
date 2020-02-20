@@ -339,6 +339,7 @@ SOURCES += main.cpp \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
     Class/Warrior/Spells/MortalStrike.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
+    Class/Warrior/Spells/ShieldSlam.cpp \
     Class/Warrior/Spells/Slam.cpp \
     Class/Warrior/Spells/SunderArmor.cpp \
     Event/Events/CastComplete.cpp \
@@ -849,6 +850,7 @@ HEADERS += \
     Test/TestUtils.h \
     Class/Warrior/Spells/MortalStrike.h \
     Test/Warrior/Spells/TestMortalStrike.h \
+    Class/Warrior/Spells/ShieldSlam.h \
     Class/Warrior/Spells/Slam.h \
     Class/Warrior/Spells/SunderArmor.h \
     Event/Events/CastComplete.h \

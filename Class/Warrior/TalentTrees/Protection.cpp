@@ -82,11 +82,8 @@ Protection::Protection(Warrior* pchar) :
                            "Increases the damage you deal with One-Handed Melee weapons by %1%.", QVector<QPair<unsigned, unsigned>> {{2, 2}})}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {
-        {"7ML", new Talent(pchar, this, "Shield Slam", "7ML", base_url + "items/Inv_shield_05.png", 1,
-                           "Slam the target with your shield, causing 225 to 236 damage, modified by your shield block value, and has a 50% "
-                           "chance of dispelling 1 magic effect on the target. Also causes a high amount of threat.",
-                           QVector<QPair<unsigned, unsigned>>())}};
+    QMap<QString, Talent*> tier7 {};
+    add_shield_slam(tier7);
     add_talents(tier7);
 
     talents["1ML"]->talent->set_bottom_child(talents["3ML"]->talent);
@@ -97,6 +94,16 @@ Protection::Protection(Warrior* pchar) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+void Protection::add_shield_slam(QMap<QString, Talent*>& talent_tier) {
+    auto talent = get_new_talent(warrior, "Shield Slam", "7ML", base_url + "items/Inv_shield_05.png", 1,
+                                 "Slam the target with your shield, causing 225 to 236 damage, modified by your shield block value, and has a 50%"
+                                 "chance of dispelling 1 magic effect on the target. Also causes a high amount of threat.",
+                                 QVector<QPair<unsigned, unsigned>>(),
+                                 QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Shield Slam")});
+
+    add_talent_to_tier(talent_tier, talent);
 }
 
 void Protection::add_improved_shield_block(QMap<QString, Talent*>& talent_tier) {
@@ -118,3 +125,4 @@ void Protection::add_improved_sunder_armor(QMap<QString, Talent*>& talent_tier) 
 
     add_talent_to_tier(talent_tier, talent);
 }
+

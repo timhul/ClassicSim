@@ -27,6 +27,7 @@ class Proc;
 class Recklessness;
 class RecklessnessBuff;
 class Rend;
+class ShieldSlam;
 class Slam;
 class SunderArmor;
 class SwordSpecialization;
@@ -58,6 +59,7 @@ public:
     Overpower* get_overpower() const;
     Recklessness* get_recklessness() const;
     Rend* get_rend() const;
+    ShieldSlam* get_shield_slam() const;
     Slam* get_slam() const;
     SunderArmor* get_sunder_armor() const;
     Whirlwind* get_whirlwind() const;
@@ -97,6 +99,7 @@ private:
     Overpower* overpower;
     Recklessness* recklessness;
     Rend* rend;
+    ShieldSlam* shield_slam;
     Slam* slam;
     SunderArmor* sunder_armor;
     Whirlwind* whirlwind;

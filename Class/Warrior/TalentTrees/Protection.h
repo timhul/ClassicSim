@@ -9,6 +9,8 @@ class Protection : public TalentTree {
 public:
     Protection(Warrior* pchar);
 
+    void add_shield_slam(QMap<QString, Talent*>& talent_tier);
+
 private:
     Warrior* warrior;
     WarriorSpells* spells;
