@@ -55,6 +55,10 @@ public:
     void increase_casting_speed_flat_reduction(const unsigned value);
     void decrease_casting_speed_flat_reduction(const unsigned value);
 
+    unsigned get_block_value() const;
+    void increase_block_value(const unsigned value);
+    void decrease_block_value(const unsigned value);
+
     unsigned get_strength() const;
     void increase_strength(const unsigned value);
     void decrease_strength(const unsigned value);

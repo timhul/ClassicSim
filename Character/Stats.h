@@ -45,6 +45,10 @@ public:
     void increase_defense(const int);
     void decrease_defense(const int);
 
+    unsigned get_block_value() const;
+    void increase_block_value(const int);
+    void decrease_block_value(const int);
+
     void increase_dodge(const double);
     void decrease_dodge(const double);
 
@@ -198,6 +202,7 @@ private:
     // Defensive stats
     int armor {0};
     int defense {0};
+    int block_value {0};
     double dodge_chance {0.0};
     double parry_chance {0.0};
 
