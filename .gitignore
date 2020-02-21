@@ -1,3 +1,6 @@
+# Ignore user settings
+build.config
+
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
