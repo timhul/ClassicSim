@@ -262,14 +262,14 @@ void Item::clear_mutex_ids() {
         pchar->get_equipment()->clear_item_id_if_equipped_in_any_slot(item_id);
 }
 
-QString Item::get_weapon_side_name(const int eq_slot) const {
+QString Item::get_weapon_side_name(const int eq_slot, const QString& display_name) const {
     switch (eq_slot) {
     case EquipmentSlot::MAINHAND:
-        return QString("%1 %2").arg(name, "(MH)");
+        return QString("%1 %2").arg(display_name, "(MH)");
     case EquipmentSlot::OFFHAND:
-        return QString("%1 %2").arg(name, "(OH)");
+        return QString("%1 %2").arg(display_name, "(OH)");
     default:
-        return name;
+        return display_name;
     }
 }
 
@@ -426,6 +426,7 @@ void Item::set_uses() {
 
 void Item::set_procs(const int eq_slot) {
     for (const auto& i : procs_map) {
+        const QString display_name = i.contains("display_name") ? i["display_name"] : name;
         const QString proc_name = i["name"];
         const QString instant = i["instant"].toLower();
         const int amount = QString(i["amount"]).toInt();
@@ -445,7 +446,7 @@ void Item::set_procs(const int eq_slot) {
             continue;
         }
 
-        auto direct_spell_damage_procs = QSet<QString>(
+        const auto direct_spell_damage_procs = QSet<QString>(
             {"PHYSICAL_ATTACK", "ARCANE_ATTACK", "FIRE_ATTACK", "FROST_ATTACK", "NATURE_ATTACK", "SHADOW_ATTACK", "HOLY_ATTACK"});
         QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
@@ -454,9 +455,9 @@ void Item::set_procs(const int eq_slot) {
             add_default_proc_sources(proc_sources, eq_slot);
 
             if (instant == "yes") {
-                proc = new ExtraAttackInstantProc(pchar, name, icon, proc_sources, proc_rate, amount);
+                proc = new ExtraAttackInstantProc(pchar, display_name, icon, proc_sources, proc_rate, amount);
             } else {
-                proc = new ExtraAttackOnNextSwingProc(pchar, name, icon, proc_sources, proc_rate, amount);
+                proc = new ExtraAttackOnNextSwingProc(pchar, display_name, icon, proc_sources, proc_rate, amount);
             }
         } else if (proc_name == "ARMOR_PENETRATION") {
             add_default_proc_sources(proc_sources, eq_slot);
@@ -465,8 +466,8 @@ void Item::set_procs(const int eq_slot) {
             int max_stacks = i["max_stacks"].toInt();
             int duration = i["duration"].toInt();
 
-            proc = new ArmorPenetrationProc(pchar, get_weapon_side_name(eq_slot), icon, proc_sources, proc_rate, reduction, max_stacks, duration,
-                                            REFRESH_EXTENDS_DURATION);
+            proc = new ArmorPenetrationProc(pchar, get_weapon_side_name(eq_slot, display_name), icon, proc_sources, proc_rate, reduction, max_stacks,
+                                            duration, REFRESH_EXTENDS_DURATION);
         }
 
         else if (direct_spell_damage_procs.contains(proc_name)) {
@@ -476,14 +477,14 @@ void Item::set_procs(const int eq_slot) {
             const unsigned max = i["max"].toUInt();
             const double coefficient = i["spell_dmg_coefficient"].toDouble();
 
-            proc = new InstantSpellProc(pchar, get_weapon_side_name(eq_slot), icon, proc_sources, proc_rate, get_magic_school(proc_name), min, max,
-                                        coefficient, ConsumeCharge::No);
+            proc = new InstantSpellProc(pchar, get_weapon_side_name(eq_slot, display_name), icon, proc_sources, proc_rate,
+                                        get_magic_school(proc_name), min, max, coefficient, ConsumeCharge::No);
         }
 
         else if (proc_name == "FELSTRIKER_PROC") {
             add_default_proc_sources(proc_sources, eq_slot);
 
-            proc = new FelstrikerProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, i["duration"].toInt());
+            proc = new FelstrikerProc(pchar, get_weapon_side_name(eq_slot, display_name), proc_sources, proc_rate, i["duration"].toInt());
         }
 
         else if (proc_name == "BLACK_GRASP_OF_THE_DESTROYER") {
@@ -499,14 +500,16 @@ void Item::set_procs(const int eq_slot) {
                                        MaintainBuffEnabled::No, buff);
         } else if (proc_name == "GENERIC_STAT_BUFF") {
             add_proc_sources_from_map(proc_sources, i, eq_slot);
-            Buff* buff = new GenericStatBuff(pchar, name, icon, i["duration"].toInt(),
+            Buff* buff = new GenericStatBuff(pchar, display_name, icon, i["duration"].toInt(),
                                              {{get_item_stats_from_string(i["type"]), static_cast<unsigned>(amount)}});
             proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, EnabledAtStart::Yes, MaintainBuffEnabled::Yes, buff);
         } else if (proc_name == "INSTANT_FIREBALL") {
             add_default_proc_sources(proc_sources, eq_slot);
-            Spell* spell = new FireballInstant(pchar, QString(" (%1)").arg(name), i["min"].toUInt(), i["max"].toUInt(),
+            Spell* spell = new FireballInstant(pchar, QString(" (%1)").arg(display_name), i["min"].toUInt(), i["max"].toUInt(),
                                                i["dmg_over_duration"].toUInt(), i["duration"].toInt(), 0, 0, 0.0, 0.0, 1);
-            proc = new GenericSpellProc(pchar, name, icon, proc_sources, proc_rate, spell);
+            proc = new GenericSpellProc(pchar, display_name, icon, proc_sources, proc_rate, spell);
+        } else {
+            qDebug() << "Unhandled proc" << proc_name;
         }
 
         if (proc != nullptr) {
