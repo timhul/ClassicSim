@@ -18,8 +18,8 @@ private:
     Warrior* warr;
     WarriorSpells* spells;
     const QVector<unsigned> innate_threat_by_spell_rank;
-    const QVector<unsigned> talent_ranks;
     unsigned innate_threat;
+    const QVector<unsigned> talent_ranks;
 
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;
