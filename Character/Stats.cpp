@@ -198,6 +198,9 @@ void Stats::add(const QString& key, const QString& value) {
     } else if (key == "DEFENSE") {
         this->increase_defense(value.toInt());
         this->equip_effects_tooltip.append(QString("Equip: Increased Defense +%1.").arg(value));
+    } else if (key == "BLOCK_VALUE") {
+      this->increase_block_value(value.toInt());
+      this->equip_effects_tooltip.append(QString("Equip: Increased Block Value +%1.").arg(value));
     } else if (key == "DODGE_CHANCE") {
         this->increase_dodge(value.toDouble());
         this->equip_effects_tooltip.append(QString("Equip: Increases your chance to dodge an attack by %1%.").arg(value));
@@ -242,6 +245,8 @@ void Stats::add(const Stats* rhs) {
     increase_stamina(rhs->get_stamina());
     increase_intellect(rhs->get_intellect());
     increase_spirit(rhs->get_spirit());
+
+    increase_block_value(rhs->get_block_value());
 
     increase_axe_skill(rhs->get_axe_skill());
     increase_dagger_skill(rhs->get_dagger_skill());
@@ -333,6 +338,8 @@ void Stats::remove(const Stats* rhs) {
     decrease_stamina(rhs->get_stamina());
     decrease_intellect(rhs->get_intellect());
     decrease_spirit(rhs->get_spirit());
+
+    decrease_block_value(rhs->get_block_value());
 
     decrease_axe_skill(rhs->get_axe_skill());
     decrease_dagger_skill(rhs->get_dagger_skill());
@@ -442,6 +449,10 @@ unsigned Stats::get_spirit() const {
     return spirit;
 }
 
+unsigned Stats::get_block_value() const {
+    return block_value;
+}
+
 void Stats::increase_strength(const unsigned increase) {
     strength += increase;
 }
@@ -488,6 +499,14 @@ void Stats::increase_armor(const int increase) {
 
 void Stats::decrease_armor(const int decrease) {
     armor -= decrease;
+}
+
+void Stats::increase_block_value(const int increase) {
+    block_value += increase;
+}
+
+void Stats::decrease_block_value(const int decrease) {
+    block_value -= decrease;
 }
 
 void Stats::increase_defense(const int increase) {

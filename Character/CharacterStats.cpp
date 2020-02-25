@@ -96,6 +96,10 @@ Equipment* CharacterStats::get_equipment() const {
     return this->equipment;
 }
 
+unsigned CharacterStats::get_block_value() const {
+    return static_cast<unsigned>(base_stats->get_block_value() + equipment->get_stats()->get_block_value());
+}
+
 unsigned CharacterStats::get_strength() const {
     return static_cast<unsigned>(
         round(strength_mod * (base_stats->get_strength() + equipment->get_stats()->get_strength() + pchar->get_race()->get_base_strength())));
@@ -624,6 +628,14 @@ void CharacterStats::increase_casting_speed_flat_reduction(const unsigned value)
 void CharacterStats::decrease_casting_speed_flat_reduction(const unsigned value) {
     check((casting_speed_flat_reduction >= value), "Underflow reduction of flat casting speed");
     casting_speed_flat_reduction -= value;
+}
+
+void CharacterStats::increase_block_value(const unsigned value) {
+    base_stats->increase_block_value(value);
+}
+
+void CharacterStats::decrease_block_value(const unsigned value) {
+    base_stats->decrease_block_value(value);
 }
 
 void CharacterStats::increase_strength(const unsigned value) {
