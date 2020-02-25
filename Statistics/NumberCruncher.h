@@ -24,6 +24,7 @@ class StatisticsProc;
 class StatisticsResource;
 class StatisticsRotationExecutor;
 class StatisticsSpell;
+class ThreatBreakdownModel;
 
 QString get_name_for_option(const SimOption::Name option);
 
@@ -35,7 +36,9 @@ public:
     void reset();
 
     double get_personal_dps(SimOption::Name) const;
+    double get_personal_tps(SimOption::Name) const;
     double get_raid_dps() const;
+    double get_raid_tps() const;
 
     ScaleResult* get_dps_distribution() const;
 
@@ -51,6 +54,7 @@ private:
     friend class RotationExecutorBreakdownModel;
     friend class RotationExecutorListModel;
     friend class ScaleResultModel;
+    friend class ThreatBreakdownModel;
 
     int time_in_combat {0};
     int collected_iterations {0};
@@ -62,11 +66,12 @@ private:
     void merge_player_results(ClassStatistics*);
 
     double get_dps_for_option(SimOption::Name) const;
+    double get_tps_for_option(SimOption::Name) const;
     QPair<double, double> get_min_max_dps_for_option(SimOption::Name) const;
     void calculate_stat_weights(QList<ScaleResult*>& list);
 
     void merge_spell_stats(QList<StatisticsSpell*>& vec);
-    void merge_spell_entry(const QString& name, const QString& icon, long long int total_damage_dealt, QList<StatisticsSpell*>& vec);
+    void merge_spell_entry(const QString& name, const QString& icon, long long int total_damage_dealt, long long int total_threat_dealt, QList<StatisticsSpell*>& vec);
 
     void merge_buff_stats(QList<StatisticsBuff*>& vec, const bool include_debuffs);
     void merge_buff_entry(const QString& name, const QString& icon, QList<StatisticsBuff*>& vec);

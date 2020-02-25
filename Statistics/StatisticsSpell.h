@@ -11,6 +11,7 @@ class StatisticsSpell;
 
 bool name(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool total_damage(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool total_threat(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool total_attempts(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool hit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool num_hits(StatisticsSpell* lhs, StatisticsSpell* rhs);
@@ -45,6 +46,21 @@ bool max_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool min_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool avg_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_hit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_hit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_hit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_crit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_crit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_crit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_glancing_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_glancing_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_glancing_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_tpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_tpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_tpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_tpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_tpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_tpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
 
 class StatisticsSpell {
 public:
@@ -101,6 +117,15 @@ public:
     void add_crit_dmg(const int dmg, const double resource_cost, const double execution_time);
     void add_spell_crit_dmg(const int dmg, const double resource_cost, const double execution_time, const int resist_result);
 
+    void add_innate_thrt(const int thrt, const double resource_cost, const double execution_time);
+    void add_partial_block_thrt(const int thrt, const double resource_cost, const double execution_time);
+    void add_partial_block_crit_thrt(const int thrt, const double resource_cost, const double execution_time);
+    void add_glancing_thrt(const int thrt, const double resource_cost, const double execution_time);
+    void add_hit_thrt(const int thrt, const double resource_cost, const double execution_time);
+    void add_spell_hit_thrt(const int thrt, const double resource_cost, const double execution_time, const int resist_result);
+    void add_crit_thrt(const int thrt, const double resource_cost, const double execution_time);
+    void add_spell_crit_thrt(const int thrt, const double resource_cost, const double execution_time, const int resist_result);
+
     int get_misses() const;
     int get_full_resists() const;
     int get_dodges() const;
@@ -125,6 +150,12 @@ public:
     long long get_partial_block_dmg() const;
     long long get_partial_block_crit_dmg() const;
 
+    long long get_partial_resist25_thrt() const;
+    long long get_partial_resist50_thrt() const;
+    long long get_partial_resist75_thrt() const;
+    long long get_partial_block_thrt() const;
+    long long get_partial_block_crit_thrt() const;
+
     long long get_glancing_dmg() const;
     long long get_hit_dmg() const;
     long long get_crit_dmg() const;
@@ -146,14 +177,39 @@ public:
     double get_avg_dpet() const;
     double get_max_dpet() const;
 
+    long long get_glancing_thrt() const;
+    long long get_hit_thrt() const;
+    long long get_crit_thrt() const;
+
+    int get_min_glancing_thrt() const;
+    int get_max_glancing_thrt() const;
+
+    int get_min_hit_thrt() const;
+    int get_max_hit_thrt() const;
+
+    int get_min_crit_thrt() const;
+    int get_max_crit_thrt() const;
+
+    double get_min_tpr() const;
+    double get_avg_tpr() const;
+    double get_max_tpr() const;
+
+    double get_min_tpet() const;
+    double get_avg_tpet() const;
+    double get_max_tpet() const;
+
     int get_num_attempt_columns() const;
     int get_num_dmg_columns() const;
+    int get_num_thrt_columns() const;
 
     long long get_total_dmg_dealt() const;
+    long long get_total_thrt_dealt() const;
     int get_total_attempts_made() const;
 
     double get_percentage_of_damage_dealt() const;
     void set_percentage_of_damage_dealt(long long int);
+    double get_percentage_of_threat_dealt() const;
+    void set_percentage_of_threat_dealt(long long int);
 
     void add(const StatisticsSpell*);
 
@@ -161,32 +217,60 @@ private:
     const QString name;
     const QString icon;
     double percentage_of_total_damage_done;
+    double percentage_of_total_threat_done;
     double min_dpr;
     double max_dpr;
     double avg_dpr;
     bool dpr_set;
     unsigned damage_dealt_successes;
 
+    double min_tpr;
+    double max_tpr;
+    double avg_tpr;
+    bool tpr_set;
+    unsigned threat_dealt_successes;
+
     double min_dpet;
     double max_dpet;
     double avg_dpet;
     bool dpet_set;
 
+    double min_tpet;
+    double max_tpet;
+    double avg_tpet;
+    bool tpet_set;
+
     int get_attempts(const Outcome outcome) const;
     int get_attempts(const QSet<Outcome>& outcomes) const;
+
     long long get_dmg(const Outcome) const;
     int get_min_dmg(const Outcome) const;
     int get_max_dmg(const Outcome) const;
+
+    long long get_thrt(const Outcome) const;
+    int get_min_thrt(const Outcome) const;
+    int get_max_thrt(const Outcome) const;
+
     void increment(const Outcome);
+
     void add_dmg(const Outcome outcome, const int dmg, const double resource_cost, const double execution_time);
     void add_dpr(const int dmg, const double resource_cost);
     void add_dpet(const int dmg, const double execution_time);
+
+    void add_thrt(const Outcome outcome, const int thrt, const double resource_cost, const double execution_time);
+    void add_tpr(const int thrt, const double resource_cost);
+    void add_tpet(const int thrt, const double execution_time);
 
     QSet<Outcome> possible_attempt_outcomes;
     QSet<Outcome> possible_success_outcomes;
 
     QMap<Outcome, int> attempts;
+
     QMap<Outcome, long long> damage;
     QMap<Outcome, int> min_damage;
     QMap<Outcome, int> max_damage;
+
+    QMap<Outcome, long long> threat;
+    QMap<Outcome, int> min_threat;
+    QMap<Outcome, int> max_threat;
 };

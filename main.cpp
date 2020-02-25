@@ -30,6 +30,7 @@
 #include "SimOption.h"
 #include "SimScaleModel.h"
 #include "Test.h"
+#include "ThreatBreakdownModel.h"
 #include "WeaponModel.h"
 
 int main(int argc, char* argv[]) {
@@ -63,6 +64,7 @@ int main(int argc, char* argv[]) {
     context->setContextProperty("debuffBreakdownModel", gui_control->get_debuff_breakdown_model());
     context->setContextProperty("engineBreakdownModel", gui_control->get_engine_breakdown_model());
     context->setContextProperty("meleeDamageBreakdownModel", gui_control->get_dmg_breakdown_model());
+    context->setContextProperty("threatBreakdownModel", gui_control->get_thrt_breakdown_model());
     context->setContextProperty("meleeAvoidanceBreakdownModel", gui_control->get_dmg_breakdown_avoidance_model());
     context->setContextProperty("procBreakdownModel", gui_control->get_proc_breakdown_model());
     context->setContextProperty("resourceBreakdownModel", gui_control->get_resource_breakdown_model());
@@ -93,6 +95,7 @@ int main(int argc, char* argv[]) {
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
     qmlRegisterType<MeleeDamageAvoidanceBreakdownSorting>("MeleeDamageAvoidanceBreakdownSorting", 1, 0, "MeleeDamageAvoidanceBreakdownSorting");
     qmlRegisterType<MeleeDamageBreakdownSorting>("MeleeDamageBreakdownSorting", 1, 0, "MeleeDamageBreakdownSorting");
+    qmlRegisterType<ThreatBreakdownSorting>("ThreatBreakdownSorting", 1, 0, "ThreatBreakdownSorting");
     qmlRegisterType<ProcBreakdownSorting>("ProcBreakdownSorting", 1, 0, "ProcBreakdownSorting");
     qmlRegisterType<ResourceBreakdownSorting>("ResourceBreakdownSorting", 1, 0, "ResourceBreakdownSorting");
     qmlRegisterType<ScaleResultSorting>("ScaleResultSorting", 1, 0, "ScaleResultSorting");

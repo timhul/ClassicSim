@@ -364,6 +364,7 @@ SOURCES += main.cpp \
     Rulesets/RulesetControl.cpp \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.cpp \
     GUI/Models/Statistics/MeleeDamageBreakdownModel.cpp \
+    GUI/Models/Statistics/ThreatBreakdownModel.cpp \
     Rotation/RotationExecutor.cpp \
     GUI/Models/Statistics/BuffBreakdownModel.cpp \
     GUI/Models/Statistics/ProcBreakdownModel.cpp \
@@ -877,6 +878,7 @@ HEADERS += \
     Faction/AvailableFactions.h \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.h \
     GUI/Models/Statistics/MeleeDamageBreakdownModel.h \
+    GUI/Models/Statistics/ThreatBreakdownModel.h \
     Rotation/RotationExecutor.h \
     GUI/Models/Statistics/BuffBreakdownModel.h \
     GUI/Models/Statistics/ProcBreakdownModel.h \

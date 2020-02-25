@@ -28,9 +28,11 @@ public:
     StatisticsRotationExecutor* get_executor_statistics(const QString& name);
     StatisticsEngine* get_engine_statistics();
     long long get_total_personal_damage_dealt() const;
+    long long get_total_personal_threat_dealt() const;
     RaidMemberResult* get_personal_result() const;
     double get_raid_dps() const;
     long long get_total_damage_for_spell(const QString& name) const;
+    long long get_total_threat_for_spell(const QString& name) const;
     void add_player_result(RaidMemberResult* result);
 
     void prepare_statistics();

@@ -154,32 +154,46 @@ void Spell::increment_full_block() {
     statistics_spell->increment_full_block();
 }
 
-void Spell::add_partial_block_dmg(const int damage, const double resource_cost, const double execution_time) {
+void Spell::add_partial_block_dmg(const int damage, const double resource_cost, const double execution_time, const int innate_threat) {
     statistics_spell->add_partial_block_dmg(damage, resource_cost, execution_time);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_partial_block_thrt(threat, resource_cost, execution_time);
 }
 
-void Spell::add_partial_block_crit_dmg(const int damage, const double resource_cost, const double execution_time) {
+void Spell::add_partial_block_crit_dmg(const int damage, const double resource_cost, const double execution_time, const int innate_threat) {
     statistics_spell->add_partial_block_crit_dmg(damage, resource_cost, execution_time);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_partial_block_crit_thrt(threat, resource_cost, execution_time);
 }
 
-void Spell::add_glancing_dmg(const int damage, const double resource_cost, const double execution_time) {
+void Spell::add_glancing_dmg(const int damage, const double resource_cost, const double execution_time, const int innate_threat) {
     statistics_spell->add_glancing_dmg(damage, resource_cost, execution_time);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_glancing_thrt(threat, resource_cost, execution_time);
 }
 
-void Spell::add_hit_dmg(const int damage, const double resource_cost, const double execution_time) {
+void Spell::add_hit_dmg(const int damage, const double resource_cost, const double execution_time, const int innate_threat) {
     statistics_spell->add_hit_dmg(damage, resource_cost, execution_time);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_hit_thrt(threat, resource_cost, execution_time);
 }
 
-void Spell::add_spell_hit_dmg(const int damage, const double resource_cost, const double execution_time, const int resist_result) {
+void Spell::add_spell_hit_dmg(const int damage, const double resource_cost, const double execution_time, const int resist_result, const int innate_threat) {
     statistics_spell->add_spell_hit_dmg(damage, resource_cost, execution_time, resist_result);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_spell_hit_thrt(threat, resource_cost, execution_time, resist_result);
 }
 
-void Spell::add_crit_dmg(const int damage, const double resource_cost, const double execution_time) {
+void Spell::add_crit_dmg(const int damage, const double resource_cost, const double execution_time, const int innate_threat) {
     statistics_spell->add_crit_dmg(damage, resource_cost, execution_time);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_crit_thrt(threat, resource_cost, execution_time);
 }
 
-void Spell::add_spell_crit_dmg(const int damage, const double resource_cost, const double execution_time, const int resist_result) {
+void Spell::add_spell_crit_dmg(const int damage, const double resource_cost, const double execution_time, const int resist_result, const int innate_threat) {
     statistics_spell->add_spell_crit_dmg(damage, resource_cost, execution_time, resist_result);
+    auto threat = (damage + innate_threat) * pchar->get_stats()->get_total_threat_mod() ;
+    statistics_spell->add_spell_crit_thrt(threat, resource_cost, execution_time, resist_result);
 }
 
 double Spell::damage_after_modifiers(const double damage) const {

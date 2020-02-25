@@ -86,10 +86,21 @@ long long ClassStatistics::get_total_personal_damage_dealt() const {
     return sum;
 }
 
+long long ClassStatistics::get_total_personal_threat_dealt() const {
+    long long sum = 0;
+
+    for (const auto& spell : spell_statistics)
+        sum += spell->get_total_thrt_dealt();
+
+    return sum;
+}
+
 RaidMemberResult* ClassStatistics::get_personal_result() const {
     long long damage_dealt = get_total_personal_damage_dealt();
+    long long threat_dealt = get_total_personal_threat_dealt();
 
-    return new RaidMemberResult(player_name, class_color, static_cast<double>(damage_dealt) / (combat_iterations * combat_length), combat_iterations);
+    return new RaidMemberResult(player_name, class_color, static_cast<double>(damage_dealt) / (combat_iterations * combat_length),
+                                static_cast<double>(threat_dealt) / (combat_iterations * combat_length), combat_iterations);
 }
 
 void ClassStatistics::add_player_result(RaidMemberResult* result) {
@@ -109,6 +120,13 @@ long long ClassStatistics::get_total_damage_for_spell(const QString& name) const
         return 0;
 
     return spell_statistics[name]->get_total_dmg_dealt();
+}
+
+long long ClassStatistics::get_total_threat_for_spell(const QString& name) const {
+    if (!spell_statistics.contains(name))
+        return 0;
+
+    return spell_statistics[name]->get_total_thrt_dealt();
 }
 
 void ClassStatistics::prepare_statistics() {
