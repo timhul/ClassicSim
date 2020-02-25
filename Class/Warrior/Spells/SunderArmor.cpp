@@ -68,4 +68,5 @@ void SunderArmor::spell_effect() {
 
     warr->lose_rage(resource_cost);
     warr->melee_mh_yellow_hit_effect();
+    add_hit_dmg(0, resource_cost, pchar->global_cooldown(), innate_threat);
 }
