@@ -14,10 +14,10 @@ SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar, JudgementOfTheCrusader* jud
                 RestrictedByGcd::Yes,
                 ResourceType::Mana,
                 160,
-                new SealOfTheCrusaderBuff(pchar)),
+                new SealOfTheCrusaderBuff(pchar),
+                judge_debuff),
     TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
-    ItemModificationRequirer({22401, 23203}),
-    judge_debuff(judge_debuff) {}
+    ItemModificationRequirer({22401, 23203}) {}
 
 SealOfTheCrusader::~SealOfTheCrusader() {}
 
