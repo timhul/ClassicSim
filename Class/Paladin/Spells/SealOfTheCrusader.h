@@ -17,8 +17,6 @@ public:
     Buff* get_judge_debuff() const;
 
 private:
-    Buff* judge_debuff;
-
     const int base_mana_cost {160};
     const QVector<double> benediction_ranks {1.0, 0.97, 0.94, 0.91, 0.88, 0.85};
 

@@ -12,8 +12,11 @@ PaladinSeal::PaladinSeal(QString name_,
                          const RestrictedByGcd restricted_by_gcd_,
                          const ResourceType resource_type_,
                          unsigned resource_cost_,
-                         Buff* seal) :
-    Spell(name_, icon_, paladin, new CooldownControl(paladin, 0.0), restricted_by_gcd_, resource_type_, resource_cost_), seal(seal) {
+                         Buff* seal,
+                         Buff* judge_debuff) :
+    Spell(name_, icon_, paladin, new CooldownControl(paladin, 0.0), restricted_by_gcd_, resource_type_, resource_cost_),
+    seal(seal),
+    judge_debuff(judge_debuff) {
     seal->enable_buff();
 }
 
@@ -24,6 +27,10 @@ PaladinSeal::~PaladinSeal() {
 
 Buff* PaladinSeal::get_buff() const {
     return this->seal;
+}
+
+bool PaladinSeal::has_judge_debuff() const {
+    return judge_debuff != nullptr;
 }
 
 void PaladinSeal::judge_seal() {

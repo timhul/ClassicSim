@@ -54,7 +54,9 @@ void PaladinSpells::apply_seal(PaladinSeal* new_seal) {
 void PaladinSpells::judge_seal(PaladinSeal* seal) {
     check((seal && active_seal && seal->get_instance_id() == active_seal->get_instance_id()), "Tried to judge a seal that was not active");
 
-    judged_seal = active_seal;
+    if (seal->has_judge_debuff()) {
+        judged_seal = active_seal;
+    }
     active_seal = nullptr;
 }
 
