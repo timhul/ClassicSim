@@ -15,7 +15,7 @@ ExposeWeaknessProc::ExposeWeaknessProc(Character* pchar, ExposeWeaknessBuff* exp
     SetBonusRequirer({"Dragonstalker Armor"}),
     expose_weakness_buff(expose_weakness_buff) {
     this->enabled = false;
-    proc_range = 1600;
+    proc_range = 160;
 }
 
 ExposeWeaknessProc::~ExposeWeaknessProc() {}
