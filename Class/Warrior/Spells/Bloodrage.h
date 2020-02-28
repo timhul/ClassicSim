@@ -3,7 +3,6 @@
 #include "PeriodicResourceGainSpell.h"
 #include "TalentRequirer.h"
 
-class StatisticsResource;
 class Warrior;
 
 class Bloodrage : public PeriodicResourceGainSpell, public TalentRequirer {
