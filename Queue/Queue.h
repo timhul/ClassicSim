@@ -9,6 +9,7 @@ public:
     ~Queue();
 
     Event* get_next();
+    Event* peek();
     void push(Event*);
     bool empty();
     void pop();

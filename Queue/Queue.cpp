@@ -10,6 +10,10 @@ Event* Queue::get_next() {
     return top;
 }
 
+Event* Queue::peek() {
+    return this->queue.top();
+}
+
 void Queue::push(Event* event) {
     this->queue.push(event);
 }

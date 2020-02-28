@@ -1066,14 +1066,21 @@ void TestSpell::given_event_is_ignored(const EventType event) {
 }
 
 void TestSpell::when_running_queued_events_until(const double priority) {
-    while (pchar->get_engine()->get_current_priority() < priority) {
-        if (pchar->get_engine()->get_queue()->empty()) {
+    Engine* engine = pchar->get_engine();
+    Queue* queue = engine->get_queue();
+
+    while (engine->get_current_priority() < priority) {
+        if (queue->empty()) {
             qDebug() << spell_under_test << "Attempted to run queued events until" << QString::number(priority, 'f', 3) << "but ran out of events at"
-                     << pchar->get_engine()->get_current_priority();
+                     << engine->get_current_priority();
             assert(false);
         }
-        Event* event = pchar->get_engine()->get_queue()->get_next();
-        pchar->get_engine()->set_current_priority(event);
+
+        if (queue->peek()->priority > priority || almost_equal(queue->peek()->priority, priority))
+            break;
+
+        Event* event = queue->get_next();
+        engine->set_current_priority(event);
 
         if (ignored_events.contains(event->event_type)) {
             delete event;
