@@ -14,6 +14,11 @@
         and buff_duration "Seal of the Crusader" greater 0
     </cast_if>
 
+    <cast_if name="Judgement">
+        buff_duration "Seal of Command" greater 0
+        and resource "Mana" greater 200
+    </cast_if>
+
     <cast_if name="Seal of Command">
         buff_duration "Judgement of the Crusader" greater 3
         and buff_duration "Seal of Command" less 3
