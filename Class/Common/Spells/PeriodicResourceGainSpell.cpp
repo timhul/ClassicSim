@@ -4,6 +4,7 @@
 #include "ClassStatistics.h"
 #include "NoEffectSelfBuff.h"
 #include "StatisticsResource.h"
+#include "Utils/Check.h"
 
 PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                                                      const QString& icon,
@@ -21,7 +22,9 @@ PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                   tick_rate,
                   0,
                   0),
-    resource_gains(std::move(resource_gains)) {}
+    resource_gains(std::move(resource_gains)) {
+    check(!this->resource_gains.empty(), QString("%1 resource_gains empty").arg(name).toStdString());
+}
 
 PeriodicResourceGainSpell::~PeriodicResourceGainSpell() {
     if (marker_buff->is_enabled())

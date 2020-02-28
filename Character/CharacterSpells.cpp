@@ -13,6 +13,7 @@
 #include "EnabledBuffs.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "EssenceOfTheRed.h"
 #include "MainhandAttack.h"
 #include "ManaPotion.h"
 #include "NightDragonsBreath.h"
@@ -43,6 +44,7 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     add_spell_group({demonic_rune});
     add_spell_group({mana_potion});
     add_spell_group({night_dragons_breath});
+    add_spell_group({new EssenceOfTheRed(pchar)});
 }
 
 CharacterSpells::~CharacterSpells() {

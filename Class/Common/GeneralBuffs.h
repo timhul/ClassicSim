@@ -4,10 +4,8 @@
 
 class Character;
 class Buff;
-class EssenceOfTheRed;
 class ExternalBuff;
 class Faction;
-class SunderArmorBuff;
 
 enum class ExternalBuffName : int;
 

@@ -534,6 +534,10 @@ void TestSpell::given_bracers_cleared() {
     assert(pchar->get_equipment()->get_wrist() == nullptr);
 }
 
+void TestSpell::given_vaelastrasz_ruleset_enabled() {
+    sim_settings->use_ruleset(Ruleset::Vaelastrasz, pchar);
+}
+
 void TestSpell::create_100_dmg_1h() {
     if (equipment_db->get_melee_weapon(TestUtils::Test100Dmg) != nullptr)
         return;
@@ -1152,6 +1156,13 @@ void TestSpell::then_next_event_is(const EventType event_type, const QString& pr
         event->act();
 
     delete event;
+}
+
+void TestSpell::then_resource_is(const ResourceType resource_type, const unsigned expected) {
+    if (pchar->get_resource_level(resource_type) != expected) {
+        qDebug() << "Expected" << expected << "resources but got" << pchar->get_resource_level(resource_type);
+        assert(false);
+    }
 }
 
 void TestSpell::dump_queued_events() {

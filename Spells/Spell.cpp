@@ -231,4 +231,6 @@ void Spell::prepare_set_of_combat_iterations_spell_specific() {}
 
 void Spell::reset_effect() {}
 
-void Spell::perform_start_of_combat() {}
+void Spell::perform_start_of_combat() {
+    check(false, QString("%1 has not defined Spell::perform_start_of_combat").arg(name).toStdString());
+}

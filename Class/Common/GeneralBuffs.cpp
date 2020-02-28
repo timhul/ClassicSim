@@ -3,7 +3,6 @@
 #include <QSet>
 
 #include "Character.h"
-#include "EssenceOfTheRed.h"
 #include "ExternalBuff.h"
 #include "Faction.h"
 #include "Utils/Check.h"
@@ -33,8 +32,6 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) : pchar(pchar), f
 
         this->external_debuffs.append(external_debuff_setup);
     }
-
-    buffs.append(new EssenceOfTheRed(pchar));
 
     mutex_buff_groups.append(QSet<QString>({"Flask of Supreme Power", "Flask of Distilled Wisdom"}));
     mutex_buff_groups.append(QSet<QString>({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili", "Blessed Sunfruit"}));

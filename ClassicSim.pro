@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     Class/Common/Buffs/ZandalarianHeroCharm.cpp \
     Class/Common/Procs/ResourceGainProc.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
+    Class/Common/Spells/EssenceOfTheRed.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Druid/Buffs/CatFormBuff.cpp \
@@ -156,6 +157,7 @@ SOURCES += main.cpp \
     Test/Druid/Talents/TestRestorationDruid.cpp \
     Test/Druid/TestDruid.cpp \
     Test/Druid/TestSpellDruid.cpp \
+    Test/General/Spells/TestEssenceOfTheRed.cpp \
     Test/Mage/Spells/TestArcaneMissiles.cpp \
     Test/Mage/Spells/TestEvocation.cpp \
     Test/Mage/Spells/TestFireball.cpp \
@@ -344,7 +346,6 @@ SOURCES += main.cpp \
     Class/Common/Procs/FelstrikerProc.cpp \
     Class/Common/Buffs/FelstrikerBuff.cpp \
     Spells/SharedBuff.cpp \
-    Class/Common/Buffs/EssenceOfTheRed.cpp \
     Class/Common/Spells/PeriodicResourceGainSpell.cpp \
     Rulesets/RulesetControl.cpp \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.cpp \
@@ -505,6 +506,7 @@ HEADERS += \
     Class/Common/Buffs/ZandalarianHeroCharm.h \
     Class/Common/Procs/ResourceGainProc.h \
     Class/Common/Spells/DragonbreathChili.h \
+    Class/Common/Spells/EssenceOfTheRed.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
     Class/Druid/Buffs/CatFormBuff.h \
@@ -642,6 +644,7 @@ HEADERS += \
     Test/Druid/Talents/TestRestorationDruid.h \
     Test/Druid/TestDruid.h \
     Test/Druid/TestSpellDruid.h \
+    Test/General/Spells/TestEssenceOfTheRed.h \
     Test/Mage/Spells/TestArcaneMissiles.h \
     Test/Mage/Spells/TestEvocation.h \
     Test/Mage/Spells/TestFireball.h \
@@ -839,7 +842,6 @@ HEADERS += \
     Class/Common/Procs/FelstrikerProc.h \
     Class/Common/Buffs/FelstrikerBuff.h \
     Spells/SharedBuff.h \
-    Class/Common/Buffs/EssenceOfTheRed.h \
     Resource/Resource.h \
     Class/Common/Spells/PeriodicResourceGainSpell.h \
     Rulesets/Rulesets.h \

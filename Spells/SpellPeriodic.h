@@ -29,6 +29,7 @@ public:
 protected:
     Buff* marker_buff;
     const double tick_rate;
+    bool start_of_combat_spell {false};
 
     void add_next_tick();
 

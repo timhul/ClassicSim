@@ -5,7 +5,6 @@
 #include <QVector>
 
 #include "Resource.h"
-#include "Rulesets.h"
 
 class BerserkingBuff;
 class BloodFuryBuff;
@@ -182,7 +181,6 @@ protected:
     double next_trinket_cd;
     int party;
     int party_member;
-    Ruleset ruleset;
 
     virtual void initialize_talents() = 0;
 

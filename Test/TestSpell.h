@@ -21,6 +21,7 @@ class Talent;
 class TalentTree;
 
 enum class EventType : int;
+enum class ResourceType : int;
 
 static const bool RUN_EVENT = true;
 
@@ -127,6 +128,7 @@ public:
     void then_damage_dealt_is_in_range(const int min, const int max);
     void then_next_event_is(const EventType event_type);
     void then_next_event_is(const EventType event_type, const QString& priority, bool act_event = false);
+    void then_resource_is(const ResourceType resource_type, const unsigned expected);
 
     void dump_queued_events();
 
@@ -188,6 +190,8 @@ protected:
 
     void given_head_cleared();
     void given_bracers_cleared();
+
+    void given_vaelastrasz_ruleset_enabled();
 
 private:
     void create_100_dmg_1h();

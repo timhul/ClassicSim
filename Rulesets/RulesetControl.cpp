@@ -1,16 +1,13 @@
 #include "RulesetControl.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "EnabledBuffs.h"
-#include "EssenceOfTheRed.h"
-#include "Execute.h"
-#include "GeneralBuffs.h"
 #include "SimSettings.h"
+#include "Spell.h"
+#include "SpellRankGroup.h"
 #include "Utils/Check.h"
-#include "Warrior.h"
-#include "WarriorSpells.h"
 
 RulesetControl::RulesetControl() : active_ruleset(Ruleset::Standard) {}
 
@@ -47,22 +44,17 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
 }
 
 void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_settings) {
-    Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
-
-    check((buff != nullptr), "buff nullptr");
-    buff->enable_buff();
-    pchar->get_enabled_buffs()->add_start_of_combat_buff(buff);
+    Spell* spell = pchar->get_spells()->get_spell_rank_group_by_name("Essence of the Red")->get_max_available_spell_rank();
+    check((spell != nullptr), QString("Essence of the Red not found for %1").arg(pchar->class_name).toStdString());
+    spell->enable();
 
     sim_settings->set_execute_threshold(2.0 / 3.0);
 }
 
 void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_settings) {
-    Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
-
-    check((buff != nullptr), "buff nullptr");
-
-    pchar->get_enabled_buffs()->remove_start_of_combat_buff(buff);
-    buff->disable_buff();
+    Spell* spell = pchar->get_spells()->get_spell_rank_group_by_name("Essence of the Red")->get_max_available_spell_rank();
+    check((spell != nullptr), QString("Essence of the Red not found for %1").arg(pchar->class_name).toStdString());
+    spell->disable();
 
     sim_settings->set_execute_threshold(0.2);
 }

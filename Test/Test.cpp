@@ -32,6 +32,7 @@
 #include "Shaman.h"
 #include "SimSettings.h"
 #include "Tauren.h"
+#include "Test/General/Spells/TestEssenceOfTheRed.h"
 #include "Test/Target/TestTarget.h"
 #include "TestAttackTables.h"
 #include "TestBloodFury.h"
@@ -96,6 +97,7 @@ void Test::test_all() {
     TestDruid(equipment_db).test_all();
 
     TestFelstrikerProc(equipment_db).test_all();
+    TestEssenceOfTheRed(equipment_db).test_all();
 }
 
 void Test::test_queue() {

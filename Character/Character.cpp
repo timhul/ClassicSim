@@ -17,7 +17,6 @@
 #include "ProcInfo.h"
 #include "Race.h"
 #include "RaidControl.h"
-#include "RulesetControl.h"
 #include "SimSettings.h"
 #include "Stats.h"
 #include "Target.h"
@@ -38,8 +37,7 @@ Character::Character(
     raid_control(raid_control),
     next_trinket_cd(-1),
     party(party),
-    party_member(member),
-    ruleset(Ruleset::Standard) {
+    party_member(member) {
     this->roll = new CombatRoll(this);
     this->enabled_procs = new EnabledProcs(this, faction);
     this->enabled_buffs = new EnabledBuffs(this, faction);
@@ -482,15 +480,11 @@ void Character::reset() {
     enabled_procs->reset();
 
     reset_resource();
-
-    sim_settings->use_ruleset(this->ruleset, this);
 }
 
 void Character::prepare_set_of_combat_iterations() {
     statistics->prepare_statistics();
     engine->prepare_set_of_iterations(statistics->get_engine_statistics());
-    this->ruleset = sim_settings->get_ruleset();
-    sim_settings->use_ruleset(this->ruleset, this);
     spells->prepare_set_of_combat_iterations();
     enabled_buffs->prepare_set_of_combat_iterations();
     enabled_procs->prepare_set_of_combat_iterations();

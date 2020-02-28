@@ -4,6 +4,7 @@
 
 #include "Buff.h"
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
@@ -74,6 +75,9 @@ void SpellPeriodic::enable_spell_effect() {
         return;
 
     marker_buff->enable_buff();
+
+    if (start_of_combat_spell)
+        pchar->get_spells()->add_start_of_combat_spell(this);
 }
 
 void SpellPeriodic::disable_spell_effect() {
@@ -81,6 +85,9 @@ void SpellPeriodic::disable_spell_effect() {
         return;
 
     marker_buff->disable_buff();
+
+    if (start_of_combat_spell)
+        pchar->get_spells()->remove_start_of_combat_spell(this);
 }
 
 void SpellPeriodic::add_next_tick() {
