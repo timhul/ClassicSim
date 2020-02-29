@@ -148,6 +148,22 @@
 		Crafted by Tailorers. Pattern drops in Lower Blackrock Spire (LBRS). Requires many Essences of multiple elements.
 		</source>
 	</item>
+    
+    <item id="14153" phase="1">
+		<info name="Robe of the Void" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_cloth_51.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="96"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPELL_DAMAGE" value="46"/>
+		</stats>
+		<special_equip_effect>
+		Use: Heal your pet for 450 to 750. (10 Min Cooldown)
+		</special_equip_effect>
+		<source>
+		Crafted by Tailorers. Pattern drops from Darkmaster Gandling in Scholomance. Requires many Essences of multiple elements.
+		</source>
+	</item>
 
 	<item id="16690" phase="1">
 		<info name="Devout Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_11.png"/>
