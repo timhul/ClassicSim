@@ -99,6 +99,7 @@ SOURCES += main.cpp \
     Class/Shaman/TalentTrees/Elemental.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
     Class/Shaman/TalentTrees/RestorationShaman.cpp \
+    Class/Warlock/WarlockEnchants.cpp \
     Equipment/Item/ItemStatsEnum.cpp \
     Equipment/Item/RandomAffix.cpp \
     Equipment/Item/Quiver.cpp \
@@ -585,6 +586,7 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    Class/Warlock/WarlockEnchants.h \
     Equipment/Item/RandomAffix.h \
     Equipment/Item/Quiver.h \
     Equipment/RandomAffixes.h \

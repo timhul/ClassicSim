@@ -7,6 +7,7 @@
 #include "Mana.h"
 #include "RaidControl.h"
 #include "Utils/Check.h"
+#include "WarlockEnchants.h"
 #include "WarlockSpells.h"
 #include "Weapon.h"
 
@@ -16,6 +17,7 @@ Warlock::Warlock(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settin
     available_races.append("Human");
     available_races.append("Orc");
     available_races.append("Undead");
+    available_enchants = new WarlockEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -42,6 +44,7 @@ Warlock::~Warlock() {
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete warlock_spells;
     delete mana;
