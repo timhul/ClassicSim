@@ -3,9 +3,11 @@
 #include <cassert>
 #include <utility>
 
+#include "Affliction.h"
 #include "CharacterStats.h"
 #include "Demonology.h"
 #include "Destruction.h"
+#include "LifeTap.h"
 #include "RaidControl.h"
 #include "ShadowBolt.h"
 #include "Spell.h"
@@ -33,6 +35,10 @@ void TestSpellWarlock::tear_down() {
     tear_down_general();
 }
 
+LifeTap* TestSpellWarlock::life_tap() const {
+    return static_cast<LifeTap*>(get_max_rank_spell_by_name("Life Tap"));
+}
+
 ShadowBolt* TestSpellWarlock::shadow_bolt() const {
     return static_cast<ShadowBolt*>(get_max_rank_spell_by_name("Shadow Bolt"));
 }
@@ -43,6 +49,10 @@ void TestSpellWarlock::given_ruin_enabled() {
     auto tree = Destruction(warlock);
     given_talent_rank(tree, "Devastation", 5);
     given_talent_rank(tree, "Ruin", 1);
+}
+
+void TestSpellWarlock::given_affliction_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Affliction(warlock), talent_name, num);
 }
 
 void TestSpellWarlock::given_destruction_talent_rank(const QString& talent_name, const unsigned num) {

@@ -13,5 +13,6 @@ private:
     Warlock* warlock;
     WarlockSpells* spells;
 
+    void add_improved_life_tap(QMap<QString, Talent*>& talent_tier);
     void add_shadow_mastery(QMap<QString, Talent*>& talent_tier);
 };

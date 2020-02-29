@@ -2,6 +2,7 @@
 
 #include "TestSpellDamage.h"
 
+class LifeTap;
 class ShadowBolt;
 class Warlock;
 
@@ -15,11 +16,13 @@ public:
 protected:
     Warlock* warlock;
 
+    LifeTap* life_tap() const;
     ShadowBolt* shadow_bolt() const;
 
     void run_class_specific_tests() override;
 
     void given_ruin_enabled();
+    void given_affliction_talent_rank(const QString& talent_name, const unsigned num);
     void given_destruction_talent_rank(const QString& talent_name, const unsigned num);
     void given_demonology_talent_rank(const QString& talent_name, const unsigned num);
 

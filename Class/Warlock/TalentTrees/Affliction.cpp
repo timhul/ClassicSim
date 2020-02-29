@@ -42,11 +42,9 @@ Affliction::Affliction(Warlock* warlock) :
                                   "Gives you a %1% chance to get a 100% increase to your Mana regeneration for 10 sec if the target is killed by you "
                                   "while you drain its soul.  In addition your Mana may continue to regenerate while casting at 50% of normal.",
                                   QVector<QPair<unsigned, unsigned>> {{50, 50}})},
-               {"2MR",
-                new Talent(warlock, this, "Improved Life Tap", "2MR", "Assets/spell/Spell_shadow_burningspirit.png", 2,
-                           "Increases the amount of Mana awarded by your Life Tap spell by %1%.", QVector<QPair<unsigned, unsigned>> {{10, 10}})},
                {"2RR", new Talent(warlock, this, "Improved Drain Life", "2RR", "Assets/spell/Spell_shadow_lifedrain02.png", 5,
                                   "Increases the Health drained by your Drain Life spell by %1%.", QVector<QPair<unsigned, unsigned>> {{2, 2}})}};
+    add_improved_life_tap(tier2);
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {
@@ -103,6 +101,15 @@ Affliction::Affliction(Warlock* warlock) :
 
     talents["5MR"]->talent->set_right_child(talents["5RR"]->talent);
     talents["5RR"]->talent->set_parent(talents["5MR"]->talent);
+}
+
+void Affliction::add_improved_life_tap(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(warlock, "Improved Life Tap", "2MR", "Assets/spell/Spell_shadow_burningspirit.png", 2,
+                                    "Increases the amount of Mana awarded by your Life Tap spell by %1%.",
+                                    QVector<QPair<unsigned, unsigned>> {{10, 10}},
+                                    QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Life Tap")});
+
+    add_talent_to_tier(talent_tier, talent);
 }
 
 void Affliction::add_shadow_mastery(QMap<QString, Talent*>& talent_tier) {

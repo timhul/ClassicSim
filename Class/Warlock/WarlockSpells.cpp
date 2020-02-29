@@ -1,6 +1,7 @@
 #include "WarlockSpells.h"
 
 #include "ImprovedShadowBolt.h"
+#include "LifeTap.h"
 #include "MainhandAttack.h"
 #include "RaidControl.h"
 #include "ShadowBolt.h"
@@ -28,5 +29,14 @@ WarlockSpells::WarlockSpells(Warlock* warlock) : CharacterSpells(warlock), warlo
         new ShadowBolt(warlock, this, 8, improved_shadow_bolt),
         new ShadowBolt(warlock, this, 9, improved_shadow_bolt),
         new ShadowBolt(warlock, this, 10, improved_shadow_bolt),
+    });
+
+    add_spell_group({
+        new LifeTap(warlock, this, 1),
+        new LifeTap(warlock, this, 2),
+        new LifeTap(warlock, this, 3),
+        new LifeTap(warlock, this, 4),
+        new LifeTap(warlock, this, 5),
+        new LifeTap(warlock, this, 6),
     });
 }

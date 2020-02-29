@@ -10,6 +10,7 @@
 #include "TestAffliction.h"
 #include "TestDemonology.h"
 #include "TestDestruction.h"
+#include "TestLifeTap.h"
 #include "TestShadowBolt.h"
 #include "Warlock.h"
 
@@ -23,6 +24,7 @@ void TestWarlock::test_all() {
     TestDestruction(equipment_db).test_all();
 
     TestShadowBolt(equipment_db).test_all();
+    TestLifeTap(equipment_db).test_all();
 }
 
 void TestWarlock::test_values_after_initialization() {

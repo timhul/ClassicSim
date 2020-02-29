@@ -22,9 +22,9 @@
 
     <cast_if name="Shadow Bolt"/>
 
-    <!-- <cast_if name="Life Tap">
+    <cast_if name="Life Tap">
         resource "Mana" less 400
-    </cast_if> -->
+    </cast_if>
 
     <cast_if name="Mana Potion"/>
     <cast_if name="Demonic Rune"/>
