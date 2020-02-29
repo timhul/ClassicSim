@@ -1,6 +1,10 @@
 #include "Warlock.h"
 
+#include "Affliction.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
+#include "Demonology.h"
+#include "Destruction.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
@@ -37,6 +41,8 @@ Warlock::Warlock(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settin
     mana->set_base_mana(1373);
 
     warlock_spells->activate_racials();
+
+    initialize_talents();
 }
 
 Warlock::~Warlock() {
@@ -78,7 +84,10 @@ double Warlock::global_cooldown() const {
     return 1.5;
 }
 
-void Warlock::initialize_talents() {}
+void Warlock::initialize_talents() {
+    for (int i = 0; i < 3; ++i)
+        talents->add_talent_tree(new Affliction(this), new Demonology(this), new Destruction(this));
+}
 
 unsigned Warlock::get_resource_level(const ResourceType) const {
     return mana->current;

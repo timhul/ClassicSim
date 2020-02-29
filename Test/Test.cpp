@@ -51,6 +51,7 @@
 #include "TestRotationFileReader.h"
 #include "TestShaman.h"
 #include "TestStats.h"
+#include "TestWarlock.h"
 #include "TestWarrior.h"
 #include "Troll.h"
 #include "Undead.h"
@@ -95,6 +96,7 @@ void Test::test_all() {
     TestShaman(equipment_db).test_all();
     TestMage(equipment_db).test_all();
     TestDruid(equipment_db).test_all();
+    TestWarlock(equipment_db).test_all();
 
     TestFelstrikerProc(equipment_db).test_all();
     TestEssenceOfTheRed(equipment_db).test_all();

@@ -1007,5 +1007,37 @@
         <file>QML/Assets/items/Inv_misc_ticket_tarot_maelstrom_01.png</file>
         <file>QML/Assets/items/Inv_misc_gem_pearl_04.png</file>
         <file>QML/Assets/items/Inv_sword_23.png</file>
+        <file>QML/Assets/spell/Spell_shadow_abominationexplosion.png</file>
+        <file>QML/Assets/spell/Spell_shadow_burningspirit.png</file>
+        <file>QML/Assets/spell/Spell_shadow_callofbone.png</file>
+        <file>QML/Assets/spell/Spell_shadow_contagion.png</file>
+        <file>QML/Assets/spell/Spell_shadow_curseofmannoroth.png</file>
+        <file>QML/Assets/spell/Spell_shadow_curseofsargeras.png</file>
+        <file>QML/Assets/spell/Spell_shadow_fingerofdeath.png</file>
+        <file>QML/Assets/spell/Spell_shadow_haunting.png</file>
+        <file>QML/Assets/spell/Spell_shadow_lifedrain02.png</file>
+        <file>QML/Assets/spell/Spell_shadow_requiem.png</file>
+        <file>QML/Assets/spell/Spell_shadow_shadetruesight.png</file>
+        <file>QML/Assets/spell/Spell_shadow_unsummonbuilding.png</file>
+        <file>QML/Assets/warlock/warlock_curses.jpg</file>
+        <file>QML/Assets/warlock/warlock_destruction.jpg</file>
+        <file>QML/Assets/warlock/warlock_summoning.jpg</file>
+        <file>QML/Assets/misc/Inv_ammo_firetar.png</file>
+        <file>QML/Assets/misc/Inv_misc_gem_sapphire_01.png</file>
+        <file>QML/Assets/misc/Inv_stone_04.png</file>
+        <file>QML/Assets/spell/Spell_holy_magicalsentry.png</file>
+        <file>QML/Assets/spell/Spell_nature_removecurse.png</file>
+        <file>QML/Assets/spell/Spell_shadow_enslavedemon.png</file>
+        <file>QML/Assets/spell/Spell_shadow_gathershadows.png</file>
+        <file>QML/Assets/spell/Spell_shadow_impphaseshift.png</file>
+        <file>QML/Assets/spell/Spell_shadow_metamorphosis.png</file>
+        <file>QML/Assets/spell/Spell_shadow_psychicscream.png</file>
+        <file>QML/Assets/spell/Spell_shadow_shadowpact.png</file>
+        <file>QML/Assets/spell/Spell_shadow_summonvoidwalker.png</file>
+        <file>QML/Assets/spell/Spell_fire_firebolt.png</file>
+        <file>QML/Assets/spell/Spell_fire_windsofwoe.png</file>
+        <file>QML/Assets/spell/Spell_shadow_corpseexplode.png</file>
+        <file>QML/Assets/spell/Spell_shadow_scourgebuild.png</file>
+        <file>QML/Assets/spell/Spell_shadow_shadowwordpain.png</file>
     </qresource>
 </RCC>
