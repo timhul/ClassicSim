@@ -4,8 +4,6 @@ This is an event-driven gameplay simulator for World of Warcraft Classic written
 CSIM for short. Its purpose is to provide feedback to a user regarding the value of equipment, talents, consumables,
 rotation choices, etc.
 
-For information regarding new features / bug fixes in upcoming release, check [Next release](#next-release).
-
 # Licensing
 
 Licensing information can be found in [LICENSE.md](https://github.com/timhul/ClassicSim/blob/master/LICENSE).
