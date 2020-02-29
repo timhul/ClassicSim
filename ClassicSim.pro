@@ -99,9 +99,11 @@ SOURCES += main.cpp \
     Class/Shaman/TalentTrees/Elemental.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
     Class/Shaman/TalentTrees/RestorationShaman.cpp \
+    Class/Warlock/Buffs/ImprovedShadowBolt.cpp \
     Class/Warlock/TalentTrees/Affliction.cpp \
     Class/Warlock/TalentTrees/Demonology.cpp \
     Class/Warlock/TalentTrees/Destruction.cpp \
+    Class/Warlock/Spells/ShadowBolt.cpp \
     Class/Warlock/WarlockEnchants.cpp \
     Equipment/Item/ItemStatsEnum.cpp \
     Equipment/Item/RandomAffix.cpp \
@@ -237,9 +239,11 @@ SOURCES += main.cpp \
     Test/TestBloodFury.cpp \
     Test/TestCombatRoll.cpp \
     Test/TestStats.cpp \
+    Test/Warlock/Spells/TestShadowBolt.cpp \
     Test/Warlock/Talents/TestAffliction.cpp \
     Test/Warlock/Talents/TestDemonology.cpp \
     Test/Warlock/Talents/TestDestruction.cpp \
+    Test/Warlock/TestSpellWarlock.cpp \
     Test/Warlock/TestWarlock.cpp \
     Test/Warrior/Spells/TestBattleShout.cpp \
     Test/Warrior/TestWarrior.cpp \
@@ -593,9 +597,11 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    Class/Warlock/Buffs/ImprovedShadowBolt.h \
     Class/Warlock/TalentTrees/Affliction.h \
     Class/Warlock/TalentTrees/Demonology.h \
     Class/Warlock/TalentTrees/Destruction.h \
+    Class/Warlock/Spells/ShadowBolt.h \
     Class/Warlock/WarlockEnchants.h \
     Equipment/Item/RandomAffix.h \
     Equipment/Item/Quiver.h \
@@ -737,9 +743,11 @@ HEADERS += \
     Test/TestBloodFury.h \
     Test/TestCombatRoll.h \
     Test/TestStats.h \
+    Test/Warlock/Spells/TestShadowBolt.h \
     Test/Warlock/Talents/TestAffliction.h \
     Test/Warlock/Talents/TestDemonology.h \
     Test/Warlock/Talents/TestDestruction.h \
+    Test/Warlock/TestSpellWarlock.h \
     Test/Warlock/TestWarlock.h \
     Test/Warrior/Spells/TestBattleShout.h \
     Test/Warrior/TestWarrior.h \
@@ -1057,7 +1065,9 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Hunter/Spells \
     $$PWD/Class/Hunter/TalentTrees \
     $$PWD/Class/Warlock \
+    $$PWD/Class/Warlock/Buffs \
     $$PWD/Class/Warlock/TalentTrees \
+    $$PWD/Class/Warlock/Spells \
     $$PWD/Class/Shaman \
     $$PWD/Class/Shaman/Buffs \
     $$PWD/Class/Shaman/Procs \
@@ -1109,6 +1119,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Druid/Spells \
     $$PWD/Test/Druid/Talents \
     $$PWD/Test/Warlock \
+    $$PWD/Test/Warlock/Spells \
     $$PWD/Test/Warlock/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \

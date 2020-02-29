@@ -147,6 +147,12 @@ void TalentStatIncrease::apply_rank_effect() {
 
             pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Frost);
             break;
+        case ShadowDmgMod:
+            if (curr_points != 1)
+                pchar->get_stats()->decrease_magic_school_damage_mod((curr_points - 1) * change, MagicSchool::Shadow);
+
+            pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Shadow);
+            break;
         case SpellHit:
             pchar->get_stats()->increase_spell_hit(change);
             break;
@@ -192,7 +198,6 @@ void TalentStatIncrease::apply_rank_effect() {
         case Defense:
         case Parry:
         case ArmorModFromItems:
-        case ShadowDmgMod:
             continue;
         }
     }
@@ -325,6 +330,12 @@ void TalentStatIncrease::remove_rank_effect() {
             if (curr_points > 0)
                 pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Frost);
             break;
+        case ShadowDmgMod:
+            pchar->get_stats()->decrease_magic_school_damage_mod((curr_points + 1) * change, MagicSchool::Shadow);
+
+            if (curr_points > 0)
+                pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Shadow);
+            break;
         case SpellHit:
             pchar->get_stats()->decrease_spell_hit(change);
             break;
@@ -370,7 +381,6 @@ void TalentStatIncrease::remove_rank_effect() {
         case Parry:
         case ArmorModFromItems:
         case FireCrit:
-        case ShadowDmgMod:
             continue;
         }
     }

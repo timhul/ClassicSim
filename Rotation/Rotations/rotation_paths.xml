@@ -23,6 +23,8 @@
     <file path="Rotations/Mage/Frost.xml"/>
     <file path="Rotations/Mage/Arcane.xml"/>
 
+    <file path="Rotations/Warlock/ShadowBolt.xml"/>
+
     <file path="Rotations/Druid/FeralPowershifting.xml"/>
     <file path="Rotations/Druid/Starfire.xml"/>
 </paths>

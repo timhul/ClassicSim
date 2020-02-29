@@ -93,7 +93,7 @@ GUIControl::GUIControl(QObject* parent) :
     sim_settings(new SimSettings()),
     target(new Target(63)),
     number_cruncher(new NumberCruncher()),
-    supported_classes({"Warrior", "Rogue", "Hunter", "Paladin", "Shaman", "Mage", "Druid"}),
+    supported_classes({"Warrior", "Rogue", "Hunter", "Paladin", "Shaman", "Mage", "Druid", "Warlock"}),
     current_char(nullptr),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),

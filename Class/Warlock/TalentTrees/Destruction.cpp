@@ -28,23 +28,15 @@ Destruction::Destruction(Warlock* warlock) :
         {"Conflagrate", "7ML"},
     };
 
-    QMap<QString, Talent*> tier1 {
-        {"1ML", new Talent(warlock, this, "Improved Shadow Bolt", "1ML", "Assets/spell/Spell_shadow_shadowbolt.png", 5,
-                           "Your Shadow Bolt critical strikes increase Shadow damage dealt to the target by %1% until 4 non-periodic damage sources "
-                           "are applied.  Effect lasts a maximum of 12 sec.",
-                           QVector<QPair<unsigned, unsigned>> {{4, 4}})},
-        {"1MR", new Talent(warlock, this, "Cataclysm", "1MR", "Assets/spell/Spell_fire_windsofwoe.png", 5,
-                           "Reduces the Mana cost of your Destruction spells by %1%.", QVector<QPair<unsigned, unsigned>> {{1, 1}})},
-    };
+    QMap<QString, Talent*> tier1 {};
+    add_cataclysm(tier1);
+    add_improved_shadow_bolt(tier1);
     add_talents(tier1);
 
-    QMap<QString, Talent*>
-        tier2 {{"2ML", new Talent(warlock, this, "Bane", "2ML", "Assets/spell/Spell_shadow_deathpact.png", 5,
-                                  "Reduces the casting time of your Shadow Bolt and Immolate spells by %1 sec and your Soul Fire spell by %2 sec.",
-                                  QVector<QPair<double, double>> {{0.1, 0.1}, {0.4, 0.4}})},
-               {"2MR",
-                new Talent(warlock, this, "Aftermath", "2MR", "Assets/spell/Spell_fire_fire.png", 5,
+    QMap<QString, Talent*> tier2 {
+        {"2MR", new Talent(warlock, this, "Aftermath", "2MR", "Assets/spell/Spell_fire_fire.png", 5,
                            "Gives your Destruction spells a %1% chance to daze the target for 5 sec.", QVector<QPair<unsigned, unsigned>> {{2, 2}})}};
+    add_bane(tier2);
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(warlock, this, "Improved Firebolt", "3LL", "Assets/spell/Spell_fire_firebolt.png", 2,
@@ -53,9 +45,6 @@ Destruction::Destruction(Warlock* warlock) :
                                   {"3ML", new Talent(warlock, this, "Improved Lash of Pain", "3ML", "Assets/spell/Spell_shadow_curse.png", 2,
                                                      "Reduces the cooldown of your Succubus' Lash of Pain spell by %1 sec.",
                                                      QVector<QPair<unsigned, unsigned>> {{3, 3}})},
-                                  {"3MR", new Talent(warlock, this, "Devastation", "3MR", "Assets/spell/Spell_fire_flameshock.png", 5,
-                                                     "Increases the critical strike chance of your Destruction spells by %1%.",
-                                                     QVector<QPair<unsigned, unsigned>> {{1, 1}})},
                                   {
                                       "3RR",
                                       new Talent(warlock, this, "Shadowburn", "3RR", "Assets/spell/Spell_shadow_scourgebuild.png", 1,
@@ -63,6 +52,7 @@ Destruction::Destruction(Warlock* warlock) :
                                                  "Shadowburn, and yields experience or honor, the caster gains a Soul Shard.",
                                                  QVector<QPair<unsigned, unsigned>> {}),
                                   }};
+    add_devastation(tier3);
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {
@@ -82,10 +72,8 @@ Destruction::Destruction(Warlock* warlock) :
                                               QVector<QPair<unsigned, unsigned>> {{13, 13}})},
                                   {"5ML", new Talent(warlock, this, "Improved Immolate", "5ML", "Assets/spell/Spell_fire_immolation.png", 5,
                                                      "Increases the initial damage of your Immolate spell by %1%.",
-                                                     QVector<QPair<unsigned, unsigned>> {{5, 5}})},
-                                  {"5MR", new Talent(warlock, this, "Ruin", "5MR", "Assets/spell/Spell_shadow_shadowwordpain.png", 1,
-                                                     "Increases the critical strike damage bonus of your Destruction spells by 100%.",
-                                                     QVector<QPair<unsigned, unsigned>> {})}};
+                                                     QVector<QPair<unsigned, unsigned>> {{5, 5}})}};
+    add_ruin(tier5);
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {};
@@ -106,6 +94,51 @@ Destruction::Destruction(Warlock* warlock) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+void Destruction::add_improved_shadow_bolt(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent
+        = get_new_talent(warlock, "Improved Shadow Bolt", "1ML", "Assets/spell/Spell_shadow_shadowbolt.png", 5,
+                         "Your Shadow Bolt critical strikes increase Shadow damage dealt to the target by %1% until 4 non-periodic damage sources "
+                         "are applied.  Effect lasts a maximum of 12 sec.",
+                         QVector<QPair<unsigned, unsigned>> {{4, 4}}, QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Shadow Bolt")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Destruction::add_cataclysm(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(warlock, "Cataclysm", "1MR", "Assets/spell/Spell_fire_windsofwoe.png", 5,
+                                    "Reduces the Mana cost of your Destruction spells by %1%.", QVector<QPair<unsigned, unsigned>> {{1, 1}},
+                                    QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Shadow Bolt")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Destruction::add_bane(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(warlock, "Bane", "2ML", "Assets/spell/Spell_shadow_deathpact.png", 5,
+                                    "Reduces the casting time of your Shadow Bolt and Immolate spells by %1 sec and your Soul Fire spell by %2 sec.",
+                                    QVector<QPair<double, double>> {{0.1, 0.1}, {0.4, 0.4}},
+                                    QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Shadow Bolt")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Destruction::add_devastation(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(warlock, "Devastation", "3MR", "Assets/spell/Spell_fire_flameshock.png", 5,
+                                    "Increases the critical strike chance of your Destruction spells by %1%.",
+                                    QVector<QPair<unsigned, unsigned>> {{1, 1}},
+                                    QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Shadow Bolt")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Destruction::add_ruin(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(warlock, "Ruin", "5MR", "Assets/spell/Spell_shadow_shadowwordpain.png", 1,
+                                    "Increases the critical strike damage bonus of your Destruction spells by 100%.",
+                                    QVector<QPair<unsigned, unsigned>> {},
+                                    QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Shadow Bolt")});
+
+    add_talent_to_tier(talent_tier, talent);
 }
 
 void Destruction::add_emberstorm(QMap<QString, Talent*>& talent_tier) {

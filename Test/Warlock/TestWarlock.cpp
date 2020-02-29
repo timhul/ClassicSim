@@ -10,6 +10,7 @@
 #include "TestAffliction.h"
 #include "TestDemonology.h"
 #include "TestDestruction.h"
+#include "TestShadowBolt.h"
 #include "Warlock.h"
 
 TestWarlock::TestWarlock(EquipmentDb* equipment_db_) : TestObject(equipment_db_) {}
@@ -20,6 +21,8 @@ void TestWarlock::test_all() {
     TestAffliction(equipment_db).test_all();
     TestDemonology(equipment_db).test_all();
     TestDestruction(equipment_db).test_all();
+
+    TestShadowBolt(equipment_db).test_all();
 }
 
 void TestWarlock::test_values_after_initialization() {

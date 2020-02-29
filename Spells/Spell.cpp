@@ -125,7 +125,11 @@ double Spell::get_cooldown_remaining() const {
 
 void Spell::perform() {
     check((pchar->get_resource_level(resource_type) >= get_resource_cost()),
-          QString("Tried to perform '%1' but has unsufficient resource").arg(name).toStdString());
+          QString("Tried to perform '%1' but has unsufficient resource %2 (requires %3)")
+              .arg(name)
+              .arg(pchar->get_resource_level(resource_type))
+              .arg(get_resource_cost())
+              .toStdString());
     cooldown->last_used = engine->get_current_priority();
     this->spell_effect();
 }
