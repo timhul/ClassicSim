@@ -246,6 +246,29 @@
 		</source>
 	</item>
 
+	<item id="12545" phase="1">
+		<info name="Eye of Orgrimmar" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="60" quality="RARE" boe="no" icon="Inv_jewelry_ring_05.png"/>
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="SPIRIT" value="4"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+			Quest reward from saving princess in BRD.
+		</source>
+	</item>
+
+	<item id="18103" phase="1">
+		<info name="Band of Rumination" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_16.png"/>
+		<stats>
+			<stat type="MANA_PER_5" value="5"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Warchief Rend Blackhand in UBRS.
+		</source>
+	</item>
+
 	<item id="18701" phase="2">
 		<info name="Innervating Band" type="RING" slot="RING" unique="yes" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_jewelry_ring_24.png"/>
 		<stats>
