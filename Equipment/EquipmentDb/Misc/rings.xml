@@ -247,7 +247,8 @@
 	</item>
 
 	<item id="12545" phase="1">
-		<info name="Eye of Orgrimmar" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="60" quality="RARE" boe="no" icon="Inv_jewelry_ring_05.png"/>
+		<info name="Eye of Orgrimmar" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="HORDE" icon="Inv_jewelry_ring_05.png"/>
+		<mutex item_id="12544"/>
 		<stats>
 			<stat type="INTELLECT" value="7"/>
 			<stat type="SPIRIT" value="4"/>
