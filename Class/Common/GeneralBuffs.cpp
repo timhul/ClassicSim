@@ -23,12 +23,14 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) : pchar(pchar), f
             {false, get_external_buff_by_name(ExternalBuffName::CurseOfRecklessness, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::FaerieFire, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)},
-            {false, get_external_buff_by_name(ExternalBuffName::ImprovedShadowBolt, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::FireVulnerability, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::CurseOfTheElements, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::CurseOfShadow, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::ShadowWeaving, pchar)},
         };
+
+        if (pchar->class_name != "Warlock")
+            external_debuff_setup.append({false, get_external_buff_by_name(ExternalBuffName::ImprovedShadowBolt, pchar)});
 
         this->external_debuffs.append(external_debuff_setup);
     }
