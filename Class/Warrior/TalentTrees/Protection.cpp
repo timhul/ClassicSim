@@ -2,8 +2,10 @@
 
 #include "Talent.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
-Protection::Protection(Warrior* pchar) : TalentTree("Protection", "Assets/warrior/warrior_protection.jpg"), warrior(pchar) {
+Protection::Protection(Warrior* pchar) :
+    TalentTree("Protection", "Assets/warrior/warrior_protection.jpg"), warrior(pchar), spells(static_cast<WarriorSpells*>(pchar->get_spells())) {
     talent_names_to_locations = {
         {"Shield Specialization", "1ML"},
         {"Anticipation", "1MR"},
@@ -55,13 +57,14 @@ Protection::Protection(Warrior* pchar) : TalentTree("Protection", "Assets/warrio
     add_improved_shield_block(tier3);
     add_talents(tier3);
 
-    QMap<QString, Talent*>
-        tier4 {{"4LL", new Talent(pchar, this, "Improved Sunder Armor", "4LL", base_url + "ability/Ability_warrior_sunder.png", 3,
-                                  "Reduces the cost of your Sunder Armor ability by %1 rage.", QVector<QPair<unsigned, unsigned>> {{1, 1}})},
-               {"4ML", new Talent(pchar, this, "Improved Disarm", "4ML", base_url + "ability/Ability_warrior_disarm.png", 3,
-                                  "Increases the duration of your Disarm ability by %1 secs.", QVector<QPair<unsigned, unsigned>> {{1, 1}})},
-               {"4MR", new Talent(pchar, this, "Improved Taunt", "4MR", base_url + "spell/Spell_nature_reincarnation.png", 2,
-                                  "Reduces the cooldown of your Taunt ability by %1 secs.", QVector<QPair<unsigned, unsigned>> {{1, 1}})}};
+    QMap<QString, Talent*> tier4 {{"4ML", new Talent(pchar, this, "Improved Disarm", "4ML", base_url + "ability/Ability_warrior_disarm.png", 3,
+                                                     "Increases the duration of your Disarm ability by %1 secs.",
+                                                     QVector<QPair<unsigned, unsigned>> {{1, 1}})},
+                                  {"4MR", new Talent(pchar, this, "Improved Taunt", "4MR", base_url + "spell/Spell_nature_reincarnation.png", 2,
+                                                     "Reduces the cooldown of your Taunt ability by %1 secs.",
+                                                     QVector<QPair<unsigned, unsigned>> {{1, 1}})}};
+
+    add_improved_sunder_armor(tier4);
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new Talent(pchar, this, "Improved Shield Wall", "5LL", base_url + "ability/Ability_warrior_shieldwall.png",
@@ -104,6 +107,14 @@ void Protection::add_improved_shield_block(QMap<QString, Talent*>& talent_tier) 
     rank_descriptions.insert(2, base_str.arg(1));
     rank_descriptions.insert(3, base_str.arg(2));
     Talent* talent = new Talent(warrior, this, "Improved Shield Block", "3ML", base_url + "ability/Ability_defend.png", 3, rank_descriptions, {});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Protection::add_improved_sunder_armor(QMap<QString, Talent*>& talent_tier) {
+    auto talent = get_new_talent(warrior, "Improved Sunder Armor", "4LL", base_url + "ability/Ability_warrior_sunder.png", 3,
+                                 "Reduces the cost of your Sunder Armor ability by %1 rage.", QVector<QPair<unsigned, unsigned>> {{1, 1}},
+                                 QVector<SpellRankGroup*> {spells->get_spell_rank_group_by_name("Sunder Armor")});
 
     add_talent_to_tier(talent_tier, talent);
 }
