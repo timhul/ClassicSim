@@ -22,8 +22,7 @@ SunderArmor::SunderArmor(Warrior* pchar, WarriorSpells* spells) :
     TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Improved Sunder Armor", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    // TODO find these lower level values
-    innate_threat_by_spell_rank({0, 0, 0, 0, 260}),
+    innate_threat_by_spell_rank({100, 140, 180, 220, 260}),
     innate_threat(260),
     talent_ranks({15, 14, 13, 12}) {}
 
