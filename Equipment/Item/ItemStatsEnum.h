@@ -13,6 +13,8 @@ enum class ItemStats : int
     Strength,
     Armor,
     Defense,
+    BlockValue,
+    BlockChance,
     DodgeChance,
     ParryChance,
     ResistanceArcane,
