@@ -450,7 +450,7 @@
 		</stats>
 		<proc>
 			<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
-			<spell name="NATURE_ATTACK" display_name="Thunderfury Chain Lightning" min="300" max="300" instant="yes" rate="0.2" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK" display_name="Thunderfury Chain Lightning" min="300" max="300" instant="yes" rate="0.2" internal_cd="0" spell_dmg_coefficient="0.0" innate_threat="241"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
