@@ -16,7 +16,8 @@ public:
                        const unsigned min,
                        const unsigned max,
                        const double coefficient,
-                       const ConsumeCharge consume_charge);
+                       const ConsumeCharge consume_charge,
+                       const unsigned innate_threat = 0);
     ~InstantSpellAttack() override;
 
 private:
@@ -25,6 +26,7 @@ private:
     const unsigned max;
     const double coefficient;
     const ConsumeCharge consume_charge;
+    const unsigned innate_threat;
     Random* random;
 
     void spell_effect() override;

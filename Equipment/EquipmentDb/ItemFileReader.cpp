@@ -139,6 +139,7 @@ void ItemFileReader::proc_element_reader(QXmlStreamReader& reader, QVector<QMap<
             add_attr(attrs, "display_name", map);
             add_attr(attrs, "min", map);
             add_attr(attrs, "max", map);
+            add_attr(attrs, "innate_threat", map);
             add_attr(attrs, "instant", map);
             add_attr(attrs, "duration", map);
             add_attr(attrs, "tick_rate", map);

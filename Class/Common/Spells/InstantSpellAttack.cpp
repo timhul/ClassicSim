@@ -13,13 +13,15 @@ InstantSpellAttack::InstantSpellAttack(Character* pchar,
                                        const unsigned min,
                                        const unsigned max,
                                        const double coefficient,
-                                       const ConsumeCharge consume_charge) :
+                                       const ConsumeCharge consume_charge,
+                                       const unsigned innate_threat) :
     Spell(name, icon, pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     school(school),
     min(min),
     max(max),
     coefficient(coefficient),
     consume_charge(consume_charge),
+    innate_threat(innate_threat),
     random(new Random(min, max)) {}
 
 InstantSpellAttack::~InstantSpellAttack() {
@@ -44,9 +46,9 @@ void InstantSpellAttack::spell_effect() {
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(school);
         add_spell_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)),
-                           get_resource_cost(), 0, resist_roll);
+                           get_resource_cost(), 0, resist_roll, innate_threat);
     } else {
         pchar->spell_hit_effect(school);
-        add_spell_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod)), get_resource_cost(), 0, resist_roll);
+        add_spell_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod)), get_resource_cost(), 0, resist_roll, innate_threat);
     }
 }
