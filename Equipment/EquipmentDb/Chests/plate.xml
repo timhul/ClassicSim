@@ -28,6 +28,22 @@
 		</source>
 	</item>
 
+	<item id="16865" phase="1">
+		<info name="Breastplate of Might" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_plate16.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="749"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="BLOCK_CHANCE" value="0.03"/>
+			<stat type="DEFENSE" value="7"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+			Drops from Golemagg in Molten Core.
+		</source>
+	</item>
+
 	<item id="13394" phase="1">
 		<info name="Skul's Cold Embrace" type="PLATE" slot="CHEST" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_chest_chain_15.png"/>
 		<stats>
