@@ -13,6 +13,7 @@ class Bloodthirst;
 class Buff;
 class DeathWish;
 class DeepWounds;
+class DefensiveStance;
 class DefensiveStanceBuff;
 class Execute;
 class Flurry;
@@ -51,6 +52,7 @@ public:
     Bloodthirst* get_bloodthirst() const;
     DeathWish* get_death_wish() const;
     DeepWounds* get_deep_wounds() const;
+    DefensiveStance* get_defensive_stance() const;
     Execute* get_execute() const;
     MortalStrike* get_mortal_strike() const;
     Overpower* get_overpower() const;
@@ -85,6 +87,7 @@ private:
     Bloodthirst* bt;
     DeathWish* death_wish;
     DeepWounds* deep_wounds;
+    DefensiveStance* defensive_stance;
     Execute* execute;
     Hamstring* hamstring;
     HeroicStrike* heroic_strike;

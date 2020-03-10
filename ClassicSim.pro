@@ -330,6 +330,7 @@ SOURCES += main.cpp \
     GUI/Models/ActiveItemStatFilterModel.cpp \
     GUI/Models/AvailableItemStatFilterModel.cpp \
     Test/TestSpellDamage.cpp \
+    Class/Warrior/Spells/DefensiveStance.cpp \
     Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
     Test/Warrior/Spells/TestDeathWish.cpp \
     Test/TestCharacterStats.cpp \
@@ -837,6 +838,7 @@ HEADERS += \
     GUI/Models/ActiveItemStatFilterModel.h \
     GUI/Models/AvailableItemStatFilterModel.h \
     Test/TestSpellDamage.h \
+    Class/Warrior/Spells/DefensiveStance.h \
     Class/Warrior/Buffs/DefensiveStanceBuff.h \
     Test/Warrior/Spells/TestDeathWish.h \
     Test/TestCharacterStats.h \
