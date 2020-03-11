@@ -221,6 +221,18 @@
 		</source>
 	</item>
 
+	<item id="18879" phase="1">
+		<info name="Heavy Dark Iron Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_14.png"/>
+		<stats>
+			<stat type="STAMINA" value="20"/>
+			<stat type="ARMOR" value="110"/>
+			<stat type="DEFENSE" value="5"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Molten Core.
+		</source>
+	</item>
+
 	<item id="18821" phase="1">
 		<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
 		<stats>
