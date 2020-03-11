@@ -53,9 +53,6 @@ void Bloodthirst::spell_effect() {
 }
 
 SpellStatus Bloodthirst::is_ready_spell_specific() const {
-    if (warr->in_defensive_stance())
-        return SpellStatus::InDefensiveStance;
-
     return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
