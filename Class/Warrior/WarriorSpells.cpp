@@ -15,6 +15,7 @@
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
 #include "DeepWounds.h"
+#include "DefensiveStance.h"
 #include "DefensiveStanceBuff.h"
 #include "Engine.h"
 #include "Execute.h"
@@ -50,6 +51,7 @@ WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(
     this->bt = new Bloodthirst(warrior, this, new_cooldown_control("Bloodthirst", 6.0));
     this->death_wish = new DeathWish(warrior);
     this->deep_wounds = new DeepWounds(warrior);
+    this->defensive_stance = new DefensiveStance(warrior);
     this->execute = new Execute(warrior, this);
     this->hamstring = new Hamstring(warrior, this);
 
@@ -86,6 +88,7 @@ WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(
     add_spell_group({bt});
     add_spell_group({death_wish});
     add_spell_group({deep_wounds});
+    add_spell_group({defensive_stance});
     add_spell_group({execute});
     add_spell_group({hamstring});
 
