@@ -2009,7 +2009,10 @@ QVariantList GUIControl::get_tooltip_from_item(Item* item) {
     else if (slot == "MH")
         set_weapon_tooltip(item, slot, "Main Hand", dmg_range, weapon_speed, dps);
     else if (slot == "OH")
+      if (item->get_item_type() != WeaponTypes::SHIELD)
         set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
+      else
+        slot = "Offhand";
     else if (slot == "2H")
         set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
     else if (slot == "RANGED") {

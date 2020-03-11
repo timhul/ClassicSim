@@ -36,6 +36,7 @@ public:
     Item* get_trinket(const int item_id) const;
     Item* get_caster_offhand(const int item_id) const;
     Item* get_relic(const int item_id) const;
+    Item* get_shield(const int item_id) const;
     Projectile* get_projectile(const int item_id) const;
     Quiver* get_quiver(const int item_id) const;
 
@@ -116,6 +117,9 @@ private:
 
     QVector<Item*> quivers;
     QVector<Item*> current_phase_quivers;
+
+    QVector<Item*> shields;
+    QVector<Item*> current_phase_shields;
 
     QVector<QVector<Item*>*> all_slots_items;
 
