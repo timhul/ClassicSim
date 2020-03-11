@@ -198,8 +198,10 @@
         <file>QML/StatisticsEntryMeleeDamageAvoidanceBreakdown.qml</file>
         <file>QML/StatisticsMeleeDamageAvoidanceBreakdownSorting.qml</file>
         <file>QML/StatisticsMeleeDamageBreakdownSorting.qml</file>
+        <file>QML/StatisticsThreatBreakdownSorting.qml</file>
         <file>QML/StatisticsHeader.qml</file>
         <file>QML/StatisticsEntryMeleeDamageBreakdown.qml</file>
+        <file>QML/StatisticsEntryThreatBreakdown.qml</file>
         <file>QML/Assets/items/Inv_axe_01.png</file>
         <file>QML/Assets/items/Inv_sword_04.png</file>
         <file>QML/Assets/misc/Spell_holy_greaterheal.png</file>
@@ -1039,5 +1041,6 @@
         <file>QML/Assets/spell/Spell_shadow_corpseexplode.png</file>
         <file>QML/Assets/spell/Spell_shadow_scourgebuild.png</file>
         <file>QML/Assets/spell/Spell_shadow_shadowwordpain.png</file>
+        <file>QML/StatisticsThreatBreakdownSorting.qml</file>
     </qresource>
 </RCC>

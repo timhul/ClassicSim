@@ -161,7 +161,7 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
     QList<StatisticsSpell*>::iterator it = spell_stats.begin();
 
     while (it != spell_stats.end()) {
-        if ((*it)->get_total_dmg_dealt() == 0) {
+        if ((*it)->get_total_dmg_dealt() == 0 && (*it)->get_total_thrt_dealt() == 0) {
             delete *it;
             it = spell_stats.erase(it);
         } else

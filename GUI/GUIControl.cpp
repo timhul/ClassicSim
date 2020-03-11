@@ -77,6 +77,7 @@
 #include "Target.h"
 #include "Tauren.h"
 #include "TemplateCharacters.h"
+#include "ThreatBreakdownModel.h"
 #include "Troll.h"
 #include "Undead.h"
 #include "Warlock.h"
@@ -131,6 +132,7 @@ GUIControl::GUIControl(QObject* parent) :
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
     damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
+    threat_breakdown_model = new ThreatBreakdownModel(number_cruncher);
     damage_meters_model = new DamageMetersModel(number_cruncher);
     engine_breakdown_model = new EngineBreakdownModel(number_cruncher);
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
@@ -203,6 +205,7 @@ GUIControl::~GUIControl() {
     delete buff_breakdown_model;
     delete debuff_breakdown_model;
     delete damage_breakdown_model;
+    delete threat_breakdown_model;
     delete damage_avoidance_breakdown_model;
     delete damage_meters_model;
     delete engine_breakdown_model;
@@ -793,6 +796,10 @@ MeleeDamageBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
     return this->damage_breakdown_model;
 }
 
+ThreatBreakdownModel* GUIControl::get_thrt_breakdown_model() const {
+    return this->threat_breakdown_model;
+}
+
 MeleeDamageAvoidanceBreakdownModel* GUIControl::get_dmg_breakdown_avoidance_model() const {
     return this->damage_avoidance_breakdown_model;
 }
@@ -887,6 +894,38 @@ void GUIControl::calculate_displayed_dps_value() {
                                / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
 }
 
+void GUIControl::update_displayed_tps_value(const double new_tps_value) {
+    double previous = last_personal_sim_result_tps;
+    last_personal_sim_result_tps = new_tps_value;
+    double delta = ((last_personal_sim_result - previous) / previous);
+    QString change = delta > 0 ? "+" : "";
+    change += QString::number(((last_personal_sim_result_tps - previous) / previous) * 100, 'f', 1) + "%";
+
+    QString tps = QString::number(last_personal_sim_result_tps, 'f', 2);
+    qDebug() << "Total TPS: " << tps;
+    // TODO implement this
+    //simPersonalResultUpdated(tps, change, delta > 0);
+}
+
+void GUIControl::update_displayed_raid_tps_value(const double new_tps_value) {
+    double previous = last_raid_sim_result_tps;
+    last_raid_sim_result_tps = new_tps_value;
+    double delta = ((last_raid_sim_result_tps - previous) / previous);
+    QString change = delta > 0 ? "+" : "";
+    change += QString::number(((last_raid_sim_result_tps - previous) / previous) * 100, 'f', 1) + "%";
+
+    QString tps = QString::number(last_raid_sim_result_tps, 'f', 2);
+    qDebug() << "Total Raid TPS:" << tps;
+    // TODO implement this
+    //simRaidResultUpdatedTps(tps, change, delta > 0);
+}
+
+void GUIControl::calculate_displayed_tps_value() {
+    // Note: intended for local testing to build confidence in thread results
+    update_displayed_tps_value(double(current_char->get_statistics()->get_total_personal_threat_dealt())
+                               / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
+}
+
 void GUIControl::runQuickSim() {
     if (sim_in_progress)
         return;
@@ -943,6 +982,7 @@ void GUIControl::compile_thread_results() {
     buff_breakdown_model->update_statistics();
     debuff_breakdown_model->update_statistics();
     damage_breakdown_model->update_statistics();
+    threat_breakdown_model->update_statistics();
     damage_avoidance_breakdown_model->update_statistics();
     engine_breakdown_model->update_statistics();
     proc_breakdown_model->update_statistics();
@@ -951,7 +991,9 @@ void GUIControl::compile_thread_results() {
     damage_meters_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
     update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale));
+    update_displayed_tps_value(number_cruncher->get_personal_tps(SimOption::Name::NoScale));
     update_displayed_raid_dps_value(number_cruncher->get_raid_dps());
+    update_displayed_raid_tps_value(number_cruncher->get_raid_tps());
     dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
     sim_in_progress = false;

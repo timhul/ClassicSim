@@ -17,6 +17,13 @@ bool total_damage(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs_dmg == rhs_dmg ? name(lhs, rhs) : lhs_dmg > rhs_dmg;
 }
 
+bool total_threat(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    auto lhs_thrt = lhs->get_total_thrt_dealt();
+    auto rhs_thrt = rhs->get_total_thrt_dealt();
+
+    return lhs_thrt == rhs_thrt ? name(lhs, rhs) : lhs_thrt > rhs_thrt;
+}
+
 bool total_attempts(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_total = lhs->get_total_attempts_made();
     auto rhs_total = rhs->get_total_attempts_made();
@@ -210,19 +217,90 @@ bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_max_dpet() > rhs->get_max_dpet();
 }
 
+bool min_hit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_hit_thrt() > rhs->get_min_hit_thrt();
+}
+
+bool avg_hit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return (static_cast<double>(lhs->get_hit_thrt()) / lhs->get_hits()) > (static_cast<double>(rhs->get_hit_thrt()) / rhs->get_hits());
+}
+
+bool max_hit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_hit_thrt() > rhs->get_max_hit_thrt();
+}
+
+bool min_crit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_crit_thrt() > rhs->get_min_crit_thrt();
+}
+
+bool avg_crit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return (static_cast<double>(lhs->get_crit_thrt()) / lhs->get_crits()) > (static_cast<double>(rhs->get_crit_thrt()) / rhs->get_crits());
+}
+
+bool max_crit_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_crit_thrt() > rhs->get_max_crit_thrt();
+}
+
+bool min_glancing_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_glancing_thrt() > rhs->get_min_glancing_thrt();
+}
+
+bool avg_glancing_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return (static_cast<double>(lhs->get_glancing_thrt()) / lhs->get_glances())
+           > (static_cast<double>(rhs->get_glancing_thrt()) / rhs->get_glances());
+}
+
+bool max_glancing_thrt(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_glancing_thrt() > rhs->get_max_glancing_thrt();
+}
+
+bool min_tpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_tpr() > rhs->get_min_tpr();
+}
+
+bool avg_tpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_avg_tpr() > rhs->get_avg_tpr();
+}
+
+bool max_tpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_tpr() > rhs->get_max_tpr();
+}
+
+bool min_tpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_tpet() > rhs->get_min_tpet();
+}
+
+bool avg_tpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_avg_tpet() > rhs->get_avg_tpet();
+}
+
+bool max_tpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_tpet() > rhs->get_max_tpet();
+}
+
 StatisticsSpell::StatisticsSpell(QString name, QString icon) :
     name(std::move(name)),
     icon(std::move(icon)),
     percentage_of_total_damage_done(0.0),
+    percentage_of_total_threat_done(0.0),
     min_dpr(std::numeric_limits<double>::max()),
     max_dpr(std::numeric_limits<double>::min()),
     avg_dpr(0),
     dpr_set(false),
+    min_tpr(std::numeric_limits<double>::max()),
+    max_tpr(std::numeric_limits<double>::min()),
+    avg_tpr(0),
+    tpr_set(false),
+    threat_dealt_successes(0),
     damage_dealt_successes(0),
     min_dpet(std::numeric_limits<double>::max()),
     max_dpet(std::numeric_limits<double>::min()),
     avg_dpet(0),
     dpet_set(false),
+    min_tpet(std::numeric_limits<double>::max()),
+    max_tpet(std::numeric_limits<double>::min()),
+    avg_tpet(0),
+    tpet_set(false),
     possible_attempt_outcomes(QSet<Outcome>({Outcome::Miss, Outcome::FullResist, Outcome::Dodge, Outcome::Parry, Outcome::FullBlock,
                                              Outcome::PartialResist25, Outcome::PartialResist50, Outcome::PartialResist75,
                                              Outcome::PartialResistCrit25, Outcome::PartialResistCrit50, Outcome::PartialResistCrit75,
@@ -322,6 +400,55 @@ void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const double
 
     add_dpr(dmg, resource_cost);
     add_dpet(dmg, execution_time);
+}
+
+void StatisticsSpell::add_thrt(const Outcome outcome, const int thrt, const double resource_cost, const double execution_time) {
+    if (!threat.contains(outcome))
+        threat[outcome] = 0;
+
+    if (!min_threat.contains(outcome) || min_threat[outcome] > thrt)
+        min_threat[outcome] = thrt;
+
+    if (!max_threat.contains(outcome) || max_threat[outcome] < thrt)
+        max_threat[outcome] = thrt;
+
+    threat[outcome] += thrt;
+    ++threat_dealt_successes;
+
+    add_tpr(thrt, resource_cost);
+    add_tpet(thrt, execution_time);
+}
+
+void StatisticsSpell::add_tpr(const int thrt, const double resource_cost) {
+    if (almost_equal(resource_cost, 0))
+        return;
+
+    tpr_set = true;
+
+    double threat_per_resource = double(thrt) / resource_cost;
+
+    if (threat_per_resource < min_tpr)
+        min_tpr = threat_per_resource;
+    if (threat_per_resource > max_tpr)
+        max_tpr = threat_per_resource;
+
+    avg_tpr = avg_tpr + (threat_per_resource - avg_tpr) / threat_dealt_successes;
+}
+
+void StatisticsSpell::add_tpet(const int thrt, const double execution_time) {
+    if (almost_equal(execution_time, 0))
+        return;
+
+    tpet_set = true;
+
+    double threat_per_execution_time = double(thrt) / execution_time;
+
+    if (threat_per_execution_time < min_tpet)
+        min_tpet = threat_per_execution_time;
+    if (threat_per_execution_time > max_tpet)
+        max_tpet = threat_per_execution_time;
+
+    avg_tpet = avg_tpet + (threat_per_execution_time - avg_tpet) / threat_dealt_successes;
 }
 
 void StatisticsSpell::add_dpr(const int dmg, const double resource_cost) {
@@ -427,6 +554,69 @@ void StatisticsSpell::add_spell_crit_dmg(const int dmg, const double resource_co
     }
 }
 
+void StatisticsSpell::add_partial_block_thrt(const int thrt, const double resource_cost, const double execution_time) {
+    add_thrt(Outcome::PartialBlock, thrt, resource_cost, execution_time);
+}
+
+void StatisticsSpell::add_partial_block_crit_thrt(const int thrt, const double resource_cost, const double execution_time) {
+    add_thrt(Outcome::PartialBlockCrit, thrt, resource_cost, execution_time);
+}
+
+void StatisticsSpell::add_glancing_thrt(const int thrt, const double resource_cost, const double execution_time) {
+    add_thrt(Outcome::Glancing, thrt, resource_cost, execution_time);
+}
+
+void StatisticsSpell::add_spell_hit_thrt(const int thrt, const double resource_cost, const double execution_time, const int resist_result) {
+    switch (resist_result) {
+    case MagicResistResult::NO_RESIST:
+        add_thrt(Outcome::Hit, thrt, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_25:
+        add_thrt(Outcome::PartialResist25, thrt, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_50:
+        add_thrt(Outcome::PartialResist50, thrt, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_75:
+        add_thrt(Outcome::PartialResist75, thrt, resource_cost, execution_time);
+        break;
+    default:
+        check(false, "StatisticsSpell::add_spell_hit_thrt failed due to unhandled resist result");
+    }
+}
+
+void StatisticsSpell::add_crit_thrt(const int thrt, const double resource_cost, const double execution_time) {
+    add_thrt(Outcome::Crit, thrt, resource_cost, execution_time);
+}
+
+void StatisticsSpell::add_spell_crit_thrt(const int thrt, const double resource_cost, const double execution_time, const int resist_result) {
+    switch (resist_result) {
+    case MagicResistResult::NO_RESIST:
+        add_thrt(Outcome::Crit, thrt, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_25:
+        add_thrt(Outcome::PartialResistCrit25, thrt, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_50:
+        add_thrt(Outcome::PartialResistCrit50, thrt, resource_cost, execution_time);
+        break;
+    case MagicResistResult::PARTIAL_RESIST_75:
+        add_thrt(Outcome::PartialResistCrit75, thrt, resource_cost, execution_time);
+        break;
+    default:
+        check(false, "StatisticsSpell::add_spell_crit_thrt failed due to unhandled resist result");
+    }
+}
+
+void StatisticsSpell::add_innate_thrt(const int threat, const double resource_cost, const double execution_time) {
+    // TODO Not sure how we should consider this. -- is "Hit" right?
+    add_thrt(Outcome::Hit, threat, resource_cost, execution_time);
+}
+
+void StatisticsSpell::add_hit_thrt(const int threat, const double resource_cost, const double execution_time) {
+    add_thrt(Outcome::Hit, threat, resource_cost, execution_time);
+}
+
 int StatisticsSpell::get_attempts(const Outcome outcome) const {
     return attempts[outcome];
 }
@@ -519,6 +709,27 @@ int StatisticsSpell::get_max_dmg(const Outcome outcome) const {
         return 0;
 
     return max_damage[outcome];
+}
+
+long long StatisticsSpell::get_thrt(const Outcome outcome) const {
+    if (!threat.contains(outcome))
+        return 0;
+
+    return threat[outcome];
+}
+
+int StatisticsSpell::get_min_thrt(const Outcome outcome) const {
+    if (!min_threat.contains(outcome))
+        return 0;
+
+    return min_threat[outcome];
+}
+
+int StatisticsSpell::get_max_thrt(const Outcome outcome) const {
+    if (!max_threat.contains(outcome))
+        return 0;
+
+    return max_threat[outcome];
 }
 
 long long StatisticsSpell::get_partial_resist25_dmg() const {
@@ -651,6 +862,115 @@ void StatisticsSpell::set_percentage_of_damage_dealt(long long int total_damage_
     this->percentage_of_total_damage_done = double(get_total_dmg_dealt()) / total_damage_dealt;
 }
 
+long long StatisticsSpell::get_partial_resist25_thrt() const {
+    return get_thrt(Outcome::PartialResist25);
+}
+
+long long StatisticsSpell::get_partial_resist50_thrt() const {
+    return get_thrt(Outcome::PartialResist50);
+}
+
+long long StatisticsSpell::get_partial_resist75_thrt() const {
+    return get_thrt(Outcome::PartialResist75);
+}
+
+long long StatisticsSpell::get_partial_block_thrt() const {
+    return get_thrt(Outcome::PartialBlock);
+}
+
+long long StatisticsSpell::get_partial_block_crit_thrt() const {
+    return get_thrt(Outcome::PartialBlockCrit);
+}
+
+long long StatisticsSpell::get_glancing_thrt() const {
+    return get_thrt(Outcome::Glancing);
+}
+
+long long StatisticsSpell::get_hit_thrt() const {
+    return get_thrt(Outcome::Hit);
+}
+
+long long StatisticsSpell::get_crit_thrt() const {
+    return get_thrt(Outcome::Crit);
+}
+
+int StatisticsSpell::get_min_glancing_thrt() const {
+    return get_min_thrt(Outcome::Glancing);
+}
+
+int StatisticsSpell::get_max_glancing_thrt() const {
+    return get_max_thrt(Outcome::Glancing);
+}
+
+int StatisticsSpell::get_min_hit_thrt() const {
+    return get_min_thrt(Outcome::Hit);
+}
+
+int StatisticsSpell::get_max_hit_thrt() const {
+    return get_max_thrt(Outcome::Hit);
+}
+
+int StatisticsSpell::get_min_crit_thrt() const {
+    return get_min_thrt(Outcome::Crit);
+}
+
+int StatisticsSpell::get_max_crit_thrt() const {
+    return get_max_thrt(Outcome::Crit);
+}
+
+double StatisticsSpell::get_min_tpr() const {
+    return tpr_set ? this->min_tpr : 0.0;
+}
+
+double StatisticsSpell::get_avg_tpr() const {
+    return tpr_set ? this->avg_tpr : 0.0;
+}
+
+double StatisticsSpell::get_max_tpr() const {
+    return tpr_set ? this->max_tpr : 0.0;
+}
+
+double StatisticsSpell::get_min_tpet() const {
+    return tpet_set ? this->min_tpet : 0.0;
+}
+
+double StatisticsSpell::get_avg_tpet() const {
+    return tpet_set ? this->avg_tpet : 0.0;
+}
+
+double StatisticsSpell::get_max_tpet() const {
+    return tpet_set ? this->max_tpet : 0.0;
+}
+
+int StatisticsSpell::get_num_thrt_columns() const {
+    int columns = 0;
+
+    for (const auto& outcome : possible_success_outcomes) {
+        if (get_thrt(outcome) > 0)
+            ++columns;
+    }
+
+    return columns;
+}
+
+long long StatisticsSpell::get_total_thrt_dealt() const {
+    long long sum = 0;
+
+    for (const auto& outcome : possible_success_outcomes) {
+        sum += get_thrt(outcome);
+    }
+
+    return sum;
+}
+
+double StatisticsSpell::get_percentage_of_threat_dealt() const {
+    return this->percentage_of_total_threat_done;
+}
+
+void StatisticsSpell::set_percentage_of_threat_dealt(long long int total_threat_dealt) {
+    this->percentage_of_total_threat_done = double(get_total_thrt_dealt()) / total_threat_dealt;
+}
+
 void StatisticsSpell::add(const StatisticsSpell* other) {
     for (const auto& outcome : possible_attempt_outcomes) {
         if (!other->attempts.contains(outcome))
@@ -684,17 +1004,50 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
                                                                                                  this->max_damage[outcome];
     }
 
+    for (const auto& outcome : possible_success_outcomes) {
+        if (!other->threat.contains(outcome))
+            continue;
+
+        if (!this->threat.contains(outcome))
+            this->threat.insert(outcome, 0);
+
+        this->threat[outcome] += other->threat[outcome];
+
+        if (!this->min_threat.contains(outcome) && other->min_threat.contains(outcome))
+            this->min_threat[outcome] = other->min_threat[outcome];
+        else if (this->min_threat.contains(outcome) && other->min_threat.contains(outcome))
+            this->min_threat[outcome] = other->min_threat[outcome] < this->min_threat[outcome] ? other->min_threat[outcome] :
+                                                                                                 this->min_threat[outcome];
+
+        if (!this->max_threat.contains(outcome) && other->max_threat.contains(outcome))
+            this->max_threat[outcome] = other->max_threat[outcome];
+        else if (this->max_threat.contains(outcome) && other->max_threat.contains(outcome))
+            this->max_threat[outcome] = other->max_threat[outcome] < this->max_threat[outcome] ? other->max_threat[outcome] :
+                                                                                                 this->max_threat[outcome];
+    }
+
     if (this->min_dpr > other->min_dpr)
         this->min_dpr = other->min_dpr;
 
     if (this->max_dpr < other->max_dpr)
         this->max_dpr = other->max_dpr;
 
-    unsigned total_counter = this->damage_dealt_successes + other->damage_dealt_successes;
-    this->avg_dpr = this->avg_dpr * (double(this->damage_dealt_successes) / total_counter)
-                    + other->avg_dpr * (double(other->damage_dealt_successes) / total_counter);
+    if (this->min_tpr > other->min_tpr)
+        this->min_tpr = other->min_tpr;
+
+    if (this->max_tpr < other->max_tpr)
+        this->max_tpr = other->max_tpr;
+
+    unsigned total_damage_counter = this->damage_dealt_successes + other->damage_dealt_successes;
+    this->avg_dpr = this->avg_dpr * (double(this->damage_dealt_successes) / total_damage_counter)
+                    + other->avg_dpr * (double(other->damage_dealt_successes) / total_damage_counter);
+
+    unsigned total_threat_counter = this->threat_dealt_successes + other->threat_dealt_successes;
+    this->avg_tpr = this->avg_tpr * (double(this->threat_dealt_successes) / total_threat_counter)
+                    + other->avg_tpr * (double(other->threat_dealt_successes) / total_threat_counter);
 
     this->dpr_set = this->dpr_set ? true : other->dpr_set;
+    this->tpr_set = this->tpr_set ? true : other->tpr_set;
 
     if (this->min_dpet > other->min_dpet)
         this->min_dpet = other->min_dpet;
@@ -702,10 +1055,23 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
     if (this->max_dpet < other->max_dpet)
         this->max_dpet = other->max_dpet;
 
-    this->avg_dpet = this->avg_dpet * (double(this->damage_dealt_successes) / total_counter)
-                     + other->avg_dpet * (double(other->damage_dealt_successes) / total_counter);
+    if (this->min_tpet > other->min_tpet)
+        this->min_tpet = other->min_tpet;
+
+    if (this->max_tpet < other->max_tpet)
+        this->max_tpet = other->max_tpet;
+
+    this->avg_dpet = this->avg_dpet * (double(this->damage_dealt_successes) / total_damage_counter)
+                     + other->avg_dpet * (double(other->damage_dealt_successes) / total_damage_counter);
 
     this->dpet_set = this->dpet_set ? true : other->dpet_set;
 
     this->damage_dealt_successes += other->damage_dealt_successes;
+
+    this->avg_tpet = this->avg_tpet * (double(this->threat_dealt_successes) / total_threat_counter)
+                     + other->avg_tpet * (double(other->threat_dealt_successes) / total_threat_counter);
+
+    this->tpet_set = this->tpet_set ? true : other->tpet_set;
+
+    this->threat_dealt_successes += other->threat_dealt_successes;
 }

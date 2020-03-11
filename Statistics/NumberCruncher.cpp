@@ -46,9 +46,12 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell*>& vec) {
     check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     long long int total_damage_dealt = 0;
+    long long int total_threat_dealt = 0;
     for (const auto& cstats : class_stats[SimOption::Name::NoScale]) {
-        if (!cstats->ignore_non_buff_statistics)
+        if (!cstats->ignore_non_buff_statistics) {
             total_damage_dealt += cstats->get_total_personal_damage_dealt();
+            total_threat_dealt += cstats->get_total_personal_threat_dealt();
+        }
     }
 
     QSet<QString> handled_entries;
@@ -64,13 +67,13 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell*>& vec) {
                 continue;
             }
             handled_entries.insert(it.key());
-            merge_spell_entry(it.key(), it.value()->get_icon(), total_damage_dealt, vec);
+            merge_spell_entry(it.key(), it.value()->get_icon(), total_damage_dealt, total_threat_dealt, vec);
             ++it;
         }
     }
 }
 
-void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, QList<StatisticsSpell*>& vec) {
+void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, long long total_threat_dealt, QList<StatisticsSpell*>& vec) {
     auto result = new StatisticsSpell(name, icon);
     for (const auto& cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
@@ -80,6 +83,7 @@ void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon,
     }
 
     result->set_percentage_of_damage_dealt(total_damage_dealt);
+    result->set_percentage_of_threat_dealt(total_threat_dealt);
     vec.append(result);
 }
 
@@ -252,10 +256,22 @@ double NumberCruncher::get_personal_dps(SimOption::Name option) const {
     return get_dps_for_option(option);
 }
 
+double NumberCruncher::get_personal_tps(SimOption::Name option) const {
+    return get_tps_for_option(option);
+}
+
 double NumberCruncher::get_raid_dps() const {
     double sum = 0.0;
     for (const auto& result : player_results)
         sum += result->dps;
+
+    return sum;
+}
+
+double NumberCruncher::get_raid_tps() const {
+    double sum = 0.0;
+    for (const auto& result : player_results)
+        sum += result->tps;
 
     return sum;
 }
@@ -296,6 +312,25 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
     dps_sum /= dps.size();
 
     return dps_sum;
+}
+
+double NumberCruncher::get_tps_for_option(SimOption::Name option) const {
+    check(class_stats.contains(option), "Missing option for requested calculation");
+
+    QVector<double> tps;
+
+    for (const auto& class_stat : class_stats[option]) {
+        if (!class_stat->ignore_non_buff_statistics)
+            tps.append(class_stat->get_personal_result()->tps);
+    }
+
+    double tps_sum = 0;
+    for (const auto& value : tps)
+        tps_sum += value;
+
+    tps_sum /= tps.size();
+
+    return tps_sum;
 }
 
 ScaleResult* NumberCruncher::get_dps_distribution() const {

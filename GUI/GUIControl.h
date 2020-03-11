@@ -46,6 +46,7 @@ class SimScaleModel;
 class SimSettings;
 class SimulationThreadPool;
 class Target;
+class ThreatBreakdownModel;
 class WeaponModel;
 
 class GUIControl : public QObject {
@@ -244,6 +245,7 @@ public:
     RotationExecutorBreakdownModel* get_rotation_executor_model() const;
     RotationExecutorListModel* get_rotation_executor_list_model() const;
     ScaleResultModel* get_scale_result_model() const;
+    ThreatBreakdownModel* get_thrt_breakdown_model() const;
     Q_SLOT void compile_thread_results();
     Q_PROPERTY(QString minDps READ get_min_dps NOTIFY statisticsReady)
     Q_PROPERTY(QString maxDps READ get_max_dps NOTIFY statisticsReady)
@@ -418,6 +420,9 @@ private:
     void calculate_displayed_dps_value();
     void update_displayed_dps_value(const double new_dps_value);
     void update_displayed_raid_dps_value(const double new_dps_value);
+    void calculate_displayed_tps_value();
+    void update_displayed_tps_value(const double new_tps_value);
+    void update_displayed_raid_tps_value(const double new_tps_value);
 
     QString get_sim_progress_string() const;
 
@@ -472,6 +477,7 @@ private:
     SimScaleModel* sim_scale_model;
     ScaleResultModel* scale_result_model;
     ScaleResult* dps_distribution;
+    ThreatBreakdownModel* threat_breakdown_model;
     EnchantModel* mh_enchants;
     EnchantModel* mh_temporary_enchants;
     EnchantModel* oh_enchants;
@@ -486,7 +492,9 @@ private:
     EnchantModel* boots_enchants;
     RandomAffixModel* random_affixes;
     double last_personal_sim_result {0.0};
+    double last_personal_sim_result_tps {0.0};
     double last_raid_sim_result {0.0};
+    double last_raid_sim_result_tps {0.0};
     double last_engine_handled_events_per_second {0.0};
     bool sim_in_progress;
     double sim_percent_completed {0.0};

@@ -63,6 +63,24 @@ Rectangle {
         GradientSelectedButton {
             height: 30
             width: 150
+            property string activeState: "THREAT_BREAKDOWN"
+            selected: statisticsRect.state === activeState
+
+            TextSmall {
+                text: "Threat Breakdown"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
+
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
+        }
+
+        GradientSelectedButton {
+            height: 30
+            width: 150
             property string activeState: "BUFF_BREAKDOWN"
             selected: statisticsRect.state === activeState
 
@@ -419,6 +437,120 @@ Rectangle {
 
         clip: true
 
+        visible: parent.state === "THREAT_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerThreatBreakdown
+            title: "Ability Threat Breakdown"
+        }
+
+        StatisticsThreatBreakdownSorting {
+            id: threatBreakdownSorting
+            anchors {
+                top: headerThreatBreakdown.bottom
+                left: parent.left
+                right: parent.right
+            }
+        }
+
+        ListView {
+            id: threatBreakdownTable
+            anchors {
+                top: threatBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: threatBreakdownModel
+            delegate: StatisticsEntryThreatBreakdown {
+                name: _name
+                iconurl: _icon
+                totalthrtabsolute: _totalthrtabsolute
+                totalthrtpercentage: _totalthrtpercent
+                minhitthrt: _minhitthrt
+                avghitthrt: _avghitthrt
+                maxhitthrt: _maxhitthrt
+                mincritthrt: _mincritthrt
+                avgcritthrt: _avgcritthrt
+                maxcritthrt: _maxcritthrt
+                minglancethrt: _minglancethrt
+                avgglancethrt: _avgglancethrt
+                maxglancethrt: _maxglancethrt
+                mintpr: _mintpr
+                avgtpr: _avgtpr
+                maxtpr: _maxtpr
+                mintpet: _mintpet
+                avgtpet: _avgtpet
+                maxtpet: _maxtpet
+            }
+        }
+
+        // StatisticsHeader {
+        //     id: headerOutcomes
+        //     title: "Ability Outcomes"
+
+        //     anchors.top: threatBreakdownTable.bottom
+        // }
+
+        // StatisticsThreatAvoidanceBreakdownSorting {
+        //     id: damageBreakdownSorting
+        //     anchors.top: headerOutcomes.bottom
+        // }
+
+        // ListView {
+        //     id: damageAvoidanceBreakdownTable
+        //     anchors {
+        //         top: damageBreakdownSorting.bottom
+        //         left: parent.left
+        //         right: parent.right
+        //     }
+
+        //     boundsBehavior: Flickable.StopAtBounds
+
+        //     implicitHeight: contentHeight
+
+        //     model: meleeAvoidanceBreakdownModel
+        //     delegate: StatisticsEntryMeleeDamageAvoidanceBreakdown {
+        //         name: _name
+        //         iconurl: _icon
+        //         totalattempts: _totalattempts
+        //         numhits: _numhits
+        //         hitpercent: _hitpercent
+        //         numcrits: _numcrits
+        //         critpercent: _critpercent
+        //         numglances: _numglances
+        //         glancepercent: _glancepercent
+        //         nummisses: _nummisses
+        //         misspercent: _misspercent
+        //         numdodges: _numdodges
+        //         dodgepercent: _dodgepercent
+        //         numparries: _numparries
+        //         parrypercent: _parrypercent
+        //         numpartial25: _numpartial25
+        //         partial25percent: _partial25percent
+        //         numpartial50: _numpartial50
+        //         partial50percent: _partial50percent
+        //         numpartial75: _numpartial75
+        //         partial75percent: _partial75percent
+        //     }
+        // }
+    }
+
+    ScrollView {
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            leftMargin: 30
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+
         visible: parent.state === "BUFF_BREAKDOWN"
 
         StatisticsHeader {
@@ -480,6 +612,7 @@ Rectangle {
             delegate: StatisticsEntryBuffBreakdown {
                 name: _name
                 iconurl: _icon
+
                 avguptime: _avguptime
                 minuptime: _minuptime
                 maxuptime: _maxuptime
