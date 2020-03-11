@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<rotation class="Warrior" name="Fury Prot" attack_mode="melee">
+<rotation class="Warrior" name="Protection" attack_mode="melee">
     <description>
-    Fury Prot rotation that simplifies to Sunder Armor spam when not fury.
+    Rotation that works for both Shield Slam prot and Fury Prot.
     </description>
 
     <precombat_actions>
@@ -60,25 +60,22 @@
 
     <cast_if name="Death Wish">
         variable "time_remaining_encounter" less 33
-        or variable "time_remaining_execute" less 3
-        or variable "time_remaining_execute" greater 180
+        or variable "time_remaining_encounter" greater 210
     </cast_if>
 
     <cast_if name="Blood Fury">
-        variable "time_remaining_execute" less 0
-        and resource "Rage" less 50
-        or variable "time_remaining_execute" greater 120
+        resource "Rage" less 50
     </cast_if>
 
     <cast_if name="Berserking">
-        variable "time_remaining_execute" less 0
-        and resource "Rage" less 50
-        or variable "time_remaining_execute" greater 180
+        resource "Rage" less 50
     </cast_if>
 
-    <cast_if name="Revenge"/>
-
     <cast_if name="Bloodthirst" />
+
+    <cast_if name="Shield Slam"/>
+
+    <cast_if name="Revenge"/>
 
     <cast_if name="Sunder Armor"/>
 </rotation>
