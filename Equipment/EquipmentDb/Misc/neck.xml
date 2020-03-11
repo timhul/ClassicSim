@@ -72,6 +72,19 @@
 		</source>
 	</item>
 
+	<item id="17065" phase="1">
+		<info name="Medallion of Steadfast Might" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_03.png"/>
+		<stats>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="DEFENSE" value="8"/>
+		</stats>
+		<source>
+			Drops from Magmadar in Molten Core.
+		</source>
+	</item>
+
 	<item id="17109" phase="1">
 		<info name="Choker of Enlightenment" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_10.png"/>
 		<stats>
