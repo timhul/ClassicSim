@@ -139,6 +139,7 @@
         <file>QML/Assets/items/Inv_belt_13.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_41.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_15.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_14.png</file>
         <file>QML/Settings.qml</file>
         <file>QML/CharacterStats.qml</file>
         <file>QML/Statistics.qml</file>
