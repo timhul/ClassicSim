@@ -18,7 +18,8 @@ public:
                      const unsigned min_damage,
                      const unsigned max_damage,
                      const double spell_coefficient,
-                     const ConsumeCharge consume_charge);
+                     const ConsumeCharge consume_charge,
+                     const unsigned innate_threat = 0);
     ~InstantSpellProc() override;
 
 private:
