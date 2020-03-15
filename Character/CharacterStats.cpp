@@ -375,10 +375,13 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         increase_spell_penetration(MagicSchool::Nature, value);
         increase_spell_penetration(MagicSchool::Shadow, value);
         return;
+    case ItemStats::BlockValue:
+        return increase_block_value(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
     case ItemStats::ParryChance:
+    case ItemStats::BlockChance:
     case ItemStats::ResistanceArcane:
     case ItemStats::ResistanceFire:
     case ItemStats::ResistanceFrost:
@@ -496,7 +499,10 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         decrease_spell_penetration(MagicSchool::Nature, value);
         decrease_spell_penetration(MagicSchool::Shadow, value);
         return;
+    case ItemStats::BlockValue:
+        return decrease_block_value(value);
     case ItemStats::Armor:
+    case ItemStats::BlockChance:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
     case ItemStats::ParryChance:

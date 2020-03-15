@@ -756,6 +756,12 @@ void Item::set_stat(const QString& key, const QString& value) {
     } else if (key == "DEFENSE") {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Defense +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::Defense, value.toUInt());
+    } else if (key == "BLOCK_VALUE") {
+        equip_effects_tooltip_stats.append(QString("Equip: Increases the block value of your shield by %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::BlockValue, value.toUInt());
+    } else if (key == "BLOCK_CHANCE") {
+        equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to block attacks with a shield by %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::BlockChance, value.toUInt());
     } else if (key == "DODGE_CHANCE") {
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to dodge an attack by %1%.").arg(number));
