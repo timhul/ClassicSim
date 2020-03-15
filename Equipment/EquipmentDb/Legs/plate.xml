@@ -111,6 +111,23 @@
 		</source>
 	</item>
 
+	<item id="16962" phase="1">
+		<info name="Legplates of Wrath" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_04.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="749"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="ARCANE_RESISTANCE" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="DODGE_CHANCE" value="0.02"/>
+			<stat type="DEFENSE" value="11"/>
+		</stats>
+		<source>
+			Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
 	<item id="22873" phase="2">
 		<info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="WARRIOR"/>
