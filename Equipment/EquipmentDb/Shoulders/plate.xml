@@ -103,6 +103,22 @@
 		</source>
 	</item>
 
+	<item id="16961" phase="3">
+		<info name="Pauldrons of Wrath" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_34.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="642"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="BLOCK_VALUE" value="27"/>
+			<stat type="DEFENSE" value="7"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+			Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="20058" phase="4">
 		<info name="Highlander's Lamellar Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
 		<class_restriction class="PALADIN"/>
