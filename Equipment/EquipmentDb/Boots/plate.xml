@@ -69,6 +69,21 @@
 		</source>
 	</item>
 
+	<item id="16862" phase="1">
+		<info name="Sabatons of Might" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="515"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="DEFENSE" value="5"/>
+			<stat type="SHADOW_RESISTANCE" value="7"/>
+		</stats>
+		<source>
+		Drops from Gehennas in Molten Core.
+		</source>
+	</item>
+
 	<item id="22858" phase="2">
 		<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
