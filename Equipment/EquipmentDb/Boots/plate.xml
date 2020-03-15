@@ -39,6 +39,22 @@
 		</source>
 	</item>
 
+	<item id="16965" phase="3">
+		<info name="Sabatons of Wrath" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="589"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="BLOCK_VALUE" value="14"/>
+			<stat type="DEFENSE" value="7"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+		Drops from Broodlord Lashlayer.
+		</source>
+	</item>
+
 	<item id="23287" phase="2">
 		<info name="Knight-Lieutenant's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
