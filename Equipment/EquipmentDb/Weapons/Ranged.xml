@@ -12,6 +12,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18323" phase="2">
+		<info name="Satyr's Bow" type="BOW" slot="RANGED" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_weapon_bow_03.png"/>
+		<dmg_range min="50" max="93" speed="2.4"/>
+		<stats>
+			<stat type="AGILITY" value="3"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Zevrim Thornhoof in Dire Maul East.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="12651" phase="1">
 		<info name="Blackcrow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="77" max="117" speed="3.2"/>
