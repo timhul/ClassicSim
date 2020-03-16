@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<melee_weapon id="17066" phase="1">
+		<info name="Drillborer Disk" type="SHIELD" slot="OH" unique="NO" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_shield_10.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="ARMOR" value="2539"/>
+			<stat type="BLOCK_VALUE" value="69"/>
+			<stat type="BLOCK_CHANCE" value="0.02"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+			Drops from Garr in Molten Core.
+		</source>
+		<special_equip_effect>
+		Equip: When struct in combat inflicts 3 Arcane damage to the attacker.
+		</special_equip_effect>
+	</melee_weapon>
+</weapons>

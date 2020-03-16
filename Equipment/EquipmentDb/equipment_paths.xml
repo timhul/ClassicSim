@@ -21,6 +21,7 @@
 	<file path="Misc/relics.xml"/>
 	<file path="Misc/offhands.xml"/>
 	<file path="Misc/quivers.xml"/>
+	<file path="Misc/Shields.xml"/>
 
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>

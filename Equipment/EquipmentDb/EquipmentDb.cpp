@@ -17,8 +17,8 @@ EquipmentDb::EquipmentDb(QObject* parent) : QObject(parent) {
     add_druid_cat_form_claws();
     set_content_phase(Content::Phase::Naxxramas);
 
-    all_slots_items = {&mh_slot_items, &oh_slot_items, &ranged_items, &helms, &amulets, &shoulders, &backs,       &chests, &wrists,
-                       &gloves,        &belts,         &legs,         &boots, &rings,   &trinkets,  &projectiles, &relics, &quivers};
+    all_slots_items = {&mh_slot_items, &oh_slot_items, &ranged_items, &helms, &amulets,  &shoulders,   &backs,  &chests,  &wrists, &gloves,
+                       &belts,         &legs,          &boots,        &rings, &trinkets, &projectiles, &relics, &quivers, &shields};
 }
 
 EquipmentDb::~EquipmentDb() {
@@ -181,6 +181,10 @@ Quiver* EquipmentDb::get_quiver(const int item_id) const {
     return nullptr;
 }
 
+Item* EquipmentDb::get_shield(const int item_id) const {
+  return get_item(current_phase_shields, item_id);
+}
+
 Item* EquipmentDb::get_item(const int item_id) const {
     if (item_id_to_item.contains(item_id))
         return item_id_to_item[item_id];
@@ -226,6 +230,8 @@ const QVector<Item*>& EquipmentDb::get_slot_items(const int slot) const {
         return current_phase_relics;
     case ItemSlots::QUIVER:
         return current_phase_quivers;
+    case ItemSlots::SHIELD:
+        return current_phase_shields;
     }
 
     return current_phase_amulets;
@@ -258,6 +264,7 @@ void EquipmentDb::set_content_phase(const Content::Phase phase) {
     set_phase_for_slot(projectiles, current_phase_projectiles);
     set_phase_for_slot(relics, current_phase_relics);
     set_phase_for_slot(quivers, current_phase_quivers);
+    set_phase_for_slot(shields, current_phase_shields);
 }
 
 void EquipmentDb::set_phase_for_slot(QVector<Item*>& total_slot_items, QVector<Item*>& phase_slot_items) {
@@ -342,6 +349,7 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, relics, ItemSlots::RELIC);
     take_items_of_slot_from_given_items(items, oh_slot_items, ItemSlots::CASTER_OFFHAND);
     take_items_of_slot_from_given_items(items, quivers, ItemSlots::QUIVER);
+    take_items_of_slot_from_given_items(items, shields, ItemSlots::SHIELD);
 
     for (const auto& item : items) {
         qDebug() << "Failed to classify slot for" << item->name;

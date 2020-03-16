@@ -20,6 +20,7 @@ namespace ItemSlots {
     static const int RELIC = 16;
     static const int PROJECTILE = 17;
     static const int QUIVER = 18;
+    static const int SHIELD = 19;
 } // namespace ItemSlots
 
 namespace EquipmentSlot {
@@ -42,6 +43,7 @@ namespace EquipmentSlot {
     static const int TRINKET2 = 16;
     static const int PROJECTILE = 17;
     static const int QUIVER = 18;
+    static const int SHIELD = 19;
 } // namespace EquipmentSlot
 
 namespace WeaponTypes {
@@ -74,6 +76,7 @@ namespace WeaponSlots {
     static const int OFFHAND = 2;
     static const int TWOHAND = 3;
     static const int RANGED = 4;
+    static const int SHIELD = 5;
 } // namespace WeaponSlots
 
 namespace ArmorTypes {
@@ -88,6 +91,7 @@ namespace EnchantSlot {
     static const int OFFHAND = 1;
     static const int RANGED = 2;
     static const int NON_WEAPON = 3;
+    static const int SHIELD = 3;
 } // namespace EnchantSlot
 
 namespace ProjectileTypes {
