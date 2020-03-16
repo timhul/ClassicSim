@@ -157,4 +157,15 @@
 		Drops from Patchwerk in Naxxramas.
 		</source>
 	</melee_weapon>
+	
+	<melee_weapon id="12775" phase="1">
+		<info name="Huge Thorium Battleaxe" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="51" item_lvl="56" quality="UNCOMMON" boe="yes" icon="Inv_weapon_halberd_11.png"/>
+		<dmg_range min="114" max="172" speed="3.3"/>
+		<stats>
+			<stat type="TWOHAND_AXE_SKILL" value="10"/>
+		</stats>
+		<source>
+		Crafted by Blacksmiths.
+		</source>
+	</melee_weapon>
 </weapons>
