@@ -395,6 +395,24 @@
 		Drops from Nefarian in Blackwing Lair.
 		</source>
 	</item>
+	
+	<item id="16931" phase="3">
+		<info name="Nemesis Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_leather_01.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="116"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+		</stats>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
 
 	<item id="19682" phase="4">
 		<info name="Bloodvine Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_cloth_07.png"/>

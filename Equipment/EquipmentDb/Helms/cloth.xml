@@ -460,6 +460,24 @@
 		</source>
 	</item>
 
+	<item id="16929" phase="1">
+		<info name="Nemesis Skullcap" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_08.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="94"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="HEALTH_PER_5" value="4"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+		</stats>
+		<source>
+		Drops from Onyxia in Onyxia's Lair.
+		</source>
+	</item>
+
 	<item id="18526" phase="2">
 		<info name="Crown of the Ogre King" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
 		<stats>
