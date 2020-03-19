@@ -32,6 +32,7 @@
 #include "TestUnbridledWrath.h"
 #include "TestWhirlwind.h"
 #include "Warrior.h"
+#include "Weapon.h"
 
 TestWarrior::TestWarrior(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
@@ -78,6 +79,15 @@ void TestWarrior::test_values_after_initialization() {
     assert(almost_equal(1.0, warr->stance_cooldown()));
     assert(almost_equal(2.0, warr->get_stats()->get_melee_ability_crit_dmg_mod()));
     assert(almost_equal(1.5, warr->get_stats()->get_spell_crit_dmg_mod()));
+
+    // Test applying 2x Shadow Oil.
+    warr->get_equipment()->set_mainhand(19352);
+    assert(warr->get_equipment()->get_mainhand()->name == "Chromatically Tempered Sword");
+    warr->get_equipment()->set_offhand(13036);
+    assert(warr->get_equipment()->get_offhand()->name == "Assassination Blade");
+
+    warr->get_equipment()->get_mainhand()->apply_temporary_enchant(EnchantName::ShadowOil, warr, EnchantSlot::MAINHAND);
+    warr->get_equipment()->get_offhand()->apply_temporary_enchant(EnchantName::ShadowOil, warr, EnchantSlot::OFFHAND);
 
     delete race;
     delete warr;

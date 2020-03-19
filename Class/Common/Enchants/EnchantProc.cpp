@@ -25,8 +25,8 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character* pchar, const int 
         proc = new WindfuryTotemAttack(pchar);
         break;
     case EnchantName::ShadowOil: {
-        Spell* spell = new InstantSpellAttack(pchar, "Shadow Oil", "Assets/spell/Spell_shadow_shadowbolt.png", MagicSchool::Shadow, 48, 56, 0.56,
-                                              ConsumeCharge::No);
+        Spell* spell = new InstantSpellAttack(pchar, QString("Shadow Oil %1").arg(identifier), "Assets/spell/Spell_shadow_shadowbolt.png",
+                                              MagicSchool::Shadow, 48, 56, 0.56, ConsumeCharge::No);
 
         QVector<ProcInfo::Source> sources;
         if (slot == EnchantSlot::MAINHAND)
@@ -34,7 +34,7 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character* pchar, const int 
         else
             sources = {ProcInfo::OffhandSwing};
 
-        proc = new GenericSpellProc(pchar, "Shadow Oil", "Assets/spell/Spell_shadow_shadowbolt.png", sources, 0.15, spell);
+        proc = new GenericSpellProc(pchar, QString("Shadow Oil %1").arg(identifier), "Assets/spell/Spell_shadow_shadowbolt.png", sources, 0.15, spell);
     } break;
     default:
         check(false, "EnchantProc constructor reached end of switch");
