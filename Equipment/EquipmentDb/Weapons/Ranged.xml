@@ -24,6 +24,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="16996" phase="1">
+		<info name="Gorewood Bow" type="BOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_bow_04.png"/>
+		<dmg_range min="55" max="104" speed="2.5"/>
+		<mutex item_id="16998"/>
+		<stats>
+			<stat type="STRENGTH" value="2"/>
+			<stat type="AGILITY" value="3"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+			Quest reward from Order Must Be Restored (Alliance) or The Scarlet Oracle, Demetria (Horde).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="12651" phase="1">
 		<info name="Blackcrow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
 		<dmg_range min="77" max="117" speed="3.2"/>
