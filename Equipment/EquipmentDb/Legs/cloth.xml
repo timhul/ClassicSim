@@ -101,6 +101,23 @@
 		</source>
 	</item>
 
+	<item id="16930" phase="1">
+		<info name="Nemesis Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_07.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="101"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="4"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="ARCANE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="39"/>
+		</stats>
+		<source>
+		Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
 	<item id="18872" phase="1">
 		<info name="Manastorm Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
 		<stats>

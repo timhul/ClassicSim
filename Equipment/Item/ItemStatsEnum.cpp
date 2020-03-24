@@ -49,6 +49,8 @@ ItemStats get_item_stats_from_string(const QString& item_stat) {
         return ItemStats::SpellCrit;
     else if (item_stat == "MANA_PER_5")
         return ItemStats::ManaPer5;
+    else if (item_stat == "HEALTH_PER_5")
+        return ItemStats::HealthPer5;
     else if (item_stat == "MANA_SKILL_REDUCTION")
         return ItemStats::ManaSkillReduction;
     else if (item_stat == "SPELL_PENETRATION")

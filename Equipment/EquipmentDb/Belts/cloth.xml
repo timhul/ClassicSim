@@ -181,6 +181,23 @@
 		</source>
 	</item>
 
+	<item id="16933" phase="3">
+		<info name="Nemesis Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="65"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="19388" phase="3">
 		<info name="Angelista's Grasp" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
 		<stats>
