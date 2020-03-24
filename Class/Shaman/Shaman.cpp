@@ -70,11 +70,11 @@ double Shaman::get_int_needed_for_one_percent_spell_crit() const {
 }
 
 unsigned Shaman::get_melee_ap_per_strength() const {
-    return 1;
+    return 2;
 }
 
 unsigned Shaman::get_melee_ap_per_agi() const {
-    return 1;
+    return 0;
 }
 
 unsigned Shaman::get_ranged_ap_per_agi() const {
@@ -138,7 +138,7 @@ int Shaman::get_highest_possible_armor_type() const {
 QVector<int> Shaman::get_weapon_proficiencies_for_slot(const int slot) const {
     switch (slot) {
     case EquipmentSlot::MAINHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::POLEARM, WeaponTypes::STAFF,
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::MACE, WeaponTypes::STAFF,
                              WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_MACE});
     case EquipmentSlot::OFFHAND:
         return QVector<int>({WeaponTypes::CASTER_OFFHAND, WeaponTypes::SHIELD});
