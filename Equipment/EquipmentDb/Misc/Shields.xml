@@ -16,4 +16,18 @@
 		Equip: When struct in combat inflicts 3 Arcane damage to the attacker.
 		</special_equip_effect>
 	</melee_weapon>
+
+	<melee_weapon id="19349" phase="3">
+		<info name="Elementium Reinforced Bulwark" type="SHIELD" slot="OH" unique="NO" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shield_17.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="ARMOR" value="2893"/>
+			<stat type="BLOCK_VALUE" value="73"/>
+			<stat type="DEFENSE" value="7"/>
+			<stat type="STAMINA" value="23"/>
+		</stats>
+		<source>
+			Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</melee_weapon>
 </weapons>
