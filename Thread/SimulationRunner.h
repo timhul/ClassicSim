@@ -30,7 +30,7 @@ public:
     ~SimulationRunner() = default;
 
 public slots:
-    void run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations);
+    void sim_runner_run(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations);
     void receive_progress(const int iterations_completed);
 
 signals:
