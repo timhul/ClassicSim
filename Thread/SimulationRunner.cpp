@@ -28,7 +28,6 @@ SimulationRunner::SimulationRunner(
 
 void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
-        emit finished();
         return;
     }
 
@@ -87,7 +86,6 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     delete raid_control;
 
     emit result();
-    emit finished();
 }
 
 void SimulationRunner::receive_progress(const int iterations_completed) {
@@ -103,5 +101,4 @@ void SimulationRunner::exit_thread(QString err) {
     delete local_sim_settings;
     delete raid_control;
     emit error(QString::number(thread_id), std::move(err));
-    emit finished();
 }

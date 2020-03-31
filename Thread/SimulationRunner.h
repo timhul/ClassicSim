@@ -34,7 +34,6 @@ public slots:
     void receive_progress(const int iterations_completed);
 
 signals:
-    void finished();
     void result();
     void error(QString seed, QString err);
     void update_progress(const int iterations_completed);

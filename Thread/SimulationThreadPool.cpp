@@ -97,7 +97,6 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     connect(runner, SIGNAL(error(QString, QString)), this, SLOT(error_string(QString, QString)));
     connect(runner, SIGNAL(result()), this, SLOT(thread_finished()));
     connect(runner, SIGNAL(update_progress(const int)), this, SLOT(increase_iterations_completed(int)));
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
 
     thread_pool.append(QPair<unsigned, QThread*>(thread_id, thread));
     active_thread_ids.append(thread_id);
