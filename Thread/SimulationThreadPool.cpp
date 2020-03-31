@@ -95,7 +95,7 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
 
     connect(this, SIGNAL(start_simulation(uint, QVector<QString>, bool, int)), runner, SLOT(sim_runner_run(uint, QVector<QString>, bool, int)));
     connect(runner, SIGNAL(error(QString, QString)), this, SLOT(error_string(QString, QString)));
-    connect(runner, SIGNAL(result()), this, SLOT(thread_finished()));
+    connect(runner, SIGNAL(simulation_runner_has_result()), this, SLOT(thread_finished()));
     connect(runner, SIGNAL(update_progress(const int)), this, SLOT(increase_iterations_completed(int)));
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
 
