@@ -65,6 +65,7 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::ElixirOfTheMongoose:
         pchar->get_stats()->increase_agility(25);
         pchar->get_stats()->increase_melee_aura_crit(200);
+        pchar->get_stats()->increase_ranged_crit(200);
         break;
     case ExternalBuffName::ElixirOfBruteForce:
         pchar->get_stats()->increase_strength(18);
@@ -233,6 +234,7 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::ElixirOfTheMongoose:
         pchar->get_stats()->decrease_agility(25);
         pchar->get_stats()->decrease_melee_aura_crit(200);
+        pchar->get_stats()->decrease_ranged_crit(200);
         break;
     case ExternalBuffName::ElixirOfBruteForce:
         pchar->get_stats()->decrease_strength(18);
