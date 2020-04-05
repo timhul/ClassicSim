@@ -110,6 +110,7 @@ public:
     void equip(Quiver*& current, Quiver* next, const int eq_slot);
     void unequip(Quiver*& current, const int eq_slot);
 
+    void druid_bear_form_switch_to_paws();
     void druid_cat_form_switch_to_claws();
     void druid_switch_to_normal_weapon();
 

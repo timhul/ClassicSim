@@ -63,6 +63,7 @@ private:
     void delete_items(QVector<Item*>*);
     void add_item_id(Item* item);
     void add_druid_cat_form_claws();
+    void add_druid_bear_form_paws();
 
     QVector<Item*> mh_slot_items;
     QVector<Item*> current_phase_mh_slot_items;

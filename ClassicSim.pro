@@ -23,6 +23,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/EssenceOfTheRed.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Druid/Buffs/BearFormBuff.cpp \
     Class/Druid/Buffs/CatFormBuff.cpp \
     Class/Druid/Buffs/LeaderOfThePack.cpp \
     Class/Druid/Buffs/MoonkinFormBuff.cpp \
@@ -32,15 +33,19 @@ SOURCES += main.cpp \
     Class/Druid/Procs/BloodFrenzy.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
     Class/Druid/Procs/Furor.cpp \
+    Class/Druid/Procs/PrimalFury.cpp \
     Class/Druid/Spells/BearForm.cpp \
     Class/Druid/Spells/CasterForm.cpp \
     Class/Druid/Spells/CatForm.cpp \
+    Class/Druid/Spells/Enrage.cpp \
     Class/Druid/Spells/FerociousBite.cpp \
     Class/Druid/Spells/MainhandAttackDruid.cpp \
+    Class/Druid/Spells/Maul.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/MoonkinForm.cpp \
     Class/Druid/Spells/Shred.cpp \
     Class/Druid/Spells/Starfire.cpp \
+    Class/Druid/Spells/Swipe.cpp \
     Class/Druid/Spells/TigersFury.cpp \
     Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
@@ -152,12 +157,16 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Druid/Spells/TestBearForm.cpp \
     Test/Druid/Spells/TestCatForm.cpp \
+    Test/Druid/Spells/TestEnrage.cpp \
     Test/Druid/Spells/TestFerociousBite.cpp \
+    Test/Druid/Spells/TestMaul.cpp \
     Test/Druid/Spells/TestMoonfire.cpp \
     Test/Druid/Spells/TestMoonkinForm.cpp \
     Test/Druid/Spells/TestShred.cpp \
     Test/Druid/Spells/TestStarfire.cpp \
+    Test/Druid/Spells/TestSwipe.cpp \
     Test/Druid/Spells/TestWrath.cpp \
     Test/Druid/Talents/TestBalance.cpp \
     Test/Druid/Talents/TestFeralCombat.cpp \
@@ -526,6 +535,7 @@ HEADERS += \
     Class/Common/Spells/EssenceOfTheRed.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Druid/Buffs/BearFormBuff.h \
     Class/Druid/Buffs/CatFormBuff.h \
     Class/Druid/Buffs/LeaderOfThePack.h \
     Class/Druid/Buffs/MoonkinFormBuff.h \
@@ -535,15 +545,19 @@ HEADERS += \
     Class/Druid/Procs/BloodFrenzy.h \
     Class/Druid/Procs/ClearcastingDruid.h \
     Class/Druid/Procs/Furor.h \
+    Class/Druid/Procs/PrimalFury.h \
     Class/Druid/Spells/BearForm.h \
     Class/Druid/Spells/CasterForm.h \
     Class/Druid/Spells/CatForm.h \
+    Class/Druid/Spells/Enrage.h \
     Class/Druid/Spells/FerociousBite.h \
     Class/Druid/Spells/MainhandAttackDruid.h \
+    Class/Druid/Spells/Maul.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/MoonkinForm.h \
     Class/Druid/Spells/Shred.h \
     Class/Druid/Spells/Starfire.h \
+    Class/Druid/Spells/Swipe.h \
     Class/Druid/Spells/TigersFury.h \
     Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
@@ -656,12 +670,16 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Druid/Spells/TestBearForm.h \
     Test/Druid/Spells/TestCatForm.h \
+    Test/Druid/Spells/TestEnrage.h \
     Test/Druid/Spells/TestFerociousBite.h \
+    Test/Druid/Spells/TestMaul.h \
     Test/Druid/Spells/TestMoonfire.h \
     Test/Druid/Spells/TestMoonkinForm.h \
     Test/Druid/Spells/TestShred.h \
     Test/Druid/Spells/TestStarfire.h \
+    Test/Druid/Spells/TestSwipe.h \
     Test/Druid/Spells/TestWrath.h \
     Test/Druid/Talents/TestBalance.h \
     Test/Druid/Talents/TestFeralCombat.h \

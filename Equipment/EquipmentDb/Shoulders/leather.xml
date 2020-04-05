@@ -206,4 +206,34 @@
 		Crafted by Leatherworkers.
 		</source>
 	</item>
+	
+	<item id="20194" phase="4">
+		<info name="Defiler's Leather Shoulders" type="LEATHER" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_shoulder_24.png"/>
+		<class_restriction class="ROGUE"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="258"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors (Rutherford Twing for Horde).
+		</source>
+	</item>
+	
+	<item id="20059" phase="4">
+		<info name="Highlander's Leather Shoulders" type="LEATHER" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_shoulder_24.png"/>
+		<class_restriction class="ROGUE"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="258"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors (for Alliance).
+		</source>
+	</item>
 </items>

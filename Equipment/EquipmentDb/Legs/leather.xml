@@ -167,4 +167,16 @@
 		Crafted by Leatherworkers.
 		</source>
 	</item>
+	
+	<item id="19889" phase="4">
+		<info name="Blooddrenched Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_leather_09.png"/>
+		<stats>
+			<stat type="ARMOR" value="170"/>
+			<stat type="AGILITY" value="35"/>
+			<stat type="STAMINA" value="15"/>
+		</stats>
+		<source>
+		Drops from Jin'do the Hexxer in Zul'Gurub.
+		</source>
+	</item>
 </items>

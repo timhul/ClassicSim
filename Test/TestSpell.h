@@ -126,6 +126,8 @@ public:
 
     void then_damage_dealt_is(const int damage);
     void then_damage_dealt_is_in_range(const int min, const int max);
+    void then_threat_dealt_is(const int damage);
+    void then_threat_dealt_is_in_range(const int min, const int max);
     void then_next_event_is(const EventType event_type);
     void then_next_event_is(const EventType event_type, const QString& priority, bool act_event = false);
     void then_resource_is(const ResourceType resource_type, const unsigned expected);

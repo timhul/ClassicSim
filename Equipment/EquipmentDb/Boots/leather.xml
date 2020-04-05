@@ -229,4 +229,34 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+	
+	<item id="20186" phase="4">
+		<info name="Defiler's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<class_restriction class="ROGUE"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="181"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors (Rutherford Twing for Horde).
+		</source>
+	</item>
+	
+	<item id="20052" phase="4">
+		<info name="Highlander's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<class_restriction class="ROGUE"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="181"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors (for Alliance).
+		</source>
+	</item>
 </items>

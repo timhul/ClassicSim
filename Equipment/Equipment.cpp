@@ -1022,6 +1022,25 @@ void Equipment::unequip(Quiver*& current, const int eq_slot) {
     current = nullptr;
 }
 
+void Equipment::druid_bear_form_switch_to_paws() {
+    mh_enchant = get_current_enchant_enum_value(mainhand);
+    mh_temp_enchant = get_current_temp_enchant_enum_value(mainhand);
+
+    if (mainhand) {
+        mainhand->disable_proc_effects();
+        mainhand->disable_druid_form_enchants();
+    }
+
+    druid_form_mh_storage = mainhand;
+    druid_form_oh_storage = offhand;
+
+    mainhand = nullptr;
+    offhand = nullptr;
+
+    // Druid paws are created as hidden items with an item id of 11223400 + clvl
+    set_mainhand(11223400 + static_cast<int>(pchar->get_clvl()));
+}
+
 void Equipment::druid_cat_form_switch_to_claws() {
     mh_enchant = get_current_enchant_enum_value(mainhand);
     mh_temp_enchant = get_current_temp_enchant_enum_value(mainhand);
