@@ -224,7 +224,36 @@ void NumberCruncher::merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>
         list.append(rotation_executor->get_list_of_executor_outcomes());
 }
 
-void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
+void NumberCruncher::calculate_stat_weights_for_tps(QList<ScaleResult*>& tps_list) {
+    QMutexLocker lock(&mutex);
+
+    QMap<SimOption::Name, double> tps_per_option;
+
+    QMap<SimOption::Name, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
+    auto end = class_stats.constEnd();
+    while (it != end) {
+        tps_per_option.insert(it.key(), get_tps_for_option(it.key()));
+        ++it;
+    }
+
+    check(tps_per_option.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
+
+    double base_value_tps = tps_per_option.take(SimOption::Name::NoScale);
+
+    QMap<SimOption::Name, double>::const_iterator tps_it = tps_per_option.constBegin();
+    while (tps_it != tps_per_option.constEnd()) {
+      double absolute_diff = tps_it.value() - base_value_tps;
+      double relative_diff = absolute_diff / base_value_tps;
+
+      double standard_deviation = get_standard_deviation_for_option(tps_it.key());
+      double confidence_interval = get_confidence_interval_for_option(tps_it.key(), standard_deviation);
+
+      tps_list.append(new ScaleResult(tps_it.key(), false, 0.0, 0.0, absolute_diff, relative_diff, standard_deviation, confidence_interval));
+      ++tps_it;
+    }
+}
+
+void NumberCruncher::calculate_stat_weights_for_dps(QList<ScaleResult*>& dps_list) {
     QMutexLocker lock(&mutex);
 
     QMap<SimOption::Name, double> dps_per_option;
@@ -238,17 +267,17 @@ void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
 
     check(dps_per_option.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
-    double base_value = dps_per_option.take(SimOption::Name::NoScale);
+    double base_value_dps = dps_per_option.take(SimOption::Name::NoScale);
 
     QMap<SimOption::Name, double>::const_iterator dps_it = dps_per_option.constBegin();
     while (dps_it != dps_per_option.constEnd()) {
-        double absolute_diff = dps_it.value() - base_value;
-        double relative_diff = absolute_diff / base_value;
+        double absolute_diff = dps_it.value() - base_value_dps;
+        double relative_diff = absolute_diff / base_value_dps;
 
         double standard_deviation = get_standard_deviation_for_option(dps_it.key());
         double confidence_interval = get_confidence_interval_for_option(dps_it.key(), standard_deviation);
 
-        list.append(new ScaleResult(dps_it.key(), 0.0, 0.0, absolute_diff, relative_diff, standard_deviation, confidence_interval));
+        dps_list.append(new ScaleResult(dps_it.key(), true, 0.0, 0.0, absolute_diff, relative_diff, standard_deviation, confidence_interval));
         ++dps_it;
     }
 }
@@ -339,7 +368,7 @@ ScaleResult* NumberCruncher::get_dps_distribution() const {
     double confidence_interval = get_confidence_interval_for_option(SimOption::Name::NoScale, standard_deviation);
     QPair<double, double> dps = get_min_max_dps_for_option(SimOption::Name::NoScale);
 
-    return new ScaleResult(SimOption::Name::NoScale, dps.first, dps.second, 0.0, 0.0, standard_deviation, confidence_interval);
+    return new ScaleResult(SimOption::Name::NoScale, true, dps.first, dps.second, 0.0, 0.0, standard_deviation, confidence_interval);
 }
 
 void NumberCruncher::merge_player_results(ClassStatistics* cstat) {

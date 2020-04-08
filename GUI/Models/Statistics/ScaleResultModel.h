@@ -25,7 +25,7 @@ public:
 class ScaleResultModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    ScaleResultModel(NumberCruncher* statistics_source, QObject* parent = nullptr);
+    ScaleResultModel(NumberCruncher* statistics_source, bool for_dps, QObject* parent = nullptr);
     ~ScaleResultModel();
 
     Q_INVOKABLE void selectSort(const int method);
@@ -42,6 +42,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
+    bool for_dps;
     NumberCruncher* statistics_source;
     QMap<ScaleResultSorting::Methods, SortDirection> sorting_methods;
     QList<ScaleResult*> scale_results;
