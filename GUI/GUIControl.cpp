@@ -138,7 +138,8 @@ GUIControl::GUIControl(QObject* parent) :
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
     resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
     rotation_executor_list_model = new RotationExecutorListModel(number_cruncher);
-    scale_result_model = new ScaleResultModel(number_cruncher);
+    dps_scale_result_model = new ScaleResultModel(number_cruncher, /*for_dps*/ true);
+    tps_scale_result_model = new ScaleResultModel(number_cruncher, /*for_dps*/ false);
     random_affixes->set_equipment_db(equipment_db);
     random_affixes->set_random_affixes_db(random_affixes_db);
 
@@ -212,7 +213,8 @@ GUIControl::~GUIControl() {
     delete proc_breakdown_model;
     delete resource_breakdown_model;
     delete rotation_executor_list_model;
-    delete scale_result_model;
+    delete dps_scale_result_model;
+    delete tps_scale_result_model;
     delete mh_enchants;
     delete mh_temporary_enchants;
     delete oh_enchants;
@@ -820,8 +822,12 @@ RotationExecutorListModel* GUIControl::get_rotation_executor_list_model() const 
     return this->rotation_executor_list_model;
 }
 
-ScaleResultModel* GUIControl::get_scale_result_model() const {
-    return this->scale_result_model;
+ScaleResultModel* GUIControl::get_dps_scale_result_model() const {
+    return this->dps_scale_result_model;
+}
+
+ScaleResultModel* GUIControl::get_tps_scale_result_model() const {
+    return this->tps_scale_result_model;
 }
 
 RotationModel* GUIControl::get_rotation_model() const {
@@ -957,7 +963,8 @@ void GUIControl::runFullSim() {
 }
 
 void GUIControl::compile_thread_results() {
-    scale_result_model->update_statistics();
+    dps_scale_result_model->update_statistics();
+    tps_scale_result_model->update_statistics();
     buff_breakdown_model->update_statistics();
     debuff_breakdown_model->update_statistics();
     damage_breakdown_model->update_statistics();

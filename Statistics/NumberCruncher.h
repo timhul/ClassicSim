@@ -68,7 +68,8 @@ private:
     double get_dps_for_option(SimOption::Name) const;
     double get_tps_for_option(SimOption::Name) const;
     QPair<double, double> get_min_max_dps_for_option(SimOption::Name) const;
-    void calculate_stat_weights(QList<ScaleResult*>& list);
+    void calculate_stat_weights_for_dps(QList<ScaleResult*>& list);
+    void calculate_stat_weights_for_tps(QList<ScaleResult*>& list);
 
     void merge_spell_stats(QList<StatisticsSpell*>& vec);
     void merge_spell_entry(const QString& name, const QString& icon, long long int total_damage_dealt, long long int total_threat_dealt, QList<StatisticsSpell*>& vec);
@@ -92,6 +93,7 @@ private:
 class ScaleResult {
 public:
     ScaleResult(SimOption::Name option,
+                bool for_dps,
                 double min_dps,
                 double max_dps,
                 double absolute_value,
@@ -99,6 +101,7 @@ public:
                 double standard_deviation,
                 double confidence_interval) :
         option(option),
+        for_dps(for_dps),
         min_dps(min_dps),
         max_dps(max_dps),
         absolute_value(absolute_value),
@@ -107,6 +110,7 @@ public:
         confidence_interval(confidence_interval) {}
 
     const SimOption::Name option;
+    const bool for_dps;
     const double min_dps;
     const double max_dps;
     const double absolute_value;
