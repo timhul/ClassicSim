@@ -196,7 +196,7 @@
 	</item>
 	
 	<item id="20190" phase="4">
-		<info name="Defiler's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_belt_17.png"/>
+		<info name="Defiler's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" faction="HORDE" boe="no" icon="Inv_belt_17.png"/>
 		<class_restriction class="DRUID"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -206,12 +206,12 @@
 			<stat type="ATTACK_POWER" value="34"/>
 		</stats>
 		<source>
-		Sold by Arathi Basin vendors (Rutherford Twing for Horde).
+		Sold by Arathi Basin vendor Rutherford Twing.
 		</source>
 	</item>
 	
 	<item id="20045" phase="4">
-		<info name="Highlander's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_belt_17.png"/>
+		<info name="Highlander's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_belt_17.png"/>
 		<class_restriction class="DRUID"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
@@ -221,7 +221,7 @@
 			<stat type="ATTACK_POWER" value="34"/>
 		</stats>
 		<source>
-		Sold by Arathi Basin vendors (for Alliance).
+		Sold by Arathi Basin vendors.
 		</source>
 	</item>
 </items>

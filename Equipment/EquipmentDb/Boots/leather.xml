@@ -231,7 +231,7 @@
 	</item>
 	
 	<item id="20186" phase="4">
-		<info name="Defiler's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<info name="Defiler's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_cloth_05.png"/>
 		<class_restriction class="ROGUE"/>
 		<class_restriction class="DRUID"/>
 		<stats>
@@ -241,12 +241,12 @@
 			<stat type="ATTACK_POWER" value="16"/>
 		</stats>
 		<source>
-		Sold by Arathi Basin vendors (Rutherford Twing for Horde).
+		Sold by Arathi Basin vendor Rutherford Twing.
 		</source>
 	</item>
 	
 	<item id="20052" phase="4">
-		<info name="Highlander's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<info name="Highlander's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_05.png"/>
 		<class_restriction class="ROGUE"/>
 		<class_restriction class="DRUID"/>
 		<stats>
@@ -256,7 +256,7 @@
 			<stat type="ATTACK_POWER" value="16"/>
 		</stats>
 		<source>
-		Sold by Arathi Basin vendors (for Alliance).
+		Sold by Arathi Basin vendors.
 		</source>
 	</item>
 </items>
