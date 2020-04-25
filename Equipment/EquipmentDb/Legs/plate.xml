@@ -245,6 +245,19 @@
         </source>
     </item>
 
+    <item id="19855" phase="4">
+        <info name="Bloodsoaked Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_pants_plate_21.png"/>
+        <stats>
+            <stat type="ARMOR" value="674"/>
+            <stat type="STRENGTH" value="36"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="DEFENSE" value="10"/>
+        </stats>
+        <source>
+		Drops from Hakkar in Zul'Gurub.
+        </source>
+    </item>
+
     <item id="22651" phase="4">
         <info name="Outrider's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_plate_20.png"/>
         <stats>
