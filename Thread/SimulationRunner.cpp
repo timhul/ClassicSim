@@ -97,7 +97,7 @@ void SimulationRunner::receive_progress(const int iterations_completed) {
 void SimulationRunner::exit_thread(QString err) {
     for (const auto& pchar : raid)
         delete pchar;
-    for (const auto& race : raid)
+    for (const auto& race : races)
         delete race;
 
     delete local_sim_settings;
