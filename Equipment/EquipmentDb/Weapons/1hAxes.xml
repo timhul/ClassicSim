@@ -106,6 +106,18 @@
         </source>
     </melee_weapon>
 
+    <melee_weapon id="18498" phase="2">
+        <info name="Hedgecutter" type="AXE" slot="1H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_axe_11.png"/>
+        <dmg_range min="60" max="90" speed="1.9"/>
+        <stats>
+            <stat type="STRENGTH" value="5"/>
+            <stat type="STAMINA" value="12"/>
+        </stats>
+        <source>
+			Drops from Guard Slip'kik and Guard Mol'dar in Dire Maul North.
+        </source>
+    </melee_weapon>
+
     <melee_weapon id="18828" phase="2">
         <info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
         <dmg_range min="138" max="207" speed="2.9"/>
