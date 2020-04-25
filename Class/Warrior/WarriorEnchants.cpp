@@ -42,7 +42,7 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
     case EquipmentSlot::BACK:
         return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
-        return {EnchantName::Name::EnchantBracerSuperiorStrength};
+        return {EnchantName::Name::EnchantBracerGreaterStrength, EnchantName::Name::EnchantBracerSuperiorStrength};
     case EquipmentSlot::GLOVES:
         return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
                 EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
@@ -52,7 +52,7 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
             EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
-        return {EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility};
+        return {EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsAgility, EnchantName::Name::EnchantBootsGreaterAgility};
     }
 
     check(false, "WarriorEnchants::get_available_enchants reached end of switch");
