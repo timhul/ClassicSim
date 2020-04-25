@@ -26,7 +26,7 @@ SimulationRunner::SimulationRunner(
     full_sim(false),
     thread_id(thread_id) {}
 
-void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
+void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
         emit finished();
         return;
