@@ -14,7 +14,7 @@ public:
         ScaleStrength,
         ScaleHitChance,
         ScaleCritChance,
-        ScaleMeleeAP,
+        ScaleAttackPower,
         ScaleAxeSkill,
         ScaleDaggerSkill,
         ScaleMaceSkill,
