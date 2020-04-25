@@ -8,7 +8,7 @@ class Druid;
 
 class BearForm : public Spell, public TalentRequirer {
 public:
-    BearForm(Druid* druid);
+    BearForm(Druid* druid, Buff* buff);
     ~BearForm() override;
 
 private:

@@ -85,7 +85,16 @@ unsigned Druid::get_melee_ap_per_strength() const {
 }
 
 unsigned Druid::get_melee_ap_per_agi() const {
-    return 1;
+    switch (current_form) {
+    case DruidForm::Caster:
+    case DruidForm::Bear:
+    case DruidForm::Moonkin:
+        return 0;
+    case DruidForm::Cat:
+        return 1;
+    }
+    check(false, "Reached end of Druid::get_melee_ap_per_agi() switch");
+    return 0;
 }
 
 unsigned Druid::get_ranged_ap_per_agi() const {
@@ -226,6 +235,8 @@ void Druid::switch_to_form(const DruidForm new_form) {
     cancel_form();
     druid_spells->get_caster_form()->buff->cancel_buff();
 
+    this->current_form = new_form;
+
     switch (new_form) {
     case DruidForm::Bear:
         druid_spells->get_bear_form()->buff->apply_buff();
@@ -240,7 +251,6 @@ void Druid::switch_to_form(const DruidForm new_form) {
         check(false, "Unhandled form in Druid::switch_to_form()");
     }
 
-    this->current_form = new_form;
     this->next_form_cd = engine->get_current_priority() + form_cooldown();
 
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {

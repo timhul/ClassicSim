@@ -963,6 +963,8 @@
         <file>QML/Assets/ability/Ability_racial_cannibalize.png</file>
         <file>QML/Assets/spell/Spell_holy_blessingofagility.png</file>
         <file>QML/Assets/ability/Ability_druid_enrage.png</file>
+        <file>QML/Assets/ability/Ability_druid_maul.png</file>
+        <file>QML/Assets/ability/Ability_druid_swipe.png</file>
         <file>QML/Assets/items/Inv_relics_idolofrejuvenation.png</file>
         <file>QML/Assets/spell/Spell_holy_elunesgrace.png</file>
         <file>QML/Assets/spell/Spell_nature_healingwavegreater.png</file>

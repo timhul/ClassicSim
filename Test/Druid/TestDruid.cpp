@@ -18,6 +18,9 @@
 #include "TestShred.h"
 #include "TestStarfire.h"
 #include "TestWrath.h"
+#include "TestBearForm.h"
+#include "TestMaul.h"
+#include "TestSwipe.h"
 
 TestDruid::TestDruid(EquipmentDb* equipment_db) : TestObject(equipment_db) {}
 
@@ -35,6 +38,9 @@ void TestDruid::test_all() {
     TestCatForm(equipment_db).test_all();
     TestShred(equipment_db).test_all();
     TestFerociousBite(equipment_db).test_all();
+    TestBearForm(equipment_db).test_all();
+    TestMaul(equipment_db).test_all();
+    TestSwipe(equipment_db).test_all();
 }
 
 void TestDruid::test_values_after_initialization() {

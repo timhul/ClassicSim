@@ -6,7 +6,7 @@
 #include "Druid.h"
 #include "NoEffectSelfBuff.h"
 
-BearForm::BearForm(Druid* druid) :
+BearForm::BearForm(Druid* druid, Buff* bear_form) :
     Spell("Bear Form",
           "Assets/ability/Ability_racial_bearform.png",
           druid,
@@ -14,16 +14,18 @@ BearForm::BearForm(Druid* druid) :
           RestrictedByGcd::No,
           ResourceType::Mana,
           100),
-    TalentRequirer({new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No)}),
+    TalentRequirer({
+        new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
+        new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
+    }),
     druid(druid),
-    buff(new NoEffectSelfBuff(druid, BuffDuration::PERMANENT, "Bear Form", icon, Hidden::No)),
+    buff(bear_form),
     base_resource_cost(resource_cost) {
     buff->enable_buff();
 }
 
 BearForm::~BearForm() {
     delete cooldown;
-    delete buff;
 }
 
 SpellStatus BearForm::is_ready_spell_specific() const {

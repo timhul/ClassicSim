@@ -13,6 +13,10 @@ private:
     Druid* druid;
     DruidSpells* spells;
 
+    void add_feral_instinct(QMap<QString, Talent*>& talent_tier);
+    void add_savage_fury(QMap<QString, Talent*>& talent_tier);
+    void add_primal_fury(QMap<QString, Talent*>& talent_tier);
+    void add_ferocity(QMap<QString, Talent*>& talent_tier);
     void add_feral_aggression(QMap<QString, Talent*>& talent_tier);
     void add_sharpened_claws(QMap<QString, Talent*>& talent_tier);
     void add_improved_shred(QMap<QString, Talent*>& talent_tier);
