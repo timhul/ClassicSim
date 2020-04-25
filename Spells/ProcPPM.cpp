@@ -27,7 +27,7 @@ unsigned ProcPPM::get_proc_range() const {
     case EnchantSlot::MAINHAND:
         return static_cast<unsigned>(round(proc_rate_base * pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() * 100));
     case EnchantSlot::OFFHAND:
-        return static_cast<unsigned>(round(proc_rate_base * pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() * 100));
+        return static_cast<unsigned>(round(proc_rate_base * pchar->get_equipment()->get_offhand()->get_base_weapon_speed() * 100));
     default:
         check(false, "ProcPPM::get_proc_range reached end of switch");
         return 0;
