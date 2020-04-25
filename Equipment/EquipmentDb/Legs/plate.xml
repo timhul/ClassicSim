@@ -1,336 +1,336 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="17711" phase="1">
-		<info name="Elemental Rockridge Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="496"/>
-			<stat type="STAMINA" value="18"/>
-			<stat type="STRENGTH" value="20"/>
-			<stat type="NATURE_RESISTANCE" value="10"/>
-		</stats>
-		<source>
+    <item id="17711" phase="1">
+        <info name="Elemental Rockridge Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="496"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="NATURE_RESISTANCE" value="10"/>
+        </stats>
+        <source>
 		Drops from Princess Theradras in Maraudon.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="21316" phase="1">
-		<info name="Leggings of the Ursa" type="PLATE" slot="LEGS" unique="no" req_lvl="45" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_pants_mail_10.png"/>
-		<mutex item_id="21317"/>
-		<stats>
-			<stat type="ARMOR" value="459"/>
-			<stat type="STRENGTH" value="17"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="21316" phase="1">
+        <info name="Leggings of the Ursa" type="PLATE" slot="LEGS" unique="no" req_lvl="45" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_pants_mail_10.png"/>
+        <mutex item_id="21317"/>
+        <stats>
+            <stat type="ARMOR" value="459"/>
+            <stat type="STRENGTH" value="17"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 		Quest reward. Trivial quest in Winterspring.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="11802" phase="1">
-		<info name="Lavacrest Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="531"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="STAMINA" value="12"/>
-		</stats>
-		<source>
+    <item id="11802" phase="1">
+        <info name="Lavacrest Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="531"/>
+            <stat type="STRENGTH" value="28"/>
+            <stat type="STAMINA" value="12"/>
+        </stats>
+        <source>
 		Drops from Bael'Gar in Blackrock Depths.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="13498" phase="1">
-		<info name="Handcrafted Mastersmith Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="548"/>
-			<stat type="STRENGTH" value="29"/>
-			<stat type="STAMINA" value="12"/>
-		</stats>
-		<source>
+    <item id="13498" phase="1">
+        <info name="Handcrafted Mastersmith Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="548"/>
+            <stat type="STRENGTH" value="29"/>
+            <stat type="STAMINA" value="12"/>
+        </stats>
+        <source>
 		Drops from Goraluk Anvilcraft in Upper Blackrock Spire.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="13075" phase="1">
-		<info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="575"/>
-			<stat type="STRENGTH" value="15"/>
-			<stat type="STAMINA" value="16"/>
-			<stat type="SPIRIT" value="16"/>
-			<stat type="AGILITY" value="15"/>
-		</stats>
-		<source>
+    <item id="13075" phase="1">
+        <info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="575"/>
+            <stat type="STRENGTH" value="15"/>
+            <stat type="STAMINA" value="16"/>
+            <stat type="SPIRIT" value="16"/>
+            <stat type="AGILITY" value="15"/>
+        </stats>
+        <source>
 		World drop.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="14554" phase="1">
-		<info name="Cloudkeeper Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="617"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="STRENGTH" value="20"/>
-			<stat type="AGILITY" value="20"/>
-		</stats>
-		<uses>
-			<use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="100" duration="30" cooldown="900"/>
-		</uses>
-		<special_equip_effect>
+    <item id="14554" phase="1">
+        <info name="Cloudkeeper Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="617"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="AGILITY" value="20"/>
+        </stats>
+        <uses>
+            <use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="100" duration="30" cooldown="900"/>
+        </uses>
+        <special_equip_effect>
 		Use: Increases Attack Power by 100 for 30 sec. (cooldown 15 min)
-		</special_equip_effect>
-		<source>
+        </special_equip_effect>
+        <source>
 		World drop.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="18380" phase="2">
-		<info name="Eldritch Reinforced Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="566"/>
-			<stat type="STRENGTH" value="15"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="AGILITY" value="9"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="18380" phase="2">
+        <info name="Eldritch Reinforced Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="566"/>
+            <stat type="STRENGTH" value="15"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="AGILITY" value="9"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 		Drops from Prince Tortheldrin in Dire Maul.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="23301" phase="2">
-		<info name="Knight-Captain's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_06.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="618"/>
-			<stat type="STAMINA" value="17"/>
-			<stat type="STRENGTH" value="12"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
+    <item id="23301" phase="2">
+        <info name="Knight-Captain's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_06.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="618"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="16962" phase="1">
-		<info name="Legplates of Wrath" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_04.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="749"/>
-			<stat type="STAMINA" value="27"/>
-			<stat type="STRENGTH" value="19"/>
-			<stat type="ARCANE_RESISTANCE" value="10"/>
-			<stat type="FIRE_RESISTANCE" value="10"/>
-			<stat type="DODGE_CHANCE" value="0.02"/>
-			<stat type="DEFENSE" value="11"/>
-		</stats>
-		<source>
+    <item id="16962" phase="1">
+        <info name="Legplates of Wrath" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_04.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="749"/>
+            <stat type="STAMINA" value="27"/>
+            <stat type="STRENGTH" value="19"/>
+            <stat type="ARCANE_RESISTANCE" value="10"/>
+            <stat type="FIRE_RESISTANCE" value="10"/>
+            <stat type="DODGE_CHANCE" value="0.02"/>
+            <stat type="DEFENSE" value="11"/>
+        </stats>
+        <source>
 			Drops from Ragnaros in Molten Core.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="22873" phase="2">
-		<info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="618"/>
-			<stat type="STAMINA" value="17"/>
-			<stat type="STRENGTH" value="12"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
+    <item id="22873" phase="2">
+        <info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="618"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="23273" phase="2">
-		<info name="Knight-Captain's Lamellar Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
-		<class_restriction class="PALADIN"/>
-		<stats>
-			<stat type="ARMOR" value="618"/>
-			<stat type="STAMINA" value="17"/>
-			<stat type="STRENGTH" value="18"/>
-			<stat type="INTELLECT" value="12"/>
-			<stat type="SPELL_DAMAGE" value="25"/>
-		</stats>
-		<source>
+    <item id="23273" phase="2">
+        <info name="Knight-Captain's Lamellar Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="618"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="18"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="SPELL_DAMAGE" value="25"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="16475" phase="2">
-		<info name="Marshal's Lamellar Legplates" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_04.png"/>
-		<class_restriction class="PALADIN"/>
-		<stats>
-			<stat type="ARMOR" value="703"/>
-			<stat type="STAMINA" value="20"/>
-			<stat type="STRENGTH" value="20"/>
-			<stat type="INTELLECT" value="17"/>
-			<stat type="SPELL_DAMAGE" value="27"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="16475" phase="2">
+        <info name="Marshal's Lamellar Legplates" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_04.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="703"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="INTELLECT" value="17"/>
+            <stat type="SPELL_DAMAGE" value="27"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="16479" phase="2">
-		<info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="743"/>
-			<stat type="STAMINA" value="28"/>
-			<stat type="STRENGTH" value="20"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="16479" phase="2">
+        <info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="743"/>
+            <stat type="STAMINA" value="28"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="16543" phase="2">
-		<info name="General's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_04.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="743"/>
-			<stat type="STAMINA" value="28"/>
-			<stat type="STRENGTH" value="20"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="16543" phase="2">
+        <info name="General's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_04.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="743"/>
+            <stat type="STAMINA" value="28"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="19402" phase="3">
-		<info name="Legguards of the Fallen Crusader" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_pants_plate_16.png"/>
-		<stats>
-			<stat type="ARMOR" value="740"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="AGILITY" value="22"/>
-			<stat type="INTELLECT" value="17"/>
-			<stat type="STAMINA" value="22"/>
-		</stats>
-		<source>
+    <item id="19402" phase="3">
+        <info name="Legguards of the Fallen Crusader" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_pants_plate_16.png"/>
+        <stats>
+            <stat type="ARMOR" value="740"/>
+            <stat type="STRENGTH" value="28"/>
+            <stat type="AGILITY" value="22"/>
+            <stat type="INTELLECT" value="17"/>
+            <stat type="STAMINA" value="22"/>
+        </stats>
+        <source>
 		Drops from Firemaw in Blackwing Lair.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="22651" phase="4">
-		<info name="Outrider's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_plate_20.png"/>
-		<stats>
-			<stat type="ARMOR" value="646"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="STAMINA" value="27"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="22651" phase="4">
+        <info name="Outrider's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_plate_20.png"/>
+        <stats>
+            <stat type="ARMOR" value="646"/>
+            <stat type="STRENGTH" value="28"/>
+            <stat type="STAMINA" value="27"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 		Sold by Warsong Gulch vendor Kelm Hargunth. Requires Exalted with Warsong Outriders.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="22672" phase="4">
-		<info name="Sentinel's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_20.png"/>
-		<stats>
-			<stat type="ARMOR" value="646"/>
-			<stat type="STRENGTH" value="28"/>
-			<stat type="STAMINA" value="27"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="22672" phase="4">
+        <info name="Sentinel's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_20.png"/>
+        <stats>
+            <stat type="ARMOR" value="646"/>
+            <stat type="STRENGTH" value="28"/>
+            <stat type="STAMINA" value="27"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 		Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Exalted with Silverwing Sentinels.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="22753" phase="4">
-		<info name="Sentinel's Lamellar Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_15.png"/>
-		<stats>
-			<stat type="ARMOR" value="646"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="STAMINA" value="21"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-			<stat type="SPELL_DAMAGE" value="25"/>
-		</stats>
-		<source>
+    <item id="22753" phase="4">
+        <info name="Sentinel's Lamellar Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_15.png"/>
+        <stats>
+            <stat type="ARMOR" value="646"/>
+            <stat type="STRENGTH" value="21"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+            <stat type="SPELL_DAMAGE" value="25"/>
+        </stats>
+        <source>
 		Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Exalted with Silverwing Sentinels.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="22385" phase="5">
-		<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
-		<stats>
-			<stat type="ARMOR" value="598"/>
-			<stat type="STRENGTH" value="30"/>
-			<stat type="HIT_CHANCE" value="0.02"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="22385" phase="5">
+        <info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="598"/>
+            <stat type="STRENGTH" value="30"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="21495" phase="5">
-		<info name="Legplates of the Qiraji Command" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_plate_15.png"/>
-		<stats>
-			<stat type="ARMOR" value="644"/>
-			<stat type="STRENGTH" value="20"/>
-			<stat type="STAMINA" value="13"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
+    <item id="21495" phase="5">
+        <info name="Legplates of the Qiraji Command" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_plate_15.png"/>
+        <stats>
+            <stat type="ARMOR" value="644"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 		Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="21332" phase="5">
-		<info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
-		<class_restriction class="WARRIOR"/>
-		<stats>
-			<stat type="ARMOR" value="796"/>
-			<stat type="AGILITY" value="21"/>
-			<stat type="STRENGTH" value="33"/>
-			<stat type="STAMINA" value="24"/>
-			<stat type="DEFENSE" value="6"/>
-			<stat type="HIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
+    <item id="21332" phase="5">
+        <info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="796"/>
+            <stat type="AGILITY" value="21"/>
+            <stat type="STRENGTH" value="33"/>
+            <stat type="STAMINA" value="24"/>
+            <stat type="DEFENSE" value="6"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires drops from Ouro in Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="21390" phase="5">
-		<info name="Avenger's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_02.png"/>
-		<class_restriction class="PALADIN"/>
-		<stats>
-			<stat type="ARMOR" value="796"/>
-			<stat type="AGILITY" value="12"/>
-			<stat type="STRENGTH" value="21"/>
-			<stat type="INTELLECT" value="22"/>
-			<stat type="SPIRIT" value="9"/>
-			<stat type="STAMINA" value="22"/>
-			<stat type="SPELL_DAMAGE" value="16"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="MANA_PER_5" value="4"/>
-		</stats>
-		<source>
+    <item id="21390" phase="5">
+        <info name="Avenger's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_02.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="796"/>
+            <stat type="AGILITY" value="12"/>
+            <stat type="STRENGTH" value="21"/>
+            <stat type="INTELLECT" value="22"/>
+            <stat type="SPIRIT" value="9"/>
+            <stat type="STAMINA" value="22"/>
+            <stat type="SPELL_DAMAGE" value="16"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="MANA_PER_5" value="4"/>
+        </stats>
+        <source>
 		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-		</source>
-	</item>
+        </source>
+    </item>
 
-	<item id="23068" phase="6">
-		<info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
-		<stats>
-			<stat type="ARMOR" value="815"/>
-			<stat type="STRENGTH" value="42"/>
-			<stat type="STAMINA" value="18"/>
-			<stat type="CRIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
+    <item id="23068" phase="6">
+        <info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
+        <stats>
+            <stat type="ARMOR" value="815"/>
+            <stat type="STRENGTH" value="42"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Drops from Heigan the Unclean in Naxxramas.
-		</source>
-	</item>
+        </source>
+    </item>
 </items>
