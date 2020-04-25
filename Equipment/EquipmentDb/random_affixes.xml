@@ -322,5 +322,14 @@
 			<stat type="STRENGTH" value="7"/>
 		</stats>
 	</random_affix>
+    
+    <random_affix id="2157" phase="4">
+		<info name="of Striking" />
+		<stats>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="AGILITY" value="15"/>
+            <stat type="STAMINA" value="15"/>
+		</stats>
+    </random_affix>
 
 </random_affixes>

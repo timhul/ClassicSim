@@ -50,6 +50,20 @@
         </source>
     </item>
 
+    <item id="16732" phase="1">
+        <info name="Legplates of Valor" type="PLATE" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="557"/>
+            <stat type="STRENGTH" value="23"/>
+            <stat type="AGILITY" value="11"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="SPIRIT" value="4"/>
+        </stats>
+        <source>
+        Drops from Baron Rivendare in Stratholme Undead.
+        </source>
+    </item>
+
     <item id="13075" phase="1">
         <info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
         <stats>
@@ -214,6 +228,20 @@
         </stats>
         <source>
 		Drops from Firemaw in Blackwing Lair.
+        </source>
+    </item>
+
+    <item id="20671" phase="4">
+        <info name="Abyssal Plate Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_plate_12.png"/>
+        <stats>
+            <stat type="ARMOR" value="566"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <random_affixes>
+            <affix id="2157"/>
+        </random_affixes>
+        <source>
+            Drops from The Duke of Shards, a summonable raid boss in Silithus.
         </source>
     </item>
 
