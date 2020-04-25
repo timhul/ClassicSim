@@ -44,7 +44,7 @@
 		</source>
 	</item>
 
-	<item id="16966" phase="1">
+	<item id="16966" phase="3">
 		<info name="Breastplate of Wrath" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
