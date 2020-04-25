@@ -24,6 +24,10 @@ These are some of the features of this tool:
 * Data-driven rotations
 * Statistics
 
+# Contact
+
+You can open an issue or join the [ClassicSim Community Discord server](https://discord.gg/NGVwKVK).
+
 # Mechanic implementation details
 
 Interested in how certain mechanics are currently implemented? Check
