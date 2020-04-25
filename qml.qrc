@@ -1051,5 +1051,6 @@
         <file>QML/Assets/spell/Spell_shadow_shadowwordpain.png</file>
         <file>QML/Assets/items/Inv_pants_plate_12.png</file>
         <file>QML/Assets/items/Inv_pants_plate_21.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_30.png</file>
     </qresource>
 </RCC>
