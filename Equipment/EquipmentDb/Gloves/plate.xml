@@ -229,7 +229,7 @@
 	</item>
 
 	<item id="22714" phase="4">
-		<info name="Sacrificial Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_31.png"/>
+		<info name="Sacrificial Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_gauntlets_31.png"/>
 		<stats>
 			<stat type="ARMOR" value="441"/>
 			<stat type="STRENGTH" value="19"/>
