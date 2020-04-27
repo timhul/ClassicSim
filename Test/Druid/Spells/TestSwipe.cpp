@@ -2,11 +2,11 @@
 
 #include <cassert>
 
+#include "BearForm.h"
 #include "Buff.h"
 #include "Druid.h"
 #include "DruidSpells.h"
 #include "Swipe.h"
-#include "bearForm.h"
 
 TestSwipe::TestSwipe(EquipmentDb* equipment_db) : TestSpellDruid(equipment_db, "Swipe") {}
 
