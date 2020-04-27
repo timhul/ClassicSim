@@ -320,7 +320,7 @@ void Druid::reset_resource() {
 
 void Druid::reset_class_specific() {
     cancel_form();
-    this->next_form_cd = 0.0;
+    this->next_form_cd = -10.0;
     this->combo_points = 0;
     this->stealthed = false;
 }
