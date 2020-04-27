@@ -179,4 +179,18 @@
 		Drops from Jin'do the Hexxer in Zul'Gurub.
 		</source>
 	</item>
+
+	<item id="20665" phase="4">
+        <info name="Abyssal Leather Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_leather_05.png"/>
+        <stats>
+            <stat type="ARMOR" value="152"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <random_affixes>
+            <affix id="2157"/>
+        </random_affixes>
+        <source>
+            Drops from The Duke of Cynders, a summonable raid boss in Silithus.
+        </source>
+    </item>
 </items>
