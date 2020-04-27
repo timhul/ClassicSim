@@ -240,6 +240,9 @@
 			<stat type="SPIRIT" value="8"/>
 			<stat type="SPELL_DAMAGE" value="84"/>
 		</stats>
+        <flavour_text>
+            "The Hand of Nefarius."
+        </flavour_text>
 		<source>
 			Drops from Nefarian in Blackwing Lair.
 		</source>
