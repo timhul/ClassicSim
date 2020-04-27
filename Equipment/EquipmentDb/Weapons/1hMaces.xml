@@ -217,6 +217,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="19360" phase="3">
+		<info name="Lok'amir il Romathis" type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
+		<dmg_range min="48" max="128" speed="2.1"/>
+		<stats>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="84"/>
+		</stats>
+		<source>
+			Drops from Nefarian in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="22384" phase="5">
 		<info name="Persuader" type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
 		<dmg_range min="86" max="161" speed="2.7"/>
