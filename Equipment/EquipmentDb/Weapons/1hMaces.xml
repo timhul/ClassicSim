@@ -107,6 +107,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="17105" phase="1">
+		<info name="Aurastone Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
+		<dmg_range min="79" max="162" speed="2.7"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="MANA_PER_5" value="5"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+			Drops from Garr in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="19104" phase="3">
 		<info name="Stormstrike Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_hammer_21.png"/>
 		<dmg_range min="80" max="150" speed="2.7"/>
