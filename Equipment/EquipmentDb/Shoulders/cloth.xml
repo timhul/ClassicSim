@@ -625,7 +625,7 @@
 		</source>
 	</item>
 
-	<item id="20686" phase="5">
+	<item id="20686" phase="4">
 		<info name="Abyssal Cloth Amice of Sorcery" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_shoulder_25.png"/>
 		<stats>
 			<stat type="ARMOR" value="72"/>
