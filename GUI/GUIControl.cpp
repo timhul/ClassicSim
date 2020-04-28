@@ -116,8 +116,8 @@ GUIControl::GUIControl(QObject* parent) :
     sim_in_progress(false),
     active_window("TALENTS") {
     thread_pool = new SimulationThreadPool(equipment_db, random_affixes_db, sim_settings, number_cruncher);
-    QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
-    QObject::connect(thread_pool, SIGNAL(update_progress(double)), this, SLOT(update_progress(double)));
+    QObject::connect(thread_pool, &SimulationThreadPool::threads_finished, this, &GUIControl::compile_thread_results);
+    QObject::connect(thread_pool, &SimulationThreadPool::update_progress, this, &GUIControl::update_progress);
 
     this->sim_control = new SimControl(sim_settings, number_cruncher);
     this->sim_scale_model = new SimScaleModel(sim_settings);
