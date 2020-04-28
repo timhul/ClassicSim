@@ -226,6 +226,7 @@ SOURCES += main.cpp \
     Class/Warrior/TalentTrees/Protection.cpp \
     Class/Warrior/TalentTrees/Arms/Impale.cpp \
     GUI/GUIControl.cpp \
+    GUI/ClassicSimControl.cpp \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
     Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
     Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
@@ -745,6 +746,7 @@ HEADERS += \
     Class/Warrior/TalentTrees/Protection.h \
     Class/Warrior/TalentTrees/Arms/Impale.h \
     GUI/GUIControl.h \
+    GUI/ClassicSimControl.h \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
     Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
     Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
