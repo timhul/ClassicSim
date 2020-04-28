@@ -41,6 +41,7 @@ protected:
     void given_fury_talent_with_rank(const QString& name, const unsigned num);
 
     void when_switching_to_battle_stance();
+    void when_switching_to_defensive_stance();
     void when_switching_to_berserker_stance();
 
     void then_warrior_has_rage(const unsigned);

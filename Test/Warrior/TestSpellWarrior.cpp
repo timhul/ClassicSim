@@ -187,6 +187,10 @@ void TestSpellWarrior::when_switching_to_battle_stance() {
     warrior->switch_to_battle_stance();
 }
 
+void TestSpellWarrior::when_switching_to_defensive_stance() {
+    warrior->switch_to_defensive_stance();
+}
+
 void TestSpellWarrior::when_switching_to_berserker_stance() {
     warrior->switch_to_berserker_stance();
 }
