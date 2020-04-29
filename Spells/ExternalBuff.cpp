@@ -213,6 +213,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::ArcaneIntellect:
         pchar->get_stats()->increase_intellect(31);
         break;
+    case ExternalBuffName::DivineSpirit:
+        pchar->get_stats()->increase_spirit(40);
+        break;
     }
 }
 
@@ -391,6 +394,9 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::ArcaneIntellect:
         pchar->get_stats()->decrease_intellect(31);
         break;
+    case ExternalBuffName::DivineSpirit:
+        pchar->get_stats()->decrease_spirit(40);
+        break;
     }
 }
 
@@ -537,6 +543,9 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
     case ExternalBuffName::ArcaneIntellect:
         return new ExternalBuff(pchar, "Arcane Intellect", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
                                 "Assets/spell/Spell_holy_magicalsentry.png", "+31 intellect");
+    case ExternalBuffName::DivineSpirit:
+        return new ExternalBuff(pchar, "Divine Spirit", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
+                                "Assets/spell/Spell_holy_divinespirit.png", "+40 spirit");
     }
 
     return nullptr;

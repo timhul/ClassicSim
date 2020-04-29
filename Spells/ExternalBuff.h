@@ -54,6 +54,7 @@ enum class ExternalBuffName : int
     BlessedSunfruit,
     WarchiefsBlessing,
     ArcaneIntellect,
+    DivineSpirit,
 };
 
 class ExternalBuff;

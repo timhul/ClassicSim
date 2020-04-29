@@ -1054,5 +1054,6 @@
         <file>QML/Assets/items/Inv_weapon_shortblade_30.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_16.png</file>
         <file>QML/Assets/misc/Inv_misc_food_63.png</file>
+        <file>QML/Assets/spell/Spell_holy_divinespirit.png</file>
     </qresource>
 </RCC>
