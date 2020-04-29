@@ -197,6 +197,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
 
     QVector<ExternalBuffName> common_raid_buffs = {
         ExternalBuffName::MarkOfTheWild,
+        ExternalBuffName::ArcaneIntellect,
     };
 
     QVector<ExternalBuffName> physical_blessings = {
@@ -300,6 +301,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
 
     if (pure_magical_class.contains(class_name))
         return {
+            ExternalBuffName::ArcaneIntellect,
             ExternalBuffName::BlessingOfKings,
             ExternalBuffName::BlessingOfWisdom,
             ExternalBuffName::TotemManaSpring,
