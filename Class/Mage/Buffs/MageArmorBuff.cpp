@@ -8,7 +8,6 @@
 MageArmorBuff::MageArmorBuff(Mage* mage) :
     SelfBuff(mage, "Mage Armor", "Assets/spell/Spell_arcane_mage_armor.png", BuffDuration::PERMANENT, 0), mana(static_cast<Mana*>(mage->get_resource())) {
     check((mana != nullptr), "MageArmorBuff:: Mana nullptr");
-    //this->enable_buff(); // TODO Enable buff here or somewhere else?
 }
 
 void MageArmorBuff::buff_effect_when_applied() {
