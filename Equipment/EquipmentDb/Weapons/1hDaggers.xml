@@ -211,6 +211,18 @@
 		</source>
 	</melee_weapon>
 
+    <melee_weapon id="19859" phase="4">
+		<info name="Fang of the Faceless" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_30.png"/>
+		<dmg_range min="66" max="123" speed="1.9"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
+			Drops from Hakkar in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="20720" phase="5">
 		<info name="Dark Whisper Blade" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_16.png"/>
 		<dmg_range min="40" max="77" speed="1.4"/>

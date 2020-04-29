@@ -70,7 +70,7 @@ private:
     Rage* rage;
 
     DruidForm current_form {DruidForm::Caster};
-    double next_form_cd {0.0};
+    double next_form_cd {-10.0};
     double rage_conversion_value;
     unsigned combo_points {0};
     bool stealthed {false};

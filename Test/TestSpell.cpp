@@ -1103,6 +1103,13 @@ void TestSpell::then_damage_dealt_is(const int damage) {
     assert(pchar->get_statistics()->get_total_personal_damage_dealt() == damage);
 }
 
+void TestSpell::then_threat_dealt_is(const int threat) {
+    if (threat != pchar->get_statistics()->get_total_personal_threat_dealt())
+        qDebug() << spell_under_test << "then_threat_dealt_is() assertion failed, expected" << threat << "got"
+                 << pchar->get_statistics()->get_total_personal_threat_dealt();
+    assert(pchar->get_statistics()->get_total_personal_threat_dealt() == threat);
+}
+
 void TestSpell::then_damage_dealt_is_in_range(const int min, const int max) {
     assert(min < max);
     const int damage_dealt = pchar->get_statistics()->get_total_personal_damage_dealt();
@@ -1111,6 +1118,16 @@ void TestSpell::then_damage_dealt_is_in_range(const int min, const int max) {
         qDebug() << spell_under_test << "then_damage_dealt_is_in_range() assertion failed, expected range" << min << "-" << max << "but got"
                  << damage_dealt;
     assert(damage_dealt >= min && damage_dealt <= max);
+}
+
+void TestSpell::then_threat_dealt_is_in_range(const int min, const int max) {
+    assert(min < max);
+    const int threat_dealt = pchar->get_statistics()->get_total_personal_threat_dealt();
+
+    if (threat_dealt < min || threat_dealt > max)
+        qDebug() << spell_under_test << "then_threat_dealt_is_in_range() assertion failed, expected range" << min << "-" << max << "but got"
+                 << threat_dealt;
+    assert(threat_dealt >= min && threat_dealt <= max);
 }
 
 void TestSpell::then_next_event_is(const EventType event_type) {

@@ -73,7 +73,8 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell*>& vec) {
     }
 }
 
-void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, long long total_threat_dealt, QList<StatisticsSpell*>& vec) {
+void NumberCruncher::merge_spell_entry(
+    const QString& name, const QString& icon, long long total_damage_dealt, long long total_threat_dealt, QList<StatisticsSpell*>& vec) {
     auto result = new StatisticsSpell(name, icon);
     for (const auto& cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
@@ -409,8 +410,8 @@ QString get_name_for_option(const SimOption::Name option) {
         return "+1% Hit Chance";
     if (option == SimOption::Name::ScaleCritChance)
         return "+1% Crit Chance";
-    if (option == SimOption::Name::ScaleMeleeAP)
-        return "+10 Melee AP";
+    if (option == SimOption::Name::ScaleAttackPower)
+        return "+10 Attack Power";
     if (option == SimOption::Name::ScaleAxeSkill)
         return "+1 Axe Skill";
     if (option == SimOption::Name::ScaleDaggerSkill)

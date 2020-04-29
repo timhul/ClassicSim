@@ -22,7 +22,7 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
     case EquipmentSlot::BACK:
         return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
-        return {EnchantName::Name::EnchantBracerSuperiorStrength, EnchantName::Name::EnchantBracerMinorAgility};
+        return {EnchantName::Name::EnchantBracerGreaterStrength, EnchantName::Name::EnchantBracerSuperiorStrength, EnchantName::Name::EnchantBracerMinorAgility};
     case EquipmentSlot::GLOVES:
         return {EnchantName::Name::EnchantGlovesSuperiorAgility, EnchantName::Name::EnchantGlovesGreaterAgility,
                 EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
@@ -32,7 +32,7 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
             EnchantName::Name::EnchantChestGreaterStats,
         };
     case EquipmentSlot::BOOTS:
-        return {EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility};
+        return {EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsAgility, EnchantName::Name::EnchantBootsGreaterAgility};
     }
 
     check(false, "RogueEnchants::get_available_enchants reached end of switch");

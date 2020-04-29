@@ -4,6 +4,7 @@
 #include <utility>
 
 #include "Balance.h"
+#include "BearForm.h"
 #include "Buff.h"
 #include "CatForm.h"
 #include "CharacterStats.h"
@@ -13,6 +14,7 @@
 #include "FeralCombat.h"
 #include "FerociousBite.h"
 #include "Item.h"
+#include "Maul.h"
 #include "Moonfire.h"
 #include "MoonkinForm.h"
 #include "RaidControl.h"
@@ -21,6 +23,7 @@
 #include "SimSettings.h"
 #include "Spell.h"
 #include "Starfire.h"
+#include "Swipe.h"
 #include "Talent.h"
 #include "Wrath.h"
 
@@ -66,8 +69,20 @@ CatForm* TestSpellDruid::cat_form() const {
     return static_cast<CatForm*>(get_max_rank_spell_by_name("Cat Form"));
 }
 
+BearForm* TestSpellDruid::bear_form() const {
+    return static_cast<BearForm*>(get_max_rank_spell_by_name("Bear Form"));
+}
+
 Shred* TestSpellDruid::shred() const {
     return static_cast<Shred*>(get_max_rank_spell_by_name("Shred"));
+}
+
+Swipe* TestSpellDruid::swipe() const {
+    return static_cast<Swipe*>(get_max_rank_spell_by_name("Swipe"));
+}
+
+Maul* TestSpellDruid::maul() const {
+    return static_cast<Maul*>(get_max_rank_spell_by_name("Maul"));
 }
 
 FerociousBite* TestSpellDruid::ferocious_bite() const {
@@ -136,6 +151,13 @@ void TestSpellDruid::given_druid_has_energy(const unsigned energy) {
     then_druid_has_energy(energy);
 }
 
+void TestSpellDruid::given_druid_has_rage(const unsigned rage) {
+    if (druid->get_resource_level(ResourceType::Rage) > 0)
+        druid->lose_energy(druid->get_resource_level(ResourceType::Rage));
+    druid->gain_rage(rage);
+    then_druid_has_rage(rage);
+}
+
 void TestSpellDruid::then_druid_has_mana(const unsigned mana) {
     if (mana != druid->get_resource_level(ResourceType::Mana))
         qDebug() << "Expected" << mana << "mana but has" << druid->get_resource_level(ResourceType::Mana);
@@ -146,4 +168,10 @@ void TestSpellDruid::then_druid_has_energy(const unsigned energy) {
     if (energy != druid->get_resource_level(ResourceType::Energy))
         qDebug() << "Expected" << energy << "energy but has" << druid->get_resource_level(ResourceType::Energy);
     assert(druid->get_resource_level(ResourceType::Energy) == energy);
+}
+
+void TestSpellDruid::then_druid_has_rage(const unsigned rage) {
+    if (rage != druid->get_resource_level(ResourceType::Rage))
+        qDebug() << "Expected" << rage << "rage but has" << druid->get_resource_level(ResourceType::Rage);
+    assert(druid->get_resource_level(ResourceType::Rage) == rage);
 }

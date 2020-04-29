@@ -228,6 +228,19 @@
 		</source>
 	</item>
 
+	<item id="22714" phase="4">
+		<info name="Sacrificial Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_gauntlets_31.png"/>
+		<stats>
+			<stat type="ARMOR" value="441"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from several bosses in Zul'Gurub.
+		</source>
+	</item>
+	
 	<item id="21623" phase="5">
 		<info name="Gauntlets of the Righteous Champion" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
 		<stats>

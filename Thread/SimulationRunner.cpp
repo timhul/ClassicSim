@@ -26,7 +26,7 @@ SimulationRunner::SimulationRunner(
     full_sim(false),
     thread_id(thread_id) {}
 
-void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
+void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
         emit finished();
         return;
@@ -97,7 +97,7 @@ void SimulationRunner::receive_progress(const int iterations_completed) {
 void SimulationRunner::exit_thread(QString err) {
     for (const auto& pchar : raid)
         delete pchar;
-    for (const auto& race : raid)
+    for (const auto& race : races)
         delete race;
 
     delete local_sim_settings;

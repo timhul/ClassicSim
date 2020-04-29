@@ -127,14 +127,17 @@ void SimControl::add_option(Character* pchar, SimOption::Name option) {
     case SimOption::Name::ScaleStrength:
         pchar->get_stats()->increase_strength(10);
         break;
-    case SimOption::Name::ScaleMeleeAP:
+    case SimOption::Name::ScaleAttackPower:
         pchar->get_stats()->increase_melee_ap(10);
+        pchar->get_stats()->increase_ranged_ap(10);
         break;
     case SimOption::Name::ScaleHitChance:
         pchar->get_stats()->increase_melee_hit(100);
+        pchar->get_stats()->increase_ranged_hit(100);
         break;
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->increase_melee_aura_crit(100);
+        pchar->get_stats()->increase_ranged_crit(100);
         break;
     case SimOption::Name::ScaleAxeSkill:
         pchar->get_stats()->increase_wpn_skill(WeaponTypes::AXE, 1);
@@ -189,14 +192,17 @@ void SimControl::remove_option(Character* pchar, SimOption::Name option) {
     case SimOption::Name::ScaleStrength:
         pchar->get_stats()->decrease_strength(10);
         break;
-    case SimOption::Name::ScaleMeleeAP:
+    case SimOption::Name::ScaleAttackPower:
         pchar->get_stats()->decrease_melee_ap(10);
+        pchar->get_stats()->decrease_ranged_ap(10);
         break;
     case SimOption::Name::ScaleHitChance:
         pchar->get_stats()->decrease_melee_hit(100);
+        pchar->get_stats()->decrease_ranged_hit(100);
         break;
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->decrease_melee_aura_crit(100);
+        pchar->get_stats()->decrease_ranged_crit(100);
         break;
     case SimOption::Name::ScaleAxeSkill:
         pchar->get_stats()->decrease_wpn_skill(WeaponTypes::AXE, 1);

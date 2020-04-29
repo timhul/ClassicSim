@@ -1011,4 +1011,29 @@
 		</bonus>
 	</set>
 	
+	<set name="The Defiler's Purpose">
+		<item_id value="20186"/>
+		<item_id value="20190"/>
+		<item_id value="20194"/>
+	
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
+			(2) Set: 5 Stamina
+		</bonus>
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
+			(3) Set: Improves your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
+
+	<set name="The Highlander's Purpose">
+		<item_id value="20052"/>
+		<item_id value="20045"/>
+		<item_id value="20059"/>
+	
+		<bonus value="2" item_stat="STAMINA" stat_value="5">
+			(2) Set: 5 Stamina
+		</bonus>
+		<bonus value="3" item_stat="CRIT_CHANCE" stat_value="100">
+			(3) Set: Improves your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
 </sets>
