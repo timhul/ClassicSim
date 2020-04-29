@@ -1,11 +1,17 @@
-#ifndef MAGEARMOR_H
-#define MAGEARMOR_H
+#pragma once
 
+#include "SelfBuff.h"
 
-class MageArmor
-{
+class Mage;
+class Mana;
+
+class MageArmorBuff : public SelfBuff {
 public:
-    MageArmor();
-};
+    MageArmorBuff(Mage* mage);
 
-#endif // MAGEARMOR_H
+private:
+    Mana* mana;
+
+    void buff_effect_when_applied() override;
+    void buff_effect_when_removed() override;
+};

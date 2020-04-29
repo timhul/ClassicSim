@@ -26,6 +26,7 @@ public:
     friend class Shaman;
     friend class Warlock;
     friend class EvocationBuff;
+    friend class MageArmorBuff;
 
 private:
     unsigned base_mana {0};

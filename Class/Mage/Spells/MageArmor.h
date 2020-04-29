@@ -1,11 +1,17 @@
-#ifndef MAGEARMOR_H
-#define MAGEARMOR_H
+#pragma once
 
+#include "Spell.h"
 
-class MageArmor
-{
+class Buff;
+class Mage;
+
+class MageArmor : public Spell{
 public:
-    MageArmor();
-};
+    MageArmor(Mage* pchar);
+    ~MageArmor() override;
 
-#endif // MAGEARMOR_H
+private:
+    Buff* buff;
+
+    void spell_effect() override;
+};

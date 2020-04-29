@@ -4,6 +4,10 @@
     Arcane Missiles spam.
     </description>
 
+    <precombat_actions>
+        <spell name="Mage Armor"/>
+    </precombat_actions>
+
     <cast_if name="Talisman of Ephemeral Power"/>
     <cast_if name="Zandalarian Hero Charm"/>
     <cast_if name="The Restrained Essence of Sapphiron"/>
@@ -23,7 +27,7 @@
     <cast_if name="Arcane Missiles"/>
 
     <cast_if name="Evocation">
-        resource "Mana" less 400
+        resource "Mana" less 500
     </cast_if>
 
     <cast_if name="Mana Potion"/>
