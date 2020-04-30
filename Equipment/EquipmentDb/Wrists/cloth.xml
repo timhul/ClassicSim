@@ -289,7 +289,7 @@
 		</source>
 	</item>
 
-	<item id="20690" phase="5">
+	<item id="20690" phase="4">
 		<info name="Abyssal Cloth Wristbands of Sorcery" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_bracer_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="42"/>
