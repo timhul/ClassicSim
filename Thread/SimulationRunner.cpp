@@ -68,7 +68,7 @@ void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup
     }
 
     SimControl sim_control(local_sim_settings, scaler);
-    QObject::connect(&sim_control, SIGNAL(update_progress(int)), this, SLOT(receive_progress(int)));
+    QObject::connect(&sim_control, &SimControl::update_progress, this, &SimulationRunner::receive_progress);
 
     if (full_sim)
         sim_control.run_full_sim(raid, raid_control);
