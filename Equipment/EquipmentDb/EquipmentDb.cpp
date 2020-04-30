@@ -304,8 +304,8 @@ void EquipmentDb::read_equipment_files() {
     QFile file("equipment_paths.xml");
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        qDebug() << "Cannot read file:" << file.errorString();
-        qDebug() << QDir::currentPath();
+        qDebug() << "Error opening" << file.fileName() << "in" << QDir::currentPath();
+        qDebug() << file.errorString();
         exit(0);
     }
 
