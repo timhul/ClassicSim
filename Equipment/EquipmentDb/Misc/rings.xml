@@ -521,6 +521,18 @@
 		</source>
 	</item>
 
+	<item id="20682" phase="4">
+		<info name="Elemental Focus Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_23.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+			Dropped by Prince Skaldrenox in Silithus.
+		</source>
+	</item>
+
 	<item id="22255" phase="5">
 		<info name="Magma Forged Band" type="RING" slot="RING" unique="yes" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_jewelry_ring_04.png"/>
 		<stats>
@@ -758,6 +770,18 @@
 		</source>
 	</item>
 
+	<item id="22339" phase="5">
+		<info name="Rune Band of Wizardry" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_35.png"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Lord Valthalak in Blackrock Spire.
+		</source>
+	</item>
+
 	<item id="23237" phase="6">
 		<info name="Ring of the Eternal Flame" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
@@ -854,6 +878,17 @@
 		</stats>
 		<source>
 			Drops from Kel'Thuzad in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23031" phase="6">
+		<info name="Band of the Inevitable" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_53naxxramas.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="36"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Dropped from Noth the Plaguebringer in Naxxramas.
 		</source>
 	</item>
 </items>
