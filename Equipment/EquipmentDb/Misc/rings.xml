@@ -437,6 +437,18 @@
 		</source>
 	</item>
 
+	<item id="133366" phase="3">
+		<info name="Band of Dark Dominion" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="inv_jewelry_ring_24.png"/>
+		<stats>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="33"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="20632" phase="4">
 		<info name="Mindtear Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_jewelry_ring_04.png"/>
 		<stats>
