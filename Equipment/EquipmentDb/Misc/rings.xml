@@ -533,6 +533,18 @@
 		</source>
 	</item>
 
+	<item id="22721" phase="4">
+		<info name="Band of Servitude" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_16.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+			Drops from High Priest bosses in Zul'Gurub.
+		</source>
+	</item>
+
 	<item id="22255" phase="5">
 		<info name="Magma Forged Band" type="RING" slot="RING" unique="yes" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_jewelry_ring_04.png"/>
 		<stats>
