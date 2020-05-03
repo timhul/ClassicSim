@@ -42,7 +42,23 @@
 			<stat type="SPIRIT" value="22"/>
 		</stats>
 	</random_affix>
-	
+
+    <random_affix id="1115" phase="1">
+		<info name="of the Boar" />
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="STRENGTH" value="8"/>
+		</stats>
+	</random_affix>
+
+    <random_affix id="1200" phase="1">
+		<info name="of the Bear" />
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="STRENGTH" value="8"/>
+		</stats>
+	</random_affix>
+
 	<random_affix id="1218" phase="1">
 		<info name="of the Bear" />
 		<stats>
@@ -66,7 +82,40 @@
 			<stat type="STRENGTH" value="14"/>
 		</stats>
 	</random_affix>
-	
+
+    <random_affix id="857" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+	</random_affix>
+
+    <random_affix id="858" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+	</random_affix>
+
+    <random_affix id="859" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+	</random_affix>
+
+
+    <random_affix id="860" phase="1">
+		<info name="of the Eagle" />
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+	</random_affix>
+
 	<random_affix id="878" phase="1">
 		<info name="of the Eagle" />
 		<stats>
@@ -154,6 +203,13 @@
 			<stat type="STAMINA" value="14"/>
 		</stats>
 	</random_affix>
+    
+    <random_affix id="173" phase="1">
+		<info name="of Agility" />
+		<stats>
+			<stat type="AGILITY" value="12"/>
+		</stats>
+	</random_affix>
 	
 	<random_affix id="793" phase="1">
 		<info name="of the Owl" />
@@ -202,7 +258,7 @@
 			<stat type="STRENGTH" value="14"/>
 		</stats>
 	</random_affix>
-	
+
 	<random_affix id="1048" phase="1">
 		<info name="of the Whale" />
 		<stats>
@@ -226,9 +282,17 @@
 			<stat type="STAMINA" value="14"/>
 		</stats>
 	</random_affix>
-	
+
+    <random_affix id="520" phase="1">
+		<info name="of the Wolf" />
+		<stats>
+			<stat type="AGILITY" value="8"/>
+			<stat type="SPIRIT" value="8"/>
+		</stats>
+	</random_affix>
+
 	<random_affix id="538" phase="1">
-		<info name="of Fire Resistance" />
+		<info name="of the Wolf" />
 		<stats>
 			<stat type="AGILITY" value="14"/>
 			<stat type="SPIRIT" value="14"/>
@@ -236,7 +300,7 @@
 	</random_affix>
 	
 	<random_affix id="540" phase="1">
-		<info name="of Fire Resistance" />
+		<info name="of the Wolf" />
 		<stats>
 			<stat type="AGILITY" value="14"/>
 			<stat type="SPIRIT" value="15"/>
@@ -298,7 +362,14 @@
 			<stat type="STRENGTH" value="11"/>
 		</stats>
 	</random_affix>
-	
+
+    <random_affix id="193" phase="1">
+		<info name="of Strength" />
+		<stats>
+			<stat type="STRENGTH" value="12"/>
+		</stats>
+	</random_affix>
+
 	<random_affix id="1197" phase="1">
 		<info name="of the Bear" />
 		<stats>
@@ -306,12 +377,20 @@
 			<stat type="STRENGTH" value="7"/>
 		</stats>
 	</random_affix>
-	
+
 	<random_affix id="602" phase="1">
 		<info name="of the Monkey" />
 		<stats>
 			<stat type="AGILITY" value="7"/>
 			<stat type="STAMINA" value="7"/>
+		</stats>
+	</random_affix>
+
+    <random_affix id="605" phase="1">
+		<info name="of the Monkey" />
+		<stats>
+			<stat type="AGILITY" value="8"/>
+			<stat type="STAMINA" value="8"/>
 		</stats>
 	</random_affix>
 	

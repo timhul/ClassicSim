@@ -185,8 +185,19 @@
         <dmg_range min="71" max="134" speed="2.4"/>
         <stats>
             <stat type="AXE_SKILL" value="2"/>
-            <!-- <stat type="RANDOM_AFFIX" value="0"/> -->
         </stats>
+        <random_affixes>
+            <affix id="173"/>
+            <affix id="193"/>
+            <affix id="520"/>
+            <affix id="605"/>
+            <affix id="1115"/>
+            <affix id="1200"/>
+            <affix id="857"/>
+            <affix id="858"/>
+            <affix id="859"/>
+            <affix id="860"/>
+        </random_affixes>
         <source>
 			Random drop from trash in Zul'Gurub.
         </source>
