@@ -398,19 +398,6 @@
 		</source>
 	</item>
 
-	<item id="20697" phase="5">
-		<info name="Crystalline Threaded Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_19.png"/>
-		<stats>
-			<stat type="ARMOR" value="45"/>
-			<stat type="INTELLECT" value="4"/>
-			<stat type="STAMINA" value="5"/>
-			<stat type="SPELL_DAMAGE" value="20"/>
-		</stats>
-		<source>
-			Drops from bag awarded via repeatable quest in Silithus.
-		</source>
-	</item>
-
 	<item id="20691" phase="5">
 		<info name="Windshear Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
 		<stats>

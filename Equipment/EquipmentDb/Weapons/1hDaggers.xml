@@ -185,6 +185,7 @@
 
 	<melee_weapon id="20214" phase="3">
 		<info name="Mindfang" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_sword_13.png"/>
+        <dmg_range min="49" max="95" speed="1.7"/>
 		<stats>
 			<stat type="ARMOR" value="35"/>
 			<stat type="STAMINA" value="8"/>
