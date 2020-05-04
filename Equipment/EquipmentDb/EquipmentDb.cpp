@@ -304,8 +304,10 @@ void EquipmentDb::read_equipment_files() {
     QFile file("equipment_paths.xml");
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        qDebug() << "Cannot read file:" << file.errorString();
-        qDebug() << QDir::currentPath();
+        qDebug() << "Error opening" << file.fileName() << "in" << QDir::currentPath();
+        qDebug() << file.errorString() << "\n";
+        qDebug() << "Verify the paths in 'build.config' are correct and run 'DevTools/copy_to_debug.py'.";
+        qDebug() << "For more information see: https://github.com/timhul/ClassicSim/wiki/Developer-Information";
         exit(0);
     }
 
