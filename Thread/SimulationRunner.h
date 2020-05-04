@@ -35,7 +35,7 @@ public slots:
 
 signals:
     void finished();
-    void result();
+    void simulation_runner_has_result();
     void error(QString seed, QString err);
     void update_progress(const int iterations_completed);
 

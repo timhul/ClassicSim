@@ -86,7 +86,7 @@ void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup
     delete local_sim_settings;
     delete raid_control;
 
-    emit result();
+    emit simulation_runner_has_result();
     emit finished();
 }
 
