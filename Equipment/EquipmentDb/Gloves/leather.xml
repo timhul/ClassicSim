@@ -239,7 +239,7 @@
 	</item>
 
 	<item id="21178" phase="5">
-		<info name="Gloves of Earthen Power" type="LEATHER" slot="GLOVES" unique="no" req_lvl="0" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_18.png"/>
+		<info name="Gloves of Earthen Power" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_18.png"/>
 		<stats>
 			<stat type="ARMOR" value="109"/>
 			<stat type="INTELLECT" value="9"/>
