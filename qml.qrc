@@ -1059,5 +1059,6 @@
         <file>QML/Assets/items/Inv_chest_plate09.png</file>
         <file>QML/Assets/items/Inv_pants_leather_05.png</file>
         <file>QML/Assets/items/Inv_sword_13.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_53naxxramas.png</file>
     </qresource>
 </RCC>
