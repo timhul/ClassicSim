@@ -102,6 +102,19 @@
 		</source>
 	</item>
 
+	<item id="18322" phase="2">
+		<info name="Waterspout Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="114"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+			Drops from Hydrospawn in Dire Maul: East.
+		</source>
+	</item>
+
 	<item id="16906" phase="3">
 		<info name="Bloodfang Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 		<class_restriction class="ROGUE"/>

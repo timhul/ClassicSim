@@ -93,6 +93,20 @@
 		</source>
 	</item>
 
+	<item id="19134" phase="2">
+		<info name="Flayed Doomguard Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="115"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from World Boss Kazzak in Blasted Lands.
+		</source>
+	</item>
+
 	<item id="19396" phase="3">
 		<info name="Taut Dragonhide Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
 		<stats>
