@@ -109,8 +109,6 @@ MageSpells::MageSpells(Mage* mage) : CharacterSpells(mage), mage(mage) {
 
     add_spell_group({new ArcanePower(mage)});
     add_spell_group({new Evocation(mage)});
-
-    // Mage armor spell
     add_spell_group({new MageArmor(mage)});
 
     this->clearcasting = new ClearcastingMage(mage);

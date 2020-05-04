@@ -7,6 +7,7 @@ class Evocation;
 class Fireball;
 class Frostbolt;
 class Mage;
+class MageArmor;
 class Scorch;
 class Spell;
 
@@ -25,6 +26,7 @@ protected:
     Frostbolt* frostbolt() const;
     ArcaneMissiles* arcane_missiles() const;
     Evocation* evocation() const;
+    MageArmor* mage_armor() const;
 
     void run_class_specific_tests() override;
 

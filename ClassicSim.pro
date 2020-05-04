@@ -524,7 +524,8 @@ SOURCES += main.cpp \
     Test/Paladin/Talents/TestProtectionPaladin.cpp \
     Test/Paladin/Talents/TestRetribution.cpp \
     Class/Mage/Buffs/MageArmorBuff.cpp \
-    Class/Mage/Spells/MageArmor.cpp
+    Class/Mage/Spells/MageArmor.cpp \
+    Test/Mage/Spells/TestMageArmor.cpp
 
 HEADERS += \
     Class/Common/Buffs/NoEffectSelfBuff.h \
@@ -1054,7 +1055,8 @@ HEADERS += \
     Test/Paladin/Talents/TestProtectionPaladin.h \
     Test/Paladin/Talents/TestRetribution.h \
     Class/Mage/Buffs/MageArmorBuff.h \
-    Class/Mage/Spells/MageArmor.h
+    Class/Mage/Spells/MageArmor.h \
+    Test/Mage/Spells/TestMageArmor.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

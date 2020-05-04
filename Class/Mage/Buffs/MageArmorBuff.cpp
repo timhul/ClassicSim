@@ -15,10 +15,5 @@ void MageArmorBuff::buff_effect_when_applied() {
 }
 
 void MageArmorBuff::buff_effect_when_removed() {
-    if(mana->mp5_from_spirit_within_5sr_modifier < 0.3){
-        mana->mp5_from_spirit_within_5sr_modifier = 0.0;
-    }
-    else {
-        mana->mp5_from_spirit_within_5sr_modifier -= 0.3;
-    }
+    mana->mp5_from_spirit_within_5sr_modifier -= 0.3;
 }
