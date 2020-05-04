@@ -28,6 +28,20 @@
 		</source>
 	</item>
 
+	<item id="12895" phase="1">
+		<info name="Breastplate of the Chromatic Flight" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_plate09.png"/>
+		<stats>
+			<stat type="ARMOR" value="706"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="AGILITY" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+			Reward from "Breastplate of the Chromatic Flight" which requires a drop from Gyth in UBRS.
+		</source>
+	</item>
+
 	<item id="16865" phase="1">
 		<info name="Breastplate of Might" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
