@@ -44,6 +44,21 @@
 		</source>
 	</item>
 
+	<item id="19822" phase="4">
+		<info name="Zandalar Vindicator's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate07.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="828"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STRENGTH" value="23"/>
+			<stat type="DEFENSE" value="4"/>
+		</stats>
+		<source>
+			Reward for turning in the Primal Hakari Kossak dropped in Zul'Gurub.
+		</source>
+	</item>
+
 	<item id="16966" phase="3">
 		<info name="Breastplate of Wrath" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
