@@ -314,7 +314,7 @@
 		</source>
 	</item>
 
-	<item id="20664" phase="5">
+	<item id="20664" phase="4">
 		<info name="Abyssal Cloth Sash of Sorcery" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="UNCOMMON" boe="yes" icon="Inv_belt_06.png"/>
 		<stats>
 			<stat type="ARMOR" value="47"/>
