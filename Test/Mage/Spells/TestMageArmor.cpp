@@ -24,7 +24,7 @@ void TestMageArmor::test_name_correct() {
 }
 
 void TestMageArmor::test_spell_cooldown() {
-    assert(almost_equal(0.0, mage_armor()->get_base_cooldown())); // TODO ??
+    assert(almost_equal(0.0, mage_armor()->get_base_cooldown())); // Mage armor does not have a cooldown
 }
 
 void TestMageArmor::test_whether_spell_causes_global_cooldown() {
