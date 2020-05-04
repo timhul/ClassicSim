@@ -437,7 +437,7 @@
 		</source>
 	</item>
 
-	<item id="133366" phase="3">
+	<item id="19434" phase="3">
 		<info name="Band of Dark Dominion" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="inv_jewelry_ring_24.png"/>
 		<stats>
 			<stat type="INTELLECT" value="6"/>
