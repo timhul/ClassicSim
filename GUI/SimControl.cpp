@@ -1,5 +1,7 @@
 #include "SimControl.h"
 
+#include <random>
+
 #include <QDebug>
 
 #include "CastingTimeRequirer.h"
@@ -49,6 +51,9 @@ void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_contro
     }
 }
 
+static std::random_device rng;
+static std::mt19937 urng(rng());
+
 void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, const int combat_length, const int iterations) {
     raid_control->prepare_set_of_combat_iterations();
 
@@ -68,7 +73,7 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
     for (int i = 0; i < iterations; ++i) {
         raid_control->get_engine()->prepare_iteration(-start_at);
 
-        std::random_shuffle(raid.begin(), raid.end());
+        std::shuffle(raid.begin(), raid.end(), urng);
 
         for (const auto& pchar : raid) {
             Rotation* rotation = pchar->get_spells()->get_rotation();
