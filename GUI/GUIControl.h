@@ -300,8 +300,8 @@ public:
     Q_SIGNAL void simProgressChanged();
     Q_INVOKABLE void runQuickSim();
     Q_INVOKABLE void runFullSim();
-    Q_SIGNAL void simPersonalResultUpdated(QString value, QString change, bool positive);
-    Q_SIGNAL void simRaidResultUpdated(QString value, QString change, bool positive);
+    Q_SIGNAL void simPersonalResultUpdated(QString dps, QString dpsChange, QString tps, bool positive);
+    Q_SIGNAL void simRaidResultUpdated(QString dps, QString dpsChange, bool positive);
     SimScaleModel* get_sim_scale_model() const;
     Q_PROPERTY(int combatProgress READ get_combat_progress NOTIFY combatProgressChanged)
     Q_PROPERTY(bool simInProgress READ get_sim_in_progress NOTIFY simProgressChanged)
@@ -418,11 +418,8 @@ private:
     void set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const;
     void set_character(Character* pchar);
     void calculate_displayed_dps_value();
-    void update_displayed_dps_value(const double new_dps_value);
+    void update_displayed_dps_value(const double new_dps_value, const double new_tps_value);
     void update_displayed_raid_dps_value(const double new_dps_value);
-    void calculate_displayed_tps_value();
-    void update_displayed_tps_value(const double new_tps_value);
-    void update_displayed_raid_tps_value(const double new_tps_value);
 
     QString get_sim_progress_string() const;
 
@@ -494,7 +491,6 @@ private:
     double last_personal_sim_result {0.0};
     double last_personal_sim_result_tps {0.0};
     double last_raid_sim_result {0.0};
-    double last_raid_sim_result_tps {0.0};
     double last_engine_handled_events_per_second {0.0};
     bool sim_in_progress;
     double sim_percent_completed {0.0};

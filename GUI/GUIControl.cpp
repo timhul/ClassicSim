@@ -864,16 +864,24 @@ QString GUIControl::get_information_rotation_description() const {
     return rotation_model->get_rotation_information_description();
 }
 
-void GUIControl::update_displayed_dps_value(const double new_dps_value) {
-    double previous = last_personal_sim_result;
+void GUIControl::update_displayed_dps_value(const double new_dps_value, const double new_tps_value) {
+    double dps_previous = last_personal_sim_result;
     last_personal_sim_result = new_dps_value;
-    double delta = ((last_personal_sim_result - previous) / previous);
-    QString change = delta > 0 ? "+" : "";
-    change += QString::number(((last_personal_sim_result - previous) / previous) * 100, 'f', 1) + "%";
+    double delta = ((last_personal_sim_result - dps_previous) / dps_previous);
+    QString dps_change = delta > 0 ? "+" : "";
+    dps_change += QString::number(((last_personal_sim_result - dps_previous) / dps_previous) * 100, 'f', 1) + "%";
 
-    QString dps = QString::number(last_personal_sim_result, 'f', 2);
+    double tps_previous = last_personal_sim_result_tps;
+    last_personal_sim_result_tps = new_tps_value;
+    delta = ((last_personal_sim_result_tps - tps_previous) / tps_previous);
+    QString tps_change = delta > 0 ? "+" : "";
+    tps_change += QString::number(((last_personal_sim_result_tps - tps_previous) / tps_previous) * 100, 'f', 1) + "%";
+
+    QString dps = QString::number(last_personal_sim_result, 'f', 2) + " DPS";
+    QString tps = QString::number(new_tps_value, 'f', 2) + " TPS (" + tps_change + ")";
     qDebug() << "Total DPS: " << dps;
-    simPersonalResultUpdated(dps, change, delta > 0);
+    qDebug() << "Total TPS:" << tps;
+    simPersonalResultUpdated(dps, dps_change, tps, delta > 0);
 }
 
 void GUIControl::update_displayed_raid_dps_value(const double new_dps_value) {
@@ -884,46 +892,17 @@ void GUIControl::update_displayed_raid_dps_value(const double new_dps_value) {
     change += QString::number(((last_raid_sim_result - previous) / previous) * 100, 'f', 1) + "%";
 
     QString dps = QString::number(last_raid_sim_result, 'f', 2);
+
     qDebug() << "Total Raid DPS:" << dps;
+
     simRaidResultUpdated(dps, change, delta > 0);
 }
 
 void GUIControl::calculate_displayed_dps_value() {
     // Note: intended for local testing to build confidence in thread results
-    update_displayed_dps_value(double(current_char->get_statistics()->get_total_personal_damage_dealt())
-                               / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
-}
-
-void GUIControl::update_displayed_tps_value(const double new_tps_value) {
-    double previous = last_personal_sim_result_tps;
-    last_personal_sim_result_tps = new_tps_value;
-    double delta = ((last_personal_sim_result - previous) / previous);
-    QString change = delta > 0 ? "+" : "";
-    change += QString::number(((last_personal_sim_result_tps - previous) / previous) * 100, 'f', 1) + "%";
-
-    QString tps = QString::number(last_personal_sim_result_tps, 'f', 2);
-    qDebug() << "Total TPS: " << tps;
-    // TODO implement this
-    //simPersonalResultUpdated(tps, change, delta > 0);
-}
-
-void GUIControl::update_displayed_raid_tps_value(const double new_tps_value) {
-    double previous = last_raid_sim_result_tps;
-    last_raid_sim_result_tps = new_tps_value;
-    double delta = ((last_raid_sim_result_tps - previous) / previous);
-    QString change = delta > 0 ? "+" : "";
-    change += QString::number(((last_raid_sim_result_tps - previous) / previous) * 100, 'f', 1) + "%";
-
-    QString tps = QString::number(last_raid_sim_result_tps, 'f', 2);
-    qDebug() << "Total Raid TPS:" << tps;
-    // TODO implement this
-    //simRaidResultUpdatedTps(tps, change, delta > 0);
-}
-
-void GUIControl::calculate_displayed_tps_value() {
-    // Note: intended for local testing to build confidence in thread results
-    update_displayed_tps_value(double(current_char->get_statistics()->get_total_personal_threat_dealt())
-                               / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
+    const int total_duration = sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length();
+    update_displayed_dps_value(double(current_char->get_statistics()->get_total_personal_damage_dealt()) / total_duration,
+                               double(current_char->get_statistics()->get_total_personal_threat_dealt()) / total_duration);
 }
 
 void GUIControl::runQuickSim() {
@@ -990,10 +969,8 @@ void GUIControl::compile_thread_results() {
     rotation_executor_list_model->update_statistics();
     damage_meters_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
-    update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale));
-    update_displayed_tps_value(number_cruncher->get_personal_tps(SimOption::Name::NoScale));
+    update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale), number_cruncher->get_personal_tps(SimOption::Name::NoScale));
     update_displayed_raid_dps_value(number_cruncher->get_raid_dps());
-    update_displayed_raid_tps_value(number_cruncher->get_raid_tps());
     dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
     sim_in_progress = false;

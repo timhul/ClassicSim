@@ -71,13 +71,14 @@ Window {
     Connections {
         target: character
         onSimPersonalResultUpdated: {
-            continuousDpsUpdateText.text = value;
-            percentualDifference.text = change;
+            continuousDpsUpdateText.text = dps;
+            percentualDifference.text = dpsChange;
+            continuousTpsUpdateText.text = tps;
             percentualDifference.color = positive ? brightGreen : brightRed
         }
         onSimRaidResultUpdated: {
-            continuousRaidDpsUpdateText.text = value;
-            percentualDifferenceRaidDps.text = change;
+            continuousRaidDpsUpdateText.text = dps;
+            percentualDifferenceRaidDps.text = dpsChange;
             percentualDifferenceRaidDps.color = positive ? brightGreen : brightRed
         }
     }
@@ -222,12 +223,12 @@ Window {
             id: continuousDpsUpdateText
             anchors.fill: parent
 
-            text: "0.0"
+            text: "0.0 DPS"
 
             font {
                 family: fontNumbers
                 bold: true
-                pointSize: 36
+                pointSize: 28
             }
 
             color: gold
@@ -236,6 +237,26 @@ Window {
             horizontalAlignment: Text.AlignHCenter
         }
 
+        Text {
+            id: continuousTpsUpdateText
+            anchors {
+                top: parent.top
+                topMargin: -10
+            }
+
+            width: parent.width
+
+            text: "0.0 TPS (+0.0%)"
+
+            font {
+                family: fontNumbers
+                bold: true
+                pointSize: 10
+            }
+
+            color: gray
+            horizontalAlignment: Text.AlignHCenter
+        }
 
         Text {
             id: percentualDifference
