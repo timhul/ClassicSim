@@ -15,6 +15,7 @@
 #include "Frostbolt.h"
 #include "Item.h"
 #include "Mage.h"
+#include "MageArmor.h"
 #include "MageSpells.h"
 #include "RaidControl.h"
 #include "Scorch.h"
@@ -60,6 +61,10 @@ ArcaneMissiles* TestSpellMage::arcane_missiles() const {
 
 Evocation* TestSpellMage::evocation() const {
     return static_cast<Evocation*>(get_max_rank_spell_by_name("Evocation"));
+}
+
+MageArmor* TestSpellMage::mage_armor() const {
+    return static_cast<MageArmor*>(get_max_rank_spell_by_name("Mage Armor"));
 }
 
 void TestSpellMage::run_class_specific_tests() {}

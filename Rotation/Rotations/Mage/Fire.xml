@@ -4,6 +4,10 @@
     Fireball spam and Scorch bot.
     </description>
 
+    <precombat_actions>
+        <spell name="Mage Armor"/>
+    </precombat_actions>
+
     <cast_if name="Talisman of Ephemeral Power"/>
     <cast_if name="Zandalarian Hero Charm"/>
     <cast_if name="The Restrained Essence of Sapphiron"/>
