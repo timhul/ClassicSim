@@ -564,7 +564,7 @@ Window {
     }
 
     Text {
-        text: "All art assets ©Blizzard Entertainment (2019)."
+        text: "All art assets ©Blizzard Entertainment (2020)."
         height: 15
         anchors {
             left: parent.left
