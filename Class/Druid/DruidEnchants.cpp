@@ -54,6 +54,7 @@ QVector<EnchantName::Name> DruidEnchants::get_available_enchants(const int equip
                 EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
+            EnchantName::Name::EnchantChestMajorMana,
             EnchantName::Name::EnchantChestStats,
             EnchantName::Name::EnchantChestGreaterStats,
         };

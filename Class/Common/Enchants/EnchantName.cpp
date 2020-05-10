@@ -28,6 +28,7 @@ EnchantInfo::EnchantInfo() {
         new EnchantSpec(EnchantName::Name::EnchantBracerMinorAgility, "Minor Agility", "Enchant Bracer - Mana Regeneration", "+4 mp5"),
         new EnchantSpec(EnchantName::Name::EnchantBracerSuperiorStrength, "Superior Strength", "Enchant Bracer - Superior Strength", "+9 Strength"),
         new EnchantSpec(EnchantName::Name::EnchantChestGreaterStats, "Greater Stats", "Enchant Chest - Greater Stats", "+4 Attributes"),
+        new EnchantSpec(EnchantName::Name::EnchantChestMajorMana, "Major Mana", "Enchant Chest - Major Mana", "+100 Mana"),
         new EnchantSpec(EnchantName::Name::EnchantChestStats, "Stats", "Enchant Chest - Stats", "+3 Attributes"),
         new EnchantSpec(EnchantName::Name::EnchantCloakLesserAgility, "Lesser Agility", "Enchant Cloak - Lesser Agility", "+3 Agility"),
         new EnchantSpec(EnchantName::Name::EnchantGlovesFirePower, "Fire Power", "Enchant Gloves - Fire Power", "+20 Fire Damage"),

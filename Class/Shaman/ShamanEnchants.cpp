@@ -58,6 +58,7 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
                 EnchantName::Name::EnchantGlovesMinorHaste, EnchantName::Name::EnchantGlovesGreaterStrength};
     case EquipmentSlot::CHEST:
         return {
+            EnchantName::Name::EnchantChestMajorMana,
             EnchantName::Name::EnchantChestStats,
             EnchantName::Name::EnchantChestGreaterStats,
         };

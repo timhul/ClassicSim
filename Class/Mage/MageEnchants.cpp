@@ -45,6 +45,7 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
         };
     case EquipmentSlot::CHEST:
         return {
+            EnchantName::Name::EnchantChestMajorMana,
             EnchantName::Name::EnchantChestStats,
             EnchantName::Name::EnchantChestGreaterStats,
         };

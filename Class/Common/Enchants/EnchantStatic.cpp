@@ -141,6 +141,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, E
         pchar->get_stats()->increase_stamina(4);
         pchar->get_stats()->increase_strength(4);
         break;
+    case EnchantName::Name::EnchantChestMajorMana:
+        pchar->increase_base_mana(100);
+        break;
     case EnchantName::Name::EnchantBootsMinorSpeed:
         break;
     case EnchantName::Name::EnchantBootsAgility:
@@ -331,6 +334,9 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_spirit(4);
         pchar->get_stats()->decrease_stamina(4);
         pchar->get_stats()->decrease_strength(4);
+        break;
+    case EnchantName::Name::EnchantChestMajorMana:
+        pchar->decrease_base_mana(100);
         break;
     case EnchantName::Name::EnchantBootsMinorSpeed:
         break;

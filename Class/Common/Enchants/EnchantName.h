@@ -35,6 +35,7 @@ public:
         EnchantBracerMinorAgility,
         EnchantBracerSuperiorStrength,
         EnchantChestGreaterStats,
+        EnchantChestMajorMana,
         EnchantChestStats,
         EnchantCloakLesserAgility,
         EnchantGlovesFirePower,

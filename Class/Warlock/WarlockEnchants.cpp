@@ -45,6 +45,7 @@ QVector<EnchantName::Name> WarlockEnchants::get_available_enchants(const int equ
         };
     case EquipmentSlot::CHEST:
         return {
+            EnchantName::Name::EnchantChestMajorMana,
             EnchantName::Name::EnchantChestStats,
             EnchantName::Name::EnchantChestGreaterStats,
         };
