@@ -28,6 +28,20 @@
 		</source>
 	</item>
 
+	<item id="19878" phase="4">
+		<info name="Bloodsoaked Pauldrons" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_shoulder_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="552"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="AGILITY" value="11"/>
+			<stat type="STRENGTH" value="16"/>
+			<stat type="DEFENSE" value="3"/>
+		</stats>
+		<source>
+			Drops from Bloodlord Mandokir in Zul'Gurub.
+		</source>
+	</item>
+
 	<item id="16480" phase="2">
 		<info name="Field Marshal's Plate Shoulderguards" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_20.png"/>
 		<class_restriction class="WARRIOR"/>
