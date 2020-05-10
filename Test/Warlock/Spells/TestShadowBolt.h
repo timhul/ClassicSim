@@ -30,7 +30,6 @@ private:
     void test_resource_cost_4_of_5_cataclysm();
     void test_resource_cost_5_of_5_cataclysm();
 
-    void test_hit_dmg_ruin();
     void test_crit_dmg_ruin();
 
     void test_hit_dmg_demonic_sacrifice();

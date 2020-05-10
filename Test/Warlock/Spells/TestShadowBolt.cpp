@@ -62,10 +62,6 @@ void TestShadowBolt::test_all() {
     tear_down();
 
     set_up();
-    test_hit_dmg_ruin();
-    tear_down();
-
-    set_up();
     test_crit_dmg_ruin();
     tear_down();
 
@@ -236,11 +232,6 @@ void TestShadowBolt::test_resource_cost_5_of_5_cataclysm() {
     when_running_queued_events_until(3.01);
 
     then_warlock_has_mana(1);
-}
-
-void TestShadowBolt::test_hit_dmg_ruin() {
-    given_ruin_enabled();
-    test_hit_dmg();
 }
 
 void TestShadowBolt::test_crit_dmg_ruin() {
