@@ -17,6 +17,7 @@ Weapon::Weapon(QString name,
                unsigned min,
                unsigned max,
                double speed,
+               EnchantInfo* enchant_info,
                QMap<QString, QString> info,
                QVector<QPair<QString, QString>> stats,
                QVector<QMap<QString, QString>> procs,
@@ -27,6 +28,7 @@ Weapon::Weapon(QString name,
     Item(std::move(name),
          item_id,
          phase,
+         enchant_info,
          std::move(info),
          std::move(stats),
          std::move(procs),
@@ -92,7 +94,7 @@ bool Weapon::has_temporary_enchant() const {
 }
 
 void Weapon::apply_enchant(EnchantName::Name enchant_name, Character* pchar, const int weapon_slot) {
-    if (enchant_name == EnchantName::NoEnchant)
+    if (enchant_name == EnchantName::Name::NoEnchant)
         return;
 
     delete enchant;
@@ -101,22 +103,22 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character* pchar, con
     if (melee_weapon_slots.contains(weapon_slot)) {
         int enchant_slot = weapon_slot == WeaponSlots::OFFHAND ? EnchantSlot::OFFHAND : EnchantSlot::MAINHAND;
         switch (enchant_name) {
-        case EnchantName::Crusader:
-        case EnchantName::FieryWeapon:
-            enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
+        case EnchantName::Name::Crusader:
+        case EnchantName::Name::FieryWeapon:
+            enchant = new EnchantProc(enchant_name, pchar, enchant_info, enchant_slot);
             break;
         default:
-            enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
+            enchant = new EnchantStatic(enchant_name, pchar, enchant_info, enchant_slot);
         }
     } else if (weapon_slot == WeaponSlots::RANGED) {
-        enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::RANGED);
+        enchant = new EnchantStatic(enchant_name, pchar, enchant_info, EnchantSlot::RANGED);
     } else {
         check(false, QString("Tried to apply weapon enchant on unsupported slot %1").arg(weapon_slot).toStdString());
     }
 }
 
 void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character* pchar, const int enchant_slot) {
-    if (enchant_name == EnchantName::NoEnchant)
+    if (enchant_name == EnchantName::Name::NoEnchant)
         return;
 
     clear_temporary_enchant();
@@ -126,21 +128,21 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character* 
         check(false, QString("Tried to apply temporary weapon enchant on unsupported slot %1").arg(enchant_slot).toStdString());
 
     switch (enchant_name) {
-    case EnchantName::ShadowOil:
-    case EnchantName::WindfuryTotem:
-        temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
+    case EnchantName::Name::ShadowOil:
+    case EnchantName::Name::WindfuryTotem:
+        temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_info, enchant_slot);
         break;
-    case EnchantName::BrilliantManaOil:
-    case EnchantName::BrilliantWizardOil:
-    case EnchantName::ConsecratedSharpeningStone:
-    case EnchantName::DenseSharpeningStone:
-    case EnchantName::ElementalSharpeningStone:
-    case EnchantName::LesserManaOil:
-    case EnchantName::SolidWeightstone:
-    case EnchantName::DenseWeightstone:
-        temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
+    case EnchantName::Name::BrilliantManaOil:
+    case EnchantName::Name::BrilliantWizardOil:
+    case EnchantName::Name::ConsecratedSharpeningStone:
+    case EnchantName::Name::DenseSharpeningStone:
+    case EnchantName::Name::ElementalSharpeningStone:
+    case EnchantName::Name::LesserManaOil:
+    case EnchantName::Name::SolidWeightstone:
+    case EnchantName::Name::DenseWeightstone:
+        temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_info, enchant_slot);
         break;
-    case EnchantName::InstantPoison:
+    case EnchantName::Name::InstantPoison:
         temporary_enchant = enchant_slot == EnchantSlot::MAINHAND ? static_cast<Rogue*>(pchar)->get_mh_instant_poison() :
                                                                     static_cast<Rogue*>(pchar)->get_oh_instant_poison();
         static_cast<InstantPoison*>(temporary_enchant)->enable();
@@ -154,7 +156,7 @@ void Weapon::clear_temporary_enchant() {
     EnchantName::Name enchant = get_temporary_enchant_enum_value();
 
     switch (enchant) {
-    case EnchantName::InstantPoison:
+    case EnchantName::Name::InstantPoison:
         static_cast<InstantPoison*>(temporary_enchant)->disable();
         break;
     default:
@@ -166,11 +168,11 @@ void Weapon::clear_temporary_enchant() {
 
 void Weapon::enable_druid_form_enchants(Character* pchar, const EnchantName::Name enchant_name, const EnchantName::Name temp_enchant_name) {
     switch (enchant_name) {
-    case EnchantName::Crusader:
-    case EnchantName::FieryWeapon:
+    case EnchantName::Name::Crusader:
+    case EnchantName::Name::FieryWeapon:
         static_cast<EnchantProc*>(enchant)->enable_proc();
         break;
-    case EnchantName::SuperiorStriking:
+    case EnchantName::Name::SuperiorStriking:
         apply_enchant(enchant_name, pchar, EnchantSlot::MAINHAND);
         break;
     default:
@@ -178,12 +180,12 @@ void Weapon::enable_druid_form_enchants(Character* pchar, const EnchantName::Nam
     }
 
     switch (temp_enchant_name) {
-    case EnchantName::ShadowOil:
-    case EnchantName::WindfuryTotem:
+    case EnchantName::Name::ShadowOil:
+    case EnchantName::Name::WindfuryTotem:
         static_cast<EnchantProc*>(enchant)->enable_proc();
         break;
-    case EnchantName::DenseSharpeningStone:
-        temporary_enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::MAINHAND);
+    case EnchantName::Name::DenseSharpeningStone:
+        temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_info, EnchantSlot::MAINHAND);
         break;
     default:
         break;
@@ -192,11 +194,11 @@ void Weapon::enable_druid_form_enchants(Character* pchar, const EnchantName::Nam
 
 void Weapon::disable_druid_form_enchants() {
     switch (get_enchant_enum_value()) {
-    case EnchantName::Crusader:
-    case EnchantName::FieryWeapon:
+    case EnchantName::Name::Crusader:
+    case EnchantName::Name::FieryWeapon:
         static_cast<EnchantProc*>(enchant)->disable_proc();
         break;
-    case EnchantName::SuperiorStriking:
+    case EnchantName::Name::SuperiorStriking:
         clear_enchant();
         break;
     default:
@@ -204,11 +206,11 @@ void Weapon::disable_druid_form_enchants() {
     }
 
     switch (get_temporary_enchant_enum_value()) {
-    case EnchantName::ShadowOil:
-    case EnchantName::WindfuryTotem:
+    case EnchantName::Name::ShadowOil:
+    case EnchantName::Name::WindfuryTotem:
         static_cast<EnchantProc*>(enchant)->disable_proc();
         break;
-    case EnchantName::DenseSharpeningStone:
+    case EnchantName::Name::DenseSharpeningStone:
         clear_temporary_enchant();
         break;
     default:
@@ -217,7 +219,7 @@ void Weapon::disable_druid_form_enchants() {
 }
 
 void Weapon::clear_windfury() {
-    if (temporary_enchant != nullptr && temporary_enchant->get_enum_name() == EnchantName::WindfuryTotem)
+    if (temporary_enchant != nullptr && temporary_enchant->get_enum_name() == EnchantName::Name::WindfuryTotem)
         clear_temporary_enchant();
 }
 
@@ -226,7 +228,11 @@ QString Weapon::get_temporary_enchant_effect() const {
 }
 
 EnchantName::Name Weapon::get_temporary_enchant_enum_value() const {
-    return temporary_enchant != nullptr ? temporary_enchant->get_enum_name() : EnchantName::NoEnchant;
+    return temporary_enchant != nullptr ? temporary_enchant->get_enum_name() : EnchantName::Name::NoEnchant;
+}
+
+QString Weapon::get_temporary_enchant_unique_name() const {
+    return temporary_enchant != nullptr ? enchant_info->get_unique_name(temporary_enchant->get_enum_name()) : "";
 }
 
 Enchant* Weapon::get_temporary_enchant() const {

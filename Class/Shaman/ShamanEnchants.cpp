@@ -48,10 +48,8 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
         return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
         return {
-            EnchantName::Name::EnchantBracerManaRegeneration,
-            EnchantName::Name::EnchantBracerGreaterStrength,
-            EnchantName::Name::EnchantBracerSuperiorStrength,
-            EnchantName::Name::EnchantBracerMinorAgility,
+            EnchantName::Name::EnchantBracerManaRegeneration, EnchantName::Name::EnchantBracerGreaterStrength,
+            EnchantName::Name::EnchantBracerSuperiorStrength, EnchantName::Name::EnchantBracerMinorAgility,
             EnchantName::Name::EnchantBracerGreaterIntellect,
         };
     case EquipmentSlot::GLOVES:
@@ -79,15 +77,15 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_temp_enchants(const int
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
         QVector<EnchantName::Name> enchants {
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::ShadowOil,
+            EnchantName::Name::ElementalSharpeningStone,
+            EnchantName::Name::ConsecratedSharpeningStone,
+            EnchantName::Name::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
-            enchants.prepend(EnchantName::DenseSharpeningStone);
+            enchants.prepend(EnchantName::Name::DenseSharpeningStone);
         else if (has_blunt_weapon(equipment_slot)) {
-            enchants.prepend(EnchantName::DenseWeightstone);
-            enchants.prepend(EnchantName::SolidWeightstone);
+            enchants.prepend(EnchantName::Name::DenseWeightstone);
+            enchants.prepend(EnchantName::Name::SolidWeightstone);
         }
         return enchants;
     }

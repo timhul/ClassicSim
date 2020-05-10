@@ -4,15 +4,18 @@
 #include <QObject>
 #include <QXmlStreamReader>
 
+class EnchantInfo;
 class Item;
 
 class ItemFileReader : public QObject {
 public:
-    ItemFileReader(QObject* parent = nullptr);
+    ItemFileReader(EnchantInfo* enchant_info, QObject* parent = nullptr);
 
     void read_items(QVector<Item*>& items, const QString& path);
 
 protected:
+    EnchantInfo* enchant_info;
+
     void item_file_handler(QXmlStreamReader& reader, QVector<Item*>& items);
 
     // Element readers

@@ -78,35 +78,35 @@ bool CharacterEnchants::enchant_valid(EnchantName::Name enchant_name, const int 
     case WeaponSlots::MAINHAND:
     case WeaponSlots::OFFHAND:
         switch (enchant_name) {
-        case EnchantName::NoEnchant:
-        case EnchantName::Crusader:
-        case EnchantName::FieryWeapon:
-        case EnchantName::SuperiorStriking:
-        case EnchantName::EnchantWeaponAgility:
-        case EnchantName::EnchantWeaponStrength:
+        case EnchantName::Name::NoEnchant:
+        case EnchantName::Name::Crusader:
+        case EnchantName::Name::FieryWeapon:
+        case EnchantName::Name::SuperiorStriking:
+        case EnchantName::Name::EnchantWeaponAgility:
+        case EnchantName::Name::EnchantWeaponStrength:
             return true;
         default:
             return false;
         }
     case WeaponSlots::TWOHAND:
         switch (enchant_name) {
-        case EnchantName::NoEnchant:
-        case EnchantName::Crusader:
-        case EnchantName::FieryWeapon:
-        case EnchantName::SuperiorStriking:
-        case EnchantName::EnchantWeaponStrength:
-        case EnchantName::IronCounterweight:
-        case EnchantName::Enchant2HWeaponAgility:
-        case EnchantName::Enchant2HWeaponSuperiorImpact:
+        case EnchantName::Name::NoEnchant:
+        case EnchantName::Name::Crusader:
+        case EnchantName::Name::FieryWeapon:
+        case EnchantName::Name::SuperiorStriking:
+        case EnchantName::Name::EnchantWeaponStrength:
+        case EnchantName::Name::IronCounterweight:
+        case EnchantName::Name::Enchant2HWeaponAgility:
+        case EnchantName::Name::Enchant2HWeaponSuperiorImpact:
             return true;
         default:
             return false;
         }
     case WeaponSlots::RANGED:
         switch (enchant_name) {
-        case EnchantName::NoEnchant:
-        case EnchantName::Biznicks247x128Accurascope:
-        case EnchantName::SniperScope:
+        case EnchantName::Name::NoEnchant:
+        case EnchantName::Name::Biznicks247x128Accurascope:
+        case EnchantName::Name::SniperScope:
             return true;
         default:
             return false;
@@ -124,17 +124,17 @@ bool CharacterEnchants::temp_enchant_valid(EnchantName::Name enchant_name, const
     case WeaponSlots::OFFHAND:
     case WeaponSlots::TWOHAND:
         switch (enchant_name) {
-        case EnchantName::NoEnchant:
-        case EnchantName::ElementalSharpeningStone:
-        case EnchantName::ConsecratedSharpeningStone:
+        case EnchantName::Name::NoEnchant:
+        case EnchantName::Name::ElementalSharpeningStone:
+        case EnchantName::Name::ConsecratedSharpeningStone:
             return true;
-        case EnchantName::DenseSharpeningStone:
+        case EnchantName::Name::DenseSharpeningStone:
             return has_sharp_weapon(equipment_slot);
-        case EnchantName::SolidWeightstone:
+        case EnchantName::Name::SolidWeightstone:
             return has_blunt_weapon(equipment_slot);
-        case EnchantName::WindfuryTotem:
+        case EnchantName::Name::WindfuryTotem:
             return equipment_slot != EquipmentSlot::OFFHAND && pchar->get_faction()->is_horde();
-        case EnchantName::InstantPoison:
+        case EnchantName::Name::InstantPoison:
             return pchar->class_name == "Rogue";
         default:
             return false;

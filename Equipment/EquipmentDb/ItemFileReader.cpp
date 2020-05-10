@@ -7,7 +7,7 @@
 #include "ProjectileFileReader.h"
 #include "WeaponFileReader.h"
 
-ItemFileReader::ItemFileReader(QObject* parent) : QObject(parent) {}
+ItemFileReader::ItemFileReader(EnchantInfo* enchant_info, QObject* parent) : QObject(parent), enchant_info(enchant_info) {}
 
 void ItemFileReader::read_items(QVector<Item*>& items, const QString& path) {
     QFile file(path);
@@ -22,9 +22,9 @@ void ItemFileReader::read_items(QVector<Item*>& items, const QString& path) {
         if (reader.name() == "items")
             item_file_handler(reader, items);
         else if (reader.name() == "weapons")
-            WeaponFileReader().weapon_file_handler(reader, items);
+            WeaponFileReader(enchant_info).weapon_file_handler(reader, items);
         else if (reader.name() == "projectiles")
-            ProjectileFileReader().file_handler(reader, items);
+            ProjectileFileReader(enchant_info).file_handler(reader, items);
         else
             qDebug() << QString("%1 - no appropriate handler for start element %2").arg(__func__).arg(reader.name().toString());
     }
@@ -249,8 +249,8 @@ void ItemFileReader::create_item(QVector<Item*>& items,
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    items.append(new Item(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), info, stats, procs, uses, spell_modifications,
-                          special_equip_effects, mutex_item_ids, random_affixes));
+    items.append(new Item(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), enchant_info, info, stats, procs, uses,
+                          spell_modifications, special_equip_effects, mutex_item_ids, random_affixes));
 }
 
 void ItemFileReader::extract_info(QMap<QString, QString>& item, QMap<QString, QString>& info) {

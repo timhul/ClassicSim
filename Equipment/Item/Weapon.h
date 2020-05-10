@@ -15,6 +15,7 @@ public:
            unsigned min,
            unsigned max,
            double speed,
+           EnchantInfo* enchant_info,
            QMap<QString, QString> info = {},
            QVector<QPair<QString, QString>> stats = {},
            QVector<QMap<QString, QString>> procs = {},
@@ -45,6 +46,7 @@ public:
     void clear_windfury();
     QString get_temporary_enchant_effect() const;
     EnchantName::Name get_temporary_enchant_enum_value() const;
+    QString get_temporary_enchant_unique_name() const;
 
     Enchant* get_temporary_enchant() const;
 

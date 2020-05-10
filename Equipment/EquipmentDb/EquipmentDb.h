@@ -9,6 +9,7 @@
 
 #include "ContentPhase.h"
 
+class EnchantInfo;
 class Item;
 class Projectile;
 class Quiver;
@@ -51,6 +52,8 @@ public:
     void add_melee_weapon(Weapon* wpn);
     void add_ranged(Weapon* wpn);
     void add_ring(Item* ring);
+
+    EnchantInfo* enchant_info;
 
 private:
     Content::Phase current_phase;

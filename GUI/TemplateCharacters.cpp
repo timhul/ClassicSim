@@ -13,8 +13,10 @@ TemplateCharacterInfo TemplateCharacters::template_character_info(const QString&
             "Might=N/A:Juju Power=N/A:Scroll of Strength IV=N/A:Battle Squawk=N/A:Rallying Cry of the Dragonslayer=N/A:Songflower "
             "Serenade=N/A]|DEBUFFS[Sunder Armor=N/A:Curse of Recklessness=N/A:Faerie Fire=N/A:Annihilator Proc=N/A:Improved Shadow Bolt=N/A:Fire "
             "Vulnerability=N/A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=DW Fury High "
-            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=41|OH_ENCHANT=0|HEAD_ENCHANT=-1|SHOULDER_ENCHANT=-1|BACK_ENCHANT=31|"
-            "CHEST_ENCHANT=35|WRIST_ENCHANT=-1|GLOVES_ENCHANT=18|LEGS_ENCHANT=-1|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|RULESET=0");
+            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=44|OH_ENCHANT=0|HEAD_ENCHANT=-1|SHOULDER_ENCHANT=-1|BACK_ENCHANT=31|"
+            "CHEST_ENCHANT=35|WRIST_ENCHANT=-1|GLOVES_ENCHANT=18|LEGS_ENCHANT=-1|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|MH_AFFIX=|OH_AFFIX=|HEAD_AFFIX=|"
+            "NECK_AFFIX=|SHOULDERS_AFFIX=|BACK_AFFIX=|CHEST_AFFIX=|WRIST_AFFIX=|GLOVES_AFFIX=|BELT_AFFIX=|LEGS_AFFIX=|BOOTS_AFFIX=|RANGED_AFFIX=|"
+            "RING1_AFFIX=|RING2_AFFIX=|RULESET=0");
 
     if (template_char == "Warrior DW Fury BWL")
         return TemplateCharacterInfo(
@@ -26,8 +28,10 @@ TemplateCharacterInfo TemplateCharacters::template_character_info(const QString&
             "Might=N/A:Juju Power=N/A:Scroll of Strength IV=N/A:Battle Squawk=N/A:Rallying Cry of the Dragonslayer=N/A:Songflower "
             "Serenade=N/A]|DEBUFFS[Sunder Armor=N/A:Curse of Recklessness=N/A:Faerie Fire=N/A:Annihilator Proc=N/A:Improved Shadow Bolt=N/A:Fire "
             "Vulnerability=N/A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=DW Fury High "
-            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=41|OH_ENCHANT=0|HEAD_ENCHANT=23|SHOULDER_ENCHANT=-1|BACK_ENCHANT=31|"
-            "CHEST_ENCHANT=35|WRIST_ENCHANT=16|GLOVES_ENCHANT=18|LEGS_ENCHANT=23|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|RULESET=0");
+            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=44|OH_ENCHANT=0|HEAD_ENCHANT=23|SHOULDER_ENCHANT=-1|BACK_ENCHANT=31|"
+            "CHEST_ENCHANT=35|WRIST_ENCHANT=16|GLOVES_ENCHANT=18|LEGS_ENCHANT=23|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|MH_AFFIX=|OH_AFFIX=|HEAD_AFFIX=|"
+            "NECK_AFFIX=|SHOULDERS_AFFIX=|BACK_AFFIX=|CHEST_AFFIX=|WRIST_AFFIX=|GLOVES_AFFIX=|BELT_AFFIX=|LEGS_AFFIX=|BOOTS_AFFIX=|RANGED_AFFIX=|"
+            "RING1_AFFIX=|RING2_AFFIX=|RULESET=0");
 
     if (template_char == "Warrior DW Fury AQ")
         return TemplateCharacterInfo(
@@ -39,8 +43,10 @@ TemplateCharacterInfo TemplateCharacters::template_character_info(const QString&
             "Might=N/A:Juju Power=N/A:Scroll of Strength IV=N/A:Battle Squawk=N/A:Rallying Cry of the Dragonslayer=N/A:Songflower "
             "Serenade=N/A]|DEBUFFS[Sunder Armor=N/A:Curse of Recklessness=N/A:Faerie Fire=N/A:Annihilator Proc=N/A:Improved Shadow Bolt=N/A:Fire "
             "Vulnerability=N/A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=DW Fury High "
-            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=39|OH_ENCHANT=0|HEAD_ENCHANT=23|SHOULDER_ENCHANT=32|BACK_ENCHANT=31|"
-            "CHEST_ENCHANT=35|WRIST_ENCHANT=16|GLOVES_ENCHANT=18|LEGS_ENCHANT=23|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|RULESET=0");
+            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=44|OH_ENCHANT=0|HEAD_ENCHANT=23|SHOULDER_ENCHANT=32|BACK_ENCHANT=31|"
+            "CHEST_ENCHANT=35|WRIST_ENCHANT=16|GLOVES_ENCHANT=18|LEGS_ENCHANT=23|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|MH_AFFIX=|OH_AFFIX=|HEAD_AFFIX=|"
+            "NECK_AFFIX=|SHOULDERS_AFFIX=|BACK_AFFIX=|CHEST_AFFIX=|WRIST_AFFIX=|GLOVES_AFFIX=|BELT_AFFIX=|LEGS_AFFIX=|BOOTS_AFFIX=|RANGED_AFFIX=|"
+            "RING1_AFFIX=|RING2_AFFIX=|RULESET=0");
 
     if (template_char == "Warrior DW Fury Naxx")
         return TemplateCharacterInfo(
@@ -52,8 +58,10 @@ TemplateCharacterInfo TemplateCharacters::template_character_info(const QString&
             "Might=N/A:Juju Power=N/A:Scroll of Strength IV=N/A:Battle Squawk=N/A:Rallying Cry of the Dragonslayer=N/A:Songflower "
             "Serenade=N/A]|DEBUFFS[Sunder Armor=N/A:Curse of Recklessness=N/A:Faerie Fire=N/A:Annihilator Proc=N/A:Improved Shadow Bolt=N/A:Fire "
             "Vulnerability=N/A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=DW Fury High "
-            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=39|OH_ENCHANT=0|HEAD_ENCHANT=23|SHOULDER_ENCHANT=32|BACK_ENCHANT=31|"
-            "CHEST_ENCHANT=35|WRIST_ENCHANT=16|GLOVES_ENCHANT=18|LEGS_ENCHANT=23|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|RULESET=0");
+            "Rage|MH_TEMPORARY_ENCHANT=13|MH_ENCHANT=0|OH_TEMPORARY_ENCHANT=44|OH_ENCHANT=0|HEAD_ENCHANT=23|SHOULDER_ENCHANT=32|BACK_ENCHANT=31|"
+            "CHEST_ENCHANT=35|WRIST_ENCHANT=16|GLOVES_ENCHANT=18|LEGS_ENCHANT=23|BOOTS_ENCHANT=36|RANGED_ENCHANT=-1|MH_AFFIX=|OH_AFFIX=|HEAD_AFFIX=|"
+            "NECK_AFFIX=|SHOULDERS_AFFIX=|BACK_AFFIX=|CHEST_AFFIX=|WRIST_AFFIX=|GLOVES_AFFIX=|BELT_AFFIX=|LEGS_AFFIX=|BOOTS_AFFIX=|RANGED_AFFIX=|"
+            "RING1_AFFIX=|RING2_AFFIX=|RULESET=0");
 
     if (template_char == "Hunter 8/8 T2")
         return TemplateCharacterInfo(
@@ -67,8 +75,10 @@ TemplateCharacterInfo TemplateCharacters::template_character_info(const QString&
             "Savvy=N/A:Fengus' Ferocity=N/A:Rallying Cry of the Dragonslayer=N/A:Songflower Serenade=N/A:Spirit of Zandalar=N/A]|DEBUFFS[Sunder "
             "Armor=N/A:Curse of Recklessness=N/A:Faerie Fire=N/A:Annihilator Proc=N/A:Improved Shadow Bolt=N/A:Fire "
             "Vulnerability=N/A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=Aimed/"
-            "Multi-Shot|MH_TEMPORARY_ENCHANT=43|MH_ENCHANT=7|HEAD_ENCHANT=11|SHOULDER_ENCHANT=32|BACK_ENCHANT=31|CHEST_ENCHANT=35|WRIST_ENCHANT="
-            "14|GLOVES_ENCHANT=17|LEGS_ENCHANT=11|BOOTS_ENCHANT=36|RANGED_ENCHANT=10|RULESET=0");
+            "Multi-Shot|MH_TEMPORARY_ENCHANT=44|MH_ENCHANT=7|HEAD_ENCHANT=11|SHOULDER_ENCHANT=32|BACK_ENCHANT=31|CHEST_ENCHANT=35|WRIST_ENCHANT="
+            "14|GLOVES_ENCHANT=17|LEGS_ENCHANT=11|BOOTS_ENCHANT=36|RANGED_ENCHANT=10|MH_AFFIX=|OH_AFFIX=|HEAD_AFFIX=|NECK_AFFIX=|SHOULDERS_AFFIX=|"
+            "BACK_AFFIX=|CHEST_AFFIX=|WRIST_AFFIX=|GLOVES_AFFIX=|BELT_AFFIX=|LEGS_AFFIX=|BOOTS_AFFIX=|RANGED_AFFIX=|RING1_AFFIX=|RING2_AFFIX=|"
+            "RULESET=0");
 
     if (template_char == "Fire Mage T3")
         return TemplateCharacterInfo(
@@ -81,8 +91,10 @@ TemplateCharacterInfo TemplateCharacters::template_character_info(const QString&
             "Zandalar=N/A:Sayge's Dark Fortune of Damage=N/A]|DEBUFFS[Sunder Armor=N/A:Curse of Recklessness=N/A:Faerie Fire=N/A:Annihilator "
             "Proc=N/A:Improved Shadow "
             "Bolt=N/"
-            "A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=Fire|MH_TEMPORARY_ENCHANT=44|MH_ENCHANT=5|HEAD_ENCHANT=30|"
-            "SHOULDER_ENCHANT=33|BACK_ENCHANT=-1|CHEST_ENCHANT=35|WRIST_ENCHANT=14|GLOVES_ENCHANT=20|LEGS_ENCHANT=30|BOOTS_ENCHANT=36|RULESET=0");
+            "A]|TARGET_LVL=63|TARGET_TYPE=Beast|TARGET_BASE_ARMOR=3750|ROTATION=Fire|MH_TEMPORARY_ENCHANT=49|MH_ENCHANT=5|HEAD_ENCHANT=30|"
+            "SHOULDER_ENCHANT=33|BACK_ENCHANT=-1|CHEST_ENCHANT=35|WRIST_ENCHANT=14|GLOVES_ENCHANT=20|LEGS_ENCHANT=30|BOOTS_ENCHANT=36|MH_AFFIX=|OH_"
+            "AFFIX=|HEAD_AFFIX=|NECK_AFFIX=|SHOULDERS_AFFIX=|BACK_AFFIX=|CHEST_AFFIX=|WRIST_AFFIX=|GLOVES_AFFIX=|BELT_AFFIX=|LEGS_AFFIX=|BOOTS_AFFIX="
+            "|RANGED_AFFIX=|RING1_AFFIX=|RING2_AFFIX=|RULESET=0");
 
     check(false, QString("Missing template '%1'").arg(template_char).toStdString());
     return TemplateCharacterInfo("Warrior", "");

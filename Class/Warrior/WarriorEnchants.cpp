@@ -63,32 +63,32 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
         QVector<EnchantName::Name> enchants {
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::ShadowOil,
+            EnchantName::Name::ElementalSharpeningStone,
+            EnchantName::Name::ConsecratedSharpeningStone,
+            EnchantName::Name::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
-            enchants.prepend(EnchantName::DenseSharpeningStone);
+            enchants.prepend(EnchantName::Name::DenseSharpeningStone);
         else if (has_blunt_weapon(equipment_slot)) {
-            enchants.prepend(EnchantName::DenseWeightstone);
-            enchants.prepend(EnchantName::SolidWeightstone);
+            enchants.prepend(EnchantName::Name::DenseWeightstone);
+            enchants.prepend(EnchantName::Name::SolidWeightstone);
         }
 
         if (pchar->get_faction()->is_horde())
-            enchants.prepend(EnchantName::WindfuryTotem);
+            enchants.prepend(EnchantName::Name::WindfuryTotem);
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
         QVector<EnchantName::Name> enchants {
-            EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone,
-            EnchantName::ShadowOil,
+            EnchantName::Name::ElementalSharpeningStone,
+            EnchantName::Name::ConsecratedSharpeningStone,
+            EnchantName::Name::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
-            enchants.prepend(EnchantName::DenseSharpeningStone);
+            enchants.prepend(EnchantName::Name::DenseSharpeningStone);
         else if (has_blunt_weapon(equipment_slot)) {
-            enchants.prepend(EnchantName::DenseWeightstone);
-            enchants.prepend(EnchantName::SolidWeightstone);
+            enchants.prepend(EnchantName::Name::DenseWeightstone);
+            enchants.prepend(EnchantName::Name::SolidWeightstone);
         }
         return enchants;
     }

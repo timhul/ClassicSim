@@ -10,7 +10,7 @@ Quiver::Quiver(QString name,
                QVector<QPair<QString, QString>> stats,
                QVector<QMap<QString, QString>> procs,
                QSet<int> mutex_item_ids) :
-    Item(std::move(name), item_id, phase, std::move(info), std::move(stats), std::move(procs), {}, {}, {}, std::move(mutex_item_ids)) {}
+    Item(std::move(name), item_id, phase, nullptr, std::move(info), std::move(stats), std::move(procs), {}, {}, {}, std::move(mutex_item_ids)) {}
 
 Quiver::Quiver(const Quiver* quiver) : Item(quiver) {}
 

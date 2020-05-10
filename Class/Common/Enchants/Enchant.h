@@ -6,7 +6,7 @@
 
 class Enchant {
 public:
-    Enchant(const EnchantName::Name enum_name);
+    Enchant(const EnchantName::Name enum_name, EnchantInfo* enchant_info);
     virtual ~Enchant();
 
     EnchantName::Name get_enum_name() const;

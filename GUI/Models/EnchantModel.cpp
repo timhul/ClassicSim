@@ -5,7 +5,7 @@
 #include "ItemNamespace.h"
 
 EnchantModel::EnchantModel(const int equipment_slot, const bool permanent, QObject* parent) :
-    QAbstractListModel(parent), pchar(nullptr), equipment_slot(equipment_slot), permanent(permanent) {}
+    QAbstractListModel(parent), pchar(nullptr), enchant_info(EnchantInfo()), equipment_slot(equipment_slot), permanent(permanent) {}
 
 int EnchantModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
@@ -30,9 +30,9 @@ QVariant EnchantModel::data(const QModelIndex& index, int role) const {
         return QVariant();
 
     if (role == NameRole)
-        return EnchantName::get_name(enchants[index.row()]);
+        return enchant_info.get_display_name(enchants[index.row()]);
     if (role == EffectRole)
-        return EnchantName::get_effect(enchants[index.row()]);
+        return enchant_info.get_effect(enchants[index.row()]);
     if (role == EnumRole)
         return enchants[index.row()];
 

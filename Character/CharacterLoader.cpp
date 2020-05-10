@@ -47,6 +47,7 @@ CharacterLoader::CharacterLoader(
     target(raid_control->get_target()),
     raid_control(raid_control),
     decoder(decoder),
+    enchant_info(EnchantInfo()),
     success(false) {}
 
 CharacterLoader::~CharacterLoader() {
@@ -318,49 +319,59 @@ void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Characte
 
 void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
-        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT", CharacterDecoder::MANDATORY)), pchar,
-                                                              WeaponSlots::MAINHAND);
-        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(
+        pchar->get_equipment()->get_mainhand()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("MH_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                              pchar, WeaponSlots::MAINHAND);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(enchant_info.get_enum_val(
                                                                             decoder.get_value("MH_TEMPORARY_ENCHANT", CharacterDecoder::MANDATORY)),
                                                                         pchar, EnchantSlot::MAINHAND);
     }
 
     if (pchar->get_equipment()->get_offhand() != nullptr) {
-        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT", CharacterDecoder::MANDATORY)), pchar,
-                                                             WeaponSlots::OFFHAND);
-        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(
+        pchar->get_equipment()->get_offhand()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("OH_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                             pchar, WeaponSlots::OFFHAND);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(enchant_info.get_enum_val(
                                                                            decoder.get_value("OH_TEMPORARY_ENCHANT", CharacterDecoder::MANDATORY)),
                                                                        pchar, EnchantSlot::OFFHAND);
     }
 
     if (pchar->get_equipment()->get_ranged() != nullptr)
-        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT", CharacterDecoder::MANDATORY)), pchar,
-                                                            WeaponSlots::RANGED);
+        pchar->get_equipment()->get_ranged()->apply_enchant(enchant_info.get_enum_val(
+                                                                decoder.get_value("RANGED_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                            pchar, WeaponSlots::RANGED);
 
     if (pchar->get_equipment()->get_head() != nullptr)
-        pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_value("HEAD_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_head()->apply_enchant(enchant_info.get_enum_val((decoder.get_value("HEAD_ENCHANT", CharacterDecoder::MANDATORY))),
+                                                          pchar);
 
     if (pchar->get_equipment()->get_shoulders() != nullptr)
-        pchar->get_equipment()->get_shoulders()->apply_enchant(get_enum_val(decoder.get_value("SHOULDER_ENCHANT", CharacterDecoder::MANDATORY)),
+        pchar->get_equipment()->get_shoulders()->apply_enchant(enchant_info.get_enum_val(
+                                                                   decoder.get_value("SHOULDER_ENCHANT", CharacterDecoder::MANDATORY)),
                                                                pchar);
 
     if (pchar->get_equipment()->get_back() != nullptr)
-        pchar->get_equipment()->get_back()->apply_enchant(get_enum_val(decoder.get_value("BACK_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_back()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("BACK_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                          pchar);
 
     if (pchar->get_equipment()->get_chest() != nullptr)
-        pchar->get_equipment()->get_chest()->apply_enchant(get_enum_val(decoder.get_value("CHEST_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_chest()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("CHEST_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                           pchar);
 
     if (pchar->get_equipment()->get_wrist() != nullptr)
-        pchar->get_equipment()->get_wrist()->apply_enchant(get_enum_val(decoder.get_value("WRIST_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_wrist()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("WRIST_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                           pchar);
 
     if (pchar->get_equipment()->get_gloves() != nullptr)
-        pchar->get_equipment()->get_gloves()->apply_enchant(get_enum_val(decoder.get_value("GLOVES_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_gloves()->apply_enchant(enchant_info.get_enum_val(
+                                                                decoder.get_value("GLOVES_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                            pchar);
 
     if (pchar->get_equipment()->get_legs() != nullptr)
-        pchar->get_equipment()->get_legs()->apply_enchant(get_enum_val(decoder.get_value("LEGS_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_legs()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("LEGS_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                          pchar);
 
     if (pchar->get_equipment()->get_boots() != nullptr)
-        pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_value("BOOTS_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
+        pchar->get_equipment()->get_boots()->apply_enchant(enchant_info.get_enum_val(decoder.get_value("BOOTS_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                           pchar);
 }
 
 void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar) {
@@ -437,8 +448,4 @@ Character* CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
         delete race;
 
     return pchar;
-}
-
-EnchantName::Name CharacterLoader::get_enum_val(const QString& enum_val_as_string) {
-    return static_cast<EnchantName::Name>(enum_val_as_string.toInt());
 }

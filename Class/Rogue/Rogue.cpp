@@ -6,6 +6,7 @@
 #include "Combat.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
+#include "EnchantName.h"
 #include "Energy.h"
 #include "Equipment.h"
 #include "InstantPoison.h"
@@ -22,7 +23,10 @@
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
-    Character("Rogue", "#FFF569", race_, sim_settings_, raid_control_, party_, member), combo_points(0), stealthed(false) {
+    Character("Rogue", "#FFF569", race_, sim_settings_, raid_control_, party_, member),
+    enchant_info(new EnchantInfo()),
+    combo_points(0),
+    stealthed(false) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -51,8 +55,8 @@ Rogue::Rogue(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_,
 
     spells->activate_racials();
 
-    this->mh_instant_poison = new InstantPoison(this, "MH", EnchantSlot::MAINHAND);
-    this->oh_instant_poison = new InstantPoison(this, "OH", EnchantSlot::OFFHAND);
+    this->mh_instant_poison = new InstantPoison(this, enchant_info, "MH", EnchantSlot::MAINHAND);
+    this->oh_instant_poison = new InstantPoison(this, enchant_info, "OH", EnchantSlot::OFFHAND);
     this->relentless_strikes = new RelentlessStrikes(this);
     this->ruthlessness = new Ruthlessness(this);
     this->seal_fate = new SealFate(this);
@@ -76,6 +80,7 @@ Rogue::~Rogue() {
     delete ruthlessness;
     delete seal_fate;
     delete sword_spec;
+    delete enchant_info;
 }
 
 double Rogue::get_agi_needed_for_one_percent_phys_crit() const {

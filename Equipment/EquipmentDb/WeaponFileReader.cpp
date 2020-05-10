@@ -110,24 +110,24 @@ void WeaponFileReader::create_weapon(QVector<Item*>& items,
 
     if (info["slot"] == "1H")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), get_weapon_type(info["type"]),
-                            WeaponSlots::ONEHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats,
-                            procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
+                            WeaponSlots::ONEHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), enchant_info,
+                            info, stats, procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
     else if (info["slot"] == "MH")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), get_weapon_type(info["type"]),
-                            WeaponSlots::MAINHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats,
-                            procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
+                            WeaponSlots::MAINHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), enchant_info,
+                            info, stats, procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
     else if (info["slot"] == "OH")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), get_weapon_type(info["type"]),
-                            WeaponSlots::OFFHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats,
-                            procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
+                            WeaponSlots::OFFHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), enchant_info,
+                            info, stats, procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
     else if (info["slot"] == "2H")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), get_weapon_type(info["type"]),
-                            WeaponSlots::TWOHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats,
-                            procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
+                            WeaponSlots::TWOHAND, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), enchant_info,
+                            info, stats, procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
     else if (info["slot"] == "RANGED")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()), get_weapon_type(info["type"]),
-                            WeaponSlots::RANGED, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs,
-                            uses, special_equip_effects, mutex_item_ids, random_affixes);
+                            WeaponSlots::RANGED, item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), enchant_info, info,
+                            stats, procs, uses, special_equip_effects, mutex_item_ids, random_affixes);
 
     if (weapon != nullptr)
         items.append(weapon);

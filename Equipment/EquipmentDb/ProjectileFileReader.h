@@ -4,6 +4,8 @@
 
 class ProjectileFileReader : public ItemFileReader {
 public:
+    ProjectileFileReader(EnchantInfo* enchant_info) : ItemFileReader(enchant_info) {}
+
     void file_handler(QXmlStreamReader& reader, QVector<Item*>& items);
 
 private:

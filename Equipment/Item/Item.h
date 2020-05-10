@@ -27,6 +27,7 @@ public:
     Item(QString name,
          const int item_id,
          Content::Phase phase,
+         EnchantInfo* enchant_info,
          QMap<QString, QString> info,
          QVector<QPair<QString, QString>> stats,
          QVector<QMap<QString, QString>> procs = {},
@@ -63,6 +64,7 @@ public:
     void apply_enchant(EnchantName::Name enchant_name, Character* pchar);
     void clear_enchant();
     QString get_enchant_effect() const;
+    QString get_enchant_unique_name() const;
     EnchantName::Name get_enchant_enum_value() const;
     Enchant* get_enchant() const;
 
@@ -100,6 +102,7 @@ protected:
     QSet<int> mutex_item_ids;
     QMap<ItemStats, unsigned> item_stat_values;
     Stats* stats;
+    EnchantInfo* enchant_info;
     Enchant* enchant;
 
     // Random affixes

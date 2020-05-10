@@ -11,20 +11,21 @@
 #include "Utils/Check.h"
 #include "WindfuryTotemAttack.h"
 
-EnchantProc::EnchantProc(EnchantName::Name enchant, Character* pchar, const int slot) : Enchant(enchant), pchar(pchar) {
+EnchantProc::EnchantProc(EnchantName::Name enchant, Character* pchar, EnchantInfo* enchant_info, const int slot) :
+    Enchant(enchant, enchant_info), pchar(pchar) {
     QString identifier = slot == EnchantSlot::MAINHAND ? QString("(MH)") : QString("(OH)");
 
     switch (enchant) {
-    case EnchantName::Crusader:
+    case EnchantName::Name::Crusader:
         proc = new class Crusader(pchar, identifier, slot);
         break;
-    case EnchantName::FieryWeapon:
+    case EnchantName::Name::FieryWeapon:
         proc = new class FieryWeapon(pchar, identifier, slot);
         break;
-    case EnchantName::WindfuryTotem:
+    case EnchantName::Name::WindfuryTotem:
         proc = new WindfuryTotemAttack(pchar);
         break;
-    case EnchantName::ShadowOil: {
+    case EnchantName::Name::ShadowOil: {
         Spell* spell = new InstantSpellAttack(pchar, QString("Shadow Oil %1").arg(identifier), "Assets/spell/Spell_shadow_shadowbolt.png",
                                               MagicSchool::Shadow, 48, 56, 0.56, ConsumeCharge::No);
 

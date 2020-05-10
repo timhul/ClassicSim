@@ -29,6 +29,7 @@ public:
 
 private:
     Character* pchar;
+    EnchantInfo enchant_info;
     const int equipment_slot;
     const bool permanent;
 

@@ -8,7 +8,7 @@ class Proc;
 
 class EnchantProc : public Enchant {
 public:
-    EnchantProc(EnchantName::Name enchant, Character* pchar, const int slot);
+    EnchantProc(EnchantName::Name enchant, Character* pchar, EnchantInfo* enchant_info, const int slot);
     ~EnchantProc() override;
 
     void enable_proc();

@@ -543,7 +543,7 @@ void TestSpell::create_100_dmg_1h() {
         return;
 
     Weapon* wpn = new Weapon("Test 100 dmg", TestUtils::Test100Dmg, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100,
-                             2.6);
+                             2.6, equipment_db->enchant_info);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -552,7 +552,7 @@ void TestSpell::create_100_dmg_dagger() {
         return;
 
     Weapon* wpn = new Weapon("Test 100 dmg Dagger", TestUtils::Test100DmgDagger, Content::Phase::MoltenCore, WeaponTypes::DAGGER,
-                             WeaponSlots::ONEHAND, 100, 100, 2.0);
+                             WeaponSlots::ONEHAND, 100, 100, 2.0, equipment_db->enchant_info);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -561,7 +561,7 @@ void TestSpell::create_100_dmg_2h() {
         return;
 
     Weapon* wpn = new Weapon("Test 100 dmg 2h", TestUtils::Test100Dmg2h, Content::Phase::MoltenCore, WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND,
-                             100, 100, 3.5);
+                             100, 100, 3.5, equipment_db->enchant_info);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -571,7 +571,7 @@ void TestSpell::create_100_dmg_ranged() {
 
     QMap<QString, QString> info = {{"slot", "RANGED"}};
     Weapon* wpn = new Weapon("Test 100 dmg Ranged", TestUtils::Test100DmgRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED,
-                             100, 100, 2.6, info);
+                             100, 100, 2.6, equipment_db->enchant_info, info);
     equipment_db->add_ranged(wpn);
 }
 
@@ -581,7 +581,7 @@ void TestSpell::create_3_speed_ranged() {
 
     QMap<QString, QString> info = {{"slot", "RANGED"}};
     Weapon* wpn = new Weapon("Test 3 Speed Ranged", TestUtils::Test3SpeedRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED,
-                             100, 100, 3.0, info);
+                             100, 100, 3.0, equipment_db->enchant_info, info);
     equipment_db->add_ranged(wpn);
 }
 
@@ -591,7 +591,7 @@ void TestSpell::create_2_speed_ranged() {
 
     QMap<QString, QString> info = {{"slot", "RANGED"}};
     Weapon* wpn = new Weapon("Test 2 Speed Ranged", TestUtils::Test2SpeedRanged, Content::Phase::MoltenCore, WeaponTypes::BOW, WeaponSlots::RANGED,
-                             100, 100, 2.0, info);
+                             100, 100, 2.0, equipment_db->enchant_info, info);
     equipment_db->add_ranged(wpn);
 }
 
@@ -600,7 +600,7 @@ void TestSpell::create_3_speed() {
         return;
 
     Weapon* wpn = new Weapon("Test 3 Speed", TestUtils::Test3Speed, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100,
-                             3.0);
+                             3.0, equipment_db->enchant_info);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -609,7 +609,7 @@ void TestSpell::create_2_speed() {
         return;
 
     Weapon* wpn = new Weapon("Test 2 Speed", TestUtils::Test2Speed, Content::Phase::MoltenCore, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100,
-                             2.0);
+                             2.0, equipment_db->enchant_info);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -617,7 +617,8 @@ void TestSpell::create_axe() {
     if (equipment_db->get_melee_weapon(TestUtils::TestAxe) != nullptr)
         return;
 
-    Weapon* wpn = new Weapon("Test Axe", TestUtils::TestAxe, Content::Phase::MoltenCore, WeaponTypes::AXE, WeaponSlots::ONEHAND, 100, 100, 2.0);
+    Weapon* wpn = new Weapon("Test Axe", TestUtils::TestAxe, Content::Phase::MoltenCore, WeaponTypes::AXE, WeaponSlots::ONEHAND, 100, 100, 2.0,
+                             equipment_db->enchant_info);
     equipment_db->add_melee_weapon(wpn);
 }
 
@@ -628,7 +629,7 @@ void TestSpell::create_5_sword_skill_ring() {
     QMap<QString, QString> info = {{"slot", "RING"}};
     QVector<QPair<QString, QString>> stats = {{"SWORD_SKILL", "5"}};
 
-    Item* ring = new Item("Test +5 Sword Skill", TestUtils::Test5SwordSkill, Content::Phase::MoltenCore, info, stats);
+    Item* ring = new Item("Test +5 Sword Skill", TestUtils::Test5SwordSkill, Content::Phase::MoltenCore, equipment_db->enchant_info, info, stats);
     equipment_db->add_ring(ring);
 }
 
@@ -639,7 +640,7 @@ void TestSpell::create_10_sword_skill_ring() {
     QMap<QString, QString> info = {{"slot", "RING"}};
     QVector<QPair<QString, QString>> stats = {{"SWORD_SKILL", "10"}};
 
-    Item* ring = new Item("Test +10 Sword Skill", TestUtils::Test10SwordSkill, Content::Phase::MoltenCore, info, stats);
+    Item* ring = new Item("Test +10 Sword Skill", TestUtils::Test10SwordSkill, Content::Phase::MoltenCore, equipment_db->enchant_info, info, stats);
     equipment_db->add_ring(ring);
 }
 
@@ -650,7 +651,7 @@ void TestSpell::create_15_sword_skill_ring() {
     QMap<QString, QString> info = {{"slot", "RING"}};
     QVector<QPair<QString, QString>> stats = {{"SWORD_SKILL", "15"}};
 
-    Item* ring = new Item("Test +15 Sword Skill", TestUtils::Test15SwordSkill, Content::Phase::MoltenCore, info, stats);
+    Item* ring = new Item("Test +15 Sword Skill", TestUtils::Test15SwordSkill, Content::Phase::MoltenCore, equipment_db->enchant_info, info, stats);
     equipment_db->add_ring(ring);
 }
 

@@ -2,6 +2,7 @@
 
 #include "Character.h"
 
+class EnchantInfo;
 class Energy;
 class InstantPoison;
 class RogueSpells;
@@ -54,6 +55,7 @@ private:
     Ruthlessness* ruthlessness;
     SealFate* seal_fate;
     SwordSpecialization* sword_spec;
+    EnchantInfo* enchant_info;
 
     unsigned combo_points;
     bool stealthed;

@@ -36,8 +36,7 @@
 int main(int argc, char* argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    Test test;
-    test.test_all();
+    Test().test_all();
 
     QApplication app(argc, argv);
     auto gui_control = new GUIControl();

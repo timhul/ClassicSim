@@ -134,8 +134,8 @@ void TestBearForm::test_paws_equipped_upon_entering_bear_form() {
 void TestBearForm::test_proc_enchants_on_weapon_disabled_in_bear_form() {
     given_staff_equipped(druid);
     Weapon* mh = pchar->get_equipment()->get_mainhand();
-    mh->apply_enchant(EnchantName::Crusader, druid, WeaponSlots::MAINHAND);
-    mh->apply_temporary_enchant(EnchantName::ShadowOil, druid, WeaponSlots::MAINHAND);
+    mh->apply_enchant(EnchantName::Name::Crusader, druid, WeaponSlots::MAINHAND);
+    mh->apply_temporary_enchant(EnchantName::Name::ShadowOil, druid, WeaponSlots::MAINHAND);
     assert(true == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
     assert(true == static_cast<EnchantProc*>(mh->get_enchant())->proc_enabled());
 

@@ -52,10 +52,11 @@ Equipment::Equipment(EquipmentDb* equipment_db, Character* pchar) :
     item_enchants = {{}, {}, {}};
     for (auto& setup : item_enchants) {
         setup = {
-            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
-            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
-            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
-            EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant, EnchantName::NoEnchant,
+            EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant,
+            EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant,
+            EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant,
+            EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant,
+            EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant, EnchantName::Name::NoEnchant,
         };
     }
     check((stats_from_equipped_gear.size() == item_enchants.size()), "Different size vectors");
@@ -63,9 +64,9 @@ Equipment::Equipment(EquipmentDb* equipment_db, Character* pchar) :
     item_temp_enchants = {{}, {}, {}};
     for (auto& setup : item_temp_enchants) {
         setup = {
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
-            EnchantName::NoEnchant,
+            EnchantName::Name::NoEnchant,
+            EnchantName::Name::NoEnchant,
+            EnchantName::Name::NoEnchant,
         };
     }
 
@@ -204,11 +205,11 @@ void Equipment::store_current_enchants() {
 }
 
 EnchantName::Name Equipment::get_current_enchant_enum_value(Item* item) const {
-    return item ? item->get_enchant_enum_value() : EnchantName::NoEnchant;
+    return item ? item->get_enchant_enum_value() : EnchantName::Name::NoEnchant;
 }
 
 EnchantName::Name Equipment::get_current_temp_enchant_enum_value(Weapon* weapon) const {
-    return weapon ? weapon->get_temporary_enchant_enum_value() : EnchantName::NoEnchant;
+    return weapon ? weapon->get_temporary_enchant_enum_value() : EnchantName::Name::NoEnchant;
 }
 
 bool Equipment::is_dual_wielding() {
@@ -958,7 +959,7 @@ SetBonusControl* Equipment::get_set_bonus_control() const {
 void Equipment::equip(Item*& current, Item* next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
-    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() : EnchantName::NoEnchant;
+    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() : EnchantName::Name::NoEnchant;
 
     unequip(current, eq_slot);
     current = next;
@@ -987,8 +988,8 @@ void Equipment::unequip(Item*& item, const int eq_slot) {
 void Equipment::equip(Weapon*& current, Weapon* next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
-    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() : EnchantName::NoEnchant;
-    EnchantName::Name current_temp_enchant = current != nullptr ? current->get_temporary_enchant_enum_value() : EnchantName::NoEnchant;
+    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() : EnchantName::Name::NoEnchant;
+    EnchantName::Name current_temp_enchant = current != nullptr ? current->get_temporary_enchant_enum_value() : EnchantName::Name::NoEnchant;
 
     unequip(current, eq_slot);
 

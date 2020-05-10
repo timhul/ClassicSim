@@ -14,9 +14,9 @@
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-InstantPoison::InstantPoison(Rogue* rogue, const QString& weapon_side, const int weapon) :
+InstantPoison::InstantPoison(Rogue* rogue, EnchantInfo* enchant_info, const QString& weapon_side, const int weapon) :
     Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.2, 0, QVector<Proc*>(), QVector<ProcInfo::Source>(), rogue),
-    Enchant(EnchantName::InstantPoison),
+    Enchant(EnchantName::Name::InstantPoison, enchant_info),
     TalentRequirer(QVector<TalentRequirerInfo*> {new TalentRequirerInfo("Vile Poisons", 5, DisabledAtZero::No),
                                                  new TalentRequirerInfo("Improved Poisons", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Bloodfang Armor"}),

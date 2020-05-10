@@ -62,8 +62,8 @@ QVector<EnchantName::Name> WarlockEnchants::get_available_temp_enchants(const in
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
         QVector<EnchantName::Name> enchants {
-            EnchantName::BrilliantWizardOil,
-            EnchantName::ShadowOil,
+            EnchantName::Name::BrilliantWizardOil,
+            EnchantName::Name::ShadowOil,
         };
         return enchants;
     }

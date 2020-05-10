@@ -10,7 +10,7 @@ class Rogue;
 
 class InstantPoison : public Proc, public Enchant, public TalentRequirer, public SetBonusRequirer {
 public:
-    InstantPoison(Rogue* rogue, const QString& weapon_side, const int weapon);
+    InstantPoison(Rogue* rogue, EnchantInfo* enchant_info, const QString& weapon_side, const int weapon);
     ~InstantPoison() override;
 
     void perform_start_of_combat() override;

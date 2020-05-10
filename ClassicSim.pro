@@ -19,6 +19,7 @@ SOURCES += main.cpp \
     Class/Common/Buffs/SanctifiedOrb.cpp \
     Class/Common/Buffs/SuppressCastBuff.cpp \
     Class/Common/Buffs/ZandalarianHeroCharm.cpp \
+    Class/Common/Enchants/EnchantName.cpp \
     Class/Common/Procs/ResourceGainProc.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/EssenceOfTheRed.cpp \
@@ -540,6 +541,7 @@ HEADERS += \
     Class/Common/Buffs/SanctifiedOrb.h \
     Class/Common/Buffs/SuppressCastBuff.h \
     Class/Common/Buffs/ZandalarianHeroCharm.h \
+    Class/Common/Enchants/EnchantName.h \
     Class/Common/Procs/ResourceGainProc.h \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/EssenceOfTheRed.h \
@@ -897,7 +899,6 @@ HEADERS += \
     Class/Common/Enchants/Enchant.h \
     Class/Common/Enchants/EnchantStatic.h \
     Class/Common/Enchants/EnchantProc.h \
-    Class/Common/Enchants/EnchantName.h \
     Class/Common/Buffs/ArmorPenetrationBuff.h \
     Class/Common/Procs/ArmorPenetrationProc.h \
     Class/Common/Spells/InstantSpellAttack.h \

@@ -12,7 +12,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-EquipmentDb::EquipmentDb(QObject* parent) : QObject(parent) {
+EquipmentDb::EquipmentDb(QObject* parent) : QObject(parent), enchant_info(new EnchantInfo()) {
     read_equipment_files();
     add_druid_cat_form_claws();
     add_druid_bear_form_paws();
@@ -33,6 +33,8 @@ EquipmentDb::~EquipmentDb() {
         delete_items(all_slots_item);
         all_slots_item->clear();
     }
+
+    delete enchant_info;
 }
 
 void EquipmentDb::delete_items(QVector<Item*>* list) {
@@ -53,7 +55,7 @@ void EquipmentDb::add_druid_cat_form_claws() {
         const unsigned max_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(i * 1.25))));
         const int item_id = 11223300 + i;
         Weapon* claw = new Weapon(QString("Claw level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND,
-                                  min_dmg, max_dmg, 1.0);
+                                  min_dmg, max_dmg, 1.0, enchant_info);
         add_melee_weapon(claw);
     }
 }
@@ -64,7 +66,7 @@ void EquipmentDb::add_druid_bear_form_paws() {
         const unsigned max_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(2.5 * i * 1.25))));
         const int item_id = 11223400 + i;
         Weapon* paws = new Weapon(QString("Paws level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND,
-                                  min_dmg, max_dmg, 2.5);
+                                  min_dmg, max_dmg, 2.5, enchant_info);
         add_melee_weapon(paws);
     }
 }
@@ -194,7 +196,7 @@ Quiver* EquipmentDb::get_quiver(const int item_id) const {
 }
 
 Item* EquipmentDb::get_shield(const int item_id) const {
-  return get_item(current_phase_shields, item_id);
+    return get_item(current_phase_shields, item_id);
 }
 
 Item* EquipmentDb::get_item(const int item_id) const {
@@ -343,7 +345,7 @@ void EquipmentDb::read_equipment_files() {
     QVector<Item*> items;
 
     for (const auto& equipment_file_path : equipment_file_paths) {
-        ItemFileReader().read_items(items, equipment_file_path);
+        ItemFileReader(enchant_info).read_items(items, equipment_file_path);
     }
 
     take_weapons_from_given_items(items);
