@@ -40,9 +40,10 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
         };
     case EquipmentSlot::SHOULDERS:
         return {
-            EnchantName::Name::MightOfTheScourge,
             EnchantName::Name::ZandalarSignetOfMight,
             EnchantName::Name::ZandalarSignetOfMojo,
+            EnchantName::Name::MightOfTheScourge,
+            EnchantName::Name::PowerOfTheScourge,
         };
     case EquipmentSlot::BACK:
         return {EnchantName::Name::EnchantCloakLesserAgility};

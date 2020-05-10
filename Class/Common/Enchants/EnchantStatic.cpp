@@ -123,6 +123,10 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, E
         pchar->get_stats()->increase_ranged_ap(26);
         pchar->get_stats()->increase_melee_aura_crit(100);
         break;
+    case EnchantName::Name::PowerOfTheScourge:
+        pchar->get_stats()->increase_spell_crit(100);
+        pchar->get_stats()->increase_base_spell_damage(15);
+        break;
     case EnchantName::Name::EnchantChestStats:
         pchar->get_stats()->increase_agility(3);
         pchar->get_stats()->increase_intellect(3);
@@ -309,6 +313,10 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_melee_ap(26);
         pchar->get_stats()->decrease_ranged_ap(26);
         pchar->get_stats()->decrease_melee_aura_crit(100);
+        break;
+    case EnchantName::Name::PowerOfTheScourge:
+        pchar->get_stats()->decrease_spell_crit(100);
+        pchar->get_stats()->decrease_base_spell_damage(15);
         break;
     case EnchantName::Name::EnchantChestStats:
         pchar->get_stats()->decrease_agility(3);

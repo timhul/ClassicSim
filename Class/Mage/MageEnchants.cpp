@@ -29,6 +29,7 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
     case EquipmentSlot::SHOULDERS:
         return {
             EnchantName::Name::ZandalarSignetOfMojo,
+            EnchantName::Name::PowerOfTheScourge,
         };
     case EquipmentSlot::BACK:
         return {};

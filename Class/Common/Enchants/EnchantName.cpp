@@ -55,6 +55,8 @@ EnchantInfo::EnchantInfo() {
                         "Lesser Arcanum Of Voracity - Strength", "+8 Strength"),
         new EnchantSpec(EnchantName::Name::LesserManaOil, "Lesser Mana Oil", "Lesser Mana Oil", "+8 mp5"),
         new EnchantSpec(EnchantName::Name::MightOfTheScourge, "Might of the Scourge", "Might of the Scourge", "+1% Crit and\n+26 Attack Power"),
+        new EnchantSpec(EnchantName::Name::PowerOfTheScourge, "Power Of The Scourge", "Power Of The Scourge",
+                        "+15 Spell Damage/Healing\n+1% Spell Crit"),
         new EnchantSpec(EnchantName::Name::PresenceOfSight, "Presence Of Sight", "Presence Of Sight", "+18 Spell Damage/Healing\n+1% Spell Hit"),
         new EnchantSpec(EnchantName::Name::ShadowOil, "Shadow Oil", "Shadow Oil", "15% R3 Shadow Bolt"),
         new EnchantSpec(EnchantName::Name::SniperScope, "Sniper Scope", "Sniper Scope", "+7 Damage"),

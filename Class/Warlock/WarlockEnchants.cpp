@@ -29,6 +29,7 @@ QVector<EnchantName::Name> WarlockEnchants::get_available_enchants(const int equ
     case EquipmentSlot::SHOULDERS:
         return {
             EnchantName::Name::ZandalarSignetOfMojo,
+            EnchantName::Name::PowerOfTheScourge,
         };
     case EquipmentSlot::BACK:
         return {};
