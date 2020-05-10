@@ -1,6 +1,7 @@
 #pragma once
 
-#include <QMap>
+#include <QJsonObject>
+#include <QVariantList>
 #include <QVector>
 
 class Character;
@@ -9,20 +10,18 @@ class Rotation;
 
 class CharacterDecoder {
 public:
-    void initialize(const QString& setup_string);
+    CharacterDecoder();
+    CharacterDecoder(const QString& setup_string);
+    CharacterDecoder(const QJsonObject& setup_object);
 
-    QString get_class();
-    QString get_race();
-    QString get_value(const QString& key);
+    static const bool MANDATORY = true;
+
+    QString get_value(const QString& key, const bool mandatory = false);
     QVector<QPair<QString, QString>> get_key_val_pairs(const QString& key);
+    QVector<QString> get_vector_values(const QString& key);
 
     void dump();
 
 private:
-    QMap<QString, QString> setup_map;
-    QMap<QString, QVector<QPair<QString, QString>>> setup_lists;
-
-    void parse_list(QString& string_list);
-
-    QPair<QString, QString> get_key_val(const QString& key_val) const;
+    QJsonObject setup;
 };

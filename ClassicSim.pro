@@ -829,7 +829,6 @@ HEADERS += \
     Class/Common/Buffs/ExtraAttackOnNextSwingBuff.h \
     Class/Common/Procs/ExtraAttackInstantProc.h \
     Class/Common/GeneralProcs.h \
-    Character/CharacterEncoding.h \
     Character/CharacterDecoder.h \
     Character/CharacterEncoder.h \
     Thread/SimulationThreadPool.h \

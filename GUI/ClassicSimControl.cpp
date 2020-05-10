@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QJsonArray>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 
@@ -239,9 +240,9 @@ void ClassicSimControl::set_character(Character* pchar) {
     weapon_model->set_character(current_char);
     rotation_model->set_character(current_char);
     if (auto index = rotation_model->get_index_of_rotation_named(pchar->get_rotation_name()))
-      selectInformationRotation(*index);
+        selectInformationRotation(*index);
     else
-      selectInformationRotation(0);
+        selectInformationRotation(0);
     rotation_model->select_rotation();
     character_encoder->set_character(current_char);
     buff_model->set_character(current_char);
@@ -1547,22 +1548,16 @@ Character* ClassicSimControl::load_character(const QString& class_name) {
     QFile file(QString("Saves/%1-setup.xml").arg(class_name));
 
     Character* pchar = get_new_character(class_name);
-
     if (file.open(QIODevice::ReadOnly)) {
-        QXmlStreamReader reader(&file);
+        QJsonArray setup_strings = QJsonDocument::fromJson(file.readAll()).array();
 
-        reader.readNextStartElement();
-        for (int i = 0; i < 3; ++i) {
-            reader.readNextStartElement();
-
-            CharacterDecoder decoder;
-            decoder.initialize(reader.readElementText().trimmed());
+        for (int i = 0; i < setup_strings.size(); ++i) {
+            CharacterDecoder decoder(setup_strings[i].toObject());
             CharacterLoader loader(equipment_db, random_affixes_db, sim_settings, raid_control, decoder);
 
             pchar->get_stats()->get_equipment()->change_setup(i);
             pchar->get_talents()->set_current_index(i);
             pchar->get_enabled_buffs()->get_general_buffs()->change_setup(i);
-
             loader.initialize_existing(pchar);
         }
     }
@@ -1620,22 +1615,19 @@ void ClassicSimControl::save_user_setup(Character* pchar) {
     QFile file(QString("Saves/%1-setup.xml").arg(pchar->class_name));
     file.remove();
 
-    if (file.open(QIODevice::ReadWrite)) {
-        QXmlStreamWriter stream(&file);
-        stream.setAutoFormatting(true);
-        stream.writeStartDocument();
-        stream.writeStartElement("setups");
+    if (file.open(QIODevice::WriteOnly)) {
+        QJsonArray array;
 
         for (int i = 0; i < 3; ++i) {
             pchar->get_stats()->get_equipment()->change_setup(i);
             pchar->get_talents()->set_current_index(i);
             pchar->get_enabled_buffs()->get_general_buffs()->change_setup(i);
 
-            stream.writeTextElement("setup_string", CharacterEncoder(pchar).get_current_setup_string());
+            array.append(CharacterEncoder(pchar).get_current_setup_json_object().object());
         }
 
-        stream.writeEndElement();
-        stream.writeEndDocument();
+        auto doc = QJsonDocument::fromVariant(array.toVariantList());
+        file.write(doc.toJson(QJsonDocument::Indented));
         file.close();
     }
 }

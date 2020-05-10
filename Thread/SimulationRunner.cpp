@@ -35,8 +35,7 @@ void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup
     this->setup_strings = std::move(setup_strings);
     this->full_sim = full_sim;
 
-    CharacterDecoder decoder;
-    decoder.initialize(this->setup_strings[0]);
+    CharacterDecoder decoder(this->setup_strings[0]);
 
     this->local_sim_settings = new SimSettings();
     local_sim_settings->set_phase(Content::get_phase(decoder.get_value("PHASE").toInt()));
@@ -50,8 +49,7 @@ void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup
     Random pchar_seeds(0, std::numeric_limits<unsigned>::max());
 
     for (const auto& setup_string : this->setup_strings) {
-        CharacterDecoder decoder_pchar;
-        decoder_pchar.initialize(setup_string);
+        CharacterDecoder decoder_pchar(setup_string);
         CharacterLoader loader(equipment_db, random_affixes, local_sim_settings, raid_control, decoder_pchar);
         raid.append(loader.initialize_new());
 

@@ -1,76 +1,52 @@
 #include "CharacterDecoder.h"
 
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
 
-#include "CharacterEncoding.h"
 #include "Utils/Check.h"
 
-void CharacterDecoder::initialize(const QString& setup_string) {
-    if (!setup_map.empty()) {
-        qDebug() << "Not all map entries were consumed in previous setup:" << setup_map;
-        setup_map.clear();
-    }
-    QStringList entries = setup_string.split(Encoding::ENTRY_SEPARATOR);
+CharacterDecoder::CharacterDecoder() {}
 
-    for (int i = 0; i < entries.size(); ++i) {
-        QStringList key_val = entries[i].split(Encoding::KEY_VAL_SEPARATOR);
+CharacterDecoder::CharacterDecoder(const QJsonObject& setup_object) : setup(setup_object) {}
 
-        if (key_val[0].contains(Encoding::LIST_INITIALIZER)) {
-            if (!key_val[key_val.size() - 1].contains(Encoding::LIST_END)) {
-                qDebug() << "Missing closing bracket in list" << entries[i];
-                continue;
-            }
-            parse_list(entries[i]);
-        } else if (key_val.size() != 2) {
-            qDebug() << "Malformed element" << key_val;
-            continue;
-        } else
-            setup_map.insert(key_val[0], key_val[1]);
-    }
-}
+CharacterDecoder::CharacterDecoder(const QString& setup_string) : setup(QJsonDocument::fromJson(setup_string.toUtf8()).object()) {}
 
-void CharacterDecoder::parse_list(QString& string_list) {
-    QStringList list_elements = string_list.split(Encoding::LIST_INITIALIZER);
-    QString list_name = list_elements.takeFirst();
-    check((list_elements.size() == 1), "Unexpected list size");
-    list_elements[0] = list_elements[0].remove(Encoding::LIST_END);
+QString CharacterDecoder::get_value(const QString& key, const bool mandatory) {
+    if (setup.contains(key))
+        return setup.take(key).toString();
 
-    setup_lists.insert(list_name, QVector<QPair<QString, QString>>());
+    if (mandatory)
+        check(false, QString("Missing key '%1' in CharacterDecoder::get_value").arg(key).toStdString());
 
-    QStringList list_key_val_pairs = list_elements[0].split(Encoding::LIST_ELEMENT_SEPARATOR);
-    for (int i = 0; i < list_key_val_pairs.size(); ++i) {
-        QPair<QString, QString> key_val_pair = get_key_val(list_key_val_pairs[i]);
-        setup_lists[list_name].append(key_val_pair);
-    }
-}
-
-QString CharacterDecoder::get_value(const QString& key) {
-    return setup_map.take(key);
-}
-
-QString CharacterDecoder::get_race() {
-    return get_value("RACE");
-}
-
-QString CharacterDecoder::get_class() {
-    return get_value("CLASS");
-}
-
-QPair<QString, QString> CharacterDecoder::get_key_val(const QString& key_val_string) const {
-    QStringList key_val = key_val_string.split(Encoding::KEY_VAL_SEPARATOR);
-    if (key_val.size() != 2) {
-        qDebug() << "Malformed element" << key_val;
-        return QPair<QString, QString>();
-    }
-
-    return QPair<QString, QString>(key_val[0], key_val[1]);
+    return "";
 }
 
 QVector<QPair<QString, QString>> CharacterDecoder::get_key_val_pairs(const QString& key) {
-    return setup_lists.take(key);
+    if (!setup.contains(key) || !setup[key].isArray())
+        return QVector<QPair<QString, QString>>();
+
+    const QJsonArray array = setup.take(key).toArray();
+
+    QVector<QPair<QString, QString>> key_val_pairs;
+    for (const auto& element : array) {
+        for (const auto& k : element.toObject().keys()) {
+            key_val_pairs.push_back(QPair<QString, QString>({k, element.toObject()[k].toString()}));
+        }
+    }
+
+    return key_val_pairs;
 }
 
-void CharacterDecoder::dump() {
-    qDebug() << "setup_map" << setup_map;
-    qDebug() << "setup_lists" << setup_lists;
+QVector<QString> CharacterDecoder::get_vector_values(const QString& key) {
+    if (!setup.contains(key) || !setup[key].isArray())
+        return QVector<QString>();
+
+    const QJsonArray array = setup.take(key).toArray();
+
+    QVector<QString> vec;
+    for (const auto& element : array)
+        vec.push_back(element.toString());
+
+    return vec;
 }

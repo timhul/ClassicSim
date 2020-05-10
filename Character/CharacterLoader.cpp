@@ -105,7 +105,7 @@ Race* CharacterLoader::relinquish_ownership_of_race() {
 }
 
 void CharacterLoader::setup_race(CharacterDecoder& decoder) {
-    QString race_string = decoder.get_race();
+    const QString race_string = decoder.get_value("RACE", CharacterDecoder::MANDATORY);
 
     if (race_string == "Dwarf")
         race = new Dwarf();
@@ -291,9 +291,9 @@ void CharacterLoader::invest_talent_points(CharacterDecoder& decoder, Character*
 }
 
 void CharacterLoader::add_points_to_talent_tree(CharacterDecoder& decoder, const QString& tree_position, Character* pchar) {
-    QVector<QPair<QString, QString>> invested_talents = decoder.get_key_val_pairs(tree_position);
+    const QVector<QPair<QString, QString>> key_val_pairs = decoder.get_key_val_pairs(tree_position);
 
-    for (const auto& invested_talent : invested_talents) {
+    for (const auto& invested_talent : key_val_pairs) {
         for (int points = 0; points < invested_talent.second.toInt(); ++points) {
             pchar->get_talents()->increment_rank(tree_position, invested_talent.first);
         }
@@ -301,64 +301,70 @@ void CharacterLoader::add_points_to_talent_tree(CharacterDecoder& decoder, const
 }
 
 void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character* pchar) {
-    QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
+    const QVector<QString> buffs = decoder.get_vector_values("BUFFS");
 
     for (const auto& buff : buffs) {
-        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff.first);
+        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff);
     }
 }
 
 void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Character* pchar) {
-    QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("DEBUFFS");
+    const QVector<QString> buffs = decoder.get_vector_values("DEBUFFS");
 
     for (const auto& buff : buffs) {
-        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(buff.first);
+        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(buff);
     }
 }
 
 void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
-        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, WeaponSlots::MAINHAND);
-        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar,
-                                                                        EnchantSlot::MAINHAND);
+        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT", CharacterDecoder::MANDATORY)), pchar,
+                                                              WeaponSlots::MAINHAND);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(
+                                                                            decoder.get_value("MH_TEMPORARY_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                                        pchar, EnchantSlot::MAINHAND);
     }
 
     if (pchar->get_equipment()->get_offhand() != nullptr) {
-        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT")), pchar, WeaponSlots::OFFHAND);
-        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar,
-                                                                       EnchantSlot::OFFHAND);
+        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT", CharacterDecoder::MANDATORY)), pchar,
+                                                             WeaponSlots::OFFHAND);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(
+                                                                           decoder.get_value("OH_TEMPORARY_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                                       pchar, EnchantSlot::OFFHAND);
     }
 
     if (pchar->get_equipment()->get_ranged() != nullptr)
-        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT")), pchar, WeaponSlots::RANGED);
+        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT", CharacterDecoder::MANDATORY)), pchar,
+                                                            WeaponSlots::RANGED);
 
     if (pchar->get_equipment()->get_head() != nullptr)
-        pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_value("HEAD_ENCHANT")), pchar);
+        pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_value("HEAD_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 
     if (pchar->get_equipment()->get_shoulders() != nullptr)
-        pchar->get_equipment()->get_shoulders()->apply_enchant(get_enum_val(decoder.get_value("SHOULDER_ENCHANT")), pchar);
+        pchar->get_equipment()->get_shoulders()->apply_enchant(get_enum_val(decoder.get_value("SHOULDER_ENCHANT", CharacterDecoder::MANDATORY)),
+                                                               pchar);
 
     if (pchar->get_equipment()->get_back() != nullptr)
-        pchar->get_equipment()->get_back()->apply_enchant(get_enum_val(decoder.get_value("BACK_ENCHANT")), pchar);
+        pchar->get_equipment()->get_back()->apply_enchant(get_enum_val(decoder.get_value("BACK_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 
     if (pchar->get_equipment()->get_chest() != nullptr)
-        pchar->get_equipment()->get_chest()->apply_enchant(get_enum_val(decoder.get_value("CHEST_ENCHANT")), pchar);
+        pchar->get_equipment()->get_chest()->apply_enchant(get_enum_val(decoder.get_value("CHEST_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 
     if (pchar->get_equipment()->get_wrist() != nullptr)
-        pchar->get_equipment()->get_wrist()->apply_enchant(get_enum_val(decoder.get_value("WRIST_ENCHANT")), pchar);
+        pchar->get_equipment()->get_wrist()->apply_enchant(get_enum_val(decoder.get_value("WRIST_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 
     if (pchar->get_equipment()->get_gloves() != nullptr)
-        pchar->get_equipment()->get_gloves()->apply_enchant(get_enum_val(decoder.get_value("GLOVES_ENCHANT")), pchar);
+        pchar->get_equipment()->get_gloves()->apply_enchant(get_enum_val(decoder.get_value("GLOVES_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 
     if (pchar->get_equipment()->get_legs() != nullptr)
-        pchar->get_equipment()->get_legs()->apply_enchant(get_enum_val(decoder.get_value("LEGS_ENCHANT")), pchar);
+        pchar->get_equipment()->get_legs()->apply_enchant(get_enum_val(decoder.get_value("LEGS_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 
     if (pchar->get_equipment()->get_boots() != nullptr)
-        pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_value("BOOTS_ENCHANT")), pchar);
+        pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_value("BOOTS_ENCHANT", CharacterDecoder::MANDATORY)), pchar);
 }
 
 void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar) {
-    pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_value("RULESET").toInt()), pchar);
+    pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_value("RULESET", CharacterDecoder::MANDATORY).toInt()), pchar);
 }
 
 void CharacterLoader::apply_tanking(CharacterDecoder& decoder, Character* pchar) {
@@ -367,16 +373,16 @@ void CharacterLoader::apply_tanking(CharacterDecoder& decoder, Character* pchar)
 }
 
 void CharacterLoader::setup_target(CharacterDecoder& decoder) {
-    target->set_creature_type(decoder.get_value("TARGET_TYPE"));
-    target->set_lvl(decoder.get_value("TARGET_LVL").toUInt());
-    target->set_base_armor(decoder.get_value("TARGET_BASE_ARMOR").toInt());
+    target->set_creature_type(decoder.get_value("TARGET_TYPE", CharacterDecoder::MANDATORY));
+    target->set_lvl(decoder.get_value("TARGET_LVL", CharacterDecoder::MANDATORY).toUInt());
+    target->set_base_armor(decoder.get_value("TARGET_BASE_ARMOR", CharacterDecoder::MANDATORY).toInt());
 }
 
 void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pchar) {
     QVector<Rotation*> new_rotations;
     RotationFileReader::add_rotations(new_rotations);
 
-    QString rotation_name = decoder.get_value("ROTATION");
+    QString rotation_name = decoder.get_value("ROTATION", CharacterDecoder::MANDATORY);
 
     for (const auto& rotation : new_rotations) {
         if (rotation == nullptr)
@@ -395,37 +401,37 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pcha
 }
 
 Character* CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
-    const QString pchar_string = decoder.get_class();
+    const QString pchar_string = decoder.get_value("CLASS", CharacterDecoder::MANDATORY);
 
     Character* pchar = nullptr;
 
     if (pchar_string == "Druid")
         pchar = new Druid(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                          decoder.get_value("PARTY_MEMBER").toInt());
+                          decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Hunter")
         pchar = new Hunter(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                           decoder.get_value("PARTY_MEMBER").toInt());
+                           decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Mage")
         pchar = new Mage(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                         decoder.get_value("PARTY_MEMBER").toInt());
+                         decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Paladin")
         pchar = new Paladin(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                            decoder.get_value("PARTY_MEMBER").toInt());
+                            decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Priest")
         pchar = new Priest(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                           decoder.get_value("PARTY_MEMBER").toInt());
+                           decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Rogue")
         pchar = new Rogue(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                          decoder.get_value("PARTY_MEMBER").toInt());
+                          decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Shaman")
         pchar = new Shaman(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                           decoder.get_value("PARTY_MEMBER").toInt());
+                           decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Warlock")
         pchar = new Warlock(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                            decoder.get_value("PARTY_MEMBER").toInt());
+                            decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
     else if (pchar_string == "Warrior")
         pchar = new Warrior(race, equipment_db, sim_settings, raid_control, decoder.get_value("PARTY").toInt(),
-                            decoder.get_value("PARTY_MEMBER").toInt());
+                            decoder.get_value("PARTY_MEMBER", CharacterDecoder::MANDATORY).toInt());
 
     if (pchar == nullptr)
         delete race;
