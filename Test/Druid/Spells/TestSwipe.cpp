@@ -68,7 +68,7 @@ void TestSwipe::test_spell_cooldown() {
 
 void TestSwipe::test_whether_spell_causes_global_cooldown() {
     given_druid_in_bear_form();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
     assert(druid->action_ready());
 
@@ -83,7 +83,7 @@ void TestSwipe::test_resource_cost() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_swipe_is_performed();
 
@@ -94,7 +94,7 @@ void TestSwipe::test_is_ready_conditions() {
     assert(swipe()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_druid_in_bear_form();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     assert(swipe()->get_spell_status() == SpellStatus::InsufficientResources);
 
@@ -108,7 +108,7 @@ void TestSwipe::test_resource_cost_1_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_swipe_is_performed();
 
@@ -120,7 +120,7 @@ void TestSwipe::test_resource_cost_2_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_swipe_is_performed();
 
@@ -132,7 +132,7 @@ void TestSwipe::test_resource_cost_3_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_swipe_is_performed();
 
@@ -144,7 +144,7 @@ void TestSwipe::test_resource_cost_4_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_swipe_is_performed();
 
@@ -156,7 +156,7 @@ void TestSwipe::test_resource_cost_5_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_swipe_is_performed();
 
@@ -169,7 +169,7 @@ void TestSwipe::test_hit_dmg_1_of_2_savage_fury() {
     given_druid_in_bear_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -184,7 +184,7 @@ void TestSwipe::test_hit_dmg_2_of_2_savage_fury() {
     given_druid_in_bear_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -199,7 +199,7 @@ void TestSwipe::test_hit_dmg() {
     given_druid_in_bear_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -214,7 +214,7 @@ void TestSwipe::test_crit_dmg() {
     given_druid_in_bear_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -226,7 +226,7 @@ void TestSwipe::test_crit_dmg() {
 void TestSwipe::test_swipe_hit_with_0_of_2_primal_fury_awards_0_rage() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -237,7 +237,7 @@ void TestSwipe::test_swipe_hit_with_0_of_2_primal_fury_awards_0_rage() {
 void TestSwipe::test_swipe_crit_with_0_of_2_primal_fury_awards_0_rage() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -250,7 +250,7 @@ void TestSwipe::test_swipe_hit_with_2_of_2_primal_fury_awards_0_rage() {
     pchar->prepare_set_of_combat_iterations();
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();
@@ -263,7 +263,7 @@ void TestSwipe::test_swipe_crit_with_2_of_2_primal_fury_awards_5_rage() {
     pchar->prepare_set_of_combat_iterations();
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
 
     when_swipe_is_performed();

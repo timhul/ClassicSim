@@ -14,7 +14,8 @@ enum BuiltinVariables
     SwingTimer,
     AutoShotTimer,
     MeleeAP,
-    ComboPoints
+    ComboPoints,
+    TimeRemainingGCD
 };
 
 class ConditionVariableBuiltin : public Condition {

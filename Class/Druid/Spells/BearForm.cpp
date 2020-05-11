@@ -11,7 +11,7 @@ BearForm::BearForm(Druid* druid, Buff* bear_form) :
           "Assets/ability/Ability_racial_bearform.png",
           druid,
           new CooldownControl(druid, 0.0),
-          RestrictedByGcd::No,
+          RestrictedByGcd::Yes,
           ResourceType::Mana,
           100),
     TalentRequirer({
@@ -32,7 +32,7 @@ SpellStatus BearForm::is_ready_spell_specific() const {
     if (druid->get_current_form() == DruidForm::Bear)
         return SpellStatus::InBearForm;
 
-    return druid->on_form_cooldown() ? SpellStatus::OnFormCooldown : SpellStatus::Available;
+    return SpellStatus::Available;
 }
 
 void BearForm::spell_effect() {

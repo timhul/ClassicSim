@@ -12,7 +12,7 @@ MoonkinForm::MoonkinForm(Druid* druid, MoonkinFormBuff* buff) :
           "Assets/spell/Spell_nature_forceofnature.png",
           druid,
           new CooldownControl(druid, 0.0),
-          RestrictedByGcd::No,
+          RestrictedByGcd::Yes,
           ResourceType::Mana,
           100),
     TalentRequirer(
@@ -31,7 +31,7 @@ SpellStatus MoonkinForm::is_ready_spell_specific() const {
     if (druid->get_current_form() == DruidForm::Moonkin)
         return SpellStatus::InMoonkinForm;
 
-    return druid->on_form_cooldown() ? SpellStatus::OnFormCooldown : SpellStatus::Available;
+    return SpellStatus::Available;
 }
 
 void MoonkinForm::spell_effect() {

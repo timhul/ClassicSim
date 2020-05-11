@@ -57,8 +57,9 @@ void TestMaul::test_spell_cooldown() {
 
 void TestMaul::test_whether_spell_causes_global_cooldown() {
     given_druid_in_bear_form();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_rage(100);
+
     assert(druid->action_ready());
 
     when_maul_is_performed();
@@ -72,7 +73,6 @@ void TestMaul::test_resource_cost() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -83,7 +83,6 @@ void TestMaul::test_is_ready_conditions() {
     assert(maul()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_druid_in_bear_form();
-    given_engine_priority_at(0.51);
 
     assert(maul()->get_spell_status() == SpellStatus::InsufficientResources);
 
@@ -97,7 +96,6 @@ void TestMaul::test_resource_cost_1_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -109,7 +107,6 @@ void TestMaul::test_resource_cost_2_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -121,7 +118,6 @@ void TestMaul::test_resource_cost_3_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -133,7 +129,6 @@ void TestMaul::test_resource_cost_4_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -145,7 +140,6 @@ void TestMaul::test_resource_cost_5_of_5_ferocity() {
     given_druid_in_bear_form();
     given_a_guaranteed_melee_ability_hit();
     given_druid_has_rage(100);
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -160,7 +154,6 @@ void TestMaul::test_hit_dmg_1_of_2_savage_fury() {
     given_1000_melee_ap();
     given_druid_has_rage(100);
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -177,7 +170,6 @@ void TestMaul::test_hit_dmg_2_of_2_savage_fury() {
     given_1000_melee_ap();
     given_druid_has_rage(100);
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -193,7 +185,6 @@ void TestMaul::test_hit_dmg() {
     given_1000_melee_ap();
     given_druid_has_rage(100);
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -209,7 +200,6 @@ void TestMaul::test_hit_threat() {
     given_1000_melee_ap();
     given_druid_has_rage(100);
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 
@@ -228,7 +218,6 @@ void TestMaul::test_crit_dmg() {
     given_1000_melee_ap();
     given_druid_has_rage(100);
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
 
     when_maul_is_performed();
 

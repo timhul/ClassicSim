@@ -56,12 +56,16 @@ void TestShred::test_spell_cooldown() {
 
 void TestShred::test_whether_spell_causes_global_cooldown() {
     given_druid_in_cat_form();
-    given_engine_priority_at(0.51);
-    assert(druid->action_ready());
-
-    when_shred_is_performed();
-
+    given_engine_priority_at(1.01);
     assert(!druid->action_ready());
+
+    given_engine_priority_at(1.51);
+    assert(druid->action_ready());
+    when_shred_is_performed();
+    assert(!druid->action_ready());
+
+    given_engine_priority_at(2.52);
+    assert(druid->action_ready());
 }
 
 void TestShred::test_how_spell_observes_global_cooldown() {}
@@ -70,7 +74,7 @@ void TestShred::test_resource_cost() {
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_hit();
     assert(druid->get_resource_level(ResourceType::Energy) == 100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_shred_is_performed();
 
@@ -81,7 +85,7 @@ void TestShred::test_is_ready_conditions() {
     assert(shred()->get_spell_status() == SpellStatus::InCasterForm);
 
     given_druid_in_cat_form();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     assert(shred()->get_spell_status() == SpellStatus::Available);
 }
@@ -91,7 +95,7 @@ void TestShred::test_resource_cost_1_of_2_improved_shred() {
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_hit();
     assert(druid->get_resource_level(ResourceType::Energy) == 100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_shred_is_performed();
 
@@ -103,7 +107,7 @@ void TestShred::test_resource_cost_2_of_2_improved_shred() {
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_hit();
     assert(druid->get_resource_level(ResourceType::Energy) == 100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_shred_is_performed();
 
@@ -116,7 +120,7 @@ void TestShred::test_hit_dmg() {
     given_druid_in_cat_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_shred_is_performed();
 
@@ -131,7 +135,7 @@ void TestShred::test_crit_dmg() {
     given_druid_in_cat_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_shred_is_performed();
 
@@ -143,7 +147,7 @@ void TestShred::test_crit_dmg() {
 void TestShred::test_shred_hit_with_0_of_2_blood_frenzy_awards_1_combo_point() {
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     assert(druid->get_combo_points() == 0);
 
     when_shred_is_performed();
@@ -154,7 +158,7 @@ void TestShred::test_shred_hit_with_0_of_2_blood_frenzy_awards_1_combo_point() {
 void TestShred::test_shred_crit_with_0_of_2_blood_frenzy_awards_1_combo_point() {
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     assert(druid->get_combo_points() == 0);
 
     when_shred_is_performed();
@@ -167,7 +171,7 @@ void TestShred::test_shred_hit_with_2_of_2_blood_frenzy_awards_1_combo_point() {
     pchar->prepare_set_of_combat_iterations();
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     assert(druid->get_combo_points() == 0);
 
     when_shred_is_performed();
@@ -180,7 +184,7 @@ void TestShred::test_shred_crit_with_2_of_2_blood_frenzy_awards_2_combo_points()
     pchar->prepare_set_of_combat_iterations();
     given_druid_in_cat_form();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     assert(druid->get_combo_points() == 0);
 
     when_shred_is_performed();

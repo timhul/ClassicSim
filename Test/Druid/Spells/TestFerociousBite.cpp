@@ -46,7 +46,7 @@ void TestFerociousBite::test_spell_cooldown() {
 void TestFerociousBite::test_whether_spell_causes_global_cooldown() {
     given_druid_in_cat_form();
     given_druid_has_combo_points(1);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     assert(druid->action_ready());
 
     when_ferocious_bite_is_performed();
@@ -57,7 +57,7 @@ void TestFerociousBite::test_whether_spell_causes_global_cooldown() {
 void TestFerociousBite::test_how_spell_observes_global_cooldown() {
     given_druid_in_cat_form();
     given_druid_has_combo_points(1);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     assert(druid->action_ready());
 
     when_shred_is_performed();
@@ -70,7 +70,7 @@ void TestFerociousBite::test_resource_cost() {
     given_druid_has_combo_points(1);
     given_a_guaranteed_melee_ability_hit();
     assert(druid->get_resource_level(ResourceType::Energy) == 100);
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_ferocious_bite_is_performed();
 
@@ -81,7 +81,7 @@ void TestFerociousBite::test_is_ready_conditions() {
     assert(ferocious_bite()->get_spell_status() == SpellStatus::InCasterForm);
 
     given_druid_in_cat_form();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     assert(ferocious_bite()->get_spell_status() == SpellStatus::InsufficientComboPoints);
 
@@ -95,7 +95,7 @@ void TestFerociousBite::test_hit_dmg() {
     given_druid_in_cat_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_combo_points(5);
 
     when_ferocious_bite_is_performed();
@@ -111,7 +111,7 @@ void TestFerociousBite::test_crit_dmg() {
     given_druid_in_cat_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_combo_points(5);
 
     when_ferocious_bite_is_performed();
@@ -125,7 +125,7 @@ void TestFerociousBite::test_ferocious_bite_spends_combo_points() {
     given_druid_in_cat_form();
     given_druid_has_combo_points(5);
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
 
     when_ferocious_bite_is_performed();
 
@@ -139,7 +139,7 @@ void TestFerociousBite::test_hit_dmg_feral_aggression_5_of_5() {
     given_druid_in_cat_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_combo_points(5);
 
     when_ferocious_bite_is_performed();
@@ -156,7 +156,7 @@ void TestFerociousBite::test_crit_dmg_feral_aggression_5_of_5() {
     given_druid_in_cat_form();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
-    given_engine_priority_at(0.51);
+    given_engine_priority_at(1.51);
     given_druid_has_combo_points(5);
 
     when_ferocious_bite_is_performed();

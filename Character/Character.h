@@ -90,6 +90,7 @@ public:
     bool on_global_cooldown() const;
     void start_trinket_cooldown(const double);
     bool on_trinket_cooldown() const;
+    double time_until_action_ready() const;
 
     virtual void melee_mh_white_hit_effect();
     virtual void melee_mh_white_critical_effect();
