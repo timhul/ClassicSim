@@ -101,6 +101,11 @@ void TalentStatIncrease::apply_rank_effect() {
                 cstats->remove_strength_mod(static_cast<int>(curr_points - 1) * static_cast<int>(change));
             cstats->add_strength_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
+        case ArmorModFromItems:
+            if (curr_points != 1)
+              cstats->remove_armor_mod(static_cast<int>(curr_points - 1) * static_cast<int>(change));
+            cstats->add_armor_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case IntellectMod:
             if (curr_points != 1)
                 cstats->remove_intellect_mod(static_cast<int>(curr_points - 1) * static_cast<int>(change));
@@ -197,7 +202,6 @@ void TalentStatIncrease::apply_rank_effect() {
         case FireCrit:
         case Defense:
         case Parry:
-        case ArmorModFromItems:
             continue;
         }
     }
@@ -278,6 +282,10 @@ void TalentStatIncrease::remove_rank_effect() {
         case StrengthMod:
             cstats->remove_strength_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
             cstats->add_strength_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
+        case ArmorModFromItems:
+            cstats->remove_armor_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
+            cstats->add_armor_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case IntellectMod:
             cstats->remove_intellect_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
@@ -379,7 +387,6 @@ void TalentStatIncrease::remove_rank_effect() {
             break;
         case Defense:
         case Parry:
-        case ArmorModFromItems:
         case FireCrit:
             continue;
         }
