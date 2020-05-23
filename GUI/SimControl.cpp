@@ -13,6 +13,7 @@
 #include "EncounterEnd.h"
 #include "EncounterStart.h"
 #include "Engine.h"
+#include "IncomingDamageEvent.h"
 #include "ItemNamespace.h"
 #include "NumberCruncher.h"
 #include "RaidControl.h"
@@ -82,8 +83,11 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
                 rotation->precast_spell->perform();
         }
 
-        for (const auto& pchar : raid)
+        for (const auto& pchar : raid) {
+            if (pchar->is_tanking())
+                raid_control->get_engine()->add_event(new IncomingDamageEvent(pchar, raid_control->get_engine(), 0));
             raid_control->get_engine()->add_event(new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs()));
+        }
 
         raid_control->get_engine()->add_event(new EncounterEnd(raid_control->get_engine(), combat_length));
         raid_control->get_engine()->run();

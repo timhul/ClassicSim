@@ -118,6 +118,7 @@ SOURCES += main.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
+    Event/Events/IncomingDamageEvent.cpp \
     Event/Events/EncounterStart.cpp \
     Event/Events/SpellCallback.cpp \
     GUI/Models/DamageMetersModel.cpp \
@@ -643,6 +644,7 @@ HEADERS += \
     Event/Event.h \
     Engine/Engine.h \
     Event/Events/EncounterEnd.h \
+    Event/Events/IncomingDamageEvent.h \
     Event/Events/EncounterStart.h \
     Character/Character.h \
     Character/Race/Race.h \

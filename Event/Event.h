@@ -10,6 +10,7 @@ enum class EventType : int
     DotTick,
     EncounterEnd,
     EncounterStart,
+    IncomingDamage,
     MainhandMeleeHit,
     OffhandMeleeHit,
     PeriodicRefreshBuff,
