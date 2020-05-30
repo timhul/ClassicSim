@@ -26,6 +26,7 @@
 #include "TestOverpower.h"
 #include "TestRecklessness.h"
 #include "TestRend.h"
+#include "TestRevenge.h"
 #include "TestSlam.h"
 #include "TestSwordSpecialization.h"
 #include "TestTwoHandedWeaponSpecialization.h"
@@ -54,6 +55,7 @@ void TestWarrior::test_all() {
     TestDeathWish(equipment_db).test_all();
     TestMortalStrike(equipment_db).test_all();
     TestSlam(equipment_db).test_all();
+    TestRevenge(equipment_db).test_all();
     TestRend(equipment_db).test_all();
     TestBattleShout(equipment_db).test_all();
 

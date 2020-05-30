@@ -348,11 +348,13 @@ SOURCES += main.cpp \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
     Class/Warrior/Spells/MortalStrike.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
+    Class/Warrior/Spells/Revenge.cpp \
     Class/Warrior/Spells/ShieldSlam.cpp \
     Class/Warrior/Spells/Slam.cpp \
     Class/Warrior/Spells/SunderArmor.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
+    Test/Warrior/Spells/TestRevenge.cpp \
     Talent/TalentRequirer.cpp \
     Test/Warrior/Talents/TestFury.cpp \
     GUI/Models/RotationModel.cpp \
@@ -871,11 +873,13 @@ HEADERS += \
     Test/TestUtils.h \
     Class/Warrior/Spells/MortalStrike.h \
     Test/Warrior/Spells/TestMortalStrike.h \
+    Class/Warrior/Spells/Revenge.h \
     Class/Warrior/Spells/ShieldSlam.h \
     Class/Warrior/Spells/Slam.h \
     Class/Warrior/Spells/SunderArmor.h \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
+    Test/Warrior/Spells/TestRevenge.h \
     Talent/TalentRequirer.h \
     Test/Warrior/Talents/TestFury.h \
     GUI/Models/RotationModel.h \
