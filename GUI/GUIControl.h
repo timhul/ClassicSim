@@ -244,7 +244,8 @@ public:
     ResourceBreakdownModel* get_resource_breakdown_model() const;
     RotationExecutorBreakdownModel* get_rotation_executor_model() const;
     RotationExecutorListModel* get_rotation_executor_list_model() const;
-    ScaleResultModel* get_scale_result_model() const;
+    ScaleResultModel* get_dps_scale_result_model() const;
+    ScaleResultModel* get_tps_scale_result_model() const;
     ThreatBreakdownModel* get_thrt_breakdown_model() const;
     Q_SLOT void compile_thread_results();
     Q_PROPERTY(QString minDps READ get_min_dps NOTIFY statisticsReady)
@@ -472,7 +473,8 @@ private:
     ResourceBreakdownModel* resource_breakdown_model;
     RotationExecutorListModel* rotation_executor_list_model;
     SimScaleModel* sim_scale_model;
-    ScaleResultModel* scale_result_model;
+    ScaleResultModel* dps_scale_result_model;
+    ScaleResultModel* tps_scale_result_model;
     ScaleResult* dps_distribution;
     ThreatBreakdownModel* threat_breakdown_model;
     EnchantModel* mh_enchants;
