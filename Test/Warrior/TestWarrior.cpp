@@ -15,6 +15,7 @@
 #include "TestBloodrage.h"
 #include "TestBloodthirst.h"
 #include "TestDeathWish.h"
+#include "TestDefiance.h"
 #include "TestDeepWounds.h"
 #include "TestExecute.h"
 #include "TestFlurryWarrior.h"
@@ -61,6 +62,7 @@ void TestWarrior::test_all() {
 
     TestUnbridledWrath(equipment_db).test_all();
     TestSwordSpecialization(equipment_db).test_all();
+    TestDefiance(equipment_db).test_all();
 
     TestTwoHandedWeaponSpecialization(equipment_db).test_all();
 

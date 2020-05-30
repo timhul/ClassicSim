@@ -357,6 +357,7 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestRevenge.cpp \
     Talent/TalentRequirer.cpp \
     Test/Warrior/Talents/TestFury.cpp \
+    Test/Warrior/Talents/TestDefiance.cpp \
     GUI/Models/RotationModel.cpp \
     Test/Warrior/Talents/TestArms.cpp \
     GUI/SimSettings.cpp \
@@ -882,6 +883,7 @@ HEADERS += \
     Test/Warrior/Spells/TestRevenge.h \
     Talent/TalentRequirer.h \
     Test/Warrior/Talents/TestFury.h \
+    Test/Warrior/Talents/TestDefiance.h \
     GUI/Models/RotationModel.h \
     Test/Warrior/Talents/TestArms.h \
     GUI/SimSettings.h \
@@ -1078,6 +1080,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Warrior/TalentTrees \
     $$PWD/Class/Warrior/TalentTrees/Fury \
     $$PWD/Class/Warrior/TalentTrees/Arms \
+    $$PWD/Class/Warrior/TalentTrees/Prot \
     $$PWD/Class/Priest \
     $$PWD/Class/Rogue \
     $$PWD/Class/Rogue/Buffs \

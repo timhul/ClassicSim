@@ -17,4 +17,5 @@ private:
 
     void add_improved_shield_block(QMap<QString, Talent*>& talent_tier);
     void add_improved_sunder_armor(QMap<QString, Talent*>& talent_tier);
+    void add_defiance(QMap<QString, Talent*>& talent_tier);
 };
