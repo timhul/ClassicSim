@@ -96,6 +96,10 @@ Equipment* CharacterStats::get_equipment() const {
     return this->equipment;
 }
 
+unsigned CharacterStats::get_armor() const {
+    return static_cast<unsigned>(armor_mod * (base_stats->get_armor() + equipment->get_stats()->get_armor()) + get_agility() * 2);
+}
+
 unsigned CharacterStats::get_block_value() const {
     return static_cast<unsigned>(base_stats->get_block_value() + equipment->get_stats()->get_block_value());
 }
@@ -378,6 +382,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::BlockValue:
         return increase_block_value(value);
     case ItemStats::Armor:
+        return increase_armor(value);
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
     case ItemStats::ParryChance:
@@ -502,6 +507,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::BlockValue:
         return decrease_block_value(value);
     case ItemStats::Armor:
+        return decrease_armor(value);
     case ItemStats::BlockChance:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -650,6 +656,14 @@ void CharacterStats::increase_strength(const unsigned value) {
 
 void CharacterStats::decrease_strength(const unsigned value) {
     base_stats->decrease_strength(value);
+}
+
+void CharacterStats::increase_armor(const unsigned value) {
+    base_stats->increase_armor(value);
+}
+
+void CharacterStats::decrease_armor(const unsigned value) {
+    base_stats->decrease_armor(value);
 }
 
 void CharacterStats::increase_agility(const unsigned value) {
@@ -1047,6 +1061,14 @@ void CharacterStats::add_strength_mod(const int mod) {
 
 void CharacterStats::remove_strength_mod(const int mod) {
     remove_multiplicative_effect(strength_mod_changes, mod, strength_mod);
+}
+
+void CharacterStats::add_armor_mod(const int mod) {
+    add_multiplicative_effect(armor_mod_changes, mod, armor_mod);
+}
+
+void CharacterStats::remove_armor_mod(const int mod) {
+    remove_multiplicative_effect(armor_mod_changes, mod, armor_mod);
 }
 
 double CharacterStats::get_mh_wpn_speed() {

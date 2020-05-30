@@ -247,6 +247,7 @@ void Stats::add(const Stats* rhs) {
     increase_spirit(rhs->get_spirit());
 
     increase_block_value(rhs->get_block_value());
+    increase_armor(rhs->get_armor());
 
     increase_axe_skill(rhs->get_axe_skill());
     increase_dagger_skill(rhs->get_dagger_skill());
@@ -340,6 +341,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_spirit(rhs->get_spirit());
 
     decrease_block_value(rhs->get_block_value());
+    decrease_armor(rhs->get_armor());
 
     decrease_axe_skill(rhs->get_axe_skill());
     decrease_dagger_skill(rhs->get_dagger_skill());
