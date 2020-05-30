@@ -115,10 +115,6 @@ double Druid::global_cooldown() const {
     return 1.5;
 }
 
-double Druid::form_cooldown() const {
-    return 1.0;
-}
-
 void Druid::set_clvl(const unsigned clvl_) {
     this->clvl = clvl_;
     this->rage_conversion_value = 0.0091107836 * std::pow(clvl, 2) + 3.225598133 * clvl + 4.2652911;
@@ -200,10 +196,6 @@ DruidForm Druid::get_current_form() const {
     return this->current_form;
 }
 
-bool Druid::on_form_cooldown() const {
-    return engine->get_current_priority() < this->next_form_cd;
-}
-
 void Druid::cancel_form() {
     switch (this->current_form) {
     case DruidForm::Caster:
@@ -229,8 +221,7 @@ void Druid::switch_to_form(const DruidForm new_form) {
     if (new_form == DruidForm::Caster)
         return cancel_form();
 
-    if (on_form_cooldown())
-        return;
+    if (on_global_cooldown()) return;
 
     cancel_form();
     druid_spells->get_caster_form()->buff->cancel_buff();
@@ -251,10 +242,8 @@ void Druid::switch_to_form(const DruidForm new_form) {
         check(false, "Unhandled form in Druid::switch_to_form()");
     }
 
-    this->next_form_cd = engine->get_current_priority() + form_cooldown();
-
-    if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
-        this->next_gcd = engine->get_current_priority() + 0.5;
+    if ((engine->get_current_priority() + 1.5) > this->next_gcd) {
+        this->next_gcd = engine->get_current_priority() + 1.5;
         engine->add_event(new PlayerAction(spells, next_gcd));
     }
 }
@@ -320,7 +309,6 @@ void Druid::reset_resource() {
 
 void Druid::reset_class_specific() {
     cancel_form();
-    this->next_form_cd = -10.0;
     this->combo_points = 0;
     this->stealthed = false;
 }

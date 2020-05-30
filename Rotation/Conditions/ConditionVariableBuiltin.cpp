@@ -1,6 +1,7 @@
 #include "ConditionVariableBuiltin.h"
 
 #include <cmath>
+#include <iostream>
 
 #include "AutoShot.h"
 #include "Character.h"
@@ -61,6 +62,10 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
 
         return false;
     }
+    case BuiltinVariables::TimeRemainingGCD:
+        //std::cout << "Time remaining GCD: " << pchar->time_until_action_ready() << std::endl;
+        return cmp_values(pchar->time_until_action_ready());
+
     default:
         check(false, "ConditionVariableBuiltin::condition_fulfilled reached end of switch");
         return false;
@@ -82,6 +87,8 @@ QString ConditionVariableBuiltin::condition_description() const {
         return QString("Melee Attack Power %1 %2").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 0));
     if (builtin == BuiltinVariables::ComboPoints)
         return QString("Combo Points %1 %2").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 0));
+    if (builtin == BuiltinVariables::TimeRemainingGCD)
+        return QString("Time Remaining GCD %1 %2 seconds").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 1));
 
     return "<builtin variable is missing condition description>";
 }
@@ -119,6 +126,8 @@ BuiltinVariables ConditionVariableBuiltin::get_builtin_variable(const QString& v
         return BuiltinVariables::MeleeAP;
     if (var_name == "combo_points")
         return BuiltinVariables::ComboPoints;
+    if (var_name == "time_remaining_gcd")
+        return BuiltinVariables::TimeRemainingGCD;
 
     return BuiltinVariables::Undefined;
 }
