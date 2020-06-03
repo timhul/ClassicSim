@@ -410,5 +410,14 @@
             <stat type="STAMINA" value="15"/>
 		</stats>
     </random_affix>
+	
+	<random_affix id="2158" phase="4">
+		<info name="of Striking" />
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="AGILITY" value="13"/>
+            <stat type="STAMINA" value="13"/>
+		</stats>
+    </random_affix>
 
 </random_affixes>

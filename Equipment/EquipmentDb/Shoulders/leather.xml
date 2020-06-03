@@ -236,4 +236,18 @@
 		Sold by Arathi Basin vendors.
 		</source>
 	</item>
+	
+	<item id="20689" phase="4">
+		<info name="Abyssal Leather Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_shoulder_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="141"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<random_affixes>
+            <affix id="2158"/>
+        </random_affixes>
+		<source>
+		Drops from High Marshal Whirlaxis, a summonable raid boss in Silithus.
+		</source>
+	</item>
 </items>
