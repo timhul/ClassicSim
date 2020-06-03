@@ -1,6 +1,7 @@
 #include "TestMageArmor.h"
 
 #include <cassert>
+#include <cmath>
 
 #include "CharacterStats.h"
 #include "Equipment.h"
