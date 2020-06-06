@@ -2,6 +2,7 @@
 
 #include <QSet>
 
+#include "RandomAffix.h"
 #include "Character.h"
 #include "CharacterEnchants.h"
 #include "EquipmentDb.h"
@@ -37,6 +38,16 @@ Equipment::Equipment(EquipmentDb* equipment_db, Character* pchar) :
         };
     }
     check((stats_from_equipped_gear.size() == item_setups.size()), "Different size vectors");
+
+    item_affixes = {{}, {}, {}};
+    for (auto& setup : item_affixes) {
+        setup = {
+            NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM, NO_EQUIPPED_ITEM,
+        };
+    }
+    check((stats_from_equipped_gear.size() == item_affixes.size()), "Different size vectors");
 
     item_enchants = {{}, {}, {}};
     for (auto& setup : item_enchants) {
@@ -96,9 +107,11 @@ void Equipment::change_setup(const int index) {
         return;
 
     QVector<int> preserved_setup = item_setups[setup_index];
+    QVector<int> preserved_affixes = item_affixes[setup_index];
     store_current_enchants();
     unequip_all();
     item_setups[setup_index] = preserved_setup;
+    item_affixes[setup_index] = preserved_affixes;
 
     setup_index = index;
 
@@ -135,6 +148,10 @@ void Equipment::unequip_all() {
 
 int Equipment::get_stored_item_id_for_slot(const int equipment_slot) const {
     return item_setups[setup_index][equipment_slot];
+}
+
+int Equipment::get_stored_random_affix_id_for_slot(const int equipment_slot) const {
+    return item_affixes[setup_index][equipment_slot];
 }
 
 void Equipment::apply_current_enchants() {
@@ -725,93 +742,108 @@ void Equipment::clear_quiver() {
 
 void Equipment::reequip_items() {
     int item_id = get_stored_item_id_for_slot(EquipmentSlot::MAINHAND);
+    int random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::MAINHAND);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_mainhand();
-        set_mainhand(item_id);
+        set_mainhand(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::OFFHAND);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::OFFHAND);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_offhand();
-        set_offhand(item_id);
+        set_offhand(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::RANGED);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::RANGED);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_ranged();
-        set_ranged(item_id);
+        set_ranged(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::HEAD);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::HEAD);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_head();
-        set_head(item_id);
+        set_head(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::NECK);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::NECK);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_neck();
-        set_neck(item_id);
+        set_neck(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::SHOULDERS);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::SHOULDERS);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_shoulders();
-        set_shoulders(item_id);
+        set_shoulders(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::BACK);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::BACK);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_back();
-        set_back(item_id);
+        set_back(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::CHEST);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::CHEST);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_chest();
-        set_chest(item_id);
+        set_chest(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::WRIST);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::WRIST);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_wrist();
-        set_wrist(item_id);
+        set_wrist(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::GLOVES);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::GLOVES);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_gloves();
-        set_gloves(item_id);
+        set_gloves(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::BELT);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::BELT);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_belt();
-        set_belt(item_id);
+        set_belt(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::LEGS);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::LEGS);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_legs();
-        set_legs(item_id);
+        set_legs(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::BOOTS);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::BOOTS);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_boots();
-        set_boots(item_id);
+        set_boots(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::RING1);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::RING1);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_ring1();
-        set_ring1(item_id);
+        set_ring1(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::RING2);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::RING2);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_ring2();
-        set_ring2(item_id);
+        set_ring2(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::TRINKET1);
@@ -827,9 +859,10 @@ void Equipment::reequip_items() {
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::RANGED);
+    random_affix_id = get_stored_random_affix_id_for_slot(EquipmentSlot::RANGED);
     if (item_id != NO_EQUIPPED_ITEM) {
         clear_caster_offhand();
-        set_caster_offhand(item_id);
+        set_caster_offhand(item_id, random_affixes->get_affix(random_affix_id));
     }
 
     item_id = get_stored_item_id_for_slot(EquipmentSlot::RANGED);
@@ -933,6 +966,8 @@ void Equipment::equip(Item*& current, Item* next, const int eq_slot) {
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->item_id;
     set_bonuses->equip_item(current->item_id);
+    if (current->get_random_affix() != nullptr)
+        item_affixes[setup_index][eq_slot] = current->get_random_affix()->id;
 
     current->apply_enchant(current_enchant, pchar);
 }
@@ -944,6 +979,7 @@ void Equipment::unequip(Item*& item, const int eq_slot) {
     set_bonuses->unequip_item(item->item_id);
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
+    item_affixes[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
     item = nullptr;
 }
@@ -961,6 +997,8 @@ void Equipment::equip(Weapon*& current, Weapon* next, const int eq_slot) {
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->item_id;
     set_bonuses->equip_item(current->item_id);
+    if (current->get_random_affix() != nullptr)
+        item_affixes[setup_index][eq_slot] = current->get_random_affix()->id;
 
     if (pchar->get_enchants()->enchant_valid(current_enchant, current->get_weapon_slot()))
         current->apply_enchant(current_enchant, pchar, current->get_weapon_slot());
@@ -977,6 +1015,7 @@ void Equipment::unequip(Weapon*& item, const int eq_slot) {
     set_bonuses->unequip_item(item->item_id);
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
+    item_affixes[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
     item = nullptr;
 }
