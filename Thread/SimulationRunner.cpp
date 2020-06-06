@@ -26,7 +26,7 @@ SimulationRunner::SimulationRunner(
     full_sim(false),
     thread_id(thread_id) {}
 
-void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
+void SimulationRunner::sim_runner_run(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
         emit finished();
         return;
@@ -68,7 +68,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     }
 
     SimControl sim_control(local_sim_settings, scaler);
-    QObject::connect(&sim_control, SIGNAL(update_progress(int)), this, SLOT(receive_progress(int)));
+    QObject::connect(&sim_control, &SimControl::update_progress, this, &SimulationRunner::receive_progress);
 
     if (full_sim)
         sim_control.run_full_sim(raid, raid_control);
@@ -86,7 +86,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     delete local_sim_settings;
     delete raid_control;
 
-    emit result();
+    emit simulation_runner_has_result();
     emit finished();
 }
 
@@ -97,7 +97,7 @@ void SimulationRunner::receive_progress(const int iterations_completed) {
 void SimulationRunner::exit_thread(QString err) {
     for (const auto& pchar : raid)
         delete pchar;
-    for (const auto& race : raid)
+    for (const auto& race : races)
         delete race;
 
     delete local_sim_settings;

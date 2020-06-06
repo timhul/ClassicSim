@@ -16,7 +16,7 @@ TigersFury::TigersFury(Druid* pchar, DruidSpells* druid_spells, TigersFuryBuff* 
           "Assets/ability/Ability_mount_jungletiger.png",
           pchar,
           new CooldownControl(pchar, 1.0),
-          RestrictedByGcd::Yes,
+          RestrictedByGcd::No,
           ResourceType::Energy,
           30,
           spell_rank),

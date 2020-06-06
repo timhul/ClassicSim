@@ -31,6 +31,8 @@
 #include "Recklessness.h"
 #include "RecklessnessBuff.h"
 #include "Rend.h"
+#include "Revenge.h"
+#include "ShieldSlam.h"
 #include "Slam.h"
 #include "SpellRankGroup.h"
 #include "SunderArmor.h"
@@ -59,6 +61,8 @@ WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(
     this->overpower = new Overpower(warrior, this, new_cooldown_control("Overpower", 5.0));
     this->recklessness = new Recklessness(warrior, this);
     this->rend = new Rend(warrior, this);
+    this->revenge = new Revenge(warrior, this, new_cooldown_control("Revenge", 5.0));
+    this->shield_slam = new ShieldSlam(warrior, this, new_cooldown_control("Shield Slam", 6.0));
     this->slam = new Slam(warrior, this);
     this->sunder_armor = new SunderArmor(warrior, this);
     this->warr_mh_attack = new MainhandAttackWarrior(warrior, this);
@@ -111,6 +115,8 @@ WarriorSpells::WarriorSpells(Warrior* warrior) : CharacterSpells(warrior), warr(
     add_spell_group({mortal_strike});
     add_spell_group({recklessness});
     add_spell_group({rend});
+    add_spell_group({revenge});
+    add_spell_group({shield_slam});
     add_spell_group({slam});
     add_spell_group({sunder_armor});
     add_spell_group({whirlwind});
@@ -239,6 +245,10 @@ SunderArmor* WarriorSpells::get_sunder_armor() const {
 
 Rend* WarriorSpells::get_rend() const {
     return this->rend;
+}
+
+Revenge* WarriorSpells::get_revenge() const {
+    return this->revenge;
 }
 
 Recklessness* WarriorSpells::get_recklessness() const {

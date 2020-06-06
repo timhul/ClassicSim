@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<rotation class="Druid" name="Feral Tank Maul" attack_mode="melee">
+    <description>
+    A rotation using Maul only.
+    </description>
+
+    <precombat_actions>
+        <spell name="Bear Form"/>
+    </precombat_actions>
+
+    <cast_if name="Manual Crowd Pummeler"/>
+    <cast_if name="Kiss of the Spider"/>
+    <cast_if name="Jom Gabbar"/>
+    <cast_if name="Badge of the Swarmguard"/>
+    <cast_if name="Slayer's Crest"/>
+    <cast_if name="Earthstrike"/>
+    <cast_if name="Zandalarian Hero Medallion"/>
+	
+	<cast_if name="Bear Form"/>
+	
+	<cast_if name="Enrage"/>
+	
+    <cast_if name="Maul"/>
+	
+	<cast_if name="Swipe">
+		resource "Rage" greater 40
+    </cast_if>
+</rotation>

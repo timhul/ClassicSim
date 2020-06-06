@@ -65,6 +65,7 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::ElixirOfTheMongoose:
         pchar->get_stats()->increase_agility(25);
         pchar->get_stats()->increase_melee_aura_crit(200);
+        pchar->get_stats()->increase_ranged_crit(200);
         break;
     case ExternalBuffName::ElixirOfBruteForce:
         pchar->get_stats()->increase_strength(18);
@@ -116,6 +117,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::CurseOfRecklessness:
         pchar->get_target()->decrease_armor(640);
         break;
+    case ExternalBuffName::CerebralCortexCompound:
+        pchar->get_stats()->increase_intellect(25);
+        break;
     case ExternalBuffName::FaerieFire:
         pchar->get_target()->decrease_armor(505);
         break;
@@ -124,6 +128,9 @@ void ExternalBuff::buff_effect_when_applied() {
         break;
     case ExternalBuffName::GrilledSquid:
         pchar->get_stats()->increase_agility(10);
+        break;
+    case ExternalBuffName::RunnTumTuberSurprise:
+        pchar->get_stats()->increase_intellect(10);
         break;
     case ExternalBuffName::MagebloodPotion:
         pchar->get_stats()->increase_mp5(12);
@@ -203,6 +210,12 @@ void ExternalBuff::buff_effect_when_applied() {
         pchar->get_stats()->increase_melee_attack_speed(15);
         pchar->get_stats()->increase_mp5(10);
         break;
+    case ExternalBuffName::ArcaneIntellect:
+        pchar->get_stats()->increase_intellect(31);
+        break;
+    case ExternalBuffName::DivineSpirit:
+        pchar->get_stats()->increase_spirit(40);
+        break;
     }
 }
 
@@ -233,6 +246,7 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::ElixirOfTheMongoose:
         pchar->get_stats()->decrease_agility(25);
         pchar->get_stats()->decrease_melee_aura_crit(200);
+        pchar->get_stats()->decrease_ranged_crit(200);
         break;
     case ExternalBuffName::ElixirOfBruteForce:
         pchar->get_stats()->decrease_strength(18);
@@ -284,6 +298,9 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::CurseOfRecklessness:
         pchar->get_target()->increase_armor(640);
         break;
+    case ExternalBuffName::CerebralCortexCompound:
+        pchar->get_stats()->decrease_intellect(25);
+        break;
     case ExternalBuffName::FaerieFire:
         pchar->get_target()->increase_armor(505);
         break;
@@ -292,6 +309,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::GrilledSquid:
         pchar->get_stats()->decrease_agility(10);
+        break;
+    case ExternalBuffName::RunnTumTuberSurprise:
+        pchar->get_stats()->decrease_intellect(10);
         break;
     case ExternalBuffName::MagebloodPotion:
         pchar->get_stats()->decrease_mp5(12);
@@ -371,6 +391,12 @@ void ExternalBuff::buff_effect_when_removed() {
         pchar->get_stats()->decrease_melee_attack_speed(15);
         pchar->get_stats()->decrease_mp5(10);
         break;
+    case ExternalBuffName::ArcaneIntellect:
+        pchar->get_stats()->decrease_intellect(31);
+        break;
+    case ExternalBuffName::DivineSpirit:
+        pchar->get_stats()->decrease_spirit(40);
+        break;
     }
 }
 
@@ -436,6 +462,9 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
     case ExternalBuffName::CurseOfRecklessness:
         return new ExternalBuff(pchar, "Curse of Recklessness", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
                                 "Assets/spell/Spell_shadow_unholystrength.png", "Reduces target armor by 640.");
+    case ExternalBuffName::CerebralCortexCompound:
+        return new ExternalBuff(pchar, "Cerebral Cortex Compound", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
+                                "Assets/misc/Inv_potion_32.png", "+25 Intellect");
     case ExternalBuffName::FaerieFire:
         return new ExternalBuff(pchar, "Faerie Fire", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
                                 "Assets/spell/Spell_nature_faeriefire.png", "Reduces target armor by 505.");
@@ -445,6 +474,9 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
     case ExternalBuffName::GrilledSquid:
         return new ExternalBuff(pchar, "Grilled Squid", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
                                 "Assets/misc/Inv_misc_fish_13.png", "+10 Agility");
+    case ExternalBuffName::RunnTumTuberSurprise:
+        return new ExternalBuff(pchar, "Runn Tum Tuber Surprise", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
+                                "Assets/misc/Inv_misc_food_63.png", "+10 Intellect");
     case ExternalBuffName::MagebloodPotion:
         return new ExternalBuff(pchar, "Mageblood Potion", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
                                 "Assets/misc/Inv_potion_45.png", "Regenerate 12 mana per 5 sec");
@@ -508,6 +540,12 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
     case ExternalBuffName::WarchiefsBlessing:
         return new ExternalBuff(pchar, "Warchief's Blessing", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
                                 "Assets/spell/Spell_arcane_teleportorgrimmar.png", "+300 hitpoints, 15% melee haste, +10 mp5");
+    case ExternalBuffName::ArcaneIntellect:
+        return new ExternalBuff(pchar, "Arcane Intellect", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
+                                "Assets/spell/Spell_holy_magicalsentry.png", "+31 intellect");
+    case ExternalBuffName::DivineSpirit:
+        return new ExternalBuff(pchar, "Divine Spirit", BuffDuration::PERMANENT, 0, name, AvailableFactions::Neutral,
+                                "Assets/spell/Spell_holy_divinespirit.png", "+40 spirit");
     }
 
     return nullptr;

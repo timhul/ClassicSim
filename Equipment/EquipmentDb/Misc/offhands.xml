@@ -164,7 +164,7 @@
 		</source>
 	</melee_weapon>
 
-	<melee_weapon id="20694" phase="5">
+	<melee_weapon id="20694" phase="4">
 		<info name="Glowing Black Orb" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_misc_orb_04.png"/>
 		<dmg_range min="1" max="1" speed="1.0"/>
 		<stats>

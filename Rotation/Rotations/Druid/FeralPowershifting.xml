@@ -34,7 +34,8 @@
     <cast_if name="Shred"/>
 
     <cast_if name="Caster Form">
-        resource "Energy" leq 20
+        resource "Energy" leq 47
         and resource "Mana" geq 400
+		and variable "time_remaining_gcd" leq 0
     </cast_if>
 </rotation>

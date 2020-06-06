@@ -35,6 +35,10 @@ void TestCatForm::test_all() {
     tear_down();
 
     set_up();
+    test_how_spell_observes_global_cooldown();
+    tear_down();
+
+    set_up();
     test_hit_dmg();
     tear_down();
 
@@ -75,7 +79,19 @@ void TestCatForm::test_whether_spell_causes_global_cooldown() {
     assert(!druid->action_ready());
 }
 
-void TestCatForm::test_how_spell_observes_global_cooldown() {}
+void TestCatForm::test_how_spell_observes_global_cooldown() {
+    assert(druid->action_ready());
+
+    when_cat_form_is_performed();
+    assert(!druid->action_ready());
+
+    druid->cancel_form();
+    assert(!druid->action_ready());
+
+    when_cat_form_is_performed();
+    assert(!druid->action_ready());
+    assert(druid->get_current_form() == DruidForm::Caster);
+}
 
 void TestCatForm::test_is_ready_conditions() {
     assert(cat_form()->get_spell_status() == SpellStatus::Available);

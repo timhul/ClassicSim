@@ -7,7 +7,7 @@ SimScaleModel::SimScaleModel(SimSettings* sim_settings, QObject* parent) : QAbst
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     sim_options = {
         SimOption::Name::ScaleAgility,          SimOption::Name::ScaleStrength,        SimOption::Name::ScaleHitChance,
-        SimOption::Name::ScaleCritChance,       SimOption::Name::ScaleMeleeAP,         SimOption::Name::ScaleAxeSkill,
+        SimOption::Name::ScaleCritChance,       SimOption::Name::ScaleAttackPower,     SimOption::Name::ScaleAxeSkill,
         SimOption::Name::ScaleDaggerSkill,      SimOption::Name::ScaleMaceSkill,       SimOption::Name::ScaleSwordSkill,
         SimOption::Name::ScaleIntellect,        SimOption::Name::ScaleSpirit,          SimOption::Name::ScaleMp5,
         SimOption::Name::ScaleSpellDamage,      SimOption::Name::ScaleSpellCritChance, SimOption::Name::ScaleSpellHitChance,
@@ -29,8 +29,7 @@ void SimScaleModel::toggleOption(const int option) {
     emit layoutChanged();
 }
 
-int SimScaleModel::rowCount(const QModelIndex& parent) const {
-    Q_UNUSED(parent);
+int SimScaleModel::rowCount(const QModelIndex&) const {
     return sim_options.count();
 }
 

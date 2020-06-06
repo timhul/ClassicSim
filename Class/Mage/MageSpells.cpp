@@ -17,6 +17,7 @@
 #include "ImprovedScorch.h"
 #include "ItemStatsEnum.h"
 #include "Mage.h"
+#include "MageArmor.h"
 #include "MainhandAttack.h"
 #include "RaidControl.h"
 #include "RobeOfTheArchmage.h"
@@ -108,6 +109,7 @@ MageSpells::MageSpells(Mage* mage) : CharacterSpells(mage), mage(mage) {
 
     add_spell_group({new ArcanePower(mage)});
     add_spell_group({new Evocation(mage)});
+    add_spell_group({new MageArmor(mage)});
 
     this->clearcasting = new ClearcastingMage(mage);
     this->elemental_vulnerability = new ElementalVulnerability(mage);

@@ -28,6 +28,7 @@ public:
         EnchantBracerGreaterIntellect,
         EnchantBracerManaRegeneration,
         EnchantBracerMinorAgility,
+        EnchantBracerGreaterStrength,
         EnchantBracerSuperiorStrength,
         EnchantGlovesSuperiorAgility,
         EnchantGlovesGreaterAgility,
@@ -52,6 +53,7 @@ public:
         EnchantChestGreaterStats,
         EnchantBootsMinorSpeed,
         EnchantBootsGreaterAgility,
+        EnchantBootsAgility,
         EnchantBootsSpirit,
         ElementalSharpeningStone,
         ConsecratedSharpeningStone,
@@ -93,6 +95,8 @@ public:
             return "Mana Regeneration";
         case EnchantName::EnchantBracerMinorAgility:
             return "Minor Agility";
+        case EnchantName::EnchantBracerGreaterStrength:
+            return "Greater Strength";
         case EnchantName::EnchantBracerSuperiorStrength:
             return "Superior Strength";
         case EnchantName::EnchantGlovesSuperiorAgility:
@@ -147,6 +151,8 @@ public:
             return "Greater Stats";
         case EnchantName::EnchantBootsMinorSpeed:
             return "Minor Speed";
+        case EnchantName::EnchantBootsAgility:
+            return "Agility";
         case EnchantName::EnchantBootsGreaterAgility:
             return "Greater Agility";
         case EnchantName::EnchantBootsSpirit:
@@ -202,6 +208,8 @@ public:
             return "+4 mp5";
         case EnchantName::EnchantBracerMinorAgility:
             return "+1 Agility";
+        case EnchantName::EnchantBracerGreaterStrength:
+            return "+7 Strength";
         case EnchantName::EnchantBracerSuperiorStrength:
             return "+9 Strength";
         case EnchantName::EnchantGlovesSuperiorAgility:
@@ -260,6 +268,8 @@ public:
             return "+4 Attributes";
         case EnchantName::EnchantBootsMinorSpeed:
             return "Speed Increase";
+        case EnchantName::EnchantBootsAgility:
+            return "+5 Agility";
         case EnchantName::EnchantBootsGreaterAgility:
             return "+7 Agility";
         case EnchantName::EnchantBootsSpirit:

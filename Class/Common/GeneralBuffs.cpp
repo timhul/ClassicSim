@@ -36,8 +36,8 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) : pchar(pchar), f
     }
 
     mutex_buff_groups.append(QSet<QString>({"Flask of Supreme Power", "Flask of Distilled Wisdom"}));
-    mutex_buff_groups.append(QSet<QString>({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili", "Blessed Sunfruit"}));
-    mutex_buff_groups.append(QSet<QString>({"Juju Power", "Elixir of Giants"}));
+    mutex_buff_groups.append(QSet<QString>({"Smoked Desert Dumplings", "Grilled Squid", "Nightfin Soup", "Dragonbreath Chili", "Blessed Sunfruit", "Runn Tum Tuber Surprise"}));
+    mutex_buff_groups.append(QSet<QString>({"Juju Power", "Elixir of Giants", "Elixir of Brute Force"}));
     mutex_buff_groups.append(QSet<QString>({"Juju Might", "Winterfall Firewater"}));
     mutex_buff_groups.append(QSet<QString>({"R.O.I.D.S", "Ground Scorpok Assay"}));
     mutex_buff_groups.append(QSet<QString>({"Elixir of the Mongoose", "Elixir of Greater Agility"}));
@@ -197,6 +197,8 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
 
     QVector<ExternalBuffName> common_raid_buffs = {
         ExternalBuffName::MarkOfTheWild,
+        ExternalBuffName::ArcaneIntellect,
+        ExternalBuffName::DivineSpirit,
     };
 
     QVector<ExternalBuffName> physical_blessings = {
@@ -246,6 +248,7 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
 
     QVector<ExternalBuffName> mana_food = {
         ExternalBuffName::NightfinSoup,
+        ExternalBuffName::RunnTumTuberSurprise
     };
 
     QVector<ExternalBuffName> mana_elixirs = {
@@ -254,6 +257,15 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
 
     QVector<ExternalBuffName> spell_damage_elixirs = {
         ExternalBuffName::GreaterArcaneElixir,
+    };
+
+    QVector<ExternalBuffName> caster_flasks = {
+        ExternalBuffName::FlaskOfSupremePower,
+        ExternalBuffName::FlaskOfDistilledWisdom,
+    };
+
+    QVector<ExternalBuffName> caster_farmables = {
+        ExternalBuffName::CerebralCortexCompound
     };
 
     QVector<ExternalBuffName> all_worldbuffs = {
@@ -285,16 +297,20 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
     if (hybrid_magical_class.contains(class_name)) {
         QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout, ExternalBuffName::TrueshotAura};
         return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + spell_damage_elixirs
-               + physical_elixirs + physical_farmables + all_worldbuffs;
+               + caster_flasks + caster_farmables + physical_elixirs + physical_farmables + all_worldbuffs;
     }
 
     if (pure_magical_class.contains(class_name))
         return {
+            ExternalBuffName::ArcaneIntellect,
+            ExternalBuffName::DivineSpirit,
             ExternalBuffName::BlessingOfKings,
             ExternalBuffName::BlessingOfWisdom,
             ExternalBuffName::TotemManaSpring,
             ExternalBuffName::MarkOfTheWild,
+            ExternalBuffName::CerebralCortexCompound,
             ExternalBuffName::NightfinSoup,
+            ExternalBuffName::RunnTumTuberSurprise,
             ExternalBuffName::MagebloodPotion,
             ExternalBuffName::GreaterArcaneElixir,
             ExternalBuffName::FlaskOfSupremePower,

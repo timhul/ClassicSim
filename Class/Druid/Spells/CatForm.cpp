@@ -10,7 +10,7 @@
 #include "StatisticsResource.h"
 
 CatForm::CatForm(Druid* druid, Buff* cat_form) :
-    Spell("Cat Form", "Assets/ability/Ability_druid_catform.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::No, ResourceType::Mana, 100),
+    Spell("Cat Form", "Assets/ability/Ability_druid_catform.png", druid, new CooldownControl(druid, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 100),
     TalentRequirer({
         new TalentRequirerInfo("Natural Shapeshifter", 3, DisabledAtZero::No),
         new TalentRequirerInfo("Sharpened Claws", 3, DisabledAtZero::No),
@@ -34,7 +34,7 @@ SpellStatus CatForm::is_ready_spell_specific() const {
     if (druid->get_current_form() == DruidForm::Cat)
         return SpellStatus::InCatForm;
 
-    return druid->on_form_cooldown() ? SpellStatus::OnFormCooldown : SpellStatus::Available;
+    return SpellStatus::Available;
 }
 
 void CatForm::spell_effect() {

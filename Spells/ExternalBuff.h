@@ -14,6 +14,7 @@ enum class ExternalBuffName : int
     BlessingOfMight,
     BlessingOfWisdom,
     CurseOfRecklessness,
+    CerebralCortexCompound,
     DragonbreathChili,
     ElixirOfBruteForce,
     ElixirOfGiants,
@@ -35,6 +36,7 @@ enum class ExternalBuffName : int
     NightfinSoup,
     ROIDS,
     RallyingCryOfTheDragonslayer,
+    RunnTumTuberSurprise,
     SaygesDarkFortuneOfDamage,
     ScrollOfStrengthIV,
     SlipkiksSavvy,
@@ -51,6 +53,8 @@ enum class ExternalBuffName : int
     ShadowWeaving,
     BlessedSunfruit,
     WarchiefsBlessing,
+    ArcaneIntellect,
+    DivineSpirit,
 };
 
 class ExternalBuff;

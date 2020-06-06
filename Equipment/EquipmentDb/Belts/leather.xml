@@ -93,6 +93,20 @@
 		</source>
 	</item>
 
+	<item id="19134" phase="2">
+		<info name="Flayed Doomguard Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="115"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from World Boss Kazzak in Blasted Lands.
+		</source>
+	</item>
+
 	<item id="19396" phase="3">
 		<info name="Taut Dragonhide Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
 		<stats>
@@ -165,6 +179,63 @@
 		</stats>
 		<source>
 		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+	
+	<item id="19163" phase="3">
+		<info name="Molten Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
+		<stats>
+			<stat type="ARMOR" value="118"/>
+			<stat type="AGILITY" value="28"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="FIRE_RESISTANCE" value="12"/>
+		</stats>
+		<source>
+		Crafted by Leatherworkers with Thorium Brotherhood reputation. Requires Molten Core materials.
+		</source>
+	</item>
+	
+	<item id="21675" phase="5">
+		<info name="Thick Qirajihide Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="186"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="AGILITY" value="17"/>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Battleguard Sartura (AQ40).
+		</source>
+	</item>
+	
+	<item id="20190" phase="4">
+		<info name="Defiler's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" faction="HORDE" boe="no" icon="Inv_belt_17.png"/>
+		<class_restriction class="DRUID"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="159"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="34"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendor Rutherford Twing.
+		</source>
+	</item>
+	
+	<item id="20045" phase="4">
+		<info name="Highlander's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_belt_17.png"/>
+		<class_restriction class="DRUID"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="159"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="34"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors.
 		</source>
 	</item>
 </items>

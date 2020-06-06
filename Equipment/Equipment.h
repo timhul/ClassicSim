@@ -110,6 +110,7 @@ public:
     void equip(Quiver*& current, Quiver* next, const int eq_slot);
     void unequip(Quiver*& current, const int eq_slot);
 
+    void druid_bear_form_switch_to_paws();
     void druid_cat_form_switch_to_claws();
     void druid_switch_to_normal_weapon();
 
@@ -152,12 +153,14 @@ private:
 
     QVector<Stats*> stats_from_equipped_gear;
     QVector<QVector<int>> item_setups;
+    QVector<QVector<int>> item_affixes;
     QVector<QVector<EnchantName::Name>> item_enchants;
     QVector<QVector<EnchantName::Name>> item_temp_enchants;
 
     static const int NO_EQUIPPED_ITEM = -1;
 
     int get_stored_item_id_for_slot(const int equipment_slot) const;
+    int get_stored_random_affix_id_for_slot(const int equipment_slot) const;
     void apply_current_enchants();
     void store_current_enchants();
     EnchantName::Name get_current_enchant_enum_value(Item* item) const;

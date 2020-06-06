@@ -8,12 +8,13 @@
 #include "Druid.h"
 #include "Equipment.h"
 #include "Flurry.h"
+#include "PrimalFury.h"
 #include "RecklessnessBuff.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-MainhandAttackDruid::MainhandAttackDruid(Druid* pchar) : MainhandAttack(pchar), druid(pchar) {}
+MainhandAttackDruid::MainhandAttackDruid(Druid* pchar, Proc* primal_fury) : MainhandAttack(pchar), druid(pchar), primal_fury(primal_fury) {}
 
 void MainhandAttackDruid::calculate_damage() {
     const unsigned mh_wpn_skill = get_weapon_skill();
@@ -52,8 +53,11 @@ void MainhandAttackDruid::calculate_damage() {
         add_crit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         druid->melee_mh_white_critical_effect();
 
-        if (druid->get_current_form() == DruidForm::Bear)
+        if (druid->get_current_form() == DruidForm::Bear) {
             gain_rage(damage_dealt);
+            if (primal_fury->is_enabled() && primal_fury->check_proc_success())
+                primal_fury->perform();
+        }
 
         return;
     }
@@ -73,17 +77,18 @@ void MainhandAttackDruid::calculate_damage() {
     damage_dealt = round(damage_dealt);
     add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
 
-    if (druid->get_current_form() == DruidForm::Bear)
+    if (druid->get_current_form() == DruidForm::Bear) {
         gain_rage(damage_dealt);
+    }
 }
 
 void MainhandAttackDruid::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
     if (pchar->get_equipment()->get_mainhand() == nullptr)
         return;
 
     this->icon = "Assets/items/" + pchar->get_equipment()->get_mainhand()->get_value("icon");
     this->cooldown->base = pchar->get_stats()->get_mh_wpn_speed();
-    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
 
     reset();
 }

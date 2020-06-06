@@ -59,6 +59,10 @@ public:
     void increase_block_value(const unsigned value);
     void decrease_block_value(const unsigned value);
 
+    unsigned get_armor() const;
+    void increase_armor(const unsigned value);
+    void decrease_armor(const unsigned value);
+
     unsigned get_strength() const;
     void increase_strength(const unsigned value);
     void decrease_strength(const unsigned value);
@@ -211,6 +215,9 @@ public:
     void add_strength_mod(const int mod);
     void remove_strength_mod(const int mod);
 
+    void add_armor_mod(const int mod);
+    void remove_armor_mod(const int mod);
+
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
     double get_ranged_wpn_speed();
@@ -258,6 +265,7 @@ private:
     QVector<int> spirit_mod_changes;
     QVector<int> stamina_mod_changes;
     QVector<int> strength_mod_changes;
+    QVector<int> armor_mod_changes;
     QVector<Buff*> casting_time_suppression_buffs;
     QHash<int, unsigned> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
@@ -297,6 +305,7 @@ private:
     double spirit_mod {1.0};
     double stamina_mod {1.0};
     double strength_mod {1.0};
+    double armor_mod {1.0};
 
     Target::CreatureType get_type_for_stat(const ItemStats);
 

@@ -238,6 +238,18 @@
 		</source>
 	</item>
 
+	<item id="21178" phase="5">
+		<info name="Gloves of Earthen Power" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="109"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+			Reward from Silithus Quest: Volunteer's Battlegear
+		</source>
+	</item>
+
 	<item id="22481" phase="6">
 		<info name="Bonescythe Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
 		<class_restriction class="ROGUE"/>
@@ -262,6 +274,19 @@
 		</stats>
 		<source>
 		Crafted by Leatherworkers.
+		</source>
+	</item>
+	
+	<item id="20259" phase="4">
+		<info name="Shadow Panther Hide Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_25.png"/>
+		<stats>
+			<stat type="ARMOR" value="173"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+		Drops from Trash in Zul'Gurub.
 		</source>
 	</item>
 	

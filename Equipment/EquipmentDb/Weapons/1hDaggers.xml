@@ -183,6 +183,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="20214" phase="3">
+		<info name="Mindfang" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_sword_13.png"/>
+        <dmg_range min="49" max="95" speed="1.7"/>
+		<stats>
+			<stat type="ARMOR" value="35"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Requires The Defilers - Exalted
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17070" phase="4">
 		<info name="Fang of the Mystics" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_06.png"/>
 		<dmg_range min="39" max="86" speed="1.5"/>
@@ -208,6 +222,18 @@
 		</stats>
 		<source>
 			Drops from High Priest Venoxis in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+    <melee_weapon id="19859" phase="4">
+		<info name="Fang of the Faceless" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_30.png"/>
+		<dmg_range min="66" max="123" speed="1.9"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
+			Drops from Hakkar in Zul'Gurub.
 		</source>
 	</melee_weapon>
 

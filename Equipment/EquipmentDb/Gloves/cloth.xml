@@ -242,6 +242,23 @@
 		</source>
 	</item>
 
+	<item id="16928" phase="3">
+		<info name="Nemesis Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_19.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="72"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="HEALTH_PER_5" value="4"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Drops from Ebonroc, Flamegor, Firemaw in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="19929" phase="4">
 		<info name="Bloodtinged Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>

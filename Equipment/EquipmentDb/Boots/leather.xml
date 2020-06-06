@@ -102,6 +102,19 @@
 		</source>
 	</item>
 
+	<item id="18322" phase="2">
+		<info name="Waterspout Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="114"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+			Drops from Hydrospawn in Dire Maul: East.
+		</source>
+	</item>
+
 	<item id="16906" phase="3">
 		<info name="Bloodfang Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 		<class_restriction class="ROGUE"/>
@@ -227,6 +240,36 @@
 		</stats>
 		<source>
 		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+	
+	<item id="20186" phase="4">
+		<info name="Defiler's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<class_restriction class="ROGUE"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="181"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendor Rutherford Twing.
+		</source>
+	</item>
+	
+	<item id="20052" phase="4">
+		<info name="Highlander's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_05.png"/>
+		<class_restriction class="ROGUE"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="181"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors.
 		</source>
 	</item>
 </items>

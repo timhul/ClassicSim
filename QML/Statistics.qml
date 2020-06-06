@@ -277,22 +277,22 @@ Rectangle {
         }
 
         StatisticsHeader {
-            id: statWeightHeader
-            title: "Stat Weights"
+            id: dpsStatWeightHeader
+            title: "DPS Stat Weights"
 
             anchors.top: dpsDistribution.bottom
             anchors.topMargin: 20
         }
 
         StatisticsScaleResultSorting {
-            id: scaleResultSorting
-            anchors.top: statWeightHeader.bottom
+            id: dpsScaleResultSorting
+            anchors.top: dpsStatWeightHeader.bottom
         }
 
         ListView {
-            id: scaleResultTable
+            id: dpsScaleResultTable
             anchors {
-                top: scaleResultSorting.bottom
+                top: dpsScaleResultSorting.bottom
                 left: parent.left
                 right: parent.right
             }
@@ -301,7 +301,42 @@ Rectangle {
 
             implicitHeight: contentHeight
 
-            model: scaleResultModel
+            model: dpsScaleResultModel
+            delegate: StatisticsEntryScaleResult {
+                name: _name
+                absvalue: _absvalue
+                relvalue: _relvalue
+                standarddev: _standarddev
+                confidenceinterval: _confidenceinterval
+            }
+        }
+
+        StatisticsHeader {
+            id: tpsStatWeightHeader
+            title: "TPS Stat Weights"
+
+            anchors.top: dpsScaleResultTable.bottom
+            anchors.topMargin: 20
+        }
+
+        StatisticsScaleResultSorting {
+            id: tpsScaleResultSorting
+            anchors.top: tpsStatWeightHeader.bottom
+        }
+
+        ListView {
+            id: tpsScaleResultTable
+            anchors {
+                top: tpsScaleResultSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: tpsScaleResultModel
             delegate: StatisticsEntryScaleResult {
                 name: _name
                 absvalue: _absvalue

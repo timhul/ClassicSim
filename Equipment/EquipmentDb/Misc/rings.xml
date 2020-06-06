@@ -437,6 +437,18 @@
 		</source>
 	</item>
 
+	<item id="19434" phase="3">
+		<info name="Band of Dark Dominion" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="inv_jewelry_ring_24.png"/>
+		<stats>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="33"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="20632" phase="4">
 		<info name="Mindtear Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_jewelry_ring_04.png"/>
 		<stats>
@@ -518,6 +530,30 @@
 		</stats>
 		<source>
 			Drops from Emeriss (world boss).
+		</source>
+	</item>
+
+	<item id="20682" phase="4">
+		<info name="Elemental Focus Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_23.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+			Dropped by Prince Skaldrenox in Silithus.
+		</source>
+	</item>
+
+	<item id="22721" phase="4">
+		<info name="Band of Servitude" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_16.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+			Drops from High Priest bosses in Zul'Gurub.
 		</source>
 	</item>
 
@@ -758,6 +794,18 @@
 		</source>
 	</item>
 
+	<item id="22339" phase="5">
+		<info name="Rune Band of Wizardry" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_35.png"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Lord Valthalak in Blackrock Spire.
+		</source>
+	</item>
+
 	<item id="23237" phase="6">
 		<info name="Ring of the Eternal Flame" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
@@ -854,6 +902,17 @@
 		</stats>
 		<source>
 			Drops from Kel'Thuzad in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23031" phase="6">
+		<info name="Band of the Inevitable" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_53naxxramas.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="36"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Dropped from Noth the Plaguebringer in Naxxramas.
 		</source>
 	</item>
 </items>

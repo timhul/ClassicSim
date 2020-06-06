@@ -169,6 +169,21 @@
 		</source>
 	</item>
 
+	<item id="16934" phase="3">
+		<info name="Nemesis Bracers" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="51"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Drops from Razorgore the Untamed in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="20626" phase="4">
 		<info name="Black Bark Wristbands" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
 		<stats>
@@ -274,7 +289,7 @@
 		</source>
 	</item>
 
-	<item id="20690" phase="5">
+	<item id="20690" phase="4">
 		<info name="Abyssal Cloth Wristbands of Sorcery" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_bracer_12.png"/>
 		<stats>
 			<stat type="ARMOR" value="42"/>

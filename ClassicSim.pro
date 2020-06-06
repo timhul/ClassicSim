@@ -23,6 +23,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/EssenceOfTheRed.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Druid/Buffs/BearFormBuff.cpp \
     Class/Druid/Buffs/CatFormBuff.cpp \
     Class/Druid/Buffs/LeaderOfThePack.cpp \
     Class/Druid/Buffs/MoonkinFormBuff.cpp \
@@ -32,15 +33,19 @@ SOURCES += main.cpp \
     Class/Druid/Procs/BloodFrenzy.cpp \
     Class/Druid/Procs/ClearcastingDruid.cpp \
     Class/Druid/Procs/Furor.cpp \
+    Class/Druid/Procs/PrimalFury.cpp \
     Class/Druid/Spells/BearForm.cpp \
     Class/Druid/Spells/CasterForm.cpp \
     Class/Druid/Spells/CatForm.cpp \
+    Class/Druid/Spells/Enrage.cpp \
     Class/Druid/Spells/FerociousBite.cpp \
     Class/Druid/Spells/MainhandAttackDruid.cpp \
+    Class/Druid/Spells/Maul.cpp \
     Class/Druid/Spells/Moonfire.cpp \
     Class/Druid/Spells/MoonkinForm.cpp \
     Class/Druid/Spells/Shred.cpp \
     Class/Druid/Spells/Starfire.cpp \
+    Class/Druid/Spells/Swipe.cpp \
     Class/Druid/Spells/TigersFury.cpp \
     Class/Druid/Spells/Wrath.cpp \
     Class/Druid/TalentTrees/Balance.cpp \
@@ -152,12 +157,16 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Druid/Spells/TestBearForm.cpp \
     Test/Druid/Spells/TestCatForm.cpp \
+    Test/Druid/Spells/TestEnrage.cpp \
     Test/Druid/Spells/TestFerociousBite.cpp \
+    Test/Druid/Spells/TestMaul.cpp \
     Test/Druid/Spells/TestMoonfire.cpp \
     Test/Druid/Spells/TestMoonkinForm.cpp \
     Test/Druid/Spells/TestShred.cpp \
     Test/Druid/Spells/TestStarfire.cpp \
+    Test/Druid/Spells/TestSwipe.cpp \
     Test/Druid/Spells/TestWrath.cpp \
     Test/Druid/Talents/TestBalance.cpp \
     Test/Druid/Talents/TestFeralCombat.cpp \
@@ -217,6 +226,7 @@ SOURCES += main.cpp \
     Class/Warrior/TalentTrees/Protection.cpp \
     Class/Warrior/TalentTrees/Arms/Impale.cpp \
     GUI/GUIControl.cpp \
+    GUI/ClassicSimControl.cpp \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
     Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
     Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
@@ -339,12 +349,16 @@ SOURCES += main.cpp \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
     Class/Warrior/Spells/MortalStrike.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
+    Class/Warrior/Spells/Revenge.cpp \
+    Class/Warrior/Spells/ShieldSlam.cpp \
     Class/Warrior/Spells/Slam.cpp \
     Class/Warrior/Spells/SunderArmor.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
+    Test/Warrior/Spells/TestRevenge.cpp \
     Talent/TalentRequirer.cpp \
     Test/Warrior/Talents/TestFury.cpp \
+    Test/Warrior/Talents/TestDefiance.cpp \
     GUI/Models/RotationModel.cpp \
     Test/Warrior/Talents/TestArms.cpp \
     GUI/SimSettings.cpp \
@@ -512,7 +526,10 @@ SOURCES += main.cpp \
     Test/Paladin/TestPaladin.cpp \
     Test/Paladin/Talents/TestHolyPaladin.cpp \
     Test/Paladin/Talents/TestProtectionPaladin.cpp \
-    Test/Paladin/Talents/TestRetribution.cpp
+    Test/Paladin/Talents/TestRetribution.cpp \
+    Class/Mage/Buffs/MageArmorBuff.cpp \
+    Class/Mage/Spells/MageArmor.cpp \
+    Test/Mage/Spells/TestMageArmor.cpp
 
 HEADERS += \
     Class/Common/Buffs/NoEffectSelfBuff.h \
@@ -525,6 +542,7 @@ HEADERS += \
     Class/Common/Spells/EssenceOfTheRed.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Druid/Buffs/BearFormBuff.h \
     Class/Druid/Buffs/CatFormBuff.h \
     Class/Druid/Buffs/LeaderOfThePack.h \
     Class/Druid/Buffs/MoonkinFormBuff.h \
@@ -534,15 +552,19 @@ HEADERS += \
     Class/Druid/Procs/BloodFrenzy.h \
     Class/Druid/Procs/ClearcastingDruid.h \
     Class/Druid/Procs/Furor.h \
+    Class/Druid/Procs/PrimalFury.h \
     Class/Druid/Spells/BearForm.h \
     Class/Druid/Spells/CasterForm.h \
     Class/Druid/Spells/CatForm.h \
+    Class/Druid/Spells/Enrage.h \
     Class/Druid/Spells/FerociousBite.h \
     Class/Druid/Spells/MainhandAttackDruid.h \
+    Class/Druid/Spells/Maul.h \
     Class/Druid/Spells/Moonfire.h \
     Class/Druid/Spells/MoonkinForm.h \
     Class/Druid/Spells/Shred.h \
     Class/Druid/Spells/Starfire.h \
+    Class/Druid/Spells/Swipe.h \
     Class/Druid/Spells/TigersFury.h \
     Class/Druid/Spells/Wrath.h \
     Class/Druid/TalentTrees/Balance.h \
@@ -655,12 +677,16 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Druid/Spells/TestBearForm.h \
     Test/Druid/Spells/TestCatForm.h \
+    Test/Druid/Spells/TestEnrage.h \
     Test/Druid/Spells/TestFerociousBite.h \
+    Test/Druid/Spells/TestMaul.h \
     Test/Druid/Spells/TestMoonfire.h \
     Test/Druid/Spells/TestMoonkinForm.h \
     Test/Druid/Spells/TestShred.h \
     Test/Druid/Spells/TestStarfire.h \
+    Test/Druid/Spells/TestSwipe.h \
     Test/Druid/Spells/TestWrath.h \
     Test/Druid/Talents/TestBalance.h \
     Test/Druid/Talents/TestFeralCombat.h \
@@ -726,6 +752,7 @@ HEADERS += \
     Class/Warrior/TalentTrees/Protection.h \
     Class/Warrior/TalentTrees/Arms/Impale.h \
     GUI/GUIControl.h \
+    GUI/ClassicSimControl.h \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
     Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
     Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
@@ -849,12 +876,16 @@ HEADERS += \
     Test/TestUtils.h \
     Class/Warrior/Spells/MortalStrike.h \
     Test/Warrior/Spells/TestMortalStrike.h \
+    Class/Warrior/Spells/Revenge.h \
+    Class/Warrior/Spells/ShieldSlam.h \
     Class/Warrior/Spells/Slam.h \
     Class/Warrior/Spells/SunderArmor.h \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
+    Test/Warrior/Spells/TestRevenge.h \
     Talent/TalentRequirer.h \
     Test/Warrior/Talents/TestFury.h \
+    Test/Warrior/Talents/TestDefiance.h \
     GUI/Models/RotationModel.h \
     Test/Warrior/Talents/TestArms.h \
     GUI/SimSettings.h \
@@ -1030,7 +1061,10 @@ HEADERS += \
     Test/Paladin/TestPaladin.h \
     Test/Paladin/Talents/TestHolyPaladin.h \
     Test/Paladin/Talents/TestProtectionPaladin.h \
-    Test/Paladin/Talents/TestRetribution.h
+    Test/Paladin/Talents/TestRetribution.h \
+    Class/Mage/Buffs/MageArmorBuff.h \
+    Class/Mage/Spells/MageArmor.h \
+    Test/Mage/Spells/TestMageArmor.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -1048,6 +1082,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Warrior/TalentTrees \
     $$PWD/Class/Warrior/TalentTrees/Fury \
     $$PWD/Class/Warrior/TalentTrees/Arms \
+    $$PWD/Class/Warrior/TalentTrees/Prot \
     $$PWD/Class/Priest \
     $$PWD/Class/Rogue \
     $$PWD/Class/Rogue/Buffs \

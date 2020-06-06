@@ -47,6 +47,7 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
         return {EnchantName::Name::EnchantCloakLesserAgility};
     case EquipmentSlot::WRIST:
         return {
+            EnchantName::Name::EnchantBracerGreaterStrength,
             EnchantName::Name::EnchantBracerSuperiorStrength,
             EnchantName::Name::EnchantBracerGreaterIntellect,
         };
@@ -61,6 +62,7 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
     case EquipmentSlot::BOOTS:
         return {
             EnchantName::Name::EnchantBootsMinorSpeed,
+            EnchantName::Name::EnchantBootsAgility,
             EnchantName::Name::EnchantBootsGreaterAgility,
             EnchantName::Name::EnchantBootsSpirit,
         };

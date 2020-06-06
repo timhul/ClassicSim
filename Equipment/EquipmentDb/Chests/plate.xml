@@ -28,6 +28,20 @@
 		</source>
 	</item>
 
+	<item id="12895" phase="1">
+		<info name="Breastplate of the Chromatic Flight" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_plate09.png"/>
+		<stats>
+			<stat type="ARMOR" value="706"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="AGILITY" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+			Reward from "Breastplate of the Chromatic Flight" which requires a drop from Gyth in UBRS.
+		</source>
+	</item>
+
 	<item id="16865" phase="1">
 		<info name="Breastplate of Might" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_plate16.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -41,6 +55,37 @@
 		</stats>
 		<source>
 			Drops from Golemagg in Molten Core.
+		</source>
+	</item>
+
+	<item id="19822" phase="4">
+		<info name="Zandalar Vindicator's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate07.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="828"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STRENGTH" value="23"/>
+			<stat type="DEFENSE" value="4"/>
+		</stats>
+		<source>
+			Reward for turning in the Primal Hakari Kossak dropped in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="16966" phase="3">
+		<info name="Breastplate of Wrath" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_plate16.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="857"/>
+			<stat type="STAMINA" value="40"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="DEFENSE" value="11"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+			Drops from Nefarian in Blackwing Lair.
 		</source>
 	</item>
 

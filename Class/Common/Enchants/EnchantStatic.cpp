@@ -33,6 +33,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, i
     case EnchantName::EnchantBracerMinorAgility:
         pchar->get_stats()->increase_agility(1);
         break;
+    case EnchantName::EnchantBracerGreaterStrength:
+        pchar->get_stats()->increase_strength(7);
+        break;
     case EnchantName::EnchantBracerSuperiorStrength:
         pchar->get_stats()->increase_strength(9);
         break;
@@ -136,6 +139,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, i
         break;
     case EnchantName::EnchantBootsMinorSpeed:
         break;
+    case EnchantName::EnchantBootsAgility:
+        pchar->get_stats()->increase_agility(5);
+        break;
     case EnchantName::EnchantBootsGreaterAgility:
         pchar->get_stats()->increase_agility(7);
         break;
@@ -213,6 +219,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::EnchantBracerMinorAgility:
         pchar->get_stats()->decrease_agility(1);
+        break;
+    case EnchantName::EnchantBracerGreaterStrength:
+        pchar->get_stats()->decrease_strength(7);
         break;
     case EnchantName::EnchantBracerSuperiorStrength:
         pchar->get_stats()->decrease_strength(9);
@@ -316,6 +325,9 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_strength(4);
         break;
     case EnchantName::EnchantBootsMinorSpeed:
+        break;
+    case EnchantName::EnchantBootsAgility:
+        pchar->get_stats()->decrease_agility(5);
         break;
     case EnchantName::EnchantBootsGreaterAgility:
         pchar->get_stats()->decrease_agility(7);

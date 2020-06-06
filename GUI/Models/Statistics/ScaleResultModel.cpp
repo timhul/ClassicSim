@@ -25,8 +25,8 @@ bool confidence_interval(ScaleResult* lhs, ScaleResult* rhs) {
     return lhs->confidence_interval > rhs->confidence_interval;
 }
 
-ScaleResultModel::ScaleResultModel(NumberCruncher* statistics_source, QObject* parent) :
-    QAbstractListModel(parent), statistics_source(statistics_source) {
+ScaleResultModel::ScaleResultModel(NumberCruncher* statistics_source, bool for_dps, QObject* parent) :
+    QAbstractListModel(parent), statistics_source(statistics_source), for_dps{for_dps} {
     this->current_sorting_method = ScaleResultSorting::Methods::ByAbsoluteValue;
     this->sorting_methods.insert(ScaleResultSorting::Methods::ByName, SortDirection::Forward);
     this->sorting_methods.insert(ScaleResultSorting::Methods::ByAbsoluteValue, SortDirection::Forward);
@@ -99,7 +99,11 @@ void ScaleResultModel::update_statistics() {
     }
 
     beginInsertRows(QModelIndex(), 0, rowCount());
-    statistics_source->calculate_stat_weights(scale_results);
+    if (for_dps)
+      statistics_source->calculate_stat_weights_for_dps(scale_results);
+    else
+      statistics_source->calculate_stat_weights_for_tps(scale_results);
+
     endInsertRows();
 
     emit layoutAboutToBeChanged();

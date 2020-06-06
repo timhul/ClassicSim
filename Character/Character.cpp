@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "Character.h"
 
 #include "AutoShot.h"
@@ -213,6 +215,11 @@ bool Character::action_ready() const {
     // Allow some rounding errors (this could effectively speed up gcd by 1/10000ths of a second).
     double delta = next_gcd - engine->get_current_priority();
     return delta < 0.0001 && !spells->cast_in_progress();
+}
+
+double Character::time_until_action_ready() const {
+    double delta = next_gcd - engine->get_current_priority();
+    return (delta > 0) ? delta : 0;
 }
 
 void Character::melee_mh_white_hit_effect() {

@@ -15,6 +15,7 @@
 EquipmentDb::EquipmentDb(QObject* parent) : QObject(parent) {
     read_equipment_files();
     add_druid_cat_form_claws();
+    add_druid_bear_form_paws();
     set_content_phase(Content::Phase::Naxxramas);
 
     all_slots_items = {&mh_slot_items, &oh_slot_items, &ranged_items, &helms, &amulets,  &shoulders,   &backs,  &chests,  &wrists, &gloves,
@@ -54,6 +55,17 @@ void EquipmentDb::add_druid_cat_form_claws() {
         Weapon* claw = new Weapon(QString("Claw level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND,
                                   min_dmg, max_dmg, 1.0);
         add_melee_weapon(claw);
+    }
+}
+
+void EquipmentDb::add_druid_bear_form_paws() {
+    for (int i = 1; i <= 60; ++i) {
+        const unsigned min_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(2.5 * i * 0.85))));
+        const unsigned max_dmg = static_cast<unsigned>(std::max(1, static_cast<int>(std::round(2.5 * i * 1.25))));
+        const int item_id = 11223400 + i;
+        Weapon* paws = new Weapon(QString("Paws level %1").arg(i), item_id, Content::Phase::MoltenCore, WeaponTypes::FIST, WeaponSlots::MAINHAND,
+                                  min_dmg, max_dmg, 2.5);
+        add_melee_weapon(paws);
     }
 }
 
@@ -292,8 +304,10 @@ void EquipmentDb::read_equipment_files() {
     QFile file("equipment_paths.xml");
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        qDebug() << "Cannot read file:" << file.errorString();
-        qDebug() << QDir::currentPath();
+        qDebug() << "Error opening" << file.fileName() << "in" << QDir::currentPath();
+        qDebug() << file.errorString() << "\n";
+        qDebug() << "Verify the paths in 'build.config' are correct and run 'DevTools/copy_to_debug.py'.";
+        qDebug() << "For more information see: https://github.com/timhul/ClassicSim/wiki/Developer-Information";
         exit(0);
     }
 

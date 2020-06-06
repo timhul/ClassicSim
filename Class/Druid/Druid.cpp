@@ -85,7 +85,16 @@ unsigned Druid::get_melee_ap_per_strength() const {
 }
 
 unsigned Druid::get_melee_ap_per_agi() const {
-    return 1;
+    switch (current_form) {
+    case DruidForm::Caster:
+    case DruidForm::Bear:
+    case DruidForm::Moonkin:
+        return 0;
+    case DruidForm::Cat:
+        return 1;
+    }
+    check(false, "Reached end of Druid::get_melee_ap_per_agi() switch");
+    return 0;
 }
 
 unsigned Druid::get_ranged_ap_per_agi() const {
@@ -104,10 +113,6 @@ double Druid::global_cooldown() const {
 
     check(false, "Reached end of Druid::global_cooldown() switch");
     return 1.5;
-}
-
-double Druid::form_cooldown() const {
-    return 1.0;
 }
 
 void Druid::set_clvl(const unsigned clvl_) {
@@ -191,10 +196,6 @@ DruidForm Druid::get_current_form() const {
     return this->current_form;
 }
 
-bool Druid::on_form_cooldown() const {
-    return engine->get_current_priority() < this->next_form_cd;
-}
-
 void Druid::cancel_form() {
     switch (this->current_form) {
     case DruidForm::Caster:
@@ -220,11 +221,12 @@ void Druid::switch_to_form(const DruidForm new_form) {
     if (new_form == DruidForm::Caster)
         return cancel_form();
 
-    if (on_form_cooldown())
-        return;
+    if (on_global_cooldown()) return;
 
     cancel_form();
     druid_spells->get_caster_form()->buff->cancel_buff();
+
+    this->current_form = new_form;
 
     switch (new_form) {
     case DruidForm::Bear:
@@ -240,11 +242,8 @@ void Druid::switch_to_form(const DruidForm new_form) {
         check(false, "Unhandled form in Druid::switch_to_form()");
     }
 
-    this->current_form = new_form;
-    this->next_form_cd = engine->get_current_priority() + form_cooldown();
-
-    if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
-        this->next_gcd = engine->get_current_priority() + 0.5;
+    if ((engine->get_current_priority() + 1.5) > this->next_gcd) {
+        this->next_gcd = engine->get_current_priority() + 1.5;
         engine->add_event(new PlayerAction(spells, next_gcd));
     }
 }
@@ -310,7 +309,6 @@ void Druid::reset_resource() {
 
 void Druid::reset_class_specific() {
     cancel_form();
-    this->next_form_cd = 0.0;
     this->combo_points = 0;
     this->stealthed = false;
 }

@@ -376,6 +376,7 @@
         <file>QML/Assets/ability/Ability_warrior_sunder.png</file>
         <file>QML/Assets/ability/Ability_whirlwind.png</file>
         <file>QML/Assets/items/Inv_shield_05.png</file>
+        <file>QML/Assets/items/Inv_shield_17.png</file>
         <file>QML/Assets/items/Inv_shield_06.png</file>
         <file>QML/Assets/items/Inv_sword_20.png</file>
         <file>QML/Assets/items/Inv_weapon_halbard_01.png</file>
@@ -454,6 +455,7 @@
         <file>QML/Assets/items/Inv_weapon_crossbow_07.png</file>
         <file>QML/Assets/items/Inv_weapon_crossbow_08.png</file>
         <file>QML/Assets/items/Inv_weapon_rifle_03.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_04.png</file>
         <file>QML/Assets/items/Inv_weapon_rifle_05.png</file>
         <file>QML/Assets/items/Inv_weapon_rifle_09.png</file>
         <file>QML/Assets/items/Inv_shield_10.png</file>
@@ -962,6 +964,8 @@
         <file>QML/Assets/ability/Ability_racial_cannibalize.png</file>
         <file>QML/Assets/spell/Spell_holy_blessingofagility.png</file>
         <file>QML/Assets/ability/Ability_druid_enrage.png</file>
+        <file>QML/Assets/ability/Ability_druid_maul.png</file>
+        <file>QML/Assets/ability/Ability_druid_swipe.png</file>
         <file>QML/Assets/items/Inv_relics_idolofrejuvenation.png</file>
         <file>QML/Assets/spell/Spell_holy_elunesgrace.png</file>
         <file>QML/Assets/spell/Spell_nature_healingwavegreater.png</file>
@@ -1046,5 +1050,17 @@
         <file>QML/Assets/spell/Spell_shadow_corpseexplode.png</file>
         <file>QML/Assets/spell/Spell_shadow_scourgebuild.png</file>
         <file>QML/Assets/spell/Spell_shadow_shadowwordpain.png</file>
+        <file>QML/Assets/spell/Spell_arcane_mage_armor.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_12.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_21.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_30.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_16.png</file>
+        <file>QML/Assets/misc/Inv_misc_food_63.png</file>
+        <file>QML/Assets/spell/Spell_holy_divinespirit.png</file>
+        <file>QML/Assets/items/Inv_chest_plate09.png</file>
+        <file>QML/Assets/items/Inv_pants_leather_05.png</file>
+        <file>QML/Assets/items/Inv_sword_13.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_53naxxramas.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_18.png</file>
     </qresource>
 </RCC>

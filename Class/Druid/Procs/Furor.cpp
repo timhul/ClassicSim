@@ -4,6 +4,7 @@
 #include "Druid.h"
 #include "ProcInfo.h"
 #include "StatisticsResource.h"
+#include "Utils/Check.h"
 
 Furor::Furor(Druid* druid) :
     Proc("Furor",
@@ -22,12 +23,23 @@ Furor::Furor(Druid* druid) :
 }
 
 void Furor::proc_effect() {
-    const unsigned before_gain = druid->get_resource_level(ResourceType::Energy);
+    if (druid->get_current_form() == DruidForm::Cat) {
+        const unsigned before_gain = druid->get_resource_level(ResourceType::Energy);
 
-    druid->gain_energy(40);
+        druid->gain_energy(40);
 
-    const unsigned delta = druid->get_resource_level(ResourceType::Energy) - before_gain;
-    statistics_resource->add_resource_gain(ResourceType::Energy, delta);
+        const unsigned delta = druid->get_resource_level(ResourceType::Energy) - before_gain;
+        statistics_resource->add_resource_gain(ResourceType::Energy, delta);
+    } else if (druid->get_current_form() == DruidForm::Bear) {
+        const unsigned before_gain = druid->get_resource_level(ResourceType::Rage);
+
+        druid->gain_rage(10);
+
+        const unsigned delta = druid->get_resource_level(ResourceType::Rage) - before_gain;
+        statistics_resource->add_resource_gain(ResourceType::Rage, delta);
+    } else {
+        check(false, std::string("Furor::proc_effect called in invalid form "));
+    }
 }
 
 void Furor::increase_talent_rank_effect(const QString&, const int curr) {

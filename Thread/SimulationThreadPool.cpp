@@ -93,11 +93,11 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     auto runner = new SimulationRunner(thread_id, equipment_db, random_affixes, sim_settings, scaler);
     auto thread = new QThread(runner);
 
-    connect(this, SIGNAL(start_simulation(uint, QVector<QString>, bool, int)), runner, SLOT(run_sim(uint, QVector<QString>, bool, int)));
-    connect(runner, SIGNAL(error(QString, QString)), this, SLOT(error_string(QString, QString)));
-    connect(runner, SIGNAL(result()), this, SLOT(thread_finished()));
-    connect(runner, SIGNAL(update_progress(const int)), this, SLOT(increase_iterations_completed(int)));
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+    connect(this, &SimulationThreadPool::start_simulation, runner, &SimulationRunner::sim_runner_run);
+    connect(runner, &SimulationRunner::error, this, &SimulationThreadPool::error_string);
+    connect(runner, &SimulationRunner::simulation_runner_has_result, this, &SimulationThreadPool::thread_finished);
+    connect(runner, &SimulationRunner::update_progress, this, &SimulationThreadPool::increase_iterations_completed);
+    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
 
     thread_pool.append(QPair<unsigned, QThread*>(thread_id, thread));
     active_thread_ids.append(thread_id);
