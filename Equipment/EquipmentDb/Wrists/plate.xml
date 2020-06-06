@@ -26,6 +26,19 @@
 		</source>
 	</wrist>
 
+	<wrist id="16959" phase="2">
+		<info name="Bracelets of Wrath" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="YES" icon="Inv_bracer_19.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="375"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="27"/>
+		</stats>
+		<source>
+			Drops from Razorgore in Blackwing Lair.
+		</source>
+	</wrist>
+
 	<wrist id="19824" phase="4">
 		<info name="Zandalar Vindicator's Armguards" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="NO" icon="Inv_bracer_14.png"/>
 		<class_restriction class="WARRIOR"/>
