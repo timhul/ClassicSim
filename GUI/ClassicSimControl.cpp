@@ -168,7 +168,7 @@ ClassicSimControl::ClassicSimControl(QObject* parent) :
     chars.insert("Warlock", load_character("Warlock"));
     chars.insert("Warrior", load_character("Warrior"));
 
-    load_gui_settings();
+    load_configuration();
 }
 
 ClassicSimControl::~ClassicSimControl() {
@@ -262,7 +262,6 @@ void ClassicSimControl::set_character(Character* pchar) {
     raid_setup[0][0] = QVariantMap {{"text", "You"}, {"color", current_char->class_color}, {"selected", true}};
 
     emit raceChanged();
-    emit classChanged();
     emit statsChanged();
     emit rotationChanged();
     emit equipmentChanged();
@@ -1859,7 +1858,7 @@ Character* ClassicSimControl::get_new_character(const QString& class_name) {
 }
 
 void ClassicSimControl::save_settings() {
-    save_gui_settings();
+    save_configuration();
 
     for (auto& pchar : chars) {
         if (!supported_classes.contains(pchar->class_name))
@@ -1897,7 +1896,7 @@ void ClassicSimControl::save_user_setup(Character* pchar) {
     }
 }
 
-void ClassicSimControl::save_gui_settings() {
+void ClassicSimControl::save_configuration() {
     QFile file("Saves/GUI-setup.xml");
     file.remove();
 
@@ -1928,7 +1927,8 @@ void ClassicSimControl::save_gui_settings() {
     }
 }
 
-void ClassicSimControl::load_gui_settings() {
+void ClassicSimControl::load_configuration() {
+    // Leave this old filename for backwards compatibility
     QFile file("Saves/GUI-setup.xml");
 
     if (file.open(QIODevice::ReadOnly)) {
@@ -1936,7 +1936,7 @@ void ClassicSimControl::load_gui_settings() {
         reader.readNextStartElement();
 
         while (reader.readNextStartElement())
-            activate_gui_setting(reader.name(), reader.readElementText().trimmed());
+            activate_configuration(reader.name(), reader.readElementText().trimmed());
     }
 
     equipment_db->set_content_phase(sim_settings->get_phase());
@@ -1951,7 +1951,7 @@ void ClassicSimControl::load_gui_settings() {
     }
 }
 
-void ClassicSimControl::activate_gui_setting(const QStringRef& name, const QString& value) {
+void ClassicSimControl::activate_configuration(const QStringRef& name, const QString& value) {
     if (name == "class")
         set_character(chars[value]);
     else if (name == "race")

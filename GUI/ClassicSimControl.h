@@ -433,9 +433,9 @@ private:
     Character* get_new_character(const QString& class_name);
     void save_user_setup(Character* pchar);
 
-    void save_gui_settings();
-    void load_gui_settings();
-    void activate_gui_setting(const QStringRef& name, const QString& value);
+    void save_configuration();
+    void load_configuration();
+    void activate_configuration(const QStringRef& name, const QString& value);
 
     QVariantList get_tooltip_from_item(Item* item);
 
