@@ -553,3 +553,11 @@ void Character::set_special_statistics() {
         cstats->decrease_stamina(1);
     }
 }
+
+QString const& Character::get_rotation_name() const {
+  return rotation_name;
+}
+
+void Character::set_rotation_name(QString name) {
+  this->rotation_name = std::move(name);
+}

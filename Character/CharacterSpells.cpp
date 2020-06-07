@@ -62,6 +62,7 @@ CharacterSpells::~CharacterSpells() {
 
 void CharacterSpells::set_rotation(Rotation* rotation) {
     this->rotation = rotation;
+    this->pchar->set_rotation_name(rotation->get_name());
     this->rotation->link_spells(pchar);
     set_attack_mode(this->rotation->get_attack_mode());
 }

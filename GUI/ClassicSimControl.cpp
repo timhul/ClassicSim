@@ -238,7 +238,10 @@ void ClassicSimControl::set_character(Character* pchar) {
     item_model->set_character(current_char);
     weapon_model->set_character(current_char);
     rotation_model->set_character(current_char);
-    selectInformationRotation(0);
+    if (auto index = rotation_model->get_index_of_rotation_named(pchar->get_rotation_name()))
+      selectInformationRotation(*index);
+    else
+      selectInformationRotation(0);
     rotation_model->select_rotation();
     character_encoder->set_character(current_char);
     buff_model->set_character(current_char);

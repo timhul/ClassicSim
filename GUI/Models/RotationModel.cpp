@@ -1,5 +1,7 @@
 #include "RotationModel.h"
 
+#include <optional>
+
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "Rotation.h"
@@ -19,6 +21,7 @@ void RotationModel::set_character(Character* pchar) {
     this->pchar = pchar;
     information_index = -1;
     addRotations();
+
     select_rotation();
 }
 
@@ -38,8 +41,6 @@ void RotationModel::addRotations() {
 
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         rotations[rotation->get_class()].append(rotation);
-
-        information_index = 0;
 
         endInsertRows();
     }
@@ -121,4 +122,13 @@ void RotationModel::clear_rotations() {
             delete rotation;
 
     rotations.clear();
+}
+
+std::optional<int> RotationModel::get_index_of_rotation_named(QString const& name) const {
+    for (int i = 0; i < rotations[pchar->class_name].size(); ++i) {
+        if (rotations[pchar->class_name][i]->get_name() == name)
+            return i;
+    }
+
+    return std::nullopt;
 }
