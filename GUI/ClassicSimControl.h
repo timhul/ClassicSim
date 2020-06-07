@@ -174,10 +174,6 @@ public:
     Q_PROPERTY(QString relicIcon READ get_relic_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString quiverIcon READ get_quiver_icon NOTIFY equipmentChanged)
 
-    Q_INVOKABLE void selectSlot(const QString& slot_string);
-    Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id, const uint affix_id = 0);
-    Q_INVOKABLE void clearSlot(const QString& slot_string);
-
     Q_INVOKABLE void setEquipmentSetup(const int equipment_index);
 
     Q_SIGNAL void enchantChanged();
