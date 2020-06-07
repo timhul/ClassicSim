@@ -510,6 +510,44 @@ Window {
         onButtonClicked: character.runFullSim()
     }
 
+    GradientButton {
+        id: toggleTankButton
+
+        anchors {
+            right: fullSimButton.left
+            rightMargin: 15
+            bottom: parent.bottom
+            bottomMargin: 15
+        }
+
+        height: 50
+        width: 200
+
+        Text {
+            font {
+                family: "Arial"
+                pointSize: 13
+                bold: true
+            }
+
+            function getTankingText() {
+                if (character.isTanking) {
+                    return "Disable Tanking"
+                } else {
+                    return "Enable Tanking"
+                }
+            }
+            text: getTankingText()
+
+            anchors.fill: parent
+
+            color: root.colorFaction
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        onButtonClicked: character.toggleTank()
+    }
+
     PercentBar {
         visible: settings.simInProgress
         anchors.bottom: parent.bottom

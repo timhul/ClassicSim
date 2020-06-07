@@ -935,6 +935,16 @@ void ClassicSimControl::runQuickSim() {
     emit simProgressChanged();
 }
 
+void ClassicSimControl::toggleTank() {
+    current_char->set_is_tanking(!current_char->is_tanking());
+
+    emit tankingChanged();
+}
+
+bool ClassicSimControl::get_is_tanking() const {
+    return current_char->is_tanking();
+}
+
 void ClassicSimControl::runFullSim() {
     if (sim_in_progress)
         return;
@@ -975,7 +985,8 @@ void ClassicSimControl::compile_thread_results() {
     rotation_executor_list_model->update_statistics();
     damage_meters_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
-    update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale), number_cruncher->get_personal_tps(SimOption::Name::NoScale));
+    update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale),
+                               number_cruncher->get_personal_tps(SimOption::Name::NoScale));
     update_displayed_raid_dps_value(number_cruncher->get_raid_dps());
     dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
@@ -1993,10 +2004,10 @@ QVariantList ClassicSimControl::get_tooltip_from_item(Item* item) {
     else if (slot == "MH")
         set_weapon_tooltip(item, slot, "Main Hand", dmg_range, weapon_speed, dps);
     else if (slot == "OH")
-      if (item->get_item_type() != WeaponTypes::SHIELD)
-        set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
-      else
-        slot = "Offhand";
+        if (item->get_item_type() != WeaponTypes::SHIELD)
+            set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
+        else
+            slot = "Offhand";
     else if (slot == "2H")
         set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
     else if (slot == "RANGED") {

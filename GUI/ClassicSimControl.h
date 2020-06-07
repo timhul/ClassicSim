@@ -118,6 +118,10 @@ public:
     QString get_formatted_talent_allocation() const;
     /* End of Talents */
 
+    Q_INVOKABLE void toggleTank();
+    Q_PROPERTY(bool isTanking READ get_is_tanking NOTIFY tankingChanged)
+    bool get_is_tanking() const;
+
     /* Stats */
     Q_PROPERTY(unsigned strength READ get_strength NOTIFY statsChanged)
     Q_PROPERTY(unsigned agility READ get_agility NOTIFY statsChanged)
@@ -330,6 +334,7 @@ public:
     /* End of GUI initialization */
 
 signals:
+    void tankingChanged();
     void classChanged();
     void raceChanged();
     void factionChanged();
