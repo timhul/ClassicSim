@@ -64,7 +64,6 @@ public:
     Q_PROPERTY(bool isAlliance READ get_is_alliance NOTIFY factionChanged)
     Q_PROPERTY(bool isHorde READ get_is_horde NOTIFY factionChanged)
 
-    Q_INVOKABLE void selectClass(const QString& class_name);
     Q_INVOKABLE void selectRace(const QString& race_name);
     Q_INVOKABLE void selectFaction(const int faction);
 

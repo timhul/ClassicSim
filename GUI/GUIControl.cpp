@@ -1,5 +1,7 @@
 #include "GUIControl.h"
 
+#include <QDebug>
+
 #include "Character.h"
 #include "EnchantModel.h"
 #include "Equipment.h"
@@ -340,3 +342,18 @@ void GUIControl::selectSlot(const QString& slot_string) {
 
     emit equipmentSlotSelected();
 }
+
+void GUIControl::selectClass(const QString& class_name) {
+    if (!chars.contains(class_name)) {
+        qDebug() << QString("Class %1 not found in char list!").arg(class_name);
+        return;
+    }
+
+    if (!supported_classes.contains(class_name)) {
+        qDebug() << QString("Class %1 not implemented").arg(class_name);
+        return;
+    }
+
+    set_character(chars[class_name]);
+}
+
