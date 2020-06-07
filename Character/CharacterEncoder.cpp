@@ -70,6 +70,8 @@ QString CharacterEncoder::get_current_setup_string() {
 
     key_val("RULESET", QString::number(pchar->get_sim_settings()->get_ruleset()));
 
+    key_val("TANKING", QString::number(pchar->is_tanking()));
+
     return pchar_str;
 }
 

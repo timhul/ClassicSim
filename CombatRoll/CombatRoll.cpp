@@ -32,7 +32,7 @@ CombatRoll::~CombatRoll() {
 int CombatRoll::get_melee_hit_result(const unsigned wpn_skill, const unsigned crit_mod) {
     const unsigned roll = random->get_roll();
 
-    MeleeWhiteHitTable* attack_table = this->get_melee_white_table(wpn_skill);
+    MeleeWhiteHitTable* attack_table = this->get_melee_white_table(wpn_skill, pchar->is_attacking_from_behind());
 
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod));
 }
@@ -45,7 +45,7 @@ int CombatRoll::get_melee_ability_result(const unsigned wpn_skill,
                                          const bool include_miss) {
     const unsigned roll = random->get_roll();
 
-    MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill, pchar->is_attacking_from_behind());
 
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), include_dodge, include_parry, include_block, include_miss);
 }
@@ -97,9 +97,9 @@ int CombatRoll::get_pet_ability_result(const unsigned wpn_skill, const unsigned 
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), true, true, true, true);
 }
 
-MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) {
-    if (melee_white_tables.contains(wpn_skill))
-        return melee_white_tables[wpn_skill];
+MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill, bool is_attacking_from_behind) {
+    if (melee_white_tables.contains({wpn_skill, is_attacking_from_behind}))
+        return melee_white_tables[{wpn_skill, is_attacking_from_behind}];
 
     unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(wpn_skill) * 10000));
     const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
@@ -110,26 +110,35 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) 
                                             0 :
                                             mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
-    auto table = new MeleeWhiteHitTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill),
-                                        mechanics->get_parry_chance(wpn_skill), glancing_blow_chance, mechanics->get_block_chance());
+    double parry_chance = 0;
+    if (!is_attacking_from_behind)
+        parry_chance = mechanics->get_parry_chance(wpn_skill);
 
-    melee_white_tables[wpn_skill] = table;
+    auto table = new MeleeWhiteHitTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill), parry_chance,
+                                        glancing_blow_chance, mechanics->get_block_chance());
+
+    melee_white_tables[{wpn_skill, is_attacking_from_behind}] = table;
 
     return table;
 }
 
-MeleeSpecialTable* CombatRoll::get_melee_special_table(const unsigned wpn_skill) {
-    if (melee_special_tables.contains(wpn_skill))
-        return melee_special_tables[wpn_skill];
+MeleeSpecialTable* CombatRoll::get_melee_special_table(const unsigned wpn_skill, bool is_attacking_from_behind) {
+    if (melee_special_tables.contains({wpn_skill, is_attacking_from_behind}))
+        return melee_special_tables[{wpn_skill, is_attacking_from_behind}];
 
     unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(wpn_skill) * 10000));
     unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
 
     miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
 
-    auto table = new MeleeSpecialTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill),
-                                       mechanics->get_parry_chance(wpn_skill), mechanics->get_block_chance());
-    melee_special_tables[wpn_skill] = table;
+    double parry_chance = 0;
+    if (!is_attacking_from_behind)
+        parry_chance = mechanics->get_parry_chance(wpn_skill);
+
+    auto table = new MeleeSpecialTable(this->random, wpn_skill, miss_chance, mechanics->get_dodge_chance(wpn_skill), parry_chance,
+                                       mechanics->get_block_chance());
+
+    melee_special_tables[{wpn_skill, is_attacking_from_behind}] = table;
 
     return table;
 }
