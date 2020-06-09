@@ -174,9 +174,6 @@ public:
     Q_PROPERTY(QString relicIcon READ get_relic_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString quiverIcon READ get_quiver_icon NOTIFY equipmentChanged)
 
-    Q_INVOKABLE QVariantList getTooltip(const QString& slot_string);
-    Q_INVOKABLE QVariantList getTooltip(const int item_id);
-
     Q_INVOKABLE void selectSlot(const QString& slot_string);
     Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id, const uint affix_id = 0);
     Q_INVOKABLE void clearSlot(const QString& slot_string);
@@ -353,7 +350,7 @@ signals:
 public slots:
     void update_progress(double percent);
 
-private:
+protected:
     int get_talent_points_remaining() const;
     QString get_class_color() const;
     QString get_class_name() const;
@@ -418,10 +415,6 @@ private:
     QString get_quiver_icon() const;
 
     QString get_initial_upper_case_rest_lower_case(const QString&) const;
-    void set_weapon_tooltip(Item*& item, QString& slot, QString type, QString& dmg_range, QString& wpn_speed, QString& dps);
-    void set_projectile_tooltip(Item* item, QString& slot, QString& dps);
-    void set_class_restriction_tooltip(Item*& item, QString& restriction);
-    void set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const;
     void set_character(Character* pchar);
     void calculate_displayed_dps_value();
     void update_displayed_dps_value(const double new_dps_value, const double new_tps_value);
@@ -441,8 +434,6 @@ private:
     void save_configuration();
     void load_configuration();
     void activate_configuration(const QStringRef& name, const QString& value);
-
-    QVariantList get_tooltip_from_item(Item* item);
 
     EquipmentDb* equipment_db;
     RandomAffixes* random_affixes_db;
