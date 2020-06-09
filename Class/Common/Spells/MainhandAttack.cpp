@@ -70,6 +70,25 @@ double MainhandAttack::get_next_expected_use() const {
     return next_expected_use > curr_time ? next_expected_use : curr_time;
 }
 
+void MainhandAttack::update_next_expected_use_for_parry() {
+  // This comes from https://github.com/magey/classic-warrior/wiki/Parry-haste
+  // The formula seems to be for player->boss parry haste. The graph
+  // makes it seems like the 0.6 paramater goes to 0.5, so I'll just
+  // use that here.
+  double speed = pchar->get_stats()->get_mh_wpn_speed();
+  double parry_haste_boost = 0.4 * speed;
+  double curr_time = pchar->get_engine()->get_current_priority();
+
+  double remaining = next_expected_use - curr_time;
+
+  if (remaining / speed > 0.5)
+    next_expected_use = cooldown->last_used + speed - parry_haste_boost;
+  else if (remaining / speed < 0.2)
+    ;
+  else
+    next_expected_use = next_expected_use - 0.2 * speed;
+}
+
 void MainhandAttack::update_next_expected_use(const double haste_change) {
     double curr_time = pchar->get_engine()->get_current_priority();
     double remainder_after_haste_change = (next_expected_use - curr_time);

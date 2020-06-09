@@ -9,6 +9,7 @@ public:
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);
+    void update_next_expected_use_for_parry();
     bool attack_is_valid(const int) const;
     int get_next_iteration();
 
