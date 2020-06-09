@@ -132,7 +132,6 @@ bool Rotation::add_conditionals(RotationExecutor* executor) {
         case ConditionType::BuffStacksCondition: {
             Buff* buff = pchar->get_spells()->get_buff_by_name(sentence->type_value);
             if (buff == nullptr) {
-                qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;
             }
             condition = new ConditionBuffStacks(buff, sentence->mathematical_symbol, sentence->compared_value.toInt());
@@ -141,7 +140,6 @@ bool Rotation::add_conditionals(RotationExecutor* executor) {
         case ConditionType::BuffDurationCondition: {
             Buff* buff = pchar->get_spells()->get_buff_by_name(sentence->type_value);
             if (buff == nullptr) {
-                qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;
             }
             condition = new ConditionBuffDuration(buff, sentence->mathematical_symbol, sentence->compared_value.toDouble());
