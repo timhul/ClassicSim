@@ -1,5 +1,7 @@
 #pragma once
 
+#include <optional>
+
 #include <QAbstractListModel>
 #include <QMap>
 #include <QStringList>
@@ -27,6 +29,8 @@ public:
 
     void select_rotation();
     bool set_information_index(const int);
+
+    std::optional<int> get_index_of_rotation_named(QString const& name) const;
 
     QString get_rotation_information_name() const;
     QString get_rotation_information_description() const;

@@ -160,6 +160,9 @@ public:
     const QString class_name;
     const QString class_color;
 
+    QString const& get_rotation_name() const;
+    void set_rotation_name(QString name);
+
 protected:
     Race* race;
     Engine* engine;
@@ -177,6 +180,8 @@ protected:
     Resource* resource {nullptr};
     Pet* pet {nullptr};
     RaidControl* raid_control {nullptr};
+
+    QString rotation_name;
 
     QString player_name;
     QVector<QString> available_races;
