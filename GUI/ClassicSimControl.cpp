@@ -271,20 +271,6 @@ void ClassicSimControl::set_character(Character* pchar) {
     emit talentsUpdated();
 }
 
-void ClassicSimControl::selectClass(const QString& class_name) {
-    if (!chars.contains(class_name)) {
-        qDebug() << QString("Class %1 not found in char list!").arg(class_name);
-        return;
-    }
-
-    if (!supported_classes.contains(class_name)) {
-        qDebug() << QString("Class %1 not implemented").arg(class_name);
-        return;
-    }
-
-    set_character(chars[class_name]);
-}
-
 void ClassicSimControl::selectRace(const QString& race_name) {
     if (!races.contains(race_name)) {
         qDebug() << QString("Race %1 not found").arg(race_name);

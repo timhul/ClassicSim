@@ -8,6 +8,10 @@ public:
     GUIControl(QObject* parent = nullptr);
     ~GUIControl();
 
+    /* Character */
+    Q_INVOKABLE void selectClass(const QString& class_name);
+    /* End of Character */
+
     QVariantList get_tooltip_from_item(Item* item);
 
     Q_INVOKABLE QVariantList getTooltip(const QString& slot_string);
