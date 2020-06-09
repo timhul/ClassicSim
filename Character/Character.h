@@ -83,6 +83,10 @@ public:
 
     void add_player_reaction_event();
 
+    bool is_attacking_from_behind() const;
+    void set_is_tanking(bool new_value);
+    bool is_tanking() const;
+
     virtual bool is_dual_wielding() const;
     bool action_ready() const;
     void start_global_cooldown();
@@ -182,6 +186,8 @@ protected:
     double next_trinket_cd;
     int party;
     int party_member;
+
+    bool char_is_tanking = false;
 
     virtual void initialize_talents() = 0;
 

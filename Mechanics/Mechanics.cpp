@@ -43,8 +43,9 @@ double Mechanics::get_dodge_chance(const unsigned wpn_skill) const {
     return std::max(0.0, 0.05 + defense_diff * 0.001);
 }
 
-double Mechanics::get_parry_chance(const unsigned) const {
-    return 0.0;
+double Mechanics::get_parry_chance(const unsigned wpn_skill) const {
+    const int defense_diff = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
+    return std::max(0.0, 0.14 + defense_diff * 0.001);
 }
 
 double Mechanics::get_block_chance() const {

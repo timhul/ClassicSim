@@ -80,6 +80,7 @@ void CharacterLoader::initialize_existing(Character* pchar) {
     select_rotation(decoder, pchar);
     apply_enchants(decoder, pchar);
     apply_ruleset(decoder, pchar);
+    apply_tanking(decoder, pchar);
 
     success = true;
 }
@@ -358,6 +359,11 @@ void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar
 
 void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar) {
     pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_value("RULESET").toInt()), pchar);
+}
+
+void CharacterLoader::apply_tanking(CharacterDecoder& decoder, Character* pchar) {
+    auto is_tanking = decoder.get_value("TANKING").toInt();
+    pchar->set_is_tanking(is_tanking);
 }
 
 void CharacterLoader::setup_target(CharacterDecoder& decoder) {

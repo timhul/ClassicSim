@@ -35,8 +35,8 @@ public:
     int get_pet_hit_result(const unsigned wpn_skill, const unsigned crit_mod);
     int get_pet_ability_result(const unsigned wpn_skill, const unsigned crit_mod);
 
-    MeleeWhiteHitTable* get_melee_white_table(const unsigned wpn_skill);
-    MeleeSpecialTable* get_melee_special_table(const unsigned wpn_skill);
+    MeleeWhiteHitTable* get_melee_white_table(const unsigned wpn_skill, bool is_attacking_from_behind = true);
+    MeleeSpecialTable* get_melee_special_table(const unsigned wpn_skill, bool is_attacking_from_behind = true);
     RangedWhiteHitTable* get_ranged_white_table(const unsigned wpn_skill);
     MagicAttackTable* get_magic_attack_table(const MagicSchool);
     MeleeWhiteHitTable* get_pet_white_table(const unsigned wpn_skill);
@@ -64,8 +64,8 @@ private:
     Random* random;
     Random* glance_roll;
 
-    QMap<unsigned, MeleeWhiteHitTable*> melee_white_tables;
-    QMap<unsigned, MeleeSpecialTable*> melee_special_tables;
+    QMap<QPair<unsigned, bool>, MeleeWhiteHitTable*> melee_white_tables;
+    QMap<QPair<unsigned, bool>, MeleeSpecialTable*> melee_special_tables;
     QMap<unsigned, RangedWhiteHitTable*> ranged_white_tables;
     QMap<MagicSchool, MagicAttackTable*> magic_attack_tables;
     QMap<unsigned, MeleeWhiteHitTable*> pet_white_tables;

@@ -1,6 +1,6 @@
-#include <algorithm>
-
 #include "Character.h"
+
+#include <algorithm>
 
 #include "AutoShot.h"
 #include "CharacterSpells.h"
@@ -113,6 +113,18 @@ int Character::get_party() const {
 
 int Character::get_party_member() const {
     return this->party_member;
+}
+
+bool Character::is_attacking_from_behind() const {
+    return !char_is_tanking;
+}
+
+bool Character::is_tanking() const {
+    return char_is_tanking;
+}
+
+void Character::set_is_tanking(bool new_value) {
+    this->char_is_tanking = new_value;
 }
 
 bool Character::is_dual_wielding() const {
