@@ -1,13 +1,18 @@
 #include "GUIControl.h"
 
 #include "Character.h"
+#include "EnchantModel.h"
 #include "Equipment.h"
 #include "EquipmentDb.h"
 #include "Item.h"
+#include "ItemModel.h"
+#include "ItemTypeFilterModel.h"
 #include "Projectile.h"
 #include "Quiver.h"
+#include "RandomAffixes.h"
 #include "SetBonusControl.h"
 #include "Weapon.h"
+#include "WeaponModel.h"
 
 GUIControl::GUIControl(QObject* parent) : ClassicSimControl(parent) {}
 GUIControl::~GUIControl() {}
@@ -208,4 +213,130 @@ QVariantList GUIControl::getTooltip(const QString& slot_string) {
 QVariantList GUIControl::getTooltip(const int item_id) {
     Item* item = this->equipment_db->get_item(item_id);
     return get_tooltip_from_item(item);
+}
+
+void GUIControl::setSlot(const QString& slot_string, const int item_id, const uint affix_id) {
+    RandomAffix* affix = random_affixes_db->get_affix(affix_id);
+
+    if (slot_string == "MAINHAND") {
+        current_char->get_equipment()->set_mainhand(item_id, affix);
+        mh_enchants->update_enchants();
+        mh_temporary_enchants->update_enchants();
+    }
+    if (slot_string == "OFFHAND") {
+        current_char->get_equipment()->set_offhand(item_id, affix);
+        oh_temporary_enchants->update_enchants();
+    }
+    if (slot_string == "RANGED")
+        current_char->get_equipment()->set_ranged(item_id, affix);
+    if (slot_string == "HEAD")
+        current_char->get_equipment()->set_head(item_id, affix);
+    if (slot_string == "NECK")
+        current_char->get_equipment()->set_neck(item_id, affix);
+    if (slot_string == "SHOULDERS")
+        current_char->get_equipment()->set_shoulders(item_id, affix);
+    if (slot_string == "BACK")
+        current_char->get_equipment()->set_back(item_id, affix);
+    if (slot_string == "CHEST")
+        current_char->get_equipment()->set_chest(item_id, affix);
+    if (slot_string == "WRIST")
+        current_char->get_equipment()->set_wrist(item_id, affix);
+    if (slot_string == "GLOVES")
+        current_char->get_equipment()->set_gloves(item_id, affix);
+    if (slot_string == "BELT")
+        current_char->get_equipment()->set_belt(item_id, affix);
+    if (slot_string == "LEGS")
+        current_char->get_equipment()->set_legs(item_id, affix);
+    if (slot_string == "BOOTS")
+        current_char->get_equipment()->set_boots(item_id, affix);
+    if (slot_string == "RING1")
+        current_char->get_equipment()->set_ring1(item_id, affix);
+    if (slot_string == "RING2")
+        current_char->get_equipment()->set_ring2(item_id, affix);
+    if (slot_string == "TRINKET1")
+        current_char->get_equipment()->set_trinket1(item_id);
+    if (slot_string == "TRINKET2")
+        current_char->get_equipment()->set_trinket2(item_id);
+    if (slot_string == "PROJECTILE")
+        current_char->get_equipment()->set_projectile(item_id);
+    if (slot_string == "RELIC")
+        current_char->get_equipment()->set_relic(item_id);
+    if (slot_string == "QUIVER")
+        current_char->get_equipment()->set_quiver(item_id);
+
+    emit equipmentChanged();
+    emit statsChanged();
+    emit enchantChanged();
+}
+
+void GUIControl::clearSlot(const QString& slot_string) {
+    if (slot_string == "MAINHAND")
+        current_char->get_equipment()->clear_mainhand();
+    if (slot_string == "OFFHAND")
+        current_char->get_equipment()->clear_offhand();
+    if (slot_string == "RANGED")
+        current_char->get_equipment()->clear_ranged();
+    if (slot_string == "HEAD")
+        current_char->get_equipment()->clear_head();
+    if (slot_string == "NECK")
+        current_char->get_equipment()->clear_neck();
+    if (slot_string == "SHOULDERS")
+        current_char->get_equipment()->clear_shoulders();
+    if (slot_string == "BACK")
+        current_char->get_equipment()->clear_back();
+    if (slot_string == "CHEST")
+        current_char->get_equipment()->clear_chest();
+    if (slot_string == "WRIST")
+        current_char->get_equipment()->clear_wrist();
+    if (slot_string == "GLOVES")
+        current_char->get_equipment()->clear_gloves();
+    if (slot_string == "BELT")
+        current_char->get_equipment()->clear_belt();
+    if (slot_string == "LEGS")
+        current_char->get_equipment()->clear_legs();
+    if (slot_string == "BOOTS")
+        current_char->get_equipment()->clear_boots();
+    if (slot_string == "RING1")
+        current_char->get_equipment()->clear_ring1();
+    if (slot_string == "RING2")
+        current_char->get_equipment()->clear_ring2();
+    if (slot_string == "TRINKET1")
+        current_char->get_equipment()->clear_trinket1();
+    if (slot_string == "TRINKET2")
+        current_char->get_equipment()->clear_trinket2();
+    if (slot_string == "PROJECTILE")
+        current_char->get_equipment()->clear_projectile();
+    if (slot_string == "RELIC")
+        current_char->get_equipment()->clear_relic();
+    if (slot_string == "QUIVER")
+        current_char->get_equipment()->clear_quiver();
+
+    emit equipmentChanged();
+    emit statsChanged();
+    emit enchantChanged();
+}
+
+void GUIControl::selectSlot(const QString& slot_string) {
+    int slot = get_slot_int(slot_string);
+
+    if (slot == -1 || (slot == ItemSlots::PROJECTILE && current_char->class_name != "Hunter"))
+        return;
+
+    if (slot == ItemSlots::QUIVER && current_char->class_name != "Hunter")
+        return;
+
+    item_type_filter_model->set_item_slot(slot);
+
+    switch (slot) {
+    case ItemSlots::MAINHAND:
+    case ItemSlots::OFFHAND:
+    case ItemSlots::RANGED:
+        weapon_model->setSlot(slot);
+        break;
+    default:
+        item_model->setSlot(slot);
+        break;
+    }
+
+    emit equipmentSlotSelected();
 }
