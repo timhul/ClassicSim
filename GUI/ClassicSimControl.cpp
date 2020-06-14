@@ -270,6 +270,7 @@ void ClassicSimControl::set_character(Character* pchar) {
     emit equipmentChanged();
     emit enchantChanged();
     emit factionChanged();
+    emit classChanged();
     emit partyMembersUpdated();
     emit talentsUpdated();
 }
