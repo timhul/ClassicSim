@@ -289,7 +289,21 @@
 		Drops from Trash in Zul'Gurub.
 		</source>
 	</item>
-	
+
+    <item id="22006" phase="5">
+        <info name="Darkmantle Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_gauntlets_24.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="108"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="AGILITY" value="22"/>
+            <stat type="STRENGTH" value="12"/>
+        </stats>
+        <source>
+        Darkmantle Quest line (Shadowcraft required).   
+        </source>
+    </item>
+
 	<item id="13258" phase="6">
 		<info name="Slaghide Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_22.png"/>
 		<stats>

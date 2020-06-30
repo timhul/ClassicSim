@@ -67,6 +67,20 @@
 		</source>
 	</item>
 
+    <item id="22009" phase="5">
+        <info name="Darkmantle Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_leather_07.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="185"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="AGILITY" value="31"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
+        Darkmantle Quest line (Shadowcraft required).   
+        </source>
+    </item>
+
 	<item id="12757" phase="1">
 		<info name="Breastplate of Bloodthirst" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
 		<stats>

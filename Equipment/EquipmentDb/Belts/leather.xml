@@ -224,6 +224,20 @@
 		</source>
 	</item>
 	
+	<item id="22002" phase="5">
+		<info name="Darkmantle Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_03.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="AGILITY" value="17"/>
+            <stat type="STRENGTH" value="10"/>
+		</stats>
+		<source>
+	    Darkmantle Quest line (Shadowcraft required).	
+		</source>
+	</item>
+
 	<item id="20045" phase="4">
 		<info name="Highlander's Leather Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_belt_17.png"/>
 		<class_restriction class="DRUID"/>

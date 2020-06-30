@@ -198,6 +198,21 @@
 		</source>
 	</item>
 
+    <item id="22005" phase="5">
+        <info name="Darkmantle Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="150"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="AGILITY" value="26"/>
+            <stat type="STRENGTH" value="13"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+        Darkmantle Quest line (Shadowcraft required).   
+        </source>
+    </item>
+
 	<item id="22478" phase="6">
 		<info name="Bonescythe Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
 		<class_restriction class="ROGUE"/>
