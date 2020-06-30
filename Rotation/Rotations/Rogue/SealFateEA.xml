@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<rotation class="Rogue" name="Seal Fate Dagger" attack_mode="melee">
+    <description>
+    A rotation for Seal Fate dagger rogues.
+    </description>
+
+    <cast_if name="Thistle Tea">
+        resource "Energy" less 20
+    </cast_if>
+
+    <cast_if name="Slice and Dice">
+        buff_duration "Slice and Dice" less 3
+    </cast_if>
+
+    <cast_if name="Backstab">
+        variable "combo_points" less 4
+    </cast_if>
+
+    <cast_if name="Eviscerate">
+        variable "combo_points" geq 4
+        and buff_duration "Slice and Dice" greater 8
+    </cast_if>
+
+    <cast_if name="Kiss of the Spider">
+         variable "time_remaining_execute" greater 120
+         or variable "time_remaining_execute" less 0
+    </cast_if>
+
+    <cast_if name="Jom Gabbar">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
+
+    <cast_if name="Badge of the Swarmguard">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
+
+    <cast_if name="Slayer's Crest">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
+
+    <cast_if name="Earthstrike">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
+
+    <cast_if name="Zandalarian Hero Medallion">
+        variable "time_remaining_execute" greater 120
+        or variable "time_remaining_execute" less 0
+    </cast_if>
+
+    <cast_if name="Blood Fury">
+        variable "time_remaining_execute" less 0
+        and resource "Energy" less 50
+        or variable "time_remaining_execute" greater 120
+    </cast_if>
+
+    <cast_if name="Berserking">
+        variable "time_remaining_execute" less 0
+        and resource "Energy" less 50
+        or variable "time_remaining_execute" greater 180
+    </cast_if>
+</rotation>
