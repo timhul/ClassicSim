@@ -24,13 +24,13 @@
         resource "Mana" greater 400
     </cast_if>
 
+    <cast_if name="Mana Potion"/>
+    <cast_if name="Demonic Rune"/>
+    <cast_if name="Night Dragon's Breath"/>
+
     <cast_if name="Arcane Missiles"/>
 
     <cast_if name="Evocation">
         resource "Mana" less 500
     </cast_if>
-
-    <cast_if name="Mana Potion"/>
-    <cast_if name="Demonic Rune"/>
-    <cast_if name="Night Dragon's Breath"/>
 </rotation>
