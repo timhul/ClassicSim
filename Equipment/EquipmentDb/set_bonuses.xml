@@ -136,11 +136,11 @@
 		<bonus value="2">
 		(2) Set: +8 All Resistances.
 		</bonus>
-		<bonus value="4" item_stat="ATTACK_POWER" stat_value="40">
+		<bonus value="4">
 		(4) Set: Chance on melee attack to restore 35 energy.
 		</bonus>
-		<bonus value="6">
-		(6) Set: +40 Attack Power. 
+		<bonus value="6" item_stat="ATTACK_POWER" stat_value="40">
+		(6) Set: +40 Attack Power.
 		</bonus>
 		<bonus value="8">
 		(8) Set: +200 Armor.
