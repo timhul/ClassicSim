@@ -161,6 +161,20 @@
 		</source>
 	</wrist>
 
+    <wrist id="22004" phase="5">
+        <info name="Darkmantle Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="79"/>
+            <stat type="STAMINA" value="7"/>
+            <stat type="AGILITY" value="15"/>
+            <stat type="STRENGTH" value="7"/>
+        </stats>
+        <source>
+        Darkmantle Quest line (Shadowcraft required).   
+        </source>
+    </item>
+
 	<wrist id="22483" phase="6">
 		<info name="Bonescythe Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_15.png"/>
 		<class_restriction class="ROGUE"/>

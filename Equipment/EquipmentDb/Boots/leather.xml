@@ -257,6 +257,19 @@
 		Sold by Arathi Basin vendor Rutherford Twing.
 		</source>
 	</item>
+
+    <item id="22003" phase="5">
+        <info name="Darkmantle Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="127"/>
+            <stat type="STAMINA" value="10"/>
+            <stat type="AGILITY" value="24"/>
+        </stats>
+        <source>
+        Darkmantle Quest line (Shadowcraft required).
+        </source>
+    </item>
 	
 	<item id="20052" phase="4">
 		<info name="Highlander's Leather Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_cloth_05.png"/>

@@ -123,6 +123,30 @@
 		</bonus>
 	</set>
 
+	<set name="Darkmantle Armor">
+		<item_id value="22002"/>
+		<item_id value="22003"/>
+		<item_id value="22004"/>
+		<item_id value="22005"/>
+		<item_id value="22006"/>
+		<item_id value="22007"/>
+		<item_id value="22008"/>
+		<item_id value="22009"/>
+
+		<bonus value="2">
+		(2) Set: +8 All Resistances.
+		</bonus>
+		<bonus value="4" item_stat="ATTACK_POWER" stat_value="40">
+		(4) Set: Chance on melee attack to restore 35 energy.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +40 Attack Power. 
+		</bonus>
+		<bonus value="8">
+		(8) Set: +200 Armor.
+		</bonus>
+	</set>
+
 	<set name="Dal'Rend's Arms">
 		<item_id value="12940"/>
 		<item_id value="12939"/>

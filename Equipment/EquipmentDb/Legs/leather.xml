@@ -52,6 +52,20 @@
 		</source>
 	</item>
 
+    <item id="22007" phase="5">
+        <info name="Darkmantle Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_02.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="160"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="AGILITY" value="25"/>
+            <stat type="STRENGTH" value="15"/>
+        </stats>
+        <source>
+        Darkmantle Quest line (Shadowcraft required).   
+        </source>
+    </item>
+
 	<item id="16822" phase="1">
 		<info name="Nightslayer Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="ROGUE"/>
