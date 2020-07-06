@@ -293,6 +293,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="21498" phase="5">
+		<info name="Qiraji Sacrificial Dagger" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_weapon_shortblade_12.png"/>
+		<dmg_range min="64" max="119" speed="1.9"/>
+		<stats>
+			<stat type="STAMINA" value="15"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
+			Drops from Kurinnaxx in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="21244" phase="5">
 		<info name="Blessed Qiraji Pugio" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>
 		<dmg_range min="72" max="134" speed="1.7"/>
