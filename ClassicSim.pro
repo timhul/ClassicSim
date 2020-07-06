@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
+    Class/Common/Buffs/CharmOfTrickery.cpp \
     Class/Common/Buffs/NoEffectSelfBuff.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
     Class/Common/Buffs/SanctifiedOrb.cpp \
@@ -533,6 +534,7 @@ SOURCES += main.cpp \
     Test/Mage/Spells/TestMageArmor.cpp
 
 HEADERS += \
+    Class/Common/Buffs/CharmOfTrickery.h \
     Class/Common/Buffs/NoEffectSelfBuff.h \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
     Class/Common/Buffs/SanctifiedOrb.h \

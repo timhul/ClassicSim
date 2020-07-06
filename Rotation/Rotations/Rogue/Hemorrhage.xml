@@ -8,6 +8,10 @@
         resource "Energy" less 20
     </cast_if>
 
+    <cast_if name="Renataki's Charm of Trickery">
+        resource "Energy" leq 40
+    </cast_if>
+
     <cast_if name="Slice and Dice">
         buff_duration "Slice and Dice" less 3
     </cast_if>

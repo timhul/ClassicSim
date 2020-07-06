@@ -395,6 +395,21 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="19954" phase="4">
+		<info name="Renataki's Charm of Trickery" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats/>
+		<uses>
+			<use name="CHARM_OF_TRICKERY"/>
+		</uses>
+		<source>
+			Drops from Edge of Madness bosses in Zul'Gurub.
+		</source>
+		<special_equip_effect>
+			Use: Instantly increases your energy by 60. (3 Min Cooldown)
+		</special_equip_effect>
+	</item>
+
 	<item id="22268" phase="5">
 		<info name="Draconic Infused Emblem" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_09.png"/>
 		<stats/>
