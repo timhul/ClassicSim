@@ -10,6 +10,7 @@
 #include "Buff.h"
 #include "Character.h"
 #include "CharacterSpells.h"
+#include "CharmOfTrickery.h"
 #include "DevilsaurEye.h"
 #include "EnchantStatic.h"
 #include "Equipment.h"
@@ -386,6 +387,9 @@ void Item::set_uses() {
         } else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);
             spell = new UseTrinket(pchar, buff->name, buff->icon, 120, buff, nullptr);
+        } else if (use_name == "CHARM_OF_TRICKERY") {
+            Buff* buff = new CharmOfTrickery(pchar);
+            spell = new UseTrinket(pchar, "Renataki's Charm of Trickery", buff->icon, 180, buff, nullptr);
         } else if (use_name == "ZANDALARIAN_HERO_MEDALLION") {
             QVector<ProcInfo::Source> proc_sources;
             proc_sources.append(ProcInfo::Source::MainhandSwing);

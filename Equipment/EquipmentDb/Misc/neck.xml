@@ -281,6 +281,22 @@
 		</source>
 	</item>
 
+	<item id="19617" phase="4">
+		<info name="Zandalarian Shadow Mastery Talisman" type="AMULET" slot="NECK" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+			Reputation reward. Requires Exalted with Zandalar Tribe.
+		</source>
+		<special_equip_effect>
+			Equip: Decreases the cooldown of Kick by 0.5 sec.
+		</special_equip_effect>
+	</item>
+
 	<item id="19601" phase="4">
 		<info name="Jewel of Kajaro" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
 		<class_restriction class="MAGE"/>

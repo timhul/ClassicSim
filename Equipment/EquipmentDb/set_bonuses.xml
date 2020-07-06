@@ -551,6 +551,24 @@
 		</bonus>
 	</set>
 
+	<set name="Madcap's Outfit">
+		<item_id value="19617"/>
+		<item_id value="19954"/>
+		<item_id value="19836"/>
+		<item_id value="19835"/>
+		<item_id value="19834"/>
+
+		<bonus value="2" item_stat="ATTACK_POWER" stat_value="20">
+		(2) Set: +20 Attack Power.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Decreases the cooldown of Blind by 20 sec.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Decrease the energy cost of Eviscerate and Rupture by 5.
+		</bonus>
+	</set>
+
 	<set name="Bonescythe Armor">
 		<item_id value="22483"/>
 		<item_id value="22476"/>

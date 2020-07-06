@@ -117,6 +117,20 @@
 		</source>
 	</wrist>
 
+	<wrist id="19836" phase="4">
+		<info name="Zandalar Madcap's Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="58" item_lvl="61" quality="EPIC" boe="yes" icon="Inv_bracer_14.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="82"/>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+		<source>
+        Reward from Paragons of Power: The Madcap's Bracers.
+		</source>
+	</wrist>
+
 	<wrist id="20615" phase="4">
 		<info name="Dragonspur Wraps" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_15.png"/>
 		<stats>
