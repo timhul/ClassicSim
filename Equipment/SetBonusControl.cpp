@@ -59,7 +59,7 @@ void SetBonusControl::equip_item(const int item_id) {
         case 4:
             if (!active_procs.contains("DARKMANTLE_GAIN"))
                 active_procs["DARKMANTLE_GAIN"] = new ResourceGainProc(pchar, "Darkmantle 4 set", "Assets/items/Inv_helmet_41.png",
-                                                                        {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
+                                                                        {ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
                                                                         0.035, ResourceType::Energy, 35, 35);
             active_procs["DARKMANTLE_GAIN"]->enable_proc();
             break;
@@ -69,7 +69,7 @@ void SetBonusControl::equip_item(const int item_id) {
         case 6:
             if (!active_procs.contains("SHADOWCRAFT_GAIN"))
                 active_procs["SHADOWCRAFT_GAIN"] = new ResourceGainProc(pchar, "Shadowcraft 6 set", "Assets/items/Inv_helmet_41.png",
-                                                                        {ProcInfo::MainhandSpell, ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
+                                                                        {ProcInfo::MainhandSwing, ProcInfo::OffhandSwing},
                                                                         0.035, ResourceType::Energy, 35, 35);
             active_procs["SHADOWCRAFT_GAIN"]->enable_proc();
             break;
