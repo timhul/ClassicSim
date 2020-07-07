@@ -32,7 +32,12 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
         return {};
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
-        return {EnchantName::Name::ArcanumOfFocus, EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityStrength};
+        return {
+            EnchantName::Name::ArcanumOfFocus,
+            EnchantName::Name::ArcanumOfRapidity,
+            EnchantName::Name::LesserArcanumOfVoracityStrength,
+            EnchantName::Name::LesserArcanumOfVoracityAgility,
+        };
     case EquipmentSlot::SHOULDERS:
         return {
             EnchantName::Name::MightOfTheScourge,

@@ -126,11 +126,15 @@ public:
         case EnchantName::ArcanumOfRapidity:
             return "Arcanum of Rapidity";
         case EnchantName::LesserArcanumOfVoracityAgility:
+            return "Lesser Arcanum of Voracity (Agi)";
         case EnchantName::LesserArcanumOfVoracityIntellect:
+            return "Lesser Arcanum of Voracity (Int)";
         case EnchantName::LesserArcanumOfVoracitySpirit:
+            return "Lesser Arcanum of Voracity (Spirit)";
         case EnchantName::LesserArcanumOfVoracityStamina:
+            return "Lesser Arcanum of Voracity (Stam)";
         case EnchantName::LesserArcanumOfVoracityStrength:
-            return "Lesser Arcanum of Voracity";
+            return "Lesser Arcanum of Voracity (Str)";
         case EnchantName::DeathsEmbrace:
             return "Death's Embrace";
         case EnchantName::FalconsCall:
@@ -237,7 +241,7 @@ public:
         case EnchantName::ArcanumOfFocus:
             return "+8 Spell Damage/Healing";
         case EnchantName::ArcanumOfRapidity:
-            return "+1% Haste";
+            return "+1% Attack Speed";
         case EnchantName::LesserArcanumOfVoracityAgility:
             return "+8 Agility";
         case EnchantName::LesserArcanumOfVoracityIntellect:

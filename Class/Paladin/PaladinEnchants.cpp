@@ -36,6 +36,7 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
             EnchantName::Name::ArcanumOfFocus,
             EnchantName::Name::ArcanumOfRapidity,
             EnchantName::Name::LesserArcanumOfVoracityStrength,
+            EnchantName::Name::LesserArcanumOfVoracityAgility,
         };
     case EquipmentSlot::SHOULDERS:
         return {
