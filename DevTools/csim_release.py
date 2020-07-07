@@ -112,7 +112,7 @@ def tar_application():
 
         for i in range(10):
             revision = i + 1
-            tar_name = "classicsim-{date_string}-{revision}-win32".format(date_string=date_string,
+            tar_name = "classicsim-{date_string}-{revision}-win64".format(date_string=date_string,
                                                                           revision=revision)
             tar_path = ARCHIVE_PATH / tar_name
             if tar_path.exists():
