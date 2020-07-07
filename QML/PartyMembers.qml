@@ -27,8 +27,8 @@ RectangleBorders {
 
     Connections {
         target: raid
-        onPartyMembersUpdated: updatePartyMembers()
-        onSelectedPartyMemberChanged: updatePartyMembers()
+        function onPartyMembersUpdated() { updatePartyMembers() }
+        function onSelectedPartyMemberChanged() { updatePartyMembers() }
     }
 
     Component.onCompleted: updatePartyMembers()

@@ -15,7 +15,7 @@ RectangleBorders {
 
     Connections {
         target: settings
-        onClassChanged: visible = character.raceAvailable(raceName)
+        function onClassChanged() { visible = character.raceAvailable(raceName) }
     }
 
     Image {

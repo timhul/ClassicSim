@@ -15,7 +15,7 @@ RectangleBorders {
 
     Connections {
         target: equipment
-        onEquipmentChanged: updateTooltip()
+        function onEquipmentChanged() { updateTooltip() }
     }
 
     function hasDurability() {

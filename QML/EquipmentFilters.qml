@@ -22,8 +22,8 @@ RectangleBorders {
 
             Connections {
                 target: equipment
-                onFiltersUpdated: selected = !equipment.getFilterActive(item_type)
-                onEquipmentSlotSelected: selected = !equipment.getFilterActive(item_type)
+                function onFiltersUpdated() { selected = !equipment.getFilterActive(item_type) }
+                function onEquipmentSlotSelected() { selected = !equipment.getFilterActive(item_type) }
             }
 
             sendShiftClicks: true

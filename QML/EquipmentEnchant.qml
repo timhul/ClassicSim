@@ -15,13 +15,13 @@ Rectangle {
 
     Connections {
         target: equipment
-        onEquipmentChanged: {
+        function onEquipmentChanged() {
             if (!temporaryEnchant)
                 visible = orientation !== "None" && equipment.hasItemEquipped(slot)
             else
                 visible = (slotString === "MAINHAND" || slotString === "OFFHAND") && equipment.hasItemEquipped(slot)
         }
-        onEnchantChanged: setEffectText()
+        function onEnchantChanged() { setEffectText() }
     }
 
     function setEffectText() {

@@ -14,8 +14,8 @@ Rectangle {
 
     Connections {
         target: talents
-        onTalentsUpdated: update()
-        onClassChanged: classChange()
+        function onTalentsUpdated() { update() }
+        function onClassChanged() { classChange() }
     }
 
     onVisibleChanged: {

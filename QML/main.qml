@@ -70,13 +70,13 @@ Window {
 
     Connections {
         target: character
-        onSimPersonalResultUpdated: {
+        function onSimPersonalResultUpdated(dps, dpsChange, tps, positive) {
             continuousDpsUpdateText.text = dps;
             percentualDifference.text = dpsChange;
             continuousTpsUpdateText.text = tps;
             percentualDifference.color = positive ? brightGreen : brightRed
         }
-        onSimRaidResultUpdated: {
+        function onSimRaidResultUpdated(dps, dpsChange, positive) {
             continuousRaidDpsUpdateText.text = dps;
             percentualDifferenceRaidDps.text = dpsChange;
             percentualDifferenceRaidDps.color = positive ? brightGreen : brightRed
@@ -201,7 +201,7 @@ Window {
 
         Connections {
             target: settings
-            onClassChanged: ruleset.currentIndex = settings.getCurrentRuleset()
+            function onClassChanged() { ruleset.currentIndex = settings.getCurrentRuleset() }
         }
     }
 
