@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="11832" phase="1">
-		<info name="Burst of Knowledge" type="TRINKET" slot="TRINKET" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_amulet_07.png"/>
+		<info name="Burst of Knowledge" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_amulet_07.png"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="12"/>
 		</stats>
@@ -284,7 +284,7 @@
 	</item>
 
 	<item id="20130" phase="3">
-		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
+		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
 		<mutex item_id="20251"/>
 		<mutex item_id="20517"/>
 		<class_restriction class="WARRIOR"/>
@@ -322,7 +322,7 @@
 	</item>
 
 	<item id="20512" phase="3">
-		<info name="Sanctified Orb" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_gem_pearl_04.png"/>
+		<info name="Sanctified Orb" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_gem_pearl_04.png"/>
 		<mutex item_id="20504"/>
 		<mutex item_id="20505"/>
 		<class_restriction class="PALADIN"/>
