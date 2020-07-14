@@ -1062,5 +1062,6 @@
         <file>QML/Assets/items/Inv_sword_13.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_53naxxramas.png</file>
         <file>QML/Assets/items/Inv_gauntlets_18.png</file>
+        <file>QML/Assets/items/Inv_hammer_17.png</file>
     </qresource>
 </RCC>

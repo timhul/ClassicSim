@@ -132,6 +132,18 @@
         </source>
     </melee_weapon>
 
+    <melee_weapon id="13006" phase="1">
+        <info name="Mass of McGowan" type="MACE" slot="MH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_hammer_17.png"/>
+        <dmg_range min="80" max="149" speed="2.8"/>
+        <stats>
+            <stat type="STRENGTH" value="10"/>
+            <stat type="STAMINA" value="10"/>
+        </stats>
+        <source>
+			Random world drop.
+        </source>
+    </melee_weapon>
+
     <melee_weapon id="17112" phase="2">
         <info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
         <dmg_range min="94" max="175" speed="2.8"/>
