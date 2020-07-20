@@ -145,6 +145,20 @@
 		</source>
 	</item>
 
+	<item id="19823" phase="4">
+		<info name="Zandalar Vindicator's Belt" type="PLATE" slot="BELT" unique="no" req_lvl="58" item_lvl="61" quality="EPIC" boe="no" icon="Inv_belt_32.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="391"/>
+			<stat type="STRENGTH" value="25"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward from Paragons of Power: The Vindicator's Belt.
+		</source>
+	</item>
+
 	<item id="22197" phase="5">
 		<info name="Heavy Obsidian Belt" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
 		<stats>
