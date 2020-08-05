@@ -228,6 +228,22 @@
 		</source>
 	</item>
 
+	<item id="16964" phase="3">
+		<info name="Gauntlets of Wrath" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="535"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+			<stat type="DEFENSE" value="7"/>
+		</stats>
+		<source>
+			Drops from Firemaw, Ebenroc and Flamegor in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="22714" phase="4">
 		<info name="Sacrificial Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_gauntlets_31.png"/>
 		<stats>
@@ -269,4 +285,18 @@
 			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</item>
+
+    <item id="21674" phase="5">
+        <info name="Gauntlets of Steadfast Determination" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
+        <stats>
+            <stat type="ARMOR" value="535"/>
+            <stat type="STRENGTH" value="19"/>
+            <stat type="AGILITY" value="18"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="DEFENSE" value="9"/>
+        </stats>
+        <source>
+            Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+        </source>
+    </item>
 </items>

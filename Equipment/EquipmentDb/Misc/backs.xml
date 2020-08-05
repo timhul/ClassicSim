@@ -425,6 +425,20 @@
 		</source>
 	</item>
 
+	<item id="21621" phase="5">
+		<info name="Cloak of the Golden Hive" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_misc_cape_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="59"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="AGILITY" value="10"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="DEFENSE" value="6"/>
+		</stats>
+		<source>
+			Drops from Princess Huhuran in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="21701" phase="5">
 		<info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>

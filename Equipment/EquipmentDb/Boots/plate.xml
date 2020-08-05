@@ -241,7 +241,7 @@
 	</item>
 
 	<item id="21490" phase="5">
-		<info name="Slime Kickers" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
+		<info name="Slime Kickers" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<stats>
 			<stat type="ARMOR" value="519"/>
 			<stat type="STRENGTH" value="18"/>
