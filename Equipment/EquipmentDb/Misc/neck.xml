@@ -446,6 +446,19 @@
 		</source>
 	</item>
 
+	<item id="22732" phase="5">
+		<info name="Mark of C'Thun" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_04.png"/>
+		<stats>
+			<stat type="STAMINA" value="24"/>
+			<stat type="DEFENSE" value="10"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="23125" phase="6">
 		<info name="Chains of the Lich" type="AMULET" slot="NECK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
 		<stats>

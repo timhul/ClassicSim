@@ -228,7 +228,7 @@
 		</source>
 	</item>
 
-	<item id="16863" phase="3">
+	<item id="16964" phase="3">
 		<info name="Gauntlets of Wrath" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
