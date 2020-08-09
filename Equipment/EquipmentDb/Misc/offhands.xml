@@ -272,4 +272,19 @@
 		Drops from Sapphiron in Naxxramas.
 		</source>
 	</melee_weapon>
+	
+    <melee_weapon id="13385" phase="1">
+		<info name="Tome of Knowledge" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_book_05.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="STRENGTH" value="8"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="AGILITY" value="8"/>
+		</stats>
+		<source>
+		Drops from Archivist Galford in Stratholme Living.
+		</source>
+	</melee_weapon>
 </weapons>
