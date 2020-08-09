@@ -73,6 +73,9 @@ void Stats::add(const QString& key, const QString& value) {
         this->increase_base_melee_ap(value.toUInt());
         this->increase_base_ranged_ap(value.toUInt());
         this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power.").arg(value));
+    } else if (key == "FERAL_ATTACK_POWER") {
+        this->increase_base_feral_ap(value.toUInt());
+        this->equip_effects_tooltip.append(QString("Equip: +%1 Attack Power in Cat, Bear, and Dire Bear forms only.").arg(value));
     } else if (key == "RANGED_ATTACK_POWER") {
         this->increase_base_ranged_ap(value.toUInt());
         this->equip_effects_tooltip.append(QString("Equip: +%1 Ranged Attack Power.").arg(value));
@@ -289,6 +292,7 @@ void Stats::add(const Stats* rhs) {
     increase_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
 
     increase_base_melee_ap(rhs->get_base_melee_ap());
+    increase_base_feral_ap(rhs->get_base_feral_ap());
     increase_base_ranged_ap(rhs->get_base_ranged_ap());
 
     increase_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
@@ -383,6 +387,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
 
     decrease_base_melee_ap(rhs->get_base_melee_ap());
+    decrease_base_feral_ap(rhs->get_base_feral_ap());
     decrease_base_ranged_ap(rhs->get_base_ranged_ap());
 
     decrease_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
@@ -724,6 +729,19 @@ void Stats::increase_base_melee_ap(const unsigned increase) {
 void Stats::decrease_base_melee_ap(const unsigned decrease) {
     check((melee_ap >= decrease), "Underflow base melee ap decrease");
     melee_ap -= decrease;
+}
+
+unsigned Stats::get_base_feral_ap() const {
+    return feral_ap;
+}
+
+void Stats::increase_base_feral_ap(const unsigned increase) {
+    feral_ap += increase;
+}
+
+void Stats::decrease_base_feral_ap(const unsigned decrease) {
+    check((feral_ap >= decrease), "Underflow base feral ap decrease");
+    feral_ap -= decrease;
 }
 
 unsigned Stats::get_base_ranged_ap() const {

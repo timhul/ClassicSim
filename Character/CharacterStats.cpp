@@ -434,6 +434,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::AttackPower:
         increase_melee_ap(value);
         return increase_ranged_ap(value);
+    case ItemStats::FeralAttackPower:
+        return increase_feral_ap(value);
     case ItemStats::APVersusBeast:
     case ItemStats::APVersusDemon:
     case ItemStats::APVersusDragonkin:
@@ -559,6 +561,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::AttackPower:
         decrease_melee_ap(value);
         return decrease_ranged_ap(value);
+    case ItemStats::FeralAttackPower:
+        return decrease_feral_ap(value);
     case ItemStats::APVersusBeast:
     case ItemStats::APVersusDemon:
     case ItemStats::APVersusDragonkin:
@@ -703,7 +707,11 @@ unsigned CharacterStats::get_melee_ap() const {
     unsigned attributes_ap = get_strength() * pchar->get_melee_ap_per_strength() + get_agility() * pchar->get_melee_ap_per_agi();
     unsigned target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     unsigned target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    return static_cast<unsigned>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base)));
+    unsigned stat_feral_ap = 0;
+    if (equipment->druid_is_in_feral_form()) {
+        stat_feral_ap = equipment->get_stats()->get_base_feral_ap();
+    }
+    return static_cast<unsigned>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base + stat_feral_ap)));
 }
 
 void CharacterStats::increase_melee_ap(const unsigned value) {
@@ -712,6 +720,14 @@ void CharacterStats::increase_melee_ap(const unsigned value) {
 
 void CharacterStats::decrease_melee_ap(const unsigned value) {
     base_stats->decrease_base_melee_ap(value);
+}
+
+void CharacterStats::increase_feral_ap(const unsigned value) {
+    base_stats->increase_base_feral_ap(value);
+}
+
+void CharacterStats::decrease_feral_ap(const unsigned value) {
+    base_stats->decrease_base_feral_ap(value);
 }
 
 unsigned CharacterStats::get_ranged_ap() const {

@@ -14,6 +14,10 @@ public:
     void increase_base_melee_ap(const unsigned increase);
     void decrease_base_melee_ap(const unsigned decrease);
 
+    unsigned get_base_feral_ap() const;
+    void increase_base_feral_ap(const unsigned increase);
+    void decrease_base_feral_ap(const unsigned decrease);
+
     unsigned get_base_ranged_ap() const;
     void increase_base_ranged_ap(const unsigned);
     void decrease_base_ranged_ap(const unsigned);
@@ -228,6 +232,7 @@ private:
     unsigned gun_skill {0};
 
     unsigned melee_ap {0};
+    unsigned feral_ap {0};
     unsigned ranged_ap {0};
     unsigned melee_hit {0};
     unsigned melee_crit {0};

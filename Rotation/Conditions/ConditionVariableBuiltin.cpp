@@ -1,7 +1,6 @@
 #include "ConditionVariableBuiltin.h"
 
 #include <cmath>
-#include <iostream>
 
 #include "AutoShot.h"
 #include "Character.h"
@@ -63,7 +62,6 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
         return false;
     }
     case BuiltinVariables::TimeRemainingGCD:
-        //std::cout << "Time remaining GCD: " << pchar->time_until_action_ready() << std::endl;
         return cmp_values(pchar->time_until_action_ready());
 
     default:

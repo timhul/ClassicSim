@@ -114,6 +114,8 @@ public:
     void druid_cat_form_switch_to_claws();
     void druid_switch_to_normal_weapon();
 
+    bool druid_is_in_feral_form() const;
+
 private:
     int setup_index;
     Character* pchar;

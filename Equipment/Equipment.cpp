@@ -1116,6 +1116,15 @@ void Equipment::druid_switch_to_normal_weapon() {
     }
 }
 
+bool Equipment::druid_is_in_feral_form() const {
+    if (get_mainhand() == nullptr) return false;
+    int mh = get_mainhand()->item_id;
+    if (mh == (11223300 + static_cast<int>(pchar->get_clvl())) ||
+        mh == (11223400 + static_cast<int>(pchar->get_clvl())))
+        return true;
+    return false;
+}
+
 void Equipment::clear_item_id_if_equipped_in_any_slot(const int item_id) {
     if (get_mainhand() && get_mainhand()->item_id == item_id)
         clear_mainhand();
