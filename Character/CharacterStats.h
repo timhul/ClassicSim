@@ -87,6 +87,10 @@ public:
     void increase_melee_ap(const unsigned value);
     void decrease_melee_ap(const unsigned value);
 
+    unsigned get_feral_ap() const;
+    void increase_feral_ap(const unsigned value);
+    void decrease_feral_ap(const unsigned value);
+
     unsigned get_ranged_ap() const;
     void increase_ranged_ap(const unsigned value);
     void decrease_ranged_ap(const unsigned value);

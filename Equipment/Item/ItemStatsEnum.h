@@ -44,6 +44,7 @@ enum class ItemStats : int
     AttackPower,
     MeleeAttackPower,
     RangedAttackPower,
+    FeralAttackPower,
     APVersusBeast,
     APVersusDemon,
     APVersusDragonkin,
