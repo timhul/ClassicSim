@@ -330,11 +330,11 @@
         <info name="Blessed Qiraji War Hammer" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
         <dmg_range min="89" max="166" speed="2.1"/>
         <stats>
-            <stat type="STAMINA" value="12"/>
-            <stat type="STRENGTH" value="10"/>
-            <stat type="DEFENSE" value="8"/>
             <stat type="ARMOR" value="70"/>
+            <stat type="STRENGTH" value="10"/>
+            <stat type="STAMINA" value="12"/>
             <stat type="FERAL_ATTACK_POWER" value="280"/>
+            <stat type="DEFENSE" value="8"/>
         </stats>
         <source>
 			Quest reward from turning in an Imperial Qiraji Regalia in AQ40.
