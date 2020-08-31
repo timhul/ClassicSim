@@ -144,6 +144,18 @@
         </source>
     </melee_weapon>
 
+    <melee_weapon id="13015" phase="3">
+        <info name="Serathil" type="AXE" slot="1H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
+        <dmg_range min="53" max="99" speed="1.9"/>
+        <stats>
+            <stat type="ARMOR" value="100"/>
+            <stat type="STRENGTH" value="9"/>
+        </stats>
+        <source>
+			World drop.
+        </source>
+    </melee_weapon>
+
     <melee_weapon id="19103" phase="3">
         <info name="Frostbite" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no" icon="Inv_axe_22.png"/>
         <dmg_range min="80" max="150" speed="2.7"/>
