@@ -197,6 +197,24 @@
 		</source>
 	</item>
 
+	<item id="21467" phase="5">
+		<info name="Thick Silithid Chestguard" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_chest_leather_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="258"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="AGILITY" value="21"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="ARCANE_RESISTANCE" value="5"/>
+			<stat type="FIRE_RESISTANCE" value="5"/>
+			<stat type="NATURE_RESISTANCE" value="5"/>
+			<stat type="FROST_RESISTANCE" value="5"/>
+			<stat type="SHADOW_RESISTANCE" value="5"/>
+		</stats>
+		<source>
+		Drops from Moam in Temple of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
 	<item id="23226" phase="6">
 		<info name="Ghoul Skin Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
 		<stats>
