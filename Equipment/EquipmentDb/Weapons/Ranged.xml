@@ -462,7 +462,7 @@
 
 	<melee_weapon id="22811" phase="6">
 		<info name="Soulstring" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
-		<dmg_range min="123" max="229" speed="2.9"/>
+		<dmg_range min="103" max="192" speed="2.9"/>
 		<stats>
 			<stat type="STAMINA" value="6"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
