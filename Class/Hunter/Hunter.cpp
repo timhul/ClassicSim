@@ -34,7 +34,7 @@ Hunter::Hunter(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     cstats->increase_stamina(70);
     cstats->increase_intellect(45);
     cstats->increase_spirit(50);
-    cstats->increase_ranged_ap(160);
+    cstats->increase_ranged_ap(100);
 
     this->hunter_spells = new HunterSpells(this);
     this->spells = hunter_spells;
