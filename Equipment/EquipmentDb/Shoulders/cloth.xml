@@ -683,6 +683,23 @@
 		</source>
 	</item>
 
+	<item id="21335" phase="5">
+		<info name="Doomcaller's Mantle" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_03.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="89"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPIRIT" value="4"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+			<stat type="SPELL_PENETRATION" value="10"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="22758" phase="6">
 		<info name="Sylvan Shoulders" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="yes" icon="Inv_shoulder_18.png"/>
 		<stats>

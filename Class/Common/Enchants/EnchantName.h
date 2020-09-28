@@ -60,6 +60,7 @@ public:
         MightOfTheScourge,
         PowerOfTheScourge,
         PresenceOfSight,
+        HoodooHex,
         ShadowOil,
         SniperScope,
         SolidWeightstone,
