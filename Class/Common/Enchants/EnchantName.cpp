@@ -33,6 +33,7 @@ EnchantInfo::EnchantInfo() {
         new EnchantSpec(EnchantName::Name::EnchantCloakLesserAgility, "Lesser Agility", "Enchant Cloak - Lesser Agility", "+3 Agility"),
         new EnchantSpec(EnchantName::Name::EnchantGlovesFirePower, "Fire Power", "Enchant Gloves - Fire Power", "+20 Fire Damage"),
         new EnchantSpec(EnchantName::Name::EnchantGlovesFrostPower, "Frost Power", "Enchant Gloves - Frost Power", "+20 Frost Damage"),
+        new EnchantSpec(EnchantName::Name::EnchantGlovesShadowPower, "Shadow Power", "Enchant Gloves - Shadow Power", "+20 Shadow Damage"),
         new EnchantSpec(EnchantName::Name::EnchantGlovesGreaterAgility, "Greater Agility", "Enchant Gloves - Greater Agility", "+7 Agility"),
         new EnchantSpec(EnchantName::Name::EnchantGlovesGreaterStrength, "Greater Strength", "Enchant Gloves - Greater Strength", "+7 Strength"),
         new EnchantSpec(EnchantName::Name::EnchantGlovesMinorHaste, "Minor Haste", "Enchant Gloves - Minor Haste", "+1% Attack Speed"),

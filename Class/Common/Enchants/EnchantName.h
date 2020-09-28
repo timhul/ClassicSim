@@ -40,6 +40,7 @@ public:
         EnchantCloakLesserAgility,
         EnchantGlovesFirePower,
         EnchantGlovesFrostPower,
+        EnchantGlovesShadowPower,
         EnchantGlovesGreaterAgility,
         EnchantGlovesGreaterStrength,
         EnchantGlovesMinorHaste,
