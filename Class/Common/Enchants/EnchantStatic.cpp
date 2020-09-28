@@ -57,6 +57,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, E
     case EnchantName::Name::EnchantGlovesFrostPower:
         pchar->get_stats()->increase_spell_damage_vs_school(20, MagicSchool::Frost);
         break;
+    case EnchantName::Name::EnchantGlovesShadowPower:
+        pchar->get_stats()->increase_spell_damage_vs_school(20, MagicSchool::Shadow);
+        break;
     case EnchantName::Name::IronCounterweight:
         pchar->get_stats()->increase_melee_attack_speed(3);
         break;
@@ -254,6 +257,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::Name::EnchantGlovesFrostPower:
         pchar->get_stats()->decrease_spell_damage_vs_school(20, MagicSchool::Frost);
+        break;
+    case EnchantName::Name::EnchantGlovesShadowPower:
+        pchar->get_stats()->decrease_spell_damage_vs_school(20, MagicSchool::Shadow);
         break;
     case EnchantName::Name::IronCounterweight:
         pchar->get_stats()->decrease_melee_attack_speed(3);
