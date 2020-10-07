@@ -24,7 +24,7 @@ QVector<EnchantName::Name> WarlockEnchants::get_available_enchants(const int equ
     case EquipmentSlot::LEGS:
         return {
             EnchantName::Name::ArcanumOfFocus,
-            EnchantName::Name::PresenceOfSight,
+            EnchantName::Name::HoodooHex,
         };
     case EquipmentSlot::SHOULDERS:
         return {
@@ -41,7 +41,7 @@ QVector<EnchantName::Name> WarlockEnchants::get_available_enchants(const int equ
     case EquipmentSlot::GLOVES:
         return {
             EnchantName::Name::EnchantGlovesFirePower,
-            EnchantName::Name::EnchantGlovesFrostPower,
+            EnchantName::Name::EnchantGlovesShadowPower,
         };
     case EquipmentSlot::CHEST:
         return {

@@ -57,6 +57,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, E
     case EnchantName::Name::EnchantGlovesFrostPower:
         pchar->get_stats()->increase_spell_damage_vs_school(20, MagicSchool::Frost);
         break;
+    case EnchantName::Name::EnchantGlovesShadowPower:
+        pchar->get_stats()->increase_spell_damage_vs_school(20, MagicSchool::Shadow);
+        break;
     case EnchantName::Name::IronCounterweight:
         pchar->get_stats()->increase_melee_attack_speed(3);
         break;
@@ -107,6 +110,10 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, E
     case EnchantName::Name::PresenceOfSight:
         pchar->get_stats()->increase_base_spell_damage(18);
         pchar->get_stats()->increase_spell_hit(100);
+        break;
+    case EnchantName::Name::HoodooHex:
+        pchar->get_stats()->increase_base_spell_damage(18);
+        pchar->get_stats()->increase_stamina(10);
         break;
     case EnchantName::Name::EnchantCloakLesserAgility:
         pchar->get_stats()->increase_agility(3);
@@ -251,6 +258,9 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::Name::EnchantGlovesFrostPower:
         pchar->get_stats()->decrease_spell_damage_vs_school(20, MagicSchool::Frost);
         break;
+    case EnchantName::Name::EnchantGlovesShadowPower:
+        pchar->get_stats()->decrease_spell_damage_vs_school(20, MagicSchool::Shadow);
+        break;
     case EnchantName::Name::IronCounterweight:
         pchar->get_stats()->decrease_melee_attack_speed(3);
         break;
@@ -301,6 +311,10 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::Name::PresenceOfSight:
         pchar->get_stats()->decrease_base_spell_damage(18);
         pchar->get_stats()->decrease_spell_hit(100);
+        break;
+    case EnchantName::Name::HoodooHex:
+        pchar->get_stats()->decrease_base_spell_damage(18);
+        pchar->get_stats()->decrease_stamina(10);
         break;
     case EnchantName::Name::EnchantCloakLesserAgility:
         pchar->get_stats()->decrease_agility(3);

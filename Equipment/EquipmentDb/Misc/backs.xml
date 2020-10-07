@@ -183,6 +183,19 @@
 		</source>
 	</item>
 
+	<item id="19083" phase="2">
+		<info name="Frostwolf Legionnaire's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_cape_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="43"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="FROST_RESISTANCE" value="5"/>
+			<stat type="ATTACK_POWER" value="24"/>
+		</stats>
+		<source>
+			Grunnda Wolfheart. Requires Honored with Alterac Valley.
+		</source>
+	</item>
+
 	<item id="19436" phase="3">
 		<info name="Cloak of Draconic Might" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_misc_cape_11.png"/>
 		<stats>
