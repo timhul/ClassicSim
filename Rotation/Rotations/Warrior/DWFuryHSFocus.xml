@@ -11,6 +11,10 @@
         <spell name="Berserker Stance"/>
     </precombat_actions>
 
+    <cast_if name="Bloodrage">
+        resource "Rage" less 70
+    </cast_if>
+
     <cast_if name="Berserker Rage">
         resource "Rage" less 50
     </cast_if>
