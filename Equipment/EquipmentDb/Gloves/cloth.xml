@@ -90,7 +90,7 @@
 		</source>
 	</item>
 
-  <item id="18808" phase="1">
+	<item id="18808" phase="1">
 		<info name="Gloves of the Hypnotic Flame" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_gauntlets_03.png"/>
 		<stats>
 			<stat type="ARMOR" value="67"/>
