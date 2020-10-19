@@ -90,6 +90,21 @@
 		</source>
 	</item>
 
+	<item id="18808" phase="1">
+		<info name="Gloves of the Hypnotic Flame" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_gauntlets_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="67"/>
+			<stat type="INTELLECT" value="19"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="23"/>
+			<stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+		Drops from Cache of the Firelord.
+		</source>
+	</item>
+
 	<item id="18693" phase="2">
 		<info name="Shivery Handwraps" type="CLOTH" slot="GLOVES" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_gauntlets_16.png"/>
 		<stats>
