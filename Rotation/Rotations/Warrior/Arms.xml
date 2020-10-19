@@ -10,6 +10,10 @@
         <spell name="Berserker Stance"/>
     </precombat_actions>
 
+    <cast_if name="Bloodrage">
+        resource "Rage" less 70
+    </cast_if>
+
     <cast_if name="Battle Shout">
         buff_duration "Battle Shout" less 5
         or variable "time_remaining_execute" less 10

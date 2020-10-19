@@ -50,8 +50,6 @@
 
     This implies fewer Overpowers are cast since Overpower is more likely to not always be consumed before proccing again,
     but it also implies less rage lost from stance dancing.
-
-    Better for lower item levels due to less rage available, and thus rage conservation is more important.
     </description>
 
     <precombat_actions>
@@ -59,6 +57,10 @@
         <spell name="Battle Shout"/>
         <spell name="Berserker Stance"/>
     </precombat_actions>
+
+    <cast_if name="Bloodrage">
+        resource "Rage" less 70
+    </cast_if>
 
     <cast_if name="Berserker Rage">
         resource "Rage" less 50
@@ -148,7 +150,7 @@
     <!-- Always cast Execute if available (implicit condition). -->
     <cast_if name="Execute"/>
 
-    <!-- Always cast Bloodthirst if not in Execute range. -->
+    <!-- Always cast Bloodthirst if not in Execute phase. -->
     <cast_if name="Bloodthirst">
         variable "time_remaining_execute" greater 0
     </cast_if>
@@ -174,7 +176,7 @@
         variable "time_remaining_execute" greater 5
         and buff_duration "Overpower" greater 2
         and spell "Bloodthirst" greater 3
-        and resource "Rage" less 50
+        and resource "Rage" less 40
         <!-- and variable "dumping_rage_before_stancing" is false -->
     </cast_if>
 
