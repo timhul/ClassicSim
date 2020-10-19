@@ -47,7 +47,8 @@ void TestRotationFileReader::test_values_after_initialization() {}
 void TestRotationFileReader::test_warrior_dw_fury() {
     Rotation* rotation = get_rotation("DW Fury High Rage");
 
-    QVector<QString> expected_all_executor_names = {"Berserker Rage",
+    QVector<QString> expected_all_executor_names = {"Bloodrage",
+                                                    "Berserker Rage",
                                                     "Battle Shout",
                                                     "Heroic Strike",
                                                     "Manual Crowd Pummeler",
@@ -69,13 +70,13 @@ void TestRotationFileReader::test_warrior_dw_fury() {
                                                     "Overpower",
                                                     "Hamstring",
                                                     "Battle Stance",
-                                                    "Berserker Stance"};
+                                                    "Berserker Stance",};
     assert(rotation->all_executors.size() == expected_all_executor_names.size());
     verify_executor_names(rotation, rotation->all_executors, expected_all_executor_names);
 
-    QVector<QString> expected_active_executor_names = {"Berserker Rage", "Battle Shout",  "Heroic Strike",   "Recklessness",
-                                                       "Blood Fury",     "Execute",       "Whirlwind",       "Overpower",
-                                                       "Hamstring",      "Battle Stance", "Berserker Stance"};
+    QVector<QString> expected_active_executor_names = {"Bloodrage",    "Berserker Rage", "Battle Shout",  "Heroic Strike",
+                                                       "Recklessness", "Blood Fury",     "Execute",       "Whirlwind",
+                                                       "Overpower",    "Hamstring",      "Battle Stance", "Berserker Stance"};
     rotation->link_spells(warrior);
     verify_executor_names(rotation, rotation->active_executors, expected_active_executor_names);
 
@@ -87,7 +88,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     //
     // Berserker Rage:
     //
-    condition_groups = rotation->all_executors[0]->condition_groups;
+    condition_groups = rotation->all_executors[1]->condition_groups;
     assert(condition_groups.size() == 1 && condition_groups[0].size() == 1);
     // resource "Rage" less 50
     resource_condition = static_cast<ConditionResource*>(condition_groups[0][0]);
@@ -96,7 +97,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     //
     // Battle Shout
     //
-    condition_groups = rotation->all_executors[1]->condition_groups;
+    condition_groups = rotation->all_executors[2]->condition_groups;
     assert(condition_groups.size() == 2);
 
     // Condition group 0
@@ -120,7 +121,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     //
     // Heroic Strike
     //
-    condition_groups = rotation->all_executors[2]->condition_groups;
+    condition_groups = rotation->all_executors[3]->condition_groups;
     assert(condition_groups.size() == 1 && condition_groups[0].size() == 2);
     // "time_remaining_execute" greater 3
     builtin_condition = static_cast<ConditionVariableBuiltin*>(condition_groups[0][0]);
