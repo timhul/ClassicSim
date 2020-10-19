@@ -760,6 +760,20 @@
 		</source>
 	</item>
 
+	<item id="21417" phase="5">
+		<info name="Ring of Unspoken Names" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Qiraji Ceremonial Ring from Bosses in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+	
 	<item id="21707" phase="5">
 		<info name="Ring of Swarming Thought" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_04.png"/>
 		<stats>
