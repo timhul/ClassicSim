@@ -409,7 +409,7 @@ void SetBonusControl::unequip_item(const int item_id) {
     } else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
-            deactivate_spell_rank_group("Slice And Dice", set_name, num_pieces);
+            deactivate_spell_rank_group("Slice and Dice", set_name, num_pieces);
             break;
         }
     } else if (set_name == "Stormshroud Armor") {
