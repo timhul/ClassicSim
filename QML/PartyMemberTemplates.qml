@@ -1,84 +1,32 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 
 RectangleBorders {
-    Column {
-        anchors.fill: parent
+    ScrollView {
+        height: parent.height
+        width: parent.width
 
-        RectangleBorders {
-            height: parent.height / parent.children.length
+        ListView {
+            id: templateCharacters
+            height: parent.height
             width: parent.width
-            rectColor: root.colorWarrior
-            property string template: "Warrior DW Fury Pre-Raid"
-            onRectangleClicked: raid.selectTemplateCharacter(template)
 
-            TextSmall {
-                color: "black"
-                text: parent.template
-            }
-        }
+            boundsBehavior: Flickable.StopAtBounds
 
-        RectangleBorders {
-            height: parent.height / parent.children.length
-            width: parent.width
-            rectColor: root.colorWarrior
-            property string template: "Warrior DW Fury BWL"
-            onRectangleClicked: raid.selectTemplateCharacter(template)
+            clip: true
+            model: templateCharacterModel
 
-            TextSmall {
-                color: "black"
-                text: parent.template
-            }
-        }
+            delegate: RectangleBorders {
+                height: 40
+                width: templateCharacters.width
+                rectColor: _color
+                property string title: _title
+                onRectangleClicked: raid.selectTemplateCharacter(title)
 
-        RectangleBorders {
-            height: parent.height / parent.children.length
-            width: parent.width
-            rectColor: root.colorWarrior
-            property string template: "Warrior DW Fury AQ"
-            onRectangleClicked: raid.selectTemplateCharacter(template)
-
-            TextSmall {
-                color: "black"
-                text: parent.template
-            }
-        }
-
-        RectangleBorders {
-            height: parent.height / parent.children.length
-            width: parent.width
-            rectColor: root.colorWarrior
-            property string template: "Warrior DW Fury Naxx"
-            onRectangleClicked: raid.selectTemplateCharacter(template)
-
-            TextSmall {
-                color: "black"
-                text: parent.template
-            }
-        }
-
-        RectangleBorders {
-            height: parent.height / parent.children.length
-            width: parent.width
-            rectColor: root.colorHunter
-            property string template: "Hunter 8/8 T2"
-            onRectangleClicked: raid.selectTemplateCharacter(template)
-
-            TextSmall {
-                color: "black"
-                text: parent.template
-            }
-        }
-
-        RectangleBorders {
-            height: parent.height / parent.children.length
-            width: parent.width
-            rectColor: root.colorMage
-            property string template: "Fire Mage T3"
-            onRectangleClicked: raid.selectTemplateCharacter(template)
-
-            TextSmall {
-                color: "black"
-                text: parent.template
+                TextSmall {
+                    color: "black"
+                    text: parent.title
+                }
             }
         }
     }

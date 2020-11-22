@@ -375,7 +375,7 @@ Window {
             x: raidSetup.width + 40
             y: parent.height / 2 - height / 2
 
-            width: parent.width / 3
+            width: 250
             height: parent.height * 0.95
         }
 

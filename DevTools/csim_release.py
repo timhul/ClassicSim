@@ -21,6 +21,7 @@ def main():
     copy_rotations()
     copy_items()
     copy_random_affixes()
+    copy_template_characters()
     copy_license_files()
     clear_saves()
     tar_application()
@@ -104,6 +105,12 @@ def copy_random_affixes():
     source = REPO_ROOT / "Equipment" / "EquipmentDb"
     shutil.copy2(src=str(source / "random_affixes.xml"),
                  dst=str(RELEASE_DIR / "random_affixes.xml"))
+
+
+def copy_template_characters():
+    source = REPO_ROOT / "Raid"
+    shutil.copy2(src=str(source / "template_characters.json"),
+                 dst=str(RELEASE_DIR / "template_characters.json"))
 
 
 def tar_application():

@@ -1,0 +1,1320 @@
+[{
+        "title": "AQ40 Orc Warrior (no world buffs)",
+        "class": "Warrior",
+        "color": "#C79C6E",
+        "setup": {
+            "BACK": "21394",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "19137",
+            "BELT_AFFIX": "",
+            "BOOTS": "19387",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Strength of Earth Totem",
+                "Mark of the Wild",
+                "Smoked Desert Dumplings",
+                "Elixir of the Mongoose",
+                "Juju Might",
+                "Juju Power"
+            ],
+            "CHEST": "11726",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Warrior",
+            "GLOVES": "21581",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Greater Strength",
+            "HEAD": "12640",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "LEFT": [{
+                    "1LL": "3"
+                }, {
+                    "1MR": "3"
+                }, {
+                    "2ML": "5"
+                }, {
+                    "3ML": "1"
+                }, {
+                    "3MR": "3"
+                }, {
+                    "4MR": "2"
+                }
+            ],
+            "LEGS": "22385",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "MAINHAND": "19363",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Crusader",
+            "MH_TEMPORARY_ENCHANT": "Windfury Totem",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3RR": "5"
+                }, {
+                    "4LL": "5"
+                }, {
+                    "4ML": "2"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5ML": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "18404",
+            "NECK_AFFIX": "",
+            "OFFHAND": "21392",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "Enchant Weapon - Crusader",
+            "OH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Orc",
+            "RANGED": "23557",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RING1": "19384",
+            "RING1_AFFIX": "",
+            "RING2": "18821",
+            "RING2_AFFIX": "",
+            "ROTATION": "DW Fury High Rage",
+            "RULESET": "0",
+            "SHOULDERS": "21330",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "11815",
+            "WRIST": "21618",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Superior Strength"
+        }
+    }, {
+        "title": "AQ40 Orc Warrior (world buffs)",
+        "class": "Warrior",
+        "color": "#C79C6E",
+        "setup": {
+            "BACK": "21394",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "19137",
+            "BELT_AFFIX": "",
+            "BOOTS": "19387",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Strength of Earth Totem",
+                "Mark of the Wild",
+                "Smoked Desert Dumplings",
+                "Elixir of the Mongoose",
+                "Juju Might",
+                "Juju Power",
+                "R.O.I.D.S",
+                "Fengus' Ferocity",
+                "Rallying Cry of the Dragonslayer",
+                "Songflower Serenade",
+                "Spirit of Zandalar",
+                "Sayge's Dark Fortune of Damage",
+                "Warchief's Blessing"
+            ],
+            "CHEST": "11726",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Warrior",
+            "GLOVES": "21581",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Greater Strength",
+            "HEAD": "12640",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "LEFT": [{
+                    "1LL": "3"
+                }, {
+                    "1MR": "3"
+                }, {
+                    "2ML": "5"
+                }, {
+                    "3ML": "1"
+                }, {
+                    "3MR": "3"
+                }, {
+                    "4MR": "2"
+                }
+            ],
+            "LEGS": "22385",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "MAINHAND": "19363",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Crusader",
+            "MH_TEMPORARY_ENCHANT": "Windfury Totem",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3RR": "5"
+                }, {
+                    "4LL": "5"
+                }, {
+                    "4ML": "2"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5ML": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "18404",
+            "NECK_AFFIX": "",
+            "OFFHAND": "21392",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "Enchant Weapon - Crusader",
+            "OH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Orc",
+            "RANGED": "23557",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RING1": "19384",
+            "RING1_AFFIX": "",
+            "RING2": "18821",
+            "RING2_AFFIX": "",
+            "ROTATION": "DW Fury High Rage",
+            "RULESET": "0",
+            "SHOULDERS": "21330",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "11815",
+            "WRIST": "21618",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Superior Strength"
+        }
+    }, {
+        "title": "AQ40 Human Warrior (world buffs)",
+        "class": "Warrior",
+        "color": "#C79C6E",
+        "setup": {
+            "BACK": "21394",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "19137",
+            "BELT_AFFIX": "",
+            "BOOTS": "19387",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Greater Blessing of Might",
+                "Greater Blessing of Kings",
+                "Mark of the Wild",
+                "Smoked Desert Dumplings",
+                "Elixir of the Mongoose",
+                "Juju Might",
+                "Juju Power",
+                "R.O.I.D.S",
+                "Fengus' Ferocity",
+                "Rallying Cry of the Dragonslayer",
+                "Songflower Serenade",
+                "Spirit of Zandalar",
+                "Sayge's Dark Fortune of Damage",
+                "Warchief's Blessing"
+            ],
+            "CHEST": "11726",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Warrior",
+            "GLOVES": "21581",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Greater Strength",
+            "HEAD": "12640",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "LEFT": [{
+                    "1LL": "3"
+                }, {
+                    "1MR": "3"
+                }, {
+                    "2ML": "5"
+                }, {
+                    "3ML": "1"
+                }, {
+                    "3MR": "3"
+                }, {
+                    "4MR": "2"
+                }
+            ],
+            "LEGS": "22385",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "MAINHAND": "21650",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Crusader",
+            "MH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3RR": "5"
+                }, {
+                    "4LL": "5"
+                }, {
+                    "4ML": "2"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5ML": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "18404",
+            "NECK_AFFIX": "",
+            "OFFHAND": "19351",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "Enchant Weapon - Crusader",
+            "OH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Human",
+            "RANGED": "23557",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RING1": "19384",
+            "RING1_AFFIX": "",
+            "RING2": "18821",
+            "RING2_AFFIX": "",
+            "ROTATION": "DW Fury High Rage",
+            "RULESET": "0",
+            "SHOULDERS": "21330",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "11815",
+            "WRIST": "21618",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Superior Strength"
+        }
+    }, {
+        "title": "AQ40 Human Warrior (no world buffs)",
+        "class": "Warrior",
+        "color": "#C79C6E",
+        "setup": {
+            "BACK": "21394",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "19137",
+            "BELT_AFFIX": "",
+            "BOOTS": "19387",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Greater Blessing of Might",
+                "Greater Blessing of Kings",
+                "Mark of the Wild",
+                "Smoked Desert Dumplings",
+                "Elixir of the Mongoose",
+                "Juju Might",
+                "Juju Power"
+            ],
+            "CHEST": "11726",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Warrior",
+            "GLOVES": "21581",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Greater Strength",
+            "HEAD": "12640",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "LEFT": [{
+                    "1LL": "3"
+                }, {
+                    "1MR": "3"
+                }, {
+                    "2ML": "5"
+                }, {
+                    "3ML": "1"
+                }, {
+                    "3MR": "3"
+                }, {
+                    "4MR": "2"
+                }
+            ],
+            "LEGS": "22385",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Lesser Arcanum Of Voracity - Strength",
+            "MAINHAND": "21650",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Crusader",
+            "MH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3RR": "5"
+                }, {
+                    "4LL": "5"
+                }, {
+                    "4ML": "2"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5ML": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "18404",
+            "NECK_AFFIX": "",
+            "OFFHAND": "19351",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "Enchant Weapon - Crusader",
+            "OH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Human",
+            "RANGED": "23557",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RING1": "19384",
+            "RING1_AFFIX": "",
+            "RING2": "18821",
+            "RING2_AFFIX": "",
+            "ROTATION": "DW Fury High Rage",
+            "RULESET": "0",
+            "SHOULDERS": "21330",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "11815",
+            "WRIST": "21618",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Superior Strength"
+        }
+    }, {
+        "title": "AQ40 Gnome Fire Mage (no world buffs)",
+        "class": "Mage",
+        "color": "#69CCF0",
+        "setup": {
+            "BACK": "22731",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "22730",
+            "BELT_AFFIX": "",
+            "BOOTS": "21344",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Greater Blessing of Kings",
+                "Greater Blessing of Wisdom",
+                "Mark of the Wild",
+                "Runn Tum Tuber Surprise",
+                "Mageblood Potion",
+                "Greater Arcane Elixir",
+                "Flask of Supreme Power"
+            ],
+            "CHEST": "21343",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Mage",
+            "GLOVES": "21585",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Fire Power",
+            "HEAD": "19375",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Presence Of Sight",
+            "LEFT": [{
+                    "1LL": "2"
+                }, {
+                    "1ML": "3"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3ML": "3"
+                }, {
+                    "4RR": "2"
+                }
+            ],
+            "LEGS": "21461",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Presence Of Sight",
+            "MAINHAND": "21622",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Spell Power",
+            "MH_TEMPORARY_ENCHANT": "Brilliant Wizard Oil",
+            "MID": [{
+                    "1ML": "5"
+                }, {
+                    "2LL": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "3MR": "1"
+                }, {
+                    "3RR": "2"
+                }, {
+                    "4LL": "3"
+                }, {
+                    "4RR": "3"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "5MR": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21608",
+            "NECK_AFFIX": "",
+            "OFFHAND": "21597",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "",
+            "OH_TEMPORARY_ENCHANT": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Gnome",
+            "RANGED": "21603",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RIGHT": [{
+                    "1MR": "3"
+                }
+            ],
+            "RING1": "21709",
+            "RING1_AFFIX": "",
+            "RING2": "19403",
+            "RING2_AFFIX": "",
+            "ROTATION": "Fire",
+            "RULESET": "0",
+            "SHOULDERS": "21345",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Mojo",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "19379",
+            "TRINKET2": "19950",
+            "WRIST": "19374",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Greater Intellect"
+        }
+    }, {
+        "title": "AQ40 Gnome Fire Mage (world buffs)",
+        "class": "Mage",
+        "color": "#69CCF0",
+        "setup": {
+            "BACK": "22731",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "22730",
+            "BELT_AFFIX": "",
+            "BOOTS": "21344",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Greater Blessing of Kings",
+                "Greater Blessing of Wisdom",
+                "Mark of the Wild",
+                "Runn Tum Tuber Surprise",
+                "Mageblood Potion",
+                "Greater Arcane Elixir",
+                "Flask of Supreme Power",
+                "Slip'kik's Savvy",
+                "Rallying Cry of the Dragonslayer",
+                "Songflower Serenade",
+                "Spirit of Zandalar",
+                "Sayge's Dark Fortune of Damage",
+                "Warchief's Blessing"
+            ],
+            "CHEST": "21343",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Mage",
+            "GLOVES": "21585",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Fire Power",
+            "HEAD": "19375",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Presence Of Sight",
+            "LEFT": [{
+                    "1LL": "2"
+                }, {
+                    "1ML": "3"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3ML": "3"
+                }, {
+                    "4RR": "2"
+                }
+            ],
+            "LEGS": "21461",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Presence Of Sight",
+            "MAINHAND": "21622",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Spell Power",
+            "MH_TEMPORARY_ENCHANT": "Brilliant Wizard Oil",
+            "MID": [{
+                    "1ML": "5"
+                }, {
+                    "2LL": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "3MR": "1"
+                }, {
+                    "3RR": "2"
+                }, {
+                    "4LL": "3"
+                }, {
+                    "4RR": "3"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "5MR": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21608",
+            "NECK_AFFIX": "",
+            "OFFHAND": "21597",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "",
+            "OH_TEMPORARY_ENCHANT": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Gnome",
+            "RANGED": "21603",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RIGHT": [{
+                    "1MR": "3"
+                }
+            ],
+            "RING1": "21709",
+            "RING1_AFFIX": "",
+            "RING2": "19403",
+            "RING2_AFFIX": "",
+            "ROTATION": "Fire",
+            "RULESET": "0",
+            "SHOULDERS": "21345",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Mojo",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "19379",
+            "TRINKET2": "19950",
+            "WRIST": "19374",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Greater Intellect"
+        }
+    }, {
+        "title": "AQ40 Troll Fire Mage (no world buffs)",
+        "class": "Mage",
+        "color": "#69CCF0",
+        "setup": {
+            "BACK": "22731",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "22730",
+            "BELT_AFFIX": "",
+            "BOOTS": "21344",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Mana Spring Totem",
+                "Mark of the Wild",
+                "Runn Tum Tuber Surprise",
+                "Mageblood Potion",
+                "Greater Arcane Elixir",
+                "Flask of Supreme Power"
+            ],
+            "CHEST": "21343",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Mage",
+            "GLOVES": "21585",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Fire Power",
+            "HEAD": "19375",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Presence Of Sight",
+            "LEFT": [{
+                    "1LL": "2"
+                }, {
+                    "1ML": "3"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3ML": "3"
+                }, {
+                    "4RR": "2"
+                }
+            ],
+            "LEGS": "21461",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Presence Of Sight",
+            "MAINHAND": "21622",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Spell Power",
+            "MH_TEMPORARY_ENCHANT": "Brilliant Wizard Oil",
+            "MID": [{
+                    "1ML": "5"
+                }, {
+                    "2LL": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "3MR": "1"
+                }, {
+                    "3RR": "2"
+                }, {
+                    "4LL": "3"
+                }, {
+                    "4RR": "3"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "5MR": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21608",
+            "NECK_AFFIX": "",
+            "OFFHAND": "21597",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "",
+            "OH_TEMPORARY_ENCHANT": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Troll",
+            "RANGED": "21603",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RIGHT": [{
+                    "1MR": "3"
+                }
+            ],
+            "RING1": "21709",
+            "RING1_AFFIX": "",
+            "RING2": "19403",
+            "RING2_AFFIX": "",
+            "ROTATION": "Fire",
+            "RULESET": "0",
+            "SHOULDERS": "21345",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Mojo",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "19379",
+            "TRINKET2": "19950",
+            "WRIST": "19374",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Greater Intellect"
+        }
+    }, {
+        "title": "AQ40 Troll Fire Mage (world buffs)",
+        "class": "Mage",
+        "color": "#69CCF0",
+        "setup": {
+            "BACK": "22731",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "",
+            "BELT": "22730",
+            "BELT_AFFIX": "",
+            "BOOTS": "21344",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Mana Spring Totem",
+                "Mark of the Wild",
+                "Runn Tum Tuber Surprise",
+                "Mageblood Potion",
+                "Greater Arcane Elixir",
+                "Flask of Supreme Power",
+                "Slip'kik's Savvy",
+                "Rallying Cry of the Dragonslayer",
+                "Songflower Serenade",
+                "Spirit of Zandalar",
+                "Sayge's Dark Fortune of Damage",
+                "Warchief's Blessing"
+            ],
+            "CHEST": "21343",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Mage",
+            "GLOVES": "21585",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Fire Power",
+            "HEAD": "19375",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Presence Of Sight",
+            "LEFT": [{
+                    "1LL": "2"
+                }, {
+                    "1ML": "3"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3ML": "3"
+                }, {
+                    "4RR": "2"
+                }
+            ],
+            "LEGS": "21461",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Presence Of Sight",
+            "MAINHAND": "21622",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant Weapon - Spell Power",
+            "MH_TEMPORARY_ENCHANT": "Brilliant Wizard Oil",
+            "MID": [{
+                    "1ML": "5"
+                }, {
+                    "2LL": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "3MR": "1"
+                }, {
+                    "3RR": "2"
+                }, {
+                    "4LL": "3"
+                }, {
+                    "4RR": "3"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "5MR": "1"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21608",
+            "NECK_AFFIX": "",
+            "OFFHAND": "21597",
+            "OH_AFFIX": "",
+            "OH_ENCHANT": "",
+            "OH_TEMPORARY_ENCHANT": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "RACE": "Troll",
+            "RANGED": "21603",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "",
+            "RIGHT": [{
+                    "1MR": "3"
+                }
+            ],
+            "RING1": "21709",
+            "RING1_AFFIX": "",
+            "RING2": "19403",
+            "RING2_AFFIX": "",
+            "ROTATION": "Fire",
+            "RULESET": "0",
+            "SHOULDERS": "21345",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Mojo",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "19379",
+            "TRINKET2": "19950",
+            "WRIST": "19374",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Greater Intellect"
+        }
+    }, {
+        "title": "Orc Hunter 8/8 T2 20/31/0 (no world buffs)",
+        "class": "Hunter",
+        "color": "#ABD473",
+        "setup": {
+            "BACK": "17102",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "Enchant Cloak - Lesser Agility",
+            "BELT": "16936",
+            "BELT_AFFIX": "",
+            "BOOTS": "16941",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Mana Spring Totem",
+                "Mark of the Wild",
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Grilled Squid",
+                "Mageblood Potion",
+                "Elixir of the Mongoose"
+            ],
+            "CHEST": "16942",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Hunter",
+            "GLOVES": "16940",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Superior Agility",
+            "HEAD": "16939",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Falcons Call",
+            "LEFT": [{
+                    "1ML": "5"
+                }, {
+                    "1MR": "5"
+                }, {
+                    "3MR": "5"
+                }, {
+                    "4MR": "5"
+                }
+            ],
+            "LEGS": "16938",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Falcons Call",
+            "MAINHAND": "19364",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant 2H Weapon - Agility",
+            "MH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3LL": "1"
+                }, {
+                    "3RR": "3"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5LL": "1"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21664",
+            "NECK_AFFIX": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "PROJECTILE": "12654",
+            "RACE": "Orc",
+            "RANGED": "19361",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "Biznicks 247x128 Accurascope",
+            "RING1": "21205",
+            "RING1_AFFIX": "",
+            "RING2": "19384",
+            "RING2_AFFIX": "",
+            "ROTATION": "Aimed/Multi-Shot",
+            "RULESET": "0",
+            "SHOULDERS": "16937",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "21670",
+            "WRIST": "16935",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Mana Regeneration"
+        }
+    }, {
+        "title": "Orc Hunter 8/8 T2 20/31/0 (world buffs)",
+        "class": "Hunter",
+        "color": "#ABD473",
+        "setup": {
+            "BACK": "17102",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "Enchant Cloak - Lesser Agility",
+            "BELT": "16936",
+            "BELT_AFFIX": "",
+            "BOOTS": "16941",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Mana Spring Totem",
+                "Mark of the Wild",
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Grilled Squid",
+                "Mageblood Potion",
+                "Elixir of the Mongoose",
+                "Ground Scorpok Assay",
+                "Fengus' Ferocity",
+                "Rallying Cry of the Dragonslayer",
+                "Songflower Serenade",
+                "Spirit of Zandalar",
+                "Sayge's Dark Fortune of Damage",
+                "Warchief's Blessing"
+            ],
+            "CHEST": "16942",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Hunter",
+            "GLOVES": "16940",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Superior Agility",
+            "HEAD": "16939",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Falcons Call",
+            "LEFT": [{
+                    "1ML": "5"
+                }, {
+                    "1MR": "5"
+                }, {
+                    "3MR": "5"
+                }, {
+                    "4MR": "5"
+                }
+            ],
+            "LEGS": "16938",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Falcons Call",
+            "MAINHAND": "19364",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant 2H Weapon - Agility",
+            "MH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3LL": "1"
+                }, {
+                    "3RR": "3"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5LL": "1"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21664",
+            "NECK_AFFIX": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "PROJECTILE": "12654",
+            "RACE": "Orc",
+            "RANGED": "19361",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "Biznicks 247x128 Accurascope",
+            "RING1": "21205",
+            "RING1_AFFIX": "",
+            "RING2": "19384",
+            "RING2_AFFIX": "",
+            "ROTATION": "Aimed/Multi-Shot",
+            "RULESET": "0",
+            "SHOULDERS": "16937",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "21670",
+            "WRIST": "16935",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Mana Regeneration"
+        }
+    }, {
+        "title": "Nelf Hunter 8/8 T2 20/31/0 (no world buffs)",
+        "class": "Hunter",
+        "color": "#ABD473",
+        "setup": {
+            "BACK": "17102",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "Enchant Cloak - Lesser Agility",
+            "BELT": "16936",
+            "BELT_AFFIX": "",
+            "BOOTS": "16941",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Greater Blessing of Kings",
+                "Greater Blessing of Wisdom",
+                "Mark of the Wild",
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Grilled Squid",
+                "Mageblood Potion",
+                "Elixir of the Mongoose"
+            ],
+            "CHEST": "16942",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Hunter",
+            "GLOVES": "16940",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Superior Agility",
+            "HEAD": "16939",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Falcons Call",
+            "LEFT": [{
+                    "1ML": "5"
+                }, {
+                    "1MR": "5"
+                }, {
+                    "3MR": "5"
+                }, {
+                    "4MR": "5"
+                }
+            ],
+            "LEGS": "16938",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Falcons Call",
+            "MAINHAND": "19364",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant 2H Weapon - Agility",
+            "MH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3LL": "1"
+                }, {
+                    "3RR": "3"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5LL": "1"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21664",
+            "NECK_AFFIX": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "PROJECTILE": "12654",
+            "RACE": "Night Elf",
+            "RANGED": "19361",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "Biznicks 247x128 Accurascope",
+            "RING1": "21205",
+            "RING1_AFFIX": "",
+            "RING2": "19384",
+            "RING2_AFFIX": "",
+            "ROTATION": "Aimed/Multi-Shot",
+            "RULESET": "0",
+            "SHOULDERS": "16937",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "21670",
+            "WRIST": "16935",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Mana Regeneration"
+        }
+    }, {
+        "title": "Nelf Hunter 8/8 T2 20/31/0 (world buffs)",
+        "class": "Hunter",
+        "color": "#ABD473",
+        "setup": {
+            "BACK": "17102",
+            "BACK_AFFIX": "",
+            "BACK_ENCHANT": "Enchant Cloak - Lesser Agility",
+            "BELT": "16936",
+            "BELT_AFFIX": "",
+            "BOOTS": "16941",
+            "BOOTS_AFFIX": "",
+            "BOOTS_ENCHANT": "",
+            "BUFFS": [
+                "Greater Blessing of Kings",
+                "Greater Blessing of Wisdom",
+                "Mark of the Wild",
+                "Arcane Intellect",
+                "Divine Spirit",
+                "Grilled Squid",
+                "Mageblood Potion",
+                "Elixir of the Mongoose",
+                "Ground Scorpok Assay",
+                "Fengus' Ferocity",
+                "Rallying Cry of the Dragonslayer",
+                "Songflower Serenade",
+                "Spirit of Zandalar",
+                "Sayge's Dark Fortune of Damage",
+                "Warchief's Blessing"
+            ],
+            "CHEST": "16942",
+            "CHEST_AFFIX": "",
+            "CHEST_ENCHANT": "Enchant Chest - Greater Stats",
+            "CLASS": "Hunter",
+            "GLOVES": "16940",
+            "GLOVES_AFFIX": "",
+            "GLOVES_ENCHANT": "Enchant Gloves - Superior Agility",
+            "HEAD": "16939",
+            "HEAD_AFFIX": "",
+            "HEAD_ENCHANT": "Falcons Call",
+            "LEFT": [{
+                    "1ML": "5"
+                }, {
+                    "1MR": "5"
+                }, {
+                    "3MR": "5"
+                }, {
+                    "4MR": "5"
+                }
+            ],
+            "LEGS": "16938",
+            "LEGS_AFFIX": "",
+            "LEGS_ENCHANT": "Falcons Call",
+            "MAINHAND": "19364",
+            "MH_AFFIX": "",
+            "MH_ENCHANT": "Enchant 2H Weapon - Agility",
+            "MH_TEMPORARY_ENCHANT": "Elemental Sharpening Stone",
+            "MID": [{
+                    "1MR": "5"
+                }, {
+                    "2ML": "2"
+                }, {
+                    "2MR": "5"
+                }, {
+                    "3LL": "1"
+                }, {
+                    "3RR": "3"
+                }, {
+                    "4MR": "5"
+                }, {
+                    "5LL": "1"
+                }, {
+                    "5ML": "3"
+                }, {
+                    "6MR": "5"
+                }, {
+                    "7ML": "1"
+                }
+            ],
+            "NECK": "21664",
+            "NECK_AFFIX": "",
+            "PARTY": "0",
+            "PARTY_MEMBER": "0",
+            "PHASE": "6",
+            "PROJECTILE": "12654",
+            "RACE": "Night Elf",
+            "RANGED": "19361",
+            "RANGED_AFFIX": "",
+            "RANGED_ENCHANT": "Biznicks 247x128 Accurascope",
+            "RING1": "21205",
+            "RING1_AFFIX": "",
+            "RING2": "19384",
+            "RING2_AFFIX": "",
+            "ROTATION": "Aimed/Multi-Shot",
+            "RULESET": "0",
+            "SHOULDERS": "16937",
+            "SHOULDERS_AFFIX": "",
+            "SHOULDER_ENCHANT": "Zandalar Signet Of Might",
+            "TANKING": "0",
+            "TARGET_BASE_ARMOR": "3750",
+            "TARGET_LVL": "63",
+            "TARGET_TYPE": "Dragonkin",
+            "TRINKET1": "21180",
+            "TRINKET2": "21670",
+            "WRIST": "16935",
+            "WRIST_AFFIX": "",
+            "WRIST_ENCHANT": "Enchant Bracer - Mana Regeneration"
+        }
+    }
+]

@@ -46,6 +46,7 @@ class SimScaleModel;
 class SimSettings;
 class SimulationThreadPool;
 class Target;
+class TemplateCharacterModel;
 class ThreatBreakdownModel;
 class WeaponModel;
 
@@ -243,6 +244,7 @@ public:
     ScaleResultModel* get_dps_scale_result_model() const;
     ScaleResultModel* get_tps_scale_result_model() const;
     ThreatBreakdownModel* get_thrt_breakdown_model() const;
+    TemplateCharacterModel* get_template_character_model() const;
     Q_SLOT void compile_thread_results();
     Q_PROPERTY(QString minDps READ get_min_dps NOTIFY statisticsReady)
     Q_PROPERTY(QString maxDps READ get_max_dps NOTIFY statisticsReady)
@@ -411,6 +413,7 @@ protected:
 
     QString get_initial_upper_case_rest_lower_case(const QString&) const;
     void set_character(Character* pchar);
+    void run_sim(const bool full_sim);
     void calculate_displayed_dps_value();
     void update_displayed_dps_value(const double new_dps_value, const double new_tps_value);
     void update_displayed_raid_dps_value(const double new_dps_value);
@@ -468,6 +471,7 @@ protected:
     ScaleResultModel* tps_scale_result_model;
     ScaleResult* dps_distribution;
     ThreatBreakdownModel* threat_breakdown_model;
+    TemplateCharacterModel* template_character_model;
     EnchantModel* mh_enchants;
     EnchantModel* mh_temporary_enchants;
     EnchantModel* oh_enchants;

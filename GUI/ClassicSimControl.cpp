@@ -77,7 +77,7 @@
 #include "SimulationThreadPool.h"
 #include "Target.h"
 #include "Tauren.h"
-#include "TemplateCharacters.h"
+#include "TemplateCharacterModel.h"
 #include "ThreatBreakdownModel.h"
 #include "Troll.h"
 #include "Undead.h"
@@ -101,6 +101,7 @@ ClassicSimControl::ClassicSimControl(QObject* parent) :
     item_type_filter_model(new ItemTypeFilterModel()),
     rotation_model(new RotationModel()),
     dps_distribution(nullptr),
+    template_character_model(new TemplateCharacterModel()),
     mh_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Permanent)),
     mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
     oh_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Permanent)),
@@ -216,6 +217,7 @@ ClassicSimControl::~ClassicSimControl() {
     delete rotation_executor_list_model;
     delete dps_scale_result_model;
     delete tps_scale_result_model;
+    delete template_character_model;
     delete mh_enchants;
     delete mh_temporary_enchants;
     delete oh_enchants;
@@ -792,6 +794,10 @@ ThreatBreakdownModel* ClassicSimControl::get_thrt_breakdown_model() const {
     return this->threat_breakdown_model;
 }
 
+TemplateCharacterModel* ClassicSimControl::get_template_character_model() const {
+    return this->template_character_model;
+}
+
 MeleeDamageAvoidanceBreakdownModel* ClassicSimControl::get_dmg_breakdown_avoidance_model() const {
     return this->damage_avoidance_breakdown_model;
 }
@@ -902,28 +908,7 @@ void ClassicSimControl::calculate_displayed_dps_value() {
 }
 
 void ClassicSimControl::runQuickSim() {
-    if (sim_in_progress)
-        return;
-    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack && current_char->get_equipment()->get_mainhand() == nullptr)
-        return;
-    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack && current_char->get_equipment()->get_ranged() == nullptr)
-        return;
-
-    sim_in_progress = true;
-
-    QVector<QString> setup_strings;
-    raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
-
-    for (const auto& party : raid_setup) {
-        for (const auto& party_member : party) {
-            if (party_member.contains("setup_string"))
-                setup_strings.append(party_member["setup_string"].toString());
-        }
-    }
-
-    thread_pool->run_sim(setup_strings, false, sim_settings->get_combat_iterations_quick_sim(), 1);
-
-    emit simProgressChanged();
+    run_sim(false /* full_sim */);
 }
 
 void ClassicSimControl::toggleTank() {
@@ -937,6 +922,10 @@ bool ClassicSimControl::get_is_tanking() const {
 }
 
 void ClassicSimControl::runFullSim() {
+    run_sim(true /* full_sim */);
+}
+
+void ClassicSimControl::run_sim(const bool full_sim) {
     if (sim_in_progress)
         return;
     if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack && current_char->get_equipment()->get_mainhand() == nullptr)
@@ -947,17 +936,29 @@ void ClassicSimControl::runFullSim() {
     sim_in_progress = true;
 
     QVector<QString> setup_strings;
-    raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
+    raid_setup[0][0]["setup"] = CharacterEncoder(current_char).get_current_setup_json_object();
 
-    for (const auto& party : raid_setup) {
-        for (const auto& party_member : party) {
-            if (party_member.contains("setup_string"))
-                setup_strings.append(party_member["setup_string"].toString());
+    for (int party = 0; party < raid_setup.size(); ++party) {
+        for (int member = 0; member < raid_setup[party].size(); ++member) {
+            auto party_member = raid_setup[party][member];
+            if (!party_member.contains("setup"))
+                continue;
+
+            QJsonObject setup = party_member["setup"].toJsonObject();
+
+            setup["PHASE"] = QString::number(static_cast<int>(sim_settings->get_phase()));
+            setup["PARTY"] = QString::number(party);
+            setup["PARTY_MEMBER"] = QString::number(member);
+
+            auto doc = QJsonDocument(setup);
+            setup_strings.append(doc.toJson());
         }
     }
 
-    const int num_stat_weights = 1 + sim_settings->get_active_options().size();
-    thread_pool->run_sim(setup_strings, true, sim_settings->get_combat_iterations_full_sim(), num_stat_weights);
+    const int iterations = full_sim ? sim_settings->get_combat_iterations_full_sim() : sim_settings->get_combat_iterations_quick_sim();
+    const int options = full_sim ? sim_settings->get_active_options().size() + 1 : 1;
+
+    thread_pool->run_sim(setup_strings, full_sim, iterations, options);
 
     emit simProgressChanged();
 }
@@ -1105,11 +1106,10 @@ void ClassicSimControl::selectTemplateCharacter(QString template_char) {
     if (current_party == 1 && current_member == 1)
         return;
 
-    TemplateCharacterInfo info = TemplateCharacters::template_character_info(template_char);
-    const QString color = chars[info.class_name]->class_color;
-    const QString setup_string = info.setup_string.arg(static_cast<int>(sim_settings->get_phase())).arg(current_party - 1).arg(current_member - 1);
+    TemplateCharacterInfo* info = template_character_model->template_char_info(template_char);
+    const QString color = chars[info->class_name]->class_color;
 
-    raid_setup[current_party - 1][current_member - 1] = QVariantMap {{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
+    raid_setup[current_party - 1][current_member - 1] = QVariantMap {{"text", template_char}, {"color", color}, {"setup", info->setup}};
 
     emit partyMembersUpdated();
 }
@@ -1545,7 +1545,7 @@ void ClassicSimControl::update_progress(double percent) {
 }
 
 Character* ClassicSimControl::load_character(const QString& class_name) {
-    QFile file(QString("Saves/%1-setup.xml").arg(class_name));
+    QFile file(QString("Saves/%1-setup.json").arg(class_name));
 
     Character* pchar = get_new_character(class_name);
     if (file.open(QIODevice::ReadOnly)) {
@@ -1612,7 +1612,7 @@ void ClassicSimControl::save_user_setup(Character* pchar) {
     if (pchar == nullptr)
         pchar = current_char;
 
-    QFile file(QString("Saves/%1-setup.xml").arg(pchar->class_name));
+    QFile file(QString("Saves/%1-setup.json").arg(pchar->class_name));
     file.remove();
 
     if (file.open(QIODevice::WriteOnly)) {

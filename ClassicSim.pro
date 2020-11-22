@@ -125,7 +125,7 @@ SOURCES += main.cpp \
     Event/Events/SpellCallback.cpp \
     GUI/Models/DamageMetersModel.cpp \
     GUI/Models/RandomAffixModel.cpp \
-    GUI/TemplateCharacters.cpp \
+    GUI/Models/TemplateCharacterModel.cpp \
     Phases/ContentPhase.cpp \
     Phases/PhaseRequirer.cpp \
     Queue/Queue.cpp \
@@ -641,7 +641,7 @@ HEADERS += \
     Event/Events/SpellCallback.h \
     GUI/Models/DamageMetersModel.h \
     GUI/Models/RandomAffixModel.h \
-    GUI/TemplateCharacters.h \
+    GUI/Models/TemplateCharacterModel.h \
     Phases/ContentPhase.h \
     Phases/PhaseRequirer.h \
     Queue/Queue.h \

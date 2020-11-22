@@ -29,6 +29,7 @@
 #include "ScaleResultModel.h"
 #include "SimOption.h"
 #include "SimScaleModel.h"
+#include "TemplateCharacterModel.h"
 #include "Test.h"
 #include "ThreatBreakdownModel.h"
 #include "WeaponModel.h"
@@ -86,6 +87,7 @@ int main(int argc, char* argv[]) {
     context->setContextProperty("chestEnchantModel", gui_control->get_chest_enchant_model());
     context->setContextProperty("bootsEnchantModel", gui_control->get_boots_enchant_model());
     context->setContextProperty("randomAffixModel", gui_control->get_random_affix_model());
+    context->setContextProperty("templateCharacterModel", gui_control->get_template_character_model());
 
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
     qmlRegisterType<BuffBreakdownSorting>("BuffBreakdownSorting", 1, 0, "BuffBreakdownSorting");
