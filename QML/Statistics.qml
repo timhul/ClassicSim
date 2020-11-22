@@ -287,6 +287,7 @@ Rectangle {
         StatisticsScaleResultSorting {
             id: dpsScaleResultSorting
             anchors.top: dpsStatWeightHeader.bottom
+            scaleResultModel: dpsScaleResultModel
         }
 
         ListView {
@@ -322,6 +323,7 @@ Rectangle {
         StatisticsScaleResultSorting {
             id: tpsScaleResultSorting
             anchors.top: tpsStatWeightHeader.bottom
+            scaleResultModel: tpsScaleResultModel
         }
 
         ListView {

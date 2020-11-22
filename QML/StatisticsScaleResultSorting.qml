@@ -4,6 +4,7 @@ import ScaleResultSorting 1.0
 RectangleBorders {
     height: 30
     width: parent.width
+    property var scaleResultModel
 
     Row {
         anchors.fill: parent

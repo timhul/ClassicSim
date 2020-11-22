@@ -14,7 +14,7 @@ RectangleBorders {
         model: itemTypeFilterModel
         delegate: GradientSelectedButton {
             height: 30
-            width: parent.width - 4
+            width: 146
             x: 2
             gradientSelectedFrom: "#a88b01"
             gradientSelectedTo: "#7a6500"
