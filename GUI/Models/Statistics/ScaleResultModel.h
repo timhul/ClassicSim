@@ -42,8 +42,8 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    bool for_dps;
     NumberCruncher* statistics_source;
+    bool for_dps;
     QMap<ScaleResultSorting::Methods, SortDirection> sorting_methods;
     QList<ScaleResult*> scale_results;
     ScaleResultSorting::Methods current_sorting_method;

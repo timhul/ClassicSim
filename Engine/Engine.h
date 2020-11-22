@@ -1,7 +1,7 @@
 #pragma once
 
+#include <QElapsedTimer>
 #include <QMap>
-#include <QTime>
 
 class Event;
 class Queue;
@@ -26,7 +26,7 @@ public:
 private:
     Queue* queue;
     StatisticsEngine* engine_statistics {nullptr};
-    QTime* timer;
+    QElapsedTimer* timer;
 
     double current_prio;
 };

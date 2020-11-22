@@ -131,7 +131,7 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader& reader, Rotatio
 }
 
 bool RotationFileReader::rotation_executor_handler(QXmlStreamReader& reader, RotationExecutor* executor) {
-    QStringList expressions = reader.readElementText().trimmed().split('\n', QString::SkipEmptyParts);
+    QStringList expressions = reader.readElementText().trimmed().split('\n', Qt::SkipEmptyParts);
 
     for (auto& str : expressions)
         str = str.trimmed();
@@ -142,7 +142,7 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader& reader, Rot
     // First sentence does not have logical connective at start.
     // [TYPE] "[TYPE_VALUE]" [COMPARE_OPERATION]
     // Split into [TYPE, TYPE_VALUE, COMPARE_OPERATION]
-    QStringList quotation_split = expressions.takeFirst().split('"', QString::SkipEmptyParts);
+    QStringList quotation_split = expressions.takeFirst().split('"', Qt::SkipEmptyParts);
     for (auto& str : quotation_split)
         str = str.trimmed();
 
@@ -175,7 +175,7 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader& reader, Rot
     executor->add_sentence(sentence);
 
     for (int i = 0; i < expressions.size(); ++i) {
-        quotation_split = expressions[i].split('"', QString::SkipEmptyParts);
+        quotation_split = expressions[i].split('"', Qt::SkipEmptyParts);
         for (auto& str : quotation_split)
             str = str.trimmed();
 
@@ -187,7 +187,7 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader& reader, Rot
 
         sentence = new Sentence();
 
-        QStringList logical_connective_split = quotation_split.takeFirst().split(' ', QString::SkipEmptyParts);
+        QStringList logical_connective_split = quotation_split.takeFirst().split(' ', Qt::SkipEmptyParts);
         // Else LOGICAL CONNECTIVE
         if (logical_connective_split.size() != 2) {
             qDebug() << "Expected logical operator split size of 2, got:" << logical_connective_split;
@@ -258,7 +258,7 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
     QSet<QString> cmp_by_float = {"greater", "geq", "eq", "leq", "less"};
     QSet<QString> cmp_by_bool = {"is"};
 
-    QStringList cmp_operation_split = compare_operation.split(' ', QString::SkipEmptyParts);
+    QStringList cmp_operation_split = compare_operation.split(' ', Qt::SkipEmptyParts);
     if (cmp_operation_split.empty()) {
         qDebug() << "Compare operation split returned empty split";
         return false;

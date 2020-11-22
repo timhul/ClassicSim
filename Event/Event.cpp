@@ -50,6 +50,8 @@ QString Event::get_name_for_event_type(const EventType event_type) {
         return "RangedHit";
     case EventType::SpellCallback:
         return "SpellCallback";
+    case EventType::IncomingDamage:
+        return "IncomingDamage";
     }
 
     return "<missing name for event>";

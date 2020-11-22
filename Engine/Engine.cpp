@@ -5,7 +5,7 @@
 #include "StatisticsEngine.h"
 #include "Utils/Check.h"
 
-Engine::Engine() : queue(new Queue()), timer(new QTime()), current_prio(0) {}
+Engine::Engine() : queue(new Queue()), timer(new QElapsedTimer()), current_prio(0) {}
 
 Engine::~Engine() {
     delete queue;
@@ -37,7 +37,7 @@ void Engine::prepare_iteration(const double start_at) {
 void Engine::reset() {
     engine_statistics->set_elapsed(static_cast<unsigned>(timer->elapsed()));
     delete timer;
-    timer = new QTime();
+    timer = new QElapsedTimer();
 }
 
 void Engine::end_combat() {

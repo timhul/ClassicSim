@@ -7,13 +7,12 @@ class Engine;
 
 class IncomingDamageEvent : public Event {
 public:
-  IncomingDamageEvent(Character *character, Engine *engine,
-                      const int timestamp);
+    IncomingDamageEvent(Character* character, Engine* engine, const int timestamp);
 
-  void act() override;
+    void act() override;
 
 private:
-  Engine *engine;
-  Character *character;
-  CombatRoll *roll;
+    Character* character;
+    CombatRoll* roll;
+    Engine* engine;
 };

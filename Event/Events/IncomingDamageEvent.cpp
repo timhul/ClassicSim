@@ -10,7 +10,7 @@
 #include "PhysicalAttackResult.h"
 
 IncomingDamageEvent::IncomingDamageEvent(Character* character, Engine* engine, const int timestamp) :
-    character(character), roll(new CombatRoll(character)), Event(EventType::IncomingDamage, static_cast<double>(timestamp)), engine(engine) {}
+    Event(EventType::IncomingDamage, static_cast<double>(timestamp)), character(character), roll(new CombatRoll(character)), engine(engine) {}
 
 void IncomingDamageEvent::act() {
     engine->add_event(new IncomingDamageEvent(character, engine, engine->get_current_priority() + 1.5));
