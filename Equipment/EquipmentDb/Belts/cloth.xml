@@ -398,4 +398,19 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+
+	<item id="22510" phase="6">
+		<info name="Plagueheart Belt" type="CLOTH" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_03.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="34"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
 </items>

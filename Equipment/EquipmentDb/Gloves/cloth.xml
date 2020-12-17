@@ -414,4 +414,19 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+
+	<item id="22509" phase="6">
+		<info name="Plagueheart Gloves" type="CLOTH" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="83"/>
+			<stat type="STAMINA" value="25"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPELL_DAMAGE" value="26"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
 </items>

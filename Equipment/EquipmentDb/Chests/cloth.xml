@@ -703,4 +703,20 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+
+	<item id="22504" phase="6">
+		<info name="Plagueheart Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_cloth_43.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="138"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="SPELL_DAMAGE" value="51"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
 </items>
