@@ -396,4 +396,18 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+
+	<item id="22511" phase="6">
+		<info name="Plagueheart Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
 </items>

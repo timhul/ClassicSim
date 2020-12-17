@@ -467,7 +467,22 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
-	
+
+	<item id="22508" phase="6">
+		<info name="Plagueheart Sandals" type="CLOTH" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_fabric_01.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="89"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+
 	<item id="18295" phase="2">
 		<info name="Phasing Boots" type="CLOTH" slot="BOOTS" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_boots_06.png"/>
 		<stats>

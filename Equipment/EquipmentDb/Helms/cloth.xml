@@ -775,4 +775,20 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+
+	<item id="22506" phase="6">
+		<info name="Plagueheart Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_crown_01.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="108"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
 </items>

@@ -433,4 +433,20 @@
 		Quest reward. Requires boss drops from Naxxramas.
 		</source>
 	</item>
+
+	<item id="22505" phase="6">
+		<info name="Plagueheart Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_cloth_05.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="116"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="37"/>
+			<stat type="SPELL_PENETRATION" value="10"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
 </items>

@@ -919,6 +919,18 @@
 		</source>
 	</item>
 
+	<item id="23063" phase="6">
+		<info name="Plagueheart Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="STAMINA" value="24"/>
+			<stat type="SPELL_DAMAGE" value="29"/>
+		</stats>
+		<source>
+			Drops from Kel'Thuzad in Naxxramas.
+		</source>
+	</item>
+
 	<item id="23031" phase="6">
 		<info name="Band of the Inevitable" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_53naxxramas.png"/>
 		<stats>
