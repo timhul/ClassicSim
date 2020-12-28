@@ -94,6 +94,10 @@ SOURCES += main.cpp \
     Class/Common/Spells/DemonicRune.cpp \
     Class/Common/Spells/FireballInstant.cpp \
     Class/Common/Spells/NightDragonsBreath.cpp \
+    Class/Priest/PriestEnchants.cpp \
+    Class/Priest/TalentTrees/Discipline.cpp \
+    Class/Priest/TalentTrees/Holy.cpp \
+    Class/Priest/TalentTrees/Shadow.cpp \
     Class/Rogue/Spells/ThistleTea.cpp \
     Class/Shaman/Buffs/ElementalDevastation.cpp \
     Class/Shaman/Buffs/StormstrikeBuff.cpp \
@@ -616,6 +620,10 @@ HEADERS += \
     Class/Common/Spells/DemonicRune.h \
     Class/Common/Spells/FireballInstant.h \
     Class/Common/Spells/NightDragonsBreath.h \
+    Class/Priest/PriestEnchants.h \
+    Class/Priest/TalentTrees/Discipline.h \
+    Class/Priest/TalentTrees/Holy.h \
+    Class/Priest/TalentTrees/Shadow.h \
     Class/Rogue/Spells/ThistleTea.h \
     Class/Shaman/Buffs/ElementalDevastation.h \
     Class/Shaman/Buffs/StormstrikeBuff.h \
@@ -1088,6 +1096,10 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Warrior/TalentTrees/Arms \
     $$PWD/Class/Warrior/TalentTrees/Prot \
     $$PWD/Class/Priest \
+    $$PWD/Class/Priest/TalentTrees \
+    $$PWD/Class/Priest/TalentTrees/Discipline \
+    $$PWD/Class/Priest/TalentTrees/Holy \
+    $$PWD/Class/Priest/TalentTrees/Shadow \
     $$PWD/Class/Rogue \
     $$PWD/Class/Rogue/Buffs \
     $$PWD/Class/Rogue/Procs \
