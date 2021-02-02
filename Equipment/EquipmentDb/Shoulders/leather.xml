@@ -90,6 +90,23 @@
         </source>
     </item>
 
+	<item id="16551" phase="2">
+		<info name="Warlord's Dragonhide Epaulets" type="LEATHER" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_07.png"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="215"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="AGILITY" value="14"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+			This item is obtainable from Lady Palanseer upon reaching Honor Rank 13/Warlord.
+		</source>
+	</item>
+
 	<item id="16832" phase="3">
 		<info name="Bloodfang Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
 		<class_restriction class="ROGUE"/>
