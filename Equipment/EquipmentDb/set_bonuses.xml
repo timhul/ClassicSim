@@ -443,6 +443,25 @@
 		</bonus>
 	</set>
 
+	<set name="Warlord's Sanctuary">
+		<item_id value="16554"/>
+		<item_id value="16555"/>
+		<item_id value="16552"/>
+		<item_id value="16551"/>
+		<item_id value="16549"/>
+		<item_id value="16550"/>
+
+		<bonus value="2" item_stat="STAMINA" stat_value="20">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Increases your movement speed by 15% while in Bear, Cat, or Travel Form.  Only active outdoors.
+		</bonus>
+		<bonus value="6" item_stat="ATTACK_POWER" stat_value="40">
+		(6) Set: +40 Attack Power.
+		</bonus>
+	</set>
+
 	<set name="Battlegear of Unyielding Strength">
 		<item_id value="21394"/>
 		<item_id value="21392"/>
