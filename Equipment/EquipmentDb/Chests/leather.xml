@@ -141,6 +141,23 @@
 		</source>
 	</item>
 
+	<item id="16549" phase="2">
+		<info name="Warlord's Dragonhide Hauberk" type="LEATHER" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_16.png"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="260"/>
+			<stat type="STRENGTH" value="25"/>
+			<stat type="AGILITY" value="14"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			This item is obtainable from Lady Palanseer upon reaching Honor Rank 13/Warlord.
+		</source>
+	</item>
+
 	<item id="19685" phase="4">
 		<info name="Primal Batskin Jerkin" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
 		<stats>
