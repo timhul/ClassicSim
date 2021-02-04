@@ -152,6 +152,24 @@
 		</source>
 	</item>
 
+	<item id="16555" phase="2">
+		<info name="General's Dragonhide Gloves" type="LEATHER" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_25.png"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="173"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="AGILITY" value="19"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<special_equip_effect>
+			Equip: Slightly increases your stealth detection.
+		</special_equip_effect>
+		<source>
+			This item is obtainable from Lady Palanseer upon reaching Honor Rank 12/General.
+		</source>
+	</item>
+
 	<item id="16907" phase="3">
 		<info name="Bloodfang Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
 		<class_restriction class="ROGUE"/>

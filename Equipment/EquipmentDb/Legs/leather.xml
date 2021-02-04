@@ -112,6 +112,23 @@
 		</source>
 	</item>
 
+	<item id="16552" phase="2">
+		<info name="General's Dragonhide Leggings" type="LEATHER" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="216"/>
+			<stat type="STRENGTH" value="24"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="SPIRIT" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			This item is obtainable from Lady Palanseer upon reaching Honor Rank 12/General.
+		</source>
+	</item>
+
 	<item id="20627" phase="4">
 		<info name="Dark Heart Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
 		<stats>

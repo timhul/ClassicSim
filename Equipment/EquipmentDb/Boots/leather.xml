@@ -115,6 +115,23 @@
 		</source>
 	</item>
 
+	<item id="16554" phase="2">
+		<info name="General's Dragonhide Boots" type="LEATHER" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_08.png"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="ARMOR" value="176"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="AGILITY" value="11"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+		</stats>
+		<source>
+			This item is obtainable from Lady Palanseer upon reaching Honor Rank 12/General.
+		</source>
+	</item>
+
 	<item id="16906" phase="3">
 		<info name="Bloodfang Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 		<class_restriction class="ROGUE"/>
