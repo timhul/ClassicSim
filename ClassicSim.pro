@@ -1190,7 +1190,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Resource \
     $$PWD/Talent
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    assets.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
