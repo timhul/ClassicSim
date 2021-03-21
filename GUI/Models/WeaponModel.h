@@ -2,6 +2,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
+#include <QSet>
 #include <QStringList>
 #include <QVersionNumber>
 
@@ -54,6 +55,7 @@ public:
     void set_phase(const Content::Phase phase);
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);
+    Q_INVOKABLE void lexicalSearch(const QString& text);
 
     void update_items();
 
@@ -75,9 +77,11 @@ private:
     EquipmentDb* db;
     ItemTypeFilterModel* item_type_filter_model;
     ActiveItemStatFilterModel* item_stat_filter_model;
+    WeaponSorting::Methods current_sorting_method;
     QHash<WeaponSorting::Methods, bool> sorting_methods;
     QList<Weapon*> weapons;
-    WeaponSorting::Methods current_sorting_method;
+    QSet<QString> lexical_search_terms;
 
     void select_new_method(const WeaponSorting::Methods new_method);
+    bool name_passes_lexical_search(const QString& name);
 };

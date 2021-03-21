@@ -2,7 +2,7 @@ import QtQuick 2.0
 import WeaponSort 1.0
 
 RectangleBorders {
-    height: 60
+    height: sortBoxHeight + 2
     width: parent.width
 
     property int sortBoxHeight: 35

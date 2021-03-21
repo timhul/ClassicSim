@@ -50,14 +50,60 @@ Rectangle {
 
             color: "transparent"
 
+            RectangleBorders {
+                id: search
+
+                height: 35
+
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: parent.right
+                }
+
+                TextInput {
+                    anchors {
+                        fill: parent
+                        leftMargin: 10
+                        topMargin: 8
+                    }
+
+                    onFocusChanged: {
+                        if (activeFocus)
+                            selectAll()
+                        else
+                            deselect()
+                    }
+
+                    onTextChanged: scrollWeapon.visible ? weaponModel.lexicalSearch(text) : itemModel.lexicalSearch(text)
+
+                    Keys.onReturnPressed: {
+                        if (activeFocus)
+                            focus = false
+                    }
+
+                    color: "white"
+                    selectedTextColor: "black"
+                    selectionColor: "white"
+                    text: "Search..."
+                    font {
+                        pointSize: 12
+                    }
+                }
+            }
+
             EquipmentSortingWeapon {
                 id: sortingWeaponRect
                 visible: scrollWeapon.visible
+
+                anchors.top: search.bottom
             }
 
             EquipmentSortingItem {
                 id: sortingItemRect
                 visible: !scrollWeapon.visible
+
+                anchors.top: search.bottom
             }
 
             RectangleBorders {

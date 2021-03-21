@@ -88,6 +88,15 @@ void ItemModel::selectSort(const int method) {
     emit layoutChanged();
 }
 
+void ItemModel::lexicalSearch(const QString& text) {
+    auto terms = text.split(QChar(' '), Qt::SplitBehaviorFlags::SkipEmptyParts);
+    lexical_search_terms.clear();
+    for (const auto& term : terms)
+        lexical_search_terms.insert(term.toLower());
+
+    update_items();
+}
+
 void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
     if (sorting_methods[new_method])
         std::reverse(items.begin(), items.end());
@@ -104,6 +113,16 @@ void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
     }
 
     emit sortingMethodChanged();
+}
+
+bool ItemModel::name_passes_lexical_search(const QString& name) {
+    const auto lower = name.toLower();
+    for (const auto& term : lexical_search_terms) {
+        if (!lower.contains(term))
+            return false;
+    }
+
+    return true;
 }
 
 void ItemModel::update_items() {
@@ -129,8 +148,13 @@ void ItemModel::update_items() {
         if (item_type_filter_model->get_filter_active(tmp_item->get_item_type()))
             continue;
 
-        if (item_stat_filter_model->item_passes_active_stat_filters(tmp_item))
-            items << tmp_item;
+        if (!item_stat_filter_model->item_passes_active_stat_filters(tmp_item))
+            continue;
+
+        if (!name_passes_lexical_search(tmp_item->base_name))
+            continue;
+
+        items << tmp_item;
     }
     endInsertRows();
 

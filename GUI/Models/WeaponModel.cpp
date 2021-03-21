@@ -120,6 +120,15 @@ void WeaponModel::selectSort(const int method) {
     emit layoutChanged();
 }
 
+void WeaponModel::lexicalSearch(const QString& text) {
+    auto terms = text.split(QChar(' '), Qt::SplitBehaviorFlags::SkipEmptyParts);
+    lexical_search_terms.clear();
+    for (const auto& term : terms)
+        lexical_search_terms.insert(term.toLower());
+
+    update_items();
+}
+
 void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
     if (sorting_methods[new_method])
         std::reverse(weapons.begin(), weapons.end());
@@ -136,6 +145,16 @@ void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
     }
 
     emit sortingMethodChanged();
+}
+
+bool WeaponModel::name_passes_lexical_search(const QString& name) {
+    const auto lower = name.toLower();
+    for (const auto& term : lexical_search_terms) {
+        if (!lower.contains(term))
+            return false;
+    }
+
+    return true;
 }
 
 void WeaponModel::update_items() {
@@ -161,8 +180,13 @@ void WeaponModel::update_items() {
         if (item_type_filter_model->get_filter_active(wpn->get_item_type()))
             continue;
 
-        if (item_stat_filter_model->item_passes_active_stat_filters(wpn))
-            weapons << static_cast<Weapon*>(wpn);
+        if (!item_stat_filter_model->item_passes_active_stat_filters(wpn))
+            continue;
+
+        if (!name_passes_lexical_search(wpn->base_name))
+            continue;
+
+        weapons << static_cast<Weapon*>(wpn);
     }
     endInsertRows();
 
