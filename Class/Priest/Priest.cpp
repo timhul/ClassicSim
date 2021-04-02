@@ -1,13 +1,18 @@
 #include "Priest.h"
 
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
+#include "Discipline.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
+#include "Holy.h"
 #include "Mana.h"
-#include "PriestSpells.h"
 #include "RaidControl.h"
+#include "Shadow.h"
 #include "Utils/Check.h"
+#include "PriestEnchants.h"
+#include "PriestSpells.h"
 #include "Weapon.h"
 
 Priest::Priest(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings_, RaidControl* raid_control_, const int party_, const int member) :
@@ -17,6 +22,7 @@ Priest::Priest(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     available_races.append("Night Elf");
     available_races.append("Troll");
     available_races.append("Undead");
+    available_enchants = new PriestEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -36,6 +42,8 @@ Priest::Priest(Race* race_, EquipmentDb* equipment_db, SimSettings* sim_settings
     mana->set_base_mana(1436);
 
     priest_spells->activate_racials();
+
+    initialize_talents();
 }
 
 Priest::~Priest() {
@@ -43,6 +51,7 @@ Priest::~Priest() {
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete priest_spells;
     delete mana;
@@ -76,7 +85,10 @@ double Priest::global_cooldown() const {
     return 1.5;
 }
 
-void Priest::initialize_talents() {}
+void Priest::initialize_talents() {
+        for (int i = 0; i < 3; ++i)
+            talents->add_talent_tree(new Discipline(this), new Holy(this), new Shadow(this));
+}
 
 unsigned Priest::get_resource_level(const ResourceType) const {
     return mana->current;

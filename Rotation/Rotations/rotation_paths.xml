@@ -27,6 +27,6 @@
     <file path="Rotations/Warlock/ShadowBolt.xml"/>
 
     <file path="Rotations/Druid/FeralPowershifting.xml"/>
-	<file path="Rotations/Druid/FeralTank.xml"/>
+    <file path="Rotations/Druid/FeralTank.xml"/>
     <file path="Rotations/Druid/Starfire.xml"/>
 </paths>

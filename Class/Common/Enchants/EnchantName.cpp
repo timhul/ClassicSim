@@ -60,6 +60,7 @@ EnchantInfo::EnchantInfo() {
         new EnchantSpec(EnchantName::Name::PowerOfTheScourge, "Power Of The Scourge", "Power Of The Scourge",
                         "+15 Spell Damage/Healing\n+1% Spell Crit"),
         new EnchantSpec(EnchantName::Name::PresenceOfSight, "Presence Of Sight", "Presence Of Sight", "+18 Spell Damage/Healing\n+1% Spell Hit"),
+        new EnchantSpec(EnchantName::Name::PropheticAura, "Prophetic Aura", "Prophetic Aura", "+10 Stamina\n+4 mp5\n+24 Healing"),
         new EnchantSpec(EnchantName::Name::HoodooHex, "Hoodoo Hex", "Hoodoo Hex", "+18 Spell Damage/Healing\n+10 Stamina"),
         new EnchantSpec(EnchantName::Name::ShadowOil, "Shadow Oil", "Shadow Oil", "15% R3 Shadow Bolt"),
         new EnchantSpec(EnchantName::Name::SniperScope, "Sniper Scope", "Sniper Scope", "+7 Damage"),

@@ -61,6 +61,7 @@ public:
         MightOfTheScourge,
         PowerOfTheScourge,
         PresenceOfSight,
+        PropheticAura,
         HoodooHex,
         ShadowOil,
         SniperScope,

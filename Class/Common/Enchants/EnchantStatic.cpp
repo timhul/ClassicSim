@@ -111,6 +111,10 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character* pchar, E
         pchar->get_stats()->increase_base_spell_damage(18);
         pchar->get_stats()->increase_spell_hit(100);
         break;
+    case EnchantName::Name::PropheticAura:
+        pchar->get_stats()->increase_mp5(4);
+        pchar->get_stats()->increase_stamina(10);
+        break;
     case EnchantName::Name::HoodooHex:
         pchar->get_stats()->increase_base_spell_damage(18);
         pchar->get_stats()->increase_stamina(10);
@@ -311,6 +315,10 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::Name::PresenceOfSight:
         pchar->get_stats()->decrease_base_spell_damage(18);
         pchar->get_stats()->decrease_spell_hit(100);
+        break;
+    case EnchantName::Name::PropheticAura:
+        pchar->get_stats()->decrease_mp5(18);
+        pchar->get_stats()->decrease_stamina(10);
         break;
     case EnchantName::Name::HoodooHex:
         pchar->get_stats()->decrease_base_spell_damage(18);
